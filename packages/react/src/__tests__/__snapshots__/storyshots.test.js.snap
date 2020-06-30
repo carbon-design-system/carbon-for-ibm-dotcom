@@ -6239,10 +6239,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         items={
                           Array [
                             Object {
-                              "copy": "
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            ",
+                              "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                               "cta": Object {
                                 "copy": "Find a partner",
                                 "href": "https://example.com/",
@@ -6498,10 +6495,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               className="bx--content-item-wrapper"
                             >
                               <ContentItem
-                                copy="
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            "
+                                copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                                 cta={
                                   Object {
                                     "copy": "Find a partner",
@@ -6526,7 +6520,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
+                                        "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -16453,11 +16447,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
             copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+      some common categories:"
             heading="Curabitur malesuada varius mi eu posuere"
             mediaData={
               Object {
@@ -16505,11 +16495,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                         copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+      some common categories:"
                         heading="Curabitur malesuada varius mi eu posuere"
                         inverse={true}
                         mediaData={
@@ -16569,11 +16555,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                     copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+      some common categories:"
                                     inverse={true}
                                   >
                                     <div
@@ -16584,7 +16566,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                         className="bx--content-item__copy"
                                         dangerouslySetInnerHTML={
                                           Object {
-                                            "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</code></pre> ",
+                                            "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> ",
                                           }
                                         }
                                         data-autoid="dds--content-item__copy"
@@ -17495,7 +17477,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -17538,7 +17537,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -17645,7 +17661,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                       items={
                         Array [
                           Object {
-                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "heading": "Lorem ipsum dolor sit amet.",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
@@ -17802,7 +17835,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 </ImageWithCaption>
                               </div>
                               <ContentItem
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
                               >
@@ -17820,7 +17853,46 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                      }
+                                    }
+                                    data-autoid="dds--content-item__copy"
+                                  />
+                                </div>
+                              </ContentItem>
+                              <ContentItem
+                                copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                heading="Lorem ipsum dolor sit amet."
+                                key="1"
+                              >
+                                <div
+                                  className="bx--content-item"
+                                  data-autoid="dds--content-item"
+                                >
+                                  <h4
+                                    className="bx--content-item__heading"
+                                    data-autoid="dds--content-item__heading"
+                                  >
+                                    Lorem ipsum dolor sit amet.
+                                  </h4>
+                                  <div
+                                    className="bx--content-item__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -17830,7 +17902,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                               <ContentItem
                                 copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
-                                key="1"
+                                key="2"
                               >
                                 <div
                                   className="bx--content-item"
@@ -18053,7 +18125,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                       items={
                         Array [
                           Object {
-                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "heading": "Lorem ipsum dolor sit amet.",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
@@ -18210,7 +18299,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 </ImageWithCaption>
                               </div>
                               <ContentItem
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
                               >
@@ -18228,7 +18317,46 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                      }
+                                    }
+                                    data-autoid="dds--content-item__copy"
+                                  />
+                                </div>
+                              </ContentItem>
+                              <ContentItem
+                                copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                heading="Lorem ipsum dolor sit amet."
+                                key="1"
+                              >
+                                <div
+                                  className="bx--content-item"
+                                  data-autoid="dds--content-item"
+                                >
+                                  <h4
+                                    className="bx--content-item__heading"
+                                    data-autoid="dds--content-item__heading"
+                                  >
+                                    Lorem ipsum dolor sit amet.
+                                  </h4>
+                                  <div
+                                    className="bx--content-item__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18238,7 +18366,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                               <ContentItem
                                 copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
-                                key="1"
+                                key="2"
                               >
                                 <div
                                   className="bx--content-item"
@@ -18808,7 +18936,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -18851,7 +18996,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -19029,7 +19191,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                               items={
                                 Array [
                                   Object {
-                                    "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "heading": "Lorem ipsum dolor sit amet.",
+                                  },
+                                  Object {
+                                    "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                                     "heading": "Lorem ipsum dolor sit amet.",
                                   },
                                   Object {
@@ -19186,7 +19365,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         </ImageWithCaption>
                                       </div>
                                       <ContentItem
-                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                        copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
                                         key="0"
                                       >
@@ -19204,7 +19383,46 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                              }
+                                            }
+                                            data-autoid="dds--content-item__copy"
+                                          />
+                                        </div>
+                                      </ContentItem>
+                                      <ContentItem
+                                        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                        heading="Lorem ipsum dolor sit amet."
+                                        key="1"
+                                      >
+                                        <div
+                                          className="bx--content-item"
+                                          data-autoid="dds--content-item"
+                                        >
+                                          <h4
+                                            className="bx--content-item__heading"
+                                            data-autoid="dds--content-item__heading"
+                                          >
+                                            Lorem ipsum dolor sit amet.
+                                          </h4>
+                                          <div
+                                            className="bx--content-item__copy"
+                                            dangerouslySetInnerHTML={
+                                              Object {
+                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19214,7 +19432,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                       <ContentItem
                                         copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
-                                        key="1"
+                                        key="2"
                                       >
                                         <div
                                           className="bx--content-item"
@@ -19437,7 +19655,24 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                               items={
                                 Array [
                                   Object {
-                                    "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "heading": "Lorem ipsum dolor sit amet.",
+                                  },
+                                  Object {
+                                    "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                                     "heading": "Lorem ipsum dolor sit amet.",
                                   },
                                   Object {
@@ -19594,7 +19829,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         </ImageWithCaption>
                                       </div>
                                       <ContentItem
-                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                        copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
                                         key="0"
                                       >
@@ -19612,7 +19847,46 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                              }
+                                            }
+                                            data-autoid="dds--content-item__copy"
+                                          />
+                                        </div>
+                                      </ContentItem>
+                                      <ContentItem
+                                        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                        heading="Lorem ipsum dolor sit amet."
+                                        key="1"
+                                      >
+                                        <div
+                                          className="bx--content-item"
+                                          data-autoid="dds--content-item"
+                                        >
+                                          <h4
+                                            className="bx--content-item__heading"
+                                            data-autoid="dds--content-item__heading"
+                                          >
+                                            Lorem ipsum dolor sit amet.
+                                          </h4>
+                                          <div
+                                            className="bx--content-item__copy"
+                                            dangerouslySetInnerHTML={
+                                              Object {
+                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19622,7 +19896,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                       <ContentItem
                                         copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
-                                        key="1"
+                                        key="2"
                                       >
                                         <div
                                           className="bx--content-item"
@@ -20639,7 +20913,24 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -21926,7 +22217,24 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                       items={
                         Array [
                           Object {
-                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "heading": "Lorem ipsum dolor sit amet.",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
@@ -22074,7 +22382,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 </ImageWithCaption>
                               </div>
                               <ContentItem
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
                               >
@@ -22092,7 +22400,46 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                      }
+                                    }
+                                    data-autoid="dds--content-item__copy"
+                                  />
+                                </div>
+                              </ContentItem>
+                              <ContentItem
+                                copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                heading="Lorem ipsum dolor sit amet."
+                                key="1"
+                              >
+                                <div
+                                  className="bx--content-item"
+                                  data-autoid="dds--content-item"
+                                >
+                                  <h4
+                                    className="bx--content-item__heading"
+                                    data-autoid="dds--content-item__heading"
+                                  >
+                                    Lorem ipsum dolor sit amet.
+                                  </h4>
+                                  <div
+                                    className="bx--content-item__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -22102,7 +22449,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                               <ContentItem
                                 copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                 heading="Lorem ipsum dolor sit amet."
-                                key="1"
+                                key="2"
                               >
                                 <div
                                   className="bx--content-item"
@@ -22485,7 +22832,24 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                   "heading": "Lorem ipsum dolor sit amet",
                   "items": Array [
                     Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      "heading": "Lorem ipsum dolor sit amet.",
+                    },
+                    Object {
+                      "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                       "heading": "Lorem ipsum dolor sit amet.",
                     },
                     Object {
@@ -23843,7 +24207,24 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                               items={
                                 Array [
                                   Object {
-                                    "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                                    "heading": "Lorem ipsum dolor sit amet.",
+                                  },
+                                  Object {
+                                    "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                                     "heading": "Lorem ipsum dolor sit amet.",
                                   },
                                   Object {
@@ -23991,7 +24372,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         </ImageWithCaption>
                                       </div>
                                       <ContentItem
-                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                                        copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
                                         key="0"
                                       >
@@ -24009,7 +24390,46 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                              }
+                                            }
+                                            data-autoid="dds--content-item__copy"
+                                          />
+                                        </div>
+                                      </ContentItem>
+                                      <ContentItem
+                                        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                                        heading="Lorem ipsum dolor sit amet."
+                                        key="1"
+                                      >
+                                        <div
+                                          className="bx--content-item"
+                                          data-autoid="dds--content-item"
+                                        >
+                                          <h4
+                                            className="bx--content-item__heading"
+                                            data-autoid="dds--content-item__heading"
+                                          >
+                                            Lorem ipsum dolor sit amet.
+                                          </h4>
+                                          <div
+                                            className="bx--content-item__copy"
+                                            dangerouslySetInnerHTML={
+                                              Object {
+                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -24019,7 +24439,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                       <ContentItem
                                         copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                         heading="Lorem ipsum dolor sit amet."
-                                        key="1"
+                                        key="2"
                                       >
                                         <div
                                           className="bx--content-item"
@@ -24674,9 +25094,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
           className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4"
         >
           <ContentBlockSegmented
-            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
             cta={
               Object {
                 "copy": "Lorem ipsum dolor",
@@ -24691,9 +25109,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
                     "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
@@ -24702,9 +25118,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                   "heading": "Lorem ipsum dolor sit amet.",
                 },
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
                     "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
@@ -24766,9 +25180,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
             >
               <ContentBlock
                 border={false}
-                copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
                 cta={
                   Object {
                     "copy": "Lorem ipsum dolor",
@@ -24797,7 +25209,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
                       }
                     }
                   />
@@ -24925,9 +25337,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             data-autoid="dds--content-block-segmented__content-group"
                           >
                             <ContentItem
-                              copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                              copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                               key="0"
                             >
                               <div
@@ -24938,7 +25348,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -25066,9 +25476,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             data-autoid="dds--content-block-segmented__content-group"
                           >
                             <ContentItem
-                              copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                              copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                               key="1"
                             >
                               <div
@@ -25079,7 +25487,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -25533,14 +25941,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "heading": "Lorem ipsum dolor sit amet.",
                   "image": undefined,
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "heading": "Lorem ipsum dolor sit amet.",
                   "image": Object {
                     "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -25822,7 +26230,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     <ContentItem
                                       copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                       key="0"
                                     >
                                       <div
@@ -25833,7 +26241,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -25869,7 +26277,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     <ContentItem
                                       copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                       key="1"
                                     >
                                       <div
@@ -25880,7 +26288,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -26613,9 +27021,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
   nulla quis, *consequat* libero. Here are
   some common categories:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
 "
             cta={
               Object {
@@ -26698,9 +27111,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
   nulla quis, *consequat* libero. Here are
   some common categories:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
 "
                         inverse={false}
                       >
@@ -26712,7 +27130,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             className="bx--content-item__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                               }
                             }
                             data-autoid="dds--content-item__copy"
@@ -27062,9 +27480,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
   nulla quis, *consequat* libero. Here are
   some common categories:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
 "
             cta={
               Object {
@@ -27216,9 +27639,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
   nulla quis, *consequat* libero. Here are
   some common categories:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
 "
                               >
                                 <div
@@ -27229,7 +27657,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -29861,7 +30289,24 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                  "copy": "Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                  "heading": "Lorem ipsum dolor sit amet.",
+                },
+                Object {
+                  "copy": "Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+",
                   "heading": "Lorem ipsum dolor sit amet.",
                 },
                 Object {
@@ -30026,7 +30471,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                       </ImageWithCaption>
                     </div>
                     <ContentItem
-                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+                      copy="Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                       heading="Lorem ipsum dolor sit amet."
                       key="0"
                     >
@@ -30044,7 +30489,46 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                            }
+                          }
+                          data-autoid="dds--content-item__copy"
+                        />
+                      </div>
+                    </ContentItem>
+                    <ContentItem
+                      copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+nulla quis, *consequat* libero. Here are
+some common categories:
+
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+
+- [list item link](https://www.ibm.com)
+  1. list item 1a
+  2. list item 2a
+    - list item 2a.a
+1. list item 2
+  - list item 2a
+"
+                      heading="Lorem ipsum dolor sit amet."
+                      key="1"
+                    >
+                      <div
+                        className="bx--content-item"
+                        data-autoid="dds--content-item"
+                      >
+                        <h4
+                          className="bx--content-item__heading"
+                          data-autoid="dds--content-item__heading"
+                        >
+                          Lorem ipsum dolor sit amet.
+                        </h4>
+                        <div
+                          className="bx--content-item__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -30054,7 +30538,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                     <ContentItem
                       copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                       heading="Lorem ipsum dolor sit amet."
-                      key="1"
+                      key="2"
                     >
                       <div
                         className="bx--content-item"
@@ -32497,10 +32981,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          ",
+                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                   "cta": Object {
                     "copy": "Find a partner",
                     "href": "https://example.com/",
@@ -32694,10 +33175,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                   className="bx--content-item-wrapper"
                 >
                   <ContentItem
-                    copy="
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          "
+                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                     cta={
                       Object {
                         "copy": "Find a partner",
@@ -32722,7 +33200,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
