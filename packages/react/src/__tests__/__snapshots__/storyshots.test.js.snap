@@ -3506,18 +3506,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             classname="bx--card__img"
                                             defaultSrc="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
                                           >
-<<<<<<< HEAD
-                                            Elementum nibh tellus molestie nunc?
-                                          </h3>
-                                          <div
-                                            className="bx--card__copy"
-                                            dangerouslySetInnerHTML={
-                                              Object {
-                                                "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p> ",
-                                              }
-                                            }
-                                          />
-=======
                                             <div
                                               className="bx--image"
                                               data-autoid="dds--image__longdescription"
@@ -3531,7 +3519,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               </picture>
                                             </div>
                                           </Image>
->>>>>>> master
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -10212,7 +10199,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -10957,7 +10944,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11436,7 +11423,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -16196,7 +16183,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               <div
                 className="bx--video-player__video-caption"
               >
-                 
+
                 (1:00)
               </div>
             </div>
@@ -30924,24 +30911,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                       onKeyDown={[Function]}
                       target={null}
                     >
-<<<<<<< HEAD
-                      <p
-                        className="bx--card__eyebrow"
-                      >
-                        this is an eyebrow
-                      </p>
-                      <h3
-                        className="bx--card__heading"
-                      >
-                        Explore AI use cases in all industries
-                      </h3>
-                      <div
-                        className="bx--card__copy"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
-                          }
-=======
                       <Image
                         alt="Image alt text"
                         classname="bx--card__img"
@@ -30969,7 +30938,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                               "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
                             },
                           ]
->>>>>>> master
                         }
                       >
                         <div
