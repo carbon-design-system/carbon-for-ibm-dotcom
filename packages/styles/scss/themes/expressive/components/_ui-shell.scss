@@ -15,11 +15,8 @@
 /// @access private
 /// @group accordion-expressive
 @mixin ui-shell-expressive {
-  $border-width: 2px;
   $side-nav-link-padding: calc(
-    (
-        #{$container-02} - #{map-get($body-long-01, 'line-height')} - #{$border-width}
-      ) / 2
+    (#{$container-02} - #{map-get($body-long-01, 'line-height')}) / 2
   );
   $switcher-nav-link-padding: calc(
     (#{$container-02} - #{map-get($productive-heading-01, 'line-height')}) / 2
