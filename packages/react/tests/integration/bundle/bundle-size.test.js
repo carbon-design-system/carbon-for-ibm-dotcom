@@ -163,7 +163,7 @@ describe('ES modules', () => {
             },
           },
           commonjs({ include: [/node_modules/] }),
-          resolve(),
+          resolve({ browser: true }),
           replace({
             'process.env.NODE_ENV': JSON.stringify('production'),
           }),
