@@ -23,6 +23,7 @@ module.exports = {
   testMatch: [
     '<rootDir>/**/__tests__/**/*.test.js?(x)',
     '<rootDir>/**/?(*-)(spec|test).js?(x)',
+    '!<rootDir>/**/bundle-size.test.js',
   ],
   testRunner: 'jest-circus/runner',
   testURL: 'http://localhost',

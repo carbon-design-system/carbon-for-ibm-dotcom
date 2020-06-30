@@ -20,5 +20,7 @@ jobs:
         run: sudo apt-get install xvfb
       - name: Build
         run: yarn build
-      - name: Run checks
+      - name: Run build integration test
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
+      - name: Run bundle integration test
+        run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:bundle
