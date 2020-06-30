@@ -231,7 +231,7 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
-"@babel/helper-annotate-as-pure@^7.10.1":
+"@babel/helper-annotate-as-pure@^7.10.1", "@babel/helper-annotate-as-pure@^7.9.0":
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.10.1.tgz#f6d08acc6f70bbd59b436262553fb2e259a1a268"
   integrity sha512-ewp3rvJEwLaHgyWGe4wQssC2vjks3E80WiUe2BpMb0KhreTjMROCbxXcEovTrbeGVdQct5VjQfrv9EgC+xMzCw==
@@ -948,9 +948,9 @@
     "@babel/types" "^7.8.3"
 
 "@babel/helper-validator-identifier@^7.10.1":
-  version "7.10.1"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.1.tgz#5770b0c1a826c4f53f5ede5e153163e0318e94b5"
-  integrity sha512-5vW/JXLALhczRCWP0PnFDMCJAchlBvM7f4uk/jXritBnIa6E1KmqmtrS3yn1LAnxFBypQ3eneLuXjsnfQsgILw==
+  version "7.10.3"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.3.tgz#60d9847f98c4cea1b279e005fdb7c28be5412d15"
+  integrity sha512-bU8JvtlYpJSBPuj1VUmKpFGaDZuLxASky3LhaKj3bmpSTY6VWooSM8msk+Z0CZoErFye2tlABF6yDkT3FOPAXw==
 
 "@babel/helper-validator-identifier@^7.9.0":
   version "7.9.0"
@@ -12464,7 +12464,7 @@ glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, gl
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.1.6:
+glob@^7.1.0, glob@^7.1.6:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -16633,7 +16633,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@3.0.4, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@3.0.4, minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -20599,6 +20599,14 @@ rollup-plugin-scss@^1.0.2:
     node-sass "4"
     rollup-pluginutils "2"
 
+rollup-plugin-scss@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-scss/-/rollup-plugin-scss-2.5.0.tgz#ce97d829b27d053007a0e7bd22269eb9af3e7705"
+  integrity sha512-yJauSw1AbyPGohybr44nLTiOH5VejMAK8HgM9bSblcTF/WahC6ekscjzN5yUjzcrEt8SUFfdn/jRH2LRlYhEPQ==
+  dependencies:
+    node-sass "4"
+    rollup-pluginutils "2"
+
 rollup-plugin-sizes@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-sizes/-/rollup-plugin-sizes-0.5.1.tgz#ede42da1a253e5f2225096958345ba145c989a4f"
@@ -20616,6 +20624,11 @@ rollup-plugin-terser@^4.0.0:
     jest-worker "^24.0.0"
     serialize-javascript "^1.6.1"
     terser "^3.14.1"
+
+rollup-plugin-virtual@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-virtual/-/rollup-plugin-virtual-1.0.1.tgz#8227c94c605b981adfe433ea74de3551e42ffeb4"
+  integrity sha512-HCTBpV8MwP5lNzZrHD2moVxHIToHU1EkzkKGVj6Z0DcgUfxrxrZmeQirQeLz2yhnkJqRjwiVywK9CS8jDYakrw==
 
 rollup-plugin-visualizer@^2.5.4:
   version "2.5.4"

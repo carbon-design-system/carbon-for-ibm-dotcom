@@ -16,6 +16,16 @@
       @include carbon--make-row;
     }
 
+    &__footer {
+      .#{$prefix}--link-with-icon {
+        span {
+          @include carbon--breakpoint(sm) {
+            max-width: calc(100% - 1.75rem);
+          }
+        }
+      }
+    }
+
     &__wrapper {
       @include carbon--breakpoint(sm) {
         padding-top: $layout-03;
