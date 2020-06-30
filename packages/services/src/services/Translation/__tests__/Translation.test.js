@@ -45,6 +45,10 @@ describe('TranslationAPI', () => {
       cc: 'us',
     });
 
+    const elseResponse = await TranslationAPI.getTranslation({});
+
+    expect(elseResponse).toEqual(responseSuccess);
+
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
       headers: {
         'Content-Type': 'text/plain',
@@ -72,6 +76,10 @@ describe('TranslationAPI', () => {
       cc: 'us',
     });
 
+    const elseResponse = await TranslationAPI.getTranslation({});
+
+    expect(elseResponse).toEqual(responseSuccess);
+
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
       headers: {
         'Content-Type': 'text/plain',
@@ -98,6 +106,10 @@ describe('TranslationAPI', () => {
       lc: 'en',
       cc: 'us',
     });
+
+    const elseResponse = await TranslationAPI.getTranslation({});
+
+    expect(elseResponse).toEqual(responseSuccess);
 
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
       headers: {
