@@ -44,6 +44,10 @@ const mediaDataByType = {
   },
 };
 
+const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`;
+
 const ctaStyles = {
   text: 'text',
   card: 'card',
@@ -70,6 +74,7 @@ const getBaseKnobs = ({ groupId }) => {
   return {
     mediaType,
     mediaData: mediaDataByType[mediaType],
+    copy,
     cta: {
       cta: {
         href: 'https://www.example.com',
