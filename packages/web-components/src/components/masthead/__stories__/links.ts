@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadLink } from '../masthead-conainer';
+import { MastheadLink } from '../masthead-container';
 
 /* eslint-disable max-len */
 
