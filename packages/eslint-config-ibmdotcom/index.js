@@ -110,6 +110,12 @@ module.exports = {
         '@carbon/react-prop-type-comments/require-proptype-comment': 2,
       },
     },
+    {
+      files: ['packages/react/**/*.test.js', 'packages/react/**/*-test.js'],
+      rules: {
+        'jsdoc/check-tag-names': [2, { definedTags: ['jest-environment'] }],
+      },
+    },
   ],
   env: {
     node: true,

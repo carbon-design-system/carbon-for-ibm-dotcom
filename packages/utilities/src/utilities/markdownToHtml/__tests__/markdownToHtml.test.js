@@ -13,41 +13,39 @@ const { prefix } = settings;
 describe('Markdown converter utility', () => {
   const str =
     'This <p>is</p> <input value="something" /> _italic_ and **bold**.';
-
-  const strNewLine =
-    'This paragraph is created when two new lines are detected.';
+  const link = '[This](https://www.ibm.com) is an anchor link.';
+  const ol = `
+1. list item 1
+2. list item 2
+3. list item 3
+  `;
+  const ul = `
+- list item 1
+- list item 2
+- list item 3
+  `;
 
   it('returns the converted string with italic and bold', () => {
     const output = markdownToHtml(str);
-    const expected = `<p>This is <em class="${prefix}--type-light">italic</em> and <strong class="${prefix}--type-semibold">bold</strong>.</p>`;
+    const expected = `<p>This is <em>italic</em> and <strong>bold</strong>.</p>`;
+    expect(output.trim()).toBe(expected);
+  });
+
+  it('returns the converted string with link', () => {
+    const output = markdownToHtml(link);
+    const expected = `<p><a href="https://www.ibm.com" class="${prefix}--link">This</a> is an anchor link.</p>`;
+    expect(output.trim()).toBe(expected);
+  });
+
+  it('returns the converted string with an ordered list', () => {
+    const output = markdownToHtml(ol);
+    const expected = `<ol class="${prefix}--list--ordered"><li class="${prefix}--list__item">list item 1</li><li class="${prefix}--list__item">list item 2</li><li class="${prefix}--list__item">list item 3</li></ol>`;
     expect(output).toBe(expected);
   });
 
-  it('returns the converted string with italic', () => {
-    const output = markdownToHtml(str, { bold: false });
-    const expected = `<p>This is <em class="${prefix}--type-light">italic</em> and **bold**.</p>`;
-    expect(output).toBe(expected);
-  });
-
-  it('returns the converted string with bold', () => {
-    const output = markdownToHtml(str, { italic: false });
-    const expected = `<p>This is _italic_ and <strong class="${prefix}--type-semibold">bold</strong>.</p>`;
-    expect(output).toBe(expected);
-  });
-
-  it('returns the converted string in paragraphs', () => {
-    const output = markdownToHtml(strNewLine, { bold: false, italic: false });
-    const expected = `<p>This paragraph is created when two new lines are detected.</p>`;
-    expect(output).toBe(expected);
-  });
-
-  it('returns the converted string without carbon classes and allowing html', () => {
-    const output = markdownToHtml(str, {
-      allowHtml: true,
-      useCarbonClasses: false,
-    });
-    const expected =
-      '<p>This <p>is</p> <input value="something" /> <em>italic</em> and <strong>bold</strong>.</p>';
+  it('returns the converted string with an unordered list', () => {
+    const output = markdownToHtml(ul);
+    const expected = `<ul class="${prefix}--list--unordered"><li class="${prefix}--list__item">list item 1</li><li class="${prefix}--list__item">list item 2</li><li class="${prefix}--list__item">list item 3</li></ul>`;
     expect(output).toBe(expected);
   });
 });
