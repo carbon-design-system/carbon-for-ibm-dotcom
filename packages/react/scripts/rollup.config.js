@@ -74,6 +74,7 @@ module.exports = {
   input: 'src/index.js',
   plugins: [
     resolve({
+      browser: true,
       mainFields: ['jsnext', 'module', 'main'],
     }),
     commonjs({
