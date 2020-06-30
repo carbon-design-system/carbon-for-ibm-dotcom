@@ -14,12 +14,15 @@ const cfApp = getInput('cf-app');
 
 (async () => {
   const manifestFile = getInput('cf-manifest');
+  const packageToDeplay = getInput('package-to-deploy');
   await exec('ibmcloud', [
     'cf',
+    'blue-green-deploy',
     cfApp,
     ...(!manifestFile ? [] : ['-f', manifestFile]),
     '--delete-old-apps',
   ], {
+    cwd: `packages/${packageToDeplay}`,
     listeners: {
       stdout(data) {
         debug(data.toString().trim());
