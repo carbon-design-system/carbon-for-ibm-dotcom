@@ -10,95 +10,94 @@
 /// @group footer
 
 @mixin footer-nav-group {
-  // $TEMP--footer-nav-group-type: 'heading-02';
+  $TEMP--footer-nav-group-type: 'heading-02';
 
-  // .#{$prefix}--footer-nav-group {
-  //   @include carbon--theme(
-  //     $carbon--theme--g90,
-  //     feature-flag-enabled('enable-css-custom-properties')
-  //   ) {
-  //     padding-left: 0;
-  //     margin-bottom: 0;
-  //     &__title {
-  //       // need to remove once 16 variants come out
-  //       @include carbon--type-style($TEMP--footer-nav-group-type);
+  .#{$prefix}--footer-nav-group {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      padding-left: 0;
+      margin-bottom: 0;
+      &__title {
+        // need to remove once 16 variants come out
+        @include carbon--type-style($TEMP--footer-nav-group-type);
 
-  //       display: none;
-  //     }
+        display: none;
+      }
 
-  //     .#{$prefix}--accordion__content {
-  //       padding-left: 0;
-  //       padding-right: 0;
-  //     }
+      .#{$prefix}--accordion__content {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
-  //     .#{$prefix}--link {
-  //       @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
-  //         margin-top: 0;
-  //         display: block;
-  //         padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type)
-  //           ($carbon--grid-gutter / 2);
+      .#{$prefix}--link {
+        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+          margin-top: 0;
+          display: block;
+          padding: 16px 13px;
 
-  //         &:hover,
-  //         &:active {
-  //           text-decoration: none;
-  //         }
+          &:hover,
+          &:active {
+            text-decoration: none;
+          }
 
-  //         &:hover {
-  //           background-color: $hover-ui;
-  //         }
+          &:hover {
+            background-color: $hover-ui;
+          }
 
-  //         &:active {
-  //           background-color: $active-ui;
-  //         }
+          &:active {
+            background-color: $active-ui;
+          }
 
-  //         &:focus {
-  //           outline-width: 0;
-  //           box-shadow: inset 0 0 0 1px $focus;
-  //         }
-  //       }
-  //     }
+          &:focus {
+            outline-width: 0;
+            box-shadow: inset 0 0 0 1px $focus;
+          }
+        }
+      }
 
-  //     @include carbon--breakpoint('md') {
-  //       @include carbon--make-col-ready;
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col-ready;
 
-  //       padding-left: 0;
-  //       display: inline-block;
-  //       margin-bottom: carbon--mini-units(6);
+        padding-left: 0;
+        display: inline-block;
+        margin-bottom: carbon--mini-units(6);
 
-  //       &__title {
-  //         display: block;
-  //       }
+        &__title {
+          display: block;
+        }
 
-  //       &__item {
-  //         margin-top: carbon--mini-units(1);
-  //       }
+        &__item {
+          margin-top: carbon--mini-units(1);
+        }
 
-  //       &.#{$prefix}--accordion__item {
-  //         border-top: 0 transparent;
+        &.#{$prefix}--accordion__item {
+          border-top: 0 transparent;
 
-  //         &:last-child {
-  //           border-bottom: 0;
-  //         }
-  //       }
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
 
-  //       .#{$prefix}--accordion__heading {
-  //         display: none;
-  //       }
+        .#{$prefix}--accordion__heading {
+          display: none;
+        }
 
-  //       .#{$prefix}--accordion__content {
-  //         display: block;
-  //         height: auto;
-  //         opacity: 1;
-  //         visibility: visible;
-  //       }
+        .#{$prefix}--accordion__content {
+          display: block;
+          height: auto;
+          opacity: 1;
+          visibility: visible;
+        }
 
-  //       .#{$prefix}--accordion__content,
-  //       &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
-  //         padding: 0;
-  //       }
-  //     }
-  //   }
-  // }
+        .#{$prefix}--accordion__content,
+        &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 
 @include exports('footer-nav-group') {
