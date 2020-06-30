@@ -10,6 +10,7 @@
 const { debug, info, setFailed } = require('@actions/core');
 const { exec } = require('@actions/exec');
 const { downloadTool } = require('@actions/tool-cache');
+const run = require('../run');
 
 (async () => {
   const execOptions = {
@@ -24,9 +25,7 @@ const { downloadTool } = require('@actions/tool-cache');
   };
   const cliPath = await downloadTool('https://clis.cloud.ibm.com/install/linux');
   await exec('bash', [cliPath], execOptions);
-  await exec('ibmcloud', ['cf', 'install'], execOptions);
-  await exec('ibmcloud', ['cf', 'add-plugin-repo', 'CF-Community', 'https://plugins.cloudfoundry.org'], execOptions);
-  await exec('ibmcloud', ['cf', 'install-plugin', 'blue-green-deploy', '-f', '-r', 'CF-Community'], execOptions);
+  await run('ibmcloud cf install', execOptions);
 })().catch(error => {
   setFailed(`Error installing IBM Cloud CLI: ${error.stack}`);
 });
