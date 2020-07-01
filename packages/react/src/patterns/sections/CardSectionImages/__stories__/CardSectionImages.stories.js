@@ -26,6 +26,11 @@ export default {
         cards: object('Data', cards.Images, groupId),
       }),
     },
+    props: {
+      CardSectionImages: {
+        cards: cards.Images,
+      },
+    },
   },
 };
 

@@ -48,6 +48,11 @@ export default {
               'consectetur adipiscing elit',
               groupId
             ),
+            copy2: text(
+              'Quote Source Copy 2 (source.copy2)',
+              'IBM Cloud',
+              groupId
+            ),
           },
           cta: object(
             'CTA Object:',

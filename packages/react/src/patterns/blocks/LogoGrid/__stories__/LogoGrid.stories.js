@@ -32,6 +32,11 @@ export default {
         ),
       }),
     },
+    props: {
+      LogoGrid: {
+        logosGroup: logos,
+      },
+    },
   },
 };
 
