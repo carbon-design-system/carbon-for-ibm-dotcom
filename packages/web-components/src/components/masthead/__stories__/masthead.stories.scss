@@ -21,3 +21,13 @@
     margin-left: 0;
   }
 }
+
+.bx--content.dds-ce-demo-devenv--ui-shell-content {
+  h2 {
+    margin: 30px 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
