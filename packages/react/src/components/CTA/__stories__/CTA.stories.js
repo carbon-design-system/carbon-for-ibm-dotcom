@@ -14,6 +14,7 @@ import { select } from '@storybook/addon-knobs';
 const styles = ['text', 'card', 'feature', 'button'];
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const placement = ['left', 'right'];
 
 const urlBy = {
   download:
@@ -112,9 +113,19 @@ export default {
                 select('button 1 type', types, types[0], groupId),
                 select('button 2 type', types, types[0], groupId),
               ];
+        const iconPlacement =
+          style === 'text'
+            ? select(
+                'Icon placement (iconPlacement):',
+                placement,
+                placement[1],
+                groupId
+              )
+            : null;
         return {
           style,
           type,
+          iconPlacement,
           ...miscCTAData[style]({ type }),
         };
       },
@@ -131,7 +142,7 @@ export const Default = ({ parameters }) => {
           <CTA type={type} {...rest} />
         </div>
       </div>
-      {type === 'jump' || type[0] === 'jump' || type[1] === 'jump' ? (
+      {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
         <div
           className="bx--row"
           style={{ marginTop: '80px', marginBottom: '80px' }}>

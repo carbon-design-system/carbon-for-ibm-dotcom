@@ -111,6 +111,11 @@ Default.story = {
         };
       },
     },
+    props: {
+      ContentBlockMedia: {
+        items: [ContentGroupSimpleKnobs],
+      },
+    },
   },
 };
 
@@ -185,6 +190,11 @@ WithAsideElements.story = {
           cta: ctaChoices.cta,
           aside,
         };
+      },
+    },
+    props: {
+      ContentBlockMedia: {
+        items: [ContentGroupSimpleKnobs],
       },
     },
   },

@@ -18,9 +18,10 @@ const TextCTA = ({
   renderLightBox,
   videoTitle,
   formatCTAcopy,
+  iconPlacement,
   ...otherProps
 }) => {
-  const Icon = CTALogic.iconSelector(type);
+  const Icon = CTALogic.iconSelector(type, iconPlacement);
   const href =
     type !== 'video'
       ? otherProps.href
@@ -33,7 +34,8 @@ const TextCTA = ({
       {!renderLightBox && (
         <LinkWithIcon
           href="#"
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}>
+          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          {...(iconPlacement && { iconPlacement })}>
           <span>
             {formatCTAcopy({
               title: videoTitle[0].title,
@@ -48,7 +50,8 @@ const TextCTA = ({
     <LinkWithIcon
       href={href}
       target={CTALogic.external(type)}
-      onClick={e => CTALogic.jump(e, type)}>
+      onClick={e => CTALogic.jump(e, type)}
+      {...(iconPlacement && { iconPlacement })}>
       <span>{otherProps.copy}</span>
       {type !== 'default' && <Icon />}
     </LinkWithIcon>
@@ -96,6 +99,11 @@ TextCTA.propTypes = {
   ]),
 
   /**
+   * Icon placement.
+   */
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
+
+  /**
    * Func to set renderLightBox state.
    */
   openLightBox: PropTypes.func,
@@ -125,6 +133,7 @@ TextCTA.propTypes = {
 TextCTA.defaultProps = {
   type: 'default',
   formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
+  iconPlacement: 'right',
 };
 
 export default TextCTA;

@@ -84,8 +84,12 @@ export default !DDS_SIMPLEBENEFITS
       },
     };
 
-export const Default = ({ parameters }) => {
-  const { content, title } = parameters?.props?.SimpleBenefits ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
-  return <SimpleBenefits content={content} theme={theme} title={title} />;
-};
+export const Default = !DDS_SIMPLEBENEFITS
+  ? undefined
+  : ({ parameters }) => {
+      const { content, title } = parameters?.props?.SimpleBenefits ?? {};
+      const theme = document.documentElement.getAttribute(
+        'storybook-carbon-theme'
+      );
+      return <SimpleBenefits content={content} theme={theme} title={title} />;
+    };
