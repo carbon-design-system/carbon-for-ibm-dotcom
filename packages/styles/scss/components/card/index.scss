@@ -70,8 +70,6 @@
       }
     }
     &__CTA {
-      padding-top: aspect-ratio(2, 1);
-
       .#{$prefix}--card__copy p {
         @include carbon--type-style('expressive-heading-02');
       }
