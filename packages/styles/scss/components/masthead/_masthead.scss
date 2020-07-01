@@ -98,6 +98,7 @@ $search-transition-timing: 95ms;
   }
 }
 
+/// @access private
 @mixin masthead-top-nav-link {
   @include carbon--type-style(body-short-02, true);
 
