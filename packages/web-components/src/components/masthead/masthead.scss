@@ -25,6 +25,15 @@
 :host(#{$dds-prefix}-masthead-logo) {
   @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
+
+  // We have a style to remove extra left padding when the masthead logo is next to left nav trigger button:
+  // https://github.com/carbon-design-system/ibm-dotcom-library/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
+  // For `md`-`lg` breakpoint it's always the case.
+  a {
+    @include carbon--breakpoint-between('md', 'lg') {
+      padding: 0 $carbon--spacing-05;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-top-nav-name) {
@@ -212,7 +221,14 @@
     top: 0;
     left: 0;
     z-index: calc(#{z('header')} - 1);
-    clip-path: polygon(mini-units(6) 0, 100% 0, 100% 100%, 0 100%, 0 mini-units(6), mini-units(6) mini-units(6));
+    clip-path: polygon(
+      mini-units(6) 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 calc(#{mini-units(6)} + 1px),
+      mini-units(6) calc(#{mini-units(6)} + 1px)
+    );
 
     @include carbon--breakpoint-down(md) {
       background-color: $ui-background;
