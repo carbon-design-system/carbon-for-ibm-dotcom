@@ -85,6 +85,11 @@ Default.story = {
         },
       }),
     },
+    props: {
+      CTASection: {
+        items: contentItemsProps,
+      },
+    },
   },
 };
 

@@ -151,6 +151,16 @@ Default.story = {
         };
       },
     },
+    props: {
+      ContentBlockMixed: {
+        items: [
+          {
+            ...ContentGroupSimpleKnobs,
+            type: 'ContentGroupSimple',
+          },
+        ],
+      },
+    },
   },
 };
 
@@ -215,6 +225,16 @@ WithAsideElements.story = {
           ...knobs,
           aside,
         };
+      },
+    },
+    props: {
+      ContentBlockMixed: {
+        items: [
+          {
+            ...ContentGroupSimpleKnobs,
+            type: 'ContentGroupSimple',
+          },
+        ],
       },
     },
   },
