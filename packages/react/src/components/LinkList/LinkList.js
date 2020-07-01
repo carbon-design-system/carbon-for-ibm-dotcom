@@ -22,7 +22,7 @@ const { prefix } = settings;
  * @param {Array} props.items array of item
  * @returns {*} JSX LinkList component
  */
-const LinkList = ({ heading, iconOnLeft, items, style }) => {
+const LinkList = ({ heading, iconPlacement, items, style }) => {
   const linkStyle = style === 'card' ? 'card' : 'text';
   return (
     <div
@@ -43,7 +43,8 @@ const LinkList = ({ heading, iconOnLeft, items, style }) => {
                 style={linkStyle}
                 {...cta}
                 disableImage={true}
-                {...(iconOnLeft && linkStyle === 'text' && { iconOnLeft })}
+                {...(iconPlacement &&
+                  linkStyle === 'text' && { iconPlacement })}
               />
             </li>
           );
@@ -86,9 +87,9 @@ LinkList.propTypes = {
   ).isRequired,
 
   /**
-   * Display icon to left of link.
+   * Icon placement.
    */
-  iconOnLeft: PropTypes.bool,
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
 
   /**
    * Orientation of LinkList.

@@ -18,7 +18,7 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component.
  */
-const LinkWithIcon = ({ children, href, inverse, iconOnLeft, ...props }) => {
+const LinkWithIcon = ({ children, href, inverse, iconPlacement, ...props }) => {
   return (
     <div
       className={classNames(`${prefix}--link-with-icon__container`, {
@@ -28,7 +28,7 @@ const LinkWithIcon = ({ children, href, inverse, iconOnLeft, ...props }) => {
       <Link
         href={href}
         className={classNames(`${prefix}--link-with-icon`, {
-          [`${prefix}--link-with-icon__icon-left`]: iconOnLeft,
+          [`${prefix}--link-with-icon__icon-left`]: iconPlacement === 'left',
         })}
         {...props}>
         {children}
@@ -49,9 +49,9 @@ LinkWithIcon.propTypes = {
   href: PropTypes.string,
 
   /**
-   * Display icon to left of link.
+   * Icon placement.
    */
-  iconOnLeft: PropTypes.bool,
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
 
   /**
    * Toggles inverse theming
@@ -62,6 +62,7 @@ LinkWithIcon.propTypes = {
 LinkWithIcon.defaultProps = {
   children: [],
   href: '',
+  iconPlacement: 'right',
 };
 
 export default LinkWithIcon;

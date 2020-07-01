@@ -5,12 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { boolean, select } from '@storybook/addon-knobs';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { boolean } from '@storybook/addon-knobs';
 import LinkWithIcon from '../LinkWithIcon';
 import React from 'react';
 import readme from '../README.stories.mdx';
+
+const iconPlacement = ['left', 'right'];
 
 export default {
   title: 'Components|LinkwithIcon',
@@ -20,9 +22,10 @@ export default {
     knobs: {
       LinkWithIcon: ({ groupId }) => ({
         disabled: boolean('Disabled (disabled):', false, groupId),
-        iconOnLeft: boolean(
-          'Icon to left of link (iconOnLeft):',
-          false,
+        iconPlacement: select(
+          'Icon placement (iconPlacement):',
+          iconPlacement,
+          iconPlacement[1],
           groupId
         ),
         inverse: boolean('Inverse (inverse):', false, groupId),
@@ -33,7 +36,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { disabled, iconOnLeft, inverse, visited } =
+  const { disabled, iconPlacement, inverse, visited } =
     parameters?.props?.LinkWithIcon ?? {};
   return (
     <div
@@ -47,10 +50,10 @@ export const Default = ({ parameters }) => {
         href="https://www.example.com"
         inverse={inverse}
         {...(disabled && { disabled })}
-        {...(iconOnLeft && { iconOnLeft })}
-        {...(visited && { visited })}>
+        {...(visited && { visited })}
+        iconPlacement={iconPlacement}>
         <span>Link text</span>
-        {iconOnLeft ? <ArrowLeft20 /> : <ArrowRight20 />}
+        {iconPlacement == 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
       </LinkWithIcon>
     </div>
   );

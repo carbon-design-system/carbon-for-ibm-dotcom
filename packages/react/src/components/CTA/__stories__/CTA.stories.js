@@ -5,15 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTA from '../CTA';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { select } from '@storybook/addon-knobs';
 
 const styles = ['text', 'card', 'feature', 'button'];
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const placement = ['left', 'right'];
 
 const urlBy = {
   download:
@@ -112,14 +113,19 @@ export default {
                 select('button 1 type', types, types[0], groupId),
                 select('button 2 type', types, types[0], groupId),
               ];
-        const iconOnLeft =
+        const iconPlacement =
           style === 'text'
-            ? boolean('Icon to left of link (iconOnLeft):', false, groupId)
+            ? select(
+                'Icon placement (iconPlacement):',
+                placement,
+                placement[1],
+                groupId
+              )
             : null;
         return {
           style,
           type,
-          iconOnLeft,
+          iconPlacement,
           ...miscCTAData[style]({ type }),
         };
       },
