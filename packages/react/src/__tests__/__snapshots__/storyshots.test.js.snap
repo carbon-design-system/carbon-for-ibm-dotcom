@@ -4502,7 +4502,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 items={
                                   Array [
                                     Object {
-                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.",
+                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
                                         "items": Array [
                                           Object {
@@ -4567,7 +4567,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         data-autoid="dds--content-block__children"
                                       >
                                         <ContentItemHorizontal
-                                          copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                                          copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
                                               "items": Array [
@@ -4618,7 +4618,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                                     }
                                                   }
                                                   data-autoid="dds--content-item-horizontal__item--copy"
