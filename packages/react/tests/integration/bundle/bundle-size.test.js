@@ -105,6 +105,7 @@ const pseudoExports = {
     'createElement',
     'forwardRef',
     'useCallback',
+    'useContext',
     'useEffect',
     'useLayoutEffect',
     'useMemo',
@@ -127,12 +128,14 @@ const pseudoExports = {
 
 /**
  * The matcher of the modules to tell Rollup that they have no side effects.
+ *
  * @type {Minimatch}
  */
 const matcherModuleNoSideEffectsInclude = new Minimatch('**/node_modules/**');
 
 /**
  * The matcher of the modules to tell Rollup that they have potential side effects.
+ *
  * @type {Minimatch}
  */
 const matcherModuleNoSideEffectsExclude = new Minimatch(
@@ -219,6 +222,7 @@ describe('ES modules', () => {
                     'React.createElement',
                     'React.forwardRef',
                     'React.useCallback',
+                    'React.useContext',
                     'React.useEffect',
                     'React.useLayoutEffect',
                     'React.useReducer',
@@ -231,6 +235,7 @@ describe('ES modules', () => {
                     'getDerivedStateFromProps',
                     'isRequiredOneOf', // In Carbon `es/prop-types/AriaPropTypes.js`
                     'l10n.en.weekdays.shorthand.forEach', // In Carbon `es/components/DatePicker/DatePicker.js`
+                    'ListBox', // In several Carbon components
                     'PropTypes', // Direct calls of `PropTypes.*` in named exports, etc.
                     'propTypes',
                     'rem', // In `@carbon/layout`
@@ -243,6 +248,7 @@ describe('ES modules', () => {
                     'uniqueId',
                     'wrapComponent',
                     '_defaultTranslations', // In several Carbon components
+                    '_iconTypes', // In Carbon `es/components/Notifications/Notifications.js`
                     '_triggerButtonPositio', // In Carbon `es/components/OverflowMenu/OverflowMenu.js`
                     '_triggerButtonPositio2', // In Carbon `es/components/OverflowMenu/OverflowMenu.js`
                   ],
