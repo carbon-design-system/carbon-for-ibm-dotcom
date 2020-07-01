@@ -10265,7 +10265,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11042,7 +11042,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11542,7 +11542,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -12439,6 +12439,7 @@ exports[`Storyshots Components|LinkwithIcon Default 1`] = `
               </span>
               <ForwardRef(ArrowRight20)>
                 <Icon
+                  fill="currentColor"
                   height={20}
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 20 20"
@@ -12447,6 +12448,7 @@ exports[`Storyshots Components|LinkwithIcon Default 1`] = `
                 >
                   <svg
                     aria-hidden={true}
+                    fill="currentColor"
                     focusable="false"
                     height={20}
                     preserveAspectRatio="xMidYMid meet"
@@ -16443,7 +16445,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               <div
                 className="bx--video-player__video-caption"
               >
-
+                 
                 (1:00)
               </div>
             </div>
