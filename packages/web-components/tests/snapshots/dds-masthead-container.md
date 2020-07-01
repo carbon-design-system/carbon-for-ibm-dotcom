@@ -45,10 +45,7 @@
 #### `should render the given nav items to the top`
 
 ```
-<dds-top-nav
-  menu-bar-label="IBM [Platform]"
-  role="navigation"
->
+<dds-top-nav role="navigation">
   <dds-top-nav-item href="https://ibmdotcom-webcomponents.mybluemix.net/foo">
     item-title-foo
   </dds-top-nav-item>
