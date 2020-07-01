@@ -41,6 +41,7 @@
     "@actions/exec": "^1.0.0",
     "@actions/tool-cache": "^1.5.0",
     "@babel/core": "^7.9.0",
+    "@babel/helper-annotate-as-pure": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
