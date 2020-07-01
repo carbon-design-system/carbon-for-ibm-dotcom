@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import classnames from 'classnames';
+import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import PropTypes from 'prop-types';
@@ -18,14 +18,19 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component.
  */
-const LinkWithIcon = ({ children, href, inverse, ...props }) => {
+const LinkWithIcon = ({ children, href, inverse, iconPlacement, ...props }) => {
   return (
     <div
-      className={classnames(`${prefix}--link-with-icon__container`, {
+      className={classNames(`${prefix}--link-with-icon__container`, {
         [`${prefix}--link-with-icon__container__inverse`]: inverse,
       })}
       data-autoid={`${stablePrefix}--link-with-icon`}>
-      <Link href={href} className={`${prefix}--link-with-icon`} {...props}>
+      <Link
+        href={href}
+        className={classNames(`${prefix}--link-with-icon`, {
+          [`${prefix}--link-with-icon__icon-left`]: iconPlacement === 'left',
+        })}
+        {...props}>
         {children}
       </Link>
     </div>
@@ -44,6 +49,11 @@ LinkWithIcon.propTypes = {
   href: PropTypes.string,
 
   /**
+   * Icon placement.
+   */
+  iconPlacement: PropTypes.oneOf(['left', 'right']),
+
+  /**
    * Toggles inverse theming
    */
   inverse: PropTypes.bool,
@@ -52,6 +62,7 @@ LinkWithIcon.propTypes = {
 LinkWithIcon.defaultProps = {
   children: [],
   href: '',
+  iconPlacement: 'right',
 };
 
 export default LinkWithIcon;

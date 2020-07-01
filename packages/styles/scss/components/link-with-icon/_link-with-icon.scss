@@ -47,14 +47,31 @@
       fill: currentColor;
     }
 
-    .#{$prefix}--link--disabled:visited {
-      // Carbon core's has ongoing discussion on disabled link support.
-      // Meanwhile, this CSS makes disabled and visited link makes the right color
-      color: $disabled-02;
+    &.#{$prefix}--link--disabled {
+      &:not([href]),
+      &:not([button]) {
+        pointer-events: auto;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
 
     &:not(:first-of-type) {
       margin-left: $carbon--spacing-07;
+    }
+
+    &.#{$prefix}--link-with-icon__icon-left {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+
+      svg {
+        align-self: start;
+        position: relative;
+        top: 1px;
+        margin-left: 0;
+        margin-right: $carbon--spacing-03;
+      }
     }
   }
 }
