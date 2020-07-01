@@ -536,6 +536,7 @@ _  */
   }
 
   firstUpdated() {
+    this._getEffectiveLanguage(); // Ensures that the effective language is fetched even if `navLinks` is explicitly given
     this._ensureNavLinks();
   }
 
