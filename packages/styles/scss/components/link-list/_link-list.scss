@@ -38,26 +38,6 @@
           &:last-of-type {
             padding-bottom: 0;
           }
-
-          .bx--link-with-icon__container {
-            a {
-              flex-direction: row-reverse;
-            }
-          }
-
-          svg {
-            align-self: start;
-            position: relative;
-            top: 1px;
-            margin-left: 0;
-            margin-right: $carbon--spacing-03;
-          }
-
-          &.#{$prefix}--link-list__list--local {
-            svg {
-              transform: scaleX(-1);
-            }
-          }
         }
 
         .#{$prefix}--link-list__list--vertical-end & {
