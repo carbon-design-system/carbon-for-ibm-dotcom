@@ -20,6 +20,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Masthead.
  *
  * @element dds-masthead
+ * @slot brand - The left hand area.
+ * @slot nav - The nav area.
+ * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-masthead`)
 class DDSMasthead extends LitElement {
@@ -27,7 +30,11 @@ class DDSMasthead extends LitElement {
     return html`
       <div class="${prefix}--masthead__l0">
         <bx-header>
-          <slot></slot>
+          <slot name="brand"></slot>
+          <div class="${prefix}--header__search">
+            <slot></slot>
+          </div>
+          <slot name="profile"></slot>
         </bx-header>
       </div>
     `;

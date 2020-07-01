@@ -42,8 +42,13 @@
 }
 
 :host(#{$dds-prefix}-masthead-profile) {
-  .bx--header__menu-title[aria-expanded='true'] {
-    + .bx--header__menu {
+  a.#{$prefix}--header__menu-item {
+    padding-left: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
+    padding-right: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
+  }
+
+  .#{$prefix}--header__menu-title[aria-expanded='true'] {
+    + .#{$prefix}--header__menu {
       left: auto;
       right: 0;
       width: rem(160px);
@@ -120,6 +125,11 @@
     @include carbon--breakpoint-down('lg') {
       width: mini-units(32);
     }
+
+    @include carbon--breakpoint-down('md') {
+      max-width: 100vw;
+      width: 100vw;
+    }
   }
 }
 
@@ -167,5 +177,15 @@
 
   &[active] {
     @extend .#{$prefix}--side-nav__overlay-active;
+
+    // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
+    top: 0;
+    left: 0;
+    z-index: calc(#{z('header')} - 1);
+    clip-path: polygon(mini-units(6) 0, 100% 0, 100% 100%, 0 100%, 0 mini-units(6), mini-units(6) mini-units(6));
+
+    @include carbon--breakpoint-down(md) {
+      background-color: $ui-background;
+    }
   }
 }

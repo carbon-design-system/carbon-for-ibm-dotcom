@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Close20 from 'carbon-custom-elements/es/icons/close/20';
 import Search20 from 'carbon-custom-elements/es/icons/search/20';
-import BXDropdown from 'carbon-custom-elements/es/components/dropdown/dropdown';
+import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-custom-elements/es/components/dropdown/dropdown';
 import BXDropdownItem from 'carbon-custom-elements/es/components/dropdown/dropdown-item';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
@@ -67,6 +67,18 @@ class DDSMastheadSearch extends BXDropdown {
       await this.updateComplete;
       const { _searchInputNode: searchInputNode } = this;
       searchInputNode?.focus();
+    }
+  }
+
+  /**
+   * Prevents key types in the `<input>` causing other keyboard shortcuts in application UI.
+   *
+   * @param event The event.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _handleKeyInput(event: KeyboardEvent) {
+    if ((this.constructor as typeof DDSMastheadSearch).getAction(event.key) === DROPDOWN_KEYBOARD_ACTION.NONE) {
+      event.stopPropagation();
     }
   }
 
@@ -137,7 +149,7 @@ class DDSMastheadSearch extends BXDropdown {
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder } = this;
+    const { placeholder, _handleKeyInput: handleKeyInput } = this;
     return html`
       <input
         type="text"
@@ -147,6 +159,8 @@ class DDSMastheadSearch extends BXDropdown {
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
+        @keydown="${handleKeyInput}"
+        @keypress="${handleKeyInput}"
       />
     `;
   }
@@ -266,31 +280,25 @@ class DDSMastheadSearch extends BXDropdown {
       _handleClickSearchButton: handleClickSearchButton,
     } = this;
     const searchButtonAssistiveText = !active ? openSearchButtonAssistiveText : performSearchButtonAssistiveText;
-    const classes = classMap({
-      [`${prefix}--masthead__search`]: true,
-      [`${prefix}--masthead__search--active`]: active,
-    });
     return html`
-      <div class="${classes}">
-        ${this._renderForm()}
-        <div class="${prefix}--header__search--actions">
-          <button
-            type="button"
-            class="${prefix}--header__action ${prefix}--header__search--search"
-            aria-label="${searchButtonAssistiveText}"
-            @click="${handleClickSearchButton}"
-          >
-            ${Search20()}
-          </button>
-          <button
-            type="button"
-            class="${prefix}--header__action ${prefix}--header__search--close"
-            aria-label="${closeSearchButtonAssistiveText}"
-            @click="${handleClickCloseButton}"
-          >
-            ${Close20()}
-          </button>
-        </div>
+      ${this._renderForm()}
+      <div class="${prefix}--header__search--actions">
+        <button
+          type="button"
+          class="${prefix}--header__action ${prefix}--header__search--search"
+          aria-label="${searchButtonAssistiveText}"
+          @click="${handleClickSearchButton}"
+        >
+          ${Search20()}
+        </button>
+        <button
+          type="button"
+          class="${prefix}--header__action ${prefix}--header__search--close"
+          aria-label="${closeSearchButtonAssistiveText}"
+          @click="${handleClickCloseButton}"
+        >
+          ${Close20()}
+        </button>
       </div>
     `;
   }

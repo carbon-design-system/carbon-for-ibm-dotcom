@@ -29,6 +29,12 @@ class DDSMastheadLogo extends FocusMixin(LitElement) {
   @property()
   href = 'https://www.ibm.com/';
 
+  /**
+   * The shadow slot this logo UI should be in.
+   */
+  @property({ reflect: true })
+  slot = 'brand';
+
   createRenderRoot() {
     return this.attachShadow({ mode: 'open', delegatesFocus: true });
   }

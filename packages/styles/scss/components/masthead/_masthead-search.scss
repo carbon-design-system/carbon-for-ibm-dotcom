@@ -8,8 +8,7 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
-  .#{$prefix}--header__search,
-  :host(#{$dds-prefix}-masthead-search) {
+  .#{$prefix}--header__search {
     display: flex;
     flex: 1;
     align-items: center;
@@ -24,6 +23,12 @@
           display: none;
         }
       }
+    }
+
+    &--actions {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
 
     .#{$prefix}--header__nav {
@@ -80,18 +85,14 @@
     }
   }
 
-  .#{$prefix}--header__search--actions {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
   // search container
-  .#{$prefix}--masthead__search {
+  .#{$prefix}--masthead__search,
+  :host(#{$dds-prefix}-masthead-search) {
     flex: 1;
     height: $carbon--spacing-09;
 
-    &.#{$prefix}--masthead__search--active {
+    &.#{$prefix}--masthead__search--active,
+    &[active] {
       position: absolute;
       z-index: 999;
       width: 100%;

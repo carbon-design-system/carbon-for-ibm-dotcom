@@ -503,8 +503,8 @@ _  */
                 `}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        <dds-left-nav-overlay></dds-left-nav-overlay>
       </dds-masthead>
+      <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
         ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
       </dds-left-nav>

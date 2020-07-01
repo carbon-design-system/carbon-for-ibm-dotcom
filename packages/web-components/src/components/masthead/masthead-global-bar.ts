@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FocusMixin from 'carbon-custom-elements/es/globals/mixins/focus';
 import styles from './masthead.scss';
@@ -21,6 +21,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-global-bar`)
 class DDSMastheadGlobalBar extends FocusMixin(LitElement) {
+  /**
+   * The shadow slot this action bar should be in.
+   */
+  @property({ reflect: true })
+  slot = 'profile';
+
   render() {
     return html`
       <slot></slot>
