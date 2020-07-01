@@ -38,6 +38,7 @@ module.exports = {
     '/lib/',
     'e2e',
     'examples',
+    'gulp-tasks',
     '/umd/',
   ],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
