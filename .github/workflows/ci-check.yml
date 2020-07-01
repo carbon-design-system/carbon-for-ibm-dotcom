@@ -18,6 +18,9 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn build
-      - run: sudo apt-get install xvfb
-      - name: Run checks
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Run basic checks
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
+      - name: Run a11y compliance tests
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
