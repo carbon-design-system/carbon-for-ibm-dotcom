@@ -218,6 +218,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
           <CTA
             copy="Lorem ipsum dolor sit amet"
             href="https://www.example.com"
+            iconPlacement="right"
             media={
               Object {
                 "src": "0_uka1msg4",
@@ -232,6 +233,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                 copy="Lorem ipsum dolor sit amet"
                 formatCTAcopy={[Function]}
                 href="https://www.example.com"
+                iconPlacement="right"
                 media={
                   Object {
                     "src": "0_uka1msg4",
@@ -254,6 +256,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
               >
                 <LinkWithIcon
                   href="https://www.example.com"
+                  iconPlacement="right"
                   onClick={[Function]}
                   target={null}
                 >
@@ -1517,6 +1520,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1533,6 +1537,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -1613,6 +1618,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1629,6 +1635,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target="_blank"
                                   >
@@ -2559,6 +2566,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2575,6 +2583,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -2655,6 +2664,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2671,6 +2681,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -2751,6 +2762,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2767,6 +2779,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -3123,6 +3136,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3139,6 +3153,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -3307,6 +3322,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3323,6 +3339,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -3868,6 +3885,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3884,6 +3902,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -4598,6 +4617,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4614,6 +4634,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target={null}
                                                                 >
@@ -4684,6 +4705,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4700,6 +4722,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target="_blank"
                                                                 >
@@ -4866,6 +4889,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4882,6 +4906,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target={null}
                                                                 >
@@ -4952,6 +4977,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4968,6 +4994,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target="_blank"
                                                                 >
@@ -6146,6 +6173,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 </HorizontalRule>
                                                 <LinkWithIcon
                                                   href="https://example.com"
+                                                  iconPlacement="right"
                                                 >
                                                   <div
                                                     className="bx--link-with-icon__container"
@@ -6546,6 +6574,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         copy="Find a partner"
                                         formatCTAcopy={[Function]}
                                         href="https://example.com/"
+                                        iconPlacement="right"
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="text"
@@ -6562,6 +6591,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       >
                                         <LinkWithIcon
                                           href="https://example.com/"
+                                          iconPlacement="right"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -6661,6 +6691,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         copy="Browse tutorials"
                                         formatCTAcopy={[Function]}
                                         href="https://example.com/"
+                                        iconPlacement="right"
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="text"
@@ -6677,6 +6708,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       >
                                         <LinkWithIcon
                                           href="https://example.com/"
+                                          iconPlacement="right"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -8863,87 +8895,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Components|Link with Icon Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "padding": "2rem",
-        }
-      }
-    >
-      <LinkWithIcon
-        disabled={false}
-        href="https://www.example.com"
-        inverse={false}
-      >
-        <div
-          className="bx--link-with-icon__container"
-          data-autoid="dds--link-with-icon"
-        >
-          <Link
-            className="bx--link-with-icon"
-            disabled={false}
-            href="https://www.example.com"
-          >
-            <a
-              className="bx--link bx--link-with-icon"
-              href="https://www.example.com"
-            >
-              <span>
-                Link text
-              </span>
-              <ForwardRef(ArrowRight20)>
-                <Icon
-                  height={20}
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 20 20"
-                  width={20}
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <svg
-                    aria-hidden={true}
-                    focusable="false"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                    />
-                  </svg>
-                </Icon>
-              </ForwardRef(ArrowRight20)>
-            </a>
-          </Link>
-        </div>
-      </LinkWithIcon>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
 exports[`Storyshots Components|LinkList Default 1`] = `
 <Container
   story={[Function]}
@@ -9865,6 +9816,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -9881,6 +9833,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -9961,6 +9914,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -9977,6 +9931,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10060,6 +10015,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10076,6 +10032,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -10155,6 +10112,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -10178,6 +10136,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="right"
                             onClick={[Function]}
                           >
                             <div
@@ -10271,6 +10230,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="right"
             items={
               Array [
                 Object {
@@ -10316,6 +10276,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="right"
                     style="text"
                     type="local"
                   >
@@ -10330,6 +10291,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10346,6 +10308,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10412,6 +10375,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="right"
                     style="text"
                     type="download"
                   >
@@ -10426,6 +10390,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10442,6 +10407,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10537,6 +10503,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="left"
             items={
               Array [
                 Object {
@@ -10596,6 +10563,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="local"
                   >
@@ -10610,6 +10578,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10626,6 +10595,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10634,13 +10604,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10648,11 +10618,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10661,16 +10631,16 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -10692,6 +10662,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="download"
                   >
@@ -10706,6 +10677,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10722,6 +10694,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10730,13 +10703,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10791,6 +10764,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="external"
                   >
@@ -10805,6 +10779,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10821,6 +10796,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -10829,13 +10805,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -10885,6 +10861,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -10900,6 +10877,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -10923,6 +10901,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="left"
                             onClick={[Function]}
                           >
                             <div
@@ -10930,12 +10909,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -11016,6 +10995,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="left"
             items={
               Array [
                 Object {
@@ -11075,6 +11055,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="local"
                   >
@@ -11089,6 +11070,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11105,6 +11087,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -11113,13 +11096,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11127,11 +11110,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -11140,16 +11123,16 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -11171,6 +11154,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="download"
                   >
@@ -11185,6 +11169,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11201,6 +11186,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -11209,13 +11195,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11270,6 +11256,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="external"
                   >
@@ -11284,6 +11271,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11300,6 +11288,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -11308,13 +11297,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -11364,6 +11353,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -11379,6 +11369,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -11402,6 +11393,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="left"
                             onClick={[Function]}
                           >
                             <div
@@ -11409,12 +11401,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -12251,6 +12243,86 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
           </LinkList>
         </div>
       </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|LinkwithIcon Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "padding": "2rem",
+        }
+      }
+    >
+      <LinkWithIcon
+        href="https://www.example.com"
+        iconPlacement="right"
+        inverse={false}
+      >
+        <div
+          className="bx--link-with-icon__container"
+          data-autoid="dds--link-with-icon"
+        >
+          <Link
+            className="bx--link-with-icon"
+            href="https://www.example.com"
+          >
+            <a
+              className="bx--link bx--link-with-icon"
+              href="https://www.example.com"
+            >
+              <span>
+                Link text
+              </span>
+              <ForwardRef(ArrowRight20)>
+                <Icon
+                  height={20}
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 20 20"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                    />
+                  </svg>
+                </Icon>
+              </ForwardRef(ArrowRight20)>
+            </a>
+          </Link>
+        </div>
+      </LinkWithIcon>
     </div>
   </div>
   <input
@@ -14239,6 +14311,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                             copy="Lorem ipsum dolor"
                             formatCTAcopy={[Function]}
                             href="https://www.example.com"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -14255,6 +14328,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                           >
                             <LinkWithIcon
                               href="https://www.example.com"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
@@ -14421,6 +14495,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
                 </HorizontalRule>
                 <LinkWithIcon
                   href="https://example.com"
+                  iconPlacement="right"
                 >
                   <div
                     className="bx--link-with-icon__container"
@@ -16368,6 +16443,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                             </HorizontalRule>
                             <LinkWithIcon
                               href="https://example.com"
+                              iconPlacement="right"
                             >
                               <div
                                 className="bx--link-with-icon__container"
@@ -16718,7 +16794,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
         >
           <ContentBlockCards
             cards={
@@ -21755,6 +21831,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -21771,6 +21848,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -21950,6 +22028,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -21966,6 +22045,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -22144,6 +22224,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -22160,6 +22241,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -23745,6 +23827,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -23761,6 +23844,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -23940,6 +24024,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -23956,6 +24041,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -24134,6 +24220,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -24150,6 +24237,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -25386,6 +25474,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
+                                iconPlacement="right"
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="text"
@@ -25402,6 +25491,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               >
                                 <LinkWithIcon
                                   href="https://example.com"
+                                  iconPlacement="right"
                                   onClick={[Function]}
                                   target={null}
                                 >
@@ -25615,6 +25705,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
+                                iconPlacement="right"
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="text"
@@ -25631,6 +25722,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               >
                                 <LinkWithIcon
                                   href="https://example.com"
+                                  iconPlacement="right"
                                   onClick={[Function]}
                                   target={null}
                                 >
@@ -28975,7 +29067,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.",
+                  "copy": "Lorem ipsum dolor sit amet",
                   "cta": Object {
                     "items": Array [
                       Object {
@@ -29064,7 +29156,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                     data-autoid="dds--content-block__children"
                   >
                     <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                      copy="Lorem ipsum dolor sit amet"
                       cta={
                         Object {
                           "items": Array [
@@ -29119,7 +29211,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -29183,6 +29275,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29199,6 +29292,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -29279,6 +29373,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29295,6 +29390,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target="_blank"
                                             >
@@ -29479,6 +29575,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29495,6 +29592,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -29575,6 +29673,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29591,6 +29690,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target="_blank"
                                             >
@@ -29761,6 +29861,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29777,6 +29878,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -31588,6 +31690,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31604,6 +31707,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -31684,6 +31788,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31700,6 +31805,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -31780,6 +31886,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31796,6 +31903,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -33239,6 +33347,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             copy="Find a partner"
                             formatCTAcopy={[Function]}
                             href="https://example.com/"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -33255,6 +33364,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                           >
                             <LinkWithIcon
                               href="https://example.com/"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
@@ -33354,6 +33464,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             copy="Browse tutorials"
                             formatCTAcopy={[Function]}
                             href="https://example.com/"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -33370,6 +33481,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                           >
                             <LinkWithIcon
                               href="https://example.com/"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
