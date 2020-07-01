@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, object } from '@storybook/addon-knobs';
+import { text, object, select } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -16,6 +16,7 @@ const headlines = [
   'Containerization A Complete Guide',
   'Microservices and containers',
 ];
+const iconPlacement = ['left', 'right'];
 const items = [
   {
     type: types[1],
@@ -86,13 +87,18 @@ Default.story = {
 };
 
 export const Horizontal = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
+  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <LinkList style="horizontal" heading={heading} items={items} />
+          <LinkList
+            style="horizontal"
+            heading={heading}
+            items={items}
+            iconPlacement={iconPlacement}
+          />
         </div>
       </div>
     </div>
@@ -105,6 +111,12 @@ Horizontal.story = {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
         items: object('Items (items):', items.slice(0, 2), groupId),
+        iconPlacement: select(
+          'Icon placement (iconPlacement):',
+          iconPlacement,
+          iconPlacement[1],
+          groupId
+        ),
       }),
     },
     props: {
@@ -116,13 +128,18 @@ Horizontal.story = {
 };
 
 export const Vertical = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
+  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList style="vertical" heading={heading} items={items} />
+          <LinkList
+            style="vertical"
+            iconPlacement={iconPlacement}
+            heading={heading}
+            items={items}
+          />
         </div>
       </div>
     </div>
@@ -135,6 +152,12 @@ Vertical.story = {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
         items: object('Items (items):', items, groupId),
+        iconPlacement: select(
+          'Icon placement (iconPlacement):',
+          iconPlacement,
+          iconPlacement[0],
+          groupId
+        ),
       }),
     },
     props: {
@@ -146,13 +169,18 @@ Vertical.story = {
 };
 
 export const VerticalWithCards = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
+  const { heading, items, iconPlacement } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList style="vertical" heading={heading} items={items} />
+          <LinkList
+            style="vertical"
+            iconPlacement={iconPlacement}
+            heading={heading}
+            items={items}
+          />
           <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>
@@ -166,6 +194,12 @@ VerticalWithCards.story = {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
         items: object('Items (items):', items, groupId),
+        iconPlacement: select(
+          'Icon placement (iconPlacement):',
+          iconPlacement,
+          iconPlacement[0],
+          groupId
+        ),
       }),
     },
     props: {

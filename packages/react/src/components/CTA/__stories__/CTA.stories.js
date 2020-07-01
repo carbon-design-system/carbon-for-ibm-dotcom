@@ -14,6 +14,7 @@ import { select } from '@storybook/addon-knobs';
 const styles = ['text', 'card', 'feature', 'button'];
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const placement = ['left', 'right'];
 
 const urlBy = {
   download:
@@ -112,9 +113,19 @@ export default {
                 select('button 1 type', types, types[0], groupId),
                 select('button 2 type', types, types[0], groupId),
               ];
+        const iconPlacement =
+          style === 'text'
+            ? select(
+                'Icon placement (iconPlacement):',
+                placement,
+                placement[1],
+                groupId
+              )
+            : null;
         return {
           style,
           type,
+          iconPlacement,
           ...miscCTAData[style]({ type }),
         };
       },
