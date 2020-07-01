@@ -27,6 +27,14 @@
   @include masthead-logo;
 }
 
+:host(#{$dds-prefix}-top-nav-name) {
+  outline: none;
+
+  a.#{$prefix}--header__name {
+    @include masthead-top-nav-name;
+  }
+}
+
 :host(#{$dds-prefix}-masthead-search) {
   outline: none;
 }
@@ -61,6 +69,14 @@
 
   .#{$prefix}-ce--header__divider {
     background-color: $ui-03;
+  }
+
+  &[hide-divider] {
+    padding-left: 0;
+
+    .#{$prefix}-ce--header__divider {
+      display: none;
+    }
   }
 }
 
@@ -135,6 +151,20 @@
 
 :host(#{$dds-prefix}-left-nav[expanded]) {
   @extend .#{$prefix}--side-nav--expanded;
+}
+
+:host(#{$dds-prefix}-left-nav-name) {
+  .#{$prefix}--side-nav__submenu-platform {
+    display: flex;
+    align-items: center;
+    height: carbon--mini-units(6);
+    padding: 0 mini-units(2);
+    border-bottom: 1px solid $ui-03;
+    text-decoration: none;
+    color: $text-01;
+
+    @include carbon--type-style(expressive-heading-02, true);
+  }
 }
 
 :host(#{$dds-prefix}-left-nav-items) {

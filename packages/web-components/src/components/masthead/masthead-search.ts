@@ -264,6 +264,12 @@ class DDSMastheadSearch extends BXDropdown {
   redirectUrl = 'https://www.ibm.com/search?lnk=mhsrch';
 
   /**
+   * The shadow slot this search UI should be in.
+   */
+  @property({ reflect: true })
+  slot = 'search';
+
+  /**
    * The input value.
    */
   get searchQueryString() {

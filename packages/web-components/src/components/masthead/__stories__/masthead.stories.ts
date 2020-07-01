@@ -10,6 +10,8 @@
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
+import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
@@ -67,12 +69,16 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { authenticated, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
+  const { authenticated, brandName, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container ?authenticated="${authenticated}" .navLinks="${navLinks}"></dds-masthead-container>
+    <dds-masthead-container
+      ?authenticated="${authenticated}"
+      brand-name="${ifNonNull(brandName)}"
+      .navLinks="${navLinks}"
+    ></dds-masthead-container>
     ${StoryContent()}
   `;
 };
@@ -84,6 +90,7 @@ export default {
     knobs: {
       'dds-masthead-container': ({ groupId }) => ({
         authenticated: boolean('Show the authenticated UI (authenticated)', false, groupId),
+        brandName: textNullable('Brand name (brand-name)', '', groupId),
       }),
     },
     props: {

@@ -23,10 +23,12 @@ import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
 import './top-nav';
+import './top-nav-name';
 import './top-nav-item';
 import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
+import './left-nav-name';
 import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
@@ -453,6 +455,12 @@ _  */
   authenticateProfileItems = defaultAuthenticateProfileItems;
 
   /**
+   * The brand name.
+   */
+  @property({ attribute: 'brand-name' })
+  brandName!: string;
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-label' })
@@ -545,6 +553,7 @@ _  */
     const {
       authenticated,
       authenticateProfileItems,
+      brandName,
       mastheadLabel,
       menuBarLabel,
       menuButtonLabelActive,
@@ -576,6 +585,11 @@ _  */
         >
         </dds-masthead-menu-button>
         <dds-masthead-logo href="javascript:void 0"></dds-masthead-logo>
+        ${!brandName
+          ? undefined
+          : html`
+              <dds-top-nav-name>${brandName}</dds-top-nav-name>
+            `}
         <dds-top-nav menu-bar-label="${ifNonNull(menuBarLabel)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
@@ -600,6 +614,11 @@ _  */
       </dds-masthead>
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
+        ${!brandName
+          ? undefined
+          : html`
+              <dds-left-nav-name>${brandName}</dds-left-nav-name>
+            `}
         ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
       </dds-left-nav>
     `;

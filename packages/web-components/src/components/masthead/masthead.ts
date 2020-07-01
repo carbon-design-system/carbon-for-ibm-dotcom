@@ -32,7 +32,10 @@ class DDSMasthead extends LitElement {
         <bx-header>
           <slot name="brand"></slot>
           <div class="${prefix}--header__search">
-            <slot></slot>
+            <div class="${prefix}--header__nav-container">
+              <slot></slot>
+            </div>
+            <slot name="search"></slot>
           </div>
           <slot name="profile"></slot>
         </bx-header>
