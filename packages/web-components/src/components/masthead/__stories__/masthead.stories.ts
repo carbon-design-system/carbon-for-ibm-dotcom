@@ -8,6 +8,7 @@
  */
 
 import { html } from 'lit-element';
+import { boolean } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
@@ -66,12 +67,12 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
+  const { authenticated, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container .navLinks="${navLinks}"></dds-masthead-container>
+    <dds-masthead-container ?authenticated="${authenticated}" .navLinks="${navLinks}"></dds-masthead-container>
     ${StoryContent()}
   `;
 };
@@ -80,6 +81,11 @@ export default {
   title: 'Components/Masthead',
   parameters: {
     ...readme.parameters,
+    knobs: {
+      'dds-masthead-container': ({ groupId }) => ({
+        authenticated: boolean('Show the authenticated UI (authenticated)', false, groupId),
+      }),
+    },
     props: {
       'dds-masthead-container': {
         // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set

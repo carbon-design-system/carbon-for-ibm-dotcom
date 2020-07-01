@@ -9,6 +9,7 @@
 
 import throttle from 'lodash-es/throttle';
 import { html, property, query, customElement, LitElement } from 'lit-element';
+import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -117,6 +118,58 @@ export interface MastheadLink {
   hasMegapanel?: boolean;
   menuSections?: MastheadMenuSection[];
 }
+
+/**
+ * An profile item in masthead.
+ */
+export interface MastheadProfileItem {
+  /**
+   * `true` if this profile item is for logging in.
+   */
+  isLoginItem?: boolean;
+
+  /**
+   * The title text.
+   */
+  title: string;
+
+  /**
+   * The link URL.
+   */
+  url?: string;
+}
+
+/**
+ * The default nav items for authenticated state.
+ */
+const defaultAuthenticateProfileItems: MastheadProfileItem[] = [
+  {
+    title: 'My IBM',
+    url: 'https://myibm.ibm.com/?lnk=mmi',
+  },
+  {
+    title: 'Profile',
+    url: 'https://myibm.ibm.com/profile/?lnk=mmi',
+  },
+  {
+    title: 'Billing',
+    url: 'https://myibm.ibm.com/billing/?lnk=mmi',
+  },
+  {
+    title: 'Log out',
+    url: 'https://myibm.ibm.com/pkmslogout?filename=accountRedir.html',
+  },
+];
+
+/**
+ * The default nav items for unauthenticated state.
+ */
+const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
+  {
+    title: 'Log in',
+    isLoginItem: true,
+  },
+];
 
 /**
  * Container component for masthead.
@@ -394,6 +447,42 @@ _  */
   authenticated = false;
 
   /**
+   * The profile items for authenticated state.
+   */
+  @property({ attribute: false })
+  authenticateProfileItems = defaultAuthenticateProfileItems;
+
+  /**
+   * The `aria-label` attribute for the top-level container.
+   */
+  @property({ attribute: 'masthead-label' })
+  mastheadLabel!: string;
+
+  /**
+   * The `aria-label` attribute for the menu bar UI.
+   */
+  @property({ attribute: 'menu-bar-label' })
+  menuBarLabel!: string;
+
+  /**
+   * The `aria-label` attribute for the header menu button in its active state.
+   */
+  @property({ attribute: 'menu-button-label-active' })
+  menuButtonLabelActive!: string;
+
+  /**
+   * The `aria-label` attribute for the header menu button in its active state.
+   */
+  @property({ attribute: 'menu-button-label-inactive' })
+  menuButtonLabelInactive!: string;
+
+  /**
+   * The profile items for unauthenticated state.
+   */
+  @property({ attribute: false })
+  unauthenticatedProfileItems = defaultUnauthenticateProfileItems;
+
+  /**
    * The throttle timeout to run query upon user input.
    */
   @property({ type: Number })
@@ -455,7 +544,13 @@ _  */
   render() {
     const {
       authenticated,
+      authenticateProfileItems,
+      mastheadLabel,
+      menuBarLabel,
+      menuButtonLabelActive,
+      menuButtonLabelInactive,
       loginNonce,
+      unauthenticatedProfileItems,
       _currentSearchResults: currentSearchResults,
       _handleInputSearch: handleInputSearch,
       _openSearchDropdown: openSearchDropdown,
@@ -472,11 +567,16 @@ _  */
       }
     }
     const loginUrl = `https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?${searchParams.toString()}`;
+    const profileItems = authenticated ? authenticateProfileItems : unauthenticatedProfileItems;
     return html`
-      <dds-masthead aria-label="IBM Platform Name">
-        <dds-masthead-menu-button button-label-active="Close menu" button-label-inactive="Open menu"></dds-masthead-menu-button>
+      <dds-masthead aria-label="${ifNonNull(mastheadLabel)}">
+        <dds-masthead-menu-button
+          button-label-active="${ifNonNull(menuButtonLabelActive)}"
+          button-label-inactive="${ifNonNull(menuButtonLabelInactive)}"
+        >
+        </dds-masthead-menu-button>
         <dds-masthead-logo href="javascript:void 0"></dds-masthead-logo>
-        <dds-top-nav menu-bar-label="IBM [Platform]">
+        <dds-top-nav menu-bar-label="${ifNonNull(menuBarLabel)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
         <dds-masthead-search ?open="${openSearchDropdown}" @input="${handleInputSearch}">
@@ -489,18 +589,12 @@ _  */
         </dds-masthead-search>
         <dds-masthead-global-bar>
           <dds-masthead-profile ?authenticated="${authenticated}">
-            ${authenticated
-              ? html`
-                  <dds-masthead-profile-item href="https://myibm.ibm.com/?lnk=mmi">My IBM</dds-masthead-profile-item>
-                  <dds-masthead-profile-item href="https://myibm.ibm.com/profile/?lnk=mmi">Profile</dds-masthead-profile-item>
-                  <dds-masthead-profile-item href="https://myibm.ibm.com/billing/?lnk=mmi">Billing</dds-masthead-profile-item>
-                  <dds-masthead-profile-item href="https://myibm.ibm.com/pkmslogout?filename=accountRedir.html">
-                    Log out
-                  </dds-masthead-profile-item>
-                `
-              : html`
-                  <dds-masthead-profile-item href="${loginUrl}">Log in</dds-masthead-profile-item>
-                `}
+            ${profileItems.map(({ isLoginItem, title, url }) => {
+              const href = !isLoginItem ? url : loginUrl;
+              return html`
+                <dds-masthead-profile-item href="${ifNonNull(href)}">${title}</dds-masthead-profile-item>
+              `;
+            })}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
       </dds-masthead>
