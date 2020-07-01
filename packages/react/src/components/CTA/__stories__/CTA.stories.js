@@ -131,7 +131,7 @@ export const Default = ({ parameters }) => {
           <CTA type={type} {...rest} />
         </div>
       </div>
-      {type === 'jump' || type[0] === 'jump' || type[1] === 'jump' ? (
+      {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
         <div
           className="bx--row"
           style={{ marginTop: '80px', marginBottom: '80px' }}>

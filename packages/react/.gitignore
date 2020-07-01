@@ -1,5 +1,6 @@
 .env
 coverage
+tests/a11y-results
 
 # Storybook
 storybook-static
