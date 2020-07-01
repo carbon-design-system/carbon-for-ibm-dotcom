@@ -29067,7 +29067,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet",
+                  "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                   "cta": Object {
                     "items": Array [
                       Object {
@@ -29156,7 +29156,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                     data-autoid="dds--content-block__children"
                   >
                     <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet"
+                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                       cta={
                         Object {
                           "items": Array [
@@ -29211,7 +29211,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -33118,7 +33118,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                   "heading": "Get connected",
                 },
                 Object {
-                  "copy": "Dig into more self-directed learning about DevOps methodologies.",
+                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                   "cta": Object {
                     "copy": "Browse tutorials",
                     "href": "https://example.com/",
@@ -33420,7 +33420,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                     </div>
                   </ContentItem>
                   <ContentItem
-                    copy="Dig into more self-directed learning about DevOps methodologies."
+                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                     cta={
                       Object {
                         "copy": "Browse tutorials",
@@ -33445,7 +33445,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
