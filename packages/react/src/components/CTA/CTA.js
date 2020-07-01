@@ -63,10 +63,10 @@ CTA.propTypes = {
    *
    * | Style     | Component Name | Description                                                                                                                                 |
    * | --------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-   * | `text`    | LinkWithIcon   | Use their props here. For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-link-with-icon--default)!👀 |
-   * | `button`  | ButtonGroup    | Use their props here. For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-buttongroup--default)!👀    |
-   * | `card`    | Card           | Use their props here. For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-card--link)!👀              |
-   * | `feature` | FeatureCard    | Use their props here. For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-card--link)!👀              |
+   * | `text`    | LinkWithIcon   | For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-link-with-icon--default)!👀 |
+   * | `button`  | ButtonGroup    | For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-buttongroup--default)!👀    |
+   * | `card`    | Card           | For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-card--link)!👀              |
+   * | `feature` | FeatureCard    | For more details [see here](https://ibmdotcom-react.mybluemix.net/?path=/story/components-card--link)!👀              |
    */
   style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
 
