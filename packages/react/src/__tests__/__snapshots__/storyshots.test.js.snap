@@ -5094,7 +5094,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <section
                                   className="bx--logo-grid"
-                                  data-autoid="dds--logo-grid bx--logo-grid"
+                                  data-autoid="dds--logo-grid"
                                 >
                                   <div
                                     className="bx--logo-grid__container"
@@ -32115,7 +32115,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
           >
             <section
               className="bx--logo-grid"
-              data-autoid="dds--logo-grid bx--logo-grid"
+              data-autoid="dds--logo-grid"
             >
               <div
                 className="bx--logo-grid__container"
