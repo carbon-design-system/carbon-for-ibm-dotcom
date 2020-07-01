@@ -58,7 +58,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2">
+        <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
           <ContentItemHorizontal
             eyebrow={eyebrow}
             heading={heading}
