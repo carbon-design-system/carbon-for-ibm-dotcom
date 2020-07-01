@@ -5153,7 +5153,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <section
                                   className="bx--logo-grid"
-                                  data-autoid="dds--logo-grid bx--logo-grid"
+                                  data-autoid="dds--logo-grid"
                                 >
                                   <div
                                     className="bx--logo-grid__container"
@@ -16460,6 +16460,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                 "markType": "doubleCurved",
                 "source": Object {
                   "copy": "consectetur adipiscing elit",
+                  "copy2": "IBM Cloud",
                   "heading": "Lorem ipsum dolor sit amet",
                 },
               }
@@ -16496,6 +16497,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                         source={
                           Object {
                             "copy": "consectetur adipiscing elit",
+                            "copy2": "IBM Cloud",
                             "heading": "Lorem ipsum dolor sit amet",
                           }
                         }
@@ -16536,6 +16538,11 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                 className="bx--quote__source-body"
                               >
                                 consectetur adipiscing elit
+                              </p>
+                              <p
+                                className="bx--quote__source-optional-copy"
+                              >
+                                IBM Cloud
                               </p>
                             </div>
                           </div>
@@ -32429,7 +32436,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
           >
             <section
               className="bx--logo-grid"
-              data-autoid="dds--logo-grid bx--logo-grid"
+              data-autoid="dds--logo-grid"
             >
               <div
                 className="bx--logo-grid__container"
