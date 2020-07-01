@@ -30,6 +30,11 @@ export default {
         };
       },
     },
+    props: {
+      ContentBlockCards: {
+        cards: cards[Object.keys(cards)[0]],
+      },
+    },
   },
 };
 
