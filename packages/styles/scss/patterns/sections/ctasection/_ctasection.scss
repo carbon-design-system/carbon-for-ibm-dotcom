@@ -68,9 +68,9 @@
     }
 
     .#{$prefix}--helper-wrapper {
-      border-top: 1px solid $ui-03;
-
       .#{$prefix}--content-item-wrapper {
+        border-top: 1px solid $ui-03;
+
         @include carbon--make-row;
 
         .#{$prefix}--content-item {
