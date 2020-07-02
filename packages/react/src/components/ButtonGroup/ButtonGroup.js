@@ -131,11 +131,10 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
           <Fragment key={key}>
             <li className={`${prefix}--buttongroup-item`}>
               <Button
-                tabIndex={key === 0 ? 2 : 1}
                 data-autoid={`${stablePrefix}--button-group-${key}`}
                 {...button}
                 type="button"
-                kind={key === 0 ? 'primary' : 'tertiary'}>
+                kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>
                 {button.copy}
               </Button>
             </li>
@@ -148,7 +147,7 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
                   tabIndex={-1}
                   {...button}
                   type="button"
-                  kind={key === 0 ? 'primary' : 'tertiary'}>
+                  kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>
                   {button.copy}
                 </Button>
               </li>

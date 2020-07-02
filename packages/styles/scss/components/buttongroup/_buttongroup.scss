@@ -14,11 +14,10 @@
 
   .#{$prefix}--buttongroup {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     @include carbon--breakpoint(lg) {
-      justify-content: flex-end;
-      flex-direction: row-reverse;
+      flex-direction: row;
     }
 
     .#{$prefix}--btn {
