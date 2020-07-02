@@ -125,6 +125,7 @@ const LocaleModalCountries = ({
           labelText={modalLabels.searchLabel}
           closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
+          tabIndex="0"
         />
         <p className={`${prefix}--locale-modal__search-text`}>
           {modalLabels.availabilityText}
@@ -140,6 +141,7 @@ const LocaleModalCountries = ({
             region.countries.map((country, index) => (
               <a
                 key={index}
+                tabIndex="0"
                 className={`${prefix}--locale-modal__locales`}
                 onClick={() => _setCookie(country.locale)}
                 href={country.href}
