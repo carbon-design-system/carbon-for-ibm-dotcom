@@ -1,0 +1,36 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+
+//-----------------------------
+// Accordion (expressive)
+//-----------------------------
+
+/// Accordion styles (expressive)
+/// @access private
+/// @group accordion-expressive
+@mixin ui-shell-expressive {
+  .#{$prefix}--side-nav a.#{$prefix}--header__menu-item,
+  .#{$prefix}--side-nav__menu a.#{$prefix}--side-nav__link,
+  .#{$prefix}--side-nav__item a.#{$prefix}--side-nav__link,
+  .#{$prefix}--side-nav
+    .#{$prefix}--header__menu
+    a.#{$prefix}--header__menu-item,
+  .#{$prefix}--side-nav__submenu[aria-haspopup='true'],
+  .#{$prefix}--side-nav__link,
+  .#{$prefix}--switcher__item,
+  .#{$prefix}--switcher__item-link {
+    height: $container-02;
+    display: flex;
+    align-items: center;
+  }
+
+  .#{$prefix}--switcher__item-link {
+    width: 100%;
+  }
+}

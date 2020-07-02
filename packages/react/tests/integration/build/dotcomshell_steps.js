@@ -15,13 +15,13 @@ const PORT = 9000;
 describe('Dotcomshell example', () => {
   beforeAll(async () => {
     const projectRoot = path.resolve(__dirname, '../../../../..');
-    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/dotcomshell');
+    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/DotcomShell');
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [
         `cp -r '${src}' ${tmpDir}`,
-        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/dotcomshell/package.json`,
-        `cd ${tmpDir}/dotcomshell`,
+        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/DotcomShell/package.json`,
+        `cd ${tmpDir}/DotcomShell`,
         'yarn install',
         'yarn parcel build index.html',
         `cp -r dist ${tmpDir}`,
