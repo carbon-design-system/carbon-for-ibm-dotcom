@@ -8,6 +8,7 @@
 import classNames from 'classnames';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
+import { CTA } from '../../../components/CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,7 +28,8 @@ const CTASection = ({ heading, copy, cta, items, theme }) => {
         [`${prefix}--cta-section__has-items`]: items,
         [`${prefix}--cta-section--${theme}`]: theme,
       })}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} />
+      <ContentBlock heading={heading} copy={copy} />
+      <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
       {items && (
         <div className={`${prefix}--helper-wrapper`}>
           <div className={`${prefix}--content-item-wrapper`}>
