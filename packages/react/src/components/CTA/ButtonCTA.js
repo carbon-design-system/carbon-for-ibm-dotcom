@@ -147,6 +147,23 @@ ButtonCTA.propTypes = {
   ]),
 
   /**
+   * Array of button objects to render.
+   */
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(['local', 'external', 'jump', 'video']),
+      copy: PropTypes.string,
+      href: PropTypes.string,
+      mediaData: PropTypes.shape({
+        customClassName: PropTypes.string,
+        videoId: PropTypes.string.isRequired,
+        showCaption: PropTypes.bool,
+        inverse: PropTypes.bool,
+      }),
+    })
+  ).isRequired,
+
+  /**
    * Func to set renderLightBox state.
    */
   openLightBox: PropTypes.func,
