@@ -38,6 +38,7 @@
 @import 'components/search';
 @import 'components/select';
 @import 'components/structured-list';
+@import 'components/ui-shell';
 
 //-------------------------
 // Expressive Theme
@@ -81,5 +82,6 @@
     @include search-expressive;
     @include select-expressive;
     @include structured-list-expressive;
+    @include ui-shell-expressive;
   }
 }
