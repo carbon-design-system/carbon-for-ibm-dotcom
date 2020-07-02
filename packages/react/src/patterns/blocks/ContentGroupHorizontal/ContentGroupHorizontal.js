@@ -53,7 +53,7 @@ ContentGroupHorizontal.propTypes = {
       heading: PropTypes.string.isRequired,
       copy: PropTypes.string.isRequired,
       cta: PropTypes.shape({
-        heading: PropTypes.string,
+        heading: PropTypes.string.isRequired,
         items: PropTypes.arrayOf(
           PropTypes.shape({
             type: PropTypes.oneOfType([

@@ -1504,6 +1504,9 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                         className="bx--link-list"
                         data-autoid="dds--link-list"
                       >
+                        <h4
+                          className="bx--link-list__heading"
+                        />
                         <ul
                           className="bx--link-list__list bx--link-list__list--vertical"
                         >
@@ -4494,6 +4497,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     Object {
                                       "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4513,6 +4517,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     Object {
                                       "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4560,6 +4565,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4618,6 +4624,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4638,6 +4645,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -4836,6 +4848,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4894,6 +4907,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4914,6 +4928,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -29504,6 +29523,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -29808,6 +29830,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -30098,6 +30123,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >

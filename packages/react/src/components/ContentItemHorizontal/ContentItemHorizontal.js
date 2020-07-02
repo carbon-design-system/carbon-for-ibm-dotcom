@@ -92,7 +92,7 @@ ContentItemHorizontal.propTypes = {
    * | `href` | YES      | String    | URI for internal or external resource.     |
    */
   cta: PropTypes.shape({
-    heading: PropTypes.string,
+    heading: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.oneOfType([

@@ -100,7 +100,7 @@ LeadSpaceBlock.propTypes = {
    * Link list items.
    */
   items: PropTypes.shape({
-    heading: PropTypes.string,
+    heading: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(
       PropTypes.shape({
         style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),

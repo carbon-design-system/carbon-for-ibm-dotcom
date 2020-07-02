@@ -28,9 +28,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
     <div
       className={`${prefix}--link-list`}
       data-autoid={`${stablePrefix}--link-list`}>
-      {heading && (
-        <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
-      )}
+      <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
 
       <ul
         className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}>
@@ -58,7 +56,7 @@ LinkList.propTypes = {
   /**
    * Describes heading of LinkList.
    */
-  heading: PropTypes.string,
+  heading: PropTypes.string.isRequired,
 
   /**
    * Describes the list of CTA.

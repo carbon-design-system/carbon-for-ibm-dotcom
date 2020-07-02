@@ -244,6 +244,7 @@ const Content = () => (
             copy:
               'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
+              heading: 'Aliquam condimentum',
               items: [
                 {
                   type: 'local',
@@ -264,6 +265,7 @@ const Content = () => (
             copy:
               'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
+              heading: 'Aliquam condimentum',
               items: [
                 {
                   type: 'local',
