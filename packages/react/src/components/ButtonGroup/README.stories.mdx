@@ -35,6 +35,8 @@ Here's a quick example to get you started.
 This is the base example 'ButtonGroup'. Note, the buttons will not resize based
 on text size.
 
+> 💡 If the button is the last button or the only button in the button group, it will be a primary button.
+
 ##### JS
 
 ```javascript
@@ -50,12 +52,12 @@ function App() {
       buttons={[
         {
           href: 'https://example.com',
-          copy: 'Primary action button',
+          copy: 'Secondary action button',
           renderIcon: ArrowDown20,
         },
         {
           href: 'https://example.com',
-          copy: 'Secondary action button',
+          copy: 'Primary action button',
           renderIcon: ArrowRight20,
         },
       ]}
@@ -95,12 +97,12 @@ function App() {
             buttons={[
               {
                 href: 'https://example.com',
-                copy: 'Primary action button',
+                copy: 'Secondary action button',
                 renderIcon: ArrowDown20,
               },
               {
                 href: 'https://example.com',
-                copy: 'Secondary action button',
+                copy: 'Primary action button',
                 renderIcon: ArrowRight20,
               },
             ]}
