@@ -15,7 +15,6 @@
 /// @access private
 /// @group accordion-expressive
 @mixin ui-shell-expressive {
-
   .#{$prefix}--side-nav a.#{$prefix}--header__menu-item,
   .#{$prefix}--side-nav__menu a.#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__item a.#{$prefix}--side-nav__link,
