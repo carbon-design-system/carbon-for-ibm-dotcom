@@ -3253,7 +3253,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -3441,7 +3440,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="3"
                                         >
@@ -4008,7 +4006,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -4352,8 +4349,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 heading="Mauris ultrices eros in cursus"
                                 mediaData={
                                   Object {
-                                    "src": "0_uka1msg4",
-                                    "type": "video",
+                                    "videoId": "0_uka1msg4",
                                   }
                                 }
                                 mediaType="video"
@@ -4381,8 +4377,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             inverse={true}
                                             mediaData={
                                               Object {
-                                                "src": "0_uka1msg4",
-                                                "type": "video",
+                                                "videoId": "0_uka1msg4",
                                               }
                                             }
                                             mediaType="video"
@@ -4440,8 +4435,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         <VideoPlayer
                                                           autoPlay={false}
                                                           inverse={true}
-                                                          src="0_uka1msg4"
-                                                          type="video"
+                                                          videoId="0_uka1msg4"
                                                         >
                                                           <div
                                                             aria-label=" (1:00)"
@@ -4449,11 +4443,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <div
                                                               className="bx--video-player__video-container"
-                                                              data-autoid="dds--video-player__video-undefined"
+                                                              data-autoid="dds--video-player__video-0_uka1msg4"
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-undefined-7"
+                                                                id="bx--video-player__video-0_uka1msg4-7"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -4463,6 +4457,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       "name": "",
                                                                     }
                                                                   }
+                                                                  videoId="0_uka1msg4"
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -6322,9 +6317,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           Object {
                             "buttons": Array [
                               Object {
-                                "copy": Array [
-                                  "Contact sales",
-                                ],
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
                                 "iconDescription": "right arrow icon",
                                 "onClick": [Function],
                                 "renderIcon": Object {
@@ -6375,9 +6369,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               Object {
                                 "buttons": Array [
                                   Object {
-                                    "copy": Array [
-                                      "Contact sales",
-                                    ],
+                                    "copy": "Contact sales",
+                                    "href": "https://example.com/",
                                     "iconDescription": "right arrow icon",
                                     "onClick": [Function],
                                     "renderIcon": Object {
@@ -6426,9 +6419,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   buttons={
                                     Array [
                                       Object {
-                                        "copy": Array [
-                                          "Contact sales",
-                                        ],
+                                        "copy": "Contact sales",
+                                        "href": "https://example.com/",
                                         "iconDescription": "right arrow icon",
                                         "onClick": [Function],
                                         "renderIcon": Object {
@@ -6453,9 +6445,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       buttons={
                                         Array [
                                           Object {
-                                            "copy": Array [
-                                              "Contact sales",
-                                            ],
+                                            "copy": "Contact sales",
+                                            "href": "https://example.com/",
                                             "iconDescription": "right arrow icon",
                                             "onClick": [Function],
                                             "renderIcon": Object {
@@ -6488,9 +6479,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         buttons={
                                           Array [
                                             Object {
-                                              "copy": Array [
-                                                "Contact sales",
-                                              ],
+                                              "copy": "Contact sales",
+                                              "href": "https://example.com/",
                                               "iconDescription": "right arrow icon",
                                               "onClick": [Function],
                                               "renderIcon": Object {
@@ -6513,13 +6503,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             key="0"
                                           >
                                             <ForwardRef(Button)
-                                              copy={
-                                                Array [
-                                                  "Contact sales",
-                                                ]
-                                              }
+                                              copy="Contact sales"
                                               data-autoid="dds--button-group-0"
                                               disabled={false}
+                                              href="https://example.com/"
                                               iconDescription="right arrow icon"
                                               kind="primary"
                                               onClick={[Function]}
@@ -6533,19 +6520,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               target={null}
                                               type="button"
                                             >
-                                              <button
+                                              <a
                                                 className="bx--btn bx--btn--primary"
-                                                copy={
-                                                  Array [
-                                                    "Contact sales",
-                                                  ]
-                                                }
+                                                copy="Contact sales"
                                                 data-autoid="dds--button-group-0"
-                                                disabled={false}
+                                                href="https://example.com/"
                                                 onClick={[Function]}
                                                 tabIndex={2}
                                                 target={null}
-                                                type="button"
                                               >
                                                 Contact sales
                                                 <ForwardRef(ArrowRight20)
@@ -6583,7 +6565,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     </svg>
                                                   </Icon>
                                                 </ForwardRef(ArrowRight20)>
-                                              </button>
+                                              </a>
                                             </ForwardRef(Button)>
                                           </li>
                                         </ol>
@@ -26574,7 +26556,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </ImageWithCaption>
                             </div>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="0"
                             >
@@ -26621,7 +26602,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </div>
                             </ContentGroup>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="1"
                             >
