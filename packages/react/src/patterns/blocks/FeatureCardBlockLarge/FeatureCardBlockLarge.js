@@ -7,7 +7,7 @@
 
 import { Card } from '../../../components/Card';
 import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -29,12 +29,14 @@ const FeatureCardBlockLarge = props => {
           [`${prefix}--feature-card-block-large_no-copy-text`]: !props.copy,
         })}
         data-autoid={`${stablePrefix}--feature-card-block-large`}>
-        <Card
-          customClassName={`${prefix}--feature-card-block-large__card`}
-          {...props}
-          type="link"
-          inverse={true}
-        />
+        <div className={`${prefix}--feature-card-block-large__container`}>
+          <Card
+            customClassName={`${prefix}--feature-card-block-large__card`}
+            {...props}
+            type="link"
+            inverse={true}
+          />
+        </div>
       </section>
     )
   );
@@ -74,7 +76,7 @@ FeatureCardBlockLarge.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-  }),
+  }).isRequired,
 
   /**
    * Contains source and alt text properties.

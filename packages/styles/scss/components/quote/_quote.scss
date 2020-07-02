@@ -16,6 +16,16 @@
       @include carbon--make-row;
     }
 
+    &__footer {
+      .#{$prefix}--link-with-icon {
+        span {
+          @include carbon--breakpoint(sm) {
+            max-width: calc(100% - 1.75rem);
+          }
+        }
+      }
+    }
+
     &__wrapper {
       @include carbon--breakpoint(sm) {
         padding-top: $layout-03;
@@ -29,19 +39,31 @@
 
     &__copy {
       @include carbon--make-col-ready;
-      @include carbon--type-style(quotation-02, true);
+      @include carbon--type-style('quotation-01', true);
+      @include carbon--font-family('serif');
 
-      padding: 0 2rem $carbon--layout-04 2rem;
+      word-break: break-word;
+      padding: 0 2rem $carbon--layout-03 2rem;
 
-      @include carbon--breakpoint-down('md') {
-        padding-bottom: $carbon--layout-03;
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-04;
+        @include carbon--type-style('quotation-02', true);
       }
     }
 
     &__mark {
-      @include carbon--type-style(quotation-02, true);
+      @include carbon--type-style('quotation-01', true);
+      @include carbon--font-family('serif');
+      @include carbon--breakpoint-down('md') {
+        // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
+        left: 1.4rem;
+      }
+      @include carbon--breakpoint('md') {
+        @include carbon--type-style('quotation-02', true);
+      }
 
       position: absolute;
+      // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
       left: 0.6rem;
       color: $text-01;
     }
@@ -54,21 +76,26 @@
     &__source {
       @include carbon--make-col-ready;
 
-      max-width: 80%;
-      &-heading {
-        @include carbon--type-style(expressive-heading-02, true);
+      @include carbon--breakpoint-down('md') {
+        padding-bottom: $spacing-05;
+      }
 
+      max-width: 80%;
+      padding-bottom: $carbon--layout-04;
+
+      &-heading {
         padding-left: 1rem;
+        @include carbon--type-style(expressive-heading-02, true);
       }
       &-body {
-        @include carbon--type-style(body-long-02, true);
-
-        padding-bottom: $carbon--layout-04;
         padding-left: 1rem;
+        @include carbon--type-style(body-long-02, true);
+      }
 
-        @include carbon--breakpoint-down('md') {
-          padding-bottom: $carbon--layout-03;
-        }
+      &-optional-copy {
+        color: $inverse-01;
+        padding-left: 1rem;
+        @include carbon--type-style(body-long-02, true);
       }
     }
 

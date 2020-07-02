@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import classnames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -14,28 +14,17 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * creates modifier classnames
- *
- * @param {string} mod modifier
- * @returns {*} Horizontal Rule component
- */
-function hrMod(mod) {
-  return mod && `${prefix}--hr--${mod}`;
-}
-
-/**
  * Horizontal Rule component.
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
   <hr
     data-autoid={`${stablePrefix}--hr`}
-    className={classnames(
-      `${prefix}--hr`,
-      hrMod(style),
-      hrMod(contrast),
-      hrMod(size),
-      hrMod(weight)
-    )}
+    className={classnames(`${prefix}--hr`, {
+      [`${prefix}--hr--${style}`]: style,
+      [`${prefix}--hr--${contrast}`]: contrast,
+      [`${prefix}--hr--${size}`]: size,
+      [`${prefix}--hr--${weight}`]: weight,
+    })}
   />
 );
 

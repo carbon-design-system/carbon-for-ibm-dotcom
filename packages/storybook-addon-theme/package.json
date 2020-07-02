@@ -1,0 +1,36 @@
+{
+  "name": "@carbon/storybook-addon-theme",
+  "private": true,
+  "version": "1.8.0",
+  "description": "Storybook add-on for Carbon theme chooser",
+  "license": "Apache-2.0",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es"
+  ],
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/storybook-addon-theme",
+  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "keywords": [
+    "ibm",
+    "carbon",
+    "carbon-design-system",
+    "components"
+  ],
+  "scripts": {
+    "build": "yarn clean && node scripts/build.js",
+    "clean": "rimraf es"
+  },
+  "dependencies": {
+    "@storybook/addons": "^5.3.0",
+    "@storybook/components": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.0",
+    "rimraf": "^3.0.0"
+  }
+}

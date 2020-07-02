@@ -6,6 +6,8 @@
  */
 
 @import '../../globals/imports';
+@import '../../internal/content-item/content-item';
+@import '../link-with-icon/link-with-icon';
 
 @mixin pictogram-item {
   .#{$prefix}--pictogram-item {

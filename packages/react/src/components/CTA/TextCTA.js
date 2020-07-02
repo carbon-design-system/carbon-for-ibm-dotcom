@@ -17,6 +17,7 @@ const TextCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  formatCTAcopy,
   ...otherProps
 }) => {
   const Icon = CTALogic.iconSelector(type);
@@ -24,7 +25,7 @@ const TextCTA = ({
     type !== 'video'
       ? otherProps.href
         ? otherProps.href
-        : otherProps.cta.href
+        : otherProps.cta?.href
       : null;
   return type === 'video' ? (
     <div>
@@ -33,7 +34,12 @@ const TextCTA = ({
         <LinkWithIcon
           href="#"
           onClick={e => CTALogic.setLightBox(e, openLightBox)}>
-          <span>{videoTitle[0].title}</span>
+          <span>
+            {formatCTAcopy({
+              title: videoTitle[0].title,
+              duration: videoTitle[0].duration,
+            })}
+          </span>
           <Icon />
         </LinkWithIcon>
       )}
@@ -44,7 +50,7 @@ const TextCTA = ({
       target={CTALogic.external(type)}
       onClick={e => CTALogic.jump(e, type)}>
       <span>{otherProps.copy}</span>
-      <Icon />
+      {type !== 'default' && <Icon />}
     </LinkWithIcon>
   );
 };
@@ -60,6 +66,7 @@ TextCTA.propTypes = {
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
    * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
+   * | `default`  | None             | Describes the default CTA - without icon                         |
    *
    * For more details of icons, refer to:
    *
@@ -68,9 +75,23 @@ TextCTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+    PropTypes.oneOf([
+      'jump',
+      'local',
+      'external',
+      'download',
+      'video',
+      'default',
+    ]),
     PropTypes.arrayOf(
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ])
     ),
   ]),
 
@@ -90,9 +111,20 @@ TextCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
+
+  /**
+   * Func to format the cta copy
+   */
+  formatCTAcopy: PropTypes.func,
+};
+
+TextCTA.defaultProps = {
+  type: 'default',
+  formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
 };
 
 export default TextCTA;

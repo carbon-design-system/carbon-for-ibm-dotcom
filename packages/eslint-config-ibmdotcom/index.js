@@ -72,6 +72,7 @@ module.exports = {
     'jsdoc/check-param-names': 2,
     'jsdoc/check-tag-names': 2,
     'jsdoc/check-types': 2,
+    'jsdoc/check-values': 0,
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,
     'jsx-a11y/click-events-have-key-events': 1,
@@ -107,6 +108,12 @@ module.exports = {
         'jsdoc/require-param': 0,
         'jsdoc/require-returns': 0,
         '@carbon/react-prop-type-comments/require-proptype-comment': 2,
+      },
+    },
+    {
+      files: ['packages/react/**/*.test.js', 'packages/react/**/*-test.js'],
+      rules: {
+        'jsdoc/check-tag-names': [2, { definedTags: ['jest-environment'] }],
       },
     },
   ],

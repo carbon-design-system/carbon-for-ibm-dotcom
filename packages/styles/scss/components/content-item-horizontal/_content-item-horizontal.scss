@@ -29,6 +29,7 @@
       }
 
       &--heading {
+        color: $text-01;
         @include carbon--type-style('expressive-heading-03', true);
         @include carbon--breakpoint(sm) {
           margin-bottom: $carbon--spacing-07;
@@ -54,6 +55,9 @@
         @include carbon--breakpoint(lg) {
           margin-bottom: $layout-05;
         }
+        p {
+          color: $text-01;
+        }
       }
 
       &--cta {
@@ -61,7 +65,6 @@
 
         .#{$prefix}--link-list {
           padding: 0;
-
           &:first-of-type {
             padding: 0;
           }
@@ -80,13 +83,15 @@
       }
 
       @include carbon--breakpoint(md) {
+        min-height: rem(320px);
         padding-top: $carbon--spacing-07;
         padding-bottom: $carbon--spacing-09;
       }
 
       @include carbon--breakpoint(lg) {
+        min-height: rem(296px);
         padding-top: $carbon--spacing-07;
-        padding-bottom: $carbon--spacing-09;
+        padding-bottom: $carbon--layout-05;
       }
 
       padding-left: $carbon--spacing-05;
@@ -96,7 +101,6 @@
     &__row {
       @include carbon--make-row;
 
-      width: 100%;
       min-height: 160px;
     }
 

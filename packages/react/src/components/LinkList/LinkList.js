@@ -6,7 +6,7 @@
  */
 
 import { CTA } from '../CTA';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -39,7 +39,7 @@ const LinkList = ({ heading, items, style }) => {
             <li
               className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
               key={index}>
-              <CTA style={linkStyle} {...cta} />
+              <CTA style={linkStyle} {...cta} disableImage={true} />
             </li>
           );
         })}

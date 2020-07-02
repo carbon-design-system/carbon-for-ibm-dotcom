@@ -8,7 +8,7 @@
 import classNames from 'classnames';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -20,35 +20,28 @@ const { prefix } = settings;
  * CTASection pattern.
  */
 const CTASection = ({ heading, copy, cta, items, theme }) => {
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--cta-section--${theme}`;
-  };
-
   return (
     <section
       data-autoid={`${stablePrefix}--cta-section`}
-      className={classNames(`${prefix}--cta-section`, _setTheme(theme))}>
+      className={classNames(`${prefix}--cta-section`, {
+        [`${prefix}--cta-section__has-items`]: items,
+        [`${prefix}--cta-section--${theme}`]: theme,
+      })}>
       <ContentBlock heading={heading} copy={copy} cta={cta} />
-      <hr className={`${prefix}--horizontal-line`} />
-      <div className={`${prefix}--helper-wrapper`}>
-        <div className={`${prefix}--content-item-wrapper`}>
-          {items.map((item, index) => (
-            <ContentItem
-              key={index}
-              heading={item.heading}
-              copy={item.copy}
-              cta={item.cta}
-            />
-          ))}
+      {items && (
+        <div className={`${prefix}--helper-wrapper`}>
+          <div className={`${prefix}--content-item-wrapper`}>
+            {items.map((item, index) => (
+              <ContentItem
+                key={index}
+                heading={item.heading}
+                copy={item.copy}
+                cta={item.cta}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
@@ -71,9 +64,23 @@ CTASection.propTypes = {
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
     type: PropTypes.oneOfType([
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ]),
       PropTypes.arrayOf(
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+        PropTypes.oneOf([
+          'jump',
+          'local',
+          'external',
+          'download',
+          'video',
+          'default',
+        ])
       ),
     ]),
     copy: PropTypes.string,
@@ -100,7 +107,14 @@ CTASection.propTypes = {
         cta: PropTypes.shape({
           style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
           type: PropTypes.oneOfType([
-            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+            PropTypes.oneOf([
+              'jump',
+              'local',
+              'external',
+              'download',
+              'video',
+              'default',
+            ]),
             PropTypes.arrayOf(
               PropTypes.oneOf([
                 'jump',
@@ -108,6 +122,7 @@ CTASection.propTypes = {
                 'external',
                 'download',
                 'video',
+                'default',
               ])
             ),
           ]),
@@ -117,7 +132,7 @@ CTASection.propTypes = {
         }),
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default CTASection;

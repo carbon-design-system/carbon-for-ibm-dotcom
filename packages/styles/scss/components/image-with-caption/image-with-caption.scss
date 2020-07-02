@@ -6,6 +6,8 @@
  */
 
 @import '../../globals/imports';
+@import '../image/image';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
@@ -90,6 +92,13 @@
   .#{$prefix}--image-with-caption--inverse
     .#{$prefix}--image__caption--inverse {
     color: $text-04;
+  }
+
+  .#{$prefix}--image__caption--inverse {
+    @include carbon--type-style('body-short-01', true);
+
+    margin-top: $carbon--spacing-03;
+    color: $text-05;
   }
 }
 

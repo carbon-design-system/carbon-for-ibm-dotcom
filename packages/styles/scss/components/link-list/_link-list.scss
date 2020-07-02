@@ -21,8 +21,6 @@
       color: $text-01;
     }
     &__list {
-      overflow: hidden;
-
       &__CTA {
         .#{$prefix}--link-list__list--horizontal & {
           float: left;
@@ -49,6 +47,8 @@
 
           svg {
             align-self: start;
+            position: relative;
+            top: 1px;
             margin-left: 0;
             margin-right: $carbon--spacing-03;
           }
@@ -63,6 +63,7 @@
         .#{$prefix}--link-list__list--vertical-end & {
           border-bottom: 1px solid $ui-03;
           max-width: 640px;
+          @include hang;
 
           &:first-of-type {
             border-top: 1px solid $ui-03;
@@ -70,14 +71,19 @@
 
           .bx--link-with-icon__container {
             width: 100%;
+            @include carbon--make-col-ready;
             a {
               padding: $carbon--spacing-05 0;
               justify-content: space-between;
+            }
+            svg {
+              margin-left: $carbon--spacing-07;
             }
           }
         }
 
         .#{$prefix}--link-list__list--card & {
+          max-width: carbon--mini-units(80);
           div .#{$prefix}--tile {
             margin-left: 0;
             margin-right: 0;
@@ -99,6 +105,10 @@
             border-bottom: 1px solid $ui-03;
           }
         }
+
+        &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
+          color: $link-01;
+        }
       }
 
       &.#{$prefix}--link-list__list--card {
@@ -108,12 +118,15 @@
 
     .#{$prefix}--card {
       max-width: none;
+
       &__wrapper {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
 
         @include carbon--breakpoint('lg') {
           flex-direction: column;
+          align-items: flex-start;
         }
 
         .#{$prefix}--card__copy {
@@ -134,6 +147,11 @@
           padding-right: $carbon--spacing-07;
         }
       }
+
+      &__footer {
+        margin-top: 0;
+      }
+
       &:not(:hover) {
         background: $ui-background;
       }

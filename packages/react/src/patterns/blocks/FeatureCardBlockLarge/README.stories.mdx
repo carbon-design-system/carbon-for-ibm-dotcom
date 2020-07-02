@@ -1,4 +1,5 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
 import FeatureCardBlockLarge from './FeatureCardBlockLarge';
 
 # Feature Card Block Large
@@ -73,15 +74,10 @@ Add the following line on your `.env` file at the root of your project,
 | ------------------------------- | ----------- |
 | `dds--feature-card-block-large` | Component   |
 
-## 🙌 Contributing
 
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
+## Image Assets
+Note that the `<FeatureCardBlockLarge />` uses custom breakpoints depending if `copy` prop has been passed in. If there is a copy, please pass a 1:1 ratio image
+for the 991px breakpoint. If there is no copy, please pass in a 1:1 ratio image for the 751px breakpoint. For an example of this, take a look at `FeatureCardBlockLarge`'s image prop
+in the story.
 
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

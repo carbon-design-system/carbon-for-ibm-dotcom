@@ -6,7 +6,7 @@
  */
 import classNames from 'classnames';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -97,7 +97,7 @@ LogoGrid.propTypes = {
       altText: PropTypes.string,
       href: PropTypes.string,
     })
-  ),
+  ).isRequired,
   /**
    * Optional copy for the CTA
    */

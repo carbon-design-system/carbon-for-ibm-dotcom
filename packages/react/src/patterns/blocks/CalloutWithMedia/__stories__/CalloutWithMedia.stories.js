@@ -5,28 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import CalloutWithMedia from '../CalloutWithMedia';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-export default {
-  title: 'Patterns (Blocks)|CalloutWithMedia',
-  decorators: [withKnobs],
-
-  parameters: {
-    ...readme.parameters,
-  },
-};
-
-export const Default = () => {
-  const mediaType = select(
-    'mediaType (optional)',
-    ['image', 'video', 'none'],
-    'image'
-  );
-
-  const image = {
+const mediaDataByType = {
+  image: {
     heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     image: {
       sources: [
@@ -46,21 +31,48 @@ export const Default = () => {
       alt: 'Image alt text',
       defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
     },
-  };
-
-  const video = {
+  },
+  video: {
     videoId: '0_uka1msg4',
     showCaption: true,
-  };
+  },
+};
 
-  const copy = text(
-    'copy',
-    'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
-  );
+export default {
+  title: 'Patterns (Blocks)|CalloutWithMedia',
 
-  const heading = text('heading', 'Curabitur malesuada varius mi eu posuere');
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CalloutWithMedia: ({ groupId }) => {
+        const mediaType = select(
+          'mediaType (optional)',
+          ['image', 'video', 'none'],
+          'image',
+          groupId
+        );
+        return {
+          mediaData: mediaDataByType[mediaType],
+          mediaType,
+          heading: text(
+            'heading',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+          copy: text(
+            'copy',
+            'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:',
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
 
-  const mediaData = mediaType === 'image' ? image : video;
+export const Default = ({ parameters }) => {
+  const { mediaData, mediaType, heading, copy } =
+    parameters?.props?.CalloutWithMedia ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">

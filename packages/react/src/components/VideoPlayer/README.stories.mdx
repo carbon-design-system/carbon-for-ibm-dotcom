@@ -1,12 +1,16 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import VideoPlayer from './VideoPlayer';
 
 # Video Player
 
-> The Video Player component plays embedded videos using the Kaltura video
-> platform. It can be used in inline patterns as well as modals. It is always
-> the full width of its containing element and maintains an aspect ratio of
-> 16:9.
+> Video players play embedded videos using the Kaltura video platform. It can be
+> used in inline patterns as well as modals. It is always the full width of its
+> containing element and maintains an aspect ratio of 16:9.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/VideoPlayer)
+> example implementation.
 
 ## Getting started
 
@@ -77,15 +81,4 @@ KALTURA_UICONF_ID=12905712
 | -------------------------------------- | ----------- |
 | `dds--video-player--{video-player-id}` | Component   |
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

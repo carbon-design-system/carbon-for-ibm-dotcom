@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ComposedModal from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ExpressiveModalCloseBtn from './ExpressiveModalCloseBtn';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -36,29 +36,14 @@ const ExpressiveModal = ({
       onClose={onClose}
       open={isOpen}
       data-autoid={`${stablePrefix}--expressive-modal`}
-      className={classNames(
-        `${prefix}--modal--expressive`,
-        className,
-        setVariant(fullwidth)
-      )}
+      className={classNames(`${prefix}--modal--expressive`, className, {
+        [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
+      })}
       {...props}>
       <ExpressiveModalCloseBtn onClick={closeModal} />
       {children}
     </ComposedModal>
   );
-
-  /**
-   * sets the class name based if model type is fullwidth
-   *
-   * @param {boolean} isFullwidth includes variant class name or not ( true | false )
-   * @returns {string} fullwidth variant css class name
-   */
-  function setVariant(isFullwidth) {
-    let fullwidth;
-    fullwidth =
-      isFullwidth === true ? `${prefix}--modal--expressive--fullwidth` : '';
-    return fullwidth;
-  }
 
   /**
    * Close modal

@@ -1,9 +1,16 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
 // IMPORTANT: This import path should _not_ be used outside our source tree
 // as `src` directory is _not_ meant to be shipped in our NPM package.
 // Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
 
 $dds-feature-flags: (
-  carbon-expressive: true,
+  carbon-expressive-experimental: true,
 );
 
 $feature-flags: (
@@ -41,8 +48,4 @@ $feature-flags: (
 
 .storybook-readme-story {
   width: 100%;
-}
-
-.bx--visually-hidden {
-  display: none;
 }

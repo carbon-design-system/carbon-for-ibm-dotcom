@@ -8,7 +8,7 @@
 import { CardGroup } from '../../../components/CardGroup';
 import classNames from 'classnames';
 import ContentSection from '../../../internal/components/ContentSection/ContentSection';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -25,22 +25,13 @@ const CardSectionImages = ({ cards, theme, ...otherProps }) => {
       image && eyebrow && heading && !copy && href
   );
 
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type ( g10 | g100 | white/default )
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--card-group--${theme}`;
-  };
-
   return (
     <ContentSection
       heading={otherProps.heading}
       autoid={`${stablePrefix}--card-group-images-group`}
-      customClassName={classNames(`${prefix}--card-group`, _setTheme(theme))}>
+      customClassName={classNames(`${prefix}--card-group`, {
+        [`${prefix}--card-group--${theme}`]: theme,
+      })}>
       <CardGroup cards={cardsWithImages} />
     </ContentSection>
   );
@@ -100,7 +91,7 @@ CardSectionImages.propTypes = {
         href: PropTypes.string,
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default CardSectionImages;

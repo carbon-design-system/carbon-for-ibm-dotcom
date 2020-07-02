@@ -1,10 +1,16 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../docs/cors-proxy.md';
 import LocaleModal from './LocaleModal';
 
 # Locale Modal
 
 > The locale modal allows users to change geographic regions and translate pages
 > to those region languages, if available.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/LocaleModal)
+> example implementation.
 
 ## Getting started
 
@@ -71,7 +77,9 @@ See how to
 
 > 💡 Props default to English if not provided.
 
-> 💡 Also refer to Carbon's [`<ComposedModal>`](https://react.carbondesignsystem.com/?path=/story/composedmodal--using-child-nodes) for other props.
+> 💡 Also refer to Carbon's
+> [`<ComposedModal>`](https://react.carbondesignsystem.com/?path=/story/composedmodal--using-child-nodes)
+> for other props.
 
 ## Stable selectors
 
@@ -82,29 +90,6 @@ See how to
 | `dds--locale-modal__filter`            | Interactive |
 | `dds--locale-modal__region-back`       | Interactive |
 
-## CORS Proxy
+<Description markdown={corsproxy} />
 
-This component makes cross-origin requests to `www.ibm.com`, which will require
-a cors proxy to be configured to make successful calls from a lower environment.
-
-A cors proxy can be configured using the following
-[environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
-
-`CORS_PROXY=https://myproxy.com/`
-
-> NOTE: The `CORS_PROXY` is not necessary when publishing to production
-> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
-> unconfigured when pushing your application to production.
-
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

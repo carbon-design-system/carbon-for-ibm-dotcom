@@ -9,11 +9,9 @@ import ContentGroupCards from '../ContentGroupCards';
 import ContentGroupCardsKnobs from './data/ContentGroupCards.knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Patterns (Blocks)|ContentGroupCards',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
@@ -27,6 +25,7 @@ export const Default = () => {
         <div className="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-4">
           <ContentGroupCards
             heading={ContentGroupCardsKnobs.heading}
+            copy={ContentGroupCardsKnobs.copy}
             items={ContentGroupCardsKnobs.items}
           />
         </div>

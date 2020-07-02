@@ -1,9 +1,15 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import LinkList from './LinkList';
 
 # Link List
 
-> The Link List component will be used to have list of different cta types.
+> Link lists are a collection of links that can be presented in various
+> orientations and styles, such as horizontal, vertical, and cards.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/LinkList)
+> example implementation.
 
 ## Getting started
 
@@ -84,15 +90,4 @@ Add the following line in your `.env` file at the root of your project.
 
 <Props of={LinkList} />
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

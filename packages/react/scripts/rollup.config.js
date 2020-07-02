@@ -23,9 +23,9 @@ const sizes = require('rollup-plugin-sizes');
 const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
-const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
-  ['classnames', 'prop-types']
-);
+const peerDependencies = Object.keys(
+  packageJson.peerDependencies || {}
+).concat(['classnames', 'prop-types']);
 
 const env = process.env.NODE_ENV || 'development';
 const prodSettings =
@@ -74,6 +74,7 @@ module.exports = {
   input: 'src/index.js',
   plugins: [
     resolve({
+      browser: true,
       mainFields: ['jsnext', 'module', 'main'],
     }),
     commonjs({

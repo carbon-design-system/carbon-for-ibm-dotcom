@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, text } from '@storybook/addon-knobs';
 import cx from 'classnames';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
@@ -16,34 +16,48 @@ const { prefix } = settings;
 
 export default {
   title: 'Components|ImageWithCaption',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      ImageWithCaption: ({ groupId }) => ({
+        heading: text('heading (required)', 'this is a caption', groupId),
+
+        image: object(
+          'image',
+          {
+            sources: [
+              {
+                src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+                breakpoint: 'sm',
+              },
+              {
+                src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+                breakpoint: 'md',
+              },
+              {
+                src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+                breakpoint: 'lg',
+              },
+            ],
+            alt: 'image with caption image',
+            defaultSrc: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+          },
+          groupId
+        ),
+
+        inverse: boolean('inverse', false, groupId),
+
+        copy: text('copy', 'This is a description of the image.', groupId),
+        lightbox: boolean('lightbox', true, groupId),
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const heading = text('heading (required)', 'this is a caption');
-
-  const image = object('image', {
-    sources: [
-      {
-        src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
-        breakpoint: 'sm',
-      },
-      {
-        src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
-        breakpoint: 'md',
-      },
-    ],
-    alt: 'image with caption image',
-    defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-  });
-
-  const inverse = boolean('inverse', false);
-
-  const copy = text('copy', 'This is a description of the image.');
+export const Default = ({ parameters }) => {
+  const { heading, image, inverse, copy, lightbox } =
+    parameters?.props?.ImageWithCaption ?? {};
 
   return (
     <div
@@ -57,7 +71,7 @@ export const Default = () => {
             inverse={inverse}
             image={image}
             heading={heading}
-            lightbox={boolean('lightbox', true)}
+            lightbox={lightbox}
           />
         </div>
       </div>

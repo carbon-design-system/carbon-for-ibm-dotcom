@@ -77,17 +77,26 @@
   }
 
   .#{$prefix}--simplebenefits--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
   .#{$prefix}--simplebenefits--g90 {
-    @include carbon--theme($carbon--theme--g90) {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
   .#{$prefix}--simplebenefits--g10 {
-    @include carbon--theme($carbon--theme--g10) {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }

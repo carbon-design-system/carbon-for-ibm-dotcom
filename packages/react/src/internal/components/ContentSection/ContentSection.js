@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -23,43 +23,24 @@ const ContentSection = ({
   children,
   customClassName,
   ...otherProps
-}) => {
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--content-section--${theme}`;
-  };
-
-  return (
-    <section
-      className={classNames(
-        `${prefix}--content-section`,
-        customClassName,
-        _setTheme(theme)
-      )}
-      data-autoid={
-        otherProps.autoid
-          ? otherProps.autoid
-          : `${stablePrefix}--content-section`
-      }>
-      <div className={`${prefix}--content-section__grid`}>
-        <div className={`${prefix}--content-section__row`}>
-          <div className={`${prefix}--content-section__left`}>
-            <h2 className={`${prefix}--content-section__heading`}>{heading}</h2>
-          </div>
-          <div className={`${prefix}--content-section__children`}>
-            {children}
-          </div>
+}) => (
+  <section
+    className={classNames(`${prefix}--content-section`, customClassName, {
+      [`${prefix}--content-section--${theme}`]: theme,
+    })}
+    data-autoid={
+      otherProps.autoid ? otherProps.autoid : `${stablePrefix}--content-section`
+    }>
+    <div className={`${prefix}--content-section__grid`}>
+      <div className={`${prefix}--content-section__row`}>
+        <div className={`${prefix}--content-section__left`}>
+          <h2 className={`${prefix}--content-section__heading`}>{heading}</h2>
         </div>
+        <div className={`${prefix}--content-section__children`}>{children}</div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 ContentSection.propTypes = {
   /**

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import dataContent from '../__stories__/data/dataContent';
+import DataContent from '../__stories__/data/DataContent';
 import { mount } from 'enzyme';
 import React from 'react';
 import TableOfContents from '../TableOfContents';
@@ -40,7 +40,7 @@ describe('TableOfContents', () => {
         menuItems={menuItems}
         menuRule={true}
         menuLabel="Menu label">
-        {dataContent}
+        <DataContent />
       </TableOfContents>
     );
     expect(toc.find('.bx--tableofcontents__desktop__item')).toHaveLength(

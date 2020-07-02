@@ -7,9 +7,9 @@
 
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
-import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -102,7 +102,6 @@ ContentItem.propTypes = {
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
-    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
     type: PropTypes.oneOfType([
       PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
       PropTypes.arrayOf(
