@@ -58,7 +58,7 @@ LinkList.propTypes = {
   /**
    * Describes heading of LinkList.
    */
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
 
   /**
    * Describes the list of CTA.
@@ -94,7 +94,8 @@ LinkList.propTypes = {
   /**
    * Orientation of LinkList.
    */
-  style: PropTypes.oneOf(['card', 'horizontal', 'vertical']).isRequired,
+  style: PropTypes.oneOf(['card', 'horizontal', 'vertical', 'vertical-end'])
+    .isRequired,
 };
 
 export default LinkList;

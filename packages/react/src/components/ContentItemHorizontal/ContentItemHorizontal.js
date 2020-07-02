@@ -91,13 +91,22 @@ ContentItemHorizontal.propTypes = {
    * | `copy` | YES      | String    | Link text.                                 |
    * | `href` | YES      | String    | URI for internal or external resource.     |
    */
-  cta: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.oneOf(['local', 'external']).isRequired,
-      href: PropTypes.string.isRequired,
-      copy: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  cta: PropTypes.shape({
+    heading: PropTypes.string,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+        type: PropTypes.oneOfType([
+          PropTypes.oneOf(['local', 'external']),
+          PropTypes.arrayOf(PropTypes.oneOf(['local', 'external'])),
+        ]),
+        copy: PropTypes.string,
+        href: PropTypes.string,
+        customClassName: PropTypes.string,
+      })
+    ).isRequired,
+    iconPlacement: PropTypes.oneOf(['left', 'right']),
+  }),
 };
 
 export default ContentItemHorizontal;
