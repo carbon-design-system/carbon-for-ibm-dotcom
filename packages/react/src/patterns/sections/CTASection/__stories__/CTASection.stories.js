@@ -25,7 +25,8 @@ const contentItemsProps = [
   },
   {
     heading: 'Learn how',
-    copy: 'Dig into more self-directed learning about DevOps methodologies.',
+    copy:
+      'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
     cta: {
       copy: 'Browse tutorials',
       type: types[0],
@@ -84,6 +85,11 @@ Default.story = {
           ],
         },
       }),
+    },
+    props: {
+      CTASection: {
+        items: contentItemsProps,
+      },
     },
   },
 };

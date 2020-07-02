@@ -34,6 +34,11 @@ export default {
         };
       },
     },
+    props: {
+      CardSectionSimple: {
+        cards: cards.Simple,
+      },
+    },
   },
 };
 

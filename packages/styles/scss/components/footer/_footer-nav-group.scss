@@ -35,8 +35,7 @@
         @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
           margin-top: 0;
           display: block;
-          padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type)
-            ($carbon--grid-gutter / 2);
+          padding: 16px 13px;
 
           &:hover,
           &:active {

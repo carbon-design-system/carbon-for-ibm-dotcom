@@ -15,13 +15,13 @@ const PORT = 9000;
 describe('Footer example', () => {
   beforeAll(async () => {
     const projectRoot = path.resolve(__dirname, '../../../../..');
-    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/footer');
+    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/Footer');
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [
         `cp -r '${src}' ${tmpDir}`,
-        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/footer/package.json`,
-        `cd ${tmpDir}/footer`,
+        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/Footer/package.json`,
+        `cd ${tmpDir}/Footer`,
         'yarn install',
         'yarn parcel build index.html',
         `cp -r dist ${tmpDir}`,

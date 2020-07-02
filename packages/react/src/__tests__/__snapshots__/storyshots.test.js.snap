@@ -53,23 +53,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             >
               <li
                 className="bx--buttongroup-item"
-                key="0"
               >
                 <ForwardRef(Button)
                   copy="Button 1"
                   data-autoid="dds--button-group-0"
                   disabled={false}
                   href="https://example.com"
-                  kind="primary"
-                  tabIndex={2}
+                  kind="tertiary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--primary"
+                    className="bx--btn bx--btn--tertiary"
                     copy="Button 1"
                     data-autoid="dds--button-group-0"
                     href="https://example.com"
-                    tabIndex={2}
+                    tabIndex={0}
                   >
                     Button 1
                   </a>
@@ -77,23 +76,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               </li>
               <li
                 className="bx--buttongroup-item"
-                key="1"
               >
                 <ForwardRef(Button)
                   copy="Button 2"
                   data-autoid="dds--button-group-1"
                   disabled={false}
                   href="https://example.com"
-                  kind="tertiary"
-                  tabIndex={1}
+                  kind="primary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--tertiary"
+                    className="bx--btn bx--btn--primary"
                     copy="Button 2"
                     data-autoid="dds--button-group-1"
                     href="https://example.com"
-                    tabIndex={1}
+                    tabIndex={0}
                   >
                     Button 2
                   </a>
@@ -135,23 +133,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
         >
           <li
             className="bx--buttongroup-item"
-            key="0"
           >
             <ForwardRef(Button)
               copy="Button 1"
               data-autoid="dds--button-group-0"
               disabled={false}
               href="https://example.com"
-              kind="primary"
-              tabIndex={2}
+              kind="tertiary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--primary"
+                className="bx--btn bx--btn--tertiary"
                 copy="Button 1"
                 data-autoid="dds--button-group-0"
                 href="https://example.com"
-                tabIndex={2}
+                tabIndex={0}
               >
                 Button 1
               </a>
@@ -159,23 +156,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
           </li>
           <li
             className="bx--buttongroup-item"
-            key="1"
           >
             <ForwardRef(Button)
               copy="Button 2"
               data-autoid="dds--button-group-1"
               disabled={false}
               href="https://example.com"
-              kind="tertiary"
-              tabIndex={1}
+              kind="primary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--tertiary"
+                className="bx--btn bx--btn--primary"
                 copy="Button 2"
                 data-autoid="dds--button-group-1"
                 href="https://example.com"
-                tabIndex={1}
+                tabIndex={0}
               >
                 Button 2
               </a>
@@ -218,6 +214,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
           <CTA
             copy="Lorem ipsum dolor sit amet"
             href="https://www.example.com"
+            iconPlacement="right"
             media={
               Object {
                 "src": "0_uka1msg4",
@@ -232,6 +229,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                 copy="Lorem ipsum dolor sit amet"
                 formatCTAcopy={[Function]}
                 href="https://www.example.com"
+                iconPlacement="right"
                 media={
                   Object {
                     "src": "0_uka1msg4",
@@ -254,6 +252,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
               >
                 <LinkWithIcon
                   href="https://www.example.com"
+                  iconPlacement="right"
                   onClick={[Function]}
                   target={null}
                 >
@@ -1396,7 +1395,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4"
         >
           <ContentItemHorizontal
             copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
@@ -1517,6 +1516,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1533,6 +1533,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -1613,6 +1614,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1629,6 +1631,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target="_blank"
                                   >
@@ -2559,6 +2562,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2575,6 +2579,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -2655,6 +2660,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2671,6 +2677,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -2751,6 +2758,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               disableImage={true}
                                                               formatCTAcopy={[Function]}
                                                               href=""
+                                                              iconPlacement="right"
                                                               openLightBox={[Function]}
                                                               renderLightBox={false}
                                                               style="text"
@@ -2767,6 +2775,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <LinkWithIcon
                                                                 href="https://ibm.com"
+                                                                iconPlacement="right"
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
@@ -2908,7 +2917,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
                                                           <li
                                                             className="bx--buttongroup-item"
-                                                            key="0"
                                                           >
                                                             <ForwardRef(Button)
                                                               copy="Excepteur sint occaecat"
@@ -2924,7 +2932,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              tabIndex={2}
+                                                              tabIndex={0}
                                                               target={null}
                                                               type="button"
                                                             >
@@ -2934,7 +2942,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 data-autoid="dds--button-group-0"
                                                                 href="https://example.com/"
                                                                 onClick={[Function]}
-                                                                tabIndex={2}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 Excepteur sint occaecat
@@ -3123,6 +3131,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3139,6 +3148,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -3307,6 +3317,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3323,6 +3334,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -3868,6 +3880,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     copy="Lorem Ipsum dolor sit"
                                                     formatCTAcopy={[Function]}
                                                     href="https://example.com"
+                                                    iconPlacement="right"
                                                     openLightBox={[Function]}
                                                     renderLightBox={false}
                                                     style="text"
@@ -3884,6 +3897,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <LinkWithIcon
                                                       href="https://example.com"
+                                                      iconPlacement="right"
                                                       onClick={[Function]}
                                                       target={null}
                                                     >
@@ -4432,7 +4446,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 items={
                                   Array [
                                     Object {
-                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.",
+                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
                                         "items": Array [
                                           Object {
@@ -4497,7 +4511,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         data-autoid="dds--content-block__children"
                                       >
                                         <ContentItemHorizontal
-                                          copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                                          copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
                                               "items": Array [
@@ -4548,7 +4562,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                                     }
                                                   }
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4598,6 +4612,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4614,6 +4629,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target={null}
                                                                 >
@@ -4684,6 +4700,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4700,6 +4717,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target="_blank"
                                                                 >
@@ -4866,6 +4884,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4882,6 +4901,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target={null}
                                                                 >
@@ -4952,6 +4972,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 disableImage={true}
                                                                 formatCTAcopy={[Function]}
                                                                 href="https://example.com"
+                                                                iconPlacement="right"
                                                                 openLightBox={[Function]}
                                                                 renderLightBox={false}
                                                                 style="text"
@@ -4968,6 +4989,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <LinkWithIcon
                                                                   href="https://example.com"
+                                                                  iconPlacement="right"
                                                                   onClick={[Function]}
                                                                   target="_blank"
                                                                 >
@@ -5094,7 +5116,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <section
                                   className="bx--logo-grid"
-                                  data-autoid="dds--logo-grid bx--logo-grid"
+                                  data-autoid="dds--logo-grid"
                                 >
                                   <div
                                     className="bx--logo-grid__container"
@@ -6146,6 +6168,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 </HorizontalRule>
                                                 <LinkWithIcon
                                                   href="https://example.com"
+                                                  iconPlacement="right"
                                                 >
                                                   <div
                                                     className="bx--link-with-icon__container"
@@ -6413,7 +6436,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         >
                                           <li
                                             className="bx--buttongroup-item"
-                                            key="0"
                                           >
                                             <ForwardRef(Button)
                                               copy={
@@ -6432,7 +6454,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              tabIndex={2}
+                                              tabIndex={0}
                                               target={null}
                                               type="button"
                                             >
@@ -6446,7 +6468,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 data-autoid="dds--button-group-0"
                                                 disabled={false}
                                                 onClick={[Function]}
-                                                tabIndex={2}
+                                                tabIndex={0}
                                                 target={null}
                                                 type="button"
                                               >
@@ -6546,6 +6568,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         copy="Find a partner"
                                         formatCTAcopy={[Function]}
                                         href="https://example.com/"
+                                        iconPlacement="right"
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="text"
@@ -6562,6 +6585,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       >
                                         <LinkWithIcon
                                           href="https://example.com/"
+                                          iconPlacement="right"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -6661,6 +6685,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         copy="Browse tutorials"
                                         formatCTAcopy={[Function]}
                                         href="https://example.com/"
+                                        iconPlacement="right"
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="text"
@@ -6677,6 +6702,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       >
                                         <LinkWithIcon
                                           href="https://example.com/"
+                                          iconPlacement="right"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -7027,7 +7053,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7041,7 +7066,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7049,7 +7074,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -7252,7 +7277,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7266,7 +7290,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7274,7 +7298,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -8863,87 +8887,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Components|Link with Icon Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "padding": "2rem",
-        }
-      }
-    >
-      <LinkWithIcon
-        disabled={false}
-        href="https://www.example.com"
-        inverse={false}
-      >
-        <div
-          className="bx--link-with-icon__container"
-          data-autoid="dds--link-with-icon"
-        >
-          <Link
-            className="bx--link-with-icon"
-            disabled={false}
-            href="https://www.example.com"
-          >
-            <a
-              className="bx--link bx--link-with-icon"
-              href="https://www.example.com"
-            >
-              <span>
-                Link text
-              </span>
-              <ForwardRef(ArrowRight20)>
-                <Icon
-                  height={20}
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 20 20"
-                  width={20}
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <svg
-                    aria-hidden={true}
-                    focusable="false"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                    />
-                  </svg>
-                </Icon>
-              </ForwardRef(ArrowRight20)>
-            </a>
-          </Link>
-        </div>
-      </LinkWithIcon>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
 exports[`Storyshots Components|LinkList Default 1`] = `
 <Container
   story={[Function]}
@@ -9865,6 +9808,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -9881,6 +9825,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -9961,6 +9906,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -9977,6 +9923,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10060,6 +10007,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10076,6 +10024,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -10155,6 +10104,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -10178,6 +10128,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="right"
                             onClick={[Function]}
                           >
                             <div
@@ -10271,6 +10222,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="right"
             items={
               Array [
                 Object {
@@ -10316,6 +10268,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="right"
                     style="text"
                     type="local"
                   >
@@ -10330,6 +10283,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10346,6 +10300,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10412,6 +10367,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="right"
                     style="text"
                     type="download"
                   >
@@ -10426,6 +10382,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="right"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10442,6 +10399,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="right"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10537,6 +10495,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="left"
             items={
               Array [
                 Object {
@@ -10596,6 +10555,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="local"
                   >
@@ -10610,6 +10570,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10626,6 +10587,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10634,13 +10596,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10648,11 +10610,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10661,16 +10623,16 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -10692,6 +10654,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="download"
                   >
@@ -10706,6 +10669,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10722,6 +10686,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -10730,13 +10695,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10791,6 +10756,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="external"
                   >
@@ -10805,6 +10771,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10821,6 +10788,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -10829,13 +10797,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -10885,6 +10853,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -10900,6 +10869,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -10923,6 +10893,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="left"
                             onClick={[Function]}
                           >
                             <div
@@ -10930,12 +10901,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -11016,6 +10987,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconPlacement="left"
             items={
               Array [
                 Object {
@@ -11075,6 +11047,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="local"
                   >
@@ -11089,6 +11062,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11105,6 +11079,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -11113,13 +11088,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11127,11 +11102,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -11140,16 +11115,16 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -11171,6 +11146,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="download"
                   >
@@ -11185,6 +11161,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11201,6 +11178,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target={null}
                         >
@@ -11209,13 +11187,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11270,6 +11248,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     style="text"
                     type="external"
                   >
@@ -11284,6 +11263,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11300,6 +11280,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconPlacement="left"
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -11308,13 +11289,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -11364,6 +11345,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconPlacement="left"
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -11379,6 +11361,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconPlacement="left"
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -11402,6 +11385,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconPlacement="left"
                             onClick={[Function]}
                           >
                             <div
@@ -11409,12 +11393,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -12251,6 +12235,86 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
           </LinkList>
         </div>
       </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|LinkwithIcon Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "padding": "2rem",
+        }
+      }
+    >
+      <LinkWithIcon
+        href="https://www.example.com"
+        iconPlacement="right"
+        inverse={false}
+      >
+        <div
+          className="bx--link-with-icon__container"
+          data-autoid="dds--link-with-icon"
+        >
+          <Link
+            className="bx--link-with-icon"
+            href="https://www.example.com"
+          >
+            <a
+              className="bx--link bx--link-with-icon"
+              href="https://www.example.com"
+            >
+              <span>
+                Link text
+              </span>
+              <ForwardRef(ArrowRight20)>
+                <Icon
+                  height={20}
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 20 20"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                    />
+                  </svg>
+                </Icon>
+              </ForwardRef(ArrowRight20)>
+            </a>
+          </Link>
+        </div>
+      </LinkWithIcon>
     </div>
   </div>
   <input
@@ -14239,6 +14303,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                             copy="Lorem ipsum dolor"
                             formatCTAcopy={[Function]}
                             href="https://www.example.com"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -14255,6 +14320,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                           >
                             <LinkWithIcon
                               href="https://www.example.com"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
@@ -14421,6 +14487,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
                 </HorizontalRule>
                 <LinkWithIcon
                   href="https://example.com"
+                  iconPlacement="right"
                 >
                   <div
                     className="bx--link-with-icon__container"
@@ -16271,6 +16338,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                 "markType": "doubleCurved",
                 "source": Object {
                   "copy": "consectetur adipiscing elit",
+                  "copy2": "IBM Cloud",
                   "heading": "Lorem ipsum dolor sit amet",
                 },
               }
@@ -16307,6 +16375,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                         source={
                           Object {
                             "copy": "consectetur adipiscing elit",
+                            "copy2": "IBM Cloud",
                             "heading": "Lorem ipsum dolor sit amet",
                           }
                         }
@@ -16348,6 +16417,11 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                               >
                                 consectetur adipiscing elit
                               </p>
+                              <p
+                                className="bx--quote__source-optional-copy"
+                              >
+                                IBM Cloud
+                              </p>
                             </div>
                           </div>
                           <div
@@ -16361,6 +16435,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                             </HorizontalRule>
                             <LinkWithIcon
                               href="https://example.com"
+                              iconPlacement="right"
                             >
                               <div
                                 className="bx--link-with-icon__container"
@@ -16711,7 +16786,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
         >
           <ContentBlockCards
             cards={
@@ -21748,6 +21823,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -21764,6 +21840,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -21943,6 +22020,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -21959,6 +22037,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -22137,6 +22216,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 copy="Lorem ipsum dolor"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
+                                                iconPlacement="right"
                                                 openLightBox={[Function]}
                                                 renderLightBox={false}
                                                 style="text"
@@ -22153,6 +22233,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <LinkWithIcon
                                                   href="https://www.ibm.com"
+                                                  iconPlacement="right"
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
@@ -23738,6 +23819,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -23754,6 +23836,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -23933,6 +24016,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -23949,6 +24033,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -24127,6 +24212,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         copy="Lorem ipsum dolor"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
+                                                        iconPlacement="right"
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="text"
@@ -24143,6 +24229,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <LinkWithIcon
                                                           href="https://www.ibm.com"
+                                                          iconPlacement="right"
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
@@ -25379,6 +25466,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
+                                iconPlacement="right"
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="text"
@@ -25395,6 +25483,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               >
                                 <LinkWithIcon
                                   href="https://example.com"
+                                  iconPlacement="right"
                                   onClick={[Function]}
                                   target={null}
                                 >
@@ -25608,6 +25697,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
+                                iconPlacement="right"
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="text"
@@ -25624,6 +25714,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               >
                                 <LinkWithIcon
                                   href="https://example.com"
+                                  iconPlacement="right"
                                   onClick={[Function]}
                                   target={null}
                                 >
@@ -25945,14 +26036,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "heading": "Lorem ipsum dolor sit amet.",
                   "image": undefined,
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "heading": "Lorem ipsum dolor sit amet.",
                   "image": Object {
                     "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -26234,7 +26325,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     <ContentItem
                                       copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                       key="0"
                                     >
                                       <div
@@ -26245,7 +26336,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -26281,7 +26372,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     <ContentItem
                                       copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien."
                                       key="1"
                                     >
                                       <div
@@ -26292,7 +26383,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -28968,7 +29059,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.",
+                  "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                   "cta": Object {
                     "items": Array [
                       Object {
@@ -29057,7 +29148,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                     data-autoid="dds--content-block__children"
                   >
                     <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                       cta={
                         Object {
                           "items": Array [
@@ -29112,7 +29203,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -29176,6 +29267,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29192,6 +29284,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -29272,6 +29365,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29288,6 +29382,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target="_blank"
                                             >
@@ -29472,6 +29567,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29488,6 +29584,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -29568,6 +29665,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29584,6 +29682,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target="_blank"
                                             >
@@ -29754,6 +29853,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
+                                            iconPlacement="right"
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="text"
@@ -29770,6 +29870,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           >
                                             <LinkWithIcon
                                               href="https://example.com"
+                                              iconPlacement="right"
                                               onClick={[Function]}
                                               target={null}
                                             >
@@ -31581,6 +31682,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31597,6 +31699,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -31677,6 +31780,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31693,6 +31797,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -31773,6 +31878,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
+                                  iconPlacement="right"
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -31789,6 +31895,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 >
                                   <LinkWithIcon
                                     href="https://ibm.com"
+                                    iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
                                   >
@@ -31933,7 +32040,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -31949,7 +32055,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "render": [Function],
                                     }
                                   }
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -31959,7 +32065,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -32115,7 +32221,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
           >
             <section
               className="bx--logo-grid"
-              data-autoid="dds--logo-grid bx--logo-grid"
+              data-autoid="dds--logo-grid"
             >
               <div
                 className="bx--logo-grid__container"
@@ -32899,7 +33005,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -32910,7 +33015,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -32920,7 +33025,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33003,7 +33108,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                   "heading": "Get connected",
                 },
                 Object {
-                  "copy": "Dig into more self-directed learning about DevOps methodologies.",
+                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                   "cta": Object {
                     "copy": "Browse tutorials",
                     "href": "https://example.com/",
@@ -33145,7 +33250,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33156,7 +33260,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -33166,7 +33270,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33232,6 +33336,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             copy="Find a partner"
                             formatCTAcopy={[Function]}
                             href="https://example.com/"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -33248,6 +33353,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                           >
                             <LinkWithIcon
                               href="https://example.com/"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
@@ -33303,7 +33409,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                     </div>
                   </ContentItem>
                   <ContentItem
-                    copy="Dig into more self-directed learning about DevOps methodologies."
+                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                     cta={
                       Object {
                         "copy": "Browse tutorials",
@@ -33328,7 +33434,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p>",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -33347,6 +33453,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             copy="Browse tutorials"
                             formatCTAcopy={[Function]}
                             href="https://example.com/"
+                            iconPlacement="right"
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="text"
@@ -33363,6 +33470,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                           >
                             <LinkWithIcon
                               href="https://example.com/"
+                              iconPlacement="right"
                               onClick={[Function]}
                               target={null}
                             >
@@ -35228,29 +35336,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -35287,29 +35394,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -35485,29 +35591,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -35544,29 +35649,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -35751,29 +35855,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -35810,29 +35913,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36069,29 +36171,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     >
                       <li
                         className="bx--buttongroup-item"
-                        key="0"
                       >
                         <ForwardRef(Button)
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="primary"
+                          kind="tertiary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={2}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--primary"
+                            className="bx--btn bx--btn--tertiary"
                             copy="Button 1"
                             data-autoid="dds--button-group-0"
                             href="https://www.example.com"
-                            tabIndex={2}
+                            tabIndex={0}
                           >
                             Button 1
                             <ForwardRef(ArrowRight20)
@@ -36128,29 +36229,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                       </li>
                       <li
                         className="bx--buttongroup-item"
-                        key="1"
                       >
                         <ForwardRef(Button)
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="tertiary"
+                          kind="primary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={1}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--tertiary"
+                            className="bx--btn bx--btn--primary"
                             copy="Button 2"
                             data-autoid="dds--button-group-1"
                             href="https://www.example.com"
-                            tabIndex={1}
+                            tabIndex={0}
                           >
                             Button 2
                             <ForwardRef(ArrowRight20)
@@ -36306,29 +36406,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36365,29 +36464,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36563,29 +36661,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36622,29 +36719,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)

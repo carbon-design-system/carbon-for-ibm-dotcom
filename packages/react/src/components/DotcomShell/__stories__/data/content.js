@@ -243,7 +243,7 @@ const Content = () => (
             eyebrow: 'Lorem ipsum',
             heading: 'Aliquam condimentum',
             copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.',
+              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
               items: [
                 {
