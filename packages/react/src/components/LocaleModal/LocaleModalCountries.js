@@ -141,7 +141,6 @@ const LocaleModalCountries = ({
             region.countries.map((country, index) => (
               <a
                 key={index}
-                tabIndex="0"
                 className={`${prefix}--locale-modal__locales`}
                 onClick={() => _setCookie(country.locale)}
                 href={country.href}

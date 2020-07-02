@@ -12646,6 +12646,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         labelText="Search by location or language"
                         onChange={[Function]}
                         placeHolderText=""
+                        tabIndex="0"
                         type="text"
                       >
                         <div
@@ -12697,6 +12698,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                             onChange={[Function]}
                             placeholder=""
                             role="searchbox"
+                            tabIndex="0"
                             type="text"
                           />
                           <button
