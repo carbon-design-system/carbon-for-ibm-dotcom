@@ -12,9 +12,14 @@
 
 @mixin callout-quote {
   .#{$prefix}--callout-quote {
-    @include hang;
-  }
+    @include carbon--breakpoint('lg') {
+      @include hang;
+    }
 
+    @include carbon--breakpoint('md') {
+      @include hang;
+    }
+  }
 }
 
 @include exports('callout-quote') {
