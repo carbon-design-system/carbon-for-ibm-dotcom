@@ -56,7 +56,6 @@ ContentGroupHorizontal.propTypes = {
         heading: PropTypes.string,
         items: PropTypes.arrayOf(
           PropTypes.shape({
-            style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
             type: PropTypes.oneOfType([
               PropTypes.oneOf(['local', 'external']),
               PropTypes.arrayOf(PropTypes.oneOf(['local', 'external'])),
