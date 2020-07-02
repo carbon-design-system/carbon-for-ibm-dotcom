@@ -53,7 +53,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             >
               <li
                 className="bx--buttongroup-item"
-                key="0"
               >
                 <ForwardRef(Button)
                   copy="Button 1"
@@ -77,7 +76,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               </li>
               <li
                 className="bx--buttongroup-item"
-                key="1"
               >
                 <ForwardRef(Button)
                   copy="Button 2"
@@ -135,7 +133,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
         >
           <li
             className="bx--buttongroup-item"
-            key="0"
           >
             <ForwardRef(Button)
               copy="Button 1"
@@ -159,7 +156,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
           </li>
           <li
             className="bx--buttongroup-item"
-            key="1"
           >
             <ForwardRef(Button)
               copy="Button 2"
@@ -2960,7 +2956,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
                                                           <li
                                                             className="bx--buttongroup-item"
-                                                            key="0"
                                                           >
                                                             <ForwardRef(Button)
                                                               copy="Excepteur sint occaecat"
@@ -6500,7 +6495,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         >
                                           <li
                                             className="bx--buttongroup-item"
-                                            key="0"
                                           >
                                             <ForwardRef(Button)
                                               copy="Contact sales"
@@ -7120,7 +7114,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7349,7 +7342,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -32340,7 +32332,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33310,7 +33301,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33556,7 +33546,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -35669,7 +35658,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
@@ -35730,7 +35718,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
@@ -35930,7 +35917,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
@@ -35991,7 +35977,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
@@ -36200,7 +36185,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
@@ -36261,7 +36245,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
@@ -36522,7 +36505,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     >
                       <li
                         className="bx--buttongroup-item"
-                        key="0"
                       >
                         <ForwardRef(Button)
                           copy="Button 1"
@@ -36583,7 +36565,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                       </li>
                       <li
                         className="bx--buttongroup-item"
-                        key="1"
                       >
                         <ForwardRef(Button)
                           copy="Button 2"
@@ -36763,7 +36744,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
@@ -36824,7 +36804,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
@@ -37024,7 +37003,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
@@ -37085,7 +37063,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
