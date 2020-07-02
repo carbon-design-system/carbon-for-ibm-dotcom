@@ -53,23 +53,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             >
               <li
                 className="bx--buttongroup-item"
-                key="0"
               >
                 <ForwardRef(Button)
                   copy="Button 1"
                   data-autoid="dds--button-group-0"
                   disabled={false}
                   href="https://example.com"
-                  kind="primary"
-                  tabIndex={2}
+                  kind="tertiary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--primary"
+                    className="bx--btn bx--btn--tertiary"
                     copy="Button 1"
                     data-autoid="dds--button-group-0"
                     href="https://example.com"
-                    tabIndex={2}
+                    tabIndex={0}
                   >
                     Button 1
                   </a>
@@ -77,23 +76,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               </li>
               <li
                 className="bx--buttongroup-item"
-                key="1"
               >
                 <ForwardRef(Button)
                   copy="Button 2"
                   data-autoid="dds--button-group-1"
                   disabled={false}
                   href="https://example.com"
-                  kind="tertiary"
-                  tabIndex={1}
+                  kind="primary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--tertiary"
+                    className="bx--btn bx--btn--primary"
                     copy="Button 2"
                     data-autoid="dds--button-group-1"
                     href="https://example.com"
-                    tabIndex={1}
+                    tabIndex={0}
                   >
                     Button 2
                   </a>
@@ -135,23 +133,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
         >
           <li
             className="bx--buttongroup-item"
-            key="0"
           >
             <ForwardRef(Button)
               copy="Button 1"
               data-autoid="dds--button-group-0"
               disabled={false}
               href="https://example.com"
-              kind="primary"
-              tabIndex={2}
+              kind="tertiary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--primary"
+                className="bx--btn bx--btn--tertiary"
                 copy="Button 1"
                 data-autoid="dds--button-group-0"
                 href="https://example.com"
-                tabIndex={2}
+                tabIndex={0}
               >
                 Button 1
               </a>
@@ -159,23 +156,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
           </li>
           <li
             className="bx--buttongroup-item"
-            key="1"
           >
             <ForwardRef(Button)
               copy="Button 2"
               data-autoid="dds--button-group-1"
               disabled={false}
               href="https://example.com"
-              kind="tertiary"
-              tabIndex={1}
+              kind="primary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--tertiary"
+                className="bx--btn bx--btn--primary"
                 copy="Button 2"
                 data-autoid="dds--button-group-1"
                 href="https://example.com"
-                tabIndex={1}
+                tabIndex={0}
               >
                 Button 2
               </a>
@@ -2960,7 +2956,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
                                                           <li
                                                             className="bx--buttongroup-item"
-                                                            key="0"
                                                           >
                                                             <ForwardRef(Button)
                                                               copy="Excepteur sint occaecat"
@@ -2976,7 +2971,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              tabIndex={2}
+                                                              tabIndex={0}
                                                               target={null}
                                                               type="button"
                                                             >
@@ -2986,7 +2981,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 data-autoid="dds--button-group-0"
                                                                 href="https://example.com/"
                                                                 onClick={[Function]}
-                                                                tabIndex={2}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 Excepteur sint occaecat
@@ -6510,7 +6505,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         >
                                           <li
                                             className="bx--buttongroup-item"
-                                            key="0"
                                           >
                                             <ForwardRef(Button)
                                               copy={
@@ -6529,7 +6523,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              tabIndex={2}
+                                              tabIndex={0}
                                               target={null}
                                               type="button"
                                             >
@@ -6543,7 +6537,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 data-autoid="dds--button-group-0"
                                                 disabled={false}
                                                 onClick={[Function]}
-                                                tabIndex={2}
+                                                tabIndex={0}
                                                 target={null}
                                                 type="button"
                                               >
@@ -7138,7 +7132,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7152,7 +7145,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7160,7 +7153,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -7367,7 +7360,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7381,7 +7373,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7389,7 +7381,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -32360,7 +32352,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -32376,7 +32367,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "render": [Function],
                                     }
                                   }
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -32386,7 +32377,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33330,7 +33321,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33341,7 +33331,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -33351,7 +33341,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33576,7 +33566,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33587,7 +33576,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -33597,7 +33586,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -35689,29 +35678,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -35750,29 +35738,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -35950,29 +35937,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36011,29 +35997,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36220,29 +36205,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36281,29 +36265,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36542,29 +36525,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     >
                       <li
                         className="bx--buttongroup-item"
-                        key="0"
                       >
                         <ForwardRef(Button)
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="primary"
+                          kind="tertiary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={2}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--primary"
+                            className="bx--btn bx--btn--tertiary"
                             copy="Button 1"
                             data-autoid="dds--button-group-0"
                             href="https://www.example.com"
-                            tabIndex={2}
+                            tabIndex={0}
                           >
                             Button 1
                             <ForwardRef(ArrowRight20)
@@ -36603,29 +36585,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                       </li>
                       <li
                         className="bx--buttongroup-item"
-                        key="1"
                       >
                         <ForwardRef(Button)
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="tertiary"
+                          kind="primary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={1}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--tertiary"
+                            className="bx--btn bx--btn--primary"
                             copy="Button 2"
                             data-autoid="dds--button-group-1"
                             href="https://www.example.com"
-                            tabIndex={1}
+                            tabIndex={0}
                           >
                             Button 2
                             <ForwardRef(ArrowRight20)
@@ -36783,29 +36764,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36844,29 +36824,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -37044,29 +37023,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -37105,29 +37083,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
