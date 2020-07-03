@@ -1486,6 +1486,9 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                         className="bx--link-list"
                         data-autoid="dds--link-list"
                       >
+                        <h4
+                          className="bx--link-list__heading"
+                        />
                         <ul
                           className="bx--link-list__list bx--link-list__list--vertical"
                         >
@@ -3205,7 +3208,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -3391,7 +3393,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="3"
                                         >
@@ -3954,7 +3955,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -4296,8 +4296,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 heading="Mauris ultrices eros in cursus"
                                 mediaData={
                                   Object {
-                                    "src": "0_uka1msg4",
-                                    "type": "video",
+                                    "videoId": "0_uka1msg4",
                                   }
                                 }
                                 mediaType="video"
@@ -4325,8 +4324,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             inverse={true}
                                             mediaData={
                                               Object {
-                                                "src": "0_uka1msg4",
-                                                "type": "video",
+                                                "videoId": "0_uka1msg4",
                                               }
                                             }
                                             mediaType="video"
@@ -4384,8 +4382,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         <VideoPlayer
                                                           autoPlay={false}
                                                           inverse={true}
-                                                          src="0_uka1msg4"
-                                                          type="video"
+                                                          videoId="0_uka1msg4"
                                                         >
                                                           <div
                                                             aria-label=" (1:00)"
@@ -4393,11 +4390,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <div
                                                               className="bx--video-player__video-container"
-                                                              data-autoid="dds--video-player__video-undefined"
+                                                              data-autoid="dds--video-player__video-0_uka1msg4"
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-undefined-7"
+                                                                id="bx--video-player__video-0_uka1msg4-7"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -4407,6 +4404,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       "name": "",
                                                                     }
                                                                   }
+                                                                  videoId="0_uka1msg4"
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -4448,6 +4446,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     Object {
                                       "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4467,6 +4466,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     Object {
                                       "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4514,6 +4514,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4572,6 +4573,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4592,6 +4594,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -4786,6 +4793,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4844,6 +4852,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4864,6 +4873,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -6248,9 +6262,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           Object {
                             "buttons": Array [
                               Object {
-                                "copy": Array [
-                                  "Contact sales",
-                                ],
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
                                 "iconDescription": "right arrow icon",
                                 "onClick": [Function],
                                 "renderIcon": Object {
@@ -6301,9 +6314,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               Object {
                                 "buttons": Array [
                                   Object {
-                                    "copy": Array [
-                                      "Contact sales",
-                                    ],
+                                    "copy": "Contact sales",
+                                    "href": "https://example.com/",
                                     "iconDescription": "right arrow icon",
                                     "onClick": [Function],
                                     "renderIcon": Object {
@@ -6352,9 +6364,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   buttons={
                                     Array [
                                       Object {
-                                        "copy": Array [
-                                          "Contact sales",
-                                        ],
+                                        "copy": "Contact sales",
+                                        "href": "https://example.com/",
                                         "iconDescription": "right arrow icon",
                                         "onClick": [Function],
                                         "renderIcon": Object {
@@ -6379,9 +6390,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       buttons={
                                         Array [
                                           Object {
-                                            "copy": Array [
-                                              "Contact sales",
-                                            ],
+                                            "copy": "Contact sales",
+                                            "href": "https://example.com/",
                                             "iconDescription": "right arrow icon",
                                             "onClick": [Function],
                                             "renderIcon": Object {
@@ -6414,9 +6424,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         buttons={
                                           Array [
                                             Object {
-                                              "copy": Array [
-                                                "Contact sales",
-                                              ],
+                                              "copy": "Contact sales",
+                                              "href": "https://example.com/",
                                               "iconDescription": "right arrow icon",
                                               "onClick": [Function],
                                               "renderIcon": Object {
@@ -6438,13 +6447,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             className="bx--buttongroup-item"
                                           >
                                             <ForwardRef(Button)
-                                              copy={
-                                                Array [
-                                                  "Contact sales",
-                                                ]
-                                              }
+                                              copy="Contact sales"
                                               data-autoid="dds--button-group-0"
                                               disabled={false}
+                                              href="https://example.com/"
                                               iconDescription="right arrow icon"
                                               kind="primary"
                                               onClick={[Function]}
@@ -6458,19 +6464,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               target={null}
                                               type="button"
                                             >
-                                              <button
+                                              <a
                                                 className="bx--btn bx--btn--primary"
-                                                copy={
-                                                  Array [
-                                                    "Contact sales",
-                                                  ]
-                                                }
+                                                copy="Contact sales"
                                                 data-autoid="dds--button-group-0"
-                                                disabled={false}
+                                                href="https://example.com/"
                                                 onClick={[Function]}
                                                 tabIndex={0}
                                                 target={null}
-                                                type="button"
                                               >
                                                 Contact sales
                                                 <ForwardRef(ArrowRight20)
@@ -6506,7 +6507,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     </svg>
                                                   </Icon>
                                                 </ForwardRef(ArrowRight20)>
-                                              </button>
+                                              </a>
                                             </ForwardRef(Button)>
                                           </li>
                                         </ol>
@@ -16253,45 +16254,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               </div>
             </div>
           </VideoPlayer>
-        </div>
-      </div>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
-exports[`Storyshots Patterns (Blocks)|CalloutData Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      className="bx--grid"
-    >
-      <div
-        className="bx--row"
-      >
-        <div
-          className="bx--offset-lg-4 bx--col-lg-12"
-        >
-          <CalloutData
-            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            data="51%"
-            source=" Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          />
         </div>
       </div>
     </div>
@@ -26301,7 +26263,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </ImageWithCaption>
                             </div>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="0"
                             >
@@ -26348,7 +26309,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </div>
                             </ContentGroup>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="1"
                             >
@@ -29237,6 +29197,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -29537,6 +29500,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -29823,6 +29789,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
