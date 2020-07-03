@@ -41,7 +41,7 @@ const LocaleModalRegions = ({
     );
 
     [...regionLink].forEach(link => {
-      link.setAttribute('tabindex', '1');
+      link.setAttribute('tabindex', '0');
       link.addEventListener('click', () => {
         const searchInput = document.getElementById(
           `${prefix}--locale-modal__filter`
@@ -84,7 +84,7 @@ const LocaleModalRegions = ({
         };
 
         [...localeBackBtn].forEach(btn => {
-          btn.setAttribute('tabindex', '1');
+          btn.setAttribute('tabindex', '0');
           btn.setAttribute('role', 'button');
           btn.setAttribute('aria-label', returnButtonLabel);
 
