@@ -77,7 +77,7 @@ const _renderGroup = items =>
               style: 'text',
               ...item.cta,
             }
-          : false
+          : undefined
       }>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
@@ -100,7 +100,7 @@ ContentBlockSegmented.propTypes = {
   /**
    * Short copy to suppport title.
    */
-  copy: PropTypes.string.isRequired,
+  copy: PropTypes.string,
 
   /**
    * Supports `text` and `card` styles.
