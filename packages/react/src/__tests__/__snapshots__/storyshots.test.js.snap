@@ -53,23 +53,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             >
               <li
                 className="bx--buttongroup-item"
-                key="0"
               >
                 <ForwardRef(Button)
                   copy="Button 1"
                   data-autoid="dds--button-group-0"
                   disabled={false}
                   href="https://example.com"
-                  kind="primary"
-                  tabIndex={2}
+                  kind="tertiary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--primary"
+                    className="bx--btn bx--btn--tertiary"
                     copy="Button 1"
                     data-autoid="dds--button-group-0"
                     href="https://example.com"
-                    tabIndex={2}
+                    tabIndex={0}
                   >
                     Button 1
                   </a>
@@ -77,23 +76,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               </li>
               <li
                 className="bx--buttongroup-item"
-                key="1"
               >
                 <ForwardRef(Button)
                   copy="Button 2"
                   data-autoid="dds--button-group-1"
                   disabled={false}
                   href="https://example.com"
-                  kind="tertiary"
-                  tabIndex={1}
+                  kind="primary"
+                  tabIndex={0}
                   type="button"
                 >
                   <a
-                    className="bx--btn bx--btn--tertiary"
+                    className="bx--btn bx--btn--primary"
                     copy="Button 2"
                     data-autoid="dds--button-group-1"
                     href="https://example.com"
-                    tabIndex={1}
+                    tabIndex={0}
                   >
                     Button 2
                   </a>
@@ -135,23 +133,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
         >
           <li
             className="bx--buttongroup-item"
-            key="0"
           >
             <ForwardRef(Button)
               copy="Button 1"
               data-autoid="dds--button-group-0"
               disabled={false}
               href="https://example.com"
-              kind="primary"
-              tabIndex={2}
+              kind="tertiary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--primary"
+                className="bx--btn bx--btn--tertiary"
                 copy="Button 1"
                 data-autoid="dds--button-group-0"
                 href="https://example.com"
-                tabIndex={2}
+                tabIndex={0}
               >
                 Button 1
               </a>
@@ -159,23 +156,22 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
           </li>
           <li
             className="bx--buttongroup-item"
-            key="1"
           >
             <ForwardRef(Button)
               copy="Button 2"
               data-autoid="dds--button-group-1"
               disabled={false}
               href="https://example.com"
-              kind="tertiary"
-              tabIndex={1}
+              kind="primary"
+              tabIndex={0}
               type="button"
             >
               <a
-                className="bx--btn bx--btn--tertiary"
+                className="bx--btn bx--btn--primary"
                 copy="Button 2"
                 data-autoid="dds--button-group-1"
                 href="https://example.com"
-                tabIndex={1}
+                tabIndex={0}
               >
                 Button 2
               </a>
@@ -1508,6 +1504,9 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                         className="bx--link-list"
                         data-autoid="dds--link-list"
                       >
+                        <h4
+                          className="bx--link-list__heading"
+                        />
                         <ul
                           className="bx--link-list__list bx--link-list__list--vertical"
                         >
@@ -2960,7 +2959,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
                                                           <li
                                                             className="bx--buttongroup-item"
-                                                            key="0"
                                                           >
                                                             <ForwardRef(Button)
                                                               copy="Excepteur sint occaecat"
@@ -2976,7 +2974,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              tabIndex={2}
+                                                              tabIndex={0}
                                                               target={null}
                                                               type="button"
                                                             >
@@ -2986,7 +2984,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 data-autoid="dds--button-group-0"
                                                                 href="https://example.com/"
                                                                 onClick={[Function]}
-                                                                tabIndex={2}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 Excepteur sint occaecat
@@ -3253,7 +3251,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -3441,7 +3438,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="3"
                                         >
@@ -4008,7 +4004,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           </div>
                                         </ContentGroup>
                                         <ContentGroup
-                                          cta={false}
                                           heading="A scelerisque purus semper eget duis at tellus."
                                           key="1"
                                         >
@@ -4352,8 +4347,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 heading="Mauris ultrices eros in cursus"
                                 mediaData={
                                   Object {
-                                    "src": "0_uka1msg4",
-                                    "type": "video",
+                                    "videoId": "0_uka1msg4",
                                   }
                                 }
                                 mediaType="video"
@@ -4381,8 +4375,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             inverse={true}
                                             mediaData={
                                               Object {
-                                                "src": "0_uka1msg4",
-                                                "type": "video",
+                                                "videoId": "0_uka1msg4",
                                               }
                                             }
                                             mediaType="video"
@@ -4440,8 +4433,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         <VideoPlayer
                                                           autoPlay={false}
                                                           inverse={true}
-                                                          src="0_uka1msg4"
-                                                          type="video"
+                                                          videoId="0_uka1msg4"
                                                         >
                                                           <div
                                                             aria-label=" (1:00)"
@@ -4449,11 +4441,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <div
                                                               className="bx--video-player__video-container"
-                                                              data-autoid="dds--video-player__video-undefined"
+                                                              data-autoid="dds--video-player__video-0_uka1msg4"
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-undefined-7"
+                                                                id="bx--video-player__video-0_uka1msg4-7"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -4463,6 +4455,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       "name": "",
                                                                     }
                                                                   }
+                                                                  videoId="0_uka1msg4"
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -4502,8 +4495,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 items={
                                   Array [
                                     Object {
-                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.",
+                                      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4523,6 +4517,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     Object {
                                       "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                                       "cta": Object {
+                                        "heading": "Aliquam condimentum",
                                         "items": Array [
                                           Object {
                                             "copy": "Link text",
@@ -4567,9 +4562,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         data-autoid="dds--content-block__children"
                                       >
                                         <ContentItemHorizontal
-                                          copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                                          copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4618,7 +4614,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                                     }
                                                   }
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4628,6 +4624,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4648,6 +4645,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -4846,6 +4848,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                                           cta={
                                             Object {
+                                              "heading": "Aliquam condimentum",
                                               "items": Array [
                                                 Object {
                                                   "copy": "Link text",
@@ -4904,6 +4907,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   data-autoid="dds--content-item-horizontal__item--cta"
                                                 >
                                                   <LinkList
+                                                    heading="Aliquam condimentum"
                                                     items={
                                                       Array [
                                                         Object {
@@ -4924,6 +4928,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
                                                     >
+                                                      <h4
+                                                        className="bx--link-list__heading"
+                                                      >
+                                                        Aliquam condimentum
+                                                      </h4>
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
                                                       >
@@ -6322,9 +6331,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           Object {
                             "buttons": Array [
                               Object {
-                                "copy": Array [
-                                  "Contact sales",
-                                ],
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
                                 "iconDescription": "right arrow icon",
                                 "onClick": [Function],
                                 "renderIcon": Object {
@@ -6375,9 +6383,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               Object {
                                 "buttons": Array [
                                   Object {
-                                    "copy": Array [
-                                      "Contact sales",
-                                    ],
+                                    "copy": "Contact sales",
+                                    "href": "https://example.com/",
                                     "iconDescription": "right arrow icon",
                                     "onClick": [Function],
                                     "renderIcon": Object {
@@ -6426,9 +6433,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   buttons={
                                     Array [
                                       Object {
-                                        "copy": Array [
-                                          "Contact sales",
-                                        ],
+                                        "copy": "Contact sales",
+                                        "href": "https://example.com/",
                                         "iconDescription": "right arrow icon",
                                         "onClick": [Function],
                                         "renderIcon": Object {
@@ -6453,9 +6459,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       buttons={
                                         Array [
                                           Object {
-                                            "copy": Array [
-                                              "Contact sales",
-                                            ],
+                                            "copy": "Contact sales",
+                                            "href": "https://example.com/",
                                             "iconDescription": "right arrow icon",
                                             "onClick": [Function],
                                             "renderIcon": Object {
@@ -6488,9 +6493,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         buttons={
                                           Array [
                                             Object {
-                                              "copy": Array [
-                                                "Contact sales",
-                                              ],
+                                              "copy": "Contact sales",
+                                              "href": "https://example.com/",
                                               "iconDescription": "right arrow icon",
                                               "onClick": [Function],
                                               "renderIcon": Object {
@@ -6510,16 +6514,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         >
                                           <li
                                             className="bx--buttongroup-item"
-                                            key="0"
                                           >
                                             <ForwardRef(Button)
-                                              copy={
-                                                Array [
-                                                  "Contact sales",
-                                                ]
-                                              }
+                                              copy="Contact sales"
                                               data-autoid="dds--button-group-0"
                                               disabled={false}
+                                              href="https://example.com/"
                                               iconDescription="right arrow icon"
                                               kind="primary"
                                               onClick={[Function]}
@@ -6529,23 +6529,18 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              tabIndex={2}
+                                              tabIndex={0}
                                               target={null}
                                               type="button"
                                             >
-                                              <button
+                                              <a
                                                 className="bx--btn bx--btn--primary"
-                                                copy={
-                                                  Array [
-                                                    "Contact sales",
-                                                  ]
-                                                }
+                                                copy="Contact sales"
                                                 data-autoid="dds--button-group-0"
-                                                disabled={false}
+                                                href="https://example.com/"
                                                 onClick={[Function]}
-                                                tabIndex={2}
+                                                tabIndex={0}
                                                 target={null}
-                                                type="button"
                                               >
                                                 Contact sales
                                                 <ForwardRef(ArrowRight20)
@@ -6583,7 +6578,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     </svg>
                                                   </Icon>
                                                 </ForwardRef(ArrowRight20)>
-                                              </button>
+                                              </a>
                                             </ForwardRef(Button)>
                                           </li>
                                         </ol>
@@ -7138,7 +7133,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7152,7 +7146,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7160,7 +7154,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -7367,7 +7361,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                       >
                         <li
                           className="bx--buttongroup-item"
-                          key="0"
                         >
                           <ForwardRef(Button)
                             copy="Lorem ipsum dolor"
@@ -7381,7 +7374,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 "render": [Function],
                               }
                             }
-                            tabIndex={2}
+                            tabIndex={0}
                             type="button"
                           >
                             <button
@@ -7389,7 +7382,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                               copy="Lorem ipsum dolor"
                               data-autoid="dds--button-group-0"
                               disabled={false}
-                              tabIndex={2}
+                              tabIndex={0}
                               type="button"
                             >
                               Lorem ipsum dolor
@@ -16450,45 +16443,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               </div>
             </div>
           </VideoPlayer>
-        </div>
-      </div>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
-exports[`Storyshots Patterns (Blocks)|CalloutData Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      className="bx--grid"
-    >
-      <div
-        className="bx--row"
-      >
-        <div
-          className="bx--offset-lg-4 bx--col-lg-12"
-        >
-          <CalloutData
-            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            data="51%"
-            source=" Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          />
         </div>
       </div>
     </div>
@@ -26574,7 +26528,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </ImageWithCaption>
                             </div>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="0"
                             >
@@ -26621,7 +26574,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                               </div>
                             </ContentGroup>
                             <ContentGroup
-                              cta={false}
                               heading="Lorem ipsum dolor sit amet."
                               key="1"
                             >
@@ -29354,7 +29306,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "Lorem ipsum dolor sit amet",
+                  "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
                   "cta": Object {
                     "items": Array [
                       Object {
@@ -29443,7 +29395,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                     data-autoid="dds--content-block__children"
                   >
                     <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet"
+                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
                       cta={
                         Object {
                           "items": Array [
@@ -29498,7 +29450,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -29532,6 +29484,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -29836,6 +29791,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -30126,6 +30084,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  />
                                   <ul
                                     className="bx--link-list__list bx--link-list__list--vertical"
                                   >
@@ -32360,7 +32321,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -32376,7 +32336,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "render": [Function],
                                     }
                                   }
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -32386,7 +32346,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33330,7 +33290,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33341,7 +33300,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -33351,7 +33310,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33434,7 +33393,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                   "heading": "Get connected",
                 },
                 Object {
-                  "copy": "Dig into more self-directed learning about DevOps methodologies.",
+                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                   "cta": Object {
                     "copy": "Browse tutorials",
                     "href": "https://example.com/",
@@ -33576,7 +33535,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                             >
                               <li
                                 className="bx--buttongroup-item"
-                                key="0"
                               >
                                 <ForwardRef(Button)
                                   copy="Contact sales"
@@ -33587,7 +33545,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                   kind="primary"
                                   onClick={[Function]}
                                   renderIcon={null}
-                                  tabIndex={2}
+                                  tabIndex={0}
                                   target={null}
                                   type="button"
                                 >
@@ -33597,7 +33555,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                     data-autoid="dds--button-group-0"
                                     href="https://example.com/"
                                     onClick={[Function]}
-                                    tabIndex={2}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     Contact sales
@@ -33738,7 +33696,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                     </div>
                   </ContentItem>
                   <ContentItem
-                    copy="Dig into more self-directed learning about DevOps methodologies."
+                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                     cta={
                       Object {
                         "copy": "Browse tutorials",
@@ -33763,7 +33721,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -35689,29 +35647,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -35750,29 +35707,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -35950,29 +35906,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36011,29 +35966,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36220,29 +36174,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36281,29 +36234,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -36542,29 +36494,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     >
                       <li
                         className="bx--buttongroup-item"
-                        key="0"
                       >
                         <ForwardRef(Button)
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="primary"
+                          kind="tertiary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={2}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--primary"
+                            className="bx--btn bx--btn--tertiary"
                             copy="Button 1"
                             data-autoid="dds--button-group-0"
                             href="https://www.example.com"
-                            tabIndex={2}
+                            tabIndex={0}
                           >
                             Button 1
                             <ForwardRef(ArrowRight20)
@@ -36603,29 +36554,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                       </li>
                       <li
                         className="bx--buttongroup-item"
-                        key="1"
                       >
                         <ForwardRef(Button)
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           disabled={false}
                           href="https://www.example.com"
-                          kind="tertiary"
+                          kind="primary"
                           renderIcon={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
                             }
                           }
-                          tabIndex={1}
+                          tabIndex={0}
                           type="button"
                         >
                           <a
-                            className="bx--btn bx--btn--tertiary"
+                            className="bx--btn bx--btn--primary"
                             copy="Button 2"
                             data-autoid="dds--button-group-1"
                             href="https://www.example.com"
-                            tabIndex={1}
+                            tabIndex={0}
                           >
                             Button 2
                             <ForwardRef(ArrowRight20)
@@ -36783,29 +36733,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -36844,29 +36793,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -37044,29 +36992,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                   >
                     <li
                       className="bx--buttongroup-item"
-                      key="0"
                     >
                       <ForwardRef(Button)
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="primary"
+                        kind="tertiary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={2}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--primary"
+                          className="bx--btn bx--btn--tertiary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
-                          tabIndex={2}
+                          tabIndex={0}
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -37105,29 +37052,28 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                     </li>
                     <li
                       className="bx--buttongroup-item"
-                      key="1"
                     >
                       <ForwardRef(Button)
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
                         href="https://www.example.com"
-                        kind="tertiary"
+                        kind="primary"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
-                        tabIndex={1}
+                        tabIndex={0}
                         type="button"
                       >
                         <a
-                          className="bx--btn bx--btn--tertiary"
+                          className="bx--btn bx--btn--primary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
-                          tabIndex={1}
+                          tabIndex={0}
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
