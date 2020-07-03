@@ -28,9 +28,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
     <div
       className={`${prefix}--link-list`}
       data-autoid={`${stablePrefix}--link-list`}>
-      {heading && (
-        <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
-      )}
+      <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
 
       <ul
         className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}>
@@ -94,7 +92,8 @@ LinkList.propTypes = {
   /**
    * Orientation of LinkList.
    */
-  style: PropTypes.oneOf(['card', 'horizontal', 'vertical']).isRequired,
+  style: PropTypes.oneOf(['card', 'horizontal', 'vertical', 'vertical-end'])
+    .isRequired,
 };
 
 export default LinkList;
