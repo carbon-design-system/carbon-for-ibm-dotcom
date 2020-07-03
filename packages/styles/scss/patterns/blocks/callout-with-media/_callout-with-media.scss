@@ -16,7 +16,7 @@
 
       &-simple__media-video {
         @include carbon--breakpoint-down('md') {
-          margin-top: -#{$spacing-05};
+          margin-top: -16px;
         }
 
         margin-top: $spacing-07;
