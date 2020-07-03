@@ -10,20 +10,24 @@
     padding-top: 0;
   }
 
-  .#{$prefix}--content-block-simple__media-video {
-    @include carbon--breakpoint-down('md') {
-      margin-top: -16px;
+  .#{$prefix}--content-block {
+    padding-bottom: $layout-05;
+
+    &-simple__media-video {
+      @include carbon--breakpoint-down('md') {
+        margin-top: -16px;
+      }
+
+      margin-top: $spacing-07;
     }
 
-    margin-top: $spacing-07;
-  }
+    &-simple__media-image {
+      @include carbon--breakpoint-down('md') {
+        margin-top: 0;
+      }
 
-  .#{$prefix}--content-block-simple__media-image {
-    @include carbon--breakpoint-down('md') {
-      margin-top: 0;
+      margin-top: $spacing-09;
     }
-
-    margin-top: $spacing-09;
   }
 
   .#{$prefix}--video-player__video-caption {
