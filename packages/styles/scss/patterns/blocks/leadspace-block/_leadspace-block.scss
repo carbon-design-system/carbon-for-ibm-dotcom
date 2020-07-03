@@ -62,7 +62,9 @@
       }
 
       .#{$prefix}--leadspace-block__media {
-        padding-top: $spacing-05;
+        @include carbon--breakpoint('md') {
+          padding-top: $spacing-05;
+        }
 
         .#{$prefix}--image-with-caption {
           margin-top: 0;
