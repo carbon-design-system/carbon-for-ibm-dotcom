@@ -53,6 +53,16 @@ class DDSMastheadSearch extends BXDropdown {
     await this.updateComplete;
     const { _searchButtonNode: searchButtonNode } = this;
     searchButtonNode?.focus();
+    this.dispatchEvent(
+      new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          active: this.active,
+        },
+      })
+    );
   }
 
   /**
@@ -67,6 +77,16 @@ class DDSMastheadSearch extends BXDropdown {
       await this.updateComplete;
       const { _searchInputNode: searchInputNode } = this;
       searchInputNode?.focus();
+      this.dispatchEvent(
+        new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.active,
+          },
+        })
+      );
     }
   }
 
@@ -329,6 +349,13 @@ class DDSMastheadSearch extends BXDropdown {
    */
   static get eventBeforeRedirect() {
     return `${ddsPrefix}-masthead-search-beingredirected`;
+  }
+
+  /**
+   * The name of the custom event fired after this search box is toggled upon a user gesture.
+   */
+  static get eventToggle() {
+    return `${ddsPrefix}-masthead-search-toggled`;
   }
 
   static styles = styles;

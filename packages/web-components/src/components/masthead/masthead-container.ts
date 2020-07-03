@@ -514,6 +514,11 @@ _  */
   @property({ attribute: false })
   navLinks?: MastheadLink[];
 
+  createRenderRoot() {
+    // We render child elements of `<dds-masthead-container>` by ourselves
+    return this;
+  }
+
   connectedCallback() {
     this._shouldPreventFetch = false;
     super.connectedCallback();
