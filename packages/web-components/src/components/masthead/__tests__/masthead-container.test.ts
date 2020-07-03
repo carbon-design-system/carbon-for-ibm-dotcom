@@ -56,7 +56,7 @@ describe('dds-masthead-container', function() {
       render(template({ loginNonce: 'login-nonce-foo' }), document.body);
       await Promise.resolve();
       const mastheadContainer = document.body.querySelector('dds-masthead-container');
-      expect(mastheadContainer!.shadowRoot!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
+      expect(mastheadContainer!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
     });
 
     it('should render authenticated state', async function() {
@@ -65,7 +65,7 @@ describe('dds-masthead-container', function() {
       render(template({ authenticated: true }), document.body);
       await Promise.resolve();
       const mastheadContainer = document.body.querySelector('dds-masthead-container');
-      expect(mastheadContainer!.shadowRoot!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
+      expect(mastheadContainer!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
     });
   });
 
@@ -76,8 +76,8 @@ describe('dds-masthead-container', function() {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadContainer = document.body.querySelector('dds-masthead-container');
-      expect(mastheadContainer!.shadowRoot!.querySelector('dds-top-nav')!.children.length).toBe(0);
-      expect(mastheadContainer!.shadowRoot!.querySelector('dds-left-nav')!.children.length).toBe(0);
+      expect(mastheadContainer!.querySelector('dds-top-nav')!.children.length).toBe(0);
+      expect(mastheadContainer!.querySelector('dds-left-nav')!.children.length).toBe(0);
     });
 
     it('should render the given nav items to the top', async function() {
@@ -85,7 +85,7 @@ describe('dds-masthead-container', function() {
       spyOn(TranslationAPI, 'getTranslation').and.returnValue(Promise.resolve({ mastheadNav: {} }));
       render(template({ navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-masthead-container')!.shadowRoot!.querySelector('dds-top-nav')).toMatchSnapshot();
+      expect(document.body.querySelector('dds-masthead-container')!.querySelector('dds-top-nav')).toMatchSnapshot();
     });
 
     it('should render the given nav items to the left', async function() {
@@ -93,7 +93,7 @@ describe('dds-masthead-container', function() {
       spyOn(TranslationAPI, 'getTranslation').and.returnValue(Promise.resolve({ mastheadNav: {} }));
       render(template({ navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-masthead-container')!.shadowRoot!.querySelector('dds-left-nav')).toMatchSnapshot();
+      expect(document.body.querySelector('dds-masthead-container')!.querySelector('dds-left-nav')).toMatchSnapshot();
     });
   });
 
@@ -225,7 +225,7 @@ describe('dds-masthead-container', function() {
         promisesFetchResults.push(promise);
         return promise;
       });
-      search = mastheadContainer!.shadowRoot!.querySelector('dds-masthead-search');
+      search = mastheadContainer!.querySelector('dds-masthead-search');
       (search!.shadowRoot!.querySelector('.bx--header__search--search') as HTMLElement).click();
       await Promise.resolve();
     });
