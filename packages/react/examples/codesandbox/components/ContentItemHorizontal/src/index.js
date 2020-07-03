@@ -19,22 +19,24 @@ const App = () => (
           eyebrow="Lorem ipsum"
           heading="Aliquam condimentum"
           copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
-          cta={[
-            {
-              type: 'local',
-              copy: 'Learn more',
-              cta: {
-                href: 'https://ibm.com',
+          cta={{
+            items: [
+              {
+                type: 'local',
+                copy: 'Learn more',
+                cta: {
+                  href: 'https://ibm.com',
+                },
               },
-            },
-            {
-              type: 'external',
-              copy: 'Microservices and containers',
-              cta: {
-                href: 'https://ibm.com',
+              {
+                type: 'external',
+                copy: 'Microservices and containers',
+                cta: {
+                  href: 'https://ibm.com',
+                },
               },
-            },
-          ]}
+            ],
+          }}
         />
       </div>
     </div>

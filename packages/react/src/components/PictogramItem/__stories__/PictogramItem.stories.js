@@ -68,6 +68,13 @@ export default {
         },
       }),
     },
+    props: {
+      PictogramItem: {
+        pictogram: {
+          src: selectPictogram(pictograms.Desktop),
+        },
+      },
+    },
   },
 };
 
