@@ -1,0 +1,27 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-custom-elements/scss/components/button/button';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/button';
+@import '../../globals/scss/vars';
+
+:host(#{$dds-prefix}-btn) {
+  // Enables expressive version of type/size/component tokens in this component
+  @include carbon-expressive-tokens-custom-propreties();
+
+  @extend :host(#{$prefix}-btn);
+
+  // Defines component token Sass variables as it's not defined in Carbon core
+  @include carbon-expressive-component-tokens;
+  // Enables CSS overrides to enable new Carbon tokens `@carbon/ibmdotcom-styles` define
+  @include button-expressive;
+
+  ::slotted([slot='icon']) {
+    margin-left: calc(#{rem(60px)} - #{$spacing-04} - #{$icon-size-01});
+  }
+}
