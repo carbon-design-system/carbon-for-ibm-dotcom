@@ -14,6 +14,7 @@ import readme from '../README.stories.mdx';
 export default {
   title: 'Patterns (Blocks)|LogoGrid',
   parameters: {
+    ['carbon-theme']: { disabled: true },
     ...readme.parameters,
     knobs: {
       LogoGrid: ({ groupId }) => ({

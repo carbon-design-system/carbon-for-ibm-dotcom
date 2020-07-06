@@ -125,6 +125,7 @@ const LocaleModalCountries = ({
           labelText={modalLabels.searchLabel}
           closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
+          tabIndex="0"
         />
         <p className={`${prefix}--locale-modal__search-text`}>
           {modalLabels.availabilityText}
