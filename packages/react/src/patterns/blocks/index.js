@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './CalloutData';
 export * from './CalloutQuote';
 export * from './CalloutWithMedia';
 export * from './ContentBlockCards';
