@@ -64,7 +64,7 @@ module.exports = function setupKarma(config) {
             use: 'null-loader',
           },
           {
-            test: /@carbon[\\/]ibmdotcom-styles[\\/]icons[\\/]/i,
+            test: /[\\/]styles[\\/]icons[\\/]/i,
             use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
           },
           {
@@ -121,7 +121,10 @@ module.exports = function setupKarma(config) {
               {
                 loader: 'fast-sass-loader',
                 options: {
-                  includePaths: [path.resolve(__dirname, '..', 'node_modules')],
+                  includePaths: [
+                    path.resolve(__dirname, '..', 'node_modules'),
+                    path.resolve(__dirname, '../../..', 'node_modules'),
+                  ],
                 },
               },
             ],
