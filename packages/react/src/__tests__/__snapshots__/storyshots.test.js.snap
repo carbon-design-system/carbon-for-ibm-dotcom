@@ -9005,7 +9005,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4"
+          className="bx--col-sm-4 bx--col-lg-3 bx--offset-lg-4"
         >
           <LinkList
             heading="Tutorials"
