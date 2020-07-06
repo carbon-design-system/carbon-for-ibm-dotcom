@@ -1,0 +1,193 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../../docs/cors-proxy.md';
+
+# Masthead
+
+> The masthead component is a required navigational pattern for IBM.com that
+> displays consistently at the top of each page. It also includes search and
+> profile services for IBM.com.
+
+<Preview withToolbar>
+  <Story id="components-masthead--default" height="960px" />
+</Preview>
+
+## `<dds-masthead>`
+
+`<dds-masthead-logo>` works as the shell in masthead.
+
+## `<dds-masthead-logo>`
+
+`<dds-masthead-logo>` shows the IBM brand logo in masthead.
+
+<Props of="dds-masthead-logo" />
+
+## `<dds-masthead-menu-button>`
+
+`<dds-masthead-menu-button>` works as the trigger button of the left nav in masthead. It's shown when the browser's screen real estate gets shrunk at the point where it's not meaningful to put the menu content in the header menu bar.
+
+<Props of="dds-masthead-menu-button" />
+
+## `<dds-masthead-profile>`
+
+`<dds-masthead-profile>` works as the profile menu in masthead.
+
+<Props of="dds-masthead-profile" />
+
+## `<dds-masthead-profile-item>`
+
+`<dds-masthead-profile-item>` works as a menu item in the profile menu in masthead.
+
+<Props of="dds-masthead-profile-item" />
+
+## `<dds-masthead-search>`/`<dds-masthead-search-item>`
+
+`<dds-masthead-search>` works as the search box in masthead.
+
+The search box appears when user clicks on the magnifier icon.
+The search box disappears when user clicks on the X button.
+
+Fires an `input` event when user types in a search query string.
+Application code should take care of fulfilling the search result upon `input` event, by putting `<dds-masthead-search-item text="The search result">` as the child elements of `<dds-masthead-search>`. Here's an exmaple:
+
+```javascript
+import throttle from 'lodash-es/throttle';
+
+...
+
+const items = [
+  'IBM',
+  'IBM Cloud',
+  'IBM Watson',
+];
+
+function handleInput(searchQueryString) {
+  const search = document.querySelector('dds-masthead-search');
+
+  // First, clean up earlier search results
+  while (search.firstChild) {
+    search.removeChild(search.firstChild);
+  }
+
+  const results = !searchQueryString
+    ? items
+    : items.filter(item => item.toLowerCase().indexOf(searchQueryString.toLowerCase()) >= 0);
+  // Iterate through the matching search results
+  results.forEach(result => {
+    // Create `<dds-masthead-search-item>`
+    const searchItem = document.createElement('dds-masthead-search-item');
+    // Sets the search result text
+    searchItem.text = result;
+    // Put `<dds-masthead-search-item>` as a child of `<dds-masthead-search>`
+    search.appendChild(searchItem);
+  });
+}
+
+const throttledHandleInput = throttle(handleInput);
+
+document.querySelector('dds-masthead-search').addEventListener('input', event => {
+  throttledHandleInput(event.target.searchQueryString);
+});
+```
+
+### Attributes, properties and events of `<dds-masthead-search>`
+
+<Props of="dds-masthead-search" />
+
+### Attributes and properties of `<dds-masthead-search-item>`
+
+<Props of="dds-masthead-search-item" />
+
+## `<dds-top-nav>`
+
+`<dds-top-nav>` works as the top navigation bar in masthead.
+The markup should be like:
+
+```html
+<dds-top-nav menu-bar-label="IBM [Platform]">
+  <dds-top-nav-menu menu-label="Products" trigger-content="Products">
+    <dds-top-nav-menu-item href="https://www.ibm.com/products">Products</dds-top-nav-menu-item>
+    <dds-top-nav-menu-item href="https://www.ibm.com/analytics">Analytics</dds-top-nav-menu-item>
+    <dds-top-nav-menu-item href="https://www.ibm.com/blockchain">Blockchain</dds-top-nav-menu-item>
+  </dds-top-nav-menu>
+  <dds-top-nav-menu menu-label="Services" trigger-content="Services">
+    <dds-top-nav-menu-item href="https://www-935.ibm.com/services/index.html">Services</dds-top-nav-menu-item>
+    <dds-top-nav-menu-item href="https://www.ibm.com/financing">Financing</dds-top-nav-menu-item>
+    <dds-top-nav-menu-item href="https://www.ibm.com/trailing">Training and skills</dds-top-nav-menu-item>
+  </dds-top-nav-menu>
+  <dds-top-nav-item href="https://www.ibm.com/industries">Industries</dds-top-nav-item>
+</dds-top-nav>
+```
+
+<Props of="dds-top-nav" />
+
+## `<dds-top-nav-item>`
+
+`<dds-top-nav-item>` works as a regular top navigation bar item in masthead.
+
+<Props of="dds-top-nav-item" />
+
+## `<dds-top-nav-menu>`
+
+`<dds-top-nav-menu>` works as a sub menu in the top navigation bar in masthead.
+
+<Props of="dds-top-nav-menu" />
+
+## `<dds-top-nav-menu-item>`
+
+`<dds-top-nav-menu-item>` works as a sub menu item in the top navigation bar in masthead.
+
+<Props of="dds-top-nav-menu-item" />
+
+## `<dds-left-nav>`
+
+`<dds-left-nav>` works as the left navigation bar in masthead.
+The markup should be like:
+
+```html
+<dds-left-nav menu-bar-label="IBM [Platform]">
+  <dds-left-nav-menu title="Products">
+    <dds-left-nav-menu-item href="https://www.ibm.com/products">Products</dds-left-nav-menu-item>
+    <dds-left-nav-menu-item href="https://www.ibm.com/analytics">Analytics</dds-left-nav-menu-item>
+    <dds-left-nav-menu-item href="https://www.ibm.com/blockchain">Blockchain</dds-left-nav-menu-item>
+  </dds-left-nav-menu>
+  <dds-left-nav-menu title="Services">
+    <dds-left-nav-menu-item href="https://www-935.ibm.com/services/index.html">Services</dds-left-nav-menu-item>
+    <dds-left-nav-menu-item href="https://www.ibm.com/financing">Financing</dds-left-nav-menu-item>
+    <dds-left-nav-menu-item href="https://www.ibm.com/trailing">Training and skills</dds-left-nav-menu-item>
+  </dds-left-nav-menu>
+  <dds-left-nav-item href="https://www.ibm.com/industries">Industries</dds-left-nav-item>
+</dds-left-nav>
+```
+
+<Props of="dds-left-nav" />
+
+## `<dds-left-nav-item>`
+
+`<dds-left-nav-item>` works as a regular left navigation bar item in masthead.
+
+<Props of="dds-left-nav-item" />
+
+## `<dds-left-nav-menu>`
+
+`<dds-left-nav-menu>` works as a sub menu in the left navigation bar in masthead.
+
+<Props of="dds-left-nav-menu" />
+
+## `<dds-left-nav-menu-item>`
+
+`<dds-left-nav-menu-item>` works as a sub menu item in the left navigation bar in masthead.
+
+<Props of="dds-left-nav-menu-item" />
+
+## `<dds-left-nav-overlay>`
+
+`<dds-left-nav-overlay>` works as the overlay that should be shown when the left nav is open.
+
+<Props of="dds-left-nav-overlay" />
+
+<Description markdown={corsproxy} />
+
+## Contributing
+
+<Description markdown={contributing} />

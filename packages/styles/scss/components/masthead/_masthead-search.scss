@@ -5,6 +5,46 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/// @access private
+@mixin masthead-top-nav-name {
+  @include carbon--type-style(expressive-heading-02, true);
+
+  color: $text-01;
+  padding-left: $carbon--spacing-05;
+  padding-right: $carbon--spacing-05;
+  margin-left: $carbon--spacing-05;
+  border: solid 2px transparent;
+  transition: $button-transition;
+  position: relative;
+
+  &:hover {
+    background-color: $hover-ui;
+    color: $text-01;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $focus;
+    background-color: $ui-01;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(-1rem - 2px);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.5rem;
+    width: 0.0625rem;
+    background-color: #dcdcdc;
+  }
+
+  @include carbon--breakpoint-down(lg) {
+    display: none;
+  }
+}
+
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
@@ -46,51 +86,18 @@
     }
 
     a.#{$prefix}--header__name {
-      @include carbon--type-style(expressive-heading-02, true);
-
-      color: $text-01;
-      padding-left: $carbon--spacing-05;
-      padding-right: $carbon--spacing-05;
-      margin-left: $carbon--spacing-05;
-      border: solid 2px transparent;
-      transition: $button-transition;
-      position: relative;
-
-      &:hover {
-        background-color: $hover-ui;
-        color: $text-01;
-      }
-
-      &:active,
-      &:focus {
-        border-color: $focus;
-        background-color: $ui-01;
-      }
-
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: calc(-1rem - 2px);
-        top: 50%;
-        transform: translateY(-50%);
-        height: 1.5rem;
-        width: 0.0625rem;
-        background-color: #dcdcdc;
-      }
-
-      @include carbon--breakpoint-down(lg) {
-        display: none;
-      }
+      @include masthead-top-nav-name;
     }
   }
 
   // search container
-  .#{$prefix}--masthead__search {
+  .#{$prefix}--masthead__search,
+  :host(#{$dds-prefix}-masthead-search) {
     flex: 1;
     height: $carbon--spacing-09;
 
-    &.#{$prefix}--masthead__search--active {
+    &.#{$prefix}--masthead__search--active,
+    &[active] {
       position: absolute;
       z-index: 999;
       width: 100%;
