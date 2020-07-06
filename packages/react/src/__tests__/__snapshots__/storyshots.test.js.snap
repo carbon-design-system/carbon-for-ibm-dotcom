@@ -6380,26 +6380,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           <ContentBlock
                             border={false}
                             copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
-                            cta={
-                              Object {
-                                "buttons": Array [
-                                  Object {
-                                    "copy": "Contact sales",
-                                    "href": "https://example.com/",
-                                    "iconDescription": "right arrow icon",
-                                    "onClick": [Function],
-                                    "renderIcon": Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "render": [Function],
-                                    },
-                                    "target": null,
-                                    "type": "local",
-                                  },
-                                ],
-                                "style": "button",
-                                "type": "local",
-                              }
-                            }
                             heading="Take the next step"
                           >
                             <div
@@ -6426,11 +6406,69 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--content-block__children"
                                 data-autoid="dds--content-block__children"
                               />
-                              <div
-                                className="bx--content-block__cta-row"
-                                data-autoid="dds--content-block__cta"
+                            </div>
+                          </ContentBlock>
+                          <CTA
+                            buttons={
+                              Array [
+                                Object {
+                                  "copy": "Contact sales",
+                                  "href": "https://example.com/",
+                                  "iconDescription": "right arrow icon",
+                                  "onClick": [Function],
+                                  "renderIcon": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                  "target": null,
+                                  "type": "local",
+                                },
+                              ]
+                            }
+                            copy=""
+                            customClassName="bx--cta-section__cta"
+                            href=""
+                            style="button"
+                            type="local"
+                          >
+                            <div
+                              className="bx--cta-section__cta"
+                            >
+                              <ButtonCTA
+                                buttons={
+                                  Array [
+                                    Object {
+                                      "copy": "Contact sales",
+                                      "href": "https://example.com/",
+                                      "iconDescription": "right arrow icon",
+                                      "onClick": [Function],
+                                      "renderIcon": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      },
+                                      "target": null,
+                                      "type": "local",
+                                    },
+                                  ]
+                                }
+                                copy=""
+                                formatCTAcopy={[Function]}
+                                href=""
+                                openLightBox={[Function]}
+                                renderLightBox={false}
+                                style="button"
+                                type="local"
+                                videoTitle={
+                                  Array [
+                                    Object {
+                                      "duration": "",
+                                      "key": 0,
+                                      "title": "",
+                                    },
+                                  ]
+                                }
                               >
-                                <CTA
+                                <ButtonGroup
                                   buttons={
                                     Array [
                                       Object {
@@ -6447,149 +6485,86 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       },
                                     ]
                                   }
-                                  copy=""
-                                  customClassName="bx--content-block__cta bx--content-block__cta-col"
-                                  href=""
-                                  style="button"
-                                  type="local"
+                                  enableSizeByContent={true}
                                 >
-                                  <div
-                                    className="bx--content-block__cta bx--content-block__cta-col"
+                                  <ol
+                                    className="bx--buttongroup"
+                                    data-autoid="dds--button-group"
                                   >
-                                    <ButtonCTA
-                                      buttons={
-                                        Array [
-                                          Object {
-                                            "copy": "Contact sales",
-                                            "href": "https://example.com/",
-                                            "iconDescription": "right arrow icon",
-                                            "onClick": [Function],
-                                            "renderIcon": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            },
-                                            "target": null,
-                                            "type": "local",
-                                          },
-                                        ]
-                                      }
-                                      copy=""
-                                      formatCTAcopy={[Function]}
-                                      href=""
-                                      openLightBox={[Function]}
-                                      renderLightBox={false}
-                                      style="button"
-                                      type="local"
-                                      videoTitle={
-                                        Array [
-                                          Object {
-                                            "duration": "",
-                                            "key": 0,
-                                            "title": "",
-                                          },
-                                        ]
-                                      }
+                                    <li
+                                      className="bx--buttongroup-item"
                                     >
-                                      <ButtonGroup
-                                        buttons={
-                                          Array [
-                                            Object {
-                                              "copy": "Contact sales",
-                                              "href": "https://example.com/",
-                                              "iconDescription": "right arrow icon",
-                                              "onClick": [Function],
-                                              "renderIcon": Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              },
-                                              "target": null,
-                                              "type": "local",
-                                            },
-                                          ]
+                                      <ForwardRef(Button)
+                                        copy="Contact sales"
+                                        data-autoid="dds--button-group-0"
+                                        disabled={false}
+                                        href="https://example.com/"
+                                        iconDescription="right arrow icon"
+                                        kind="primary"
+                                        onClick={[Function]}
+                                        renderIcon={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
                                         }
-                                        enableSizeByContent={true}
+                                        tabIndex={0}
+                                        target={null}
+                                        type="button"
                                       >
-                                        <ol
-                                          className="bx--buttongroup"
-                                          data-autoid="dds--button-group"
+                                        <a
+                                          className="bx--btn bx--btn--primary"
+                                          copy="Contact sales"
+                                          data-autoid="dds--button-group-0"
+                                          href="https://example.com/"
+                                          onClick={[Function]}
+                                          tabIndex={0}
+                                          target={null}
                                         >
-                                          <li
-                                            className="bx--buttongroup-item"
+                                          Contact sales
+                                          <ForwardRef(ArrowRight20)
+                                            aria-hidden="true"
+                                            aria-label="right arrow icon"
+                                            className="bx--btn__icon"
                                           >
-                                            <ForwardRef(Button)
-                                              copy="Contact sales"
-                                              data-autoid="dds--button-group-0"
-                                              disabled={false}
-                                              href="https://example.com/"
-                                              iconDescription="right arrow icon"
-                                              kind="primary"
-                                              onClick={[Function]}
-                                              renderIcon={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              tabIndex={0}
-                                              target={null}
-                                              type="button"
+                                            <Icon
+                                              aria-hidden="true"
+                                              aria-label="right arrow icon"
+                                              className="bx--btn__icon"
+                                              fill="currentColor"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 20 20"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <a
-                                                className="bx--btn bx--btn--primary"
-                                                copy="Contact sales"
-                                                data-autoid="dds--button-group-0"
-                                                href="https://example.com/"
-                                                onClick={[Function]}
-                                                tabIndex={0}
-                                                target={null}
+                                              <svg
+                                                aria-hidden="true"
+                                                aria-label="right arrow icon"
+                                                className="bx--btn__icon"
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                Contact sales
-                                                <ForwardRef(ArrowRight20)
-                                                  aria-hidden="true"
-                                                  aria-label="right arrow icon"
-                                                  className="bx--btn__icon"
-                                                >
-                                                  <Icon
-                                                    aria-hidden="true"
-                                                    aria-label="right arrow icon"
-                                                    className="bx--btn__icon"
-                                                    fill="currentColor"
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 20 20"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      aria-label="right arrow icon"
-                                                      className="bx--btn__icon"
-                                                      fill="currentColor"
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      role="img"
-                                                      viewBox="0 0 20 20"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(ArrowRight20)>
-                                              </a>
-                                            </ForwardRef(Button)>
-                                          </li>
-                                        </ol>
-                                      </ButtonGroup>
-                                    </ButtonCTA>
-                                  </div>
-                                </CTA>
-                              </div>
+                                                <path
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ArrowRight20)>
+                                        </a>
+                                      </ForwardRef(Button)>
+                                    </li>
+                                  </ol>
+                                </ButtonGroup>
+                              </ButtonCTA>
                             </div>
-                          </ContentBlock>
+                          </CTA>
                           <div
                             className="bx--helper-wrapper"
                           >
@@ -33150,7 +33125,16 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               Object {
                 "buttons": Array [
                   Object {
-                    "copy": "Contact sales",
+                    "copy": "Secondary button",
+                    "href": "https://example.com/",
+                    "iconDescription": "right arrow icon",
+                    "onClick": [Function],
+                    "renderIcon": null,
+                    "target": null,
+                    "type": "default",
+                  },
+                  Object {
+                    "copy": "Primary button",
                     "href": "https://example.com/",
                     "iconDescription": "right arrow icon",
                     "onClick": [Function],
@@ -33173,23 +33157,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               <ContentBlock
                 border={false}
                 copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
-                cta={
-                  Object {
-                    "buttons": Array [
-                      Object {
-                        "copy": "Contact sales",
-                        "href": "https://example.com/",
-                        "iconDescription": "right arrow icon",
-                        "onClick": [Function],
-                        "renderIcon": null,
-                        "target": null,
-                        "type": "default",
-                      },
-                    ],
-                    "style": "button",
-                    "type": "local",
-                  }
-                }
                 heading="Take the next step"
               >
                 <div
@@ -33216,15 +33183,94 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     className="bx--content-block__children"
                     data-autoid="dds--content-block__children"
                   />
-                  <div
-                    className="bx--content-block__cta-row"
-                    data-autoid="dds--content-block__cta"
+                </div>
+              </ContentBlock>
+              <CTA
+                buttons={
+                  Array [
+                    Object {
+                      "copy": "Secondary button",
+                      "href": "https://example.com/",
+                      "iconDescription": "right arrow icon",
+                      "onClick": [Function],
+                      "renderIcon": null,
+                      "target": null,
+                      "type": "default",
+                    },
+                    Object {
+                      "copy": "Primary button",
+                      "href": "https://example.com/",
+                      "iconDescription": "right arrow icon",
+                      "onClick": [Function],
+                      "renderIcon": null,
+                      "target": null,
+                      "type": "default",
+                    },
+                  ]
+                }
+                copy=""
+                customClassName="bx--cta-section__cta"
+                href=""
+                style="button"
+                type="local"
+              >
+                <div
+                  className="bx--cta-section__cta"
+                >
+                  <ButtonCTA
+                    buttons={
+                      Array [
+                        Object {
+                          "copy": "Secondary button",
+                          "href": "https://example.com/",
+                          "iconDescription": "right arrow icon",
+                          "onClick": [Function],
+                          "renderIcon": null,
+                          "target": null,
+                          "type": "default",
+                        },
+                        Object {
+                          "copy": "Primary button",
+                          "href": "https://example.com/",
+                          "iconDescription": "right arrow icon",
+                          "onClick": [Function],
+                          "renderIcon": null,
+                          "target": null,
+                          "type": "default",
+                        },
+                      ]
+                    }
+                    copy=""
+                    formatCTAcopy={[Function]}
+                    href=""
+                    openLightBox={[Function]}
+                    renderLightBox={false}
+                    style="button"
+                    type="local"
+                    videoTitle={
+                      Array [
+                        Object {
+                          "duration": "",
+                          "key": 0,
+                          "title": "",
+                        },
+                      ]
+                    }
                   >
-                    <CTA
+                    <ButtonGroup
                       buttons={
                         Array [
                           Object {
-                            "copy": "Contact sales",
+                            "copy": "Secondary button",
+                            "href": "https://example.com/",
+                            "iconDescription": "right arrow icon",
+                            "onClick": [Function],
+                            "renderIcon": null,
+                            "target": null,
+                            "type": "default",
+                          },
+                          Object {
+                            "copy": "Primary button",
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
@@ -33234,103 +33280,75 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           },
                         ]
                       }
-                      copy=""
-                      customClassName="bx--content-block__cta bx--content-block__cta-col"
-                      href=""
-                      style="button"
-                      type="local"
+                      enableSizeByContent={true}
                     >
-                      <div
-                        className="bx--content-block__cta bx--content-block__cta-col"
+                      <ol
+                        className="bx--buttongroup"
+                        data-autoid="dds--button-group"
                       >
-                        <ButtonCTA
-                          buttons={
-                            Array [
-                              Object {
-                                "copy": "Contact sales",
-                                "href": "https://example.com/",
-                                "iconDescription": "right arrow icon",
-                                "onClick": [Function],
-                                "renderIcon": null,
-                                "target": null,
-                                "type": "default",
-                              },
-                            ]
-                          }
-                          copy=""
-                          formatCTAcopy={[Function]}
-                          href=""
-                          openLightBox={[Function]}
-                          renderLightBox={false}
-                          style="button"
-                          type="local"
-                          videoTitle={
-                            Array [
-                              Object {
-                                "duration": "",
-                                "key": 0,
-                                "title": "",
-                              },
-                            ]
-                          }
+                        <li
+                          className="bx--buttongroup-item"
                         >
-                          <ButtonGroup
-                            buttons={
-                              Array [
-                                Object {
-                                  "copy": "Contact sales",
-                                  "href": "https://example.com/",
-                                  "iconDescription": "right arrow icon",
-                                  "onClick": [Function],
-                                  "renderIcon": null,
-                                  "target": null,
-                                  "type": "default",
-                                },
-                              ]
-                            }
-                            enableSizeByContent={true}
+                          <ForwardRef(Button)
+                            copy="Secondary button"
+                            data-autoid="dds--button-group-0"
+                            disabled={false}
+                            href="https://example.com/"
+                            iconDescription="right arrow icon"
+                            kind="tertiary"
+                            onClick={[Function]}
+                            renderIcon={null}
+                            tabIndex={0}
+                            target={null}
+                            type="button"
                           >
-                            <ol
-                              className="bx--buttongroup"
-                              data-autoid="dds--button-group"
+                            <a
+                              className="bx--btn bx--btn--tertiary"
+                              copy="Secondary button"
+                              data-autoid="dds--button-group-0"
+                              href="https://example.com/"
+                              onClick={[Function]}
+                              tabIndex={0}
+                              target={null}
                             >
-                              <li
-                                className="bx--buttongroup-item"
-                              >
-                                <ForwardRef(Button)
-                                  copy="Contact sales"
-                                  data-autoid="dds--button-group-0"
-                                  disabled={false}
-                                  href="https://example.com/"
-                                  iconDescription="right arrow icon"
-                                  kind="primary"
-                                  onClick={[Function]}
-                                  renderIcon={null}
-                                  tabIndex={0}
-                                  target={null}
-                                  type="button"
-                                >
-                                  <a
-                                    className="bx--btn bx--btn--primary"
-                                    copy="Contact sales"
-                                    data-autoid="dds--button-group-0"
-                                    href="https://example.com/"
-                                    onClick={[Function]}
-                                    tabIndex={0}
-                                    target={null}
-                                  >
-                                    Contact sales
-                                  </a>
-                                </ForwardRef(Button)>
-                              </li>
-                            </ol>
-                          </ButtonGroup>
-                        </ButtonCTA>
-                      </div>
-                    </CTA>
-                  </div>
+                              Secondary button
+                            </a>
+                          </ForwardRef(Button)>
+                        </li>
+                        <li
+                          className="bx--buttongroup-item"
+                        >
+                          <ForwardRef(Button)
+                            copy="Primary button"
+                            data-autoid="dds--button-group-1"
+                            disabled={false}
+                            href="https://example.com/"
+                            iconDescription="right arrow icon"
+                            kind="primary"
+                            onClick={[Function]}
+                            renderIcon={null}
+                            tabIndex={0}
+                            target={null}
+                            type="button"
+                          >
+                            <a
+                              className="bx--btn bx--btn--primary"
+                              copy="Primary button"
+                              data-autoid="dds--button-group-1"
+                              href="https://example.com/"
+                              onClick={[Function]}
+                              tabIndex={0}
+                              target={null}
+                            >
+                              Primary button
+                            </a>
+                          </ForwardRef(Button)>
+                        </li>
+                      </ol>
+                    </ButtonGroup>
+                  </ButtonCTA>
                 </div>
-              </ContentBlock>
+              </CTA>
             </section>
           </CTASection>
         </div>
@@ -33373,7 +33391,16 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
               Object {
                 "buttons": Array [
                   Object {
-                    "copy": "Contact sales",
+                    "copy": "Secondary button",
+                    "href": "https://example.com/",
+                    "iconDescription": "right arrow icon",
+                    "onClick": [Function],
+                    "renderIcon": null,
+                    "target": null,
+                    "type": "default",
+                  },
+                  Object {
+                    "copy": "Primary button",
                     "href": "https://example.com/",
                     "iconDescription": "right arrow icon",
                     "onClick": [Function],
@@ -33418,23 +33445,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
               <ContentBlock
                 border={false}
                 copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
-                cta={
-                  Object {
-                    "buttons": Array [
-                      Object {
-                        "copy": "Contact sales",
-                        "href": "https://example.com/",
-                        "iconDescription": "right arrow icon",
-                        "onClick": [Function],
-                        "renderIcon": null,
-                        "target": null,
-                        "type": "default",
-                      },
-                    ],
-                    "style": "button",
-                    "type": "local",
-                  }
-                }
                 heading="Take the next step"
               >
                 <div
@@ -33461,15 +33471,94 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                     className="bx--content-block__children"
                     data-autoid="dds--content-block__children"
                   />
-                  <div
-                    className="bx--content-block__cta-row"
-                    data-autoid="dds--content-block__cta"
+                </div>
+              </ContentBlock>
+              <CTA
+                buttons={
+                  Array [
+                    Object {
+                      "copy": "Secondary button",
+                      "href": "https://example.com/",
+                      "iconDescription": "right arrow icon",
+                      "onClick": [Function],
+                      "renderIcon": null,
+                      "target": null,
+                      "type": "default",
+                    },
+                    Object {
+                      "copy": "Primary button",
+                      "href": "https://example.com/",
+                      "iconDescription": "right arrow icon",
+                      "onClick": [Function],
+                      "renderIcon": null,
+                      "target": null,
+                      "type": "default",
+                    },
+                  ]
+                }
+                copy=""
+                customClassName="bx--cta-section__cta"
+                href=""
+                style="button"
+                type="local"
+              >
+                <div
+                  className="bx--cta-section__cta"
+                >
+                  <ButtonCTA
+                    buttons={
+                      Array [
+                        Object {
+                          "copy": "Secondary button",
+                          "href": "https://example.com/",
+                          "iconDescription": "right arrow icon",
+                          "onClick": [Function],
+                          "renderIcon": null,
+                          "target": null,
+                          "type": "default",
+                        },
+                        Object {
+                          "copy": "Primary button",
+                          "href": "https://example.com/",
+                          "iconDescription": "right arrow icon",
+                          "onClick": [Function],
+                          "renderIcon": null,
+                          "target": null,
+                          "type": "default",
+                        },
+                      ]
+                    }
+                    copy=""
+                    formatCTAcopy={[Function]}
+                    href=""
+                    openLightBox={[Function]}
+                    renderLightBox={false}
+                    style="button"
+                    type="local"
+                    videoTitle={
+                      Array [
+                        Object {
+                          "duration": "",
+                          "key": 0,
+                          "title": "",
+                        },
+                      ]
+                    }
                   >
-                    <CTA
+                    <ButtonGroup
                       buttons={
                         Array [
                           Object {
-                            "copy": "Contact sales",
+                            "copy": "Secondary button",
+                            "href": "https://example.com/",
+                            "iconDescription": "right arrow icon",
+                            "onClick": [Function],
+                            "renderIcon": null,
+                            "target": null,
+                            "type": "default",
+                          },
+                          Object {
+                            "copy": "Primary button",
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
@@ -33479,103 +33568,75 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                           },
                         ]
                       }
-                      copy=""
-                      customClassName="bx--content-block__cta bx--content-block__cta-col"
-                      href=""
-                      style="button"
-                      type="local"
+                      enableSizeByContent={true}
                     >
-                      <div
-                        className="bx--content-block__cta bx--content-block__cta-col"
+                      <ol
+                        className="bx--buttongroup"
+                        data-autoid="dds--button-group"
                       >
-                        <ButtonCTA
-                          buttons={
-                            Array [
-                              Object {
-                                "copy": "Contact sales",
-                                "href": "https://example.com/",
-                                "iconDescription": "right arrow icon",
-                                "onClick": [Function],
-                                "renderIcon": null,
-                                "target": null,
-                                "type": "default",
-                              },
-                            ]
-                          }
-                          copy=""
-                          formatCTAcopy={[Function]}
-                          href=""
-                          openLightBox={[Function]}
-                          renderLightBox={false}
-                          style="button"
-                          type="local"
-                          videoTitle={
-                            Array [
-                              Object {
-                                "duration": "",
-                                "key": 0,
-                                "title": "",
-                              },
-                            ]
-                          }
+                        <li
+                          className="bx--buttongroup-item"
                         >
-                          <ButtonGroup
-                            buttons={
-                              Array [
-                                Object {
-                                  "copy": "Contact sales",
-                                  "href": "https://example.com/",
-                                  "iconDescription": "right arrow icon",
-                                  "onClick": [Function],
-                                  "renderIcon": null,
-                                  "target": null,
-                                  "type": "default",
-                                },
-                              ]
-                            }
-                            enableSizeByContent={true}
+                          <ForwardRef(Button)
+                            copy="Secondary button"
+                            data-autoid="dds--button-group-0"
+                            disabled={false}
+                            href="https://example.com/"
+                            iconDescription="right arrow icon"
+                            kind="tertiary"
+                            onClick={[Function]}
+                            renderIcon={null}
+                            tabIndex={0}
+                            target={null}
+                            type="button"
                           >
-                            <ol
-                              className="bx--buttongroup"
-                              data-autoid="dds--button-group"
+                            <a
+                              className="bx--btn bx--btn--tertiary"
+                              copy="Secondary button"
+                              data-autoid="dds--button-group-0"
+                              href="https://example.com/"
+                              onClick={[Function]}
+                              tabIndex={0}
+                              target={null}
                             >
-                              <li
-                                className="bx--buttongroup-item"
-                              >
-                                <ForwardRef(Button)
-                                  copy="Contact sales"
-                                  data-autoid="dds--button-group-0"
-                                  disabled={false}
-                                  href="https://example.com/"
-                                  iconDescription="right arrow icon"
-                                  kind="primary"
-                                  onClick={[Function]}
-                                  renderIcon={null}
-                                  tabIndex={0}
-                                  target={null}
-                                  type="button"
-                                >
-                                  <a
-                                    className="bx--btn bx--btn--primary"
-                                    copy="Contact sales"
-                                    data-autoid="dds--button-group-0"
-                                    href="https://example.com/"
-                                    onClick={[Function]}
-                                    tabIndex={0}
-                                    target={null}
-                                  >
-                                    Contact sales
-                                  </a>
-                                </ForwardRef(Button)>
-                              </li>
-                            </ol>
-                          </ButtonGroup>
-                        </ButtonCTA>
-                      </div>
-                    </CTA>
-                  </div>
+                              Secondary button
+                            </a>
+                          </ForwardRef(Button)>
+                        </li>
+                        <li
+                          className="bx--buttongroup-item"
+                        >
+                          <ForwardRef(Button)
+                            copy="Primary button"
+                            data-autoid="dds--button-group-1"
+                            disabled={false}
+                            href="https://example.com/"
+                            iconDescription="right arrow icon"
+                            kind="primary"
+                            onClick={[Function]}
+                            renderIcon={null}
+                            tabIndex={0}
+                            target={null}
+                            type="button"
+                          >
+                            <a
+                              className="bx--btn bx--btn--primary"
+                              copy="Primary button"
+                              data-autoid="dds--button-group-1"
+                              href="https://example.com/"
+                              onClick={[Function]}
+                              tabIndex={0}
+                              target={null}
+                            >
+                              Primary button
+                            </a>
+                          </ForwardRef(Button)>
+                        </li>
+                      </ol>
+                    </ButtonGroup>
+                  </ButtonCTA>
                 </div>
-              </ContentBlock>
+              </CTA>
               <div
                 className="bx--helper-wrapper"
               >
