@@ -47,9 +47,11 @@ export default {
         };
       },
     },
-    props: {
-      ContentGroupSimple: {
-        items: ContentGroupSimpleKnobs.items,
+    propsSet: {
+      default: {
+        ContentGroupSimple: {
+          items: ContentGroupSimpleKnobs.items,
+        },
       },
     },
   },
