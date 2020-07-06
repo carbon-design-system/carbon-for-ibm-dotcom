@@ -15,7 +15,7 @@
 <div
   class="bx--modal-container"
   role="dialog"
-  tabidnex="-1"
+  tabindex="-1"
 >
   <div class="dds-ce--modal__hedaer--with-body">
     <slot name="header">
@@ -53,7 +53,7 @@
 <div
   class="bx--modal-container bx--modal-container--fullwidth"
   role="dialog"
-  tabidnex="-1"
+  tabindex="-1"
 >
   <div class="dds-ce--modal__hedaer--with-body">
     <slot name="header">
@@ -93,7 +93,7 @@
 <div
   class="bx--modal-container"
   role="dialog"
-  tabidnex="-1"
+  tabindex="-1"
 >
   <div>
     <slot name="header">
@@ -131,7 +131,7 @@
 <div
   class="bx--modal-container"
   role="dialog"
-  tabidnex="-1"
+  tabindex="-1"
 >
   <div class="dds-ce--modal__hedaer--with-body">
     <slot name="header">
@@ -169,7 +169,7 @@
 <div
   class="bx--modal-container"
   role="dialog"
-  tabidnex="-1"
+  tabindex="-1"
 >
   <div class="dds-ce--modal__hedaer--with-body">
     <slot name="header">

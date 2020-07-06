@@ -151,7 +151,7 @@ class DDSModal extends BXModal {
       <div
         role="dialog"
         class="${containerClasses}"
-        tabidnex="-1"
+        tabindex="-1"
         @click="${handleClickContainerExpressive}"
         @slotchange="${handleSlotChange}"
       >

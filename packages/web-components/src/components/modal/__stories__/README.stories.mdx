@@ -60,6 +60,25 @@ import '@carbon/ibmdotcom-web-components/es/components/modal/modal-footer';
 </dds-modal>
 ```
 
+## Opening/closing modal from code
+
+Opening/closing modal from code can be done by changing `open` attribute/property. For example we have HTML like this:
+
+```html
+<dds-btn id="my-btn">Open modal</dds-btn>
+<dds-modal id="my-modal">
+  ...
+</dds-modal>
+```
+
+We can make the button open the modal by:
+
+```javascript
+document.getElementById('dds-btn').addEventListener('click', () => {
+  document.getElementById('my-modal').open = true;
+});
+```
+
 ## Props
 
 ### `<dds-modal>`
