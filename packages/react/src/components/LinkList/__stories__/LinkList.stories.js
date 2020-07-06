@@ -62,7 +62,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
+        <div className="bx--col-sm-4 bx--col-lg-3 bx--offset-lg-4">
           <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>
