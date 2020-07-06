@@ -28,6 +28,8 @@
         &__source {
           @include carbon--type-style('body-short-01', true);
 
+          width: 90%;
+          max-width: 640px;
           padding-bottom: $layout-03;
 
           @include carbon--breakpoint('md') {
