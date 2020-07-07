@@ -1,13 +1,22 @@
-//
-// Copyright IBM Corp. 2016, 2020
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+* Copyright IBM Corp. 2016, 2020
+*
+* This source code is licensed under the Apache-2.0 license found in the
+* LICENSE file in the root directory of this source tree.
+*/
 
 @mixin content-block-headlines {
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
+      &__heading,
+      &__copy {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col-ready;
+
+          @include carbon--make-col(8, 12);
+        }
+      }
+
       &__copy {
         p {
           margin-bottom: $carbon--layout-05;
@@ -17,10 +26,22 @@
           }
         }
       }
+
+      @include carbon--breakpoint('md') {
+        padding-top: $carbon--spacing-07;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-top: $carbon--layout-05;
+      }
+    }
+
+    &__container {
+      @include carbon--make-row;
     }
 
     &__row {
-      @include carbon--make-row;
+      @include carbon--make-col-ready;
 
       &:last-of-type {
         margin-bottom: $carbon--spacing-07;
@@ -36,14 +57,24 @@
 
       @include carbon--breakpoint('md') {
         border-top: 1px solid $ui-03;
+
+        @include carbon--make-col(12, 12);
+      }
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(8, 12);
       }
     }
 
     &__item {
+      &-container {
+        @include carbon--make-row;
+      }
+
       @include carbon--make-col-ready;
 
       border-top: 1px solid $ui-03;
-      padding-top: $carbon--spacing-06;
+      padding-top: $carbon--spacing-05;
       padding-bottom: $carbon--spacing-07;
 
       h4,

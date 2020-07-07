@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
 import ContentBlockHeadlines from '../ContentBlockHeadlines';
 import { DDS_CONTENTBLOCK_HEADLINES } from '../../../../internal/FeatureFlags';
 import items from './data/items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { text } from '@storybook/addon-knobs';
 
 export default !DDS_CONTENTBLOCK_HEADLINES
   ? undefined
@@ -27,7 +27,7 @@ export default !DDS_CONTENTBLOCK_HEADLINES
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               groupId
             ),
-            items: object('Items', items.items, groupId),
+            items: items.items,
           }),
         },
         props: {
@@ -46,7 +46,7 @@ export const Default = !DDS_CONTENTBLOCK_HEADLINES
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
               <ContentBlockHeadlines
                 heading={heading}
                 copy={copy}

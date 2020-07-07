@@ -55,7 +55,9 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
       className={`${prefix}--content-block-headlines`}
       ref={containerRef}>
       <ContentBlock heading={heading} copy={copy} border={true}>
-        {_renderRows(contentRows)}
+        <div className={`${prefix}--content-block-headlines__container`}>
+          {_renderRows(contentRows)}
+        </div>
       </ContentBlock>
     </div>
   );
@@ -71,17 +73,21 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
 const _renderRows = contentRows =>
   contentRows.map((row, index) => (
     <div className={`${prefix}--content-block-headlines__row`} key={index}>
-      {row.map((item, index) => (
-        <div className={`${prefix}--content-block-headlines__item`} key={index}>
-          <h4 className={`${prefix}--content-block-headlines__headline`}>
-            {item.headline}
-          </h4>
-          <p className={`${prefix}--content-block-headlines__copy`}>
-            {item.copy}
-          </p>
-          {item.cta && <CTA {...item.cta} />}
-        </div>
-      ))}
+      <div className={`${prefix}--content-block-headlines__item-container`}>
+        {row.map((item, index) => (
+          <div
+            className={`${prefix}--content-block-headlines__item`}
+            key={index}>
+            <h4 className={`${prefix}--content-block-headlines__headline`}>
+              {item.headline}
+            </h4>
+            <p className={`${prefix}--content-block-headlines__copy`}>
+              {item.copy}
+            </p>
+            {item.cta && <CTA {...item.cta} />}
+          </div>
+        ))}
+      </div>
     </div>
   ));
 
