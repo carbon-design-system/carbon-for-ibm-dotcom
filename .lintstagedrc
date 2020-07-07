@@ -1,5 +1,5 @@
 {
-  "**/*.js": [
+  "**/*.{js,ts,tsx}": [
     "prettier --write",
     "yarn lint:license:staged",
     "yarn lint:scripts:staged",
