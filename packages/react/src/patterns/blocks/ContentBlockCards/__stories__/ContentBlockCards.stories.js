@@ -11,6 +11,12 @@ import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const ctaTypes = {
+  local: 'local',
+  jump: 'jump',
+  external: 'external',
+};
+
 export default {
   title: 'Patterns (Blocks)|ContentBlockCards',
 
@@ -27,6 +33,14 @@ export default {
             groupId
           ),
           cards: object(`Data (${type})`, cards[type], groupId),
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
         };
       },
     },
@@ -39,12 +53,13 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards heading={heading} cards={data} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
