@@ -9,6 +9,7 @@
 
 'use strict';
 
+const path = require('path');
 const commander = require('commander');
 
 const collect = (v, a) => a.add(v);
@@ -31,6 +32,7 @@ module.exports = {
   ENV_PRODUCTION: 'production',
   cloptions,
   srcDir: 'src',
+  iconsDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-styles/package.json')), 'icons/svg'),
   jsDestDir: 'es',
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',

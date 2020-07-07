@@ -6,3 +6,15 @@
 //
 
 $dds-prefix: 'dds' !default;
+
+// Container tokens
+// TODO: Use `packages/styles/themes/expressive/_tokens.scss` once expressive theme stuff is stabilized
+$container-01: 2rem !global;
+$container-02: 2.5rem !global;
+$container-03: 3rem !global;
+$container-04: 3rem !global;
+$container-05: 4.5rem !global;
+
+// Icon size tokens
+// TODO: Use `packages/styles/themes/expressive/_tokens.scss` once expressive theme stuff is stabilized
+$icon-size-01: 1.25rem !global;
