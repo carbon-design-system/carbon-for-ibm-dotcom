@@ -2,7 +2,7 @@
 name: Bug Report 🐛
 about: Something isn't working as expected? Here is the right place to report.
 labels: bug
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, annawen1, sethibm
+assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, asudoh, larahanlon2
 ---
 
 <!-- Feel free to remove sections that aren't relevant.
