@@ -1,8 +1,10 @@
 ---
-name: Question 🤔
+name: "Question \U0001F914"
 about: Usage question or discussion about the IBM.com Library.
+title: ''
 labels: question
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, annawen1, sethibm
+assignees: annawen1, jeffchew, ljcarot, RobertaJHahn, sethibm, wonilsuhibm
+
 ---
 
 <!--

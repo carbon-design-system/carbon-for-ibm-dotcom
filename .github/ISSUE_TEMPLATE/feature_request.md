@@ -1,9 +1,10 @@
 ---
-name: Feature Request 💡
+name: "Feature Request \U0001F4A1"
 about: Suggest a new idea for the project.
 title: ''
 labels: Feature request
-assignees: jeffchew, wonilsuhibm, annawen1, sethibm
+assignees: annawen1, jeffchew, sethibm, wonilsuhibm
+
 ---
 
 <!-- replace _{{...}}_ with your own words -->

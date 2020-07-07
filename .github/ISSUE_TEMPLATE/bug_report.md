@@ -1,8 +1,10 @@
 ---
-name: Bug Report 🐛
+name: "Bug Report \U0001F41B"
 about: Something isn't working as expected? Here is the right place to report.
+title: ''
 labels: bug
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, annawen1, sethibm
+assignees: asudoh, jeffchew, ljcarot, wonilsuhibm, RobertaJHahn, larahanlon2
+
 ---
 
 <!-- Feel free to remove sections that aren't relevant.
