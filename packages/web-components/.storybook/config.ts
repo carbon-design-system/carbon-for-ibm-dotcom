@@ -53,7 +53,7 @@ addDecorator(story => {
       name="main-content"
       data-floating-menu-container
       role="${hasMainTag ? 'none' : 'main'}"
-      class="bx--body dds-ce-demo-devenv--container"
+      class="dds-ce-demo-devenv--container"
     >
       ${result}
     </div>
@@ -69,8 +69,11 @@ addDecorator((story, { parameters }) => {
       parameters.props = {};
     }
     Object.keys(knobs).forEach(name => {
+      if (!parameters.props[name]) {
+        parameters.props[name] = {};
+      }
       if (typeof knobs[name] === 'function') {
-        parameters.props[name] = knobs[name]({ groupId: name });
+        Object.assign(parameters.props[name], knobs[name]({ groupId: name }));
       }
     });
   }

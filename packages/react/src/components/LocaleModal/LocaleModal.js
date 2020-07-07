@@ -69,7 +69,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
 
       document
         .querySelector(`.${prefix}--modal-header__heading`)
-        ?.setAttribute('tabindex', '1');
+        ?.setAttribute('tabindex', '0');
 
       const localeModalContainer = document.querySelector(
         `.${prefix}--locale-modal-container .${prefix}--modal-container`
