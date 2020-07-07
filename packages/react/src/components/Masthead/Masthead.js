@@ -189,7 +189,7 @@ const Masthead = ({
               <IbmLogo />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation && (
+                {navigation && !DDS_MASTHEAD_L1 && (
                   <MastheadTopNav
                     {...mastheadProps}
                     platform={platform}
@@ -245,6 +245,7 @@ const Masthead = ({
                 title={title}
                 eyebrowText={eyebrowText}
                 eyebrowLink={eyebrowLink}
+                navigation={mastheadData}
               />
             </div>
           )}
