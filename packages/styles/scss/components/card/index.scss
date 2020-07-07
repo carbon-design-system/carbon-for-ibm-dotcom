@@ -100,9 +100,6 @@
           z-index: -1;
         }
       }
-      @include carbon--breakpoint('md') {
-        max-width: carbon--mini-units(40);
-      }
     }
 
     &:visited,
