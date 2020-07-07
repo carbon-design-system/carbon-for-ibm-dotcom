@@ -93,7 +93,6 @@
       }
 
       &-optional-copy {
-        color: $inverse-01;
         padding-left: 1rem;
         @include carbon--type-style(body-long-02, true);
       }
