@@ -26,6 +26,12 @@ const getBaseKnobs = ({ groupId }) => {
   };
 };
 
+const ctaTypes = {
+  local: 'local',
+  jump: 'jump',
+  external: 'external',
+};
+
 export default {
   title: 'Patterns (Blocks)|ContentBlockCards',
 
@@ -40,7 +46,7 @@ export const Default = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards heading={heading} cards={data} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -56,6 +62,14 @@ Default.story = {
         return {
           ...knobs,
           cards: cards['Simple'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
         };
       },
     },
@@ -70,12 +84,12 @@ Default.story = {
 };
 
 export const WithImages = ({ parameters }) => {
-  const { heading, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } = parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards heading={heading} cards={data} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
