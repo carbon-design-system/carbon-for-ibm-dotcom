@@ -9,9 +9,9 @@
 
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import styles from '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSLink from '../../globals/internal/link';
+import styles from './link-with-icon.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
