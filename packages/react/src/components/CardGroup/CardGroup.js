@@ -7,6 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import { Card } from '../Card';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
@@ -103,7 +104,7 @@ const _renderCards = (cards, containerRef, cta) => (
     })}
     {cta && (
       <div className={`${prefix}--card-group__cards__col`}>
-        <CTA
+        <Card
           inverse={true}
           heading={cta.heading}
           cta={{
