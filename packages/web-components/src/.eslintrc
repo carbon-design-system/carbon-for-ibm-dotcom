@@ -13,7 +13,7 @@
   "rules": {
     "class-methods-use-this": [2, { "exceptMethods": ["render"] }],
     "no-underscore-dangle": 0,
-    "jsdoc/check-tag-names": [2, {"definedTags": ["element"]}]
+    "jsdoc/check-tag-names": [2, {"definedTags": ["element", "slot"]}]
   },
   "overrides": [
     {
