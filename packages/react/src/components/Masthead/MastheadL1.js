@@ -137,4 +137,8 @@ MastheadL1.propTypes = {
   ),
 };
 
+MastheadL1.defaultProps = {
+  navigation: [],
+};
+
 export default MastheadL1;
