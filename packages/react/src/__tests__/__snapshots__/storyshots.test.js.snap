@@ -17657,6 +17657,481 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|ContentBlockHeadlines Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4"
+        >
+          <ContentBlockHeadlines
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+            heading="Aliquam condimentum"
+            items={
+              Array [
+                Object {
+                  "copy": "Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent faster.",
+                  "headline": "25%",
+                },
+                Object {
+                  "copy": "Realize up to 90 percent reduction in time spent and 75 percent reduction in IT operations expense.",
+                  "cta": Object {
+                    "copy": "View the infographic",
+                    "cta": Object {
+                      "href": "https://example.com",
+                    },
+                    "type": "local",
+                  },
+                  "headline": "75%",
+                },
+                Object {
+                  "copy": "Build cloud native apps with microservices code generation and improved DevOps processes with up to 50 percent less effort.",
+                  "cta": Object {
+                    "copy": "Take the assessment",
+                    "cta": Object {
+                      "href": "https://example.com",
+                    },
+                    "type": "external",
+                  },
+                  "headline": "50%",
+                },
+                Object {
+                  "copy": "Save 1.34M per year by optimizing your time and IT expenses.",
+                  "cta": Object {
+                    "copy": "Calculate your savings",
+                    "cta": Object {
+                      "href": "https://example.com",
+                    },
+                    "type": "local",
+                  },
+                  "headline": "1.34M",
+                },
+              ]
+            }
+          >
+            <div
+              className="bx--content-block-headlines"
+              data-autoid="dds--content-block-headlines"
+            >
+              <ContentBlock
+                border={true}
+                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+                heading="Aliquam condimentum"
+              >
+                <div
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
+                >
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Aliquam condimentum
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
+                      }
+                    }
+                  />
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  >
+                    <div
+                      className="bx--content-block-headlines__row"
+                      key="0"
+                    >
+                      <div
+                        className="bx--content-block-headlines__item"
+                        key="0"
+                      >
+                        <h4
+                          className="bx--content-block-headlines__headline"
+                        >
+                          25%
+                        </h4>
+                        <p
+                          className="bx--content-block-headlines__copy"
+                        >
+                          Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent faster.
+                        </p>
+                      </div>
+                      <div
+                        className="bx--content-block-headlines__item"
+                        key="1"
+                      >
+                        <h4
+                          className="bx--content-block-headlines__headline"
+                        >
+                          75%
+                        </h4>
+                        <p
+                          className="bx--content-block-headlines__copy"
+                        >
+                          Realize up to 90 percent reduction in time spent and 75 percent reduction in IT operations expense.
+                        </p>
+                        <CTA
+                          copy="View the infographic"
+                          cta={
+                            Object {
+                              "href": "https://example.com",
+                            }
+                          }
+                          href=""
+                          style="text"
+                          type="local"
+                        >
+                          <div>
+                            <TextCTA
+                              copy="View the infographic"
+                              cta={
+                                Object {
+                                  "href": "https://example.com",
+                                }
+                              }
+                              formatCTAcopy={[Function]}
+                              href=""
+                              iconPlacement="right"
+                              openLightBox={[Function]}
+                              renderLightBox={false}
+                              style="text"
+                              type="local"
+                              videoTitle={
+                                Array [
+                                  Object {
+                                    "duration": "",
+                                    "key": 0,
+                                    "title": "",
+                                  },
+                                ]
+                              }
+                            >
+                              <LinkWithIcon
+                                href="https://example.com"
+                                iconPlacement="right"
+                                onClick={[Function]}
+                                target={null}
+                              >
+                                <div
+                                  className="bx--link-with-icon__container"
+                                  data-autoid="dds--link-with-icon"
+                                >
+                                  <Link
+                                    className="bx--link-with-icon"
+                                    href="https://example.com"
+                                    onClick={[Function]}
+                                    target={null}
+                                  >
+                                    <a
+                                      className="bx--link bx--link-with-icon"
+                                      href="https://example.com"
+                                      onClick={[Function]}
+                                      target={null}
+                                    >
+                                      <span>
+                                        View the infographic
+                                      </span>
+                                      <ForwardRef(ArrowRight20)>
+                                        <Icon
+                                          fill="currentColor"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </ForwardRef(ArrowRight20)>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </LinkWithIcon>
+                            </TextCTA>
+                          </div>
+                        </CTA>
+                      </div>
+                    </div>
+                    <div
+                      className="bx--content-block-headlines__row"
+                      key="1"
+                    >
+                      <div
+                        className="bx--content-block-headlines__item"
+                        key="0"
+                      >
+                        <h4
+                          className="bx--content-block-headlines__headline"
+                        >
+                          50%
+                        </h4>
+                        <p
+                          className="bx--content-block-headlines__copy"
+                        >
+                          Build cloud native apps with microservices code generation and improved DevOps processes with up to 50 percent less effort.
+                        </p>
+                        <CTA
+                          copy="Take the assessment"
+                          cta={
+                            Object {
+                              "href": "https://example.com",
+                            }
+                          }
+                          href=""
+                          style="text"
+                          type="external"
+                        >
+                          <div>
+                            <TextCTA
+                              copy="Take the assessment"
+                              cta={
+                                Object {
+                                  "href": "https://example.com",
+                                }
+                              }
+                              formatCTAcopy={[Function]}
+                              href=""
+                              iconPlacement="right"
+                              openLightBox={[Function]}
+                              renderLightBox={false}
+                              style="text"
+                              type="external"
+                              videoTitle={
+                                Array [
+                                  Object {
+                                    "duration": "",
+                                    "key": 0,
+                                    "title": "",
+                                  },
+                                ]
+                              }
+                            >
+                              <LinkWithIcon
+                                href="https://example.com"
+                                iconPlacement="right"
+                                onClick={[Function]}
+                                target="_blank"
+                              >
+                                <div
+                                  className="bx--link-with-icon__container"
+                                  data-autoid="dds--link-with-icon"
+                                >
+                                  <Link
+                                    className="bx--link-with-icon"
+                                    href="https://example.com"
+                                    onClick={[Function]}
+                                    target="_blank"
+                                  >
+                                    <a
+                                      className="bx--link bx--link-with-icon"
+                                      href="https://example.com"
+                                      onClick={[Function]}
+                                      target="_blank"
+                                    >
+                                      <span>
+                                        Take the assessment
+                                      </span>
+                                      <ForwardRef(Launch20)>
+                                        <Icon
+                                          fill="currentColor"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 32 32"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 32 32"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                            />
+                                            <path
+                                              d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </ForwardRef(Launch20)>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </LinkWithIcon>
+                            </TextCTA>
+                          </div>
+                        </CTA>
+                      </div>
+                      <div
+                        className="bx--content-block-headlines__item"
+                        key="1"
+                      >
+                        <h4
+                          className="bx--content-block-headlines__headline"
+                        >
+                          1.34M
+                        </h4>
+                        <p
+                          className="bx--content-block-headlines__copy"
+                        >
+                          Save 1.34M per year by optimizing your time and IT expenses.
+                        </p>
+                        <CTA
+                          copy="Calculate your savings"
+                          cta={
+                            Object {
+                              "href": "https://example.com",
+                            }
+                          }
+                          href=""
+                          style="text"
+                          type="local"
+                        >
+                          <div>
+                            <TextCTA
+                              copy="Calculate your savings"
+                              cta={
+                                Object {
+                                  "href": "https://example.com",
+                                }
+                              }
+                              formatCTAcopy={[Function]}
+                              href=""
+                              iconPlacement="right"
+                              openLightBox={[Function]}
+                              renderLightBox={false}
+                              style="text"
+                              type="local"
+                              videoTitle={
+                                Array [
+                                  Object {
+                                    "duration": "",
+                                    "key": 0,
+                                    "title": "",
+                                  },
+                                ]
+                              }
+                            >
+                              <LinkWithIcon
+                                href="https://example.com"
+                                iconPlacement="right"
+                                onClick={[Function]}
+                                target={null}
+                              >
+                                <div
+                                  className="bx--link-with-icon__container"
+                                  data-autoid="dds--link-with-icon"
+                                >
+                                  <Link
+                                    className="bx--link-with-icon"
+                                    href="https://example.com"
+                                    onClick={[Function]}
+                                    target={null}
+                                  >
+                                    <a
+                                      className="bx--link bx--link-with-icon"
+                                      href="https://example.com"
+                                      onClick={[Function]}
+                                      target={null}
+                                    >
+                                      <span>
+                                        Calculate your savings
+                                      </span>
+                                      <ForwardRef(ArrowRight20)>
+                                        <Icon
+                                          fill="currentColor"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </ForwardRef(ArrowRight20)>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </LinkWithIcon>
+                            </TextCTA>
+                          </div>
+                        </CTA>
+                      </div>
+                    </div>
+                  </div>
+                  <HorizontalRule>
+                    <hr
+                      className="bx--hr"
+                      data-autoid="dds--hr"
+                    />
+                  </HorizontalRule>
+                </div>
+              </ContentBlock>
+            </div>
+          </ContentBlockHeadlines>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
 <Container
   story={[Function]}

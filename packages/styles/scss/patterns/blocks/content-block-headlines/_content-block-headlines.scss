@@ -1,0 +1,81 @@
+//
+// Copyright IBM Corp. 2016, 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin content-block-headlines {
+  .#{$prefix}--content-block-headlines {
+    .#{$prefix}--content-block {
+      &__copy {
+        p {
+          margin-bottom: $carbon--layout-05;
+
+          @include carbon--breakpoint('lg') {
+            margin-bottom: $carbon--layout-06;
+          }
+        }
+      }
+    }
+
+    &__row {
+      @include carbon--make-row;
+
+      &:last-of-type {
+        margin-bottom: $carbon--spacing-07;
+
+        @include carbon--breakpoint('md') {
+          margin-bottom: $carbon--spacing-07;
+        }
+
+        @include carbon--breakpoint('lg') {
+          margin-bottom: $carbon--layout-06;
+        }
+      }
+
+      @include carbon--breakpoint('md') {
+        border-top: 1px solid $ui-03;
+      }
+    }
+
+    &__item {
+      @include carbon--make-col-ready;
+
+      border-top: 1px solid $ui-03;
+      padding-top: $carbon--spacing-06;
+      padding-bottom: $carbon--spacing-07;
+
+      h4,
+      p {
+        max-width: 90%;
+        color: $text-01;
+      }
+
+      p {
+        @include carbon--type-style('body-long-02', true);
+
+        margin: $carbon--spacing-05 0 0;
+
+        @include carbon--breakpoint('md') {
+          margin: $carbon--spacing-05 0;
+        }
+      }
+
+      h4 {
+        @include carbon--type-style('display-02', true);
+      }
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(4, 8);
+
+        border-top: none;
+        padding-top: $carbon--spacing-05;
+        padding-bottom: $carbon--layout-05;
+      }
+    }
+  }
+}
+@include exports('content-block-headlines') {
+  @include content-block-headlines;
+}
