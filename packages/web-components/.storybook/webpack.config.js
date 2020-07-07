@@ -73,7 +73,7 @@ module.exports = ({ config, mode }) => {
       use: 'null-loader',
     },
     {
-      test: /@carbon[\\/]ibmdotcom-styles[\\/]icons[\\/]/i,
+      test: /[\\/]styles[\\/]icons[\\/]/i,
       use: [...babelLoaderRule.use, require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
     },
     {
@@ -136,7 +136,7 @@ module.exports = ({ config, mode }) => {
         {
           loader: 'fast-sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, '..', 'node_modules')],
+            includePaths: [path.resolve(__dirname, '..', 'node_modules'), path.resolve(__dirname, '../../..', 'node_modules')],
             data: `
               $feature-flags: (
                 enable-css-custom-properties: true,

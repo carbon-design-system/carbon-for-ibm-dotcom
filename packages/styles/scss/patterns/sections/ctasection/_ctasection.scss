@@ -29,9 +29,15 @@
 
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
-    padding-bottom: $carbon--layout-05;
+    &__cta {
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-06;
+      }
+    }
+
     .#{$prefix}--content-block {
-      padding-bottom: $carbon--spacing-07;
+      padding-top: $carbon--layout-03;
+      padding-bottom: 0;
 
       &__heading,
       &__copy {
@@ -58,25 +64,16 @@
         margin-top: 0;
       }
 
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-06;
-      }
-
       @include carbon--breakpoint('lg') {
-        padding-bottom: $carbon--layout-06;
+        padding-top: $carbon--layout-05;
       }
     }
 
     .#{$prefix}--helper-wrapper {
-      border-top: 1px solid $ui-03;
-
-      @include hang;
-
       .#{$prefix}--content-item-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        @include carbon--make-col-ready;
+        border-top: 1px solid $ui-03;
+
+        @include carbon--make-row;
 
         .#{$prefix}--content-item {
           width: 100%;
@@ -84,8 +81,11 @@
           padding-bottom: $carbon--spacing-05;
           position: relative;
 
+          @include carbon--make-col-ready;
+
           &__heading {
             width: 100%;
+
             @include carbon--type-style('expressive-heading-02', true);
           }
 
@@ -93,18 +93,14 @@
             width: 100%;
             p {
               width: 100%;
+              margin-bottom: $carbon--spacing-05;
+
               @include carbon--type-style('body-long-02', true);
             }
           }
 
-          &__cta {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-          }
-
           @include carbon--breakpoint('md') {
-            width: 50%;
+            @include carbon--make-col(4, 8);
 
             &__heading {
               width: 90%;
@@ -114,29 +110,41 @@
               width: 90%;
             }
           }
+
+          &:last-of-type {
+            margin-top: $carbon--spacing-05;
+
+            @include carbon--breakpoint('md') {
+              margin-top: $carbon--spacing-07;
+            }
+          }
         }
       }
     }
 
     &.#{$prefix}--cta-section__has-items {
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-06;
-      }
+      padding-bottom: $carbon--layout-04;
 
       @include carbon--breakpoint('lg') {
-        padding-bottom: $carbon--layout-06;
+        padding-bottom: carbon--mini-units(10);
+      }
+
+      .#{$prefix}--cta-section {
+        &__cta {
+          padding-bottom: $carbon--spacing-07;
+
+          @include carbon--breakpoint('md') {
+            padding-bottom: $carbon--layout-05;
+          }
+
+          @include carbon--breakpoint('lg') {
+            padding-bottom: $carbon--layout-06;
+          }
+        }
       }
 
       .#{$prefix}--content-block {
-        padding-bottom: $carbon--layout-05;
-
-        @include carbon--breakpoint('md') {
-          padding-bottom: $carbon--layout-06;
-        }
-
-        @include carbon--breakpoint('lg') {
-          padding-bottom: $carbon--layout-06;
-        }
+        padding-bottom: 0;
       }
     }
 

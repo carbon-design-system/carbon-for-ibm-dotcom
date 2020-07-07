@@ -230,8 +230,7 @@ const Content = () => (
         copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
         mediaType="video"
         mediaData={{
-          src: '0_uka1msg4',
-          type: 'video',
+          videoId: '0_uka1msg4',
         }}
       />
 
@@ -243,8 +242,9 @@ const Content = () => (
             eyebrow: 'Lorem ipsum',
             heading: 'Aliquam condimentum',
             copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.',
+              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
+              heading: 'Aliquam condimentum',
               items: [
                 {
                   type: 'local',
@@ -265,6 +265,7 @@ const Content = () => (
             copy:
               'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
+              heading: 'Aliquam condimentum',
               items: [
                 {
                   type: 'local',
@@ -396,17 +397,16 @@ const Content = () => (
               buttons: [
                 {
                   type: 'local',
-                  copy: ['Contact sales'],
+                  copy: 'Contact sales',
+                  href: 'https://example.com/',
                 },
               ],
             }}
             items={[
               {
                 heading: 'Get connected',
-                copy: `
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            `,
+                copy:
+                  'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
                 cta: {
                   copy: 'Find a partner',
                   type: 'local',

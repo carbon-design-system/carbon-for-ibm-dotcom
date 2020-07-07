@@ -32,13 +32,13 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
-    "@carbon/grid": "10.10.2",
+    "@carbon/grid": "10.12.0",
     "@carbon/import-once": "10.3.0",
-    "@carbon/layout": "10.9.2",
-    "@carbon/motion": "10.7.0",
-    "@carbon/themes": "10.11.2",
-    "@carbon/type": "10.10.2",
-    "carbon-components": "10.11.2"
+    "@carbon/layout": "10.11.0",
+    "@carbon/motion": "10.9.0",
+    "@carbon/themes": "10.14.0",
+    "@carbon/type": "10.12.0",
+    "carbon-components": "10.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -47,7 +47,7 @@
     "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@carbon/icons-react": "^10.8.0",
+    "@carbon/icons-react": "^10.13.0",
     "@percy/storybook": "^3.3.0",
     "@storybook/addon-actions": "^5.3.0",
     "@storybook/addon-knobs": "^5.3.0",
@@ -55,7 +55,7 @@
     "@storybook/react": "^5.3.0",
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
-    "carbon-components-react": "7.11.3",
+    "carbon-components-react": "7.14.0",
     "del": "^3.0.0",
     "fast-sass-loader": "^1.5.0",
     "gulp": "^4.0.2",

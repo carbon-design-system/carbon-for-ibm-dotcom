@@ -40,7 +40,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
 
   return (
     <section
-      data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
+      data-autoid={`${stablePrefix}--logo-grid`}
       className={classNames(`${prefix}--logo-grid`, {
         [`${prefix}--logo-grid__no-border`]: hideBorder,
       })}>

@@ -16,14 +16,17 @@
       @include carbon--make-row;
     }
 
-    &__wrapper {
-      @include carbon--breakpoint(sm) {
-        padding-top: $layout-03;
+    &__footer {
+      .#{$prefix}--link-with-icon {
+        span {
+          @include carbon--breakpoint(sm) {
+            max-width: calc(100% - 1.75rem);
+          }
+        }
       }
-      @include carbon--breakpoint(md) {
-        padding-top: $layout-05;
-      }
+    }
 
+    &__wrapper {
       position: relative;
     }
 
