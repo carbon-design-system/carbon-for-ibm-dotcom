@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { select, text } from '@storybook/addon-knobs';
 import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { text } from '@storybook/addon-knobs';
 
 /**
  * @param {object} options The options.
