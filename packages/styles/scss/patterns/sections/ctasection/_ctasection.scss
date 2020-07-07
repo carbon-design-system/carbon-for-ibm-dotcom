@@ -29,9 +29,15 @@
 
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
-    padding-bottom: $carbon--layout-05;
+    &__cta {
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-06;
+      }
+    }
+
     .#{$prefix}--content-block {
-      padding-bottom: $carbon--spacing-07;
+      padding-top: $carbon--layout-03;
+      padding-bottom: 0;
 
       &__heading,
       &__copy {
@@ -58,19 +64,15 @@
         margin-top: 0;
       }
 
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-06;
-      }
-
       @include carbon--breakpoint('lg') {
-        padding-bottom: $carbon--layout-06;
+        padding-top: $carbon--layout-05;
       }
     }
 
     .#{$prefix}--helper-wrapper {
-      border-top: 1px solid $ui-03;
-
       .#{$prefix}--content-item-wrapper {
+        border-top: 1px solid $ui-03;
+
         @include carbon--make-row;
 
         .#{$prefix}--content-item {
@@ -108,29 +110,41 @@
               width: 90%;
             }
           }
+
+          &:last-of-type {
+            margin-top: $carbon--spacing-05;
+
+            @include carbon--breakpoint('md') {
+              margin-top: $carbon--spacing-07;
+            }
+          }
         }
       }
     }
 
     &.#{$prefix}--cta-section__has-items {
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-06;
-      }
+      padding-bottom: $carbon--layout-04;
 
       @include carbon--breakpoint('lg') {
-        padding-bottom: $carbon--layout-06;
+        padding-bottom: carbon--mini-units(10);
+      }
+
+      .#{$prefix}--cta-section {
+        &__cta {
+          padding-bottom: $carbon--spacing-07;
+
+          @include carbon--breakpoint('md') {
+            padding-bottom: $carbon--layout-05;
+          }
+
+          @include carbon--breakpoint('lg') {
+            padding-bottom: $carbon--layout-06;
+          }
+        }
       }
 
       .#{$prefix}--content-block {
-        padding-bottom: $carbon--layout-05;
-
-        @include carbon--breakpoint('md') {
-          padding-bottom: $carbon--layout-06;
-        }
-
-        @include carbon--breakpoint('lg') {
-          padding-bottom: $carbon--layout-06;
-        }
+        padding-bottom: 0;
       }
     }
 
