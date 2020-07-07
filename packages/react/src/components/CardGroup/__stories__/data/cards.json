@@ -96,5 +96,52 @@
         "href": "https://www.example.com"
       }
     }
+  ],
+  "Video": [
+    {
+      "media": {
+        "src": "0_uka1msg4",
+        "type": "video"
+      },
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "media": {
+        "src": "0_uka1msg4",
+        "type": "video"
+      },
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "media": {
+        "src": "0_uka1msg4",
+        "type": "video"
+      },
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "media": {
+        "src": "0_uka1msg4",
+        "type": "video"
+      },
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "media": {
+        "src": "0_uka1msg4",
+        "type": "video"
+      },
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    }
   ]
 }
