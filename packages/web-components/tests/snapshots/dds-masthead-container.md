@@ -45,17 +45,27 @@
 #### `should render the given nav items to the top`
 
 ```
-<dds-top-nav role="navigation">
-  <dds-top-nav-item href="https://ibmdotcom-webcomponents.mybluemix.net/foo">
-    item-title-foo
+<dds-top-nav
+  data-auto-id="dds--masthead__l0-nav"
+  role="navigation"
+>
+  <dds-top-nav-item
+    data-autoid="dds--masthead__l0-nav--nav-0"
+    href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
+    title="item-title-foo"
+  >
   </dds-top-nav-item>
   <dds-top-nav-menu
+    data-autoid="dds--masthead__l0-nav--nav-1"
     menu-label="menu-title-foo"
     role="listitem"
     trigger-content="menu-title-foo"
   >
-    <dds-top-nav-menu-item href="https://ibmdotcom-webcomponents.mybluemix.net/bar">
-      menu-item-title-bar
+    <dds-top-nav-menu-item
+      data-autoid="dds--masthead__l0-nav--subnav-col1-item0"
+      href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
+      title="menu-item-title-bar"
+    >
     </dds-top-nav-menu-item>
   </dds-top-nav-menu>
 </dds-top-nav>
@@ -65,16 +75,26 @@
 #### `should render the given nav items to the left`
 
 ```
-<dds-left-nav role="navigation">
+<dds-left-nav
+  data-auto-id="dds--masthead__l0-sidenav"
+  role="navigation"
+>
   <dds-left-nav-item
+    data-autoid="dds--masthead__l0-sidenav--nav-0"
     href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
     role="listitem"
+    title="item-title-foo"
   >
-    item-title-foo
   </dds-left-nav-item>
-  <dds-left-nav-menu title="menu-title-foo">
-    <dds-left-nav-menu-item href="https://ibmdotcom-webcomponents.mybluemix.net/bar">
-      menu-item-title-bar
+  <dds-left-nav-menu
+    data-autoid="dds--masthead__l0-sidenav--nav-1"
+    title="menu-title-foo"
+  >
+    <dds-left-nav-menu-item
+      data-autoid="dds--masthead__l0-sidenav--subnav-col1-item0"
+      href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
+      title="menu-item-title-bar"
+    >
     </dds-left-nav-menu-item>
   </dds-left-nav-menu>
 </dds-left-nav>
