@@ -35,11 +35,15 @@ const CardGroup = ({ cards, cta }) => {
       const { current: containerNode } = containerRef;
       if (containerNode) {
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__heading`),
+          containerNode.getElementsByClassName(
+            `:not(.bx--card__video) ${prefix}--card__heading`
+          ),
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__copy`),
+          containerNode.getElementsByClassName(
+            `:not(.bx--card__video) ${prefix}--card__copy`
+          ),
           'md'
         );
         sameHeight(
