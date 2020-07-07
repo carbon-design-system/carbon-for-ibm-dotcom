@@ -7,6 +7,7 @@
 
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -53,7 +54,12 @@ const ContentBlockSimple = ({
 const _renderMedia = (type, data, inverse) => {
   if (data) {
     return (
-      <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
+      <div
+        data-autoid={`${stablePrefix}--content-block-simple__media`}
+        className={cx({
+          [`${prefix}--content-block-simple__media-video`]: type === 'video',
+          [`${prefix}--content-block-simple__media-image`]: type === 'image',
+        })}>
         {type === 'image' && <ImageWithCaption inverse={inverse} {...data} />}
         {type === 'video' && <VideoPlayer inverse={inverse} {...data} />}
       </div>
