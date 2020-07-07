@@ -11144,7 +11144,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11921,7 +11921,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -12421,7 +12421,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-                                     
+
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -17314,7 +17314,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               <div
                 className="bx--video-player__video-caption"
               >
-                 
+
                 (1:00)
               </div>
             </div>
@@ -28072,7 +28072,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                           <div
                             className="bx--video-player__video-caption"
                           >
-                             
+
                             (1:00)
                           </div>
                         </div>
