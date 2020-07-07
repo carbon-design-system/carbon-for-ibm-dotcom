@@ -27,28 +27,30 @@
       width: $icon-size-01;
       height: $icon-size-01;
     }
-  }
 
-  &.#{$prefix}--btn--field {
-    min-height: $button-field-height;
-    padding-top: calc(
-      (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
-        #{$button-outline-width}
-    );
-    padding-bottom: calc(
-      (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
-        #{$button-outline-width}
-    );
-  }
+    &.#{$prefix}--btn--field {
+      min-height: $button-field-height;
+      padding-top: calc(
+        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
+          2 - #{$button-outline-width}
+      );
+      padding-bottom: calc(
+        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
+          2 - #{$button-outline-width}
+      );
+    }
 
-  &.#{$prefix}--btn--sm {
-    min-height: $button-sm-height;
-    padding-top: calc(
-      (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
-    );
-    padding-bottom: calc(
-      (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
-    );
+    &.#{$prefix}--btn--sm {
+      min-height: $button-sm-height;
+      padding-top: calc(
+        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+          #{$button-outline-width}
+      );
+      padding-bottom: calc(
+        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+          #{$button-outline-width}
+      );
+    }
   }
 
   .#{$prefix}--btn--icon-only {
