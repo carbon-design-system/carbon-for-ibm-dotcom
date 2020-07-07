@@ -7,7 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { Card } from '../Card';
+import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
@@ -71,16 +71,19 @@ const _renderCards = (cards, containerRef, cta) => (
     className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
     {cards.map((card, index) => {
+      console.log(card.media);
       return (
         <div
           key={index}
           className={`${prefix}--card-group__cards__col`}
           role="region"
           aria-label={card.heading}>
-          <Card
+          <CTA
+            style="card"
             key={index}
             customClassName={`${prefix}--card-group__card`}
             image={card.image}
+            media={card.media}
             heading={card.heading}
             eyebrow={card.eyebrow}
             copy={card.copy}
@@ -90,14 +93,14 @@ const _renderCards = (cards, containerRef, cta) => (
                 src: ArrowRight20,
               },
             }}
-            type="link"
+            type={card.media ? 'video' : 'link'}
           />
         </div>
       );
     })}
     {cta && (
       <div className={`${prefix}--card-group__cards__col`}>
-        <Card
+        <CTA
           inverse={true}
           heading={cta.heading}
           cta={{
@@ -157,6 +160,12 @@ CardGroup.propTypes = {
         alt: PropTypes.string.isRequired,
         longDescription: PropTypes.string,
       }),
+      media: PropTypes.arrayOf(
+        PropTypes.shape({
+          src: PropTypes.string,
+          type: PropTypes.string,
+        })
+      ),
       cta: PropTypes.shape({
         href: PropTypes.string,
       }),
