@@ -75,7 +75,6 @@ const _renderCards = (cards, containerRef, cta) => (
     className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
     {cards.map((card, index) => {
-      console.log(card.media);
       return (
         <div
           key={index}
