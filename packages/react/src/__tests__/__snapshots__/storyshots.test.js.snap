@@ -8797,6 +8797,16 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
               "open": true,
             },
           },
+          "propsSet": Object {
+            "default": Object {
+              "LightboxMediaViewer": Object {
+                "media": Object {
+                  "src": "0_uka1msg4",
+                  "type": "video",
+                },
+              },
+            },
+          },
           "subcomponents": undefined,
         }
       }
