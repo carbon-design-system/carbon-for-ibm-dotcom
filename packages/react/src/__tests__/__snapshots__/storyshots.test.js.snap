@@ -4428,6 +4428,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         </div>
                                                       </ContentItem>
                                                       <div
+                                                        className="bx--content-block-simple__media-video"
                                                         data-autoid="dds--content-block-simple__media"
                                                       >
                                                         <VideoPlayer
@@ -16783,6 +16784,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                     </div>
                                   </ContentItem>
                                   <div
+                                    className="bx--content-block-simple__media-image"
                                     data-autoid="dds--content-block-simple__media"
                                   >
                                     <ImageWithCaption
@@ -27441,6 +27443,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         </div>
                       </ContentItem>
                       <div
+                        className="bx--content-block-simple__media-image"
                         data-autoid="dds--content-block-simple__media"
                       >
                         <ImageWithCaption
@@ -27970,6 +27973,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                 </div>
                               </ContentItem>
                               <div
+                                className="bx--content-block-simple__media-image"
                                 data-autoid="dds--content-block-simple__media"
                               >
                                 <ImageWithCaption
