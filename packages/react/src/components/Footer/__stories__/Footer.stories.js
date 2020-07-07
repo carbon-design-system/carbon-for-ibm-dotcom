@@ -102,12 +102,10 @@ Default.story = {
 export const Short = ({ parameters }) => {
   const massagedParameters = {
     ...parameters,
-    propsSet: {
-      default: {
-        Footer: {
-          ...(parameters?.props?.Footer ?? {}),
-          type: 'short',
-        },
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
       },
     },
   };
