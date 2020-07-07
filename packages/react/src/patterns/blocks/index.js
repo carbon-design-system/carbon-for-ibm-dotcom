@@ -9,6 +9,7 @@ export * from './CalloutData';
 export * from './CalloutQuote';
 export * from './CalloutWithMedia';
 export * from './ContentBlockCards';
+export * from './ContentBlockHeadlines';
 export * from './ContentBlockMedia';
 export * from './ContentBlockMixed';
 export * from './ContentBlockSegmented';
