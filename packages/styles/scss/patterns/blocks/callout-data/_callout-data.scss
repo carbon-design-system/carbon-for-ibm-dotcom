@@ -13,7 +13,7 @@
           @include carbon--type-style('display-03', true);
 
           color: $inverse-01;
-          padding-top: $layout-02;
+          padding-top: $layout-01;
           padding-bottom: $layout-05;
         }
 
@@ -22,7 +22,7 @@
 
           color: $inverse-01;
           margin-top: auto;
-          padding-bottom: $layout-02;
+          padding-bottom: $layout-01;
         }
 
         &__source {
@@ -40,7 +40,7 @@
             padding-bottom: $layout-06;
           }
 
-          padding-top: $layout-01;
+          padding-top: $spacing-03;
           color: $text-05;
         }
       }
