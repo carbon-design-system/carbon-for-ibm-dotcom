@@ -56,14 +56,14 @@
         @include carbon--type-style('body-long-02', true);
 
         margin: $carbon--spacing-05 0 0;
-
-        @include carbon--breakpoint('md') {
-          margin: $carbon--spacing-05 0;
-        }
       }
 
       h4 {
         @include carbon--type-style('display-02', true);
+      }
+
+      .#{$prefix}--link {
+        margin-top: $carbon--spacing-05;
       }
 
       @include carbon--breakpoint('md') {

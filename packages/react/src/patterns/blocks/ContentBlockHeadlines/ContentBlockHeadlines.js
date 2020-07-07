@@ -7,7 +7,9 @@
 import React, { useEffect, useRef } from 'react';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { CTA } from '../../../components/CTA';
+import { DDS_CONTENTBLOCK_HEADLINES } from '../../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -46,7 +48,8 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
     });
   };
 
-  return (
+  return featureFlag(
+    DDS_CONTENTBLOCK_HEADLINES,
     <div
       data-autoid={`${stablePrefix}--content-block-headlines`}
       className={`${prefix}--content-block-headlines`}
