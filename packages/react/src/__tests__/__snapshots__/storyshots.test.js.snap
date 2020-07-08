@@ -1421,10 +1421,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
-                  "media": Object {
-                    "src": "0_uka1msg4",
-                    "type": "video",
-                  },
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -1492,14 +1488,8 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   heading="Nunc convallis lobortis"
                   href=""
                   key="0"
-                  media={
-                    Object {
-                      "src": "0_uka1msg4",
-                      "type": "video",
-                    }
-                  }
                   style="card"
-                  type="video"
+                  type="link"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -1522,16 +1512,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       disableImage={false}
                       heading="Nunc convallis lobortis"
                       href=""
-                      media={
-                        Object {
-                          "src": "0_uka1msg4",
-                          "type": "video",
-                        }
-                      }
+                      media={null}
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="video"
+                      type="link"
                       videoTitle={
                         Array [
                           Object {
@@ -1545,71 +1530,51 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       <CardLink
                         card={
                           Object {
-                            "copy": "",
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                             "cta": Object {
-                              "copy": "",
-                              "href": "#",
+                              "href": "https://www.example.com",
                               "icon": Object {
                                 "src": Object {
                                   "$$typeof": Symbol(react.forward_ref),
                                   "render": [Function],
                                 },
                               },
+                              "type": "link",
                             },
                             "eyebrow": undefined,
-                            "handleClick": [Function],
                             "heading": "Nunc convallis lobortis",
                             "href": "",
-                            "image": Object {
-                              "alt": "",
-                              "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                              "icon": [Function],
-                            },
-                            "media": Object {
-                              "src": "0_uka1msg4",
-                              "type": "video",
-                            },
+                            "image": undefined,
+                            "media": null,
+                            "target": null,
                           }
                         }
-                        customClassName="bx--card__video"
                         disabled={false}
                       >
                         <Card
-                          copy=""
+                          copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                           cta={
                             Object {
-                              "copy": "",
-                              "href": "#",
+                              "href": "https://www.example.com",
                               "icon": Object {
                                 "src": Object {
                                   "$$typeof": Symbol(react.forward_ref),
                                   "render": [Function],
                                 },
                               },
+                              "type": "link",
                             }
                           }
-                          customClassName="bx--card__CTA bx--card__video"
+                          customClassName="bx--card__CTA"
                           disabled={false}
-                          handleClick={[Function]}
                           heading="Nunc convallis lobortis"
                           href=""
-                          image={
-                            Object {
-                              "alt": "",
-                              "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                              "icon": [Function],
-                            }
-                          }
-                          media={
-                            Object {
-                              "src": "0_uka1msg4",
-                              "type": "video",
-                            }
-                          }
+                          media={null}
+                          target={null}
                           type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                            className="bx--card bx--card--link bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -1617,36 +1582,20 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             handleKeyDown={[Function]}
                             href=""
                             light={false}
-                            media={
-                              Object {
-                                "src": "0_uka1msg4",
-                                "type": "video",
-                              }
-                            }
+                            media={null}
                             onClick={[Function]}
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
-                              media={
-                                Object {
-                                  "src": "0_uka1msg4",
-                                  "type": "video",
-                                }
-                              }
+                              media={null}
                               onClick={[Function]}
                               onKeyDown={[Function]}
                               target={null}
                             >
-                              <Image
-                                alt=""
-                                classname="bx--card__img"
-                                defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
-                                icon={[Function]}
-                              />
                               <div
                                 className="bx--card__wrapper"
                               >
@@ -1656,9 +1605,17 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   Nunc convallis lobortis
                                 </h3>
                                 <div
+                                  className="bx--card__copy"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    }
+                                  }
+                                />
+                                <div
                                   className="bx--card__footer"
                                 >
-                                  <ForwardRef(PlayOutline20)
+                                  <ForwardRef(ArrowRight20)
                                     className="bx--card__cta"
                                     src={
                                       Object {
@@ -1677,7 +1634,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                           "render": [Function],
                                         }
                                       }
-                                      viewBox="0 0 32 32"
+                                      viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -1693,19 +1650,16 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                             "render": [Function],
                                           }
                                         }
-                                        viewBox="0 0 32 32"
+                                        viewBox="0 0 20 20"
                                         width={20}
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
                                         <path
-                                          d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
-                                        />
-                                        <path
-                                          d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                         />
                                       </svg>
                                     </Icon>
-                                  </ForwardRef(PlayOutline20)>
+                                  </ForwardRef(ArrowRight20)>
                                   <span />
                                 </div>
                               </div>
@@ -2544,8 +2498,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
               <div
                 className="bx--card-group__cards__col"
               >
-                <CTA
-                  copy=""
+                <Card
                   cta={
                     Object {
                       "href": "https://www.example.com",
@@ -2558,97 +2511,90 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     }
                   }
                   heading="Top level card link"
-                  href=""
                   inverse={true}
-                  style="text"
                   type="link"
                 >
-                  <div>
-                    <TextCTA
-                      copy=""
-                      cta={
-                        Object {
-                          "href": "https://www.example.com",
-                          "icon": Object {
-                            "src": Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            },
-                          },
-                        }
-                      }
-                      formatCTAcopy={[Function]}
-                      heading="Top level card link"
-                      href=""
-                      iconPlacement="right"
-                      inverse={true}
-                      openLightBox={[Function]}
-                      renderLightBox={false}
-                      style="text"
-                      type="link"
-                      videoTitle={
-                        Array [
-                          Object {
-                            "duration": "",
-                            "key": 0,
-                            "title": "",
-                          },
-                        ]
-                      }
+                  <ClickableTile
+                    className="bx--card bx--card--inverse bx--card--link"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
                     >
-                      <LinkWithIcon
-                        href="https://www.example.com"
-                        iconPlacement="right"
-                        onClick={[Function]}
-                        target={null}
+                      <div
+                        className="bx--card__wrapper"
                       >
-                        <div
-                          className="bx--link-with-icon__container"
-                          data-autoid="dds--link-with-icon"
+                        <h3
+                          className="bx--card__heading"
                         >
-                          <Link
-                            className="bx--link-with-icon"
-                            href="https://www.example.com"
-                            onClick={[Function]}
-                            target={null}
+                          Top level card link
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
                           >
-                            <a
-                              className="bx--link bx--link-with-icon"
-                              href="https://www.example.com"
-                              onClick={[Function]}
-                              target={null}
+                            <Icon
+                              className="bx--card__cta"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
                             >
-                              <span />
-                              <ForwardRef(ArrowRight20)>
-                                <Icon
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <svg
-                                    aria-hidden={true}
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
-                            </a>
-                          </Link>
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                          <span />
                         </div>
-                      </LinkWithIcon>
-                    </TextCTA>
-                  </div>
-                </CTA>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
               </div>
             </div>
           </CardGroup>
@@ -2684,7 +2630,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4"
         >
           <CardLink
             card={
@@ -18515,10 +18461,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
-                  "media": Object {
-                    "src": "0_uka1msg4",
-                    "type": "video",
-                  },
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -18608,10 +18550,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 "href": "https://www.example.com",
                               },
                               "heading": "Nunc convallis lobortis",
-                              "media": Object {
-                                "src": "0_uka1msg4",
-                                "type": "video",
-                              },
                             },
                             Object {
                               "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -18671,14 +18609,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               heading="Nunc convallis lobortis"
                               href=""
                               key="0"
-                              media={
-                                Object {
-                                  "src": "0_uka1msg4",
-                                  "type": "video",
-                                }
-                              }
                               style="card"
-                              type="video"
+                              type="link"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -18701,16 +18633,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   disableImage={false}
                                   heading="Nunc convallis lobortis"
                                   href=""
-                                  media={
-                                    Object {
-                                      "src": "0_uka1msg4",
-                                      "type": "video",
-                                    }
-                                  }
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="video"
+                                  type="link"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -18724,71 +18651,51 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   <CardLink
                                     card={
                                       Object {
-                                        "copy": "",
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                                         "cta": Object {
-                                          "copy": "",
-                                          "href": "#",
+                                          "href": "https://www.example.com",
                                           "icon": Object {
                                             "src": Object {
                                               "$$typeof": Symbol(react.forward_ref),
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "link",
                                         },
                                         "eyebrow": undefined,
-                                        "handleClick": [Function],
                                         "heading": "Nunc convallis lobortis",
                                         "href": "",
-                                        "image": Object {
-                                          "alt": "",
-                                          "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                                          "icon": [Function],
-                                        },
-                                        "media": Object {
-                                          "src": "0_uka1msg4",
-                                          "type": "video",
-                                        },
+                                        "image": undefined,
+                                        "media": null,
+                                        "target": null,
                                       }
                                     }
-                                    customClassName="bx--card__video"
                                     disabled={false}
                                   >
                                     <Card
-                                      copy=""
+                                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                                       cta={
                                         Object {
-                                          "copy": "",
-                                          "href": "#",
+                                          "href": "https://www.example.com",
                                           "icon": Object {
                                             "src": Object {
                                               "$$typeof": Symbol(react.forward_ref),
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "link",
                                         }
                                       }
-                                      customClassName="bx--card__CTA bx--card__video"
+                                      customClassName="bx--card__CTA"
                                       disabled={false}
-                                      handleClick={[Function]}
                                       heading="Nunc convallis lobortis"
                                       href=""
-                                      image={
-                                        Object {
-                                          "alt": "",
-                                          "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                                          "icon": [Function],
-                                        }
-                                      }
-                                      media={
-                                        Object {
-                                          "src": "0_uka1msg4",
-                                          "type": "video",
-                                        }
-                                      }
+                                      media={null}
+                                      target={null}
                                       type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card--link bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -18796,36 +18703,20 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href=""
                                         light={false}
-                                        media={
-                                          Object {
-                                            "src": "0_uka1msg4",
-                                            "type": "video",
-                                          }
-                                        }
+                                        media={null}
                                         onClick={[Function]}
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
-                                          media={
-                                            Object {
-                                              "src": "0_uka1msg4",
-                                              "type": "video",
-                                            }
-                                          }
+                                          media={null}
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                           target={null}
                                         >
-                                          <Image
-                                            alt=""
-                                            classname="bx--card__img"
-                                            defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
-                                            icon={[Function]}
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -18835,9 +18726,17 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                               Nunc convallis lobortis
                                             </h3>
                                             <div
+                                              className="bx--card__copy"
+                                              dangerouslySetInnerHTML={
+                                                Object {
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                }
+                                              }
+                                            />
+                                            <div
                                               className="bx--card__footer"
                                             >
-                                              <ForwardRef(PlayOutline20)
+                                              <ForwardRef(ArrowRight20)
                                                 className="bx--card__cta"
                                                 src={
                                                   Object {
@@ -18856,7 +18755,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                       "render": [Function],
                                                     }
                                                   }
-                                                  viewBox="0 0 32 32"
+                                                  viewBox="0 0 20 20"
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
@@ -18872,19 +18771,16 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                         "render": [Function],
                                                       }
                                                     }
-                                                    viewBox="0 0 32 32"
+                                                    viewBox="0 0 20 20"
                                                     width={20}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                   >
                                                     <path
-                                                      d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
-                                                    />
-                                                    <path
-                                                      d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                     />
                                                   </svg>
                                                 </Icon>
-                                              </ForwardRef(PlayOutline20)>
+                                              </ForwardRef(ArrowRight20)>
                                               <span />
                                             </div>
                                           </div>
@@ -37496,10 +37392,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
               "href": "https://www.example.com",
             },
             "heading": "Nunc convallis lobortis",
-            "media": Object {
-              "src": "0_uka1msg4",
-              "type": "video",
-            },
           },
           Object {
             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -37578,10 +37470,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           "href": "https://www.example.com",
                         },
                         "heading": "Nunc convallis lobortis",
-                        "media": Object {
-                          "src": "0_uka1msg4",
-                          "type": "video",
-                        },
                       },
                       Object {
                         "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -37649,14 +37537,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         heading="Nunc convallis lobortis"
                         href=""
                         key="0"
-                        media={
-                          Object {
-                            "src": "0_uka1msg4",
-                            "type": "video",
-                          }
-                        }
                         style="card"
-                        type="video"
+                        type="link"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -37679,16 +37561,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             disableImage={false}
                             heading="Nunc convallis lobortis"
                             href=""
-                            media={
-                              Object {
-                                "src": "0_uka1msg4",
-                                "type": "video",
-                              }
-                            }
+                            media={null}
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="video"
+                            type="link"
                             videoTitle={
                               Array [
                                 Object {
@@ -37702,71 +37579,51 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             <CardLink
                               card={
                                 Object {
-                                  "copy": "",
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                                   "cta": Object {
-                                    "copy": "",
-                                    "href": "#",
+                                    "href": "https://www.example.com",
                                     "icon": Object {
                                       "src": Object {
                                         "$$typeof": Symbol(react.forward_ref),
                                         "render": [Function],
                                       },
                                     },
+                                    "type": "link",
                                   },
                                   "eyebrow": undefined,
-                                  "handleClick": [Function],
                                   "heading": "Nunc convallis lobortis",
                                   "href": "",
-                                  "image": Object {
-                                    "alt": "",
-                                    "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                                    "icon": [Function],
-                                  },
-                                  "media": Object {
-                                    "src": "0_uka1msg4",
-                                    "type": "video",
-                                  },
+                                  "image": undefined,
+                                  "media": null,
+                                  "target": null,
                                 }
                               }
-                              customClassName="bx--card__video"
                               disabled={false}
                             >
                               <Card
-                                copy=""
+                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                                 cta={
                                   Object {
-                                    "copy": "",
-                                    "href": "#",
+                                    "href": "https://www.example.com",
                                     "icon": Object {
                                       "src": Object {
                                         "$$typeof": Symbol(react.forward_ref),
                                         "render": [Function],
                                       },
                                     },
+                                    "type": "link",
                                   }
                                 }
-                                customClassName="bx--card__CTA bx--card__video"
+                                customClassName="bx--card__CTA"
                                 disabled={false}
-                                handleClick={[Function]}
                                 heading="Nunc convallis lobortis"
                                 href=""
-                                image={
-                                  Object {
-                                    "alt": "",
-                                    "defaultSrc": "https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320",
-                                    "icon": [Function],
-                                  }
-                                }
-                                media={
-                                  Object {
-                                    "src": "0_uka1msg4",
-                                    "type": "video",
-                                  }
-                                }
+                                media={null}
+                                target={null}
                                 type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                  className="bx--card bx--card--link bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -37774,36 +37631,20 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   handleKeyDown={[Function]}
                                   href=""
                                   light={false}
-                                  media={
-                                    Object {
-                                      "src": "0_uka1msg4",
-                                      "type": "video",
-                                    }
-                                  }
+                                  media={null}
                                   onClick={[Function]}
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
-                                    media={
-                                      Object {
-                                        "src": "0_uka1msg4",
-                                        "type": "video",
-                                      }
-                                    }
+                                    media={null}
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                     target={null}
                                   >
-                                    <Image
-                                      alt=""
-                                      classname="bx--card__img"
-                                      defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
-                                      icon={[Function]}
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -37813,9 +37654,17 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                         Nunc convallis lobortis
                                       </h3>
                                       <div
+                                        className="bx--card__copy"
+                                        dangerouslySetInnerHTML={
+                                          Object {
+                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          }
+                                        }
+                                      />
+                                      <div
                                         className="bx--card__footer"
                                       >
-                                        <ForwardRef(PlayOutline20)
+                                        <ForwardRef(ArrowRight20)
                                           className="bx--card__cta"
                                           src={
                                             Object {
@@ -37834,7 +37683,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                 "render": [Function],
                                               }
                                             }
-                                            viewBox="0 0 32 32"
+                                            viewBox="0 0 20 20"
                                             width={20}
                                             xmlns="http://www.w3.org/2000/svg"
                                           >
@@ -37850,19 +37699,16 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              viewBox="0 0 32 32"
+                                              viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
                                               <path
-                                                d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
-                                              />
-                                              <path
-                                                d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                               />
                                             </svg>
                                           </Icon>
-                                        </ForwardRef(PlayOutline20)>
+                                        </ForwardRef(ArrowRight20)>
                                         <span />
                                       </div>
                                     </div>
@@ -38701,8 +38547,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                     <div
                       className="bx--card-group__cards__col"
                     >
-                      <CTA
-                        copy=""
+                      <Card
                         cta={
                           Object {
                             "href": "https://www.example.com",
@@ -38715,97 +38560,90 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           }
                         }
                         heading="Top level card link"
-                        href=""
                         inverse={true}
-                        style="text"
                         type="link"
                       >
-                        <div>
-                          <TextCTA
-                            copy=""
-                            cta={
-                              Object {
-                                "href": "https://www.example.com",
-                                "icon": Object {
-                                  "src": Object {
-                                    "$$typeof": Symbol(react.forward_ref),
-                                    "render": [Function],
-                                  },
-                                },
-                              }
-                            }
-                            formatCTAcopy={[Function]}
-                            heading="Top level card link"
-                            href=""
-                            iconPlacement="right"
-                            inverse={true}
-                            openLightBox={[Function]}
-                            renderLightBox={false}
-                            style="text"
-                            type="link"
-                            videoTitle={
-                              Array [
-                                Object {
-                                  "duration": "",
-                                  "key": 0,
-                                  "title": "",
-                                },
-                              ]
-                            }
+                        <ClickableTile
+                          className="bx--card bx--card--inverse bx--card--link"
+                          clicked={false}
+                          data-autoid="dds--card"
+                          handleClick={[Function]}
+                          handleKeyDown={[Function]}
+                          href="https://www.example.com"
+                          light={false}
+                          onClick={[Function]}
+                          target={null}
+                        >
+                          <a
+                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                            data-autoid="dds--card"
+                            href="https://www.example.com"
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            target={null}
                           >
-                            <LinkWithIcon
-                              href="https://www.example.com"
-                              iconPlacement="right"
-                              onClick={[Function]}
-                              target={null}
+                            <div
+                              className="bx--card__wrapper"
                             >
-                              <div
-                                className="bx--link-with-icon__container"
-                                data-autoid="dds--link-with-icon"
+                              <h3
+                                className="bx--card__heading"
                               >
-                                <Link
-                                  className="bx--link-with-icon"
-                                  href="https://www.example.com"
-                                  onClick={[Function]}
-                                  target={null}
+                                Top level card link
+                              </h3>
+                              <div
+                                className="bx--card__footer"
+                              >
+                                <ForwardRef(ArrowRight20)
+                                  className="bx--card__cta"
+                                  src={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    }
+                                  }
                                 >
-                                  <a
-                                    className="bx--link bx--link-with-icon"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    target={null}
+                                  <Icon
+                                    className="bx--card__cta"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    src={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      }
+                                    }
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
                                   >
-                                    <span />
-                                    <ForwardRef(ArrowRight20)>
-                                      <Icon
-                                        height={20}
-                                        preserveAspectRatio="xMidYMid meet"
-                                        viewBox="0 0 20 20"
-                                        width={20}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <svg
-                                          aria-hidden={true}
-                                          focusable="false"
-                                          height={20}
-                                          preserveAspectRatio="xMidYMid meet"
-                                          viewBox="0 0 20 20"
-                                          width={20}
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </ForwardRef(ArrowRight20)>
-                                  </a>
-                                </Link>
+                                    <svg
+                                      aria-hidden={true}
+                                      className="bx--card__cta"
+                                      focusable="false"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                      viewBox="0 0 20 20"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </ForwardRef(ArrowRight20)>
+                                <span />
                               </div>
-                            </LinkWithIcon>
-                          </TextCTA>
-                        </div>
-                      </CTA>
+                            </div>
+                          </a>
+                        </ClickableTile>
+                      </Card>
                     </div>
                   </div>
                 </CardGroup>
