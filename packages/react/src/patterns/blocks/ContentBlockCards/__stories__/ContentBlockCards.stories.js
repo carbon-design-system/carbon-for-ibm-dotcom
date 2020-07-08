@@ -44,9 +44,11 @@ export default {
         };
       },
     },
-    props: {
-      ContentBlockCards: {
-        cards: cards[Object.keys(cards)[0]],
+    propsSet: {
+      default: {
+        ContentBlockCards: {
+          cards: cards[Object.keys(cards)[0]],
+        },
       },
     },
   },

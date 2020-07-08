@@ -91,9 +91,11 @@ Default.story = {
         },
       }),
     },
-    props: {
-      CTASection: {
-        items: contentItemsProps,
+    propsSet: {
+      default: {
+        CTASection: {
+          items: contentItemsProps,
+        },
       },
     },
   },

@@ -57,7 +57,19 @@ addParameters({
 addDecorator(withKnobs);
 
 addDecorator((story, { parameters }) => {
-  const { knobs } = parameters;
+  const { knobs, propsSet } = parameters;
+  const { default: defaultProps } = propsSet ?? {};
+  if (Object(defaultProps) === defaultProps) {
+    if (!parameters.props) {
+      parameters.props = {};
+    }
+    Object.keys(defaultProps).forEach(name => {
+      Object.assign(
+        (parameters.props[name] = parameters.props[name] || {}),
+        defaultProps[name] ?? {}
+      );
+    });
+  }
   if (Object(knobs) === knobs) {
     if (!parameters.props) {
       parameters.props = {};
