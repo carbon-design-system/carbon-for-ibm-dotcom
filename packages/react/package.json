@@ -135,6 +135,7 @@
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^4.0.0",
     "lcov2badge": "^0.1.0",
+    "lodash-es": "^4.17.0",
     "magic-string": "^0.25.0",
     "mini-css-extract-plugin": "^0.4.4",
     "minimatch": "^3.0.0",
