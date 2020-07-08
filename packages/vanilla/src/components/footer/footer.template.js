@@ -40,16 +40,20 @@ const footerTemplate = ({ type, footerMenu, footerThin }) => {
     </section>
     <aside data-autoid="${stablePrefix}--footer-legal-nav" class="${prefix}--legal-nav__container">
       <nav class="${prefix}--legal-nav">
-        <ul class="${prefix}--legal-nav__list">
+        <div class="${prefix}--legal-nav__list">
           ${_renderLegalItems(footerThin)}
 
-          <li class="${prefix}--legal-nav__list-item" data-autoid="${stablePrefix}--privacy-cp"></li>
-        </ul>
+          <ul class="${prefix}--legal-nav__holder">
+            <li class="${prefix}--legal-nav__list-item" data-autoid="${stablePrefix}--privacy-cp"></li>
+          </ul>
+        </div>
       </nav>
     </aside>
   </footer>
   `;
 };
+
+const FOOTER_LEGAL_NAV_DIVIDE_CHUNKS = 3;
 
 /**
  * Renders the list of legal navigation items
@@ -59,12 +63,22 @@ const footerTemplate = ({ type, footerMenu, footerThin }) => {
  * @private
  */
 function _renderLegalItems(footerThin) {
-  let items = '';
   if (footerThin && footerThin.length > 0) {
-    footerThin.forEach(item => {
-      items = items + footerLegalItem({ url: item.url, label: item.title });
-    });
-    return items;
+    const chunkLength = Math.ceil(
+      footerThin.length / FOOTER_LEGAL_NAV_DIVIDE_CHUNKS
+    );
+    return Array.from({ length: FOOTER_LEGAL_NAV_DIVIDE_CHUNKS })
+      .map((_, i) => footerThin.slice(i * chunkLength, (i + 1) * chunkLength))
+      .map(
+        chunk => `
+        <ul class="${prefix}--legal-nav__holder">
+          ${chunk
+            .map(item => footerLegalItem({ url: item.url, label: item.title }))
+            .join('')}
+        </ul>
+      `
+      )
+      .join('');
   }
 }
 
