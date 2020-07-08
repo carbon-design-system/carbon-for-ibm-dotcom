@@ -1773,15 +1773,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
       }
     >
       <Masthead
-        eyebrowLink={null}
-        eyebrowText={null}
         hasProfile={true}
         hasSearch={true}
+        mastheadL1Data={null}
         navigation="default"
         placeHolderText="Search all of IBM"
         platform={null}
         searchOpenOnload={false}
-        title={null}
       >
         <HeaderContainer
           isSideNavExpanded={false}
@@ -12770,15 +12768,13 @@ exports[`Storyshots Components|Masthead Default 1`] = `
     }
   >
     <Masthead
-      eyebrowLink={null}
-      eyebrowText={null}
       hasProfile={true}
       hasSearch={true}
+      mastheadL1Data={null}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
       searchOpenOnload={false}
-      title={null}
     >
       <HeaderContainer
         isSideNavExpanded={false}
@@ -13212,15 +13208,13 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
     }
   >
     <Masthead
-      eyebrowLink={null}
-      eyebrowText={null}
       hasProfile={true}
       hasSearch={true}
+      mastheadL1Data={null}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
       searchOpenOnload={true}
-      title={null}
     >
       <HeaderContainer
         isSideNavExpanded={false}
@@ -13859,10 +13853,9 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
       }
     >
       <Masthead
-        eyebrowLink={null}
-        eyebrowText={null}
         hasProfile={true}
         hasSearch={true}
+        mastheadL1Data={null}
         navigation="default"
         placeHolderText="Search all of IBM"
         platform={
@@ -13872,7 +13865,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           }
         }
         searchOpenOnload={false}
-        title={null}
       >
         <HeaderContainer
           isSideNavExpanded={false}
