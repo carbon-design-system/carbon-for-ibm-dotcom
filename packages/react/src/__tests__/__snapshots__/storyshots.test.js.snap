@@ -1766,6 +1766,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
         Object {
           "hasProfile": true,
           "hasSearch": true,
+          "mastheadL1Data": false,
           "navigation": "default",
           "placeHolderText": "Search all of IBM",
           "platform": null,
@@ -1775,7 +1776,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
       <Masthead
         hasProfile={true}
         hasSearch={true}
-        mastheadL1Data={null}
+        mastheadL1Data={false}
         navigation="default"
         placeHolderText="Search all of IBM"
         platform={null}
@@ -1816,47 +1817,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         Skip to main content
                       </a>
                     </SkipToContent>
-                    <HeaderMenuButton
-                      aria-label="Open menu"
-                      data-autoid="dds--masthead__hamburger"
-                      isActive={false}
-                      onClick={[Function]}
-                    >
-                      <button
-                        aria-label="Open menu"
-                        className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                        data-autoid="dds--masthead__hamburger"
-                        onClick={[Function]}
-                        title="Open menu"
-                        type="button"
-                      >
-                        <ForwardRef(Menu20)>
-                          <Icon
-                            fill="currentColor"
-                            height={20}
-                            preserveAspectRatio="xMidYMid meet"
-                            viewBox="0 0 20 20"
-                            width={20}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              fill="currentColor"
-                              focusable="false"
-                              height={20}
-                              preserveAspectRatio="xMidYMid meet"
-                              viewBox="0 0 20 20"
-                              width={20}
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
-                              />
-                            </svg>
-                          </Icon>
-                        </ForwardRef(Menu20)>
-                      </button>
-                    </HeaderMenuButton>
                     <IbmLogo>
                       <div
                         className="bx--header__logo"
@@ -2137,52 +2097,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         </MastheadProfile>
                       </div>
                     </HeaderGlobalBar>
-                    <MastheadLeftNav
-                      isSideNavExpanded={false}
-                      navigation={Array []}
-                      platform={null}
-                    >
-                      <ForwardRef(SideNav)
-                        addFocusListeners={true}
-                        addMouseListeners={true}
-                        aria-label="Side navigation"
-                        defaultExpanded={false}
-                        expanded={false}
-                        isChildOfHeader={true}
-                        isFixedNav={false}
-                        isPersistent={false}
-                        translateById={[Function]}
-                      >
-                        <div
-                          className="bx--side-nav__overlay"
-                        />
-                        <nav
-                          aria-label="Side navigation"
-                          className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                          onBlur={[Function]}
-                          onFocus={[Function]}
-                        >
-                          <nav
-                            data-autoid="dds--masthead__l0-sidenav"
-                          >
-                            <SideNavItems>
-                              <ul
-                                className="bx--side-nav__items"
-                              >
-                                <HeaderSideNavItems
-                                  hasDivider={false}
-                                  key=".0"
-                                >
-                                  <div
-                                    className="bx--side-nav__header-navigation"
-                                  />
-                                </HeaderSideNavItems>
-                              </ul>
-                            </SideNavItems>
-                          </nav>
-                        </nav>
-                      </ForwardRef(SideNav)>
-                    </MastheadLeftNav>
                   </header>
                 </Header>
               </div>
@@ -12770,7 +12684,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
     <Masthead
       hasProfile={true}
       hasSearch={true}
-      mastheadL1Data={null}
+      mastheadL1Data={false}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
@@ -12811,47 +12725,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       Skip to main content
                     </a>
                   </SkipToContent>
-                  <HeaderMenuButton
-                    aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
-                    isActive={false}
-                    onClick={[Function]}
-                  >
-                    <button
-                      aria-label="Open menu"
-                      className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
-                      onClick={[Function]}
-                      title="Open menu"
-                      type="button"
-                    >
-                      <ForwardRef(Menu20)>
-                        <Icon
-                          fill="currentColor"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            fill="currentColor"
-                            focusable="false"
-                            height={20}
-                            preserveAspectRatio="xMidYMid meet"
-                            viewBox="0 0 20 20"
-                            width={20}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
-                            />
-                          </svg>
-                        </Icon>
-                      </ForwardRef(Menu20)>
-                    </button>
-                  </HeaderMenuButton>
                   <IbmLogo>
                     <div
                       className="bx--header__logo"
@@ -13132,52 +13005,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       </MastheadProfile>
                     </div>
                   </HeaderGlobalBar>
-                  <MastheadLeftNav
-                    isSideNavExpanded={false}
-                    navigation={Array []}
-                    platform={null}
-                  >
-                    <ForwardRef(SideNav)
-                      addFocusListeners={true}
-                      addMouseListeners={true}
-                      aria-label="Side navigation"
-                      defaultExpanded={false}
-                      expanded={false}
-                      isChildOfHeader={true}
-                      isFixedNav={false}
-                      isPersistent={false}
-                      translateById={[Function]}
-                    >
-                      <div
-                        className="bx--side-nav__overlay"
-                      />
-                      <nav
-                        aria-label="Side navigation"
-                        className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        <nav
-                          data-autoid="dds--masthead__l0-sidenav"
-                        >
-                          <SideNavItems>
-                            <ul
-                              className="bx--side-nav__items"
-                            >
-                              <HeaderSideNavItems
-                                hasDivider={false}
-                                key=".0"
-                              >
-                                <div
-                                  className="bx--side-nav__header-navigation"
-                                />
-                              </HeaderSideNavItems>
-                            </ul>
-                          </SideNavItems>
-                        </nav>
-                      </nav>
-                    </ForwardRef(SideNav)>
-                  </MastheadLeftNav>
                 </header>
               </Header>
             </div>
@@ -13210,7 +13037,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
     <Masthead
       hasProfile={true}
       hasSearch={true}
-      mastheadL1Data={null}
+      mastheadL1Data={false}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
@@ -13251,47 +13078,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       Skip to main content
                     </a>
                   </SkipToContent>
-                  <HeaderMenuButton
-                    aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
-                    isActive={false}
-                    onClick={[Function]}
-                  >
-                    <button
-                      aria-label="Open menu"
-                      className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
-                      onClick={[Function]}
-                      title="Open menu"
-                      type="button"
-                    >
-                      <ForwardRef(Menu20)>
-                        <Icon
-                          fill="currentColor"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            fill="currentColor"
-                            focusable="false"
-                            height={20}
-                            preserveAspectRatio="xMidYMid meet"
-                            viewBox="0 0 20 20"
-                            width={20}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
-                            />
-                          </svg>
-                        </Icon>
-                      </ForwardRef(Menu20)>
-                    </button>
-                  </HeaderMenuButton>
                   <IbmLogo>
                     <div
                       className="bx--header__logo"
@@ -13742,52 +13528,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       </MastheadProfile>
                     </div>
                   </HeaderGlobalBar>
-                  <MastheadLeftNav
-                    isSideNavExpanded={false}
-                    navigation={Array []}
-                    platform={null}
-                  >
-                    <ForwardRef(SideNav)
-                      addFocusListeners={true}
-                      addMouseListeners={true}
-                      aria-label="Side navigation"
-                      defaultExpanded={false}
-                      expanded={false}
-                      isChildOfHeader={true}
-                      isFixedNav={false}
-                      isPersistent={false}
-                      translateById={[Function]}
-                    >
-                      <div
-                        className="bx--side-nav__overlay"
-                      />
-                      <nav
-                        aria-label="Side navigation"
-                        className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        <nav
-                          data-autoid="dds--masthead__l0-sidenav"
-                        >
-                          <SideNavItems>
-                            <ul
-                              className="bx--side-nav__items"
-                            >
-                              <HeaderSideNavItems
-                                hasDivider={false}
-                                key=".0"
-                              >
-                                <div
-                                  className="bx--side-nav__header-navigation"
-                                />
-                              </HeaderSideNavItems>
-                            </ul>
-                          </SideNavItems>
-                        </nav>
-                      </nav>
-                    </ForwardRef(SideNav)>
-                  </MastheadLeftNav>
                 </header>
               </Header>
             </div>
