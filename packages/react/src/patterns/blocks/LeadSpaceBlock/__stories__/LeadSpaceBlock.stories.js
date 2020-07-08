@@ -112,12 +112,14 @@ export default {
         };
       },
     },
-    props: {
-      LeadSpaceBlock: {
-        title: 'Continuous delivery',
-        heading: 'Innovate like a startup and scale for the enterprise ',
-        items: {
-          items: defaultItems,
+    propsSet: {
+      default: {
+        LeadSpaceBlock: {
+          title: 'Continuous delivery',
+          heading: 'Innovate like a startup and scale for the enterprise ',
+          items: {
+            items: defaultItems,
+          },
         },
       },
     },

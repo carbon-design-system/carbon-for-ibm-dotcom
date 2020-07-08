@@ -7,6 +7,7 @@
 
 'use strict';
 
+const { default: merge } = require('lodash-es/merge');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -41,16 +42,33 @@ describe('Test a11y compliance', function() {
         .forEach(name => {
           const Story = storyModule[name];
           const { parameters, title = name } = Story.story ?? {};
-          const props = Object.assign(
+          const propsSet = merge(
             {},
-            storyModule.default?.parameters?.props,
-            parameters?.props
+            storyModule.default?.parameters?.propsSet,
+            parameters?.propsSet
           );
 
-          it(`Should have a11y-compliant ${groupTitle}|${title}`, async function() {
-            ReactDOM.render(<Story parameters={{ props }} />, container);
-            await expectAsync(container).toBeACheckerCompliant();
-          }, 30000);
+          const keys = Object.keys(propsSet);
+          if (keys.length > 0) {
+            keys.forEach(itemTitle => {
+              const combinedTitle =
+                itemTitle === 'default'
+                  ? `${groupTitle}|${title}`
+                  : `${groupTitle}|${title}|${itemTitle}`;
+              it(`Should have a11y-compliant ${combinedTitle}`, async function() {
+                ReactDOM.render(
+                  <Story parameters={{ props: propsSet[itemTitle] }} />,
+                  container
+                );
+                await expectAsync(container).toBeACheckerCompliant();
+              }, 30000);
+            });
+          } else {
+            it(`Should have a11y-compliant ${groupTitle}|${title}`, async function() {
+              ReactDOM.render(<Story />, container);
+              await expectAsync(container).toBeACheckerCompliant();
+            }, 30000);
+          }
         });
     });
 
