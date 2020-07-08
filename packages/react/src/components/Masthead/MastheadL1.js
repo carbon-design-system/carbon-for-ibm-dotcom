@@ -26,14 +26,14 @@ const MastheadL1 = ({
   title,
   eyebrowText,
   eyebrowLink,
-  navigation,
+  navigationL1,
 }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
     [`${prefix}--masthead__l1--short`]: isShort,
   });
 
-  const mastheadL1Links = navigation.map((link, index) => {
+  const mastheadL1Links = navigationL1.map((link, index) => {
     if (link.hasMenu) {
       return (
         <HeaderMenu
@@ -118,7 +118,7 @@ MastheadL1.propTypes = {
   /**
    * Object containing masthead l1 navigation elements.
    */
-  navigation: PropTypes.arrayOf(
+  navigationL1: PropTypes.arrayOf(
     PropTypes.shape({
       hasMenu: PropTypes.bool,
       title: PropTypes.string,
@@ -138,7 +138,7 @@ MastheadL1.propTypes = {
 };
 
 MastheadL1.defaultProps = {
-  navigation: [],
+  navigationL1: [],
 };
 
 export default MastheadL1;
