@@ -154,8 +154,8 @@ Button.story = {
     knobs: {
       CTA: ({ groupId }) => {
         const type = [
-          select('button 1 type', types, types[0], groupId),
-          select('button 2 type', types, types[0], groupId),
+          select('button 1 type (buttons[0].type)', types, types[0], groupId),
+          select('button 2 type (buttons[1].type)', types, types[0], groupId),
         ];
         return {
           type,
@@ -227,7 +227,7 @@ Text.story = {
         const iconPlacement = select(
           'Icon Placement (iconPlacement)',
           placement,
-          placement[0],
+          placement[1],
           groupId
         );
         return {
