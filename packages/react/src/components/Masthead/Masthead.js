@@ -175,7 +175,7 @@ const Masthead = ({
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
 
-              {(mastheadL1Data ?? navigation) && (
+              {(mastheadL1Data || navigation) && (
                 <HeaderMenuButton
                   aria-label="Open menu"
                   data-autoid={`${stablePrefix}--masthead__hamburger`}
@@ -187,7 +187,7 @@ const Masthead = ({
               <IbmLogo />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {(!mastheadL1Data ?? navigation) && (
+                {navigation && !mastheadL1Data && (
                   <MastheadTopNav
                     {...mastheadProps}
                     platform={platform}
@@ -226,7 +226,7 @@ const Masthead = ({
                 </HeaderGlobalBar>
               )}
 
-              {(mastheadL1Data ?? navigation) && (
+              {(navigation || mastheadL1Data) && (
                 <MastheadLeftNav
                   {...mastheadProps}
                   platform={platform}
