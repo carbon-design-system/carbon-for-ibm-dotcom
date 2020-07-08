@@ -249,7 +249,7 @@ const Masthead = ({
 
 Masthead.propTypes = {
   /**
-   * Navigation data object/string for Masthead. Use one from below:
+   * Navigation data object/string for Masthead. These navigation properties belongs to the Masthead L0 Top navigation. Use one from below:
    *
    * | Behavior           | Data Type | Description                                 | Example                             |
    * | ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
