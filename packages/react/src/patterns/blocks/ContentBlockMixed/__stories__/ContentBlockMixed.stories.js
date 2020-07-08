@@ -151,14 +151,16 @@ Default.story = {
         };
       },
     },
-    props: {
-      ContentBlockMixed: {
-        items: [
-          {
-            ...ContentGroupSimpleKnobs,
-            type: 'ContentGroupSimple',
-          },
-        ],
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          items: [
+            {
+              ...ContentGroupSimpleKnobs,
+              type: 'ContentGroupSimple',
+            },
+          ],
+        },
       },
     },
   },
@@ -227,14 +229,16 @@ WithAsideElements.story = {
         };
       },
     },
-    props: {
-      ContentBlockMixed: {
-        items: [
-          {
-            ...ContentGroupSimpleKnobs,
-            type: 'ContentGroupSimple',
-          },
-        ],
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          items: [
+            {
+              ...ContentGroupSimpleKnobs,
+              type: 'ContentGroupSimple',
+            },
+          ],
+        },
       },
     },
   },

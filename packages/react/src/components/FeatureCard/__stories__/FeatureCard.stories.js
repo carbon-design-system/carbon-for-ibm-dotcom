@@ -42,18 +42,21 @@ export default {
         },
       }),
     },
-    props: {
-      FeatureCard: {
-        card: {
-          heading: 'Explore AI use cases in all industries',
-          image: {
-            defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-            alt: 'Image alt text',
-          },
-          cta: {
-            href: 'https://www.example.com',
-            icon: {
-              src: ArrowRight20,
+    propsSet: {
+      default: {
+        FeatureCard: {
+          card: {
+            heading: 'Explore AI use cases in all industries',
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              alt: 'Image alt text',
+            },
+            cta: {
+              href: 'https://www.example.com',
+              icon: {
+                src: ArrowRight20,
+              },
             },
           },
         },
