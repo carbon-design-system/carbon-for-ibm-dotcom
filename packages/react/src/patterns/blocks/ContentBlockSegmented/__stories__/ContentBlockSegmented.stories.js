@@ -171,9 +171,11 @@ Default.story = {
         };
       },
     },
-    props: {
-      ContentBlockSegmented: {
-        items: defaultItems,
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          items: defaultItems,
+        },
       },
     },
   },
@@ -276,9 +278,11 @@ WithAsideElements.story = {
         return result;
       },
     },
-    props: {
-      ContentBlockSegmented: {
-        items: defaultWithAsideElementsItems,
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          items: defaultWithAsideElementsItems,
+        },
       },
     },
   },

@@ -8417,6 +8417,15 @@ carbon-components-react@7.14.0:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
+carbon-components@10.11.0:
+  version "10.11.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.11.0.tgz#14216f02a08d3a298c5cd47710d6dd17eb955bea"
+  integrity sha512-NVcb5vswXKZE4B7QwFfb2M5ORU86pXL3mWC5j/WFYmbmn9k5BaEAPpVJuWHiyt1KCjKPcXHLLleYD0uixTGGtA==
+  dependencies:
+    flatpickr "4.6.1"
+    lodash.debounce "^4.0.8"
+    warning "^3.0.0"
+
 carbon-components@10.14.0, carbon-components@^10.14.0:
   version "10.14.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.14.0.tgz#1d688b8c03e082b8bac35f173246da4bf7d24f25"
@@ -9445,22 +9454,12 @@ core-js@^1.0.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.9:
-  version "2.6.9"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
-  integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
-
-core-js@^2.6.5:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
-core-js@^3.0.1, core-js@^3.1.3:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.2.1.tgz#cd41f38534da6cc59f7db050fe67307de9868b09"
-  integrity sha512-Qa5XSVefSVPRxy2XfUC13WbvqkxhkwB3ve+pgCQveNgYzbM/UxZeu1dcOX/xr4UmfUd+muuvsaxilQzCyUurMw==
-
-core-js@^3.0.4:
+core-js@^3.0.0, core-js@^3.0.1, core-js@^3.0.4, core-js@^3.1.3:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
@@ -11325,6 +11324,11 @@ event-emitter@^0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+event-target-shim@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
+  integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
+
 eventemitter3@^3.1.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
@@ -11715,15 +11719,19 @@ fecha@^2.3.3:
   resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
   integrity sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg==
 
-fetch-mock@^7.3.6:
-  version "7.3.9"
-  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-7.3.9.tgz#a80fd2a1728f72e0634ef7a9734bc61200096487"
-  integrity sha512-PgsTbiQBNapFz2P2UwDl3gowK3nZqfV4HdyDZ1dI4eTGGH9MLAeBglIPbyDbbNQoGYBOfla6/9uaiq7az2z4Aw==
+fetch-mock@^9.10.0:
+  version "9.10.3"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-9.10.3.tgz#33d85cf9f1e463822a8f5e2c28f9a8a8c7256abd"
+  integrity sha512-vvTW3vu+6sgDuOpInd8VtaaYlt56Un/zrEvBmT8JppDXj2ZY3PQgIAoxqdSAFR5o/10jJ1yFBhXLQ/Dce/p+jg==
   dependencies:
-    babel-polyfill "^6.26.0"
-    core-js "^2.6.9"
+    babel-runtime "^6.26.0"
+    core-js "^3.0.0"
+    debug "^4.1.1"
     glob-to-regexp "^0.4.0"
+    is-subset "^0.1.1"
+    lodash.isequal "^4.5.0"
     path-to-regexp "^2.2.1"
+    querystring "^0.2.0"
     whatwg-url "^6.5.0"
 
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:

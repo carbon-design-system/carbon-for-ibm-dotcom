@@ -23,7 +23,7 @@ jobs:
           name: Run Continuous Integration checks
           command: |
             yarn ci-check
-            yarn lerna run ci-check
+            yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
 
 workflows:
   version: 2

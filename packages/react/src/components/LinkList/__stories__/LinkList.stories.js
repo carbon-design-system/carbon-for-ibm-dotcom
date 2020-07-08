@@ -62,7 +62,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
+        <div className="bx--col-sm-4 bx--col-lg-3 bx--offset-lg-4">
           <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>
@@ -78,9 +78,11 @@ Default.story = {
         items: object('Items (items):', items, groupId),
       }),
     },
-    props: {
-      LinkList: {
-        items,
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
       },
     },
   },
@@ -119,9 +121,11 @@ Horizontal.story = {
         ),
       }),
     },
-    props: {
-      LinkList: {
-        items: items.slice(0, 2),
+    propsSet: {
+      default: {
+        LinkList: {
+          items: items.slice(0, 2),
+        },
       },
     },
   },
@@ -160,9 +164,11 @@ Vertical.story = {
         ),
       }),
     },
-    props: {
-      LinkList: {
-        items,
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
       },
     },
   },
@@ -202,9 +208,11 @@ VerticalWithCards.story = {
         ),
       }),
     },
-    props: {
-      LinkList: {
-        items,
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
       },
     },
   },
@@ -232,9 +240,11 @@ EndOfSection.story = {
         items: object('Items (items):', items, groupId),
       }),
     },
-    props: {
-      LinkList: {
-        items,
+    propsSet: {
+      default: {
+        LinkList: {
+          items,
+        },
       },
     },
   },

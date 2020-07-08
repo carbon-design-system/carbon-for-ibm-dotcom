@@ -27,13 +27,6 @@
     }
 
     &__wrapper {
-      @include carbon--breakpoint(sm) {
-        padding-top: $layout-03;
-      }
-      @include carbon--breakpoint(md) {
-        padding-top: $layout-05;
-      }
-
       position: relative;
     }
 
@@ -93,7 +86,6 @@
       }
 
       &-optional-copy {
-        color: $inverse-01;
         padding-left: 1rem;
         @include carbon--type-style(body-long-02, true);
       }
@@ -106,6 +98,7 @@
       .#{$prefix}--quote__copy,
       .#{$prefix}--quote__source-heading,
       .#{$prefix}--quote__source-body,
+      .#{$prefix}--quote__source-optional-copy,
       .#{$prefix}--quote__mark {
         color: $inverse-01;
       }

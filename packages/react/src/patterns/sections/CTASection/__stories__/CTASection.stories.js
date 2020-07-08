@@ -79,16 +79,23 @@ Default.story = {
           buttons: [
             {
               type: select('ContentBlock | CTA type', types, types[2], groupId),
-              copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
+              copy: 'Secondary button',
+              href: 'https://example.com/',
+            },
+            {
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              copy: 'Primary button',
               href: 'https://example.com/',
             },
           ],
         },
       }),
     },
-    props: {
-      CTASection: {
-        items: contentItemsProps,
+    propsSet: {
+      default: {
+        CTASection: {
+          items: contentItemsProps,
+        },
       },
     },
   },
@@ -130,7 +137,12 @@ WithContentItems.story = {
           buttons: [
             {
               type: select('ContentBlock | CTA type', types, types[2], groupId),
-              copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
+              copy: 'Secondary button',
+              href: 'https://example.com/',
+            },
+            {
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              copy: 'Primary button',
               href: 'https://example.com/',
             },
           ],

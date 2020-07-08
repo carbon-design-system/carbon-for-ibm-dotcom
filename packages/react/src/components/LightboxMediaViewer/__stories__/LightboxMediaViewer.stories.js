@@ -60,15 +60,17 @@ Default.story = {
         },
       }),
     },
-    props: {
-      LightboxMediaViewer: {
-        media: {
-          src: 'https://dummyimage.com/1280x720/ee5396/161616&text=16:9',
-          alt: 'Image alt text',
-          title: 'Curabitur malesuada varius mi eu posuere',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
-          type: 'image',
+    propsSet: {
+      default: {
+        LightboxMediaViewer: {
+          media: {
+            src: 'https://dummyimage.com/1280x720/ee5396/161616&text=16:9',
+            alt: 'Image alt text',
+            title: 'Curabitur malesuada varius mi eu posuere',
+            description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
+            type: 'image',
+          },
         },
       },
     },
@@ -90,11 +92,13 @@ EmbeddedVideoPlayer.story = {
         },
       }),
     },
-    props: {
-      LightboxMediaViewer: {
-        media: {
-          src: '0_uka1msg4',
-          type: 'video',
+    propsSet: {
+      default: {
+        LightboxMediaViewer: {
+          media: {
+            src: '0_uka1msg4',
+            type: 'video',
+          },
         },
       },
     },

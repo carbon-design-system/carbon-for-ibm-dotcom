@@ -52,18 +52,20 @@ export default {
       }),
     },
 
-    props: {
-      ButtonGroup: {
-        buttons: [
-          {
-            href: 'https://example.com',
-            copy: 'Button 1',
-          },
-          {
-            href: 'https://example.com',
-            copy: 'Button 2',
-          },
-        ],
+    propsSet: {
+      default: {
+        ButtonGroup: {
+          buttons: [
+            {
+              href: 'https://example.com',
+              copy: 'Button 1',
+            },
+            {
+              href: 'https://example.com',
+              copy: 'Button 2',
+            },
+          ],
+        },
       },
     },
   },
