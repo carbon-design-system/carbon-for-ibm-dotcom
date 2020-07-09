@@ -228,7 +228,7 @@ WithVideo.story = {
 };
 
 export const WithAsideElements = ({ parameters }) => {
-  const { copy, cta, heading, mediaType, mediaData, items, aside } =
+  const { copy, cta, heading, items, aside } =
     parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
@@ -238,8 +238,8 @@ export const WithAsideElements = ({ parameters }) => {
             copy={copy}
             cta={cta}
             heading={heading}
-            mediaType={mediaType}
-            mediaData={mediaData}
+            mediaType="image"
+            mediaData={image}
             items={items}
             aside={aside}
           />

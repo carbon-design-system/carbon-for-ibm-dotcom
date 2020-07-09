@@ -27035,6 +27035,30 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                 },
               ]
             }
+            mediaData={
+              Object {
+                "heading": "Mauris iaculis eget dolor nec hendrerit.",
+                "image": Object {
+                  "alt": "Image alt text",
+                  "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                  "sources": Array [
+                    Object {
+                      "breakpoint": 320,
+                      "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                    },
+                    Object {
+                      "breakpoint": 400,
+                      "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                    },
+                    Object {
+                      "breakpoint": 672,
+                      "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                    },
+                  ],
+                },
+              }
+            }
+            mediaType="image"
           >
             <div
               className="bx--content-block-segmented"
@@ -27152,6 +27176,96 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                             className="bx--content-block__children"
                             data-autoid="dds--content-block__children"
                           >
+                            <div
+                              data-autoid="dds--content-block-segmented__media"
+                            >
+                              <ImageWithCaption
+                                copy=""
+                                heading="Mauris iaculis eget dolor nec hendrerit."
+                                image={
+                                  Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                    "sources": Array [
+                                      Object {
+                                        "breakpoint": 320,
+                                        "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                      },
+                                      Object {
+                                        "breakpoint": 400,
+                                        "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                      },
+                                      Object {
+                                        "breakpoint": 672,
+                                        "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                      },
+                                    ],
+                                  }
+                                }
+                                inverse={false}
+                                lightbox={false}
+                              >
+                                <div
+                                  className="bx--image-with-caption"
+                                  data-autoid="dds--image-with-caption"
+                                >
+                                  <Image
+                                    alt="Image alt text"
+                                    defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                    sources={
+                                      Array [
+                                        Object {
+                                          "breakpoint": 320,
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 400,
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 672,
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    <div
+                                      className="bx--image"
+                                      data-autoid="dds--image__longdescription"
+                                    >
+                                      <picture>
+                                        <source
+                                          key="0"
+                                          media="(min-width: 672px)"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="1"
+                                          media="(min-width: 400px)"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="2"
+                                          media="(min-width: 320px)"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                        />
+                                        <img
+                                          alt="Image alt text"
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                      </picture>
+                                    </div>
+                                  </Image>
+                                  <p
+                                    className="bx--image__caption--inverse"
+                                    data-autoid="dds--image__caption"
+                                  >
+                                    Mauris iaculis eget dolor nec hendrerit.
+                                  </p>
+                                </div>
+                              </ImageWithCaption>
+                            </div>
                             <ContentGroup
                               heading="Lorem ipsum dolor sit amet."
                               key="0"
@@ -33197,14 +33311,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-48"
+                                        aria-describedby="bx--image-49"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-48"
+                                      id="bx--image-49"
                                     >
                                       Company A
                                     </div>
@@ -33238,14 +33352,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-49"
+                                        aria-describedby="bx--image-50"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-49"
+                                      id="bx--image-50"
                                     >
                                       Company B
                                     </div>
@@ -33279,14 +33393,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-50"
+                                        aria-describedby="bx--image-51"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-50"
+                                      id="bx--image-51"
                                     >
                                       Company C
                                     </div>
@@ -33320,14 +33434,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-51"
+                                        aria-describedby="bx--image-52"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-51"
+                                      id="bx--image-52"
                                     >
                                       Company D
                                     </div>
@@ -33361,14 +33475,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-52"
+                                        aria-describedby="bx--image-53"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-52"
+                                      id="bx--image-53"
                                     >
                                       Company E
                                     </div>
@@ -33402,14 +33516,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-53"
+                                        aria-describedby="bx--image-54"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-53"
+                                      id="bx--image-54"
                                     >
                                       Company F
                                     </div>
@@ -33443,14 +33557,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-54"
+                                        aria-describedby="bx--image-55"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-54"
+                                      id="bx--image-55"
                                     >
                                       Company G
                                     </div>
@@ -33484,14 +33598,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-55"
+                                        aria-describedby="bx--image-56"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-55"
+                                      id="bx--image-56"
                                     >
                                       Company H
                                     </div>
@@ -33525,14 +33639,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-56"
+                                        aria-describedby="bx--image-57"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-56"
+                                      id="bx--image-57"
                                     >
                                       Company I
                                     </div>
