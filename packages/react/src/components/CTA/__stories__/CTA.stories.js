@@ -163,6 +163,23 @@ Button.story = {
         };
       },
     },
+    propsSet: {
+      default: {
+        CTA: {
+          style: 'button',
+          buttons: [
+            {
+              href: 'https://www.example.com',
+              copy: copy[0],
+            },
+            {
+              href: 'https://www.example.com',
+              copy: copy[1],
+            },
+          ],
+        },
+      },
+    },
   },
 };
 
@@ -181,6 +198,17 @@ Card.story = {
           type,
           ...miscCTAData['card']({ type }),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CTA: {
+          style: 'card',
+          copy: copy[0],
+          cta: {
+            href: 'https://www.example.com',
+          },
+        },
       },
     },
   },
@@ -203,6 +231,28 @@ FeatureCard.story = {
           ...knobs,
           ...miscCTAData['feature']({ type: knobs.type }),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CTA: {
+          type: 'feature',
+          heading: copy[0],
+          card: {
+            heading: copy[1],
+            cta: {
+              href: 'https://www.example.com',
+              icon: {
+                src: ArrowRight20,
+              },
+            },
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              alt: 'Image alt text',
+            },
+          },
+        },
       },
     },
   },
@@ -235,6 +285,15 @@ Text.story = {
           iconPlacement,
           ...miscCTAData['text']({ type: knobs.type }),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        CTA: {
+          type: 'text',
+          href: 'https://www.example.com',
+          copy: copy[0],
+        },
       },
     },
   },
