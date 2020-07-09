@@ -19,7 +19,7 @@ import { text } from '@storybook/addon-knobs';
 const getBaseKnobs = ({ groupId }) => {
   return {
     heading: text(
-      'Heading (required):',
+      'Heading (heading):',
       'Aliquam condimentum interdum',
       groupId
     ),
