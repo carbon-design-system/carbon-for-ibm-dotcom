@@ -3,7 +3,7 @@ name: ci-check-web-components
 on: [push, pull_request]
 
 jobs:
-  ci-check:
+  ci-check-web-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:

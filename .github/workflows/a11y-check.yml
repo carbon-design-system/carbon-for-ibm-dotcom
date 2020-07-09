@@ -3,7 +3,7 @@ name: a11y-check
 on: [push, pull_request]
 
 jobs:
-  ci-check:
+  a11y-check:
     runs-on: ubuntu-latest
     strategy:
       matrix:
