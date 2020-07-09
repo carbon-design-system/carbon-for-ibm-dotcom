@@ -12,6 +12,7 @@ import { html, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXModal from 'carbon-custom-elements/es/components/modal/modal';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './modal.scss';
 
 const { prefix } = settings;
@@ -44,7 +45,7 @@ export enum DDS_MODAL_SIZE {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-modal`)
-class DDSModal extends BXModal {
+class DDSModal extends StableSelectorMixin(BXModal) {
   /**
    * `true` if there is a header content.
    */
@@ -179,6 +180,10 @@ class DDSModal extends BXModal {
       ${ddsPrefix}-modal-footer ${prefix}-btn[kind="primary"],
       ${ddsPrefix}-modal-footer ${ddsPrefix}-btn[kind="primary"]
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--expressive-modal`;
   }
 
   /**
