@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, boolean, object } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../';
 import React from 'react';
@@ -32,17 +32,19 @@ export default {
         ),
         copy: text('copy', '', groupId),
         inverse: boolean('inverse', false, groupId),
-        cta: object(
-          'cta',
-          {
-            href: 'https://example.com',
-            icon: {
-              src: ArrowRight20,
-            },
-            copy: 'Card cta text',
+        cta: {
+          href: text('Cta href (cta.href)', 'https://example.com', groupId),
+          copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
+          icon: {
+            src: ArrowRight20,
           },
-          groupId
-        ),
+          iconPlacement: select(
+            'Cta icon placement (cta.iconPlacement)',
+            ['left', 'right'],
+            'right',
+            groupId
+          ),
+        },
       }),
     },
   },
