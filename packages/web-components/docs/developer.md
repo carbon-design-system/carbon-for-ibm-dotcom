@@ -60,4 +60,4 @@ Above options can be used together. This is useful to debug your code as you tes
 
 ## Coding conventions
 
-Can be found at [here](./docs/coding-conventions.md).
+Can be found at [here](./coding-conventions.md).
