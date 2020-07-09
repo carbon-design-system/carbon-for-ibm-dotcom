@@ -18,6 +18,10 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn build
+      - name: Run CI Checks
+        run: |
+          yarn ci-check
+          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run basic checks
