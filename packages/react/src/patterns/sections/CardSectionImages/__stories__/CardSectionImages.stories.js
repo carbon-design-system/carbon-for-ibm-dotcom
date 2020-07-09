@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
 import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Patterns (Sections)|CardSectionImages',
@@ -19,11 +19,11 @@ export default {
     knobs: {
       CardSectionImages: ({ groupId }) => ({
         heading: text(
-          'Heading (required):',
+          'Heading (heading):',
           'Aliquam condimentum interdum',
           groupId
         ),
-        cards: object('Data', cards.Images, groupId),
+        cards: cards.Images,
       }),
     },
     propsSet: {
