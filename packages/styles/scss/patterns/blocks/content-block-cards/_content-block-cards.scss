@@ -38,6 +38,11 @@
           margin-bottom: $carbon--layout-05;
         }
       }
+      &__cta {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(4, 12);
+        }
+      }
     }
   }
 }
