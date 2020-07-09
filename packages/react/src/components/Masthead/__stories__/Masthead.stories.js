@@ -36,14 +36,9 @@ Default.story = {
             'Stock Charts',
             groupId
           ),
-          eyebrowText: text(
-            'L1 eyebrow text (eyebrowText) (experimental)',
-            'Eyebrow',
-            groupId
-          ),
-          eyebrowLink: text(
-            'L1 eyebrow link (eyebrowLink) (experimental)',
-            '#',
+          titleLink: text(
+            'L1 title link (titleLink) (experimental)',
+            'https://example.com/',
             groupId
           ),
           navigationL1: mastheadKnobs.navigation.custom,
