@@ -16,7 +16,7 @@ $search-transition-timing: 95ms;
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1 {
     display: flex;
-    max-width: 95rem;
+    max-width: 98rem;
     margin-left: auto;
     margin-right: auto;
     height: 80px;
@@ -111,7 +111,11 @@ $search-transition-timing: 95ms;
       position: relative;
       padding: 0 $carbon--spacing-05;
       margin-top: auto;
-      @include type-style('productive-heading-02');
+      a {
+        color: $text-04;
+        text-decoration: none;
+        @include type-style('productive-heading-02');
+      }
 
       &::after {
         content: '';
