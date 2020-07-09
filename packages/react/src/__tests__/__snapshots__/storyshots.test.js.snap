@@ -189,7 +189,358 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Components|CTA Default 1`] = `
+exports[`Storyshots Components|CTA Button 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid "
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+        >
+          <CTA
+            buttons={
+              Array [
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet",
+                  "href": "https://www.example.com",
+                  "iconDescription": "right arrow icon",
+                  "media": Object {
+                    "src": "0_uka1msg4",
+                    "type": "video",
+                  },
+                  "onClick": [Function],
+                  "renderIcon": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
+                  },
+                  "target": null,
+                  "type": "local",
+                },
+                Object {
+                  "copy": "Consectetur adipisicing elit",
+                  "href": "https://www.example.com",
+                  "iconDescription": "right arrow icon",
+                  "media": Object {
+                    "src": "1_sf5ovm7u",
+                    "type": "video",
+                  },
+                  "onClick": [Function],
+                  "renderIcon": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
+                  },
+                  "target": null,
+                  "type": "local",
+                },
+              ]
+            }
+            copy=""
+            href=""
+            style="button"
+            type={
+              Array [
+                "local",
+                "local",
+              ]
+            }
+          >
+            <div>
+              <ButtonCTA
+                buttons={
+                  Array [
+                    Object {
+                      "copy": "Lorem ipsum dolor sit amet",
+                      "href": "https://www.example.com",
+                      "iconDescription": "right arrow icon",
+                      "media": Object {
+                        "src": "0_uka1msg4",
+                        "type": "video",
+                      },
+                      "onClick": [Function],
+                      "renderIcon": Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "render": [Function],
+                      },
+                      "target": null,
+                      "type": "local",
+                    },
+                    Object {
+                      "copy": "Consectetur adipisicing elit",
+                      "href": "https://www.example.com",
+                      "iconDescription": "right arrow icon",
+                      "media": Object {
+                        "src": "1_sf5ovm7u",
+                        "type": "video",
+                      },
+                      "onClick": [Function],
+                      "renderIcon": Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "render": [Function],
+                      },
+                      "target": null,
+                      "type": "local",
+                    },
+                  ]
+                }
+                copy=""
+                formatCTAcopy={[Function]}
+                href=""
+                openLightBox={[Function]}
+                renderLightBox={false}
+                style="button"
+                type={
+                  Array [
+                    "local",
+                    "local",
+                  ]
+                }
+                videoTitle={
+                  Array [
+                    Object {
+                      "duration": "",
+                      "key": 0,
+                      "title": "",
+                    },
+                  ]
+                }
+              >
+                <ButtonGroup
+                  buttons={
+                    Array [
+                      Object {
+                        "copy": "Lorem ipsum dolor sit amet",
+                        "href": "https://www.example.com",
+                        "iconDescription": "right arrow icon",
+                        "media": Object {
+                          "src": "0_uka1msg4",
+                          "type": "video",
+                        },
+                        "onClick": [Function],
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                        "target": null,
+                        "type": "local",
+                      },
+                      Object {
+                        "copy": "Consectetur adipisicing elit",
+                        "href": "https://www.example.com",
+                        "iconDescription": "right arrow icon",
+                        "media": Object {
+                          "src": "1_sf5ovm7u",
+                          "type": "video",
+                        },
+                        "onClick": [Function],
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                        "target": null,
+                        "type": "local",
+                      },
+                    ]
+                  }
+                  enableSizeByContent={true}
+                >
+                  <ol
+                    className="bx--buttongroup"
+                    data-autoid="dds--button-group"
+                  >
+                    <li
+                      className="bx--buttongroup-item"
+                    >
+                      <ForwardRef(Button)
+                        copy="Lorem ipsum dolor sit amet"
+                        data-autoid="dds--button-group-0"
+                        disabled={false}
+                        href="https://www.example.com"
+                        iconDescription="right arrow icon"
+                        kind="tertiary"
+                        media={
+                          Object {
+                            "src": "0_uka1msg4",
+                            "type": "video",
+                          }
+                        }
+                        onClick={[Function]}
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={0}
+                        target={null}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--tertiary"
+                          copy="Lorem ipsum dolor sit amet"
+                          data-autoid="dds--button-group-0"
+                          href="https://www.example.com"
+                          media={
+                            Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            }
+                          }
+                          onClick={[Function]}
+                          tabIndex={0}
+                          target={null}
+                        >
+                          Lorem ipsum dolor sit amet
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            aria-label="right arrow icon"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              aria-label="right arrow icon"
+                              className="bx--btn__icon"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                aria-label="right arrow icon"
+                                className="bx--btn__icon"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                role="img"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                    <li
+                      className="bx--buttongroup-item"
+                    >
+                      <ForwardRef(Button)
+                        copy="Consectetur adipisicing elit"
+                        data-autoid="dds--button-group-1"
+                        disabled={false}
+                        href="https://www.example.com"
+                        iconDescription="right arrow icon"
+                        kind="primary"
+                        media={
+                          Object {
+                            "src": "1_sf5ovm7u",
+                            "type": "video",
+                          }
+                        }
+                        onClick={[Function]}
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={0}
+                        target={null}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--primary"
+                          copy="Consectetur adipisicing elit"
+                          data-autoid="dds--button-group-1"
+                          href="https://www.example.com"
+                          media={
+                            Object {
+                              "src": "1_sf5ovm7u",
+                              "type": "video",
+                            }
+                          }
+                          onClick={[Function]}
+                          tabIndex={0}
+                          target={null}
+                        >
+                          Consectetur adipisicing elit
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            aria-label="right arrow icon"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              aria-label="right arrow icon"
+                              className="bx--btn__icon"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                aria-label="right arrow icon"
+                                className="bx--btn__icon"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                role="img"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                  </ol>
+                </ButtonGroup>
+              </ButtonCTA>
+            </div>
+          </CTA>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CTA Card 1`] = `
 <Container
   story={[Function]}
 >
@@ -213,6 +564,580 @@ exports[`Storyshots Components|CTA Default 1`] = `
         >
           <CTA
             copy="Lorem ipsum dolor sit amet"
+            cta={
+              Object {
+                "href": "https://www.example.com",
+              }
+            }
+            href=""
+            media={
+              Object {
+                "src": "0_uka1msg4",
+                "type": "video",
+              }
+            }
+            style="card"
+            type="local"
+          >
+            <div
+              aria-label="Lorem ipsum dolor sit amet"
+              role="region"
+            >
+              <CardCTA
+                copy="Lorem ipsum dolor sit amet"
+                cta={
+                  Object {
+                    "href": "https://www.example.com",
+                  }
+                }
+                disableImage={false}
+                href=""
+                media={
+                  Object {
+                    "src": "0_uka1msg4",
+                    "type": "video",
+                  }
+                }
+                openLightBox={[Function]}
+                renderLightBox={false}
+                style="card"
+                type="local"
+                videoTitle={
+                  Array [
+                    Object {
+                      "duration": "",
+                      "key": 0,
+                      "title": "",
+                    },
+                  ]
+                }
+              >
+                <CardLink
+                  card={
+                    Object {
+                      "copy": "Lorem ipsum dolor sit amet",
+                      "cta": Object {
+                        "href": "https://www.example.com",
+                        "icon": Object {
+                          "src": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          },
+                        },
+                        "type": "local",
+                      },
+                      "href": "",
+                      "media": Object {
+                        "src": "0_uka1msg4",
+                        "type": "video",
+                      },
+                      "target": null,
+                    }
+                  }
+                  disabled={false}
+                >
+                  <Card
+                    copy="Lorem ipsum dolor sit amet"
+                    cta={
+                      Object {
+                        "href": "https://www.example.com",
+                        "icon": Object {
+                          "src": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          },
+                        },
+                        "type": "local",
+                      }
+                    }
+                    customClassName="bx--card__CTA"
+                    disabled={false}
+                    href=""
+                    media={
+                      Object {
+                        "src": "0_uka1msg4",
+                        "type": "video",
+                      }
+                    }
+                    target={null}
+                    type="link"
+                  >
+                    <ClickableTile
+                      className="bx--card bx--card--link bx--card__CTA"
+                      clicked={false}
+                      data-autoid="dds--card"
+                      disabled={false}
+                      handleClick={[Function]}
+                      handleKeyDown={[Function]}
+                      href=""
+                      light={false}
+                      media={
+                        Object {
+                          "src": "0_uka1msg4",
+                          "type": "video",
+                        }
+                      }
+                      onClick={[Function]}
+                      target={null}
+                    >
+                      <a
+                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                        data-autoid="dds--card"
+                        disabled={false}
+                        href=""
+                        media={
+                          Object {
+                            "src": "0_uka1msg4",
+                            "type": "video",
+                          }
+                        }
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        target={null}
+                      >
+                        <div
+                          className="bx--card__wrapper"
+                        >
+                          <div
+                            className="bx--card__copy"
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                              }
+                            }
+                          />
+                          <div
+                            className="bx--card__footer"
+                          >
+                            <ForwardRef(ArrowRight20)
+                              className="bx--card__cta"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                            >
+                              <Icon
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  className="bx--card__cta"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  src={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    }
+                                  }
+                                  viewBox="0 0 20 20"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ArrowRight20)>
+                            <span />
+                          </div>
+                        </div>
+                      </a>
+                    </ClickableTile>
+                  </Card>
+                </CardLink>
+              </CardCTA>
+            </div>
+          </CTA>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CTA Feature Card 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid "
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+        >
+          <CTA
+            card={
+              Object {
+                "cta": Object {
+                  "href": "https://www.example.com",
+                  "icon": Object {
+                    "src": Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "render": [Function],
+                    },
+                  },
+                  "media": Object {
+                    "src": "0_uka1msg4",
+                    "type": "video",
+                  },
+                },
+                "heading": "Consectetur adipisicing elit",
+                "image": Object {
+                  "alt": "Image alt text",
+                  "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                },
+                "type": "local",
+              }
+            }
+            copy="Lorem ipsum dolor sit amet"
+            cta={
+              Object {
+                "href": "https://www.example.com",
+              }
+            }
+            heading="Lorem ipsum dolor sit amet"
+            href=""
+            media={
+              Object {
+                "src": "0_uka1msg4",
+                "type": "video",
+              }
+            }
+            style="feature"
+            type="local"
+          >
+            <div>
+              <FeatureCTA
+                card={
+                  Object {
+                    "cta": Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                      "media": Object {
+                        "src": "0_uka1msg4",
+                        "type": "video",
+                      },
+                    },
+                    "heading": "Consectetur adipisicing elit",
+                    "image": Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                    },
+                    "type": "local",
+                  }
+                }
+                copy="Lorem ipsum dolor sit amet"
+                cta={
+                  Object {
+                    "href": "https://www.example.com",
+                  }
+                }
+                formatCTAcopy={[Function]}
+                heading="Lorem ipsum dolor sit amet"
+                href=""
+                media={
+                  Object {
+                    "src": "0_uka1msg4",
+                    "type": "video",
+                  }
+                }
+                openLightBox={[Function]}
+                renderLightBox={false}
+                style="feature"
+                type="local"
+                videoTitle={
+                  Array [
+                    Object {
+                      "duration": "",
+                      "key": 0,
+                      "title": "",
+                    },
+                  ]
+                }
+              >
+                <FeatureCardBlockMedium
+                  card={
+                    Object {
+                      "cta": Object {
+                        "href": "https://www.example.com",
+                        "icon": Object {
+                          "src": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          },
+                        },
+                        "media": Object {
+                          "src": "0_uka1msg4",
+                          "type": "video",
+                        },
+                      },
+                      "heading": "Consectetur adipisicing elit",
+                      "image": Object {
+                        "alt": "Image alt text",
+                        "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                      },
+                      "target": null,
+                      "type": "link",
+                    }
+                  }
+                  heading="Lorem ipsum dolor sit amet"
+                >
+                  <section
+                    className="bx--feature-card-block-medium"
+                    data-autoid="dds--feature-card-block-medium"
+                  >
+                    <h3
+                      className="bx--feature-card-block-medium__heading"
+                    >
+                      Lorem ipsum dolor sit amet
+                    </h3>
+                    <FeatureCard
+                      card={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                            "icon": Object {
+                              "src": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                            },
+                            "media": Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            },
+                          },
+                          "heading": "Consectetur adipisicing elit",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                          },
+                          "target": null,
+                          "type": "link",
+                        }
+                      }
+                    >
+                      <div
+                        className="bx--feature-card"
+                        data-autoid="dds--feature-card"
+                      >
+                        <Card
+                          cta={
+                            Object {
+                              "href": "https://www.example.com",
+                              "icon": Object {
+                                "src": Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                },
+                              },
+                              "media": Object {
+                                "src": "0_uka1msg4",
+                                "type": "video",
+                              },
+                            }
+                          }
+                          customClassName="bx--feature-card__card"
+                          heading="Consectetur adipisicing elit"
+                          image={
+                            Object {
+                              "alt": "Image alt text",
+                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                            }
+                          }
+                          inverse={true}
+                          target={null}
+                          type="link"
+                        >
+                          <ClickableTile
+                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                            clicked={false}
+                            data-autoid="dds--card"
+                            handleClick={[Function]}
+                            handleKeyDown={[Function]}
+                            href="https://www.example.com"
+                            light={false}
+                            onClick={[Function]}
+                            target={null}
+                          >
+                            <a
+                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                              data-autoid="dds--card"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                              target={null}
+                            >
+                              <Image
+                                alt="Image alt text"
+                                classname="bx--card__img"
+                                defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                              >
+                                <div
+                                  className="bx--image"
+                                  data-autoid="dds--image__longdescription"
+                                >
+                                  <picture>
+                                    <img
+                                      alt="Image alt text"
+                                      className="bx--image__img bx--card__img"
+                                      src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                    />
+                                  </picture>
+                                </div>
+                              </Image>
+                              <div
+                                className="bx--card__wrapper"
+                              >
+                                <h3
+                                  className="bx--card__heading"
+                                >
+                                  Consectetur adipisicing elit
+                                </h3>
+                                <div
+                                  className="bx--card__footer"
+                                >
+                                  <ForwardRef(ArrowRight20)
+                                    className="bx--card__cta"
+                                    src={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      }
+                                    }
+                                  >
+                                    <Icon
+                                      className="bx--card__cta"
+                                      fill="currentColor"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                      viewBox="0 0 20 20"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <svg
+                                        aria-hidden={true}
+                                        className="bx--card__cta"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </ForwardRef(ArrowRight20)>
+                                  <span />
+                                </div>
+                              </div>
+                            </a>
+                          </ClickableTile>
+                        </Card>
+                      </div>
+                    </FeatureCard>
+                  </section>
+                </FeatureCardBlockMedium>
+              </FeatureCTA>
+            </div>
+          </CTA>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CTA Text 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid "
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+        >
+          <CTA
+            copy="Lorem ipsum dolor sit amet"
+            cta={
+              Object {
+                "href": "https://www.example.com",
+              }
+            }
             href="https://www.example.com"
             iconPlacement="right"
             media={
@@ -227,6 +1152,11 @@ exports[`Storyshots Components|CTA Default 1`] = `
             <div>
               <TextCTA
                 copy="Lorem ipsum dolor sit amet"
+                cta={
+                  Object {
+                    "href": "https://www.example.com",
+                  }
+                }
                 formatCTAcopy={[Function]}
                 href="https://www.example.com"
                 iconPlacement="right"
@@ -2500,7 +3430,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--video-player__video"
-                                                          id="bx--video-player__video-0_uka1msg4-2"
+                                                          id="bx--video-player__video-0_uka1msg4-3"
                                                         >
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
@@ -4445,7 +5375,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-0_uka1msg4-7"
+                                                                id="bx--video-player__video-0_uka1msg4-8"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -8930,7 +9860,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-22"
+                                    id="bx--video-player__video-0_uka1msg4-23"
                                   />
                                 </div>
                               </div>
@@ -15797,14 +16727,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-23"
+                            aria-describedby="bx--image-24"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-23"
+                          id="bx--image-24"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -16172,14 +17102,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-24"
+                              aria-describedby="bx--image-25"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-24"
+                            id="bx--image-25"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -16390,7 +17320,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-26"
+                  id="bx--video-player__video-0_uka1msg4-27"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
@@ -26323,7 +27253,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                           >
                             <div
                               className="bx--video-player__video"
-                              id="bx--video-player__video-0_uka1msg4-39"
+                              id="bx--video-player__video-0_uka1msg4-40"
                             >
                               <VideoImageOverlay
                                 embedVideo={[Function]}
@@ -33311,14 +34241,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-49"
+                                        aria-describedby="bx--image-50"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-49"
+                                      id="bx--image-50"
                                     >
                                       Company A
                                     </div>
@@ -33352,14 +34282,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-50"
+                                        aria-describedby="bx--image-51"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-50"
+                                      id="bx--image-51"
                                     >
                                       Company B
                                     </div>
@@ -33393,14 +34323,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-51"
+                                        aria-describedby="bx--image-52"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-51"
+                                      id="bx--image-52"
                                     >
                                       Company C
                                     </div>
@@ -33434,14 +34364,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-52"
+                                        aria-describedby="bx--image-53"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-52"
+                                      id="bx--image-53"
                                     >
                                       Company D
                                     </div>
@@ -33475,14 +34405,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-53"
+                                        aria-describedby="bx--image-54"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-53"
+                                      id="bx--image-54"
                                     >
                                       Company E
                                     </div>
@@ -33516,14 +34446,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-54"
+                                        aria-describedby="bx--image-55"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-54"
+                                      id="bx--image-55"
                                     >
                                       Company F
                                     </div>
@@ -33557,14 +34487,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-55"
+                                        aria-describedby="bx--image-56"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-55"
+                                      id="bx--image-56"
                                     >
                                       Company G
                                     </div>
@@ -33598,14 +34528,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-56"
+                                        aria-describedby="bx--image-57"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-56"
+                                      id="bx--image-57"
                                     >
                                       Company H
                                     </div>
@@ -33639,14 +34569,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-57"
+                                        aria-describedby="bx--image-58"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-57"
+                                      id="bx--image-58"
                                     >
                                       Company I
                                     </div>
