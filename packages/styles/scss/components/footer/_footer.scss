@@ -47,8 +47,7 @@
 
       .#{$prefix}--footer__link.#{$prefix}--link {
         &,
-        &:visited,
-        &:visited:hover {
+        &:visited {
           color: $text-02;
         }
 
@@ -61,7 +60,8 @@
           color: $text-04;
         }
 
-        &:hover {
+        &:hover,
+        &:visited:hover {
           color: $text-01;
         }
       }
