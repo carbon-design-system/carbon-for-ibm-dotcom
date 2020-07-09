@@ -1,4 +1,4 @@
-name: ci-check
+name: a11y-check
 
 on: [push, pull_request]
 
@@ -18,7 +18,7 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn build
-      - name: Run CI Checks
-        run: |
-          yarn ci-check
-          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Run a11y compliance tests
+        run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
