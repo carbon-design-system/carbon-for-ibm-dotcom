@@ -24,6 +24,7 @@ const { prefix } = settings;
 const MastheadL1 = ({
   isShort,
   title,
+  titleLink,
   eyebrowText,
   eyebrowLink,
   navigationL1,
@@ -59,11 +60,15 @@ const MastheadL1 = ({
   return (
     <div className={className}>
       <div className={`${prefix}--masthead__l1-name`}>
-        <span className={`${prefix}--masthead__l1-name-eyebrow`}>
-          <ArrowLeft16 />
-          <a href={eyebrowLink}>{eyebrowText}</a>
+        {eyebrowText && eyebrowLink && (
+          <span className={`${prefix}--masthead__l1-name-eyebrow`}>
+            <ArrowLeft16 />
+            <a href={eyebrowLink}>{eyebrowText}</a>
+          </span>
+        )}
+        <span className={`${prefix}--masthead__l1-name-title`}>
+          <a href={titleLink}>{title}</a>
         </span>
-        <span className={`${prefix}--masthead__l1-name-title`}>{title}</span>
       </div>
       <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
         {mastheadL1Links}
@@ -107,6 +112,10 @@ MastheadL1.propTypes = {
   title: PropTypes.string,
 
   /**
+   * The optional title link (experimental)
+   */
+  titleLink: PropTypes.string,
+  /**
    * Text for the eyebrow link (experimental).
    */
   eyebrowText: PropTypes.string,
@@ -139,6 +148,7 @@ MastheadL1.propTypes = {
 
 MastheadL1.defaultProps = {
   navigationL1: [],
+  titleLink: null,
 };
 
 export default MastheadL1;
