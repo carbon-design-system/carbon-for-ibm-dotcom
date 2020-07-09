@@ -117,19 +117,6 @@ $search-transition-timing: 95ms;
         @include type-style('productive-heading-02');
       }
 
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: rem(-12px);
-        width: 100%;
-        height: 3px;
-        background-color: $inverse-support-04;
-        @include carbon--breakpoint-down(lg) {
-          bottom: 0;
-        }
-      }
-
       @include carbon--breakpoint-down(lg) {
         line-height: inherit;
         padding-bottom: $carbon--spacing-05;
