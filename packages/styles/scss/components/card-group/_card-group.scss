@@ -54,16 +54,6 @@
         &__img {
           height: carbon--mini-units(30);
         }
-
-        @include carbon--breakpoint('lg') {
-          @include ratio-base(4, 3, true);
-
-          &__img {
-            position: absolute;
-            height: 100%;
-            top: 0;
-          }
-        }
       }
     }
     &__row {
