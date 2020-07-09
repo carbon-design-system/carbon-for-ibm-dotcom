@@ -69,10 +69,6 @@
       }
     }
     &__CTA {
-      .#{$prefix}--card__copy p {
-        @include carbon--type-style('expressive-heading-02');
-      }
-
       &:focus,
       &:active {
         position: relative;
