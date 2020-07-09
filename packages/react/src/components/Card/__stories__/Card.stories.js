@@ -35,11 +35,11 @@ export default {
         cta: object(
           'cta',
           {
-            type: 'local',
             href: 'https://example.com',
             icon: {
               src: ArrowRight20,
             },
+            copy: 'Card cta text',
           },
           groupId
         ),
@@ -57,7 +57,7 @@ export const Default = ({ parameters }) => {
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card {...(parameters?.props?.Card ?? {})} type="link" />
+            <Card {...(parameters?.props?.Card ?? {})} />
           </div>
         </div>
       </div>

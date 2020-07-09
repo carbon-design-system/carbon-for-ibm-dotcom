@@ -9,7 +9,6 @@
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
-@import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
@@ -24,7 +23,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: $carbon--spacing-05;
+      padding: $carbon--spacing-05 $carbon--spacing-05 rem(14px);
       min-height: carbon--mini-units(20);
     }
 
@@ -60,7 +59,18 @@
       color: $interactive-04;
     }
 
+    &__cta,
+    &__cta__copy {
+      margin-right: $carbon--spacing-03;
+    }
+
+    &__cta__copy {
+      color: $interactive-04;
+      @include carbon--type-style('body-short-02');
+    }
+
     &__footer {
+      display: flex;
       margin-top: auto;
 
       svg {
@@ -68,6 +78,12 @@
         display: block;
       }
     }
+
+    &__cta__icon-left {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+    }
+
     &__CTA {
       max-width: carbon--mini-units(40);
 
@@ -116,17 +132,9 @@
     }
 
     &__video {
-      .#{$prefix}--card__footer {
-        display: flex;
-      }
-
       .#{$prefix}--card__footer span {
         color: $text-02;
         @include carbon--type-style('body-short-01');
-      }
-
-      .#{$prefix}--card__cta {
-        margin-right: $carbon--spacing-03;
       }
     }
   }
@@ -143,13 +151,14 @@
       color: $text-03;
     }
 
-    &.#{$prefix}--card--link:hover {
+    &:hover {
       background-color: $inverse-hover-ui;
     }
 
     .#{$prefix}--card__cta,
     .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited {
+    .#{$prefix}--card__cta a:visited,
+    .#{$prefix}--card__cta__copy {
       color: $inverse-link;
     }
   }
