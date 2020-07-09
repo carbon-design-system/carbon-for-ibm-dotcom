@@ -30,6 +30,20 @@ Default.story = {
   parameters: {
     knobs: {
       Masthead: ({ groupId }) => {
+        const mastheadL1Data = DDS_MASTHEAD_L1 && {
+          title: text(
+            'L1 title (title) (experimental)',
+            'Stock Charts',
+            groupId
+          ),
+          titleLink: text(
+            'L1 title link (titleLink) (experimental)',
+            'https://example.com/',
+            groupId
+          ),
+          navigationL1: mastheadKnobs.navigation.custom,
+        };
+
         const standardProps = {
           navigation: select(
             'navigation data (navigation)',
@@ -60,27 +74,10 @@ Default.story = {
             'Search all of IBM',
             groupId
           ),
-        };
-        const mastheadL1Props = DDS_MASTHEAD_L1 && {
-          title: text(
-            'L1 title (title) (experimental)',
-            'Stock Charts',
-            groupId
-          ),
-          eyebrowText: text(
-            'L1 eyebrow text (eyebrowText) (experimental)',
-            'Eyebrow',
-            groupId
-          ),
-          eyebrowLink: text(
-            'L1 eyebrow link (eyebrowLink) (experimental)',
-            '#',
-            groupId
-          ),
+          mastheadL1Data,
         };
         return {
           ...standardProps,
-          ...mastheadL1Props,
         };
       },
     },
