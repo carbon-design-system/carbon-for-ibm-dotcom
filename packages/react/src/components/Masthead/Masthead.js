@@ -322,6 +322,10 @@ Masthead.propTypes = {
     title: PropTypes.string,
 
     /**
+     * Title optional link for the masthead L1 (experimental).
+     */
+    titleLink: PropTypes.string,
+    /**
      * Text for the eyebrow link in masthead L1 (experimental).
      */
     eyebrowText: PropTypes.string,
