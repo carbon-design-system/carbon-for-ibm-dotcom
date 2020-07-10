@@ -91,23 +91,21 @@ ContentBlockMixed.propTypes = {
         mediaData: PropTypes.oneOfType([
           PropTypes.shape({
             inverse: PropTypes.bool,
-            image: PropTypes.shape(
-              PropTypes.shape({
-                classname: PropTypes.string,
-                sources: PropTypes.arrayOf(
-                  PropTypes.shape({
-                    src: PropTypes.string,
-                    breakpoint: PropTypes.oneOfType([
-                      PropTypes.string,
-                      PropTypes.number,
-                    ]),
-                  })
-                ),
-                defaultSrc: PropTypes.string.isRequired,
-                alt: PropTypes.string.isRequired,
-                longDescription: PropTypes.string,
-              })
-            ).isRequired,
+            image: PropTypes.shape({
+              classname: PropTypes.string,
+              sources: PropTypes.arrayOf(
+                PropTypes.shape({
+                  src: PropTypes.string,
+                  breakpoint: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number,
+                  ]),
+                })
+              ),
+              defaultSrc: PropTypes.string.isRequired,
+              alt: PropTypes.string.isRequired,
+              longDescription: PropTypes.string,
+            }).isRequired,
             lightbox: PropTypes.bool,
             heading: PropTypes.string,
             copy: PropTypes.string,
@@ -153,23 +151,21 @@ ContentBlockMixed.propTypes = {
             mediaData: PropTypes.oneOfType([
               PropTypes.shape({
                 inverse: PropTypes.bool,
-                image: PropTypes.shape(
-                  PropTypes.shape({
-                    classname: PropTypes.string,
-                    sources: PropTypes.arrayOf(
-                      PropTypes.shape({
-                        src: PropTypes.string,
-                        breakpoint: PropTypes.oneOfType([
-                          PropTypes.string,
-                          PropTypes.number,
-                        ]),
-                      })
-                    ),
-                    defaultSrc: PropTypes.string.isRequired,
-                    alt: PropTypes.string.isRequired,
-                    longDescription: PropTypes.string,
-                  })
-                ).isRequired,
+                image: PropTypes.shape({
+                  classname: PropTypes.string,
+                  sources: PropTypes.arrayOf(
+                    PropTypes.shape({
+                      src: PropTypes.string,
+                      breakpoint: PropTypes.oneOfType([
+                        PropTypes.string,
+                        PropTypes.number,
+                      ]),
+                    })
+                  ),
+                  defaultSrc: PropTypes.string.isRequired,
+                  alt: PropTypes.string.isRequired,
+                  longDescription: PropTypes.string,
+                }).isRequired,
                 lightbox: PropTypes.bool,
                 heading: PropTypes.string,
                 copy: PropTypes.string,
