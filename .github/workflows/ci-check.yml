@@ -3,7 +3,26 @@ name: ci-check
 on: [push, pull_request]
 
 jobs:
-  ci-check:
+  check-packages:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Run CI Checks
+        run: |
+          yarn ci-check
+          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
+  web-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,5 +41,43 @@ jobs:
         run: sudo apt-get install xvfb
       - name: Run basic checks
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
+  a11y:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
       - name: Run a11y compliance tests
         run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
+  integration-react:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn build
+      - name: Run build integration test
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
+      - name: Run bundle integration test
+        run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:bundle
