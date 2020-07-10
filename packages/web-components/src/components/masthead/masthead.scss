@@ -13,6 +13,7 @@
 @import 'carbon-custom-elements/scss/components/ui-shell/header';
 @import 'carbon-custom-elements/scss/components/ui-shell/side-nav';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);

@@ -8,6 +8,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
 @import 'carbon-custom-elements/scss/components/modal/modal';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-modal) {
   @extend :host(#{$prefix}-modal);
