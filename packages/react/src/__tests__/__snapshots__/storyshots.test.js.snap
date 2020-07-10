@@ -2353,14 +2353,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                   Object {
                     "copy": "Learn more",
                     "cta": Object {
-                      "href": "https://ibm.com",
+                      "href": "https://www.ibm.com",
                     },
                     "type": "local",
                   },
                   Object {
                     "copy": "Microservices and containers",
                     "cta": Object {
-                      "href": "https://ibm.com",
+                      "href": "https://www.ibm.com",
                     },
                     "type": "external",
                   },
@@ -2415,14 +2415,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                           Object {
                             "copy": "Learn more",
                             "cta": Object {
-                              "href": "https://ibm.com",
+                              "href": "https://www.ibm.com",
                             },
                             "type": "local",
                           },
                           Object {
                             "copy": "Microservices and containers",
                             "cta": Object {
-                              "href": "https://ibm.com",
+                              "href": "https://www.ibm.com",
                             },
                             "type": "external",
                           },
@@ -2448,7 +2448,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                               copy="Learn more"
                               cta={
                                 Object {
-                                  "href": "https://ibm.com",
+                                  "href": "https://www.ibm.com",
                                 }
                               }
                               disableImage={true}
@@ -2461,7 +2461,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   copy="Learn more"
                                   cta={
                                     Object {
-                                      "href": "https://ibm.com",
+                                      "href": "https://www.ibm.com",
                                     }
                                   }
                                   disableImage={true}
@@ -2483,7 +2483,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
-                                    href="https://ibm.com"
+                                    href="https://www.ibm.com"
                                     iconPlacement="right"
                                     onClick={[Function]}
                                     target={null}
@@ -2494,13 +2494,13 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
-                                        href="https://ibm.com"
+                                        href="https://www.ibm.com"
                                         onClick={[Function]}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
-                                          href="https://ibm.com"
+                                          href="https://www.ibm.com"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -2548,7 +2548,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                               copy="Microservices and containers"
                               cta={
                                 Object {
-                                  "href": "https://ibm.com",
+                                  "href": "https://www.ibm.com",
                                 }
                               }
                               disableImage={true}
@@ -2561,7 +2561,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   copy="Microservices and containers"
                                   cta={
                                     Object {
-                                      "href": "https://ibm.com",
+                                      "href": "https://www.ibm.com",
                                     }
                                   }
                                   disableImage={true}
@@ -2583,7 +2583,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
-                                    href="https://ibm.com"
+                                    href="https://www.ibm.com"
                                     iconPlacement="right"
                                     onClick={[Function]}
                                     target="_blank"
@@ -2594,13 +2594,13 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
-                                        href="https://ibm.com"
+                                        href="https://www.ibm.com"
                                         onClick={[Function]}
                                         target="_blank"
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
-                                          href="https://ibm.com"
+                                          href="https://www.ibm.com"
                                           onClick={[Function]}
                                           target="_blank"
                                         >
