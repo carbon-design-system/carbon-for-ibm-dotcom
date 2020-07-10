@@ -10,6 +10,7 @@
 import { create } from '@storybook/theming';
 
 export default create({
+  base: 'light',
   brandTitle: 'ibmdotcom-web-components',
   brandUrl: 'https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components',
   fontBase: '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif',

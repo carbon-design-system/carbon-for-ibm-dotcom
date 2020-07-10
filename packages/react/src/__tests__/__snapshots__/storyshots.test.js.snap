@@ -15683,10 +15683,10 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
         menuItems={null}
         menuLabel="Jump to"
         stickyOffset={null}
-        theme=""
+        theme="white"
       >
         <section
-          className="bx--tableofcontents"
+          className="bx--tableofcontents bx--tableofcontents--white"
           data-autoid="dds--tableofcontents"
         >
           <Layout
@@ -16033,10 +16033,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
       menuLabel="Jump to"
       menuRule={false}
       stickyOffset={null}
-      theme=""
+      theme="white"
     >
       <section
-        className="bx--tableofcontents"
+        className="bx--tableofcontents bx--tableofcontents--white"
         data-autoid="dds--tableofcontents"
       >
         <Layout
@@ -16648,10 +16648,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
         menuLabel="Jump to"
         menuRule={false}
         stickyOffset={null}
-        theme=""
+        theme="white"
       >
         <section
-          className="bx--tableofcontents"
+          className="bx--tableofcontents bx--tableofcontents--white"
           data-autoid="dds--tableofcontents"
         >
           <Layout
@@ -32077,7 +32077,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
           <FeatureCardBlockLarge
-            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             cta={
               Object {
                 "href": "https://www.example.com",
@@ -32089,7 +32089,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                 },
               }
             }
-            eyebrow="this is an eyebrow"
+            eyebrow="This is an eyebrow"
             heading="Explore AI use cases in all industries"
             image={
               Object {
@@ -32128,7 +32128,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                 className="bx--feature-card-block-large__container"
               >
                 <Card
-                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                   cta={
                     Object {
                       "href": "https://www.example.com",
@@ -32141,7 +32141,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     }
                   }
                   customClassName="bx--feature-card-block-large__card"
-                  eyebrow="this is an eyebrow"
+                  eyebrow="This is an eyebrow"
                   heading="Explore AI use cases in all industries"
                   image={
                     Object {
@@ -32266,7 +32266,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         <p
                           className="bx--card__eyebrow"
                         >
-                          this is an eyebrow
+                          This is an eyebrow
                         </p>
                         <h3
                           className="bx--card__heading"
@@ -32277,7 +32277,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
                             }
                           }
                         />
@@ -34081,10 +34081,10 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               }
             }
             heading="Take the next step"
-            theme=""
+            theme="white"
           >
             <section
-              className="bx--cta-section"
+              className="bx--cta-section bx--cta-section--white"
               data-autoid="dds--cta-section"
             >
               <ContentBlock
@@ -34369,10 +34369,10 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                 },
               ]
             }
-            theme=""
+            theme="white"
           >
             <section
-              className="bx--cta-section bx--cta-section__has-items"
+              className="bx--cta-section bx--cta-section__has-items bx--cta-section--white"
               data-autoid="dds--cta-section"
             >
               <ContentBlock
@@ -34904,15 +34904,15 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
         ]
       }
       heading="Aliquam condimentum interdum"
-      theme=""
+      theme="white"
     >
       <ContentSection
         autoid="dds--card-group-images-group"
-        customClassName="bx--card-group"
+        customClassName="bx--card-group bx--card-group--white"
         heading="Aliquam condimentum interdum"
       >
         <section
-          className="bx--content-section bx--card-group"
+          className="bx--content-section bx--card-group bx--card-group--white"
           data-autoid="dds--card-group-images-group"
         >
           <div
@@ -35762,15 +35762,15 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
         }
       }
       heading="Aliquam condimentum interdum"
-      theme=""
+      theme="white"
     >
       <ContentSection
         autoid="dds--card-group-simple-group"
-        customClassName="bx--card-group"
+        customClassName="bx--card-group bx--card-group--white"
         heading="Aliquam condimentum interdum"
       >
         <section
-          className="bx--content-section bx--card-group"
+          className="bx--content-section bx--card-group bx--card-group--white"
           data-autoid="dds--card-group-simple-group"
         >
           <div
@@ -36579,12 +36579,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
         ]
       }
       copy="Use this area for a short line of copy to support the title"
-      theme=""
+      theme="white"
       title="Leadspace Title"
       type="centered"
     >
       <section
-        className="bx--leadspace--centered"
+        className="bx--leadspace--centered bx--leadspace--centered--white"
         data-autoid="dds--leadspace"
       >
         <div
@@ -36833,12 +36833,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
           ],
         }
       }
-      theme=""
+      theme="white"
       title="Leadspace Title"
       type="centered"
     >
       <section
-        className="bx--leadspace--centered bx--leadspace--centered__image"
+        className="bx--leadspace--centered bx--leadspace--centered--white bx--leadspace--centered__image"
         data-autoid="dds--leadspace"
         style={
           Object {
@@ -37102,11 +37102,11 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
           ],
         }
       }
-      theme=""
+      theme="white"
       title="Lead space title"
     >
       <section
-        className="bx--leadspace"
+        className="bx--leadspace bx--leadspace--white"
         data-autoid="dds--leadspace"
         style={
           Object {
@@ -37427,11 +37427,11 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           ]
         }
         copy="Use this area for a short line of copy to support the title"
-        theme=""
+        theme="white"
         title="Lead space title"
       >
         <section
-          className="bx--leadspace"
+          className="bx--leadspace bx--leadspace--white"
           data-autoid="dds--leadspace"
         >
           <div
@@ -37665,12 +37665,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
         ]
       }
       copy="Use this area for a short line of copy to support the title"
-      theme=""
+      theme="white"
       title="Leadspace Title"
       type="small"
     >
       <section
-        className="bx--leadspace bx--leadspace--productive"
+        className="bx--leadspace bx--leadspace--white bx--leadspace--productive"
         data-autoid="dds--leadspace"
       >
         <div
@@ -37919,12 +37919,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
           ],
         }
       }
-      theme=""
+      theme="white"
       title="Leadspace Title"
       type="small"
     >
       <section
-        className="bx--leadspace bx--leadspace--productive"
+        className="bx--leadspace bx--leadspace--white bx--leadspace--productive"
         data-autoid="dds--leadspace"
         style={
           Object {
