@@ -110,7 +110,7 @@ const getBaseKnobs = ({ groupId }) => {
     groupId
   );
   return {
-    mediaType,
+    mediaType: mediaType === 'none' ? undefined : mediaType,
     mediaData: mediaDataByType[mediaType],
     copy,
     cta: {

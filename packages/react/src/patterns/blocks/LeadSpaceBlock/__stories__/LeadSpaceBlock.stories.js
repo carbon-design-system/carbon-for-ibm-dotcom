@@ -87,7 +87,7 @@ export default {
             'Innovate like a startup and scale for the enterprise ',
             groupId
           ),
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           mediaData: mediaDataByType[mediaType],
           items: {
             heading: text('link list heading:', 'Featured products', groupId),
