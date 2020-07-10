@@ -65,7 +65,8 @@ export default {
 export const ManuallyDefineMenuItems = ({ parameters }) => {
   const { menuItems, menuLabel, menuRule, headingContent } =
     parameters?.props?.TableOfContents ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <TableOfContents
       theme={theme}

@@ -1,0 +1,22 @@
+{
+  "name": "ibmdotcom-web-components-masthead-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sample project for getting started with the Web Components from the IBM.com library.",
+  "license": "Apache-2",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --port=9000 --no-hmr",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-web-components": "canary",
+    "carbon-components": "^10.15.0",
+    "lit-element": "^2.2.0",
+    "lit-html": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "parcel-bundler": "^1.10.0"
+  }
+}
