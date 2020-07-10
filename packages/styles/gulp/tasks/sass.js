@@ -9,11 +9,11 @@
 
 const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
-  cleanCSS = require('gulp-clean-css'),
+  // cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
-  path = require('path'),
-  sourcemaps = require('gulp-sourcemaps');
+  path = require('path');
+// sourcemaps = require('gulp-sourcemaps');
 
 /**
  * @name _sass
@@ -29,7 +29,7 @@ function _sass() {
   // prettier-ignore
   return gulp
     .src(global.config.scssEntry)
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
         path.resolve(__dirname, '../../', 'node_modules'),
@@ -43,11 +43,11 @@ function _sass() {
     )
     .pipe(rename(global.config.distCss))
     .pipe(gulp.dest('dist'))
-    .pipe(
+    /*.pipe(
       cleanCSS({
         level: 2,
       })
-    )
+    )*/
     .pipe(rename(global.config.distCssMin))
     .pipe(gulp.dest('dist'));
 }
