@@ -88,7 +88,7 @@ const getBaseKnobs = ({ groupId }) => {
       'Curabitur malesuada varius mi eu posuere',
       groupId
     ),
-    mediaType,
+    mediaType: mediaType === 'none' ? undefined : mediaType,
     mediaData: mediaDataByType[mediaType],
     cta: {
       cta: {

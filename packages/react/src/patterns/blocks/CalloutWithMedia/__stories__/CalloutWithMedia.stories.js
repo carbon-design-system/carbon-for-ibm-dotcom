@@ -53,7 +53,7 @@ export default {
         );
         return {
           mediaData: mediaDataByType[mediaType],
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           heading: text(
             'heading',
             'Curabitur malesuada varius mi eu posuere',
