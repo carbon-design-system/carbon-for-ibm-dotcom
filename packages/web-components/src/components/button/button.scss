@@ -9,6 +9,7 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/button';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-btn) {
   // Enables expressive version of type/size/component tokens in this component

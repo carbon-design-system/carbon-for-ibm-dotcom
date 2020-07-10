@@ -24,7 +24,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "gulp",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 gulp",
     "start": "gulp dev",
     "ci-check": "yarn build",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
