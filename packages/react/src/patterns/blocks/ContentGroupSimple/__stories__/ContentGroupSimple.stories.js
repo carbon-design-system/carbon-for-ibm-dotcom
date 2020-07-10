@@ -27,7 +27,7 @@ export default {
           groupId
         );
         return {
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           mediaData:
             mediaType === 'image'
               ? ContentGroupSimpleKnobs.mediaData.image
