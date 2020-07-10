@@ -13,7 +13,6 @@ const gulp = require('gulp'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   path = require('path');
-// sourcemaps = require('gulp-sourcemaps');
 
 /**
  * @name _sass
@@ -29,7 +28,6 @@ function _sass() {
   // prettier-ignore
   return gulp
     .src(global.config.scssEntry)
-    // .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
         path.resolve(__dirname, '../../', 'node_modules'),
