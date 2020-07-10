@@ -84,11 +84,10 @@ function renderFooter(cta) {
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
-          [`${prefix}--card__cta__icon-left`]: cta.iconPlacement === 'left',
+          [`${prefix}--card__footer__icon-left`]: cta.iconPlacement === 'left',
+          [`${prefix}--card__footer__copy`]: cta.copy,
         })}>
-        {cta.copy && (
-          <span className={`${prefix}--card__cta__copy`}>{cta.copy}</span>
-        )}
+        {cta.copy && <span>{cta.copy}</span>}
         {cta.icon?.src && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
         )}

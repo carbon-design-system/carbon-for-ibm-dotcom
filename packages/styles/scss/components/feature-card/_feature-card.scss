@@ -39,7 +39,7 @@
       color: $inverse-link;
     }
 
-    &__card.#{$prefix}--card__footer {
+    &__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
     }
 
