@@ -1325,9 +1325,11 @@ exports[`Storyshots Components|Card Default 1`] = `
                       Lorem ipsum dolor sit amet
                     </h3>
                     <div
-                      className="bx--card__footer bx--card__footer__copy"
+                      className="bx--card__footer"
                     >
-                      <span>
+                      <span
+                        className="bx--card__cta__copy"
+                      >
                         Card cta text
                       </span>
                       <ForwardRef(ArrowRight20)
