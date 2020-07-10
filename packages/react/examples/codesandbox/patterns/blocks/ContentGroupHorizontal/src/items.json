@@ -1,0 +1,66 @@
+{
+  "items": [
+    {
+      "eyebrow": "Lorem ipsum",
+      "heading": "Aliquam condimentum",
+      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
+      "cta": {
+        "items": [
+          {
+            "type": "local",
+            "copy": "Link text",
+            "cta": {
+              "href": "https://example.com"
+            }
+          },
+          {
+            "type": "external",
+            "copy": "External link text",
+            "cta": {
+              "href": "https://example.com"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "eyebrow": "Lorem ipsum",
+      "heading": "Aliquam condimentum",
+      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
+      "cta": {
+        "items": [
+          {
+            "type": "local",
+            "copy": "Link text",
+            "cta": {
+              "href": "https://example.com"
+            }
+          },
+          {
+            "type": "external",
+            "copy": "External link text",
+            "cta": {
+              "href": "https://example.com"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "eyebrow": "Lorem ipsum",
+      "heading": "Aliquam condimentum",
+      "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
+      "cta": {
+        "items": [
+          {
+            "type": "local",
+            "copy": "Link text",
+            "cta": {
+              "href": "https://example.com"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
