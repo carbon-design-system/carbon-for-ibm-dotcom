@@ -92,7 +92,8 @@ DefaultWithNoImage.story = {
 export const DefaultWithImage = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <LeadSpace
       theme={theme}
@@ -126,7 +127,8 @@ DefaultWithImage.story = {
 export const Centered = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.Leadspace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <LeadSpace
       type="centered"
@@ -184,7 +186,8 @@ Centered.story = {
 
 export const CenteredWithImage = ({ parameters }) => {
   const { title, copy, gradient, buttons } = parameters?.props?.Leadspace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <LeadSpace
       type="centered"
@@ -256,7 +259,8 @@ CenteredWithImage.story = {
 export const Small = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.Leadspace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <LeadSpace
       type="small"
@@ -315,7 +319,8 @@ Small.story = {
 export const SmallWithImage = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.Leadspace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <LeadSpace
       type="small"
