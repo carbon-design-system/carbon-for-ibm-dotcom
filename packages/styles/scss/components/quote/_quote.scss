@@ -11,7 +11,7 @@
 
 @mixin quote {
   .#{$prefix}--quote {
-    padding-bottom: $layout-03;
+    padding-bottom: $layout-05;
     &__container {
       @include carbon--make-row;
     }
