@@ -20,7 +20,7 @@ export default {
       FeatureCardBlockLarge: ({ groupId }) => ({
         eyebrow: text(
           'Card eyebrow(required) (eyebrow):',
-          'this is an eyebrow',
+          'This is an eyebrow',
           groupId
         ),
         heading: text(
@@ -30,7 +30,7 @@ export default {
         ),
         copy: text(
           'Card copy: (copy)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           groupId
         ),
         cta: {
