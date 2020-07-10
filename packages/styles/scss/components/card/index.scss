@@ -23,7 +23,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: $carbon--spacing-05 $carbon--spacing-05 0;
+      padding: $carbon--spacing-05;
       min-height: carbon--mini-units(20);
     }
 
@@ -60,11 +60,11 @@
     }
 
     &__cta,
-    &__footer__copy span {
+    &__cta__copy {
       margin-right: $carbon--spacing-03;
     }
 
-    &__footer__copy span {
+    &__cta__copy {
       color: $interactive-04;
       @include carbon--type-style('body-short-02');
     }
@@ -72,11 +72,6 @@
     &__footer {
       display: flex;
       margin-top: auto;
-      margin-bottom: $carbon--spacing-05;
-
-      &__copy {
-        margin-bottom: rem(14px);
-      }
 
       svg {
         fill: currentColor;
