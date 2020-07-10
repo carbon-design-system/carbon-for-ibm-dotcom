@@ -40,48 +40,27 @@ yarn add @carbon/ibmdotcom-web-components lit-html lit-element
 The first thing you need is **setting up a module bundler** to resolve ECMAScript `import`s. Once you set up a module bundler, you can start importing our component modules, like:
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-header';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-heading';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-body';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-footer';
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
 ```
 
 Once you do that, you can use our components in the same manner as native HTML tags, like:
 
 ```html
-<dds-modal>
-  <dds-modal-header>
-    <dds-modal-close-button></dds-modal-close-button>
-    <dds-modal-heading>Modal Title</dds-modal-heading>
-  </dds-modal-header>
-  <dds-modal-body>
-    Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum risus
-    pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce sollicitudin sit
-    amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi laoreet, vitae facilisis
-    ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis sapien
-    eu nisl congue suscipit.
-  </dds-modal-body>
-  <dds-modal-footer>
-    <dds-btn>
-      Lorem ipsum dolor
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-btn>
-  </dds-modal-footer>
-</dds-modal>
+<dds-link-with-icon href="http://ibmdotcom-web-components-canary.mybluemix.net/">
+  Link text
+  <svg
+    slot="icon"
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+  >
+    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+  </svg>
+</dds-link-with-icon>
 ```
 
 > 💡 Check our
