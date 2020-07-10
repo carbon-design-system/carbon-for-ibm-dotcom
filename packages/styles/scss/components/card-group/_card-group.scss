@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../link-with-icon/link-with-icon';
+@import '../../globals/imports';
+@import '../../globals/utils/ratio-base';
 @import '../../internal/content-section/content-section';
 @import '../card/index';
 @import '../image/image';
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
+@import '../link-with-icon/link-with-icon';
 
 @mixin themed-items {
   color: $text-01;
