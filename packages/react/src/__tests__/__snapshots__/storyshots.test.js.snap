@@ -32077,7 +32077,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
           <FeatureCardBlockLarge
-            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             cta={
               Object {
                 "href": "https://www.example.com",
@@ -32089,7 +32089,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                 },
               }
             }
-            eyebrow="this is an eyebrow"
+            eyebrow="This is an eyebrow"
             heading="Explore AI use cases in all industries"
             image={
               Object {
@@ -32128,7 +32128,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                 className="bx--feature-card-block-large__container"
               >
                 <Card
-                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                   cta={
                     Object {
                       "href": "https://www.example.com",
@@ -32141,7 +32141,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     }
                   }
                   customClassName="bx--feature-card-block-large__card"
-                  eyebrow="this is an eyebrow"
+                  eyebrow="This is an eyebrow"
                   heading="Explore AI use cases in all industries"
                   image={
                     Object {
@@ -32266,7 +32266,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         <p
                           className="bx--card__eyebrow"
                         >
-                          this is an eyebrow
+                          This is an eyebrow
                         </p>
                         <h3
                           className="bx--card__heading"
@@ -32277,7 +32277,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
                             }
                           }
                         />
