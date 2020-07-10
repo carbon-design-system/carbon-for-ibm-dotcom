@@ -6,6 +6,7 @@
  */
 
 @import '../../../globals/imports';
+@import '../../../internal/content-group/content-group';
 @import '../../../components/feature-card/feature-card';
 
 @mixin feature-card-block-medium {
