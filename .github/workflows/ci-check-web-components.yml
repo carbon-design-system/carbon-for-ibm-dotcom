@@ -1,9 +1,9 @@
-name: ci-check
+name: ci-check-web-components
 
 on: [push, pull_request]
 
 jobs:
-  ci-check:
+  ci-check-web-components:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,7 +18,7 @@ jobs:
         run: yarn install --offline
       - name: Build project
         run: yarn build
-      - name: Run CI Checks
-        run: |
-          yarn ci-check
-          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Run basic checks
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
