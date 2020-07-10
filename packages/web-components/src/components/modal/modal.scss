@@ -25,10 +25,6 @@
       height: auto;
     }
 
-    ::slotted(#{$dds-prefix}-modal-body) {
-      min-height: carbon--rem(500px);
-    }
-
     ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
       height: 100%;
       overflow: auto;
