@@ -9,7 +9,7 @@
 
 const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
-  // cleanCSS = require('gulp-clean-css'),
+  cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   path = require('path');
@@ -43,11 +43,7 @@ function _sass() {
     )
     .pipe(rename(global.config.distCss))
     .pipe(gulp.dest('dist'))
-    /*.pipe(
-      cleanCSS({
-        level: 2,
-      })
-    )*/
+    .pipe(cleanCSS())
     .pipe(rename(global.config.distCssMin))
     .pipe(gulp.dest('dist'));
 }
