@@ -33,10 +33,9 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   }
 
   updated() {
-    const { disabled, _linkNode: linkNode } = this;
+    const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
-      linkNode.classList.toggle(`${prefix}--link--disabled`, disabled);
     }
   }
 

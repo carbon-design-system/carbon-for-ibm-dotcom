@@ -23,6 +23,7 @@
   @include button-expressive;
 
   ::slotted([slot='icon']) {
+    flex-shrink: 0;
     margin-left: calc(#{rem(60px)} - #{$spacing-04} - #{$icon-size-01});
   }
 }
