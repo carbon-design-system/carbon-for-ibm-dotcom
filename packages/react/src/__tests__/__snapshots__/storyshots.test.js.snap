@@ -18726,10 +18726,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 }
                               }
                               key="0"
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -18740,7 +18739,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -18828,7 +18827,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -18863,10 +18861,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 }
                               }
                               key="1"
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -18877,7 +18874,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -18965,7 +18962,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -19000,10 +18996,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 }
                               }
                               key="2"
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -19014,7 +19009,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -19102,7 +19097,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -19137,10 +19131,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 }
                               }
                               key="3"
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -19151,7 +19144,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -19239,7 +19232,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -19274,10 +19266,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 }
                               }
                               key="4"
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -19288,7 +19279,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -19376,7 +19367,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
