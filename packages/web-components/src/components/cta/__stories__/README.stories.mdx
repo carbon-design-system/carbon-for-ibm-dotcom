@@ -81,6 +81,20 @@ document.addEventListener('dds-cta-run-action', async event => {
 });
 ```
 
+There is `<dds-cta-container>` example component for getting started quicker. With it, you can just do:
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/cta-container';
+```
+
+```html
+<dds-cta-container
+  cta-style="text"
+  item="{ &quot;copy&quot;: &quot;Copy text&quot;, &quot;href&quot;: &quot;0_uka1msg4&quot;, &quot;type&quot;: &quot;video&quot; }"
+>
+</dds-cta-container>
+```
+
 ## Contributing
 
 <Description markdown={contributing} />

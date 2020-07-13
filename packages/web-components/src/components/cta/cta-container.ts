@@ -143,7 +143,7 @@ class DDSCTAContainer extends HybridRenderMixin(LitElement) {
   /**
    * CTA item.
    */
-  @property({ attribute: false })
+  @property({ type: Object })
   item?: TEXT_CTA_ITEM;
 
   connectedCallback() {
