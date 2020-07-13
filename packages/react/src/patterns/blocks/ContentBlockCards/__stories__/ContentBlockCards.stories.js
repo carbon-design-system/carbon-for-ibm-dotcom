@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { text, select } from '@storybook/addon-knobs';
 import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { text } from '@storybook/addon-knobs';
 
 /**
  * @param {object} options The options.
@@ -41,7 +41,8 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -84,7 +85,8 @@ Default.story = {
 };
 
 export const WithImages = ({ parameters }) => {
-  const { heading, cta, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -105,6 +107,14 @@ WithImages.story = {
         return {
           ...knobs,
           cards: cards['Images'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
         };
       },
     },
@@ -112,6 +122,50 @@ WithImages.story = {
       default: {
         ContentBlockCards: {
           cards: cards['Images'],
+        },
+      },
+    },
+  },
+};
+
+export const WithVideos = ({ parameters }) => {
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithVideos.story = {
+  parameters: {
+    knobs: {
+      ContentBlockCards: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          cards: cards['Videos'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        ContentBlockCards: {
+          cards: cards['Videos'],
         },
       },
     },
