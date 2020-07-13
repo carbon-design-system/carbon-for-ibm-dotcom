@@ -5,10 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ComboBox from '../../internal/vendor/carbon-components-react/components/ComboBox/ComboBox';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -18,6 +19,8 @@ const { prefix } = settings;
  * Footer language selector component.
  */
 const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
+  const { ref } = useClickOutside();
+
   const [selectedItem, setSelectedItem] = useState(
     initialSelectedItem || items[0]
   );
@@ -33,8 +36,29 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
     callback(selectedItem);
   }
 
+  function useClickOutside() {
+    const ref = useRef(null);
+
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        if (selectedItem === null) {
+          setSelectedItem(initialSelectedItem);
+        }
+      }
+    };
+
+    useEffect(() => {
+      root.document.addEventListener('click', handleClickOutside, true);
+      return () => {
+        root.document.removeEventListener('click', handleClickOutside, true);
+      };
+    });
+
+    return { ref };
+  }
+
   return (
-    <div className={`${prefix}--language-selector__container`}>
+    <div className={`${prefix}--language-selector__container`} ref={ref}>
       <ComboBox
         id="dds-language-selector"
         data-autoid={`${stablePrefix}--language-selector`}
