@@ -1,0 +1,72 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import '../lightbox-video-player'
+
+# Lightbox Media Viewer
+
+> This launches a modal containing a video, and a description
+> detailing the media content.
+
+<Preview withToolbar>
+  <Story id="components-lightbox-media-viewer--embedded-video-player" height="600px" />
+</Preview>
+
+## Getting started
+
+##### JS
+
+When application code opens the lightbox, it can work with our video player service API to put the video data into the video player component:
+
+```javascript
+import 'carbon-custom-elements/es/components/modal/modal-close-button';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import '@carbon/ibmdotcom-web-components/es/components/button/button';
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer-body';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
+
+...
+
+document.addEventListener('click', async event => {
+  if (event.target.id === 'open-modal-btn') {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.open = true;
+    const videoPlayer = document.getElementById('video-player');
+    const videoTarget = document.createElement('div');
+    videoTarget.id = 'video-target';
+    videoTarget.className = 'bx--video-player__video';
+    videoPlayer.appendChild(videoTarget);
+    const [videoData] = await Promise.all([
+      VideoPlayerAPI.api('0_uka1msg4'),
+      VideoPlayerAPI.embedVideo('0_uka1msg4', videoTarget.id, true),
+    ]);
+    const { name, description, duration } = videoData;
+    videoPlayer.name = name;
+    videoPlayer.duration = duration;
+    videoPlayer.description = description;
+  }
+});
+```
+
+##### HTML
+
+```html
+<dds-btn id="open-modal-btn">Open modal</dds-btn>
+<dds-modal id="lightbox" size="full-width">
+  <bx-modal-close-button></bx-modal-close-button>
+  <dds-lightbox-media-viewer-body>
+    <dds-lightbox-video-player id="video-player">
+    </dds-lightbox-video-player>
+  </dds-lightbox-media-viewer-body>
+</dds-modal>
+```
+
+## `<dds-lightbox-video-player>`
+
+`<dds-lightbox-video-player>` works as the video player in lightbox media viewer.
+
+<Props of="dds-lightbox-video-player" />
+
+## Contributing
+
+<Description markdown={contributing} />
