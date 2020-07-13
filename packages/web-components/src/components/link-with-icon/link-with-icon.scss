@@ -8,3 +8,10 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
+
+:host(#{$dds-prefix}-link-with-icon) {
+  // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
+  .#{$prefix}--link--disabled {
+    color: $disabled-02;
+  }
+}
