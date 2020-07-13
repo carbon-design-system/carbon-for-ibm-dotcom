@@ -25,6 +25,10 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
     initialSelectedItem || items[0]
   );
 
+  const [lastSelectedItem, setLastSelectedItem] = useState(
+    initialSelectedItem || items[0]
+  );
+
   /**
    * Sets the selected item and then runs the callback function
    *
@@ -34,6 +38,9 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
   function _setSelectedItem(selectedItem) {
     setSelectedItem(selectedItem);
     callback(selectedItem);
+    if (selectedItem !== null) {
+      setLastSelectedItem(selectedItem);
+    }
   }
 
   function useClickOutside() {
@@ -41,9 +48,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
 
     const handleClickOutside = event => {
       if (ref.current && !ref.current.contains(event.target)) {
-        if (selectedItem === null) {
-          setSelectedItem(initialSelectedItem);
-        }
+        setSelectedItem(lastSelectedItem);
       }
     };
 
