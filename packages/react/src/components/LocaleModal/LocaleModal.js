@@ -75,9 +75,9 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         `.${prefix}--locale-modal-container .${prefix}--modal-container`
       );
 
-      localeModalContainer.setAttribute('role', 'dialog');
-      localeModalContainer.setAttribute('tabindex', '-1');
-      localeModalContainer.setAttribute('aria-modal', 'true');
+      localeModalContainer?.setAttribute('role', 'dialog');
+      localeModalContainer?.setAttribute('tabindex', '-1');
+      localeModalContainer?.setAttribute('aria-modal', 'true');
     })();
 
     // reset the country search results when clicking close icon or back to region button
