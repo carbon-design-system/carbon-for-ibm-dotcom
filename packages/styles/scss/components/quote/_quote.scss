@@ -12,7 +12,7 @@
 @mixin quote {
   .#{$prefix}--quote {
     background: $ui-background;
-    padding-bottom: $layout-03;
+    padding-bottom: $layout-05;
     &__container {
       @include carbon--make-row;
     }
