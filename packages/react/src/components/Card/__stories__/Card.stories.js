@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, boolean, object } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../';
 import React from 'react';
@@ -32,17 +32,19 @@ export default {
         ),
         copy: text('copy', '', groupId),
         inverse: boolean('inverse', false, groupId),
-        cta: object(
-          'cta',
-          {
-            type: 'local',
-            href: 'https://example.com',
-            icon: {
-              src: ArrowRight20,
-            },
+        cta: {
+          href: text('Cta href (cta.href)', 'https://example.com', groupId),
+          copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
+          icon: {
+            src: ArrowRight20,
           },
-          groupId
-        ),
+          iconPlacement: select(
+            'Cta icon placement (cta.iconPlacement)',
+            ['left', 'right'],
+            'right',
+            groupId
+          ),
+        },
       }),
     },
   },
@@ -57,7 +59,7 @@ export const Default = ({ parameters }) => {
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card {...(parameters?.props?.Card ?? {})} type="link" />
+            <Card {...(parameters?.props?.Card ?? {})} />
           </div>
         </div>
       </div>
