@@ -59,12 +59,8 @@
       color: $interactive-04;
     }
 
-    &__cta,
     &__cta__copy {
       margin-right: $carbon--spacing-03;
-    }
-
-    &__cta__copy {
       color: $interactive-04;
       @include carbon--type-style('body-short-02');
     }
@@ -82,6 +78,14 @@
     &__footer__icon-left {
       justify-content: flex-end;
       flex-direction: row-reverse;
+
+      .#{$prefix}--card__cta {
+        margin-right: $carbon--spacing-03;
+      }
+
+      .#{$prefix}--card__cta__copy {
+        margin-right: 0;
+      }
     }
 
     &__CTA {
