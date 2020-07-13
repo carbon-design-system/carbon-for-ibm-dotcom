@@ -9,6 +9,9 @@
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
 @import '../../../components/buttongroup/buttongroup';
+@import '../../../components/link-list/index';
+@import '../../../components/image-with-caption/image-with-caption';
+@import '../../../internal/content-block/content-block';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
@@ -62,7 +65,9 @@
       }
 
       .#{$prefix}--leadspace-block__media {
-        padding-top: $spacing-05;
+        @include carbon--breakpoint('md') {
+          padding-top: $spacing-05;
+        }
 
         .#{$prefix}--image-with-caption {
           margin-top: 0;

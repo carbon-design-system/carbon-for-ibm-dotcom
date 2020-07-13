@@ -111,6 +111,23 @@ export default {
         };
       },
     },
+    propsSet: {
+      default: {
+        ContentGroupPictograms: {
+          items: [
+            {
+              heading: 'Aliquam condimentum interdum',
+              copy:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+              pictogram: {
+                src: selectPictogram(pictograms.Desktop),
+                'aria-label': 'Pictogram',
+              },
+            },
+          ],
+        },
+      },
+    },
   },
 };
 

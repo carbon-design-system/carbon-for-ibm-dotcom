@@ -15,11 +15,17 @@ const build = require('./gulp-tasks/build');
 const test = require('./gulp-tasks/test');
 
 gulp.task('build:modules:css', build.modules.css);
+gulp.task('build:modules:icons', build.modules.icons);
 gulp.task('build:modules:scripts', build.modules.scripts);
 gulp.task('build:modules:types', build.modules.types);
 gulp.task(
   'build:modules',
-  gulp.parallel(gulp.task('build:modules:css'), gulp.task('build:modules:scripts'), gulp.task('build:modules:types'))
+  gulp.parallel(
+    gulp.task('build:modules:css'),
+    gulp.task('build:modules:icons'),
+    gulp.task('build:modules:scripts'),
+    gulp.task('build:modules:types')
+  )
 );
 gulp.task('build:sass', build.sass);
 gulp.task('build', gulp.parallel(gulp.task('build:modules'), gulp.task('build:sass')));

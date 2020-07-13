@@ -26,6 +26,7 @@
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
 @import 'components/link-list/index';
+@import 'components/list/list';
 @import 'components/locale-modal/locale-modal';
 @import 'components/masthead/index';
 @import 'components/pictogram-item/pictogram-item';
@@ -41,9 +42,11 @@
 @import 'patterns/sections/ctasection/index';
 
 // Patterns - Blocks
+@import 'patterns/blocks/callout-data/index';
 @import 'patterns/blocks/callout-quote/index';
 @import 'patterns/blocks/callout-with-media/index';
 @import 'patterns/blocks/content-block-cards/content-block-cards';
+@import 'patterns/blocks/content-block-headlines/index';
 @import 'patterns/blocks/content-block-media/index';
 @import 'patterns/blocks/content-block-mixed/index';
 @import 'patterns/blocks/content-block-segmented/index';

@@ -4,3 +4,4 @@ node_modules
 /scss
 storybook-static
 .vscode
+.env

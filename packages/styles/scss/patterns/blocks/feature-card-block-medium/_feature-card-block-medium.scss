@@ -6,12 +6,27 @@
  */
 
 @import '../../../globals/imports';
+@import '../../../internal/content-group/content-group';
 @import '../../../components/feature-card/feature-card';
 
 @mixin feature-card-block-medium {
   .#{$prefix}--feature-card-block-medium {
     color: $text-01;
     background: $ui-background;
+
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: $carbon--layout-06;
+      margin-bottom: $carbon--layout-06;
+    }
+
+    &__heading {
+      @include carbon--type-style('expressive-heading-04', true);
+
+      margin-bottom: $carbon--spacing-07;
+    }
   }
 }
 @include exports('feature-card-block-medium') {

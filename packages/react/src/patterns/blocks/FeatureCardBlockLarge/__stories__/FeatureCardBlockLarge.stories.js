@@ -20,7 +20,7 @@ export default {
       FeatureCardBlockLarge: ({ groupId }) => ({
         eyebrow: text(
           'Card eyebrow(required) (eyebrow):',
-          'this is an eyebrow',
+          'This is an eyebrow',
           groupId
         ),
         heading: text(
@@ -30,7 +30,7 @@ export default {
         ),
         copy: text(
           'Card copy: (copy)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           groupId
         ),
         cta: {
@@ -46,12 +46,50 @@ export default {
         image: object(
           'Card image(required) (image):',
           {
-            defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+            sources: [
+              {
+                src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+                breakpoint: 'sm',
+              },
+              {
+                src: 'https://dummyimage.com/400x200/ee5396/161616&text=2:1',
+                breakpoint: 'md',
+              },
+              {
+                src: 'https://dummyimage.com/600x600/ee5396/161616&text=1:1',
+                breakpoint: 991,
+              },
+              {
+                src: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+                breakpoint: 'lg',
+              },
+              {
+                src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+                breakpoint: 'xlg',
+              },
+            ],
+            defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
             alt: 'Image alt text',
           },
           groupId
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        FeatureCardBlockLarge: {
+          eyebrow: 'this is an eyebrow',
+          heading: 'Explore AI use cases in all industries',
+          cta: {
+            href: 'https://www.example.com',
+            src: ArrowRight20,
+          },
+          image: {
+            defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+            alt: 'Image alt text',
+          },
+        },
+      },
     },
   },
 };

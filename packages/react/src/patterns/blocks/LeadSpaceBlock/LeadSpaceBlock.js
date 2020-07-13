@@ -100,7 +100,7 @@ LeadSpaceBlock.propTypes = {
    * Link list items.
    */
   items: PropTypes.shape({
-    heading: PropTypes.string,
+    heading: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(
       PropTypes.shape({
         style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
@@ -137,23 +137,21 @@ LeadSpaceBlock.propTypes = {
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({
       inverse: PropTypes.bool,
-      image: PropTypes.shape(
-        PropTypes.shape({
-          classname: PropTypes.string,
-          sources: PropTypes.arrayOf(
-            PropTypes.shape({
-              src: PropTypes.string,
-              breakpoint: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-              ]),
-            })
-          ),
-          defaultSrc: PropTypes.string.isRequired,
-          alt: PropTypes.string.isRequired,
-          longDescription: PropTypes.string,
-        })
-      ).isRequired,
+      image: PropTypes.shape({
+        classname: PropTypes.string,
+        sources: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            breakpoint: PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          })
+        ),
+        defaultSrc: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+        longDescription: PropTypes.string,
+      }).isRequired,
       lightbox: PropTypes.bool,
       heading: PropTypes.string,
       copy: PropTypes.string,
@@ -171,20 +169,18 @@ LeadSpaceBlock.propTypes = {
    * CTA props.
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
-  cta: PropTypes.shape(
-    PropTypes.shape({
-      style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
-      type: PropTypes.oneOfType([
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
-        PropTypes.arrayOf(
-          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
-        ),
-      ]),
-      copy: PropTypes.string,
-      href: PropTypes.string,
-      customClassName: PropTypes.string,
-    })
-  ),
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
 };
 
 LeadSpaceBlock.defaultProps = {

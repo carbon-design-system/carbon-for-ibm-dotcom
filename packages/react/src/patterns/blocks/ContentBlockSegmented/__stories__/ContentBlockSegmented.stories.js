@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, object, text, boolean } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
 import { LinkList } from '../../../../components/LinkList';
 import React from 'react';
@@ -36,12 +36,9 @@ const image = {
   },
 };
 
-const mediaDataByType = {
-  image,
-  video: {
-    videoId: '0_uka1msg4',
-    showCaption: true,
-  },
+const video = {
+  videoId: '0_uka1msg4',
+  showCaption: true,
 };
 
 const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -59,28 +56,58 @@ const ctaTypes = {
   local: 'local',
 };
 
+const defaultItems = [
+  {
+    heading: 'Lorem ipsum dolor sit amet.',
+    copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
+    cta: {
+      type: 'local',
+      copy: 'Lorem Ipsum dolor sit',
+      href: 'https://example.com',
+    },
+  },
+  {
+    heading: 'Lorem ipsum dolor sit amet.',
+    image,
+    copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
+    cta: {
+      type: 'local',
+      copy: 'Lorem Ipsum dolor sit',
+      href: 'https://example.com',
+    },
+  },
+];
+
+const defaultWithAsideElementsItems = [
+  {
+    heading: 'Lorem ipsum dolor sit amet.',
+    copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
+  },
+  {
+    heading: 'Lorem ipsum dolor sit amet.',
+    image,
+    copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
+  },
+];
+
 /**
  * @param {object} options The options.
  * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
 const getBaseKnobs = ({ groupId }) => {
-  const mediaType = select(
-    'mediaType (optional)',
-    ['image', 'video', 'none'],
-    'image',
-    groupId
-  );
   return {
-    mediaType,
-    mediaData: mediaDataByType[mediaType],
     copy,
     cta: {
       cta: {
         href: 'https://www.example.com',
       },
-      style: select('CTA style', ctaStyles, ctaStyles.card, groupId),
-      type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+      style: select('CTA style (style):', ctaStyles, ctaStyles.card, groupId),
+      type: select('CTA type (type):', ctaTypes, ctaTypes.local, groupId),
       copy: 'Lorem ipsum dolor',
     },
   };
@@ -95,7 +122,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { copy, cta, heading, mediaType, mediaData, items } =
+  const { copy, cta, heading, items } =
     parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
@@ -105,8 +132,8 @@ export const Default = ({ parameters }) => {
             copy={copy}
             cta={cta}
             heading={heading}
-            mediaType={mediaType}
-            mediaData={mediaData}
+            mediaType="image"
+            mediaData={image}
             items={items}
           />
         </div>
@@ -119,46 +146,89 @@ Default.story = {
   parameters: {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
-        const defaultItems = [
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-            cta: {
-              type: 'local',
-              copy: 'Lorem Ipsum dolor sit',
-              href: 'https://example.com',
-            },
-          },
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            image,
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-            cta: {
-              type: 'local',
-              copy: 'Lorem Ipsum dolor sit',
-              href: 'https://example.com',
-            },
-          },
-        ];
-
         const knobs = getBaseKnobs({ groupId });
 
         return {
           ...knobs,
-          heading: text('Heading', 'Lorem ipsum dolor sit amet.', groupId),
-          items: object('Content items', defaultItems, groupId),
+          copy: text(
+            'Copy (copy):',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+            groupId
+          ),
+          heading: text(
+            'Heading (heading):',
+            'Lorem ipsum dolor sit amet.',
+            groupId
+          ),
+          items: defaultItems,
         };
+      },
+    },
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          items: defaultItems,
+        },
+      },
+    },
+  },
+};
+
+export const WithVideo = ({ parameters }) => {
+  const { copy, cta, heading, items } =
+    parameters?.props?.ContentBlockSegmented ?? {};
+  return (
+    <div className={`${prefix}--grid`}>
+      <div className="bx--row">
+        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+          <ContentBlockSegmented
+            copy={copy}
+            cta={cta}
+            heading={heading}
+            mediaType="video"
+            mediaData={video}
+            items={items}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithVideo.story = {
+  parameters: {
+    knobs: {
+      ContentBlockSegmented: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          copy: text(
+            'Copy (copy):',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+            groupId
+          ),
+          heading: text(
+            'Heading (heading):',
+            'Lorem ipsum dolor sit amet.',
+            groupId
+          ),
+          items: defaultItems,
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          items: defaultItems,
+        },
       },
     },
   },
 };
 
 export const WithAsideElements = ({ parameters }) => {
-  const { copy, cta, heading, mediaType, mediaData, items, aside } =
+  const { copy, cta, heading, items, aside } =
     parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
@@ -168,8 +238,8 @@ export const WithAsideElements = ({ parameters }) => {
             copy={copy}
             cta={cta}
             heading={heading}
-            mediaType={mediaType}
-            mediaData={mediaData}
+            mediaType="image"
+            mediaData={image}
             items={items}
             aside={aside}
           />
@@ -184,54 +254,34 @@ WithAsideElements.story = {
   parameters: {
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
-        const defaultItems = [
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-          },
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            image,
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-          },
-        ];
-
         const linkListProps = {
-          heading: text('link list heading:', 'Tutorials', groupId),
-          items: object(
-            'link list items array',
-            [
-              {
-                type: 'local',
-                copy: 'Containerization A Complete Guide',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+          heading: text('Link list heading (heading):', 'Tutorials', groupId),
+          items: [
+            {
+              type: 'local',
+              copy: 'Containerization A Complete Guide',
+              cta: {
+                href: 'https://ibm.com',
               },
-              {
-                type: 'external',
-                copy: 'Why should you use microservices and containers',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+            },
+            {
+              type: 'external',
+              copy: 'Why should you use microservices and containers',
+              cta: {
+                href: 'https://ibm.com',
               },
-            ],
-            groupId
-          ),
+            },
+          ],
         };
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: boolean('border', false, groupId),
+          border: boolean('Border (border):', false, groupId),
         };
 
         const knobs = getBaseKnobs({ groupId });
 
-        const items = object('Content items', defaultItems, groupId);
+        const items = defaultWithAsideElementsItems;
 
         const result = {
           ...knobs,
@@ -264,6 +314,13 @@ WithAsideElements.story = {
         };
 
         return result;
+      },
+    },
+    propsSet: {
+      default: {
+        ContentBlockSegmented: {
+          items: defaultWithAsideElementsItems,
+        },
       },
     },
   },

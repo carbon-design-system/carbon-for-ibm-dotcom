@@ -6,6 +6,8 @@
  */
 
 @import '../../../globals/imports';
+@import '../../../internal/content-block/content-block';
+@import '../../../components/card-group/card-group';
 
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {

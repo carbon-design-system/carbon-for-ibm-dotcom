@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCard from '../FeatureCard';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|FeatureCard',
@@ -20,27 +20,50 @@ export default {
       FeatureCard: ({ groupId }) => ({
         card: {
           heading: text(
-            'Card Heading:',
+            'Card Heading (heading):',
             'Explore AI use cases in all industries',
             groupId
           ),
-          image: object(
-            'card image',
-            {
-              defaultSrc:
-                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-              alt: 'Image alt text',
-            },
-            groupId
-          ),
+          image: {
+            defaultSrc: text(
+              'Image src (image.defaultSrc):',
+              'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              groupId
+            ),
+            alt: text('Image alt text (image.alt):', 'Image alt text', groupId),
+          },
           cta: {
-            href: text('Card href:', 'https://www.example.com', groupId),
+            href: text(
+              'Card href (cta.href):',
+              'https://www.example.com',
+              groupId
+            ),
             icon: {
               src: ArrowRight20,
             },
           },
         },
       }),
+    },
+    propsSet: {
+      default: {
+        FeatureCard: {
+          card: {
+            heading: 'Explore AI use cases in all industries',
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              alt: 'Image alt text',
+            },
+            cta: {
+              href: 'https://www.example.com',
+              icon: {
+                src: ArrowRight20,
+              },
+            },
+          },
+        },
+      },
     },
   },
 };

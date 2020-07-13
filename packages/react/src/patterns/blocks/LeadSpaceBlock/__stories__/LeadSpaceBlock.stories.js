@@ -40,6 +40,30 @@ const mediaDataByType = {
 
 const types = ['local', 'external'];
 
+const defaultItems = [
+  {
+    type: 'local',
+    copy: 'IBM Cloud Continuous Delivery',
+    cta: {
+      href: 'https://ibm.com',
+    },
+  },
+  {
+    type: 'local',
+    copy: 'UrbanCode',
+    cta: {
+      href: 'https://ibm.com',
+    },
+  },
+  {
+    type: 'download',
+    copy: 'View all products',
+    cta: {
+      href: 'https://ibm.com',
+    },
+  },
+];
+
 export default {
   title: 'Patterns (Blocks)|LeadSpaceBlock',
   parameters: {
@@ -63,37 +87,11 @@ export default {
             'Innovate like a startup and scale for the enterprise ',
             groupId
           ),
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           mediaData: mediaDataByType[mediaType],
           items: {
             heading: text('link list heading:', 'Featured products', groupId),
-            items: object(
-              'link list items array',
-              [
-                {
-                  type: 'local',
-                  copy: 'IBM Cloud Continuous Delivery',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-                {
-                  type: 'local',
-                  copy: 'UrbanCode',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-                {
-                  type: 'download',
-                  copy: 'View all products',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-              ],
-              groupId
-            ),
+            items: object('link list items array', defaultItems, groupId),
           },
           cta: {
             style: 'button',
@@ -112,6 +110,17 @@ export default {
             ],
           },
         };
+      },
+    },
+    propsSet: {
+      default: {
+        LeadSpaceBlock: {
+          title: 'Continuous delivery',
+          heading: 'Innovate like a startup and scale for the enterprise ',
+          items: {
+            items: defaultItems,
+          },
+        },
       },
     },
   },
