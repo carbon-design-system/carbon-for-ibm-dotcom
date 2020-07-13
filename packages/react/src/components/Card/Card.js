@@ -4,15 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  Tile,
-  ClickableTile,
-} from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import classNames from 'classnames';
+import { ClickableTile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
-import { LinkWithIcon } from '../LinkWithIcon';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -25,7 +21,6 @@ const { prefix } = settings;
  * Card Link Component.
  */
 export const Card = ({
-  type,
   inverse,
   image,
   eyebrow,
@@ -35,38 +30,30 @@ export const Card = ({
   cta,
   ...props
 }) => {
-  const CardTile = type === 'link' ? ClickableTile : Tile;
-  const linkProps =
-    type === 'link'
-      ? {
-          target: CTALogic.external(cta?.type),
-          onClick: e => {
-            cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
-          },
-        }
-      : {};
   return (
-    <CardTile
+    <ClickableTile
       data-autoid={`${stablePrefix}--card`}
       className={classNames(
         `${prefix}--card`,
         {
           [`${prefix}--card--inverse`]: inverse,
-          [`${prefix}--card--link`]: type === 'link',
         },
         customClassName
       )}
       href={cta?.href}
-      {...linkProps}
+      target={CTALogic.external(cta?.type)}
+      onClick={e => {
+        cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+      }}
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta, type)}
+        {renderFooter(cta)}
       </div>
-    </CardTile>
+    </ClickableTile>
   );
 };
 
@@ -90,33 +77,20 @@ function optionalContent(copy) {
  * Render footer with icon
  *
  * @param {object} cta cta object
- * @param {string} type type of card (clickable/static)
  * @returns {object} JSX object
  */
-function renderFooter(cta, type) {
+function renderFooter(cta) {
   return (
     cta && (
-      <div className={`${prefix}--card__footer`}>
-        {type !== 'link' ? (
-          <LinkWithIcon
-            href={cta.href}
-            target={CTALogic.external(cta.type)}
-            onClick={e => {
-              cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
-            }}>
-            {cta.icon?.src && (
-              <>
-                <span>{cta.copy}</span> <cta.icon.src />
-              </>
-            )}
-          </LinkWithIcon>
-        ) : (
-          cta.icon?.src && (
-            <>
-              <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
-              <span>{cta.copy}</span>
-            </>
-          )
+      <div
+        className={classNames(`${prefix}--card__footer`, {
+          [`${prefix}--card__footer__icon-left`]: cta.iconPlacement === 'left',
+        })}>
+        {cta.copy && (
+          <span className={`${prefix}--card__cta__copy`}>{cta.copy}</span>
+        )}
+        {cta.icon?.src && (
+          <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
         )}
       </div>
     )
@@ -143,12 +117,13 @@ export const cardPropTypes = {
   /**
    * CTA options. Has the following structure in summary:
    *
-   * | Name   | Data Type | Description                                                                                                                      |
-   * | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-   * | `href` | String    | Valid URL for a the location of an internal or external resource                                                                 |
-   * | `icon` | String    | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
-   * | `copy` | String    | Optional text for CTA                                                                                                            |
-   * | `type` | String    | type of CTA (local or external) when Card type is static                                                                         |
+   * | Name            | Data Type | Description                                                                                                                      |
+   * | --------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+   * | `href`          | String    | Valid URL for a the location of an internal or external resource                                                                 |
+   * | `icon`          | String    | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+   * | `iconPlacement` | String    | Option to place icon left or right of cta text                                                                                   |
+   * | `copy`          | String    | Optional text for CTA                                                                                                            |
+   * | `type`          | String    | type of CTA (local or external) when Card type is static                                                                         |
    *
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
@@ -159,6 +134,7 @@ export const cardPropTypes = {
     icon: PropTypes.shape({
       src: PropTypes.elementType,
     }),
+    iconPlacement: PropTypes.oneOf(['left', 'right']),
   }),
 
   /**
@@ -187,11 +163,6 @@ export const cardPropTypes = {
    * Classname to be assigned to the Card component.
    */
   customClassName: PropTypes.string,
-
-  /**
-   * Determines whether card is clickable or static.
-   */
-  type: PropTypes.oneOf(['link']),
 };
 
 Card.propTypes = cardPropTypes;

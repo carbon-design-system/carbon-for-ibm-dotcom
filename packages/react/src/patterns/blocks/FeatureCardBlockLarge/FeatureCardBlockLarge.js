@@ -33,7 +33,6 @@ const FeatureCardBlockLarge = props => {
           <Card
             customClassName={`${prefix}--feature-card-block-large__card`}
             {...props}
-            type="link"
             inverse={true}
           />
         </div>
