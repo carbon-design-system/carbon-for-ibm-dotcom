@@ -45,7 +45,8 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -91,9 +92,11 @@ Default.story = {
         },
       }),
     },
-    props: {
-      CTASection: {
-        items: contentItemsProps,
+    propsSet: {
+      default: {
+        CTASection: {
+          items: contentItemsProps,
+        },
       },
     },
   },
@@ -101,7 +104,8 @@ Default.story = {
 
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">

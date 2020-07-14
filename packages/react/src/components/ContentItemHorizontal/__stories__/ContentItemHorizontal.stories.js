@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import ContentItemHorizontal from '../ContentItemHorizontal';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -17,43 +17,63 @@ export default {
     ...readme.parameters,
     knobs: {
       ContentItemHorizontal: ({ groupId }) => ({
-        eyebrow: text('Eyebrow', 'Lorem ipsum', groupId),
-        heading: text('Heading', 'Aliquam condimentum', groupId),
+        eyebrow: text('Eyebrow (eyebrow):', 'Lorem ipsum', groupId),
+        heading: text('Heading (heading):', 'Aliquam condimentum', groupId),
         copy: text(
-          'Copy',
+          'Copy (copy):',
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
           groupId
         ),
         cta: {
-          items: object(
-            'link list items array',
-            [
-              {
-                type: 'local',
-                copy: 'Learn more',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+          items: [
+            {
+              type: select(
+                'CTA 1 Type (type):',
+                ['local', 'external'],
+                'local',
+                groupId
+              ),
+              copy: text('CTA 1 Copy (copy):', 'Learn more', groupId),
+              cta: {
+                href: text(
+                  'CTA 1 Href (cta.href):',
+                  'https://www.ibm.com',
+                  groupId
+                ),
               },
-              {
-                type: 'external',
-                copy: 'Microservices and containers',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+            },
+            {
+              type: select(
+                'CTA 2 Type (type):',
+                ['local', 'external'],
+                'external',
+                groupId
+              ),
+              copy: text(
+                'CTA 2 Copy (copy):',
+                'Microservices and containers',
+                groupId
+              ),
+              cta: {
+                href: text(
+                  'CTA 2 Href (cta.href):',
+                  'https://www.ibm.com',
+                  groupId
+                ),
               },
-            ],
-            groupId
-          ),
+            },
+          ],
         },
       }),
     },
-    props: {
-      ContentItemHorizontal: {
-        eyebrow: 'Lorem ipsum',
-        heading: 'Aliquam condimentum',
-        copy:
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+    propsSet: {
+      default: {
+        ContentItemHorizontal: {
+          eyebrow: 'Lorem ipsum',
+          heading: 'Aliquam condimentum',
+          copy:
+            'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+        },
       },
     },
   },

@@ -6,7 +6,7 @@
  */
 
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
-import { text, object, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import ContentBlockMixed from '../ContentBlockMixed';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
@@ -114,27 +114,31 @@ Default.story = {
           {
             type: 'ContentGroupCards',
             heading: text(
-              'Card group heading',
+              'Card group heading (heading):',
               ContentGroupCardsKnobs.heading,
               groupId
             ),
-            items: object(
-              'Card group content',
-              ContentGroupCardsKnobs.items,
-              groupId
-            ),
+            items: ContentGroupCardsKnobs.items,
           },
           {
             type: 'ContentGroupPictograms',
-            heading: text('Pictogram group heading', pictogramHeading, groupId),
-            items: object('Pictogram group content', pictogramItems, groupId),
+            heading: text(
+              'Pictogram group heading (heading):',
+              pictogramHeading,
+              groupId
+            ),
+            items: pictogramItems,
           },
           {
             type: 'ContentGroupSimple',
             mediaType: simpleMediaType,
             mediaData: simpleMediaData.image,
-            heading: text('Simple group heading', simpleHeading, groupId),
-            items: object('Simple group content', simpleItems, groupId),
+            heading: text(
+              'Simple group heading (heading):',
+              simpleHeading,
+              groupId
+            ),
+            items: simpleItems,
           },
         ];
 
@@ -151,14 +155,16 @@ Default.story = {
         };
       },
     },
-    props: {
-      ContentBlockMixed: {
-        items: [
-          {
-            ...ContentGroupSimpleKnobs,
-            type: 'ContentGroupSimple',
-          },
-        ],
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          items: [
+            {
+              ...ContentGroupSimpleKnobs,
+              type: 'ContentGroupSimple',
+            },
+          ],
+        },
       },
     },
   },
@@ -194,26 +200,22 @@ WithAsideElements.story = {
 
         const linkListProps = {
           heading: text('link list heading:', 'Tutorials', groupId),
-          items: object(
-            'link list items array',
-            [
-              {
-                type: 'local',
-                copy: 'Containerization A Complete Guide',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+          items: [
+            {
+              type: 'local',
+              copy: 'Containerization A Complete Guide',
+              cta: {
+                href: 'https://ibm.com',
               },
-              {
-                type: 'external',
-                copy: 'Why should you use microservices and containers',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+            },
+            {
+              type: 'external',
+              copy: 'Why should you use microservices and containers',
+              cta: {
+                href: 'https://ibm.com',
               },
-            ],
-            groupId
-          ),
+            },
+          ],
         };
 
         const aside = {
@@ -227,14 +229,16 @@ WithAsideElements.story = {
         };
       },
     },
-    props: {
-      ContentBlockMixed: {
-        items: [
-          {
-            ...ContentGroupSimpleKnobs,
-            type: 'ContentGroupSimple',
-          },
-        ],
+    propsSet: {
+      default: {
+        ContentBlockMixed: {
+          items: [
+            {
+              ...ContentGroupSimpleKnobs,
+              type: 'ContentGroupSimple',
+            },
+          ],
+        },
       },
     },
   },

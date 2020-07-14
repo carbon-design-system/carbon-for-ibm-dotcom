@@ -27,7 +27,7 @@ export default {
           groupId
         );
         return {
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           mediaData:
             mediaType === 'image'
               ? ContentGroupSimpleKnobs.mediaData.image
@@ -47,9 +47,11 @@ export default {
         };
       },
     },
-    props: {
-      ContentGroupSimple: {
-        items: ContentGroupSimpleKnobs.items,
+    propsSet: {
+      default: {
+        ContentGroupSimple: {
+          items: ContentGroupSimpleKnobs.items,
+        },
       },
     },
   },

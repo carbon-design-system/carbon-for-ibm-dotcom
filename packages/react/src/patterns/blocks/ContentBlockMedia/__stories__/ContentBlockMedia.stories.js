@@ -111,9 +111,11 @@ Default.story = {
         };
       },
     },
-    props: {
-      ContentBlockMedia: {
-        items: [ContentGroupSimpleKnobs],
+    propsSet: {
+      default: {
+        ContentBlockMedia: {
+          items: [ContentGroupSimpleKnobs],
+        },
       },
     },
   },
@@ -192,9 +194,11 @@ WithAsideElements.story = {
         };
       },
     },
-    props: {
-      ContentBlockMedia: {
-        items: [ContentGroupSimpleKnobs],
+    propsSet: {
+      default: {
+        ContentBlockMedia: {
+          items: [ContentGroupSimpleKnobs],
+        },
       },
     },
   },

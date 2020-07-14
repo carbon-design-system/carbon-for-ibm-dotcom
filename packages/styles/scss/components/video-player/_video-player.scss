@@ -6,6 +6,9 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/utils/ratio-base';
+
+$aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
   .#{$prefix}--video-player {
@@ -23,10 +26,17 @@
         bottom: 0;
       }
 
-      &::before {
-        content: '';
-        display: block;
-        margin-top: 56.25%;
+      @include ratio-base(16, 9, true);
+
+      @each $aspect-ratio in $aspect-ratios {
+        $width: nth($aspect-ratio, 1);
+        $height: nth($aspect-ratio, 2);
+
+        &.#{$prefix}--video-player__aspect-ratio {
+          &--#{$width}x#{$height} {
+            @include ratio-base($width, $height, true);
+          }
+        }
       }
     }
 
