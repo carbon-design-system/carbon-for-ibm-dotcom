@@ -13,5 +13,5 @@
 @import '../card/card';
 
 :host(#{$dds-prefix}-card-link) {
-  @extend :host(#{$dds-prefix}-card);
+  @extend .#{prefix}-card__CTA;
 }
