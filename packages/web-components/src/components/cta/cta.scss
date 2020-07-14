@@ -1,0 +1,16 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../link-with-icon/link-with-icon';
+
+:host(#{$dds-prefix}-text-cta) {
+  @extend :host(#{$dds-prefix}-link-with-icon);
+}
+
+.#{$dds-prefix}-ce--cta__icon {
+  flex-shrink: 0;
+}
