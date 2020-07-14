@@ -13,6 +13,9 @@
       @include carbon--make-row;
 
       background-color: $inverse-02;
+      .#{$prefix}--quote__inverse {
+        background-color: $inverse-02;
+      }
     }
     &__column {
       @include carbon--make-col-ready;
@@ -34,6 +37,14 @@
         padding-right: $spacing-01;
         @include carbon--make-col-offset(1, 12);
         @include carbon--make-col(10, 12);
+      }
+
+      .#{$prefix}--quote__copy,
+      .#{$prefix}--quote__source-heading,
+      .#{$prefix}--quote__source-body,
+      .#{$prefix}--quote__source-optional-copy,
+      .#{$prefix}--quote__mark {
+        color: $inverse-01;
       }
     }
   }

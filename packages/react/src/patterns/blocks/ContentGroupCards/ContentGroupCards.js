@@ -89,7 +89,6 @@ const _renderCards = items =>
             src: ArrowRight20,
           },
         }}
-        type="link"
         aria-label={elem.heading}
       />
     </div>

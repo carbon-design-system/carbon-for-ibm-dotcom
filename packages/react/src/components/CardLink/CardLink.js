@@ -17,17 +17,11 @@ const { prefix } = settings;
  * CardLink component
  */
 const CardLink = ({ card, customClassName, disabled }) => {
-  const type = disabled ? '' : 'link';
   const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName, {
     [`${prefix}--card__CTA--disabled`]: disabled,
   });
   return (
-    <Card
-      customClassName={cardLinkClassname}
-      {...card}
-      type={type}
-      disabled={disabled}
-    />
+    <Card customClassName={cardLinkClassname} {...card} disabled={disabled} />
   );
 };
 
