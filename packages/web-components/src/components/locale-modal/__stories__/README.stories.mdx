@@ -1,0 +1,111 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../../docs/cors-proxy.md';
+
+# Locale modal
+
+> The locale modal allows users to change geographic regions and translate pages
+> to those region languages, if available.
+
+<Preview withToolbar>
+  <Story id="components-locale-modal--default" height="600px" />
+</Preview>
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/locale-modal)
+> example implementation.
+
+## Getting started
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal';
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/regions';
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/region-item';
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-search';
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-item';
+```
+
+##### HTML
+
+```html
+<dds-locale-modal lang-display="United States — English" open>
+  <dds-regions>
+    <dds-region-item name="Americas"></dds-region-item>
+    <dds-region-item name="Asia Pacific"></dds-region-item>
+    <dds-region-item name="Europe"></dds-region-item>
+    <dds-region-item name="Middle East and Africa"></dds-region-item>
+  </dds-regions>
+  <dds-locale-search placeholder="Search by location or language">
+    <dds-locale-item
+      country="United States"
+      href="https://www.ibm.com/us-en/"
+      language="English"
+      locale="en-us"
+      region="Americas"
+    >
+    </dds-locale-item>
+    <dds-locale-item
+      country="Korea, Republic of"
+      href="https://www.ibm.com/kr-ko"
+      language="Korean"
+      locale="ko-kr"
+      region="Asia Pacific"
+    >
+    </dds-locale-item>
+    <dds-locale-item
+      country="Japan"
+      href="https://www.ibm.com/jp-ja"
+      language="Japanese"
+      locale="ja-jp"
+      region="Asia Pacific"
+    >
+    </dds-locale-item>
+  </dds-locale-search>
+</dds-locale-modal>
+```
+
+## `<dds-locale-modal>`
+
+**Note**: The events with `bx-` prefix and `size`, `expressive-size` attribute/property, and `header`/`footer` slots came from deriving `<dds-modal>`, but _not_ used in `<dds-locale-modal>`.
+
+`<dds-locale-modal>` works as the shell in locale modal.
+
+<Props of="dds-locale-modal" />
+
+## `<dds-regions>`
+
+`<dds-regions>` works as the shell for the regions in locale modal.
+
+## `<dds-region-item>`
+
+`<dds-region-item>` works as a region card in locale modal.
+
+<Props of="dds-region-item" />
+
+## `<dds-locale-search>`
+
+`<dds-locale-search>` works as the locale search UI in locale modal.
+
+<Props of="dds-locale-search" />
+
+## `<dds-locale-item>`
+
+`<dds-locale-item>` works as a locale selection link in locale modal.
+
+<Props of="dds-region-item" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                       | Compatibility selector                 | Description |
+| --------------------------------------------- | -------------------------------------- | ----------- |
+| `<dds-locale-modal>`                          | `dds--locale-modal`                    | Component   |
+| `<dds-region-item name="${region}">`          | `dds--locale-modal__geo-btn-${region}` | Interactive |
+| `::part(searchbox)` in `<dds-locale-search>`  | `dds--locale-modal__filter`            | Interactive |
+| `::part(back-button)` in `<dds-locale-modal>` | `dds--locale-modal__region-back`       | Interactive |
+
+<Description markdown={corsproxy} />
+<Description markdown={contributing} />
