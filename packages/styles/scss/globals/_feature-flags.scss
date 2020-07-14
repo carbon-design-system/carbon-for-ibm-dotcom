@@ -20,6 +20,12 @@
 ///   );
 $dds-feature-flags: () !default;
 
+/// Default feature flag values
+/// @access private
+/// @type Map
+/// @group dds-feature-flags
+$dds-default-feature-flags: ();
+
 /// @access private
 /// @type Bool
 /// @group dds-feature-flags
