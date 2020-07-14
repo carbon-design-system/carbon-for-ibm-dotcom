@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
