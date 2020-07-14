@@ -660,10 +660,9 @@ exports[`Storyshots Components|CTA Card 1`] = `
                       }
                     }
                     target={null}
-                    type="link"
                   >
                     <ClickableTile
-                      className="bx--card bx--card--link bx--card__CTA"
+                      className="bx--card bx--card__CTA"
                       clicked={false}
                       data-autoid="dds--card"
                       disabled={false}
@@ -681,7 +680,7 @@ exports[`Storyshots Components|CTA Card 1`] = `
                       target={null}
                     >
                       <a
-                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                        className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                         data-autoid="dds--card"
                         disabled={false}
                         href=""
@@ -756,7 +755,6 @@ exports[`Storyshots Components|CTA Card 1`] = `
                                 </svg>
                               </Icon>
                             </ForwardRef(ArrowRight20)>
-                            <span />
                           </div>
                         </div>
                       </a>
@@ -990,7 +988,7 @@ exports[`Storyshots Components|CTA Feature Card 1`] = `
                           type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                            className="bx--card bx--card--inverse bx--feature-card__card"
                             clicked={false}
                             data-autoid="dds--card"
                             handleClick={[Function]}
@@ -999,14 +997,16 @@ exports[`Storyshots Components|CTA Feature Card 1`] = `
                             light={false}
                             onClick={[Function]}
                             target={null}
+                            type="link"
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card__card"
                               data-autoid="dds--card"
                               href="https://www.example.com"
                               onClick={[Function]}
                               onKeyDown={[Function]}
                               target={null}
+                              type="link"
                             >
                               <Image
                                 alt="Image alt text"
@@ -1084,7 +1084,6 @@ exports[`Storyshots Components|CTA Feature Card 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -1278,6 +1277,7 @@ exports[`Storyshots Components|Card Default 1`] = `
               copy=""
               cta={
                 Object {
+                  "copy": "Card cta text",
                   "href": "https://example.com",
                   "icon": Object {
                     "src": Object {
@@ -1285,16 +1285,15 @@ exports[`Storyshots Components|Card Default 1`] = `
                       "render": [Function],
                     },
                   },
-                  "type": "local",
+                  "iconPlacement": "right",
                 }
               }
               eyebrow="eyebrow text"
               heading="Lorem ipsum dolor sit amet"
               inverse={false}
-              type="link"
             >
               <ClickableTile
-                className="bx--card bx--card--link"
+                className="bx--card"
                 clicked={false}
                 data-autoid="dds--card"
                 handleClick={[Function]}
@@ -1305,7 +1304,7 @@ exports[`Storyshots Components|Card Default 1`] = `
                 target={null}
               >
                 <a
-                  className="bx--tile bx--tile--clickable bx--card bx--card--link"
+                  className="bx--tile bx--tile--clickable bx--card"
                   data-autoid="dds--card"
                   href="https://example.com"
                   onClick={[Function]}
@@ -1328,6 +1327,11 @@ exports[`Storyshots Components|Card Default 1`] = `
                     <div
                       className="bx--card__footer"
                     >
+                      <span
+                        className="bx--card__cta__copy"
+                      >
+                        Card cta text
+                      </span>
                       <ForwardRef(ArrowRight20)
                         className="bx--card__cta"
                         src={
@@ -1375,7 +1379,6 @@ exports[`Storyshots Components|Card Default 1`] = `
                           </svg>
                         </Icon>
                       </ForwardRef(ArrowRight20)>
-                      <span />
                     </div>
                   </div>
                 </a>
@@ -1575,10 +1578,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           href=""
                           media={null}
                           target={null}
-                          type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA"
+                            className="bx--card bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -1591,7 +1593,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
@@ -1666,7 +1668,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -1783,10 +1784,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           href=""
                           media={null}
                           target={null}
-                          type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA"
+                            className="bx--card bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -1799,7 +1799,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
@@ -1874,7 +1874,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -1991,10 +1990,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           href=""
                           media={null}
                           target={null}
-                          type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA"
+                            className="bx--card bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -2007,7 +2005,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
@@ -2082,7 +2080,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -2199,10 +2196,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           href=""
                           media={null}
                           target={null}
-                          type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA"
+                            className="bx--card bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -2215,7 +2211,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
@@ -2290,7 +2286,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -2407,10 +2402,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           href=""
                           media={null}
                           target={null}
-                          type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--link bx--card__CTA"
+                            className="bx--card bx--card__CTA"
                             clicked={false}
                             data-autoid="dds--card"
                             disabled={false}
@@ -2423,7 +2417,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                               data-autoid="dds--card"
                               disabled={false}
                               href=""
@@ -2498,7 +2492,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(ArrowRight20)>
-                                  <span />
                                 </div>
                               </div>
                             </a>
@@ -2526,10 +2519,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   }
                   heading="Top level card link"
                   inverse={true}
-                  type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--inverse bx--card--link"
+                    className="bx--card bx--card--inverse"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -2540,7 +2532,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -2605,7 +2597,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                          <span />
                         </div>
                       </div>
                     </a>
@@ -2680,10 +2671,9 @@ exports[`Storyshots Components|CardLink Default 1`] = `
               }
               customClassName="bx--card__CTA"
               disabled={false}
-              type="link"
             >
               <ClickableTile
-                className="bx--card bx--card--link bx--card__CTA"
+                className="bx--card bx--card__CTA"
                 clicked={false}
                 data-autoid="dds--card"
                 disabled={false}
@@ -2695,7 +2685,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 target={null}
               >
                 <a
-                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                   data-autoid="dds--card"
                   disabled={false}
                   href="https://www.example.com"
@@ -2764,7 +2754,6 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                           </svg>
                         </Icon>
                       </ForwardRef(ArrowRight20)>
-                      <span />
                     </div>
                   </div>
                 </a>
@@ -4927,10 +4916,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         }
                                       }
                                       inverse={true}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                                        className="bx--card bx--card--inverse bx--feature-card-block-large__card"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -4941,7 +4929,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card-block-large__card"
                                           data-autoid="dds--card"
                                           href="https://example.com"
                                           onClick={[Function]}
@@ -5037,7 +5025,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -5588,6 +5575,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           "render": [Function],
                                                         },
                                                       },
+                                                      "iconPlacement": "left",
                                                     },
                                                     "handleClick": [Function],
                                                     "href": "",
@@ -5613,6 +5601,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           "render": [Function],
                                                         },
                                                       },
+                                                      "iconPlacement": "left",
                                                     }
                                                   }
                                                   customClassName="bx--card__CTA bx--card__video"
@@ -5625,10 +5614,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       "type": "video",
                                                     }
                                                   }
-                                                  type="link"
                                                 >
                                                   <ClickableTile
-                                                    className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                                    className="bx--card bx--card__CTA bx--card__video"
                                                     clicked={false}
                                                     data-autoid="dds--card"
                                                     disabled={false}
@@ -5646,7 +5634,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     target={null}
                                                   >
                                                     <a
-                                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                                      className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                                       data-autoid="dds--card"
                                                       disabled={false}
                                                       href=""
@@ -5664,7 +5652,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         className="bx--card__wrapper"
                                                       >
                                                         <div
-                                                          className="bx--card__footer"
+                                                          className="bx--card__footer bx--card__footer__icon-left"
                                                         >
                                                           <ForwardRef(PlayOutline20)
                                                             className="bx--card__cta"
@@ -5716,7 +5704,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               </svg>
                                                             </Icon>
                                                           </ForwardRef(PlayOutline20)>
-                                                          <span />
                                                         </div>
                                                       </div>
                                                     </a>
@@ -6899,10 +6886,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       href=""
                                                       media={null}
                                                       target={null}
-                                                      type="link"
                                                     >
                                                       <ClickableTile
-                                                        className="bx--card bx--card--link bx--card__CTA"
+                                                        className="bx--card bx--card__CTA"
                                                         clicked={false}
                                                         data-autoid="dds--card"
                                                         disabled={false}
@@ -6915,7 +6901,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         target={null}
                                                       >
                                                         <a
-                                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                           data-autoid="dds--card"
                                                           disabled={false}
                                                           href=""
@@ -6985,7 +6971,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   </svg>
                                                                 </Icon>
                                                               </ForwardRef(ArrowRight20)>
-                                                              <span />
                                                             </div>
                                                           </div>
                                                         </a>
@@ -7246,10 +7231,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           }
                                                           media={null}
                                                           target={null}
-                                                          type="link"
                                                         >
                                                           <ClickableTile
-                                                            className="bx--card bx--card--link bx--card__CTA"
+                                                            className="bx--card bx--card__CTA"
                                                             clicked={false}
                                                             data-autoid="dds--card"
                                                             disabled={false}
@@ -7262,7 +7246,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             target={null}
                                                           >
                                                             <a
-                                                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                               data-autoid="dds--card"
                                                               disabled={false}
                                                               href=""
@@ -7352,7 +7336,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </svg>
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
-                                                                  <span />
                                                                 </div>
                                                               </div>
                                                             </a>
@@ -7493,10 +7476,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           }
                                                           media={null}
                                                           target={null}
-                                                          type="link"
                                                         >
                                                           <ClickableTile
-                                                            className="bx--card bx--card--link bx--card__CTA"
+                                                            className="bx--card bx--card__CTA"
                                                             clicked={false}
                                                             data-autoid="dds--card"
                                                             disabled={false}
@@ -7509,7 +7491,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             target={null}
                                                           >
                                                             <a
-                                                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                               data-autoid="dds--card"
                                                               disabled={false}
                                                               href=""
@@ -7599,7 +7581,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </svg>
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
-                                                                  <span />
                                                                 </div>
                                                               </div>
                                                             </a>
@@ -7740,10 +7721,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           }
                                                           media={null}
                                                           target={null}
-                                                          type="link"
                                                         >
                                                           <ClickableTile
-                                                            className="bx--card bx--card--link bx--card__CTA"
+                                                            className="bx--card bx--card__CTA"
                                                             clicked={false}
                                                             data-autoid="dds--card"
                                                             disabled={false}
@@ -7756,7 +7736,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             target={null}
                                                           >
                                                             <a
-                                                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                              className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                               data-autoid="dds--card"
                                                               disabled={false}
                                                               href=""
@@ -7846,7 +7826,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </svg>
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
-                                                                  <span />
                                                                 </div>
                                                               </div>
                                                             </a>
@@ -9213,10 +9192,9 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   }
                 }
                 inverse={true}
-                type="link"
               >
                 <ClickableTile
-                  className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                  className="bx--card bx--card--inverse bx--feature-card__card"
                   clicked={false}
                   data-autoid="dds--card"
                   handleClick={[Function]}
@@ -9227,7 +9205,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   target={null}
                 >
                   <a
-                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card__card"
                     data-autoid="dds--card"
                     href="https://www.example.com"
                     onClick={[Function]}
@@ -9310,7 +9288,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                             </svg>
                           </Icon>
                         </ForwardRef(ArrowRight20)>
-                        <span />
                       </div>
                     </div>
                   </a>
@@ -10844,10 +10821,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target={null}
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -10860,7 +10836,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -10930,7 +10906,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -11025,10 +11000,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target={null}
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -11041,7 +11015,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -11114,7 +11088,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(Download20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -11209,10 +11182,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target="_blank"
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -11225,7 +11197,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target="_blank"
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -11298,7 +11270,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(Launch20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -11368,6 +11339,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     "render": [Function],
                                   },
                                 },
+                                "iconPlacement": "left",
                               },
                               "handleClick": [Function],
                               "href": "",
@@ -11393,6 +11365,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     "render": [Function],
                                   },
                                 },
+                                "iconPlacement": "left",
                               }
                             }
                             customClassName="bx--card__CTA bx--card__video"
@@ -11405,10 +11378,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                 "type": "video",
                               }
                             }
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                              className="bx--card bx--card__CTA bx--card__video"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -11426,7 +11398,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -11444,7 +11416,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                   className="bx--card__wrapper"
                                 >
                                   <div
-                                    className="bx--card__footer"
+                                    className="bx--card__footer bx--card__footer__icon-left"
                                   >
                                     <ForwardRef(PlayOutline20)
                                       className="bx--card__cta"
@@ -11496,7 +11468,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(PlayOutline20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -13414,10 +13385,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target={null}
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -13430,7 +13400,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -13500,7 +13470,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -13595,10 +13564,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target={null}
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -13611,7 +13579,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -13684,7 +13652,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(Download20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -13779,10 +13746,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target="_blank"
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -13795,7 +13761,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target="_blank"
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -13868,7 +13834,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(Launch20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -13938,6 +13903,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     "render": [Function],
                                   },
                                 },
+                                "iconPlacement": "left",
                               },
                               "handleClick": [Function],
                               "href": "",
@@ -13963,6 +13929,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     "render": [Function],
                                   },
                                 },
+                                "iconPlacement": "left",
                               }
                             }
                             customClassName="bx--card__CTA bx--card__video"
@@ -13975,10 +13942,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 "type": "video",
                               }
                             }
-                            type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                              className="bx--card bx--card__CTA bx--card__video"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -13996,7 +13962,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -14014,7 +13980,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   className="bx--card__wrapper"
                                 >
                                   <div
-                                    className="bx--card__footer"
+                                    className="bx--card__footer bx--card__footer__icon-left"
                                   >
                                     <ForwardRef(PlayOutline20)
                                       className="bx--card__cta"
@@ -14066,7 +14032,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(PlayOutline20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -18883,10 +18848,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -18899,7 +18863,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -18974,7 +18938,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -19091,10 +19054,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -19107,7 +19069,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -19182,7 +19144,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -19299,10 +19260,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -19315,7 +19275,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -19390,7 +19350,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -19507,10 +19466,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -19523,7 +19481,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -19598,7 +19556,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -19715,10 +19672,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -19731,7 +19687,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -19806,7 +19762,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -19906,10 +19861,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -19922,7 +19876,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -19992,7 +19946,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -20345,10 +20298,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                       }
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -20361,7 +20313,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -20451,7 +20403,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -20592,10 +20543,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                       }
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -20608,7 +20558,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -20698,7 +20648,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -20839,10 +20788,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                       }
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -20855,7 +20803,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -20945,7 +20893,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -21086,10 +21033,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                       }
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -21102,7 +21048,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -21192,7 +21138,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -21333,10 +21278,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                       }
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -21349,7 +21293,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -21439,7 +21383,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -21539,10 +21482,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -21555,7 +21497,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -21625,7 +21567,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Images 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -21911,6 +21852,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         },
                                         "eyebrow": undefined,
                                         "handleClick": [Function],
@@ -21942,6 +21884,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         }
                                       }
                                       customClassName="bx--card__CTA bx--card__video"
@@ -21961,10 +21904,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           "type": "video",
                                         }
                                       }
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card__CTA bx--card__video"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -21982,7 +21924,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22006,7 +21948,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                             className="bx--card__wrapper"
                                           >
                                             <div
-                                              className="bx--card__footer"
+                                              className="bx--card__footer bx--card__footer__icon-left"
                                             >
                                               <ForwardRef(PlayOutline20)
                                                 className="bx--card__cta"
@@ -22058,7 +22000,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(PlayOutline20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -22152,6 +22093,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         },
                                         "eyebrow": undefined,
                                         "handleClick": [Function],
@@ -22183,6 +22125,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         }
                                       }
                                       customClassName="bx--card__CTA bx--card__video"
@@ -22202,10 +22145,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           "type": "video",
                                         }
                                       }
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card__CTA bx--card__video"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -22223,7 +22165,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22247,7 +22189,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                             className="bx--card__wrapper"
                                           >
                                             <div
-                                              className="bx--card__footer"
+                                              className="bx--card__footer bx--card__footer__icon-left"
                                             >
                                               <ForwardRef(PlayOutline20)
                                                 className="bx--card__cta"
@@ -22299,7 +22241,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(PlayOutline20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -22393,6 +22334,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         },
                                         "eyebrow": undefined,
                                         "handleClick": [Function],
@@ -22424,6 +22366,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         }
                                       }
                                       customClassName="bx--card__CTA bx--card__video"
@@ -22443,10 +22386,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           "type": "video",
                                         }
                                       }
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card__CTA bx--card__video"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -22464,7 +22406,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22488,7 +22430,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                             className="bx--card__wrapper"
                                           >
                                             <div
-                                              className="bx--card__footer"
+                                              className="bx--card__footer bx--card__footer__icon-left"
                                             >
                                               <ForwardRef(PlayOutline20)
                                                 className="bx--card__cta"
@@ -22540,7 +22482,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(PlayOutline20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -22634,6 +22575,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         },
                                         "eyebrow": undefined,
                                         "handleClick": [Function],
@@ -22665,6 +22607,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         }
                                       }
                                       customClassName="bx--card__CTA bx--card__video"
@@ -22684,10 +22627,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           "type": "video",
                                         }
                                       }
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card__CTA bx--card__video"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -22705,7 +22647,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22729,7 +22671,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                             className="bx--card__wrapper"
                                           >
                                             <div
-                                              className="bx--card__footer"
+                                              className="bx--card__footer bx--card__footer__icon-left"
                                             >
                                               <ForwardRef(PlayOutline20)
                                                 className="bx--card__cta"
@@ -22781,7 +22723,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(PlayOutline20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -22875,6 +22816,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         },
                                         "eyebrow": undefined,
                                         "handleClick": [Function],
@@ -22906,6 +22848,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "iconPlacement": "left",
                                         }
                                       }
                                       customClassName="bx--card__CTA bx--card__video"
@@ -22925,10 +22868,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           "type": "video",
                                         }
                                       }
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                                        className="bx--card bx--card__CTA bx--card__video"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -22946,7 +22888,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA bx--card__video"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22970,7 +22912,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                             className="bx--card__wrapper"
                                           >
                                             <div
-                                              className="bx--card__footer"
+                                              className="bx--card__footer bx--card__footer__icon-left"
                                             >
                                               <ForwardRef(PlayOutline20)
                                                 className="bx--card__cta"
@@ -23022,7 +22964,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(PlayOutline20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -23122,10 +23063,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -23138,7 +23078,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -23208,7 +23148,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards With Videos 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -23833,10 +23772,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         href=""
                                         media={null}
                                         target={null}
-                                        type="link"
                                       >
                                         <ClickableTile
-                                          className="bx--card bx--card--link bx--card__CTA"
+                                          className="bx--card bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
                                           disabled={false}
@@ -23849,7 +23787,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           target={null}
                                         >
                                           <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                            className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                             data-autoid="dds--card"
                                             disabled={false}
                                             href=""
@@ -23919,7 +23857,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     </svg>
                                                   </Icon>
                                                 </ForwardRef(ArrowRight20)>
-                                                <span />
                                               </div>
                                             </div>
                                           </a>
@@ -24299,10 +24236,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         href=""
                                         media={null}
                                         target={null}
-                                        type="link"
                                       >
                                         <ClickableTile
-                                          className="bx--card bx--card--link bx--card__CTA"
+                                          className="bx--card bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
                                           disabled={false}
@@ -24315,7 +24251,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           target={null}
                                         >
                                           <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                            className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                             data-autoid="dds--card"
                                             disabled={false}
                                             href=""
@@ -24385,7 +24321,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     </svg>
                                                   </Icon>
                                                 </ForwardRef(ArrowRight20)>
-                                                <span />
                                               </div>
                                             </div>
                                           </a>
@@ -24550,7 +24485,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                    className="bx--card bx--card--inverse bx--feature-card__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -24559,14 +24494,16 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     light={false}
                                     onClick={[Function]}
                                     target={null}
+                                    type="link"
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                       target={null}
+                                      type="link"
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -24644,7 +24581,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               </svg>
                                             </Icon>
                                           </ForwardRef(ArrowRight20)>
-                                          <span />
                                         </div>
                                       </div>
                                     </a>
@@ -25369,10 +25305,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 href=""
                                                 media={null}
                                                 target={null}
-                                                type="link"
                                               >
                                                 <ClickableTile
-                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  className="bx--card bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
                                                   disabled={false}
@@ -25385,7 +25320,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     disabled={false}
                                                     href=""
@@ -25455,7 +25390,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                             </svg>
                                                           </Icon>
                                                         </ForwardRef(ArrowRight20)>
-                                                        <span />
                                                       </div>
                                                     </div>
                                                   </a>
@@ -25835,10 +25769,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 href=""
                                                 media={null}
                                                 target={null}
-                                                type="link"
                                               >
                                                 <ClickableTile
-                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  className="bx--card bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
                                                   disabled={false}
@@ -25851,7 +25784,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     disabled={false}
                                                     href=""
@@ -25921,7 +25854,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                             </svg>
                                                           </Icon>
                                                         </ForwardRef(ArrowRight20)>
-                                                        <span />
                                                       </div>
                                                     </div>
                                                   </a>
@@ -26086,7 +26018,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           type="link"
                                         >
                                           <ClickableTile
-                                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                            className="bx--card bx--card--inverse bx--feature-card__card"
                                             clicked={false}
                                             data-autoid="dds--card"
                                             handleClick={[Function]}
@@ -26095,14 +26027,16 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             light={false}
                                             onClick={[Function]}
                                             target={null}
+                                            type="link"
                                           >
                                             <a
-                                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card__card"
                                               data-autoid="dds--card"
                                               href="https://www.example.com"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
                                               target={null}
+                                              type="link"
                                             >
                                               <Image
                                                 alt="Image alt text"
@@ -26180,7 +26114,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       </svg>
                                                     </Icon>
                                                   </ForwardRef(ArrowRight20)>
-                                                  <span />
                                                 </div>
                                               </div>
                                             </a>
@@ -26316,10 +26249,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             href=""
                                             media={null}
                                             target={null}
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -26332,7 +26264,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -26402,7 +26334,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(ArrowRight20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -26497,10 +26428,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             href=""
                                             media={null}
                                             target="_blank"
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -26513,7 +26443,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -26586,7 +26516,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(Launch20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -26935,11 +26864,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                      type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -26951,7 +26879,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -27024,7 +26952,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -27053,11 +26980,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                      type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -27069,7 +26995,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -27142,7 +27068,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -27171,11 +27096,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                      type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -27187,7 +27111,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -27260,7 +27184,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -27289,11 +27212,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                      type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -27305,7 +27227,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -27378,7 +27300,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -28424,10 +28345,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -28440,7 +28360,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -28510,7 +28430,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -28950,11 +28869,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                              type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -28966,7 +28884,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -29039,7 +28957,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           </svg>
                                                         </Icon>
                                                       </ForwardRef(ArrowRight20)>
-                                                      <span />
                                                     </div>
                                                   </div>
                                                 </a>
@@ -29068,11 +28985,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                              type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -29084,7 +29000,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -29157,7 +29073,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           </svg>
                                                         </Icon>
                                                       </ForwardRef(ArrowRight20)>
-                                                      <span />
                                                     </div>
                                                   </div>
                                                 </a>
@@ -29186,11 +29101,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                              type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -29202,7 +29116,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -29275,7 +29189,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           </svg>
                                                         </Icon>
                                                       </ForwardRef(ArrowRight20)>
-                                                      <span />
                                                     </div>
                                                   </div>
                                                 </a>
@@ -29304,11 +29217,10 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                              type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -29320,7 +29232,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -29393,7 +29305,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           </svg>
                                                         </Icon>
                                                       </ForwardRef(ArrowRight20)>
-                                                      <span />
                                                     </div>
                                                   </div>
                                                 </a>
@@ -30439,10 +30350,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -30455,7 +30365,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -30525,7 +30435,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -30659,10 +30568,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             href=""
                                             media={null}
                                             target={null}
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -30675,7 +30583,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -30745,7 +30653,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(ArrowRight20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -30840,10 +30747,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             href=""
                                             media={null}
                                             target="_blank"
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -30856,7 +30762,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -30929,7 +30835,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(Launch20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -31661,10 +31566,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -31677,7 +31581,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -31747,7 +31651,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -32418,10 +32321,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -32434,7 +32336,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -32504,7 +32406,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -33132,10 +33033,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -33148,7 +33048,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -33218,7 +33118,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -33352,10 +33251,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                             href=""
                                             media={null}
                                             target={null}
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -33368,7 +33266,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -33438,7 +33336,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(ArrowRight20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -33533,10 +33430,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                             href=""
                                             media={null}
                                             target="_blank"
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -33549,7 +33445,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -33622,7 +33518,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(Launch20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -33978,10 +33873,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -33994,7 +33888,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -34064,7 +33958,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -34508,10 +34401,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                       href=""
                                       media={null}
                                       target={null}
-                                      type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -34524,7 +34416,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -34594,7 +34486,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                   </svg>
                                                 </Icon>
                                               </ForwardRef(ArrowRight20)>
-                                              <span />
                                             </div>
                                           </div>
                                         </a>
@@ -34728,10 +34619,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             href=""
                                             media={null}
                                             target={null}
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -34744,7 +34634,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -34814,7 +34704,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(ArrowRight20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -34909,10 +34798,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             href=""
                                             media={null}
                                             target="_blank"
-                                            type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -34925,7 +34813,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -34998,7 +34886,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                         </svg>
                                                       </Icon>
                                                     </ForwardRef(Launch20)>
-                                                    <span />
                                                   </div>
                                                 </div>
                                               </a>
@@ -35149,11 +35036,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                            type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -35165,7 +35051,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -35238,7 +35124,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -35267,11 +35152,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                            type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -35283,7 +35167,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -35356,7 +35240,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -35385,11 +35268,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                            type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -35401,7 +35283,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -35474,7 +35356,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -35503,11 +35384,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                            type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -35519,7 +35399,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -35592,7 +35472,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         </svg>
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
-                                    <span />
                                   </div>
                                 </div>
                               </a>
@@ -37366,10 +37245,9 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                               href=""
                               media={null}
                               target={null}
-                              type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -37382,7 +37260,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -37452,7 +37330,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           </svg>
                                         </Icon>
                                       </ForwardRef(ArrowRight20)>
-                                      <span />
                                     </div>
                                   </div>
                                 </a>
@@ -37597,10 +37474,9 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     }
                   }
                   inverse={true}
-                  type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                    className="bx--card bx--card--inverse bx--feature-card-block-large__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -37611,7 +37487,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card-block-large__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -37756,7 +37632,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                          <span />
                         </div>
                       </div>
                     </a>
@@ -37874,10 +37749,9 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                       }
                     }
                     inverse={true}
-                    type="link"
                   >
                     <ClickableTile
-                      className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                      className="bx--card bx--card--inverse bx--feature-card__card"
                       clicked={false}
                       data-autoid="dds--card"
                       handleClick={[Function]}
@@ -37888,7 +37762,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                       target={null}
                     >
                       <a
-                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--feature-card__card"
                         data-autoid="dds--card"
                         href="https://www.example.com"
                         onClick={[Function]}
@@ -37971,7 +37845,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                 </svg>
                               </Icon>
                             </ForwardRef(ArrowRight20)>
-                            <span />
                           </div>
                         </div>
                       </a>
@@ -39340,10 +39213,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   href=""
                                   media={null}
                                   target={null}
-                                  type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card__CTA"
+                                    className="bx--card bx--card__CTA"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     disabled={false}
@@ -39356,7 +39228,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     target={null}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                       data-autoid="dds--card"
                                       disabled={false}
                                       href=""
@@ -39426,7 +39298,6 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                               </svg>
                                             </Icon>
                                           </ForwardRef(ArrowRight20)>
-                                          <span />
                                         </div>
                                       </div>
                                     </a>
@@ -40553,10 +40424,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 }
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -40569,7 +40439,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -40659,7 +40529,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -40800,10 +40669,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 }
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -40816,7 +40684,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -40906,7 +40774,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -41047,10 +40914,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 }
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -41063,7 +40929,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -41153,7 +41019,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -41294,10 +41159,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 }
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -41310,7 +41174,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -41400,7 +41264,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -41541,10 +41404,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 }
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -41557,7 +41419,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -41647,7 +41509,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -41909,10 +41770,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -41925,7 +41785,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -42000,7 +41860,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -42117,10 +41976,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -42133,7 +41991,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -42208,7 +42066,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -42325,10 +42182,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -42341,7 +42197,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -42416,7 +42272,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -42533,10 +42388,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -42549,7 +42403,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -42624,7 +42478,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -42741,10 +42594,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -42757,7 +42609,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -42832,7 +42684,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -43110,10 +42961,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -43126,7 +42976,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -43201,7 +43051,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -43318,10 +43167,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -43334,7 +43182,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -43409,7 +43257,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -43526,10 +43373,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -43542,7 +43388,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -43617,7 +43463,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -43734,10 +43579,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -43750,7 +43594,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -43825,7 +43669,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -43942,10 +43785,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                 href=""
                                 media={null}
                                 target={null}
-                                type="link"
                               >
                                 <ClickableTile
-                                  className="bx--card bx--card--link bx--card__CTA"
+                                  className="bx--card bx--card__CTA"
                                   clicked={false}
                                   data-autoid="dds--card"
                                   disabled={false}
@@ -43958,7 +43800,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                   target={null}
                                 >
                                   <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                    className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
                                     data-autoid="dds--card"
                                     disabled={false}
                                     href=""
@@ -44033,7 +43875,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                             </svg>
                                           </Icon>
                                         </ForwardRef(ArrowRight20)>
-                                        <span />
                                       </div>
                                     </div>
                                   </a>
@@ -44061,10 +43902,9 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                         }
                         heading="Top level card link"
                         inverse={true}
-                        type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--inverse bx--card--link"
+                          className="bx--card bx--card--inverse"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -44075,7 +43915,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -44140,7 +43980,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple With CTA 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(ArrowRight20)>
-                                <span />
                               </div>
                             </div>
                           </a>
