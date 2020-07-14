@@ -24,6 +24,9 @@
         padding-bottom: $layout-05;
       }
     }
+    .#{$prefix}--content-block {
+      padding-bottom: 0;
+    }
   }
 }
 
