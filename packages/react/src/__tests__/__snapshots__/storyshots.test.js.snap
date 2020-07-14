@@ -1325,7 +1325,7 @@ exports[`Storyshots Components|Card Default 1`] = `
                       Lorem ipsum dolor sit amet
                     </h3>
                     <div
-                      className="bx--card__footer"
+                      className="bx--card__footer bx--card__footer__copy"
                     >
                       <span
                         className="bx--card__cta__copy"
