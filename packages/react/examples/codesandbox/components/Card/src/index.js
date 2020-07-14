@@ -17,16 +17,7 @@ const card = {
   heading: "Lorem ipsum dolor sit amet",
 };
 
-const ctaStatic = {
-  type: "local",
-  copy: "click here",
-  href: "https://example.com",
-  icon: {
-    src: ArrowRight20,
-  },
-};
-
-const ctaLink = {
+const cta = {
   type: "local",
   href: "https://example.com",
   icon: {
@@ -38,14 +29,7 @@ const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-6">
-        <h4>Static</h4>
-        <Card cta={ctaStatic} {...card} type="static" />
-      </div>
-    </div>
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-6">
-        <h4>Link</h4>
-        <Card cta={ctaLink} {...card} type="link" />
+        <Card cta={cta} {...card} />
       </div>
     </div>
   </div>
