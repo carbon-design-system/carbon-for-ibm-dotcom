@@ -9,7 +9,9 @@
 
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 @import '@carbon/ibmdotcom-styles/scss/components/card/index';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 @import '../../globals/scss/vars';
-@import '../../globals/scss/box-sizing';
 @import '../card/card';
+
+:host(#{$dds-prefix}-card-link) {
+  @extend :host(#{$dds-prefix}-card);
+}
