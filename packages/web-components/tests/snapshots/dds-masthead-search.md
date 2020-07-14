@@ -85,7 +85,7 @@
       id="result-list"
     >
       <ul
-        class="react-autosuggest__suggestions-list"
+        class="dds-ce--masthead__search__list react-autosuggest__suggestions-list"
         role="listbox"
       >
         <slot>
