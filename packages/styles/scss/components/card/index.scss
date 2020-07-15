@@ -99,16 +99,16 @@
       .#{$prefix}--card__copy p {
         @include carbon--type-style('expressive-heading-02');
       }
+    }
+    &:focus,
+    &:visited,
+    &:active {
+      position: relative;
+      z-index: 2;
 
-      &:focus,
-      &:active {
+      .#{$prefix}--image {
         position: relative;
-        z-index: 2;
-
-        .#{$prefix}--image__img {
-          position: relative;
-          z-index: -1;
-        }
+        z-index: -1;
       }
     }
 
