@@ -62,7 +62,6 @@ class DDSCard extends DDSLink {
   /**
    * @returns The inner content.
    */
-  // eslint-disable-next-line class-methods-use-this
   _renderInner() {
     const { _hasEyeblow: hasEyeblow, _hasHeading: hasHeading, _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
     return html`
