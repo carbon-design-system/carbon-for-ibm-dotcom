@@ -1325,7 +1325,7 @@ exports[`Storyshots Components|Card Default 1`] = `
                       Lorem ipsum dolor sit amet
                     </h3>
                     <div
-                      className="bx--card__footer"
+                      className="bx--card__footer bx--card__footer__copy"
                     >
                       <span
                         className="bx--card__cta__copy"
@@ -3414,7 +3414,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--video-player"
                                                     >
                                                       <div
-                                                        className="bx--video-player__video-container"
+                                                        className="bx--video-player__video-container "
                                                         data-autoid="dds--video-player__video-0_uka1msg4"
                                                       >
                                                         <div
@@ -5357,7 +5357,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             className="bx--video-player bx--video-player--inverse"
                                                           >
                                                             <div
-                                                              className="bx--video-player__video-container"
+                                                              className="bx--video-player__video-container "
                                                               data-autoid="dds--video-player__video-0_uka1msg4"
                                                             >
                                                               <div
@@ -9832,7 +9832,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 className="bx--video-player"
                               >
                                 <div
-                                  className="bx--video-player__video-container"
+                                  className="bx--video-player__video-container "
                                   data-autoid="dds--video-player__video-0_uka1msg4"
                                 >
                                   <div
@@ -17270,6 +17270,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
         >
           <VideoPlayer
+            aspectRatio="default"
             autoPlay={false}
             inverse={false}
             showCaption={true}
@@ -17280,7 +17281,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               className="bx--video-player"
             >
               <div
-                className="bx--video-player__video-container"
+                className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
                 data-autoid="dds--video-player__video-0_uka1msg4"
               >
                 <div
@@ -28038,7 +28039,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                           className="bx--video-player"
                         >
                           <div
-                            className="bx--video-player__video-container"
+                            className="bx--video-player__video-container "
                             data-autoid="dds--video-player__video-0_uka1msg4"
                           >
                             <div
