@@ -85,7 +85,7 @@ const _renderCards = (cards, containerRef, cta) => (
             eyebrow={card.eyebrow}
             copy={card.copy}
             cta={{
-              href: card.cta.href,
+              ...card.cta,
               icon: {
                 src: ArrowRight20,
               },
