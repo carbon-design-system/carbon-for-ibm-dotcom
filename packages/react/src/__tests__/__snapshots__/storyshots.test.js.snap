@@ -1425,7 +1425,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                   "cta": Object {
-                    "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
@@ -1433,7 +1432,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                   "cta": Object {
-                    "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
@@ -1441,7 +1439,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                   "cta": Object {
-                    "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
@@ -1449,7 +1446,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                   "cta": Object {
-                    "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
@@ -1457,7 +1453,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
                   "cta": Object {
-                    "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
                   "heading": "Nunc convallis lobortis",
@@ -1479,7 +1474,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                   cta={
                     Object {
-                      "copy": "cta text here",
                       "href": "https://www.example.com",
                       "icon": Object {
                         "src": Object {
@@ -1529,13 +1523,8 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           }
                         />
                         <div
-                          className="bx--card__footer bx--card__footer__copy"
+                          className="bx--card__footer"
                         >
-                          <span
-                            className="bx--card__cta__copy"
-                          >
-                            cta text here
-                          </span>
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
@@ -1599,7 +1588,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                   cta={
                     Object {
-                      "copy": "cta text here",
                       "href": "https://www.example.com",
                       "icon": Object {
                         "src": Object {
@@ -1649,13 +1637,8 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           }
                         />
                         <div
-                          className="bx--card__footer bx--card__footer__copy"
+                          className="bx--card__footer"
                         >
-                          <span
-                            className="bx--card__cta__copy"
-                          >
-                            cta text here
-                          </span>
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
@@ -1719,7 +1702,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                   cta={
                     Object {
-                      "copy": "cta text here",
                       "href": "https://www.example.com",
                       "icon": Object {
                         "src": Object {
@@ -1769,13 +1751,8 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           }
                         />
                         <div
-                          className="bx--card__footer bx--card__footer__copy"
+                          className="bx--card__footer"
                         >
-                          <span
-                            className="bx--card__cta__copy"
-                          >
-                            cta text here
-                          </span>
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
@@ -1839,7 +1816,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                   cta={
                     Object {
-                      "copy": "cta text here",
                       "href": "https://www.example.com",
                       "icon": Object {
                         "src": Object {
@@ -1889,13 +1865,8 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           }
                         />
                         <div
-                          className="bx--card__footer bx--card__footer__copy"
+                          className="bx--card__footer"
                         >
-                          <span
-                            className="bx--card__cta__copy"
-                          >
-                            cta text here
-                          </span>
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
@@ -1959,7 +1930,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                   cta={
                     Object {
-                      "copy": "cta text here",
                       "href": "https://www.example.com",
                       "icon": Object {
                         "src": Object {
@@ -2440,13 +2410,8 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                           }
                         />
                         <div
-                          className="bx--card__footer bx--card__footer__copy"
+                          className="bx--card__footer"
                         >
-                          <span
-                            className="bx--card__cta__copy"
-                          >
-                            cta text here
-                          </span>
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
