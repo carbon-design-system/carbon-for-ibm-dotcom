@@ -12,7 +12,7 @@
  * @private
  */
 const _url =
-  process?.env.SELENIUM_URL || 'https://ibmdotcom-react-canary.mybluemix.net/';
+  process?.env.SELENIUM_HOST || 'https://ibmdotcom-react-canary.mybluemix.net';
 
 /**
  * Sets the correct path
@@ -20,24 +20,11 @@ const _url =
  * @type {string}
  * @private
  */
-const _path = '?path=/story/patterns-blocks-calloutquote--default';
-
-/**
- * Sets the quote copy via environment variable
- *
- * @type {string | string}
- * @private
- */
-const _quoteCopy = process?.env.SELENIUM_QUOTE_COPY || 'Lorem Ipsum';
+const _path = '/iframe.html?id=patterns-blocks-calloutquote--default';
 
 describe('CalloutQuote', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
-    quote.setValue('');
-    quote.setValue(_quoteCopy);
-    $('button[title="Open canvas in new tab"]').click();
-    browser.switchWindow('iframe.html');
     browser.setWindowSize(1200, 800);
   });
 
@@ -48,7 +35,7 @@ describe('CalloutQuote', () => {
   it('should load with the correct top content padding', () => {
     const content = $('[data-autoid="dds--callout__content"]');
     const contentPaddingTop = content.getCSSProperty('padding-top').value;
-    expect(contentPaddingTop).toEqual('0px');
+    expect(contentPaddingTop).toEqual('64px');
   });
 
   it('should load with the correct bottom content padding', () => {
@@ -60,7 +47,7 @@ describe('CalloutQuote', () => {
   it('should load with the correct top copy padding', () => {
     const copy = $('[data-autoid="dds--quote__copy"]');
     const copyPaddingTop = copy.getCSSProperty('padding-top').value;
-    expect(copyPaddingTop).toEqual('64px');
+    expect(copyPaddingTop).toEqual('0px');
   });
 
   it('should load with the correct bottom copy padding', () => {
@@ -79,11 +66,6 @@ describe('CalloutQuote', () => {
 describe('CalloutQuote (320px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
-    quote.setValue('');
-    quote.setValue(_quoteCopy);
-    $('button[title="Open canvas in new tab"]').click();
-    browser.switchWindow('iframe.html');
     browser.setWindowSize(320, 315);
   });
 
@@ -94,7 +76,7 @@ describe('CalloutQuote (320px)', () => {
   it('should load with the correct content top padding', () => {
     const content = $('[data-autoid="dds--callout__content"]');
     const contentPaddingTop = content.getCSSProperty('padding-top').value;
-    expect(contentPaddingTop).toEqual('0px');
+    expect(contentPaddingTop).toEqual('32px');
   });
 
   it('should load with the correct copy bottom padding', () => {
@@ -113,11 +95,6 @@ describe('CalloutQuote (320px)', () => {
 describe('CalloutQuote (1058px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
-    quote.setValue('');
-    quote.setValue(_quoteCopy);
-    $('button[title="Open canvas in new tab"]').click();
-    browser.switchWindow('iframe.html');
     browser.setWindowSize(1058, 515);
   });
 
@@ -128,7 +105,7 @@ describe('CalloutQuote (1058px)', () => {
   it('should load with the correct content top padding', () => {
     const content = $('[data-autoid="dds--callout__content"]');
     const contentPaddingTop = content.getCSSProperty('padding-top').value;
-    expect(contentPaddingTop).toEqual('0px');
+    expect(contentPaddingTop).toEqual('64px');
   });
 
   it('should load with the correct copy bottom padding', () => {
