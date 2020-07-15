@@ -43,6 +43,9 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
     }
   }
 
+  /**
+   * Identifies the click outisde the language selector and resets its value to the previously selected
+   */
   function useClickOutside() {
     const ref = useRef(null);
 
