@@ -1436,7 +1436,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
-                  "heading": "Fusce gravida eu arcu",
+                  "heading": "Nunc convallis lobortis",
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -1444,7 +1444,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
-                  "heading": "Interdum et malesuada",
+                  "heading": "Nunc convallis lobortis",
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -1452,7 +1452,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
-                  "heading": "Nunc convallis loborti",
+                  "heading": "Nunc convallis lobortis",
                 },
                 Object {
                   "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -1460,17 +1460,9 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     "copy": "cta text here",
                     "href": "https://www.example.com",
                   },
-                  "heading": "Nunc convallis lbortis",
+                  "heading": "Nunc convallis lobortis",
                 },
               ]
-            }
-            cta={
-              Object {
-                "cta": Object {
-                  "href": "https://www.example.com",
-                },
-                "heading": "Top level card link",
-              }
             }
           >
             <div
@@ -1598,7 +1590,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 </Card>
               </div>
               <div
-                aria-label="Fusce gravida eu arcu"
+                aria-label="Nunc convallis lobortis"
                 className="bx--card-group__cards__col"
                 key="1"
                 role="region"
@@ -1618,7 +1610,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     }
                   }
                   customClassName="bx--card-group__card"
-                  heading="Fusce gravida eu arcu"
+                  heading="Nunc convallis lobortis"
                   key="1"
                 >
                   <ClickableTile
@@ -1646,7 +1638,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                         <h3
                           className="bx--card__heading"
                         >
-                          Fusce gravida eu arcu
+                          Nunc convallis lobortis
                         </h3>
                         <div
                           className="bx--card__copy"
@@ -1718,7 +1710,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 </Card>
               </div>
               <div
-                aria-label="Interdum et malesuada"
+                aria-label="Nunc convallis lobortis"
                 className="bx--card-group__cards__col"
                 key="2"
                 role="region"
@@ -1738,7 +1730,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     }
                   }
                   customClassName="bx--card-group__card"
-                  heading="Interdum et malesuada"
+                  heading="Nunc convallis lobortis"
                   key="2"
                 >
                   <ClickableTile
@@ -1766,7 +1758,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                         <h3
                           className="bx--card__heading"
                         >
-                          Interdum et malesuada
+                          Nunc convallis lobortis
                         </h3>
                         <div
                           className="bx--card__copy"
@@ -1838,7 +1830,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 </Card>
               </div>
               <div
-                aria-label="Nunc convallis loborti"
+                aria-label="Nunc convallis lobortis"
                 className="bx--card-group__cards__col"
                 key="3"
                 role="region"
@@ -1858,7 +1850,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     }
                   }
                   customClassName="bx--card-group__card"
-                  heading="Nunc convallis loborti"
+                  heading="Nunc convallis lobortis"
                   key="3"
                 >
                   <ClickableTile
@@ -1886,7 +1878,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                         <h3
                           className="bx--card__heading"
                         >
-                          Nunc convallis loborti
+                          Nunc convallis lobortis
                         </h3>
                         <div
                           className="bx--card__copy"
@@ -1958,7 +1950,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                 </Card>
               </div>
               <div
-                aria-label="Nunc convallis lbortis"
+                aria-label="Nunc convallis lobortis"
                 className="bx--card-group__cards__col"
                 key="4"
                 role="region"
@@ -1978,7 +1970,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     }
                   }
                   customClassName="bx--card-group__card"
-                  heading="Nunc convallis lbortis"
+                  heading="Nunc convallis lobortis"
                   key="4"
                 >
                   <ClickableTile
@@ -2006,7 +1998,438 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                         <h3
                           className="bx--card__heading"
                         >
-                          Nunc convallis lbortis
+                          Nunc convallis lobortis
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                            }
+                          }
+                        />
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+            </div>
+          </CardGroup>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CardGroup With CTA 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid bx--content-group-story"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+        >
+          <CardGroup
+            cards={
+              Array [
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "heading": "Nunc convallis lobortis",
+                },
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "heading": "Nunc convallis lobortis",
+                },
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "heading": "Nunc convallis lobortis",
+                },
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "heading": "Nunc convallis lobortis",
+                },
+                Object {
+                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "heading": "Nunc convallis lobortis",
+                },
+              ]
+            }
+            cta={
+              Object {
+                "cta": Object {
+                  "href": "https://www.example.com",
+                },
+                "heading": "Top level card link",
+              }
+            }
+          >
+            <div
+              className="bx--card-group__cards__row bx--row--condensed"
+              data-autoid="dds--card-group"
+            >
+              <div
+                aria-label="Nunc convallis lobortis"
+                className="bx--card-group__cards__col"
+                key="0"
+                role="region"
+              >
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  heading="Nunc convallis lobortis"
+                  key="0"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Nunc convallis lobortis
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                            }
+                          }
+                        />
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Nunc convallis lobortis"
+                className="bx--card-group__cards__col"
+                key="1"
+                role="region"
+              >
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  heading="Nunc convallis lobortis"
+                  key="1"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Nunc convallis lobortis
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                            }
+                          }
+                        />
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Nunc convallis lobortis"
+                className="bx--card-group__cards__col"
+                key="2"
+                role="region"
+              >
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  heading="Nunc convallis lobortis"
+                  key="2"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Nunc convallis lobortis
                         </h3>
                         <div
                           className="bx--card__copy"
@@ -2024,6 +2447,1895 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             cta text here
                           </span>
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Nunc convallis lobortis"
+                className="bx--card-group__cards__col"
+                key="3"
+                role="region"
+              >
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  heading="Nunc convallis lobortis"
+                  key="3"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Nunc convallis lobortis
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                            }
+                          }
+                        />
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Nunc convallis lobortis"
+                className="bx--card-group__cards__col"
+                key="4"
+                role="region"
+              >
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  heading="Nunc convallis lobortis"
+                  key="4"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Nunc convallis lobortis
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                            }
+                          }
+                        />
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                className="bx--card-group__cards__col"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  heading="Top level card link"
+                  inverse={true}
+                >
+                  <ClickableTile
+                    className="bx--card bx--card--inverse"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Top level card link
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+            </div>
+          </CardGroup>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CardGroup With Images 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid bx--content-group-story"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+        >
+          <CardGroup
+            cards={
+              Array [
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+              ]
+            }
+          >
+            <div
+              className="bx--card-group__cards__row bx--row--condensed"
+              data-autoid="dds--card-group"
+            >
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="0"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="0"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="1"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="1"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="2"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="2"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="3"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="3"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="4"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="4"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+            </div>
+          </CardGroup>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid bx--content-group-story"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+        >
+          <CardGroup
+            cards={
+              Array [
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+                Object {
+                  "cta": Object {
+                    "href": "https://www.example.com",
+                  },
+                  "eyebrow": "Topic",
+                  "heading": "Natural language processing.",
+                  "image": Object {
+                    "alt": "Image alt text",
+                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                  },
+                },
+              ]
+            }
+            cta={
+              Object {
+                "cta": Object {
+                  "href": "https://www.example.com",
+                },
+                "heading": "Top level card link",
+              }
+            }
+          >
+            <div
+              className="bx--card-group__cards__row bx--row--condensed"
+              data-autoid="dds--card-group"
+            >
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="0"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="0"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="1"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="1"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="2"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="2"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="3"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="3"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
+                          <ForwardRef(ArrowRight20)
+                            className="bx--card__cta"
+                            src={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                          >
+                            <Icon
+                              className="bx--card__cta"
+                              fill="currentColor"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              src={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                fill="currentColor"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </div>
+                      </div>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
+              <div
+                aria-label="Natural language processing."
+                className="bx--card-group__cards__col"
+                key="4"
+                role="region"
+              >
+                <Card
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--card-group__card"
+                  eyebrow="Topic"
+                  heading="Natural language processing."
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
+                    }
+                  }
+                  key="4"
+                >
+                  <ClickableTile
+                    className="bx--card bx--card-group__card"
+                    clicked={false}
+                    data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
+                    href="https://www.example.com"
+                    light={false}
+                    onClick={[Function]}
+                    target={null}
+                  >
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card-group__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
+                    >
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          Topic
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Natural language processing.
+                        </h3>
+                        <div
+                          className="bx--card__footer"
+                        >
                           <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
                             src={
@@ -3454,7 +5766,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--video-player__video"
-                                                          id="bx--video-player__video-0_uka1msg4-3"
+                                                          id="bx--video-player__video-0_uka1msg4-13"
                                                         >
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
@@ -5397,7 +7709,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-0_uka1msg4-8"
+                                                                id="bx--video-player__video-0_uka1msg4-18"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -9872,7 +12184,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-23"
+                                    id="bx--video-player__video-0_uka1msg4-33"
                                   />
                                 </div>
                               </div>
@@ -16727,14 +19039,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-24"
+                            aria-describedby="bx--image-34"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-24"
+                          id="bx--image-34"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -17102,14 +19414,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-25"
+                              aria-describedby="bx--image-35"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-25"
+                            id="bx--image-35"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -17321,7 +19633,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-27"
+                  id="bx--video-player__video-0_uka1msg4-37"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
@@ -28119,7 +30431,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With Video 1`] = `
                           >
                             <div
                               className="bx--video-player__video"
-                              id="bx--video-player__video-0_uka1msg4-45"
+                              id="bx--video-player__video-0_uka1msg4-55"
                             >
                               <VideoImageOverlay
                                 embedVideo={[Function]}
@@ -35077,14 +37389,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-55"
+                                        aria-describedby="bx--image-65"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-55"
+                                      id="bx--image-65"
                                     >
                                       Company A
                                     </div>
@@ -35118,14 +37430,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-56"
+                                        aria-describedby="bx--image-66"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-56"
+                                      id="bx--image-66"
                                     >
                                       Company B
                                     </div>
@@ -35159,14 +37471,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-57"
+                                        aria-describedby="bx--image-67"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-57"
+                                      id="bx--image-67"
                                     >
                                       Company C
                                     </div>
@@ -35200,14 +37512,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-58"
+                                        aria-describedby="bx--image-68"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-58"
+                                      id="bx--image-68"
                                     >
                                       Company D
                                     </div>
@@ -35241,14 +37553,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-59"
+                                        aria-describedby="bx--image-69"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-59"
+                                      id="bx--image-69"
                                     >
                                       Company E
                                     </div>
@@ -35282,14 +37594,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-60"
+                                        aria-describedby="bx--image-70"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-60"
+                                      id="bx--image-70"
                                     >
                                       Company F
                                     </div>
@@ -35323,14 +37635,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-61"
+                                        aria-describedby="bx--image-71"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-61"
+                                      id="bx--image-71"
                                     >
                                       Company G
                                     </div>
@@ -35364,14 +37676,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-62"
+                                        aria-describedby="bx--image-72"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-62"
+                                      id="bx--image-72"
                                     >
                                       Company H
                                     </div>
@@ -35405,14 +37717,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-63"
+                                        aria-describedby="bx--image-73"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-63"
+                                      id="bx--image-73"
                                     >
                                       Company I
                                     </div>
