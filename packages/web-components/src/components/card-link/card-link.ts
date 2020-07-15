@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSCard from '../card/card';
@@ -28,6 +28,7 @@ class DDSCardLink extends DDSCard {
    */
   @property({ type: Boolean, reflect: true })
   disabled = false;
+
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;

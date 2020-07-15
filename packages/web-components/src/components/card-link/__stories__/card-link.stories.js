@@ -8,12 +8,12 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-custom-elements/es//icons/arrow--right/20';
+import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
 import '../card-link';
 
 export const Default = () => {
   return html`
-    <dds-card-link href="https://www.example.com">
+    <dds-card-link disabled href="https://www.example.com">
       <p>It's really great to meet you!</p>
       ${ArrowRight20({ slot: 'footer' })}
     </dds-card-link>
