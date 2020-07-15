@@ -52,7 +52,7 @@
     "@carbon/ibmdotcom-services": "1.8.0",
     "@carbon/ibmdotcom-styles": "1.8.0",
     "@carbon/ibmdotcom-utilities": "1.8.0",
-    "carbon-components": "10.14.0",
+    "carbon-components": "10.15.0",
     "carbon-custom-elements": "1.1.1",
     "lodash-es": "^4.17.0"
   },
