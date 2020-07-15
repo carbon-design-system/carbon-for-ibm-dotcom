@@ -23,6 +23,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-link`)
 class DDSCardLink extends DDSCard {
+  /**
+   * `true` to disable the card link.
+   */
+  @property({ type: Boolean, reflect: true })
+  disabled = false;
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
