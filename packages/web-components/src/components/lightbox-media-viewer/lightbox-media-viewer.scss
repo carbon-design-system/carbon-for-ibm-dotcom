@@ -1,0 +1,31 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer/lightbox-media-viewer';
+@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
+@import '../modal/modal';
+
+:host(#{$dds-prefix}-lightbox-media-viewer-body) {
+  @extend :host(#{$dds-prefix}-modal-body);
+  @extend .#{$prefix}--lightbox-media-viewer;
+}
+
+:host(#{$dds-prefix}-lightbox-video-player) {
+  @extend .#{$prefix}--lightbox-media-viewer__container;
+}
+
+:host(#{$dds-prefix}-lightbox-video-player) .#{$prefix}--video-player {
+  width: 100%;
+
+  ::slotted(.#{$prefix}--video-player__video) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

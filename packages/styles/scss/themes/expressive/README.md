@@ -1,4 +1,4 @@
-# Carbon Expressive Theme
+# Expressive Theme for Carbon
 
 ## Usage
 
@@ -10,43 +10,12 @@ components and patterns.
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
 ```
 
-## Feature Flag
+## Expressive Theme and the IBM.com Library
 
-This functionality is currently behind a feature flag. This also utilizes CSS
-Custom Properties in Carbon, which is also behind a feature flag.
+This functionality is currently enabled by the import flag above. This theme
+will become enabled by default in the IBM.com Library starting in `v1.10.0`.
 
-This can be set using the following:
+## Learn More
 
-```scss
-$feature-flags: (
-  enable-css-custom-properties: true,
-);
-$dds-feature-flags: (
-  carbon-expressive-experimental: true,
-);
-
-// application imports and styles
-```
-
-Alternatively, if using Webpack, this can be applied in `sass-loader`:
-
-```javascript
-...
-{
-  loader: 'sass-loader',
-  options: {
-    data: `
-      $feature-flags: (
-        enable-css-custom-properties: true
-      );
-      $dds-feature-flags: (
-        carbon-expressive-experimental: true,
-      );
-    `,
-    // other sass-loader options
-  },
-},
-...
-```
-
-NOTE: Minimum of `carbon-components@10.7.0` is required.
+To read more about the expressive theme, visit
+https://www.ibm.com/standards/web/guidelines/expressive-theme.

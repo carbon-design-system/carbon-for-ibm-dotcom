@@ -11,7 +11,8 @@
 
 @mixin quote {
   .#{$prefix}--quote {
-    padding-bottom: $layout-03;
+    background: $ui-background;
+    padding-bottom: $layout-05;
     &__container {
       @include carbon--make-row;
     }
@@ -91,18 +92,7 @@
       }
     }
 
-    background: $ui-background;
-
     &__inverse {
-      background: $inverse-02;
-      .#{$prefix}--quote__copy,
-      .#{$prefix}--quote__source-heading,
-      .#{$prefix}--quote__source-body,
-      .#{$prefix}--quote__source-optional-copy,
-      .#{$prefix}--quote__mark {
-        color: $inverse-01;
-      }
-
       .#{$prefix}--link-with-icon__container .#{$prefix}--link {
         color: $inverse-link;
       }
