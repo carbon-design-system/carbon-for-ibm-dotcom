@@ -69,6 +69,10 @@
       display: flex;
       margin-top: auto;
 
+      &__copy {
+        margin-bottom: -$carbon--spacing-01;
+      }
+
       svg {
         fill: currentColor;
         display: block;
