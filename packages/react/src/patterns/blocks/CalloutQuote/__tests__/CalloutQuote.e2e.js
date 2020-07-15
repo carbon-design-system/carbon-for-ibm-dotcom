@@ -28,10 +28,6 @@ describe('CalloutQuote', () => {
     browser.setWindowSize(1200, 800);
   });
 
-  afterAll(() => {
-    browser.setWindowSize(1200, 800);
-  });
-
   it('should load with the correct top content padding', () => {
     const content = $('[data-autoid="dds--callout__content"]');
     const contentPaddingTop = content.getCSSProperty('padding-top').value;
@@ -69,10 +65,6 @@ describe('CalloutQuote (320px)', () => {
     browser.setWindowSize(320, 315);
   });
 
-  afterAll(() => {
-    browser.setWindowSize(1200, 800);
-  });
-
   it('should load with the correct content top padding', () => {
     const content = $('[data-autoid="dds--callout__content"]');
     const contentPaddingTop = content.getCSSProperty('padding-top').value;
@@ -96,10 +88,6 @@ describe('CalloutQuote (1058px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1058, 515);
-  });
-
-  afterAll(() => {
-    browser.setWindowSize(1200, 800);
   });
 
   it('should load with the correct content top padding', () => {
