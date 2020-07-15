@@ -81,22 +81,3 @@ jobs:
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
       - name: Run bundle integration test
         run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:bundle
-  e2e-react:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Install dependencies
-        run: yarn install
-      - name: Install xvfb
-        run: sudo apt-get install xvfb
-      - name: Build
-        run: yarn build
-      - name: Run checks
-        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:e2e
