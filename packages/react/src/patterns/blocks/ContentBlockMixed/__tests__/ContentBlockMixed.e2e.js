@@ -35,6 +35,7 @@ describe('ContentBlockMixed', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
+    browser.pause(1000);
   });
 
   it('should have the correct top padding', () => {
@@ -138,6 +139,7 @@ describe('ContentBlockMixed: With Aside Items', () => {
   beforeAll(() => {
     browser.url(_url + _pathAsideItems);
     browser.setWindowSize(1200, 800);
+    browser.pause(1000);
   });
 
   it('should load an aside element with link list', () => {

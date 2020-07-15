@@ -26,6 +26,7 @@ describe('CalloutQuote', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
+    browser.pause(1000);
   });
 
   it('should load with the correct top content padding', () => {
@@ -63,6 +64,7 @@ describe('CalloutQuote (320px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(320, 315);
+    browser.pause(1000);
   });
 
   it('should load with the correct content top padding', () => {
@@ -88,6 +90,7 @@ describe('CalloutQuote (1058px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1058, 515);
+    browser.pause(1000);
   });
 
   it('should load with the correct content top padding', () => {
