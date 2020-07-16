@@ -111,7 +111,7 @@ const Masthead = ({
     const profileMenuList = document.querySelector(
       `.${prefix}--masthead__profile-item`
     );
-    profileMenuList.closest('ul').style.position = 'fixed';
+    profileMenuList.closest('ul').style.position = 'absolute';
     profileMenuList.closest('ul').style.top = '48px';
   };
 
