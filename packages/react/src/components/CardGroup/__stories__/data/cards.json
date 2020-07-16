@@ -4,35 +4,40 @@
       "heading": "Nunc convallis lobortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
-        "href": "https://www.example.com"
+        "href": "https://www.example.com",
+        "copy": "cta text here"
       }
     },
     {
       "heading": "Fusce gravida eu arcu",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
-        "href": "https://www.example.com"
+        "href": "https://www.example.com",
+        "copy": "cta text here"
       }
     },
     {
       "heading": "Interdum et malesuada",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
-        "href": "https://www.example.com"
+        "href": "https://www.example.com",
+        "copy": "cta text here"
       }
     },
     {
       "heading": "Nunc convallis loborti",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
-        "href": "https://www.example.com"
+        "href": "https://www.example.com",
+        "copy": "cta text here"
       }
     },
     {
       "heading": "Nunc convallis lbortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
-        "href": "https://www.example.com"
+        "href": "https://www.example.com",
+        "copy": "cta text here"
       }
     }
   ],
