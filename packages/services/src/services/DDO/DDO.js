@@ -110,7 +110,7 @@ class DDOAPI {
    */
   static async setVersion() {
     return await this.isReady().then(() => {
-      root.digitalData.page.version = ddsSettings.version;
+      root.digitalData.page.pageInfo.version = ddsSettings.version;
     });
   }
 
