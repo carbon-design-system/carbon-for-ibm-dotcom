@@ -175,8 +175,11 @@ $btn-min-width: 26;
         height: 100%;
       }
 
+      .#{$prefix}--image {
+        height: auto;
+      }
+
       .#{$prefix}--leadspace__title {
-        margin-bottom: carbon--mini-units(12);
         @include carbon--make-col(7, 8);
 
         flex-shrink: 1;
