@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/simplebenefits/index"
+
+@warn 'Deprecated scss import for `simplebenefits`, remap to `@carbon/ibmdotcom-styles/scss/components/simplebenefits/index`';
+
 @import '../../../globals/imports';
 @import 'simplebenefits';
 @import 'simplebenefits-item';

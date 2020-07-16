@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import CTALogic from './CTALogic';
-import { FeatureCardBlockMedium } from '../../patterns/blocks/FeatureCardBlockMedium';
+import { FeatureCardBlockMedium } from '../FeatureCardBlockMedium';
 import PropTypes from 'prop-types';
 import React from 'react';
 

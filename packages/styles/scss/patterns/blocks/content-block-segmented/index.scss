@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-segmented/index"
+
+@warn 'Deprecated scss import for `content-block-segmented`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-segmented/index`';
 @import '../../../globals/imports';
 @import '../../../internal/content-block/content-block';
 @import '../../../internal/content-group/content-group';

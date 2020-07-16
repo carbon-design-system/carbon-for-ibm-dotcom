@@ -1,0 +1,34 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+}
+
+@mixin content-group-cards {
+  .#{$prefix}--content-group-cards {
+    &__row {
+      @include carbon--make-row;
+    }
+
+    &-item__col {
+      margin-top: $carbon--grid-gutter--condensed / 2;
+      margin-bottom: $carbon--grid-gutter--condensed / 2;
+      @include carbon--make-col-ready;
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(8, 16);
+      }
+    }
+
+    @include themed-items;
+  }
+}
+@include exports('content-group-cards') {
+  @include content-group-cards;
+}

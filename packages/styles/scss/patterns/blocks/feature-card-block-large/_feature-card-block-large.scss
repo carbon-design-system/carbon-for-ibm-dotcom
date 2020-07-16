@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/feature-card-block-large/feature-card-block-large"
+
+@warn 'Deprecated scss import for `feature-card-block-large`, remap to `@carbon/ibmdotcom-styles/scss/components/feature-card-block-large/feature-card-block-large`';
 @import '../../../globals/imports';
 @import '../../../components/image/image';
 @import '../../../components/card/index';
