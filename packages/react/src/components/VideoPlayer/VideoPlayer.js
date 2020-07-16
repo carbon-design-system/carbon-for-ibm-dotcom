@@ -26,6 +26,7 @@ const VideoPlayer = ({
   videoId,
   customClassName,
   autoPlay,
+  aspectRatio,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
 
@@ -64,12 +65,16 @@ const VideoPlayer = ({
     customClassName
   );
 
+  const aspectRatioClass = cx({
+    [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
+  });
+
   return (
     <div
       aria-label={`${videoData.name} ${videoDuration}`}
       className={classnames}>
       <div
-        className={`${prefix}--video-player__video-container`}
+        className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
         data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
         <div
           className={`${prefix}--video-player__video`}
@@ -97,6 +102,13 @@ VideoPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
+  /**
+   * Override default aspect ratio of `16x9`.
+   * Available aspect ratios:
+   *
+   * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
+   */
+  aspectRatio: PropTypes.string,
   /**
    * The CSS class name to apply.
    */

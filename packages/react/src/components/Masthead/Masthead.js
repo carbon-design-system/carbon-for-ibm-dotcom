@@ -54,9 +54,7 @@ const Masthead = ({
   searchOpenOnload,
   placeHolderText,
   platform,
-  title,
-  eyebrowText,
-  eyebrowLink,
+  mastheadL1Data,
   ...mastheadProps
 }) => {
   /**
@@ -113,7 +111,7 @@ const Masthead = ({
     const profileMenuList = document.querySelector(
       `.${prefix}--masthead__profile-item`
     );
-    profileMenuList.closest('ul').style.position = 'fixed';
+    profileMenuList.closest('ul').style.position = 'absolute';
     profileMenuList.closest('ul').style.top = '48px';
   };
 
@@ -177,7 +175,7 @@ const Masthead = ({
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
 
-              {navigation && (
+              {(mastheadL1Data || navigation) && (
                 <HeaderMenuButton
                   aria-label="Open menu"
                   data-autoid={`${stablePrefix}--masthead__hamburger`}
@@ -189,7 +187,7 @@ const Masthead = ({
               <IbmLogo />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation && (
+                {navigation && !mastheadL1Data && (
                   <MastheadTopNav
                     {...mastheadProps}
                     platform={platform}
@@ -228,24 +226,19 @@ const Masthead = ({
                 </HeaderGlobalBar>
               )}
 
-              {navigation && (
+              {(navigation || mastheadL1Data) && (
                 <MastheadLeftNav
                   {...mastheadProps}
                   platform={platform}
-                  navigation={mastheadData}
+                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
                 />
               )}
             </Header>
           </div>
-          {DDS_MASTHEAD_L1 && navigation && (
+          {mastheadL1Data && DDS_MASTHEAD_L1 && (
             <div ref={mastheadL1Ref}>
-              <MastheadL1
-                isShort={isMastheadSticky}
-                title={title}
-                eyebrowText={eyebrowText}
-                eyebrowLink={eyebrowLink}
-              />
+              <MastheadL1 {...mastheadL1Data} isShort={isMastheadSticky} />
             </div>
           )}
         </div>
@@ -256,7 +249,7 @@ const Masthead = ({
 
 Masthead.propTypes = {
   /**
-   * Navigation data object/string for Masthead. Use one from below:
+   * Navigation data object/string for Masthead. These navigation properties belongs to the Masthead L0 Top navigation. Use one from below:
    *
    * | Behavior           | Data Type | Description                                 | Example                             |
    * | ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
@@ -320,19 +313,60 @@ Masthead.propTypes = {
   placeHolderText: PropTypes.string,
 
   /**
-   * Title for the masthead L1 (experimental).
+   * All the data that goes to the L1 of the Masthead.
    */
-  title: PropTypes.string,
+  mastheadL1Data: PropTypes.shape({
+    /**
+     * Title for the masthead L1 (experimental).
+     */
+    title: PropTypes.string,
 
-  /**
-   * Text for the eyebrow link in masthead L1 (experimental).
-   */
-  eyebrowText: PropTypes.string,
+    /**
+     * Title optional link for the masthead L1 (experimental).
+     */
+    titleLink: PropTypes.string,
+    /**
+     * Text for the eyebrow link in masthead L1 (experimental).
+     */
+    eyebrowText: PropTypes.string,
 
-  /**
-   * URL for the eyebrow link in masthead L1 (experimental).
-   */
-  eyebrowLink: PropTypes.string,
+    /**
+     * URL for the eyebrow link in masthead L1 (experimental).
+     */
+    eyebrowLink: PropTypes.string,
+    /**
+     * Navigation data object/string for Masthead L1. Use one from below:
+     *
+     * | Behavior           | Data Type | Description                                 | Example                             |
+     * | ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
+     * | default navigation | String    | Default navigation data from IBM.com        | `<MastheadL1 navigationL1="default" />` |
+     * | custom navigation  | Object    | Pass in custom navigation data as an object | `<MastheadL1 navigationL1={myNavObj}/>` |
+     * | none               | null      | No navigation                               | `<MastheadL1 />`                      |
+     *
+     * `Custom` navigation data must follow the same structure and key names as `default`.
+     * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+     */
+    navigationL1: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(
+        PropTypes.shape({
+          hasMenu: PropTypes.bool,
+          title: PropTypes.string,
+          url: PropTypes.string,
+          menuSections: PropTypes.arrayOf(
+            PropTypes.shape({
+              menuItems: PropTypes.arrayOf(
+                PropTypes.shape({
+                  title: PropTypes.string,
+                  url: PropTypes.string,
+                })
+              ),
+            })
+          ),
+        })
+      ),
+    ]),
+  }),
 };
 
 Masthead.defaultProps = {
@@ -341,9 +375,7 @@ Masthead.defaultProps = {
   searchOpenOnload: false,
   platform: null,
   placeHolderText: 'Search all of IBM',
-  title: null,
-  eyebrowText: null,
-  eyebrowLink: null,
+  mastheadL1Data: null,
 };
 
 export default Masthead;

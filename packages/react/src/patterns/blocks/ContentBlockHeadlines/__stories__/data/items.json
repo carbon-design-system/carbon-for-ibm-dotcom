@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "headline": "25%",
+      "copy": "Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent faster."
+    },
+    {
+      "headline": "75%",
+      "copy": "Realize up to 90 percent reduction in time spent and 75 percent reduction in IT operations expense.",
+      "cta": {
+        "type": "local",
+        "copy": "View the infographic",
+        "cta": {
+          "href": "https://example.com"
+        }
+      }
+    },
+    {
+      "headline": "50%",
+      "copy": "Build cloud native apps with microservices code generation and improved DevOps processes with up to 50 percent less effort.",
+      "cta": {
+        "type": "external",
+        "copy": "Take the assessment",
+        "cta": {
+          "href": "https://example.com"
+        }
+      }
+    },
+    {
+      "headline": "1.34M",
+      "copy": "Save 1.34M per year by optimizing your time and IT expenses.",
+      "cta": {
+        "type": "local",
+        "copy": "Calculate your savings",
+        "cta": {
+          "href": "https://example.com"
+        }
+      }
+    }
+  ]
+}

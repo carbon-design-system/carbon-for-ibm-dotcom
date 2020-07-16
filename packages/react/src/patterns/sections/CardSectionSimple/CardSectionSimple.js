@@ -21,8 +21,8 @@ const { prefix } = settings;
  */
 const CardSectionSimple = ({ cards, cta, theme, ...otherProps }) => {
   const cardsWithoutImages = cards.filter(
-    ({ image, eyebrow, heading, copy, cta: { href } }) =>
-      !image && !eyebrow && heading && copy && href
+    ({ image, heading, copy, cta: { href } }) =>
+      !image && heading && copy && href
   );
 
   return (

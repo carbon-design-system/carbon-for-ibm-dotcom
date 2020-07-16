@@ -20,7 +20,7 @@ export default {
       FeatureCardBlockLarge: ({ groupId }) => ({
         eyebrow: text(
           'Card eyebrow(required) (eyebrow):',
-          'this is an eyebrow',
+          'This is an eyebrow',
           groupId
         ),
         heading: text(
@@ -30,7 +30,7 @@ export default {
         ),
         copy: text(
           'Card copy: (copy)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           groupId
         ),
         cta: {
@@ -74,6 +74,22 @@ export default {
           groupId
         ),
       }),
+    },
+    propsSet: {
+      default: {
+        FeatureCardBlockLarge: {
+          eyebrow: 'this is an eyebrow',
+          heading: 'Explore AI use cases in all industries',
+          cta: {
+            href: 'https://www.example.com',
+            src: ArrowRight20,
+          },
+          image: {
+            defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+            alt: 'Image alt text',
+          },
+        },
+      },
     },
   },
 };

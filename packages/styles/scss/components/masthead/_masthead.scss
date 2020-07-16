@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 
 /// @access private
@@ -14,9 +15,119 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
+/// @access private
+@mixin masthead-logo {
+  height: 100%;
+
+  a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 $carbon--spacing-07;
+    border: solid 2px transparent;
+    transition: $button-transition;
+    outline: none;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $focus;
+      background-color: $ui-01;
+    }
+
+    @include carbon--breakpoint-up(max) {
+      padding: 0 $carbon--spacing-08;
+    }
+
+    @include carbon--breakpoint-down(xlg) {
+      padding: 0 $carbon--spacing-07;
+    }
+
+    @include carbon--breakpoint-down(lg) {
+      padding: 0 $carbon--spacing-05;
+    }
+
+    @include carbon--breakpoint-between('md', 'lg') {
+      padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
+    }
+  }
+}
+
+/// @access private
+@mixin masthead-top-nav-menu-item {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top: 1px solid $ui-03;
+  }
+
+  &:first-of-type {
+    &::before {
+      border-top: none;
+    }
+  }
+
+  &:hover {
+    background-color: $ui-01;
+
+    &::before {
+      border-top: 1px solid $ui-01;
+    }
+
+    + li {
+      &::before {
+        border-top: 1px solid $ui-01;
+      }
+    }
+  }
+
+  &:focus {
+    &::before {
+      border: 2px solid $interactive-01;
+      box-sizing: border-box;
+    }
+  }
+}
+
+/// @access private
+@mixin masthead-top-nav-link {
+  @include carbon--type-style(body-short-02, true);
+
+  color: $text-01;
+
+  &:hover {
+    background-color: $hover-ui;
+    cursor: pointer;
+    > svg {
+      fill: $text-01;
+    }
+  }
+
+  &:active,
+  &:focus {
+    border-color: $interactive-01;
+    background-color: $ui-01;
+    border-bottom-width: 2px;
+    > svg {
+      fill: $text-01;
+    }
+  }
+}
+
+/// @access private
 @mixin masthead {
-  .#{$prefix}--masthead {
-    position: fixed;
+  .#{$prefix}--masthead,
+  :host(#{$dds-prefix}-masthead) {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,12 +136,10 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
     background-color: $ui-background;
+  }
 
-    &--sticky {
-      &.#{$prefix}--masthead--sticky__l1 {
-        top: -48px;
-      }
-    }
+  .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
+    top: -48px;
   }
 
   .#{$prefix}--masthead__l0 {
@@ -47,7 +156,8 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--header {
+  .#{$prefix}--header,
+  .#{$prefix}--masthead__l0 #{$prefix}-header {
     transition-timing-function: $search-transition;
     background: $ui-background;
     border: none;
@@ -59,43 +169,7 @@ $search-transition-timing: 95ms;
     z-index: 5999;
 
     &__logo {
-      height: 100%;
-
-      a {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        padding: 0 $carbon--spacing-07;
-        border: solid 2px transparent;
-        transition: $button-transition;
-        outline: none;
-
-        &:hover {
-          background-color: $hover-ui;
-        }
-
-        &:active,
-        &:focus {
-          border-color: $focus;
-          background-color: $ui-01;
-        }
-
-        @include carbon--breakpoint-up(max) {
-          padding: 0 $carbon--spacing-08;
-        }
-
-        @include carbon--breakpoint-down(xlg) {
-          padding: 0 $carbon--spacing-07;
-        }
-
-        @include carbon--breakpoint-down(lg) {
-          padding: 0 $carbon--spacing-05;
-        }
-
-        @include carbon--breakpoint-between('md', 'lg') {
-          padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
-        }
-      }
+      @include masthead-logo;
     }
 
     &__global {
@@ -111,27 +185,7 @@ $search-transition-timing: 95ms;
 
     &__nav {
       a.#{$prefix}--header__menu-item {
-        @include carbon--type-style(body-short-02, true);
-
-        color: $text-01;
-
-        &:hover {
-          background-color: $hover-ui;
-          cursor: pointer;
-          > svg {
-            fill: $text-01;
-          }
-        }
-
-        &:active,
-        &:focus {
-          border-color: $interactive-01;
-          background-color: $ui-01;
-          border-bottom-width: 2px;
-          > svg {
-            fill: $text-01;
-          }
-        }
+        @include masthead-top-nav-link;
       }
 
       .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
@@ -141,44 +195,7 @@ $search-transition-timing: 95ms;
           box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
           bottom: -1px;
           li {
-            position: relative;
-
-            &:first-of-type {
-              &::before {
-                border-top: none;
-              }
-            }
-
-            &:hover {
-              background-color: $ui-01;
-
-              &::before {
-                border-top: 1px solid $ui-01;
-              }
-
-              + li {
-                &::before {
-                  border-top: 1px solid $ui-01;
-                }
-              }
-            }
-
-            &:focus {
-              &::before {
-                border: 2px solid $interactive-01;
-                box-sizing: border-box;
-              }
-            }
-
-            &::before {
-              content: '';
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              top: 0;
-              left: 0;
-              border-top: 1px solid $ui-03;
-            }
+            @include masthead-top-nav-menu-item;
           }
           .#{$prefix}--header__menu-item {
             border: none;

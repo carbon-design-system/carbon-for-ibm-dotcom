@@ -1,10 +1,16 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import LogoGrid  from './LogoGrid';
+import LogoGrid from './LogoGrid';
 
 # Logo Grid
 
-> The Logo Grid pattern is to be utilized within IBM.com.
+> The Logo Grid pattern is to be utilized within IBM.com. It's available **only
+> under** the
+> [Carbon white theme](https://www.carbondesignsystem.com/guidelines/themes/overview#default-theme).
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/LogoGrid)
+> example implementation.
 
 ## Getting started
 
@@ -54,9 +60,15 @@ const logosGroup = [
 const ctaCopy = 'Lorem ipsum dolor sit amet';
 const ctaHref = 'http://local.url.com/';
 
-
 function App() {
-  return <LogoGrid title={title} logosGroup={logosGroup} ctaCopy={ctaCopy} ctaHref={ctaHref} />;
+  return (
+    <LogoGrid
+      title={title}
+      logosGroup={logosGroup}
+      ctaCopy={ctaCopy}
+      ctaHref={ctaHref}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

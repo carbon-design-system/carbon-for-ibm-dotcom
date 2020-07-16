@@ -63,3 +63,11 @@ export const DDS_LOGO_GRID =
  */
 export const DDS_CALLOUT_DATA =
   process.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if content block - headlines will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CONTENTBLOCK_HEADLINES =
+  process.env.DDS_CONTENTBLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;

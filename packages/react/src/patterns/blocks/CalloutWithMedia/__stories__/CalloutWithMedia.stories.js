@@ -53,7 +53,7 @@ export default {
         );
         return {
           mediaData: mediaDataByType[mediaType],
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           heading: text(
             'heading',
             'Curabitur malesuada varius mi eu posuere',
@@ -61,7 +61,7 @@ export default {
           ),
           copy: text(
             'copy',
-            'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:',
             groupId
           ),
         };

@@ -27,7 +27,7 @@ export default {
           groupId
         );
         return {
-          mediaType,
+          mediaType: mediaType === 'none' ? undefined : mediaType,
           mediaData:
             mediaType === 'image'
               ? ContentGroupSimpleKnobs.mediaData.image
@@ -45,6 +45,13 @@ export default {
           ),
           cta: object('CTA Data (cta):', ContentGroupSimpleKnobs.cta, groupId),
         };
+      },
+    },
+    propsSet: {
+      default: {
+        ContentGroupSimple: {
+          items: ContentGroupSimpleKnobs.items,
+        },
       },
     },
   },

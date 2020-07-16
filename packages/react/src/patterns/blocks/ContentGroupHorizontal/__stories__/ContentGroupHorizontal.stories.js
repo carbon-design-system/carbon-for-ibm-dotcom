@@ -22,6 +22,13 @@ export default {
         items: object('Items', items.items, groupId),
       }),
     },
+    propsSet: {
+      default: {
+        ContentGroupHorizontal: {
+          items: items.items,
+        },
+      },
+    },
   },
 };
 

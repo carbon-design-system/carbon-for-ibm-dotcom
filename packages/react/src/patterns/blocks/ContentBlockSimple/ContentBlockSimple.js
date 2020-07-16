@@ -7,6 +7,7 @@
 
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -53,7 +54,12 @@ const ContentBlockSimple = ({
 const _renderMedia = (type, data, inverse) => {
   if (data) {
     return (
-      <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
+      <div
+        data-autoid={`${stablePrefix}--content-block-simple__media`}
+        className={cx({
+          [`${prefix}--content-block-simple__media-video`]: type === 'video',
+          [`${prefix}--content-block-simple__media-image`]: type === 'image',
+        })}>
         {type === 'image' && <ImageWithCaption inverse={inverse} {...data} />}
         {type === 'video' && <VideoPlayer inverse={inverse} {...data} />}
       </div>
@@ -88,23 +94,21 @@ ContentBlockSimple.propTypes = {
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({
       inverse: PropTypes.bool,
-      image: PropTypes.shape(
-        PropTypes.shape({
-          classname: PropTypes.string,
-          sources: PropTypes.arrayOf(
-            PropTypes.shape({
-              src: PropTypes.string,
-              breakpoint: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number,
-              ]),
-            })
-          ),
-          defaultSrc: PropTypes.string.isRequired,
-          alt: PropTypes.string.isRequired,
-          longDescription: PropTypes.string,
-        })
-      ).isRequired,
+      image: PropTypes.shape({
+        classname: PropTypes.string,
+        sources: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            breakpoint: PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          })
+        ),
+        defaultSrc: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+        longDescription: PropTypes.string,
+      }).isRequired,
       lightbox: PropTypes.bool,
       heading: PropTypes.string,
       copy: PropTypes.string,

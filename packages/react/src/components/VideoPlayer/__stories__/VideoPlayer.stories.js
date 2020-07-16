@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import cx from 'classnames';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -13,6 +13,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import VideoPlayer from '../VideoPlayer';
 
 const { prefix } = settings;
+
+const ratios = ['default', '4x3', '2x1', '1x1'];
 
 export default {
   title: 'Components|VideoPlayer',
@@ -25,14 +27,21 @@ export default {
     knobs: {
       VideoPlayer: ({ groupId }) => ({
         inverse: boolean('inverse', false, groupId),
-        showCaption: boolean('Show caption (showCaption)', true, groupId),
+        showCaption: boolean('Show caption (showCaption):', true, groupId),
+        aspectRatio: select(
+          'Aspect ratio (aspectRatio):',
+          ratios,
+          ratios[0],
+          groupId
+        ),
       }),
     },
   },
 };
 
 export const Default = ({ parameters }) => {
-  const { inverse, showCaption } = parameters?.props?.VideoPlayer ?? {};
+  const { inverse, showCaption, aspectRatio } =
+    parameters?.props?.VideoPlayer ?? {};
 
   return (
     <div
@@ -45,6 +54,7 @@ export const Default = ({ parameters }) => {
             inverse={inverse}
             videoId="0_uka1msg4"
             showCaption={showCaption}
+            aspectRatio={aspectRatio}
           />
         </div>
       </div>

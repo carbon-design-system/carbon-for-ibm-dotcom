@@ -1,0 +1,249 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/components/ui-shell/header';
+@import 'carbon-components/scss/components/ui-shell/side-nav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
+@import 'carbon-custom-elements/scss/components/ui-shell/header';
+@import 'carbon-custom-elements/scss/components/ui-shell/side-nav';
+@import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
+
+:host(#{$dds-prefix}-masthead-menu-button) {
+  @extend :host(#{$prefix}-header-menu-button);
+
+  position: relative;
+  width: mini-units(6);
+  height: mini-units(6);
+}
+
+:host(#{$dds-prefix}-masthead-logo) {
+  @extend :host(#{$prefix}-header-name);
+  @include masthead-logo;
+
+  // We have a style to remove extra left padding when the masthead logo is next to left nav trigger button:
+  // https://github.com/carbon-design-system/ibm-dotcom-library/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
+  // For `md`-`lg` breakpoint it's always the case.
+  a {
+    @include carbon--breakpoint-between('md', 'lg') {
+      padding: 0 $carbon--spacing-05;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav-name) {
+  outline: none;
+
+  a.#{$prefix}--header__name {
+    @include masthead-top-nav-name;
+  }
+}
+
+:host(#{$dds-prefix}-masthead-search) {
+  outline: none;
+
+  .#{$dds-prefix}-ce--masthead__search__list {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &[open] .#{$dds-prefix}-ce--masthead__search__list {
+    height: auto;
+  }
+}
+
+:host(#{$dds-prefix}-masthead-search-item) {
+  @extend .react-autosuggest__suggestion;
+
+  font-size: $carbon--spacing-05;
+}
+
+:host(#{$dds-prefix}-masthead-global-bar) {
+  @extend .#{$prefix}--header__global;
+}
+
+:host(#{$dds-prefix}-masthead-profile) {
+  a.#{$prefix}--header__menu-item {
+    padding-left: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
+    padding-right: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
+  }
+
+  .#{$prefix}--header__menu-title[aria-expanded='true'] {
+    + .#{$prefix}--header__menu {
+      left: auto;
+      right: 0;
+      width: rem(160px);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav) {
+  @extend :host(#{$prefix}-header-nav);
+
+  .#{$prefix}-ce--header__divider {
+    background-color: $ui-03;
+  }
+
+  &[hide-divider] {
+    padding-left: 0;
+
+    .#{$prefix}-ce--header__divider {
+      display: none;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav-item) {
+  @extend :host(#{$prefix}-header-nav-item);
+}
+
+:host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-masthead-profile) {
+  @extend :host(#{$prefix}-header-menu);
+
+  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+    background-color: $ui-01;
+
+    + .#{$prefix}--header__menu {
+      background-color: $ui-02;
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+      bottom: -1px;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav-menu-item),
+:host(#{$dds-prefix}-masthead-profile-item) {
+  @extend :host(#{$prefix}-header-menu-item);
+  @include masthead-top-nav-menu-item;
+}
+
+:host(#{$dds-prefix}-top-nav-item),
+:host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-top-nav-menu-item),
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-profile-item) {
+  .#{$prefix}--header__menu-arrow {
+    fill: $text-01;
+  }
+
+  a.#{$prefix}--header__menu-item[role='menuitem'] {
+    @include masthead-top-nav-link;
+
+    &:hover {
+      color: $text-01;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-left-nav) {
+  @extend :host(#{$prefix}-side-nav);
+
+  display: block;
+  overflow: auto;
+  margin-top: calc(#{mini-units(6)} + 1px);
+  height: calc(100% - #{mini-units(6)} - 1px);
+
+  &[usage-mode='header-nav'],
+  &[collapse-mode][usage-mode='header-nav'] {
+    width: 0;
+  }
+
+  &[expanded][usage-mode='header-nav'],
+  &[collapse-mode][expanded][usage-mode='header-nav'] {
+    @include carbon--breakpoint-down('lg') {
+      width: mini-units(32);
+    }
+
+    @include carbon--breakpoint-down('md') {
+      max-width: 100vw;
+      width: 100vw;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-left-nav[expanded]) {
+  @extend .#{$prefix}--side-nav--expanded;
+}
+
+:host(#{$dds-prefix}-left-nav-name) {
+  .#{$prefix}--side-nav__submenu-platform {
+    display: flex;
+    align-items: center;
+    height: carbon--mini-units(6);
+    padding: 0 mini-units(2);
+    border-bottom: 1px solid $ui-03;
+    text-decoration: none;
+    color: $text-01;
+
+    @include carbon--type-style(expressive-heading-02, true);
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-items) {
+  @extend :host(#{$prefix}-side-nav-items);
+}
+
+:host(#{$dds-prefix}-left-nav-item) {
+  @extend :host(#{$prefix}-side-nav-link);
+
+  border-bottom: 1px solid $ui-03;
+}
+
+:host(#{$dds-prefix}-left-nav-menu) {
+  @extend :host(#{$prefix}-side-nav-menu);
+
+  border-bottom: 1px solid $ui-03;
+}
+
+:host(#{$dds-prefix}-left-nav-menu-item) {
+  @extend :host(#{$prefix}-side-nav-menu-item);
+
+  a.#{$prefix}--side-nav__link[role='menuitem'] {
+    padding-left: $carbon--spacing-05;
+    height: carbon--mini-units(6);
+    border-bottom: 1px solid $ui-03;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-item),
+:host(#{$dds-prefix}-left-nav-menu),
+:host(#{$dds-prefix}-left-nav-menu-item) {
+  .#{$prefix}--side-nav__link:hover {
+    background-color: $shell-side-nav-bg-04;
+    color: $ibm-color__gray-100;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-overlay) {
+  @extend .#{$prefix}--side-nav__overlay;
+
+  &[active] {
+    @extend .#{$prefix}--side-nav__overlay-active;
+
+    position: fixed;
+
+    // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
+    top: 0;
+    left: 0;
+    z-index: calc(#{z('header')} - 1);
+    clip-path: polygon(
+      mini-units(6) 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 calc(#{mini-units(6)} + 1px),
+      mini-units(6) calc(#{mini-units(6)} + 1px)
+    );
+
+    @include carbon--breakpoint-down(md) {
+      background-color: $ui-background;
+    }
+  }
+}

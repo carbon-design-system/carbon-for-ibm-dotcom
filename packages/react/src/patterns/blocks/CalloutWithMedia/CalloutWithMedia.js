@@ -23,7 +23,7 @@ const CalloutWithMedia = ({ ...ContentBlockSimpleProps }) => {
       data-autoid={`${stablePrefix}--callout-with-media`}
       className={`${prefix}--callout-with-media`}>
       <Callout>
-        <ContentBlockSimple inverse={true} {...ContentBlockSimpleProps} />
+        <ContentBlockSimple inverse {...ContentBlockSimpleProps} />
       </Callout>
     </div>
   );

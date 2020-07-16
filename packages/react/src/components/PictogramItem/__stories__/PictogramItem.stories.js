@@ -68,6 +68,15 @@ export default {
         },
       }),
     },
+    propsSet: {
+      default: {
+        PictogramItem: {
+          pictogram: {
+            src: selectPictogram(pictograms.Desktop),
+          },
+        },
+      },
+    },
   },
 };
 

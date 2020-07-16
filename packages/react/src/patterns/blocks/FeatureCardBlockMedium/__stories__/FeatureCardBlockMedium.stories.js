@@ -47,6 +47,20 @@ export default {
         },
       }),
     },
+    propsSet: {
+      default: {
+        FeatureCardBlockMedium: {
+          heading:
+            'How is artificial intelligence used today in your industry?',
+          card: {
+            cta: {
+              href: 'https://www.example.com',
+              icon: ArrowRight20,
+            },
+          },
+        },
+      },
+    },
   },
 };
 

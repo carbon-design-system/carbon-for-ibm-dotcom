@@ -8,6 +8,8 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/hang';
 @import '../../../globals/utils/aspect-ratio';
+@import '../../../components/image/image';
+@import '../../../internal/content-block/content-block';
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {

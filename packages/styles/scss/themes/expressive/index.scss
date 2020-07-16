@@ -7,7 +7,6 @@
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import 'carbon-components/scss/globals/scss/vars';
-@import '../../globals/feature-flags';
 @import 'tokens';
 
 // Carbon component theming
@@ -38,6 +37,7 @@
 @import 'components/search';
 @import 'components/select';
 @import 'components/structured-list';
+@import 'components/ui-shell';
 
 //-------------------------
 // Expressive Theme
@@ -49,37 +49,36 @@
 // adjustments.
 
 @include exports('carbon-expressive') {
-  @if dds-feature-flag-enabled('carbon-expressive-experimental') {
-    @include carbon-expressive-tokens;
-    @include carbon-expressive-component-tokens;
+  @include carbon-expressive-tokens;
+  @include carbon-expressive-component-tokens;
 
-    // Component mixins
-    @include accordion-expressive;
-    @include button-expressive;
-    @include code-snippet-expressive;
-    @include combo-box-expressive;
-    @include content-switcher-expressive;
-    @include copy-button-expressive;
-    @include date-picker-expressive;
-    @include data-table-expressive;
-    @include dropdown-expressive;
-    @include file-uploader-expressive;
-    @include inline-loading-expressive;
-    @include inline-notifications-expressive;
-    @include list-box-expressive;
-    @include loading-expressive;
-    @include modal-expressive;
-    @include number-input-expressive;
-    @include overflow-menu-expressive;
-    @include progressive-indicator-expressive;
-    @include tabs-expressive;
-    @include text-area-expressive;
-    @include text-input-expressive;
-    @include tile-expressive;
-    @include time-picker-expressive;
-    @include tooltip-expressive;
-    @include search-expressive;
-    @include select-expressive;
-    @include structured-list-expressive;
-  }
+  // Component mixins
+  @include accordion-expressive;
+  @include button-expressive;
+  @include code-snippet-expressive;
+  @include combo-box-expressive;
+  @include content-switcher-expressive;
+  @include copy-button-expressive;
+  @include date-picker-expressive;
+  @include data-table-expressive;
+  @include dropdown-expressive;
+  @include file-uploader-expressive;
+  @include inline-loading-expressive;
+  @include inline-notifications-expressive;
+  @include list-box-expressive;
+  @include loading-expressive;
+  @include modal-expressive;
+  @include number-input-expressive;
+  @include overflow-menu-expressive;
+  @include progressive-indicator-expressive;
+  @include tabs-expressive;
+  @include text-area-expressive;
+  @include text-input-expressive;
+  @include tile-expressive;
+  @include time-picker-expressive;
+  @include tooltip-expressive;
+  @include search-expressive;
+  @include select-expressive;
+  @include structured-list-expressive;
+  @include ui-shell-expressive;
 }

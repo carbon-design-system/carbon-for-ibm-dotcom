@@ -15,13 +15,13 @@ const PORT = 9000;
 describe('Masthead example', () => {
   beforeAll(async () => {
     const projectRoot = path.resolve(__dirname, '../../../../..');
-    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/masthead');
+    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/Masthead');
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [
         `cp -r '${src}' ${tmpDir}`,
-        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/masthead/package.json`,
-        `cd ${tmpDir}/masthead`,
+        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/Masthead/package.json`,
+        `cd ${tmpDir}/Masthead`,
         'yarn install',
         'yarn parcel build index.html',
         `cp -r dist ${tmpDir}`,

@@ -31,7 +31,8 @@
     "lint:scripts:staged": "eslint",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
-    "test": "yarn test:unit && yarn test:integration:build",
+    "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
+    "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
     "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-vanilla test:integration:build && yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build"
   },
@@ -55,6 +56,8 @@
     "axios": "^0.19.0",
     "babel-eslint": "^10.1.0",
     "browserslist-config-carbon": "^10.3.0",
+    "carbon-components": "10.15.0",
+    "carbon-custom-elements": "1.1.1",
     "chalk": "^4.1.0",
     "commander": "^4.1.0",
     "cross-env": "^5.2.0",

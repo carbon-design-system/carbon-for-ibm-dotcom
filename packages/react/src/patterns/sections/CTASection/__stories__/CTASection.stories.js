@@ -15,10 +15,8 @@ const types = ['local', 'external', 'default'];
 const contentItemsProps = [
   {
     heading: 'Get connected',
-    copy: `
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          `,
+    copy:
+      'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
     cta: {
       copy: 'Find a partner',
       type: types[0],
@@ -27,7 +25,8 @@ const contentItemsProps = [
   },
   {
     heading: 'Learn how',
-    copy: 'Dig into more self-directed learning about DevOps methodologies.',
+    copy:
+      'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
     cta: {
       copy: 'Browse tutorials',
       type: types[0],
@@ -46,7 +45,8 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -80,19 +80,32 @@ Default.story = {
           buttons: [
             {
               type: select('ContentBlock | CTA type', types, types[2], groupId),
-              copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
+              copy: 'Secondary button',
+              href: 'https://example.com/',
+            },
+            {
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              copy: 'Primary button',
               href: 'https://example.com/',
             },
           ],
         },
       }),
     },
+    propsSet: {
+      default: {
+        CTASection: {
+          items: contentItemsProps,
+        },
+      },
+    },
   },
 };
 
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -126,7 +139,12 @@ WithContentItems.story = {
           buttons: [
             {
               type: select('ContentBlock | CTA type', types, types[2], groupId),
-              copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
+              copy: 'Secondary button',
+              href: 'https://example.com/',
+            },
+            {
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              copy: 'Primary button',
               href: 'https://example.com/',
             },
           ],

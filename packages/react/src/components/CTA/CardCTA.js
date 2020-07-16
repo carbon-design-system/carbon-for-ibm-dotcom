@@ -61,6 +61,7 @@ const CardCTA = ({
                 icon: {
                   src: CTALogic.iconSelector(type),
                 },
+                iconPlacement: 'left',
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
               },
               image: image,

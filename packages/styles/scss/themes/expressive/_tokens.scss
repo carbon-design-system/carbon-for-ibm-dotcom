@@ -11,92 +11,208 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 
-/// Global token theme
+/// DDS version of size tokens.
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-expressive-size-tokens: (
+  container-01: 2rem,
+  container-02: 2.5rem,
+  container-03: 3rem,
+  container-04: 3rem,
+  container-05: 4.5rem,
+  icon-size-01: 1.25rem,
+);
+
+/// DDS version of type tokens.
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-expressive-type-tokens: (
+  body-short-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ),
+  body-long-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(24px),
+    letter-spacing: 0,
+  ),
+  label-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  caption-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  code-01: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0,
+  ),
+  code-02: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(24px),
+    letter-spacing: 0,
+  ),
+  helper-text-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  heading-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ),
+  productive-heading-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ),
+  expressive-heading-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0.16px,
+  ),
+) !default;
+
+/// DDS version of component tokens.
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-expressive-component-tokens: (
+  button-md-height:
+    var(
+      --#{$custom-property-prefix}-container-04,
+      map-get($carbon-expressive-size-tokens, 'container-04')
+    ),
+  button-sm-height:
+    var(
+      --#{$custom-property-prefix}-container-02,
+      map-get($carbon-expressive-size-tokens, 'container-02')
+    ),
+  button-field-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-expressive-size-tokens, 'container-03')
+    ),
+  input-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-expressive-size-tokens, 'container-03')
+    ),
+  tab-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-expressive-size-tokens, 'container-03')
+    ),
+  tab-container-height:
+    var(
+      --#{$custom-property-prefix}-container-04,
+      map-get($carbon-expressive-size-tokens, 'container-04')
+    ),
+) !default;
+
+/// Sets size/type tokens as custom properties.
+/// @access public
+/// @param {Map} $size-tokens [$carbon-expressive-size-tokens] - The size tokens.
+/// @param {Map} $type-tokens [$carbon-expressive-type-tokens] - The type tokens.
+/// @param {Map} $component-tokens [$carbon-expressive-component-tokens] - The component tokens.
+/// @group carbon-expressive
+@mixin carbon-expressive-tokens-custom-properties(
+  $size-tokens: $carbon-expressive-size-tokens,
+  $type-tokens: $carbon-expressive-type-tokens,
+  $component-tokens: $carbon-expressive-component-tokens
+) {
+  @each $key, $value in $size-tokens {
+    --#{$custom-property-prefix}-#{$key}: #{$value};
+  }
+  @each $key, $value in $type-tokens {
+    @each $subkey, $subvalue in $value {
+      --#{$custom-property-prefix}-#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+  @each $key, $value in $component-tokens {
+    --#{$custom-property-prefix}-#{$key}: #{$value};
+  }
+}
+
+/// Global token theme.
 /// @access private
 /// @group carbon-expressive
-
 @mixin carbon-expressive-tokens {
   // Container tokens
-  $container-01: 2rem !global;
-  $container-02: 2.5rem !global;
-  $container-03: 3rem !global;
-  $container-04: 3rem !global;
-  $container-05: 4.5rem !global;
+  $container-01: var(
+    --#{$custom-property-prefix}-container-01,
+    map-get($carbon-expressive-size-tokens, 'container-01')
+  ) !global;
+  $container-02: var(
+    --#{$custom-property-prefix}-container-02,
+    map-get($carbon-expressive-size-tokens, 'container-02')
+  ) !global;
+  $container-03: var(
+    --#{$custom-property-prefix}-container-03,
+    map-get($carbon-expressive-size-tokens, 'container-03')
+  ) !global;
+  $container-04: var(
+    --#{$custom-property-prefix}-container-04,
+    map-get($carbon-expressive-size-tokens, 'container-04')
+  ) !global;
+  $container-05: var(
+    --#{$custom-property-prefix}-container-05,
+    map-get($carbon-expressive-size-tokens, 'container-05')
+  ) !global;
 
   // Icon size tokens
-  $icon-size-01: 1.25rem !global;
+  $icon-size-01: var(
+    --#{$custom-property-prefix}-icon-size-01,
+    map-get($carbon-expressive-size-tokens, 'icon-size-01')
+  ) !global;
 
   // Type tokens
-  $body-short-01: (
-    font-size: carbon--type-scale(3),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(22px),
-    letter-spacing: 0,
+  // For type tokens, Carbon emits CSS custom properties via `@mixin carbon--type-style`
+  // Ref: https://github.com/carbon-design-system/carbon/blob/v10.15.0/packages/type/scss/_styles.scss#L705
+  $body-short-01: map-get(
+    $carbon-expressive-type-tokens,
+    'body-short-01'
   ) !global;
-
-  $body-long-01: (
-    font-size: carbon--type-scale(3),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(24px),
-    letter-spacing: 0,
+  $body-long-01: map-get(
+    $carbon-expressive-type-tokens,
+    'body-long-01'
   ) !global;
-
-  $label-01: (
-    font-size: carbon--type-scale(2),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
-    letter-spacing: 0.16px,
+  $label-01: map-get($carbon-expressive-type-tokens, 'label-01') !global;
+  $caption-01: map-get($carbon-expressive-type-tokens, 'caption-01') !global;
+  $code-01: map-get($carbon-expressive-type-tokens, 'code-01') !global;
+  $code-02: map-get($carbon-expressive-type-tokens, 'code-02') !global;
+  $helper-text-01: map-get(
+    $carbon-expressive-type-tokens,
+    'helper-text-01'
   ) !global;
-
-  $caption-01: (
-    font-size: carbon--type-scale(2),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
-    letter-spacing: 0.16px,
+  $heading-01: map-get($carbon-expressive-type-tokens, 'heading-01') !global;
+  $productive-heading-01: map-get(
+    $carbon-expressive-type-tokens,
+    'productive-heading-01'
   ) !global;
-
-  $code-01: (
-    font-family: carbon--font-family('mono'),
-    font-size: carbon--type-scale(2),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(20px),
-    letter-spacing: 0,
-  ) !global;
-
-  $code-02: (
-    font-family: carbon--font-family('mono'),
-    font-size: carbon--type-scale(3),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(24px),
-    letter-spacing: 0,
-  ) !global;
-
-  $helper-text-01: (
-    font-size: carbon--type-scale(2),
-    font-weight: carbon--font-weight('regular'),
-    line-height: carbon--rem(18px),
-    letter-spacing: 0.16px,
-  ) !global;
-
-  $heading-01: (
-    font-size: carbon--type-scale(3),
-    font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(22px),
-    letter-spacing: 0,
-  ) !global;
-
-  $productive-heading-01: (
-    font-size: carbon--type-scale(3),
-    font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(22px),
-    letter-spacing: 0,
-  ) !global;
-
-  $expressive-heading-01: (
-    font-size: carbon--type-scale(2),
-    font-weight: carbon--font-weight('semibold'),
-    line-height: carbon--rem(20px),
-    letter-spacing: 0.16px,
+  $expressive-heading-01: map-get(
+    $carbon-expressive-type-tokens,
+    'expressive-heading-01'
   ) !global;
 
   // Ensures `$carbon--theme` and `$carbon--theme--themename` are in sync to:
@@ -215,172 +331,66 @@
   );
 
   :root {
-    // Container tokens
-    --#{$custom-property-prefix}-container-01: #{$container-01};
-    --#{$custom-property-prefix}-container-02: #{$container-02};
-    --#{$custom-property-prefix}-container-03: #{$container-03};
-    --#{$custom-property-prefix}-container-04: #{$container-04};
-    --#{$custom-property-prefix}-container-05: #{$container-05};
-
-    // Icon size tokens
-    --#{$custom-property-prefix}-icon-size-01: #{$icon-size-01};
-
-    // body-short-01
-    --#{$custom-property-prefix}-body-short-01-font-size: #{map-get(
-        $body-short-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-body-short-01-line-height: #{map-get(
-        $body-short-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-body-short-01-letter-spacing: #{map-get(
-        $body-short-01,
-        'letter-spacing'
-      )};
-
-    // body-long-01
-    --#{$custom-property-prefix}-body-long-01-font-size: #{map-get(
-        $body-long-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-body-long-01-line-height: #{map-get(
-        $body-long-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-body-long-01-letter-spacing: #{map-get(
-        $body-long-01,
-        'letter-spacing'
-      )};
-
-    // label-01
-    --#{$custom-property-prefix}-label-01-font-size: #{map-get(
-        $label-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-label-01-line-height: #{map-get(
-        $label-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-label-01-letter-spacing: #{map-get(
-        $label-01,
-        'letter-spacing'
-      )};
-
-    // caption-01
-    --#{$custom-property-prefix}-caption-01-font-size: #{map-get(
-        $caption-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-caption-01-line-height: #{map-get(
-        $caption-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-caption-01-letter-spacing: #{map-get(
-        $caption-01,
-        'letter-spacing'
-      )};
-
-    // code-01
-    --#{$custom-property-prefix}-code-01-font-size: #{map-get(
-        $code-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-code-01-line-height: #{map-get(
-        $code-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-code-01-letter-spacing: #{map-get(
-        $code-01,
-        'letter-spacing'
-      )};
-
-    // code-02
-    --#{$custom-property-prefix}-code-02-font-size: #{map-get(
-        $code-02,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-code-02-line-height: #{map-get(
-        $code-02,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-code-02-letter-spacing: #{map-get(
-        $code-02,
-        'letter-spacing'
-      )};
-
-    // helper-text-01
-    --#{$custom-property-prefix}-helper-text-01-font-size: #{map-get(
-        $helper-text-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-helper-text-01-line-height: #{map-get(
-        $helper-text-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-helper-text-01-letter-spacing: #{map-get(
-        $helper-text-01,
-        'letter-spacing'
-      )};
-
-    // productive-heading-01
-    --#{$custom-property-prefix}-productive-heading-01-font-size: #{map-get(
-        $productive-heading-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-productive-heading-01-line-height: #{map-get(
-        $productive-heading-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-productive-heading-01-letter-spacing: #{map-get(
-        $productive-heading-01,
-        'letter-spacing'
-      )};
-
-    // expressive-heading-01
-    --#{$custom-property-prefix}-expressive-heading-01-font-size: #{map-get(
-        $expressive-heading-01,
-        'font-size'
-      )};
-    --#{$custom-property-prefix}-expressive-heading-01-line-height: #{map-get(
-        $expressive-heading-01,
-        'line-height'
-      )};
-    --#{$custom-property-prefix}-expressive-heading-01-letter-spacing: #{map-get(
-        $expressive-heading-01,
-        'letter-spacing'
-      )};
+    @include carbon-expressive-tokens-custom-properties($component-tokens: ());
   }
 }
 
+/// Defines additional component tokens to enable expressive theme support.
+/// @access private
+/// @group carbon-expressive
 @mixin carbon-expressive-component-tokens {
   /// @type Number
   /// @access public
   /// @group button
-  $button-height: $container-04 !default !global;
+  $button-md-height: var(
+    --#{$custom-property-prefix}-button-md-height,
+    map-get($carbon-expressive-component-tokens, 'button-md-height')
+  ) !global;
 
   /// @type Number
   /// @access private
   /// @group button
-  $button-sm-height: $container-02 !default !global;
+  $button-sm-height: var(
+    --#{$custom-property-prefix}-button-sm-height,
+    map-get($carbon-expressive-component-tokens, 'button-sm-height')
+  ) !global;
 
   /// @type Number
   /// @access private
   /// @group button
-  $button-field-height: $container-03 !default !global;
+  $button-field-height: var(
+    --#{$custom-property-prefix}-button-field-height,
+    map-get($carbon-expressive-component-tokens, 'button-field-height')
+  ) !global;
 
   /// @type Number
   /// @access private
   /// @group form
-  $input-height: $container-03 !default !global;
+  $input-height: var(
+    --#{$custom-property-prefix}-input-height,
+    map-get($carbon-expressive-component-tokens, 'input-height')
+  ) !global;
+
+  /// @type Number
+  /// @access private
+  /// @group form
+  $tab-height: var(
+    --#{$custom-property-prefix}-tab-height,
+    map-get($carbon-expressive-component-tokens, 'tab-height')
+  ) !global;
 
   /// @type Number
   /// @access private
   /// @group tabs
-  $tab-height: $container-03 !default !global;
+  $tab-container-height: var(
+    --#{$custom-property-prefix}-tab-container-height,
+    map-get($carbon-expressive-component-tokens, 'tab-container-height')
+  ) !global;
 
-  /// @type Number
-  /// @access private
-  /// @group tabs
-  $tab-container-height: $container-04 !default !global;
+  :root {
+    @include carbon-expressive-tokens-custom-properties(
+      $size-tokens: (),
+      $type-tokens: ()
+    );
+  }
 }
