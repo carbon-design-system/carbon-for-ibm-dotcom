@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
@@ -27,6 +27,38 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
     alt: '',
     description: '',
   });
+
+  const titleId = useMemo(
+    () =>
+      Math.random()
+        .toString(36)
+        .slice(2),
+    []
+  );
+  const descriptionId = useMemo(
+    () =>
+      Math.random()
+        .toString(36)
+        .slice(2),
+    []
+  );
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const { current: containerNode } = containerRef;
+    const dialogNode = containerNode.querySelector('div[role="dialog"]');
+    if (dialogNode && videoData.title) {
+      dialogNode.setAttribute('aria-labeledby', titleId);
+    }
+  }, [titleId, videoData.title]);
+
+  useEffect(() => {
+    const { current: containerNode } = containerRef;
+    const dialogNode = containerNode.querySelector('div[role="dialog"]');
+    if (dialogNode && videoData.description) {
+      dialogNode.setAttribute('aria-describedby', descriptionId);
+    }
+  }, [descriptionId, videoData.description]);
 
   useEffect(() => {
     let stale = false;
@@ -58,7 +90,8 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
-      className={`${prefix}--lightbox-media-viewer`}>
+      className={`${prefix}--lightbox-media-viewer`}
+      ref={containerRef}>
       <ExpressiveModal fullwidth={true} {...modalProps}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
@@ -76,6 +109,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                 <div className={`${prefix}--lightbox-media-viewer__content`}>
                   {videoData.title && (
                     <div
+                      id={titleId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
                       className={`${prefix}--lightbox-media-viewer__content__title`}>
                       {videoData.title}
@@ -83,6 +117,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                   )}
                   {videoData.description && (
                     <div
+                      id={descriptionId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
                       {videoDesc}
