@@ -249,6 +249,7 @@ CenteredWithImage.story = {
             'Use this area for a short line of copy to support the title',
             groupId
           ),
+          gradient: boolean('gradient overlay', true, groupId),
           buttons,
         };
       },
@@ -369,6 +370,7 @@ SmallWithImage.story = {
             'Use this area for a short line of copy to support the title',
             groupId
           ),
+          gradient: boolean('gradient overlay', true, groupId),
           image: object('image', images, groupId),
           buttons,
         };

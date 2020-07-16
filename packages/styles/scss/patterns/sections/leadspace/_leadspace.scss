@@ -11,8 +11,43 @@
 
 $btn-min-width: 26;
 
+@mixin gradient($color) {
+  .#{$prefix}--leadspace--gradient {
+    background-color: rgba($color, 0.75);
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace--gradient {
+      @include carbon--breakpoint(md) {
+        background-color: transparent;
+        background-image: linear-gradient(
+          to right,
+          rgba($color, 0.95),
+          transparent 75%
+        );
+      }
+    }
+
+    .#{$prefix}--leadspace--centered {
+      &__gradient {
+        background: linear-gradient(
+          to bottom,
+          $color,
+          rgba($color, 0.8),
+          rgba($color, 0.6),
+          transparent 80%
+        );
+      }
+    }
+  }
+}
+
 // items that change according to the theme applied
-@mixin themed-items {
+@mixin themed-items($theme: white) {
+  // TODO: figure out how to use the $ui-background color token instead with rgba()
+  $dds--gradient-light: #ffffff;
+  $dds--gradient-dark: #161616;
+
   @include buttongroup;
 
   background-color: $ui-background;
@@ -34,34 +69,18 @@ $btn-min-width: 26;
     padding-left: 0;
   }
 
-  .#{$prefix}--leadspace--gradient {
-    background-color: rgba($ui-background, 0.75);
-
-    @include carbon--breakpoint(md) {
-      background-color: transparent;
-      background-image: linear-gradient(
-        to right,
-        rgba($ui-background, 0.95),
-        transparent 75%
-      );
-    }
-  }
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--centered {
-      &__gradient {
-        background: linear-gradient(
-          to bottom,
-          $ui-background,
-          rgba($ui-background, 0.8),
-          rgba($ui-background, 0.6),
-          transparent 80%
-        );
-      }
-
       &__overlay {
         background-color: transparent;
       }
     }
+  }
+
+  @if $theme == dark {
+    @include gradient($dds--gradient-dark);
+  } @else {
+    @include gradient($dds--gradient-light);
   }
 }
 
@@ -138,12 +157,13 @@ $btn-min-width: 26;
     @include themed-items;
   }
 
-  .#{$prefix}--leadspace--g100 {
+  .#{$prefix}--leadspace--g100,
+  .#{$prefix}--leadspace--g90 {
     @include carbon--theme(
       $carbon--theme--g100,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
-      @include themed-items;
+      @include themed-items(dark);
     }
   }
 
@@ -324,12 +344,13 @@ $btn-min-width: 26;
       }
     }
   }
-  .#{$prefix}--leadspace--centered--g100 {
+  .#{$prefix}--leadspace--centered--g100,
+  .#{$prefix}--leadspace--centered--g90 {
     @include carbon--theme(
       $carbon--theme--g100,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
-      @include themed-items;
+      @include themed-items(dark);
     }
   }
 }
