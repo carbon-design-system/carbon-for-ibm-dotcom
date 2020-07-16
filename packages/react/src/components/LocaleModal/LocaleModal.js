@@ -98,47 +98,6 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
     };
   }, [clearResults, localeData, localeDisplay]);
 
-  /**
-   *  New region/country list based lang attributes available on page
-   *
-   * @param {object} list country list
-   *
-   * @returns {object} list item
-   */
-  const sortList = list => {
-    const pageLangs = altlangs();
-    const filterList = [];
-
-    list.regionList &&
-      list.regionList.map((region, index) => {
-        filterList.push({
-          name: region.name,
-          key: region.key,
-          countries: [],
-        });
-
-        for (let [key, value] of Object.entries(pageLangs)) {
-          region.countryList.map(country => {
-            country.locale.map(loc => {
-              if (loc[0].includes(key)) {
-                filterList[index].countries.push({
-                  region: region.key,
-                  name: country.name,
-                  locale: loc[0],
-                  language: loc[1],
-                  href: value,
-                });
-              }
-            });
-          });
-        }
-
-        filterList[index].countries.sort((a, b) => (a.name > b.name ? 1 : -1));
-      });
-
-    return filterList;
-  };
-
   return (
     <ComposedModal
       open={isOpen}
@@ -252,6 +211,46 @@ LocaleModal.defaultProps = {
   setIsOpen: () => {},
   localeData: null,
   localeDisplay: null,
+};
+
+/**
+ *  New region/country list based lang attributes available on page
+ *
+ * @param {object} list country list
+ *
+ * @returns {object} list item
+ */
+export const sortList = list => {
+  const pageLangs = altlangs();
+  const filterList = [];
+
+  list.regionList &&
+  list.regionList.map((region, index) => {
+    filterList.push({
+      name: region.name,
+      key: region.key,
+      countries: [],
+    });
+
+    for (let [key, value] of Object.entries(pageLangs)) {
+      region.countryList.map(country => {
+        country.locale.map(loc => {
+          if (loc[0].includes(key)) {
+            filterList[index].countries.push({
+              region: region.key,
+              name: country.name,
+              locale: loc[0],
+              language: loc[1],
+              href: value,
+            });
+          }
+        });
+      });
+    }
+
+    filterList[index].countries.sort((a, b) => (a.name > b.name ? 1 : -1));
+  });
+  return filterList;
 };
 
 export default LocaleModal;
