@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ContentItem from '../../../../internal/components/ContentItem/ContentItem';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import CTASection from '../CTASection';
 import { mount } from 'enzyme';
 import React from 'react';
