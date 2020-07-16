@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-custom-elements/es//icons/arrow--right/20';
+import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../link-with-icon';
