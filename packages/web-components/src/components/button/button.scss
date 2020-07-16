@@ -9,10 +9,11 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/button';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-btn) {
   // Enables expressive version of type/size/component tokens in this component
-  @include carbon-expressive-tokens-custom-propreties();
+  @include carbon-expressive-tokens-custom-properties();
 
   @extend :host(#{$prefix}-btn);
 
@@ -22,6 +23,7 @@
   @include button-expressive;
 
   ::slotted([slot='icon']) {
+    flex-shrink: 0;
     margin-left: calc(#{rem(60px)} - #{$spacing-04} - #{$icon-size-01});
   }
 }

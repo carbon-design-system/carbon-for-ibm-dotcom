@@ -8435,10 +8435,10 @@ carbon-components@10.14.0, carbon-components@^10.14.0:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-custom-elements@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/carbon-custom-elements/-/carbon-custom-elements-1.0.0.tgz#4507e05b57336e6cf6d0f55865b4c5ce7160826c"
-  integrity sha512-BnRMixkHcDg3M2fuSug8t1rMjWwhJk1wUUCPTPsf827SdyOyr6d8DmlXtGOy4vfBJ3jjA6FwbUQLVWA031HkMw==
+carbon-custom-elements@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/carbon-custom-elements/-/carbon-custom-elements-1.1.1.tgz#5eff9b4cbfe0ce6ff7e8b5686bb79e561ede1129"
+  integrity sha512-TAQSDlh+W7G/KlHqX50UJPoXhGgg/Q3Z3XVmzU5mOdkZiTR+ArM1AX8OlRUwP3cwbiUFy63Fgx0m8be3Ul/uBg==
   dependencies:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"

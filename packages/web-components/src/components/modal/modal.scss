@@ -8,6 +8,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
 @import 'carbon-custom-elements/scss/components/modal/modal';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-modal) {
   @extend :host(#{$prefix}-modal);
@@ -22,10 +23,6 @@
     ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
       padding-right: 0;
       height: auto;
-    }
-
-    ::slotted(#{$dds-prefix}-modal-body) {
-      min-height: carbon--rem(500px);
     }
 
     ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
@@ -63,14 +60,9 @@
 }
 
 :host(#{$dds-prefix}-modal-close-button) {
-  @extend :host(#{$prefix}-modal-close-button);
+  @extend .#{$prefix}--modal--expressive;
 
-  $button-size: carbon--rem(48px);
-  $icon-size: carbon--rem(20px);
-  $offset-close-icon: calc(#{$carbon--spacing-07} - ((#{$button-size} - #{$icon-size}) / 2));
-
-  top: $offset-close-icon;
-  right: $offset-close-icon;
+  display: contents;
 }
 
 :host(#{$dds-prefix}-modal-body),

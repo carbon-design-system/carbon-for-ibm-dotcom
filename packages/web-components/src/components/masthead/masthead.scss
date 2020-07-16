@@ -13,6 +13,7 @@
 @import 'carbon-custom-elements/scss/components/ui-shell/header';
 @import 'carbon-custom-elements/scss/components/ui-shell/side-nav';
 @import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
@@ -46,6 +47,15 @@
 
 :host(#{$dds-prefix}-masthead-search) {
   outline: none;
+
+  .#{$dds-prefix}-ce--masthead__search__list {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &[open] .#{$dds-prefix}-ce--masthead__search__list {
+    height: auto;
+  }
 }
 
 :host(#{$dds-prefix}-masthead-search-item) {
@@ -216,6 +226,8 @@
 
   &[active] {
     @extend .#{$prefix}--side-nav__overlay-active;
+
+    position: fixed;
 
     // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
     top: 0;

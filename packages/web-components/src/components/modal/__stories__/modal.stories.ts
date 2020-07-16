@@ -21,6 +21,7 @@ import '../modal-heading';
 import '../modal-close-button';
 import '../modal-body';
 import '../modal-footer';
+import styles from './modal.stories.scss';
 import readme from './README.stories.mdx';
 
 const sizes = {
@@ -38,6 +39,9 @@ export const Default = ({ parameters }) => {
     }
   };
   return html`
+    <style>
+      ${styles}
+    </style>
     <dds-modal
       ?open="${open}"
       expressive-size="${ifNonNull(expressiveSize)}"

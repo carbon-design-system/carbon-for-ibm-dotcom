@@ -47,7 +47,7 @@ const CardGroup = ({ cards, cta }) => {
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card--link`),
+          containerNode.getElementsByClassName(`${prefix}--card`),
           'md'
         );
       }
@@ -90,7 +90,6 @@ const _renderCards = (cards, containerRef, cta) => (
                 src: ArrowRight20,
               },
             }}
-            type="link"
           />
         </div>
       );
@@ -106,7 +105,6 @@ const _renderCards = (cards, containerRef, cta) => (
               src: ArrowRight20,
             },
           }}
-          type="link"
         />
       </div>
     )}
