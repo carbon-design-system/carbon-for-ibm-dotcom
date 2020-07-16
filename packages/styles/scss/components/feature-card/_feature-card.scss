@@ -35,8 +35,12 @@
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
-      float: right;
+      margin-right: 0;
       color: $inverse-link;
+    }
+
+    &__card .#{$prefix}--card__footer {
+      flex-direction: row-reverse;
     }
 
     .#{$prefix}--card {
