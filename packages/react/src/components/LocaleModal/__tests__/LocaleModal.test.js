@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleModal, { sortList } from '../LocaleModal';
-import LocaleModalCountries from '../LocaleModalCountries';
+import LocaleModalCountries, { _setCookie, filterLocale }from '../LocaleModalCountries';
 import { mount } from 'enzyme';
 import React from 'react';
 
@@ -2049,22 +2050,41 @@ describe('LocaleModal', () => {
       },
     }));
     const wrapper = await setupModal(false);
-    console.log(wrapper.find('a').debug(), 'helpme');
     wrapper.find('.bx--modal-close').simulate('click');
   });
 });
 
-// describe('LocaleModalCountries', () => {
-//   it('Renders properly', () => {
-//     const spyClearResults = jest.fn(() => {});
-//     const wrapper = mount(<LocaleModalCountries
-//       regionList={localeData.regionList}
-//       setClearResults={spyClearResults}
-//       {...localeData.localeModal}
-//     />);
-//     wrapper.find('input.bx--search-input').value = 'Brazi';
-//     wrapper.find('input.bx--search-input').prop('onChange')({target: { value: 'l' }});
-//     wrapper.find('a.bx--locale-modal__locales').at(0).simulate('click');
-//     wrapper.find(`.bx--search .bx--search-close`).simulate('click');
-//   })
-// });
+describe('LocaleModalCountries', () => {
+
+  it('Tests _setCookie', () => {
+    const spy = jest.fn(() => {});
+    ipcinfoCookie.set = spy;
+    _setCookie('us-en');
+    expect(spy).toHaveBeenCalledWith({cc: 'en', lc: 'us'});
+  })
+
+  it('Renders properly', () => {
+    const spyClearResults = jest.fn(() => {});
+    const wrapper = mount(<LocaleModalCountries
+      regionList={localeData.regionList}
+      setClearResults={spyClearResults}
+      {...localeData.localeModal}
+    />);
+    wrapper.find('input.bx--search-input').value = 'Brazi';
+    wrapper.find('input.bx--search-input').simulate('keyup');
+
+    const setClearResults = jest.fn(val => val);
+    const localeFilter = document.createElement('input');
+    localeFilter.value = 'Brazil';
+    const localeText = document.createElement('div');
+
+    const localeItem = document.createElement('div');
+    localeItem.innerHTML = `<div class="bx-locale-modal__list"><a><div>Brazil</div></a></div>`
+    document.body.innerHTML = localeItem;
+
+    filterLocale(setClearResults, localeFilter,
+      `bx--locale-modal__locales-hidden`,
+      localeText,
+      {unavailabilityText: 'unavailable', AvailabilityText: 'available'})
+  })
+});

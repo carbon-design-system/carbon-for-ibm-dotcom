@@ -40,53 +40,18 @@ const LocaleModalCountries = ({
     );
     const localeHidden = `${prefix}--locale-modal__locales-hidden`;
 
-    localeFilter?.addEventListener('keyup', filterLocale);
-
-    /**
-     * Filter locale links based on search input
-     *
-     */
-    function filterLocale() {
-      const localeItems = document.querySelectorAll(
-        `.${prefix}--locale-modal__list a:not(.${prefix}--locale-modal__locales-filtered)`
-      );
-      setClearResults(false);
-      const filterVal = localeFilter.value.toUpperCase();
-
-      [...localeItems].map(item => {
-        const locale = item.getElementsByTagName('div');
-
-        const country = locale[0].textContent || locale[0].innerText;
-        const language = locale[1].textContent || locale[1].innerText;
-
-        if (
-          country.toUpperCase().indexOf(filterVal) > -1 ||
-          language.toUpperCase().indexOf(filterVal) > -1
-        ) {
-          item.classList.remove(localeHidden);
-        } else {
-          item.classList.add(localeHidden);
-        }
-      });
-
-      /**
-       * Update locale copy when no results
-       *
-       */
-      const localeItemsHidden = document.querySelectorAll(`.${localeHidden}`);
-
-      localeText.innerHTML =
-        localeItems.length == localeItemsHidden.length
-          ? modalLabels.unavailabilityText
-          : modalLabels.availabilityText;
-    }
-
     /**
      * Function to be added to eventListener and cleaned later on
      */
     const handleClear = () => {
       setClearResults(true);
     };
+
+    const handleFilterLocale = () => {
+      filterLocale(setClearResults, localeFilter, localeHidden, localeText, modalLabels);
+    }
+
+    localeFilter?.addEventListener('keyup', handleFilterLocale);
 
     /**
      * Show all links when close button clicked
@@ -96,25 +61,9 @@ const LocaleModalCountries = ({
 
     return () => {
       closeBtn?.removeEventListener('click', handleClear);
-      localeFilter?.removeEventListener('keyup', filterLocale);
+      localeFilter?.removeEventListener('keyup', handleFilterLocale);
     };
   });
-
-  /**
-   * method to handle when country/region has been selected
-   * sets the ipcInfo cookie with selected locale
-   *
-   * @param {object} locale selected country/region
-   * @private
-   */
-  function _setCookie(locale) {
-    const localeSplit = locale.split('-');
-    const localeObj = {
-      cc: localeSplit[1],
-      lc: localeSplit[0],
-    };
-    ipcinfoCookie.set(localeObj);
-  }
 
   return (
     <div className={`${prefix}--locale-modal__filter`}>
@@ -179,5 +128,62 @@ LocaleModalCountries.propTypes = {
 LocaleModalCountries.defaultProps = {
   searchLabel: 'Search by location or language',
 };
+
+/**
+ * method to handle when country/region has been selected
+ * sets the ipcInfo cookie with selected locale
+ *
+ * @param {object} locale selected country/region
+ * @private
+ */
+export const _setCookie = (locale) => {
+  const localeSplit = locale.split('-');
+  const localeObj = {
+    cc: localeSplit[1],
+    lc: localeSplit[0],
+  };
+  ipcinfoCookie.set(localeObj);
+}
+
+/**
+ * Filter locale links based on search input
+ *
+ */
+export const filterLocale = (setClearResults, localeFilter, localeHidden, localeText, modalLabels) => {
+  const localeItems = document.querySelectorAll(
+    `.${prefix}--locale-modal__list a:not(.${prefix}--locale-modal__locales-filtered)`
+  );
+  setClearResults(false);
+  const filterVal = localeFilter.value.toUpperCase();
+
+  [...localeItems].map(item => {
+    const locale = item.getElementsByTagName('div');
+
+    const country = locale[0].textContent || locale[0].innerText;
+    const language = locale[1].textContent || locale[1].innerText;
+
+    console.log(locale, country, language)
+
+    if (
+      country.toUpperCase().indexOf(filterVal) > -1 ||
+      language.toUpperCase().indexOf(filterVal) > -1
+    ) {
+      item.classList.remove(localeHidden);
+    } else {
+      item.classList.add(localeHidden);
+    }
+  });
+
+  /**
+   * Update locale copy when no results
+   *
+   */
+  const localeItemsHidden = document.querySelectorAll(`.${localeHidden}`);
+
+  localeText.innerHTML =
+    localeItems.length === localeItemsHidden.length
+      ? modalLabels.unavailabilityText
+      : modalLabels.availabilityText;
+}
 
 export default LocaleModalCountries;
