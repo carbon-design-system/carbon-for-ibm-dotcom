@@ -52,6 +52,10 @@ const CardGroup = ({ cards, cta }) => {
           'md'
         );
         sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--card--link`),
+          'md'
+        );
+        sameHeight(
           containerNode.getElementsByClassName(`${prefix}--card`),
           'md'
         );
