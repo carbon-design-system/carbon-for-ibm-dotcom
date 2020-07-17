@@ -1,0 +1,186 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+@import '../buttongroup/_buttongroup';
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+
+  .#{$prefix}--content-item {
+    &__heading {
+      color: $text-01;
+    }
+
+    &__copy {
+      p {
+        color: $text-01;
+      }
+    }
+
+    &__cta {
+      color: $link-01;
+    }
+  }
+}
+
+@mixin cta-section--pattern {
+  .#{$prefix}--cta-section {
+    &__cta {
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-06;
+      }
+    }
+
+    .#{$prefix}--content-block {
+      padding-top: $carbon--layout-03;
+      padding-bottom: 0;
+
+      &__heading,
+      &__copy {
+        width: 90%;
+        max-width: 640px;
+
+        @include carbon--breakpoint('sm') {
+          width: 100%;
+        }
+      }
+
+      &__heading {
+        @include carbon--type-style('expressive-heading-05', true);
+      }
+
+      &__copy {
+        p {
+          margin-bottom: 0;
+          @include carbon--type-style('expressive-heading-03', true);
+        }
+      }
+
+      &__cta-col {
+        margin-top: 0;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-top: $carbon--layout-05;
+      }
+    }
+
+    .#{$prefix}--helper-wrapper {
+      .#{$prefix}--content-item-wrapper {
+        border-top: 1px solid $ui-03;
+
+        @include carbon--make-row;
+
+        .#{$prefix}--content-item {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: $carbon--spacing-05;
+          position: relative;
+
+          @include carbon--make-col-ready;
+
+          &__heading {
+            width: 100%;
+
+            @include carbon--type-style('expressive-heading-02', true);
+          }
+
+          &__copy {
+            width: 100%;
+            p {
+              width: 100%;
+              margin-bottom: $carbon--spacing-05;
+
+              @include carbon--type-style('body-long-02', true);
+            }
+          }
+
+          @include carbon--breakpoint('md') {
+            @include carbon--make-col(4, 8);
+
+            &__heading {
+              width: 90%;
+            }
+
+            &__copy {
+              width: 90%;
+            }
+          }
+
+          &:last-of-type {
+            margin-top: $carbon--spacing-05;
+
+            @include carbon--breakpoint('md') {
+              margin-top: $carbon--spacing-07;
+            }
+          }
+        }
+      }
+    }
+
+    &.#{$prefix}--cta-section__has-items {
+      padding-bottom: $carbon--layout-04;
+
+      @include carbon--breakpoint('lg') {
+        padding-bottom: carbon--mini-units(10);
+      }
+
+      .#{$prefix}--cta-section {
+        &__cta {
+          padding-bottom: $carbon--spacing-07;
+
+          @include carbon--breakpoint('md') {
+            padding-bottom: $carbon--layout-05;
+          }
+
+          @include carbon--breakpoint('lg') {
+            padding-bottom: $carbon--layout-06;
+          }
+        }
+      }
+
+      .#{$prefix}--content-block {
+        padding-bottom: 0;
+      }
+    }
+
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $carbon--layout-05;
+    }
+  }
+
+  .#{$prefix}--cta-section--g10 {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g90 {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g100 {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+}
+
+@include exports('cta-section--pattern') {
+  @include cta-section--pattern;
+}

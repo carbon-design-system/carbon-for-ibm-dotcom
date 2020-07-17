@@ -5,10 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards"
+@warn 'Deprecated scss import for `content-block-cards`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards`';
+@import '../../../components/content-block-cards/content-block-cards';
 
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {
+    &__content {
+      .#{$prefix}--card__CTA {
+        max-width: none;
+        margin: 0;
+      }
+    }
     .#{$prefix}--content-block {
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
@@ -28,6 +36,11 @@
         }
         @include carbon--breakpoint('lg') {
           margin-bottom: $carbon--layout-05;
+        }
+      }
+      &__cta {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(4, 12);
         }
       }
     }

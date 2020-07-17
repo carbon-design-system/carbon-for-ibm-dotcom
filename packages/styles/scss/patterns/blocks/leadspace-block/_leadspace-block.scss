@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../globals/utils/content-width';
-@import '../../../globals/utils/hang';
-@import '../../../components/buttongroup/buttongroup';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block"
+@warn 'Deprecated scss import for `leadspace-block`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block`';
+@import '../../../components/leadspace-block/leadspace-block';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {

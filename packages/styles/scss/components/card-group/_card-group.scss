@@ -5,11 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../link-with-icon/link-with-icon';
-@import '../../internal/content-section/content-section';
-@import '../card/index.scss';
 @import '../../globals/imports';
 @import '../../globals/utils/ratio-base';
+@import '../../internal/content-section/content-section';
+@import '../card/index';
+@import '../image/image';
+@import '../link-with-icon/link-with-icon';
 
 @mixin themed-items {
   color: $text-01;
@@ -89,6 +90,10 @@
 
         margin-top: $carbon--grid-gutter--condensed / 2;
         margin-bottom: $carbon--grid-gutter--condensed / 2;
+
+        .#{$prefix}--card--inverse {
+          height: 100%;
+        }
       }
     }
     @include themed-items;

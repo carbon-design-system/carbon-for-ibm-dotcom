@@ -1,0 +1,99 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import LeadSpace from './LeadSpace';
+
+# Lead Space
+
+> The Lead Space pattern is to be utilized within IBM.com.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/sections/Leadspace)
+> example implementation.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the Leadspace
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { LeadSpace } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <LeadSpace
+      type="default"
+      theme="g100"
+      title="Lorem Ipsum"
+      copy="Lorem Ipsum Dolor"
+      gradient={true}
+      buttons={[
+        {
+          copy: 'Button 1',
+          renderIcon: ArrowRight20,
+          href: 'https://www.example.com',
+        },
+        {
+          copy: 'Button 2',
+          renderIcon: ArrowRight20,
+          href: 'https://www.example.com',
+        },
+      ]}
+      image={{
+        sources: [
+          { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
+          { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+        ],
+        defaultSrc: 'https://picsum.photos/id/1076/1056/480',
+        alt: 'lead space image',
+      }}
+    />
+  );
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Don't forget to import the leadspace styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+<Props of={LeadSpace} />
+
+## Stable selectors
+
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `dds--leadspace`        | Pattern                     |
+| `dds--leadspace__desc`  | LeadSpace short description |
+| `dds--leadspace__image` | LeadSpace background image  |
+| `dds--leadspace__ctas`  | LeadSpace CTAs wrapper      |
+
+<Description markdown={contributing} />

@@ -5,6 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-section/content-section';
-@import '../../../components/card-group/card-group';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple"
+@warn 'Deprecated scss import for `card-section-simple`, remap to `@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple`';
+@import '../../../components/card-section-simple/card-section-simple';

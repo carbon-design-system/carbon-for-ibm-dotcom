@@ -11,7 +11,8 @@ A Carbon Design System variant that's as easy to use as native HTML elements, wi
   - [Basic usage](#basic-usage)
 - [Browser support](#browser-support)
 - [List of available components](#list-of-available-components)
-- [Web Components way for analytics](#web-components-way-for-analytics)
+- [Stable selectors (for analytics and integration/E2E testing) in Web Components](#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+  - [`data-autoid` support for partial backward compatibility](#data-autoid-support-for-partial-backward-compatibility)
 - [Developer documentations](#developer-documentations)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -62,6 +63,10 @@ Once you do that, you can use our components in the same manner as native HTML t
 </dds-link-with-icon>
 ```
 
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/modal)
+> example implementation.
+
 ## Browser support
 
 Based on [ibm.com browser support](https://www.ibm.com/standards/web/browser-support/):
@@ -77,13 +82,13 @@ View available web components at: http://ibmdotcom-web-components-canary.mybluem
 2. Clicking the **KNOBS** tab at the bottom and changing values there. Most knobs are shown as something like `Button kind (kind)`, where `kind` is the attribute name
 3. Clicking the **ACTION LOGGER** tab at the bottom and interacting with the selected component. You may see something like `bx-modal-closed` which typically indicates that an event with such event type is fired.
 
-## Web Components way for analytics
+## Stable selectors (for analytics and integration/E2E testing) in Web Components
 
-`@carbon/ibmdotcom-react`, etc. libraries have `data-autoid` attributes in several places, to convey better context than raw HTML `<div>`, etc. tags and their attributes when analytics libraries captures bubbling events e.g. `click` on `<body>` and inspects `event.target`.
+`@carbon/ibmdotcom-react`, etc. libraries have `data-autoid` attributes in several places, to convey better context for e.g. analytics libraries, when they capture bubbling events e.g. `click` on `<body>` and inspects `event.target`. `data-autoid` is more useful than having to inspect contents in raw HTML `<div>` tags, etc., because `data-autoid` augments raw `<div>` tags with the context of application structure where raw `<div>` tags themselves tend to only convey how the UI should look like. We call such `data-autoid` attributes "stable selectors".
 
-`@carbon/ibmdotcom-web-components` being based on Web Components abstrats away such raw HTML `<div>`, etc. tags, into e.g. `<dds-header-logo>` that works as the IBM logo in masthead and `<dds-masthead-search>` that works with the collapsible search box in masthead.
+`@carbon/ibmdotcom-web-components` being based on Web Components abstrats away such raw HTML `<div>`, etc. tags, into e.g. `<dds-header-logo>` (one for the IBM logo in masthead) and `<dds-masthead-search>` (one for the collapsible search box in masthead).
 
-It means that `@carbon/ibmdotcom-web-components` conveys better context out-of-the-box, like:
+It means that in Web Components world, tag names and their attributes well convey application structure, without having to rely on "stable selectors". For example, analytics code can do something like:
 
 ```javascript
 document.body.addEventListener('click', event => {
@@ -103,6 +108,12 @@ document.body.addEventListener('dds-masthead-search-toggled', event => {
 ```
 
 See Docs tab in each components in http://ibmdotcom-web-components-canary.mybluemix.net/ to see more details on available custom events are available, available attributes/properties are for more context, etc.
+
+### `data-autoid` support for partial backward compatibility
+
+`@carbon/ibmdotcom-web-components` supports `data-autoid` stable selectors for some elements, to provide compatibility to and easier migration from `@carbon/ibmdotcom-react`. However, `document.querySelector('[data-autoid="stable-selector"]')` and `event.target.autoId` does not work with elements in shadow DOM, due to shadow DOM's nature. Therefore, `data-autoid` is _not_ provided for all elements.
+
+See Stable selectors section in Docs tab in each components in http://ibmdotcom-web-components-canary.mybluemix.net/ to see the list of supported `data-autoid` and their Web Components alternatives.
 
 ## Developer documentations
 

@@ -1,0 +1,364 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
+@import '../buttongroup/_buttongroup';
+
+$btn-min-width: 26;
+
+@mixin gradient($color) {
+  .#{$prefix}--leadspace--gradient {
+    background-color: rgba($color, 0.75);
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace--gradient {
+      @include carbon--breakpoint(md) {
+        background-color: transparent;
+        background-image: linear-gradient(
+          to right,
+          rgba($color, 0.95),
+          transparent 75%
+        );
+      }
+    }
+
+    .#{$prefix}--leadspace--centered {
+      &__gradient {
+        background: linear-gradient(
+          to bottom,
+          $color,
+          rgba($color, 0.8),
+          rgba($color, 0.6),
+          transparent 80%
+        );
+      }
+    }
+  }
+}
+
+// items that change according to the theme applied
+@mixin themed-items($theme: white) {
+  // TODO: figure out how to use the $ui-background color token instead with rgba()
+  $dds--gradient-light: #ffffff;
+  $dds--gradient-dark: #161616;
+
+  @include buttongroup;
+
+  background-color: $ui-background;
+
+  .#{$prefix}--leadspace--centered__overlay {
+    background-color: $ui-background;
+  }
+
+  .#{$prefix}--leadspace__title,
+  .#{$prefix}--leadspace__desc,
+  .#{$prefix}--leadspace--centered__title,
+  .#{$prefix}--leadspace--centered__desc {
+    color: $text-01;
+  }
+  .#{$prefix}--leadspace--centered__desc {
+    width: 100%;
+  }
+  .#{$prefix}--buttongroup {
+    padding-left: 0;
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace--centered {
+      &__overlay {
+        background-color: transparent;
+      }
+    }
+  }
+
+  @if $theme == dark {
+    @include gradient($dds--gradient-dark);
+  } @else {
+    @include gradient($dds--gradient-light);
+  }
+}
+
+@mixin leadspace {
+  .#{$prefix}--buttongroup {
+    padding-top: $carbon--layout-01;
+  }
+  .#{$prefix}--leadspace {
+    &--content__container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .#{$prefix}--image {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__container {
+      position: relative;
+    }
+
+    &__overlay {
+      @include carbon--make-container;
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: $spacing-05;
+      padding-bottom: $spacing-05;
+      z-index: 1;
+      width: 100%;
+      max-width: none;
+    }
+
+    .#{$prefix}--leadspace__title {
+      padding-top: 0;
+      margin-bottom: $spacing-09;
+      @include carbon--type-style(display-01, true);
+    }
+
+    &__title {
+      padding-left: 1rem;
+      width: 95%;
+    }
+    &__desc {
+      @include carbon--make-col-ready;
+    }
+
+    &__row {
+      @include carbon--make-row;
+    }
+
+    .#{$prefix}--btn {
+      min-width: carbon--mini-units($btn-min-width);
+    }
+
+    .#{$prefix}--leadspace__desc {
+      @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col(4, 4);
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--leadspace--g100,
+  .#{$prefix}--leadspace--g90 {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items(dark);
+    }
+  }
+
+  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+    @include carbon--type-style(expressive-heading-06, true);
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace {
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+      padding-top: aspect-ratio(672px, 400px);
+      height: 0;
+
+      &__container {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      &__overlay {
+        padding-top: $spacing-07;
+        padding-bottom: $spacing-07;
+        position: absolute;
+        top: 0;
+        height: 100%;
+      }
+
+      .#{$prefix}--image {
+        height: auto;
+      }
+
+      .#{$prefix}--leadspace__title {
+        @include carbon--make-col(7, 8);
+
+        flex-shrink: 1;
+      }
+
+      .#{$prefix}--leadspace__desc {
+        @include carbon--make-col(4, 8);
+      }
+    }
+  }
+
+  @include carbon--breakpoint(lg) {
+    .#{$prefix}--leadspace {
+      padding-top: aspect-ratio(1056px, 480px);
+
+      .#{$prefix}--leadspace__title {
+        @include carbon--make-col(8, 16);
+      }
+
+      .#{$prefix}--leadspace__desc {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 16);
+      }
+    }
+
+    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+      @include carbon--make-col(7, 16);
+    }
+  }
+
+  @include carbon--breakpoint(xlg) {
+    .#{$prefix}--leadspace {
+      padding-top: aspect-ratio(1312px, 560px);
+    }
+  }
+
+  @include carbon--breakpoint(max) {
+    .#{$prefix}--leadspace {
+      padding-top: aspect-ratio(1584px, 640px);
+    }
+  }
+}
+
+@mixin leadspace-centered {
+  .#{$prefix}--leadspace--centered {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 99rem;
+    .#{$prefix}--buttongroup {
+      padding-bottom: $carbon--layout-01;
+      padding-top: 0;
+    }
+
+    &--content__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: $carbon--spacing-05;
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
+    }
+    &--mobile__image {
+      height: carbon--mini-units(20);
+      width: 100%;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &__content {
+      @include carbon--make-row;
+    }
+
+    &__desc {
+      width: 95%;
+      @include carbon--type-style(expressive-heading-03, true);
+    }
+
+    &__title {
+      @include carbon--type-style(expressive-heading-05, true);
+    }
+
+    &__desc,
+    &__title {
+      padding-top: $carbon--layout-03;
+    }
+
+    @include themed-items;
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace--centered {
+      .#{$prefix}--buttongroup {
+        padding-bottom: 0;
+      }
+
+      &__overlay {
+        padding-bottom: carbon--mini-units(20);
+      }
+      &--content__container {
+        margin: auto;
+        padding-left: 1.5rem;
+        @include carbon--make-col(4, 8);
+      }
+      &__image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+      }
+
+      &__title,
+      &__desc {
+        max-width: carbon--mini-units(80);
+      }
+
+      &__desc {
+        padding-top: $carbon--layout-04;
+      }
+
+      &--mobile__image {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--leadspace--centered__image
+      .#{$prefix}--leadspace--centered__overlay {
+      padding-bottom: carbon--mini-units(32);
+    }
+  }
+
+  @include carbon--breakpoint(lg) {
+    .#{$prefix}--leadspace--centered {
+      &__title {
+        padding-top: $carbon--layout-05;
+      }
+
+      &__content {
+        width: 50%;
+        margin: auto;
+      }
+    }
+  }
+  .#{$prefix}--leadspace--centered--g100,
+  .#{$prefix}--leadspace--centered--g90 {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items(dark);
+    }
+  }
+}
+
+@include exports('leadspace-centered') {
+  @include leadspace-centered;
+}
+
+@include exports('leadspace') {
+  @include leadspace;
+}

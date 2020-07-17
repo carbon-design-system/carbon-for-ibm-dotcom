@@ -11,7 +11,7 @@ import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
-import 'carbon-custom-elements/es/components//button/button';
+import 'carbon-custom-elements/es/components/button/button';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button/button';
@@ -21,6 +21,7 @@ import '../modal-heading';
 import '../modal-close-button';
 import '../modal-body';
 import '../modal-footer';
+import styles from './modal.stories.scss';
 import readme from './README.stories.mdx';
 
 const sizes = {
@@ -38,6 +39,9 @@ export const Default = ({ parameters }) => {
     }
   };
   return html`
+    <style>
+      ${styles}
+    </style>
     <dds-modal
       ?open="${open}"
       expressive-size="${ifNonNull(expressiveSize)}"

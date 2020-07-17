@@ -13,7 +13,6 @@ import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null'
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import 'carbon-custom-elements/es/components/ui-shell/header';
 import './masthead';
 import './masthead-logo';
 import './masthead-menu-button';
@@ -402,35 +401,59 @@ _  */
     const { _currentEffectiveNavLinks: currentEffectiveNavLinks } = this;
     return !currentEffectiveNavLinks
       ? undefined
-      : currentEffectiveNavLinks.map(link => {
+      : currentEffectiveNavLinks.map((link, i) => {
           const { menuSections = [], title, url } = link;
           const sections = menuSections
             // eslint-disable-next-line no-use-before-define
             .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
-            .map(({ title: menuItemTitle, url: menuItemUrl }) =>
+            .map(({ title: menuItemTitle, url: menuItemUrl }, j) =>
               target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
                 ? html`
-                    <dds-top-nav-menu-item href="${menuItemUrl}">${menuItemTitle}</dds-top-nav-menu-item>
+                    <dds-top-nav-menu-item
+                      href="${menuItemUrl}"
+                      title="${menuItemTitle}"
+                      data-autoid="${ddsPrefix}--masthead__l0-nav--subnav-col${i}-item${j}"
+                    ></dds-top-nav-menu-item>
                   `
                 : html`
-                    <dds-left-nav-menu-item href="${menuItemUrl}">${menuItemTitle}</dds-left-nav-menu-item>
+                    <dds-left-nav-menu-item
+                      href="${menuItemUrl}"
+                      title="${menuItemTitle}"
+                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}"
+                    ></dds-left-nav-menu-item>
                   `
             );
           if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
             return sections.length === 0
               ? html`
-                  <dds-top-nav-item href="${url}">${title}</dds-top-nav-item>
+                  <dds-top-nav-item
+                    href="${url}"
+                    title="${title}"
+                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  ></dds-top-nav-item>
                 `
               : html`
-                  <dds-top-nav-menu menu-label="${title}" trigger-content="${title}">${sections}</dds-top-nav-menu>
+                  <dds-top-nav-menu
+                    menu-label="${title}"
+                    trigger-content="${title}"
+                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  >
+                    ${sections}
+                  </dds-top-nav-menu>
                 `;
           }
           return sections.length === 0
             ? html`
-                <dds-left-nav-item href="${url}">${title}</dds-left-nav-item>
+                <dds-left-nav-item
+                  href="${url}"
+                  title="${title}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                ></dds-left-nav-item>
               `
             : html`
-                <dds-left-nav-menu title="${title}">${sections}</dds-left-nav-menu>
+                <dds-left-nav-menu title="${title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
+                  ${sections}
+                </dds-left-nav-menu>
               `;
         });
   }
