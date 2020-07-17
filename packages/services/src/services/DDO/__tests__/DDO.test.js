@@ -36,7 +36,7 @@ describe('DDOAPI', () => {
   it('should set the version in the DDO', async () => {
     await DDOAPI.setVersion();
 
-    expect(root.digitalData.page.version).toEqual('dds.v1.0.0');
+    expect(root.digitalData.page.pageInfo.version).toEqual('dds.v1.0.0');
   });
 
   it('should set a loop if the data layer is not ready', async () => {
