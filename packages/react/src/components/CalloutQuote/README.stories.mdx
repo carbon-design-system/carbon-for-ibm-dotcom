@@ -1,0 +1,73 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import CalloutQuote from './CalloutQuote';
+
+# Callout Quote
+
+> The "Callout Quote" is a decorator of `Callout`, which includes a `Quote`.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/callout-quote/index';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the CalloutQuote
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CalloutQuote } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  const quote = {
+    copy: 'Lorem ipsum dolor sit amet',
+    source: {
+      heading: 'Lorem ipsum',
+      copy: 'dolor sit amet',
+    },
+    cta: {
+      copy: 'Link with Icon',
+      type: 'local',
+      href: 'https://example.com',
+    },
+  };
+
+  return <CalloutQuote quote={quote} />;
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Don't forget to import the CalloutQuote styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+<Props of={CalloutQuote} />
+
+## Stable selectors
+
+| Name                 | Description |
+| -------------------- | ----------- |
+| `dds--callout-quote` | Pattern     |
+
+<Description markdown={contributing} />

@@ -25,7 +25,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the Masthead
@@ -103,16 +103,16 @@ const platformData = {
 | `dds--masthead__l0-sidenav--nav-${item}`                   | Interactive |
 | `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
 | `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
-| `dds--masthead__l1` *                                      | Component   |
-| `dds--masthead__l1--short` *                               | Interactive |
-| `dds--masthead__l1--name`       *                          | Interactive |
-| `dds--masthead__l1--name-eyebrow` *                        | Interactive |
-| `dds--masthead__l1--name-title` *                          | Interactive |
-| `dds--masthead__l1-nav` *                                  | Component   |
-| `dds--masthead__l1--name-eyebrow` *                        | Interactive |
+| `dds--masthead__l1`                                        | Component   |
+| `dds--masthead__l1--short`                                 | Interactive |
+| `dds--masthead__l1--name`                                  | Interactive |
+| `dds--masthead__l1--name-eyebrow`                          | Interactive |
+| `dds--masthead__l1--name-title`                            | Interactive |
+| `dds--masthead__l1-nav`                                    | Component   |
+| `dds--masthead__l1--name-eyebrow`                          | Interactive |
 
-** All these selectors belongs to the `MastheadL1` component, which is experimental and is behind a feature flag.
+\*\* All these selectors belongs to the `MastheadL1` component, which is
+experimental and is behind a feature flag.
 
 <Description markdown={corsproxy} />
-
 <Description markdown={contributing} />
