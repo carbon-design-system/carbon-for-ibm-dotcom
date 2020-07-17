@@ -37,13 +37,13 @@ const CardGroup = ({ cards, cta }) => {
       if (containerNode) {
         sameHeight(
           containerNode.getElementsByClassName(
-            `:not(${prefix}--card__video) ${prefix}--card__heading`
+            `:not(.${prefix}--card__video) ${prefix}--card__heading`
           ),
           'md'
         );
         sameHeight(
           containerNode.getElementsByClassName(
-            `:not(${prefix}--card__video) ${prefix}--card__copy`
+            `:not(.${prefix}--card__video) ${prefix}--card__copy`
           ),
           'md'
         );
@@ -53,10 +53,6 @@ const CardGroup = ({ cards, cta }) => {
         );
         sameHeight(
           containerNode.getElementsByClassName(`${prefix}--card--link`),
-          'md'
-        );
-        sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card`),
           'md'
         );
       }
