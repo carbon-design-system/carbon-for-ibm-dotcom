@@ -5,11 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../components/image/image';
-@import '../../../components/card/index';
-@import '../../../globals/utils/aspect-ratio';
-@import '../../../globals/utils/hang';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/feature-card-block-large/feature-card-block-large"
+@warn 'Deprecated scss import for `feature-card-block-large`, remap to `@carbon/ibmdotcom-styles/scss/components/feature-card-block-large/feature-card-block-large`';
+@import '../../../components/feature-card-block-large/feature-card-block-large';
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;

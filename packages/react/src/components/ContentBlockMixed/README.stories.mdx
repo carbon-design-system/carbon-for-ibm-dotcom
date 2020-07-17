@@ -1,0 +1,147 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import ContentBlockMixed from './ContentBlockMixed';
+
+# Content Block - Mixed Groups
+
+> The "Content Block - Mixed Groups" pattern leverages the Content Block as the
+> overall container of this pattern, and allows only a few opinionated block
+> patterns to be included.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentBlockMixed)
+> example implementation.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/content-block-mixed/index';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ContentBlockMixed styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ContentBlockMixed } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  const heading = 'This is the content block heading.';
+  const copy = `__This__ *is* the content block intro copy.`;
+  const cta = {
+    cta: {
+      href: 'https://www.ibm.com',
+    },
+    style: 'card',
+    type: 'local',
+    copy: 'Content Block CTA copy',
+    heading: 'Content Block CTA heading',
+  };
+
+  const items = [
+    {
+      type: 'ContentGroupCards',
+      heading: 'ContentGroupCards heading',
+      items: [
+        {
+          heading: 'ContentGroupCards item heading',
+          copy: 'ContentGroupCards item copy.',
+          cta: {
+            href: 'https://www.ibm.com',
+          },
+        },
+      ],
+    },
+    {
+      type: 'ContentGroupPictograms',
+      heading: 'ContentGroupPictograms heading',
+      items: [
+        {
+          heading: 'ContentGroupPictograms item heading.',
+          copy: 'ContentGroupPictograms item copy.',
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            type: 'local',
+            copy: 'ContentGroupPictograms CTA copy',
+          },
+          pictogram: {
+            src: Desktop,
+            'aria-label': 'Desktop',
+          },
+        },
+      ],
+    },
+    {
+      type: 'ContentGroupSimple',
+      mediaType: 'image',
+      mediaData: {
+        sources: [
+          { src: 'https://your-image.com/320/160', breakpoint: 320 },
+          { src: 'https://your-image.com/400/400', breakpoint: 400 },
+          { src: 'https://your-image.com/672/672', breakpoint: 672 },
+        ],
+        alt: 'Image alt',
+        defaultSrc: 'https://your-image.com/672/672',
+      },
+      heading: 'ContentGroupSimple heading.',
+      items: [
+        {
+          heading: 'ContentGroupSimple item heading.',
+          copy: 'ContentGroupSimple item copy.',
+        },
+      ],
+      cta: {
+        cta: {
+          href: 'https://www.ibm.com',
+        },
+        style: 'text',
+        type: 'local',
+        copy: 'ContentGroupSimple CTA copy',
+        heading: 'ContentGroupSimple CTA heading',
+      },
+    },
+  ];
+
+  return (
+    <ContentBlockMixed heading={heading} copy={copy} cta={cta} items={items} />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+## Props
+
+<Props of={ContentBlockMixed} />
+
+### Stable selectors
+
+| Name                             | Description |
+| -------------------------------- | ----------- |
+| `dds--content-block-mixedgroups` | Pattern     |
+
+<Description markdown={contributing} />

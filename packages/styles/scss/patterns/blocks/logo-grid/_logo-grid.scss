@@ -5,11 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../globals/utils/hang';
-@import '../../../globals/utils/aspect-ratio';
-@import '../../../components/image/image';
-@import '../../../internal/content-block/content-block';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/logo-grid/logo-grid"
+@warn 'Deprecated scss import for `logo-grid`, remap to `@carbon/ibmdotcom-styles/scss/components/logo-grid/logo-grid`';
+@import '../../../components/logo-grid/logo-grid';
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
