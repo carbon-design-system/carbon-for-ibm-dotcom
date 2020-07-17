@@ -18,11 +18,11 @@ const { prefix } = settings;
 /**
  * Content Block - Cards pattern.
  */
-const ContentBlockCards = ({ heading, cards }) => (
+const ContentBlockCards = ({ heading, cards, cta }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-cards`}
     className={`${prefix}--content-block-cards`}>
-    <ContentBlock heading={heading}>
+    <ContentBlock heading={heading} cta={cta}>
       <div className={`${prefix}--content-block-cards__content`}>
         <CardGroup cards={cards} />
       </div>
@@ -75,6 +75,12 @@ ContentBlockCards.propTypes = {
             ]),
           })
         ),
+        media: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            type: PropTypes.string,
+          })
+        ),
         defaultSrc: PropTypes.string.isRequired,
         alt: PropTypes.string.isRequired,
         longDescription: PropTypes.string,
@@ -84,6 +90,22 @@ ContentBlockCards.propTypes = {
       }),
     })
   ).isRequired,
+
+  /**
+   * CTA used at the end of content body. `Card` style supported.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['card']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
 };
 
 export default ContentBlockCards;
