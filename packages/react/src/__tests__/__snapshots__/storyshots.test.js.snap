@@ -32142,6 +32142,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
         ]
       }
       copy="Use this area for a short line of copy to support the title"
+      gradient={true}
       image={
         Object {
           "alt": "lead space image",
@@ -32175,7 +32176,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
           className="bx--leadspace--centered__container"
         >
           <div
-            className="bx--leadspace--centered__overlay"
+            className="bx--leadspace--centered__overlay bx--leadspace--centered__gradient"
           >
             <div
               className="bx--leadspace--centered--content__container"
@@ -33228,6 +33229,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
         ]
       }
       copy="Use this area for a short line of copy to support the title"
+      gradient={true}
       image={
         Object {
           "alt": "lead space image",
@@ -33261,7 +33263,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
           className="bx--leadspace__container"
         >
           <div
-            className="bx--leadspace__overlay"
+            className="bx--leadspace__overlay bx--leadspace--gradient"
           >
             <div
               className="bx--leadspace--content__container"
