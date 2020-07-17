@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-item/content-item';
-@import '../../../components/image/image';
-@import 'content-block-simple';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-simple/index"
+@warn 'Deprecated scss import for `content-block-simple`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-simple/index`';
+@import '../../../components/content-block-simple/index';
