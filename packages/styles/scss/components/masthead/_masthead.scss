@@ -127,7 +127,7 @@ $search-transition-timing: 95ms;
 @mixin masthead {
   .#{$prefix}--masthead,
   :host(#{$dds-prefix}-masthead) {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

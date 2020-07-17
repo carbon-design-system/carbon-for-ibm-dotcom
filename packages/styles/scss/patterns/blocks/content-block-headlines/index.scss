@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../components/link-with-icon/link-with-icon';
-@import 'content-block-headlines';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-headlines/index"
+@warn 'Deprecated scss import for `content-block-headlines`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-headlines/index`';
+@import '../../../components/content-block-headlines/index';

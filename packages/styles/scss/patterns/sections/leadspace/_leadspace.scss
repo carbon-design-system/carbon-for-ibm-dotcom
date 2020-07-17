@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../globals/utils/aspect-ratio';
-@import '../../../components/buttongroup/buttongroup';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace"
+@warn 'Deprecated scss import for `leadspace`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace`';
+@import '../../../components/leadspace/leadspace';
 
 $btn-min-width: 26;
 
