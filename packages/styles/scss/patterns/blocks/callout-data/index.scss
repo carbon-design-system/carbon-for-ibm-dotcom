@@ -5,5 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../internal/callout/callout';
-@import './callout-data';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/callout-data/callout-data"
+@warn 'Deprecated scss import for `callout-data`, remap to `@carbon/ibmdotcom-styles/scss/components/callout-data/callout-data`';
+@import '../../../components/callout-data/index';

@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../components/card-group/card-group';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards"
+@warn 'Deprecated scss import for `content-block-cards`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards`';
+@import '../../../components/content-block-cards/content-block-cards';
 
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {

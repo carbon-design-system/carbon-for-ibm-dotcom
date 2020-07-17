@@ -1,0 +1,38 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+
+  &.#{$prefix}--content-block-media--with-border
+    .#{$prefix}--content-block-media__divider {
+    border-bottom-color: $ui-04;
+  }
+}
+
+@mixin content-block-media {
+  .#{$prefix}--content-block-media {
+    @include themed-items;
+
+    .#{$prefix}--content-group:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .#{$prefix}--content-block-media--g100 {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+}
+@include exports('content-block-media') {
+  @include content-block-media;
+}
