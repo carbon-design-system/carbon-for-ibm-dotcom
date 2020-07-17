@@ -11,40 +11,14 @@
 
 // Components
 @import 'components/buttongroup/buttongroup';
-@import 'components/card/index';
-@import 'components/card-group/card-group';
-@import 'components/card-link/card-link';
-@import 'components/content-item-horizontal/content-item-horizontal';
-@import 'components/dotcom-shell/dotcom-shell';
-@import 'components/expressive-modal/expressive-modal';
-@import 'components/feature-card/feature-card';
-@import 'components/footer/index';
-@import 'components/horizontalrule/horizontalrule';
-@import 'components/image/image';
-@import 'components/image-with-caption/image-with-caption';
-@import 'components/layout/layout';
-@import 'components/lightbox-media-viewer/lightbox-media-viewer';
-@import 'components/link-with-icon/link-with-icon';
-@import 'components/link-list/index';
-@import 'components/list/list';
-@import 'components/locale-modal/locale-modal';
-@import 'components/masthead/index';
-@import 'components/pictogram-item/pictogram-item';
-@import 'components/quote/quote';
-@import 'components/tableofcontents/tableofcontents';
-@import 'components/video-player/video-player';
-
-// Patterns - Sections
-@import 'components/card-section-images/card-section-images';
-@import 'components/card-section-simple/card-section-simple';
-@import 'components/leadspace/leadspace';
-@import 'components/simplebenefits/simplebenefits';
-@import 'components/ctasection/index';
-
-// Patterns - Blocks
 @import 'components/callout-data/index';
 @import 'components/callout-quote/index';
 @import 'components/callout-with-media/index';
+@import 'components/card/index';
+@import 'components/card-group/card-group';
+@import 'components/card-link/card-link';
+@import 'components/card-section-images/card-section-images';
+@import 'components/card-section-simple/card-section-simple';
 @import 'components/content-block-cards/content-block-cards';
 @import 'components/content-block-headlines/index';
 @import 'components/content-block-media/index';
@@ -55,10 +29,32 @@
 @import 'components/content-group-horizontal/content-group-horizontal';
 @import 'components/content-group-pictograms/index';
 @import 'components/content-group-simple/index';
+@import 'components/content-item-horizontal/content-item-horizontal';
+@import 'components/ctasection/index';
+@import 'components/dotcom-shell/dotcom-shell';
+@import 'components/expressive-modal/expressive-modal';
+@import 'components/feature-card/feature-card';
 @import 'components/feature-card-block-medium/feature-card-block-medium';
 @import 'components/feature-card-block-large/feature-card-block-large';
-@import 'components/logo-grid/logo-grid';
+@import 'components/footer/index';
+@import 'components/horizontalrule/horizontalrule';
+@import 'components/image/image';
+@import 'components/image-with-caption/image-with-caption';
+@import 'components/layout/layout';
+@import 'components/leadspace/leadspace';
 @import 'components/leadspace-block/leadspace-block';
+@import 'components/lightbox-media-viewer/lightbox-media-viewer';
+@import 'components/link-with-icon/link-with-icon';
+@import 'components/link-list/index';
+@import 'components/list/list';
+@import 'components/locale-modal/locale-modal';
+@import 'components/logo-grid/logo-grid';
+@import 'components/masthead/index';
+@import 'components/pictogram-item/pictogram-item';
+@import 'components/quote/quote';
+@import 'components/simplebenefits/simplebenefits';
+@import 'components/tableofcontents/tableofcontents';
+@import 'components/video-player/video-player';
 
 // Temporary Expressive
 @import 'temp-carbon-expressive/accordion/accordion-expressive';

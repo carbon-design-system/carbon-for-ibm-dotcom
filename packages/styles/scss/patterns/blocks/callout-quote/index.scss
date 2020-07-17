@@ -6,8 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/callout-quote/index"
-
 @warn 'Deprecated scss import for `callout-quote`, remap to `@carbon/ibmdotcom-styles/scss/components/callout-quote/index`';
-@import '../../../globals/imports';
-@import '../../../internal/callout/callout';
-@import '../../../components/quote/quote';
+@import '../../../components/callout-quote/index';

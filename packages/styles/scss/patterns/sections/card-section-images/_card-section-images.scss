@@ -6,8 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/card-section-images/card-section-images"
-
 @warn 'Deprecated scss import for `card-section-images`, remap to `@carbon/ibmdotcom-styles/scss/components/card-section-images/card-section-images`';
-@import '../../../globals/imports';
-@import '../../../internal/content-section/content-section';
-@import '../../../components/card-group/card-group';
+@import '../../../components/card-section-images/card-section-images';

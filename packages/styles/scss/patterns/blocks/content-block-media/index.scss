@@ -6,11 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-media/index"
-
 @warn 'Deprecated scss import for `content-block-media`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-media/index`';
-@import '../../../globals/imports';
-@import '../../../components/card/index';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-group/content-group';
-@import '../../blocks/content-group-simple/content-group-simple';
-@import 'content-block-media';
+@import '../../../components/content-block-media/index';

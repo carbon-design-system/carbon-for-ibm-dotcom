@@ -6,11 +6,8 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/feature-card-block-medium/feature-card-block-medium"
-
 @warn 'Deprecated scss import for `feature-card-block-medium`, remap to `@carbon/ibmdotcom-styles/scss/components/feature-card-block-medium/feature-card-block-medium`';
-@import '../../../globals/imports';
-@import '../../../internal/content-group/content-group';
-@import '../../../components/feature-card/feature-card';
+@import '../../../components/feature-card-block-medium/feature-card-block-medium';
 
 @mixin feature-card-block-medium {
   .#{$prefix}--feature-card-block-medium {

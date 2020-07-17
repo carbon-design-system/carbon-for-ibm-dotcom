@@ -6,15 +6,8 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block"
-
 @warn 'Deprecated scss import for `leadspace-block`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block`';
-@import '../../../globals/imports';
-@import '../../../globals/utils/content-width';
-@import '../../../globals/utils/hang';
-@import '../../../components/buttongroup/buttongroup';
-@import '../../../components/link-list/index';
-@import '../../../components/image-with-caption/image-with-caption';
-@import '../../../internal/content-block/content-block';
+@import '../../../components/leadspace-block/leadspace-block';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {

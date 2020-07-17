@@ -6,9 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/simplebenefits/index"
-
 @warn 'Deprecated scss import for `simplebenefits`, remap to `@carbon/ibmdotcom-styles/scss/components/simplebenefits/index`';
-
-@import '../../../globals/imports';
-@import 'simplebenefits';
-@import 'simplebenefits-item';
+@import '../../../components/simplebenefits/index';

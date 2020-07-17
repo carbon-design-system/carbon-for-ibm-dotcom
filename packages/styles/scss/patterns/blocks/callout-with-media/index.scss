@@ -6,12 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/callout-with-media/index"
-
 @warn 'Deprecated scss import for `callout-with-media`, remap to `@carbon/ibmdotcom-styles/scss/components/callout-with-media/index`';
-@import '../../../globals/imports';
-@import '../../../internal/callout/callout';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-item/content-item';
-@import '../../../components/image-with-caption/image-with-caption';
-@import '../content-block-simple/content-block-simple';
-@import './callout-with-media';
+@import '../../../components/callout-with-media/index';

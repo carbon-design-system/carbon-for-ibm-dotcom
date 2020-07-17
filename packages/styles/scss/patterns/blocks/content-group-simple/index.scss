@@ -6,8 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-group-simple/index"
-
 @warn 'Deprecated scss import for `content-group-simple`, remap to `@carbon/ibmdotcom-styles/scss/components/content-group-simple/index`';
-@import '../../../internal/content-group/content-group';
-@import '../../../globals/imports';
-@import 'content-group-simple';
+@import '../../../components/content-group-simple/index';

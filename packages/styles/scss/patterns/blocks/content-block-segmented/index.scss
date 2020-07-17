@@ -6,11 +6,5 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-segmented/index"
-
 @warn 'Deprecated scss import for `content-block-segmented`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-segmented/index`';
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-group/content-group';
-@import '../../../internal/content-item/content-item';
-@import '../../../components/image-with-caption/image-with-caption';
-@import 'content-block-segmented';
+@import '../../../components/content-block-segmented/index';

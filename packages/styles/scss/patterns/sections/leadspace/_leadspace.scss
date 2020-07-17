@@ -6,11 +6,8 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace"
-
 @warn 'Deprecated scss import for `leadspace`, remap to `@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace`';
-@import '../../../globals/imports';
-@import '../../../globals/utils/aspect-ratio';
-@import '../../../components/buttongroup/buttongroup';
+@import '../../../components/leadspace/leadspace';
 
 $btn-min-width: 26;
 

@@ -6,10 +6,8 @@
  */
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-group-horizontal/content-group-horizontal"
-
 @warn 'Deprecated scss import for `content-group-horizontal`, remap to `@carbon/ibmdotcom-styles/scss/components/content-group-horizontal/content-group-horizontal`';
-@import '../../../internal/content-block/content-block';
-@import '../../../components/content-item-horizontal/content-item-horizontal';
+@import '../../../components/content-group-horizontal/content-group-horizontal';
 
 @mixin content-group-horizontal {
   .#{$prefix}--content-group-horizontal {
