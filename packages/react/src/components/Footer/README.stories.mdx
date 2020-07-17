@@ -24,6 +24,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/footer/index';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the Footer styles
@@ -37,7 +38,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Footer } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
+import '@carbon/ibmdotcom-styles/scss/components/footer/index';
 
 function App() {
   return <Footer />;

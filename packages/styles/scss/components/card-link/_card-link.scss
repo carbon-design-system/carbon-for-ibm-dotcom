@@ -28,6 +28,9 @@
       }
     }
   }
+  .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy {
+    @include carbon--type-style('expressive-heading-02');
+  }
 }
 
 @include exports('card-link') {

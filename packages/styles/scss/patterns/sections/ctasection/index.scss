@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-item/content-item';
-@import 'ctasection';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/ctasection/index"
+@warn 'Deprecated scss import for `ctasection`, remap to `@carbon/ibmdotcom-styles/scss/components/ctasection/index`';
+@import '../../../components/ctasection/index';

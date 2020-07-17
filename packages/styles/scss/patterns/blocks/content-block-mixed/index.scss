@@ -5,10 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../internal/content-block/content-block';
-@import '../../../internal/content-group/content-group';
-@import '../../blocks/content-group-cards/index';
-@import '../content-group-pictograms/index';
-@import '../content-group-simple/index';
-@import 'content-block-mixed';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-mixed/index"
+@warn 'Deprecated scss import for `content-block-mixed`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-mixed/index`';
+@import '../../../components/content-block-mixed/index';
