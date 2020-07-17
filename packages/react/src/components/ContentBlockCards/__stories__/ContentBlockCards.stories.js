@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { select, text } from '@storybook/addon-knobs';
+import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import cards from '../../CardGroup/__stories__/data/cards.json';
 import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
@@ -26,6 +28,12 @@ const getBaseKnobs = ({ groupId }) => {
   };
 };
 
+const ctaTypes = {
+  local: 'local',
+  jump: 'jump',
+  external: 'external',
+};
+
 export default {
   title: 'Components|ContentBlockCards',
 
@@ -35,12 +43,13 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards heading={heading} cards={data} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -56,6 +65,14 @@ Default.story = {
         return {
           ...knobs,
           cards: cards['Simple'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
         };
       },
     },
@@ -70,12 +87,13 @@ Default.story = {
 };
 
 export const WithImages = ({ parameters }) => {
-  const { heading, cards: data } = parameters?.props?.ContentBlockCards ?? {};
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards heading={heading} cards={data} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -91,6 +109,14 @@ WithImages.story = {
         return {
           ...knobs,
           cards: cards['Images'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
         };
       },
     },
@@ -98,6 +124,50 @@ WithImages.story = {
       default: {
         ContentBlockCards: {
           cards: cards['Images'],
+        },
+      },
+    },
+  },
+};
+
+export const WithVideos = ({ parameters }) => {
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithVideos.story = {
+  parameters: {
+    knobs: {
+      ContentBlockCards: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          cards: cards['Videos'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            copy: 'Lorem ipsum dolor sit ametttt',
+          },
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        ContentBlockCards: {
+          cards: cards['Videos'],
         },
       },
     },
