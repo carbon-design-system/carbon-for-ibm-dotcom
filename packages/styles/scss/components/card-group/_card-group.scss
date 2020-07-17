@@ -90,6 +90,10 @@
 
         margin-top: $carbon--grid-gutter--condensed / 2;
         margin-bottom: $carbon--grid-gutter--condensed / 2;
+
+        .#{$prefix}--card--inverse {
+          height: 100%;
+        }
       }
     }
     @include themed-items;

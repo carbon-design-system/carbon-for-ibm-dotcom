@@ -97,11 +97,17 @@ const miscCTAData = {
   },
 };
 
-const wrapper = (CTA, type) => {
+const wrapper = (CTA, style, type) => {
   return (
     <div className="bx--grid ">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
+        {style === 'card' ? (
+          <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
+            {CTA}
+          </div>
+        ) : (
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
+        )}
       </div>
       {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
         <div
@@ -195,7 +201,7 @@ Button.story = {
 
 export const Card = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(<CTA type={type} style="card" {...props} />, type);
+  return wrapper(<CTA type={type} style="card" {...props} />, 'card', type);
 };
 
 Card.story = {
