@@ -54,3 +54,13 @@ packages/vanilla/umd
 packages/vanilla/lib
 packages/vanilla/node_modules
 packages/vanilla/storybook-static
+
+# web-components
+packages/web-components/coverage
+packages/web-components/es
+packages/web-components/examples
+packages/web-components/umd
+packages/web-components/lib
+packages/web-components/node_modules
+packages/web-components/storybook-static
+packages/web-components/src/internal/vendor
