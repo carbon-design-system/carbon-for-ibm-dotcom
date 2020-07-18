@@ -6,5 +6,4 @@ applications:
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
     routes:
       - route: ibmdotcom-react-experimental.mybluemix.net
-      - route: ibmdotcom-react-experimental-temp.mybluemix.net
 
