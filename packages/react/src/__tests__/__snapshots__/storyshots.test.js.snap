@@ -37171,7 +37171,7 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
         >
           <FeatureCardBlockLarge
             copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -37191,27 +37191,27 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
             image={
               Object {
                 "alt": "Image alt text",
-                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
-                    "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": "md",
-                    "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": 991,
-                    "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                    "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                   },
                   Object {
                     "breakpoint": "lg",
-                    "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": "xlg",
-                    "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                    "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                   },
                 ],
               }
@@ -37243,27 +37243,27 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                   image={
                     Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                       "sources": Array [
                         Object {
                           "breakpoint": "sm",
-                          "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": "md",
-                          "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": 991,
-                          "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                          "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                         },
                         Object {
                           "breakpoint": "lg",
-                          "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": "xlg",
-                          "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                          "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                         },
                       ],
                     }
@@ -37292,28 +37292,28 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                       <Image
                         alt="Image alt text"
                         classname="bx--card__img"
-                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                         sources={
                           Array [
                             Object {
                               "breakpoint": "sm",
-                              "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": "md",
-                              "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": 991,
-                              "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                              "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                             },
                             Object {
                               "breakpoint": "lg",
-                              "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": "xlg",
-                              "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                              "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                             },
                           ]
                         }
@@ -37326,32 +37326,32 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                             <source
                               key="0"
                               media="(min-width: 1312px)"
-                              srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                              srcSet="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                             />
                             <source
                               key="1"
                               media="(min-width: 1056px)"
-                              srcSet="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/600x300/ee5396/161616&text=2:1"
                             />
                             <source
                               key="2"
                               media="(min-width: 991px)"
-                              srcSet="https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1"
+                              srcSet="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
                             />
                             <source
                               key="3"
                               media="(min-width: 672px)"
-                              srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/400x200/ee5396/161616&text=2:1"
                             />
                             <source
                               key="4"
                               media="(min-width: 320px)"
-                              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2:1"
                             />
                             <img
                               alt="Image alt text"
                               className="bx--image__img bx--card__img"
-                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                              src="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                             />
                           </picture>
                         </div>
