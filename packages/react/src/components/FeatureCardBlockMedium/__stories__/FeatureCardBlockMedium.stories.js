@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCardBlockMedium from '../FeatureCardBlockMedium';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|FeatureCardBlockMedium',
@@ -19,31 +19,38 @@ export default {
     knobs: {
       FeatureCardBlockMedium: ({ groupId }) => ({
         heading: text(
-          'Pattern heading(required):',
+          'Pattern heading(required, heading):',
           'How is artificial intelligence used today in your industry?',
           groupId
         ),
         card: {
           heading: text(
-            'Card Heading:',
+            'Card Heading (card.heading):',
             'Explore AI use cases in all industries',
             groupId
           ),
+          image: {
+            defaultSrc: text(
+              'Image src (card.image.defaultSrc):',
+              'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              groupId
+            ),
+            alt: text(
+              'Image alt text (card.image.alt):',
+              'Image alt text',
+              groupId
+            ),
+          },
           cta: {
-            href: text('Card href:', 'https://www.example.com', groupId),
+            href: text(
+              'Card href (card.cta.href):',
+              'https://www.example.com',
+              groupId
+            ),
             icon: {
               src: ArrowRight20,
             },
           },
-          image: object(
-            'card image',
-            {
-              defaultSrc:
-                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-              alt: 'Image alt text',
-            },
-            groupId
-          ),
         },
       }),
     },
@@ -53,9 +60,17 @@ export default {
           heading:
             'How is artificial intelligence used today in your industry?',
           card: {
+            heading: 'Explore AI use cases in all industries',
             cta: {
               href: 'https://www.example.com',
-              icon: ArrowRight20,
+              icon: {
+                src: ArrowRight20,
+              },
+            },
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              alt: 'Image alt text',
             },
           },
         },
