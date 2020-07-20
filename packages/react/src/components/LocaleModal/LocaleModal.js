@@ -52,14 +52,10 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
           LocaleAPI.getLocale(),
           LocaleAPI.getLangDisplay(),
         ]);
-        if (stale) {
-          return;
-        }
-        const locale = pair[0];
-        getLangDisplay = pair[1];
-        list = locale && (await LocaleAPI.getList(locale));
-        if (stale) {
-          return;
+        if (!stale) {
+          const locale = pair[0];
+          getLangDisplay = pair[1];
+          list = locale && (await LocaleAPI.getList(locale));
         }
       }
 
@@ -101,7 +97,9 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   return (
     <ComposedModal
       open={isOpen}
-      onClose={_close}
+      onClose={() => {
+        _close(setIsOpen);
+      }}
       className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}
       selectorPrimaryFocus={`.${prefix}--modal-close`}>
@@ -147,21 +145,6 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       </ModalBody>
     </ComposedModal>
   );
-
-  /**
-   * Sets modal state to closed
-   *
-   * @private
-   */
-  function _close() {
-    setIsOpen(false);
-    const footerBtn = document.querySelector(
-      `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
-    );
-    setTimeout(() => {
-      footerBtn?.focus();
-    }, 100);
-  }
 };
 
 LocaleModal.propTypes = {
@@ -225,32 +208,47 @@ export const sortList = list => {
   const filterList = [];
 
   list.regionList &&
-  list.regionList.map((region, index) => {
-    filterList.push({
-      name: region.name,
-      key: region.key,
-      countries: [],
-    });
-
-    for (let [key, value] of Object.entries(pageLangs)) {
-      region.countryList.map(country => {
-        country.locale.map(loc => {
-          if (loc[0].includes(key)) {
-            filterList[index].countries.push({
-              region: region.key,
-              name: country.name,
-              locale: loc[0],
-              language: loc[1],
-              href: value,
-            });
-          }
-        });
+    list.regionList.map((region, index) => {
+      filterList.push({
+        name: region.name,
+        key: region.key,
+        countries: [],
       });
-    }
 
-    filterList[index].countries.sort((a, b) => (a.name > b.name ? 1 : -1));
-  });
+      for (let [key, value] of Object.entries(pageLangs)) {
+        region.countryList.map(country => {
+          country.locale.map(loc => {
+            if (loc[0].includes(key)) {
+              filterList[index].countries.push({
+                region: region.key,
+                name: country.name,
+                locale: loc[0],
+                language: loc[1],
+                href: value,
+              });
+            }
+          });
+        });
+      }
+
+      filterList[index].countries.sort((a, b) => (a.name > b.name ? 1 : -1));
+    });
   return filterList;
+};
+
+/**
+ * Sets modal state to closed
+ *
+ * @private
+ */
+export const _close = setIsOpen => {
+  setIsOpen(false);
+  const footerBtn = document.querySelector(
+    `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
+  );
+  setTimeout(() => {
+    footerBtn?.focus();
+  }, 100);
 };
 
 export default LocaleModal;
