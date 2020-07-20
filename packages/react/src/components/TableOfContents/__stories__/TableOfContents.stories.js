@@ -5,35 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
 import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import TableOfContents from '../TableOfContents';
-
-const defaultMenuItems = [
-  {
-    title: 'Cras molestie condimentum',
-    id: '8',
-  },
-  {
-    title: 'Praesent fermentum sodales',
-    id: '7',
-  },
-  {
-    title: 'Nulla tristique lacinia',
-    id: '2',
-  },
-  {
-    title: 'Morbi id nibh metus',
-    id: '3',
-  },
-  {
-    title: 'Integer non scelerisque',
-    id: '14',
-  },
-];
 
 const sources = [
   {
@@ -84,9 +61,8 @@ ManuallyDefineMenuItems.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        menuItems: object('menuItems', defaultMenuItems, groupId),
-        menuLabel: text('menu label', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule', false, groupId),
+        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
+        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
       }),
     },
   },
@@ -100,7 +76,7 @@ DynamicItems.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        menuLabel: text('menu label', 'Jump to', groupId),
+        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
       }),
     },
   },
@@ -114,9 +90,8 @@ WithHeadingContent.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        menuItems: object('menuItems', defaultMenuItems, groupId),
-        menuLabel: text('menu label', 'Jump to', groupId),
-        menuRule: boolean('Optional Rule', false, groupId),
+        menuLabel: text('Menu label (menuLabel)', 'Jump to', groupId),
+        menuRule: boolean('Optional Rule (menuRule)', false, groupId),
         headingContent: (
           <Image
             sources={sources}
