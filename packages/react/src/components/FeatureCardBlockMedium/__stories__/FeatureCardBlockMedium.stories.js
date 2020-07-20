@@ -35,18 +35,10 @@ export default {
               'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
               groupId
             ),
-            alt: text(
-              'Image alt text (alt):',
-              'Image alt text',
-              groupId
-            ),
+            alt: text('Image alt text (alt):', 'Image alt text', groupId),
           },
           cta: {
-            href: text(
-              'Card href (href):',
-              'https://www.example.com',
-              groupId
-            ),
+            href: text('Card href (href):', 'https://www.example.com', groupId),
             icon: {
               src: ArrowRight20,
             },
