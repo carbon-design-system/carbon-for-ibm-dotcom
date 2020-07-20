@@ -25,25 +25,25 @@ export default {
         ),
         card: {
           heading: text(
-            'Card Heading (card.heading):',
+            'Card Heading (heading):',
             'Explore AI use cases in all industries',
             groupId
           ),
           image: {
             defaultSrc: text(
-              'Image src (card.image.defaultSrc):',
+              'Image src (defaultSrc):',
               'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
               groupId
             ),
             alt: text(
-              'Image alt text (card.image.alt):',
+              'Image alt text (alt):',
               'Image alt text',
               groupId
             ),
           },
           cta: {
             href: text(
-              'Card href (card.cta.href):',
+              'Card href (href):',
               'https://www.example.com',
               groupId
             ),
