@@ -45900,55 +45900,55 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company A",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company B",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company C",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company D",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company E",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company F",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company G",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company H",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company I",
                 },
               ]
@@ -46012,7 +46012,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company A"
                                 >
                                   <div
@@ -46024,7 +46024,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-70"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46053,7 +46053,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company B"
                                 >
                                   <div
@@ -46065,7 +46065,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-71"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46094,7 +46094,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company C"
                                 >
                                   <div
@@ -46106,7 +46106,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-72"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46135,7 +46135,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company D"
                                 >
                                   <div
@@ -46147,7 +46147,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-73"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46176,7 +46176,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company E"
                                 >
                                   <div
@@ -46188,7 +46188,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-74"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46217,7 +46217,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company F"
                                 >
                                   <div
@@ -46229,7 +46229,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-75"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46258,7 +46258,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company G"
                                 >
                                   <div
@@ -46270,7 +46270,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-76"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46299,7 +46299,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company H"
                                 >
                                   <div
@@ -46311,7 +46311,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-77"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
@@ -46340,7 +46340,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company I"
                                 >
                                   <div
@@ -46352,7 +46352,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                         alt="Image alt text"
                                         aria-describedby="bx--image-78"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
