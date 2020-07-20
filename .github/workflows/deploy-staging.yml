@@ -20,11 +20,15 @@ jobs:
         uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
-      - name: Building @carbon/ibmdotcom-react storybook
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/react/.env
         env:
           CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+      - name: Building @carbon/ibmdotcom-react storybook
         run: yarn build-storybook
         working-directory: packages/react
       - name: Logging into IBM Cloud
@@ -51,11 +55,15 @@ jobs:
         uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
-      - name: Building @carbon/ibmdotcom-web-components (staging) storybook
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
         env:
           CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+      - name: Building @carbon/ibmdotcom-web-components (staging) storybook
         run: yarn build-storybook
         working-directory: packages/web-components
       - name: Logging into IBM Cloud
@@ -82,11 +90,15 @@ jobs:
         uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
-      - name: Building @carbon/ibmdotcom-vanilla storybook
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/vanilla/.env
         env:
           CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+      - name: Building @carbon/ibmdotcom-vanilla storybook
         run: yarn build-storybook
         working-directory: packages/vanilla
       - name: Logging into IBM Cloud
