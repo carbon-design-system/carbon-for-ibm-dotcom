@@ -38192,19 +38192,19 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
             image={
               Object {
                 "alt": "image with caption image",
-                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
-                    "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
                   },
                   Object {
                     "breakpoint": "md",
-                    "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/400x200/ee5396/161616&text=2x1",
                   },
                   Object {
                     "breakpoint": "lg",
-                    "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                   },
                 ],
               }
@@ -38223,20 +38223,20 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
               >
                 <Image
                   alt="image with caption image"
-                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                   sources={
                     Array [
                       Object {
                         "breakpoint": "sm",
-                        "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
                       },
                       Object {
                         "breakpoint": "md",
-                        "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/400x200/ee5396/161616&text=2x1",
                       },
                       Object {
                         "breakpoint": "lg",
-                        "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                       },
                     ]
                   }
@@ -38249,22 +38249,22 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                       <source
                         key="0"
                         media="(min-width: 1056px)"
-                        srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                       />
                       <source
                         key="1"
                         media="(min-width: 672px)"
-                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/400x200/ee5396/161616&text=2x1"
                       />
                       <source
                         key="2"
                         media="(min-width: 320px)"
-                        srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2x1"
                       />
                       <img
                         alt="image with caption image"
                         className="bx--image__img"
-                        src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                        src="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                       />
                     </picture>
                   </div>
