@@ -20,13 +20,13 @@ const _url =
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=patterns-sections-cardsectionimages--default';
+const _path = '/iframe.html?id=components-cardsectionimages--default';
 
 describe('CardSectionImages', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    browser.pause(5000);
   });
 
   it('should open to a different url', () => {
