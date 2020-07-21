@@ -611,6 +611,8 @@ _  */
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonLabelActive)}"
           button-label-inactive="${ifNonNull(menuButtonLabelInactive)}"
+          button-label="Open menu"
+          title="Open menu"
         >
         </dds-masthead-menu-button>
         <dds-masthead-logo href="javascript:void 0"></dds-masthead-logo>
