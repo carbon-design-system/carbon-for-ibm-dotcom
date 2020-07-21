@@ -16,8 +16,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -31,16 +29,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-react storybook
         run: yarn build-storybook
         working-directory: packages/react
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-react storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-react storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-react-canary
           cf-manifest: manifest-canary.yml
-          package-to-deploy: react
+          deploy-dir: packages/react
   react-experimental:
     runs-on: ubuntu-latest
     steps:
@@ -51,8 +49,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -67,16 +63,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-react (experimental) storybook
         run: yarn build-storybook
         working-directory: packages/react
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-react (experimental) storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-react (experimental) storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-react-experimental
           cf-manifest: manifest-experimental.yml
-          package-to-deploy: react
+          deploy-dir: packages/react
   react-rtl:
     runs-on: ubuntu-latest
     steps:
@@ -87,8 +83,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -103,16 +97,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-react (RTL) storybook
         run: yarn build-storybook
         working-directory: packages/react
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-react (RTL) storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-react (RTL) storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-react-rtl
           cf-manifest: manifest-rtl.yml
-          package-to-deploy: react
+          deploy-dir: packages/react
   web-components:
     runs-on: ubuntu-latest
     steps:
@@ -123,8 +117,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -138,16 +130,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-web-components storybook
         run: yarn build-storybook
         working-directory: packages/web-components
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-web-components storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-web-components storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-web-components-canary
           cf-manifest: manifest-canary.yml
-          package-to-deploy: web-components
+          deploy-dir: packages/web-components
   services:
     runs-on: ubuntu-latest
     steps:
@@ -158,8 +150,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -173,16 +163,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-services JSDocs
         run: yarn jsdoc
         working-directory: packages/services
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-services JSDocs to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-services JSDocs to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-services
           cf-manifest: manifest.yml
-          package-to-deploy: services
+          deploy-dir: packages/services
   utilities:
     runs-on: ubuntu-latest
     steps:
@@ -193,8 +183,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -208,16 +196,16 @@ jobs:
       - name: Building @carbon/ibmdotcom-utilities JSDocs
         run: yarn jsdoc
         working-directory: packages/utilities
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-utilities JSDocs to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-utilities JSDocs to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-utilities
           cf-manifest: manifest.yml
-          package-to-deploy: utilities
+          deploy-dir: packages/utilities
   carbon-expressive:
     runs-on: ubuntu-latest
     steps:
@@ -228,8 +216,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -243,16 +229,16 @@ jobs:
       - name: Building Carbon expressive storybook
         run: yarn build-storybook
         working-directory: packages/styles
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying Carbon expressive storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying Carbon expressive storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: carbon-expressive
           cf-manifest: manifest.yml
-          package-to-deploy: styles
+          deploy-dir: packages/styles
   vanilla:
     runs-on: ubuntu-latest
     steps:
@@ -263,8 +249,6 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: yarn install --offline
-      - name: Install IBM Cloud CLI
-        uses: ./.github/actions/install-ibmcloud-cli
       - name: Build project
         run: yarn build
       - name: Set env vars
@@ -278,13 +262,13 @@ jobs:
       - name: Building @carbon/ibmdotcom-vanilla storybook
         run: yarn build-storybook
         working-directory: packages/vanilla
-      - name: Logging into IBM Cloud
-        uses: ./.github/actions/login-ibmcloud
+      - name: Deploying @carbon/ibmdotcom-vanilla storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Deploying @carbon/ibmdotcom-vanilla storybook to IBM Cloud
-        uses: ./.github/actions/deploy-ibmcloud
-        with:
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
           cf-app: ibmdotcom-vanilla
           cf-manifest: manifest-canary.yml
-          package-to-deploy: vanilla
+          deploy-dir: packages/vanilla
