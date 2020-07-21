@@ -41,7 +41,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "yarn test:unit && yarn test:integration",
     "test:unit": "gulp test:unit",
-    "test:integration": "yarn yarn test:integration:ui",
+    "test:integration": "yarn test:integration:ui",
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
