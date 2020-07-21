@@ -86,15 +86,8 @@
     margin-bottom: $carbon--spacing-07;
   }
 
-  .#{$prefix}--image-with-caption--inverse {
-    background-color: $inverse-02;
-  }
-  .#{$prefix}--image-with-caption--inverse
-    .#{$prefix}--image__caption--inverse {
-    color: $text-04;
-  }
 
-  .#{$prefix}--image__caption--inverse {
+  .#{$prefix}--image__caption--text {
     @include carbon--type-style('body-short-01', true);
 
     margin-top: $carbon--spacing-03;

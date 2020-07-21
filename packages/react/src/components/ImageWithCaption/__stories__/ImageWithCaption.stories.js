@@ -6,13 +6,9 @@
  */
 
 import { boolean, object, text } from '@storybook/addon-knobs';
-import cx from 'classnames';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
 
 export default {
   title: 'Components|ImageWithCaption',
@@ -45,9 +41,6 @@ export default {
           },
           groupId
         ),
-
-        inverse: boolean('inverse', false, groupId),
-
         copy: text('copy', 'This is a description of the image.', groupId),
         lightbox: boolean('lightbox', true, groupId),
       }),
@@ -56,19 +49,15 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, image, inverse, copy, lightbox } =
+  const { heading, image, copy, lightbox } =
     parameters?.props?.ImageWithCaption ?? {};
 
   return (
-    <div
-      className={cx('bx--grid', {
-        [`${prefix}--image-with-caption--inverse`]: inverse,
-      })}>
+    <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <ImageWithCaption
             copy={copy}
-            inverse={inverse}
             image={image}
             heading={heading}
             lightbox={lightbox}
