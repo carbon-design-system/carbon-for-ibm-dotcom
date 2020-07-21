@@ -6,5 +6,4 @@ applications:
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
     routes:
       - route: ibmdotcom-vanilla-staging.mybluemix.net
-      - route: ibmdotcom-vanilla-staging-temp.mybluemix.net
 

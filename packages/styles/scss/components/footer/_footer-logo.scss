@@ -36,25 +36,18 @@
         margin-top: -1 * $logo-padding;
         margin-left: -1 * $logo-padding;
         padding: $logo-padding;
-        display: block;
+        display: inline-block;
 
         &:focus {
           outline: none;
           box-shadow: inset 0 0 0 2px $focus;
         }
-
-        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
-          max-width: $logo-size;
-        }
-
-        @include carbon--breakpoint('lg') {
-          min-width: $logo-size;
-        }
       }
 
       &__logo {
         fill: currentColor;
-        display: block;
+        display: inline-block;
+        width: 128px;
       }
     }
   }

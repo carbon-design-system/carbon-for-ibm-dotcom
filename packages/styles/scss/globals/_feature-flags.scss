@@ -24,9 +24,7 @@ $dds-feature-flags: () !default;
 /// @access private
 /// @type Map
 /// @group dds-feature-flags
-$dds-default-feature-flags: (
-  carbon-expressive-experimental: false,
-);
+$dds-default-feature-flags: ();
 
 /// @access private
 /// @type Bool

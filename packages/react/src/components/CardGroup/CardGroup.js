@@ -8,6 +8,7 @@
 import React, { useEffect, useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
+import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
@@ -35,11 +36,15 @@ const CardGroup = ({ cards, cta }) => {
       const { current: containerNode } = containerRef;
       if (containerNode) {
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__heading`),
+          containerNode.getElementsByClassName(
+            `:not(.${prefix}--card__video) ${prefix}--card__heading`
+          ),
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__copy`),
+          containerNode.getElementsByClassName(
+            `:not(.${prefix}--card__video) ${prefix}--card__copy`
+          ),
           'md'
         );
         sameHeight(
@@ -47,7 +52,7 @@ const CardGroup = ({ cards, cta }) => {
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card`),
+          containerNode.getElementsByClassName(`${prefix}--card--link`),
           'md'
         );
       }
@@ -77,19 +82,22 @@ const _renderCards = (cards, containerRef, cta) => (
           className={`${prefix}--card-group__cards__col`}
           role="region"
           aria-label={card.heading}>
-          <Card
+          <CTA
+            style="card"
             key={index}
             customClassName={`${prefix}--card-group__card`}
             image={card.image}
+            media={card.media}
             heading={card.heading}
             eyebrow={card.eyebrow}
             copy={card.copy}
             cta={{
-              href: card.cta.href,
+              ...card.cta,
               icon: {
                 src: ArrowRight20,
               },
             }}
+            type={card.media ? 'video' : 'link'}
           />
         </div>
       );
@@ -149,6 +157,12 @@ CardGroup.propTypes = {
               PropTypes.string,
               PropTypes.number,
             ]),
+          })
+        ),
+        media: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            type: PropTypes.string,
           })
         ),
         defaultSrc: PropTypes.string.isRequired,

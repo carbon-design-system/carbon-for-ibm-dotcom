@@ -47,6 +47,15 @@
 
 :host(#{$dds-prefix}-masthead-search) {
   outline: none;
+
+  .#{$dds-prefix}-ce--masthead__search__list {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &[open] .#{$dds-prefix}-ce--masthead__search__list {
+    height: auto;
+  }
 }
 
 :host(#{$dds-prefix}-masthead-search-item) {
