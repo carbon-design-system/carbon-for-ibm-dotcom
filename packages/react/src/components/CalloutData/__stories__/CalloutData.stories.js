@@ -49,7 +49,6 @@ export const Default = !DDS_CALLOUT_DATA
       } else {
         data = parameters.props.CalloutData.props.data;
       }
-      console.log();
       return (
         <div className="bx--grid">
           <div className="bx--row">
