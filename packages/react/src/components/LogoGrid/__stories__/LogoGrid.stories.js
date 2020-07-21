@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
@@ -19,7 +19,7 @@ export default {
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: text('Heading (heading)', 'Our customers', groupId),
-        logosGroup: object('Data', logos, groupId),
+        logosGroup: logos,
         ctaCopy: text(
           'CTA Copy (ctaCopy)',
           'Lorem ipsum dolor sit amet',
