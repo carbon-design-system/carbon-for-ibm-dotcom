@@ -40,11 +40,24 @@ export default !DDS_CALLOUT_DATA
 export const Default = !DDS_CALLOUT_DATA
   ? undefined
   : ({ parameters }) => {
+      let data;
+      if (parameters.props.CalloutData.props.data.includes('%20')) {
+        data = parameters.props.CalloutData.props.data
+          .split('%20')
+          .map(elem => `${elem} `)
+          .join('');
+      } else {
+        data = parameters.props.CalloutData.props.data;
+      }
+      console.log();
       return (
         <div className="bx--grid">
           <div className="bx--row">
             <div className="bx--offset-lg-4 bx--col-lg-12">
-              <CalloutData {...parameters.props.CalloutData.props} />
+              <CalloutData
+                {...parameters.props.CalloutData.props}
+                data={data}
+              />
             </div>
           </div>
         </div>
