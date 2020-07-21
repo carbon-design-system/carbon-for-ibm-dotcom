@@ -63,7 +63,7 @@ const ImageWithCaption = ({
         <Image {...image} />
       )}
       <p
-        className={`${prefix}--image__caption--text`}
+        className={`${prefix}--image__caption`}
         data-autoid={`${stablePrefix}--image__caption`}>
         {heading}
       </p>

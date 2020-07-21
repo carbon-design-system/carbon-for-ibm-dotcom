@@ -76,18 +76,7 @@
     }
   }
 
-  // can we set 2x1 ratio here?
-
   .#{$prefix}--image__caption {
-    @include carbon--type-style('caption-01');
-
-    color: $text-05;
-    margin-top: $carbon--spacing-03;
-    margin-bottom: $carbon--spacing-07;
-  }
-
-
-  .#{$prefix}--image__caption--text {
     @include carbon--type-style('body-short-01', true);
 
     margin-top: $carbon--spacing-03;
