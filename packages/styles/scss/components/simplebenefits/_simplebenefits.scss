@@ -1,0 +1,107 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+}
+
+@mixin simplebenefits {
+  .#{$prefix}--simplebenefits {
+    padding-top: $carbon--layout-05;
+
+    @include carbon--breakpoint(sm) {
+      padding-bottom: $carbon--layout-05;
+    }
+
+    @include carbon--breakpoint(md) {
+      padding-bottom: $carbon--layout-06;
+    }
+
+    @include carbon--breakpoint(lg) {
+      padding-bottom: $carbon--layout-04;
+    }
+
+    &--multirow {
+      @include carbon--breakpoint(lg) {
+        padding-bottom: $carbon--layout-07;
+        .#{$prefix}--simplebenefits__content-item {
+          padding-bottom: $carbon--layout-03;
+        }
+      }
+    }
+
+    &__container {
+      @include carbon--make-container;
+    }
+
+    &__row {
+      @include carbon--make-row;
+    }
+
+    &__title {
+      padding-left: $carbon--layout-01;
+      padding-right: $carbon--layout-01;
+      @include carbon--type-style('heading-02');
+      @include carbon--breakpoint(sm) {
+        margin-bottom: $carbon--layout-05;
+        @include carbon--make-col(4, 4);
+      }
+      @include carbon--breakpoint(md) {
+        margin-bottom: 0;
+        @include carbon--make-col(4, 16);
+      }
+      &-container {
+        height: 100%;
+        max-width: 80%;
+        @include carbon--breakpoint-down(lg) {
+          max-width: none;
+        }
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
+      }
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col(12, 16);
+      }
+    }
+  }
+
+  .#{$prefix}--simplebenefits--g100 {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--simplebenefits--g90 {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--simplebenefits--g10 {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include themed-items;
+    }
+  }
+}
+
+@include exports('simplebenefits') {
+  @include simplebenefits;
+}

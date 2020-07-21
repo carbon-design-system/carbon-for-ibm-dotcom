@@ -9,7 +9,6 @@
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
-@import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
@@ -60,30 +59,49 @@
       color: $interactive-04;
     }
 
+    &__cta__copy {
+      margin-right: $carbon--spacing-03;
+      color: $interactive-04;
+      @include carbon--type-style('body-short-02');
+    }
+
     &__footer {
+      display: flex;
       margin-top: auto;
+
+      &__copy {
+        margin-bottom: -$carbon--spacing-01;
+      }
 
       svg {
         fill: currentColor;
         display: block;
+        align-self: center;
       }
     }
-    &__CTA {
-      max-width: carbon--mini-units(40);
 
-      .#{$prefix}--card__copy p {
-        @include carbon--type-style('expressive-heading-02');
+    &__footer__icon-left {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+
+      .#{$prefix}--card__cta {
+        margin-right: $carbon--spacing-03;
       }
 
-      &:focus,
-      &:active {
-        position: relative;
-        z-index: 2;
+      .#{$prefix}--card__cta__copy {
+        margin-right: 0;
+      }
+    }
 
-        .#{$prefix}--image__img {
-          position: relative;
-          z-index: -1;
-        }
+    &:focus,
+    &:visited,
+    &:active {
+      position: relative;
+      z-index: 2;
+
+      .#{$prefix}--image {
+        position: relative;
+        z-index: -1;
       }
     }
 
@@ -116,17 +134,9 @@
     }
 
     &__video {
-      .#{$prefix}--card__footer {
-        display: flex;
-      }
-
       .#{$prefix}--card__footer span {
         color: $text-02;
         @include carbon--type-style('body-short-01');
-      }
-
-      .#{$prefix}--card__cta {
-        margin-right: $carbon--spacing-03;
       }
     }
   }
@@ -143,13 +153,14 @@
       color: $text-03;
     }
 
-    &.#{$prefix}--card--link:hover {
+    &:hover {
       background-color: $inverse-hover-ui;
     }
 
     .#{$prefix}--card__cta,
     .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited {
+    .#{$prefix}--card__cta a:visited,
+    .#{$prefix}--card__cta__copy {
       color: $inverse-link;
     }
   }

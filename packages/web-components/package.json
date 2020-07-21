@@ -1,11 +1,16 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "0.1.0",
+  "version": "0.2.0-rc.0",
   "description": "IBM.com Library Web Components",
   "license": "Apache-2.0",
   "main": "es/index.js",
   "module": "es/index.js",
   "typings": "es/index.d.ts",
+  "exports": {
+    "./es/": "./es/",
+    "./custom-elements.json": "./custom-elements.json",
+    "./package.json": "./package.json"
+  },
   "files": [
     "es/**/*",
     "scss/**/*",
@@ -49,11 +54,11 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.8.0",
-    "@carbon/ibmdotcom-styles": "1.8.0",
-    "@carbon/ibmdotcom-utilities": "1.8.0",
-    "carbon-components": "10.14.0",
-    "carbon-custom-elements": "1.1.0",
+    "@carbon/ibmdotcom-services": "1.9.0-rc.0",
+    "@carbon/ibmdotcom-styles": "1.9.0-rc.0",
+    "@carbon/ibmdotcom-utilities": "1.9.0-rc.0",
+    "carbon-components": "10.15.0",
+    "carbon-custom-elements": "1.1.1",
     "lodash-es": "^4.17.0"
   },
   "devDependencies": {

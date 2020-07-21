@@ -63,6 +63,10 @@ Once you do that, you can use our components in the same manner as native HTML t
 </dds-link-with-icon>
 ```
 
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/modal)
+> example implementation.
+
 ## Browser support
 
 Based on [ibm.com browser support](https://www.ibm.com/standards/web/browser-support/):

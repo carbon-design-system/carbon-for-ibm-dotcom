@@ -1,0 +1,41 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ExpressiveModal from './ExpressiveModal';
+
+# Card Link
+
+<Preview withToolbar>
+  <Story id="components-card-link--default" height="120px" />
+</Preview>
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/card-link)
+> example implementation.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link';
+import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
+```
+
+##### HTML
+
+```html
+<dds-card-link href="https://example.com">
+  <p>Copy text</p>
+  <svg slot="footer" />
+</dds-card-link>
+```
+
+## Props
+
+<Props of="dds-card-link" />
+
+## Contributing
+
+<Description markdown={contributing} />

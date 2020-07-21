@@ -15,6 +15,10 @@
       }
     }
 
+    .#{$prefix}--content-group {
+      margin-bottom: $layout-05;
+    }
+
     &__item:last-child {
       .#{$prefix}--content-item {
         margin-bottom: 0;

@@ -1,0 +1,89 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import FeatureCardBlockLarge from './FeatureCardBlockLarge';
+
+# Feature Card Block Large
+
+> The Feature Card Block Large pattern is to be utilized within IBM.com.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/FeatureCardBlockLarge)
+> example implementation.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/feature-card-block-large/feature-card-block-large.scss';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the
+> FeatureCardBlockLarge styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { FeatureCardBlockLarge } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+const heading = 'Lorem ipsum dolor sit amet.';
+const card = [
+  {
+    cta: {
+      href: 'https://www.example.com',
+    },
+    image: {
+      defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+      alt: 'Image alt text',
+    },
+  },
+];
+function App() {
+  return (
+    <FeatureCardBlockLarge
+      eyebrow={eyebrow}
+      heading={heading}
+      copy={copy}
+      cta={cta}
+      image={image}
+    />
+  );
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Don't forget to import the FeatureCardBlockLarge styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+<Props of={FeatureCardBlockLarge} />
+
+## Stable selectors
+
+| Name                            | Description |
+| ------------------------------- | ----------- |
+| `dds--feature-card-block-large` | Component   |
+
+## Image Assets
+
+Note that the `<FeatureCardBlockLarge />` uses custom breakpoints depending if
+`copy` prop has been passed in. If there is a copy, please pass a 1:1 ratio
+image for the 991px breakpoint. If there is no copy, please pass in a 1:1 ratio
+image for the 751px breakpoint. For an example of this, take a look at
+`FeatureCardBlockLarge`'s image prop in the story.
+
+<Description markdown={contributing} />
