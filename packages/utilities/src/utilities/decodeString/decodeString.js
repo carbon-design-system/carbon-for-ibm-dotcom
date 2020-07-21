@@ -21,7 +21,16 @@
  */
 function decodeString(str) {
   const div = document.createElement('div');
-  div.innerHTML = str;
+  let targetText;
+  if (str.includes('%20')) {
+    targetText = str
+      .split('%20')
+      .map(elem => `${elem} `)
+      .join('');
+  } else {
+    targetText = str;
+  }
+  div.innerHTML = targetText;
   return div.textContent;
 }
 
