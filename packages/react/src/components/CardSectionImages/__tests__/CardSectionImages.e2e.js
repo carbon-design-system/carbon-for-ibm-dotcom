@@ -26,7 +26,7 @@ describe('CardSectionImages', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    browser.pause(5000);
+    $('[data-autoid="dds--card-group-images-group"]').waitForExist();
   });
 
   it('should open to a different url', () => {
@@ -63,7 +63,7 @@ describe('CardSectionImages: Heading', () => {
       '&knob-Heading%20(heading):_CardSectionImages=Serving%20society%20ethically%20in%20the%20age%20of%20Artificial%20Intelligence.';
     browser.url(_url + _path + query);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    $('[data-autoid="dds--card-group-images-group"]').waitForExist();
   });
 
   it('should set the heading correctly', () => {

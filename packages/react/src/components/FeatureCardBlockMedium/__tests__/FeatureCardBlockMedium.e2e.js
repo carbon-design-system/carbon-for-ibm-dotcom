@@ -26,7 +26,7 @@ describe('FeatureCardBlockMedium', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    browser.pause(5000);
+    $('[data-autoid="dds--feature-card-block-medium"]').waitForExist(5000);
   });
 
   it('should have the correct top margin', () => {
