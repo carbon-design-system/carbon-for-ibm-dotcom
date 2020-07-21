@@ -26859,10 +26859,324 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
               }
             }
             heading="Curabitur malesuada varius mi eu posuere"
-            inverse={false}
+          >
+            <div
+              className="bx--content-block-simple"
+              data-autoid="dds--content-block-simple"
+            >
+              <ContentBlock
+                border={false}
+                cta={
+                  Object {
+                    "copy": "Lorem ipsum dolor sit ametttt",
+                    "cta": Object {
+                      "href": "https://www.ibm.com",
+                    },
+                    "style": "card",
+                    "type": "local",
+                  }
+                }
+                heading="Curabitur malesuada varius mi eu posuere"
+              >
+                <div
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
+                >
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Curabitur malesuada varius mi eu posuere
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  >
+                    <div
+                      className="bx--content-block-simple__content"
+                    >
+                      <ContentItem
+                        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:
+
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
+"
+                      >
+                        <div
+                          className="bx--content-item"
+                          data-autoid="dds--content-item"
+                        >
+                          <div
+                            className="bx--content-item__copy"
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                              }
+                            }
+                            data-autoid="dds--content-item__copy"
+                          />
+                        </div>
+                      </ContentItem>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-block__cta-row"
+                    data-autoid="dds--content-block__cta"
+                  >
+                    <CTA
+                      copy="Lorem ipsum dolor sit ametttt"
+                      cta={
+                        Object {
+                          "href": "https://www.ibm.com",
+                        }
+                      }
+                      customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
+                      style="card"
+                      type="local"
+                    >
+                      <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
+                        className="bx--content-block__cta bx--content-block__cta-col"
+                        role="region"
+                      >
+                        <CardCTA
+                          copy="Lorem ipsum dolor sit ametttt"
+                          cta={
+                            Object {
+                              "href": "https://www.ibm.com",
+                            }
+                          }
+                          disableImage={false}
+                          href=""
+                          media={null}
+                          openLightBox={[Function]}
+                          renderLightBox={false}
+                          style="card"
+                          type="local"
+                          videoTitle={
+                            Array [
+                              Object {
+                                "duration": "",
+                                "key": 0,
+                                "title": "",
+                              },
+                            ]
+                          }
+                        >
+                          <CardLink
+                            card={
+                              Object {
+                                "copy": "Lorem ipsum dolor sit ametttt",
+                                "cta": Object {
+                                  "href": "https://www.ibm.com",
+                                  "icon": Object {
+                                    "src": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    },
+                                  },
+                                  "type": "local",
+                                },
+                                "href": "",
+                                "media": null,
+                                "target": null,
+                              }
+                            }
+                            disabled={false}
+                          >
+                            <Card
+                              copy="Lorem ipsum dolor sit ametttt"
+                              cta={
+                                Object {
+                                  "href": "https://www.ibm.com",
+                                  "icon": Object {
+                                    "src": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    },
+                                  },
+                                  "type": "local",
+                                }
+                              }
+                              customClassName="bx--card__CTA"
+                              disabled={false}
+                              href=""
+                              media={null}
+                              target={null}
+                            >
+                              <ClickableTile
+                                className="bx--card bx--card__CTA"
+                                clicked={false}
+                                data-autoid="dds--card"
+                                disabled={false}
+                                handleClick={[Function]}
+                                handleKeyDown={[Function]}
+                                href=""
+                                light={false}
+                                media={null}
+                                onClick={[Function]}
+                                target={null}
+                              >
+                                <a
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
+                                  data-autoid="dds--card"
+                                  disabled={false}
+                                  href=""
+                                  media={null}
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  target={null}
+                                >
+                                  <div
+                                    className="bx--card__wrapper"
+                                  >
+                                    <div
+                                      className="bx--card__copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                        }
+                                      }
+                                    />
+                                    <div
+                                      className="bx--card__footer"
+                                    >
+                                      <ForwardRef(ArrowRight20)
+                                        className="bx--card__cta"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                      >
+                                        <Icon
+                                          className="bx--card__cta"
+                                          fill="currentColor"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            className="bx--card__cta"
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            src={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              }
+                                            }
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </ForwardRef(ArrowRight20)>
+                                    </div>
+                                  </div>
+                                </a>
+                              </ClickableTile>
+                            </Card>
+                          </CardLink>
+                        </CardCTA>
+                      </div>
+                    </CTA>
+                  </div>
+                </div>
+              </ContentBlock>
+            </div>
+          </ContentBlockSimple>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|ContentBlockSimple With Image 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+        >
+          <ContentBlockSimple
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:
+
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
+"
+            cta={
+              Object {
+                "copy": "Lorem ipsum dolor sit ametttt",
+                "cta": Object {
+                  "href": "https://www.ibm.com",
+                },
+                "style": "card",
+                "type": "local",
+              }
+            }
+            heading="Curabitur malesuada varius mi eu posuere"
             mediaData={
               Object {
-                "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "heading": "Mauris iaculis eget dolor nec hendrerit.",
                 "image": Object {
                   "alt": "Image alt text",
                   "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
@@ -26902,7 +27216,6 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
                   }
                 }
                 heading="Curabitur malesuada varius mi eu posuere"
-                inverse={false}
               >
                 <div
                   className="bx--content-block"
@@ -26938,7 +27251,6 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
   1. list item 2
     - list item 2a
 "
-                        inverse={false}
                       >
                         <div
                           className="bx--content-item"
@@ -26961,7 +27273,7 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
                       >
                         <ImageWithCaption
                           copy=""
-                          heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                          heading="Mauris iaculis eget dolor nec hendrerit."
                           image={
                             Object {
                               "alt": "Image alt text",
@@ -27041,10 +27353,386 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
                               className="bx--image__caption--inverse"
                               data-autoid="dds--image__caption"
                             >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                              Mauris iaculis eget dolor nec hendrerit.
                             </p>
                           </div>
                         </ImageWithCaption>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-block__cta-row"
+                    data-autoid="dds--content-block__cta"
+                  >
+                    <CTA
+                      copy="Lorem ipsum dolor sit ametttt"
+                      cta={
+                        Object {
+                          "href": "https://www.ibm.com",
+                        }
+                      }
+                      customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
+                      style="card"
+                      type="local"
+                    >
+                      <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
+                        className="bx--content-block__cta bx--content-block__cta-col"
+                        role="region"
+                      >
+                        <CardCTA
+                          copy="Lorem ipsum dolor sit ametttt"
+                          cta={
+                            Object {
+                              "href": "https://www.ibm.com",
+                            }
+                          }
+                          disableImage={false}
+                          href=""
+                          media={null}
+                          openLightBox={[Function]}
+                          renderLightBox={false}
+                          style="card"
+                          type="local"
+                          videoTitle={
+                            Array [
+                              Object {
+                                "duration": "",
+                                "key": 0,
+                                "title": "",
+                              },
+                            ]
+                          }
+                        >
+                          <CardLink
+                            card={
+                              Object {
+                                "copy": "Lorem ipsum dolor sit ametttt",
+                                "cta": Object {
+                                  "href": "https://www.ibm.com",
+                                  "icon": Object {
+                                    "src": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    },
+                                  },
+                                  "type": "local",
+                                },
+                                "href": "",
+                                "media": null,
+                                "target": null,
+                              }
+                            }
+                            disabled={false}
+                          >
+                            <Card
+                              copy="Lorem ipsum dolor sit ametttt"
+                              cta={
+                                Object {
+                                  "href": "https://www.ibm.com",
+                                  "icon": Object {
+                                    "src": Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    },
+                                  },
+                                  "type": "local",
+                                }
+                              }
+                              customClassName="bx--card__CTA"
+                              disabled={false}
+                              href=""
+                              media={null}
+                              target={null}
+                            >
+                              <ClickableTile
+                                className="bx--card bx--card__CTA"
+                                clicked={false}
+                                data-autoid="dds--card"
+                                disabled={false}
+                                handleClick={[Function]}
+                                handleKeyDown={[Function]}
+                                href=""
+                                light={false}
+                                media={null}
+                                onClick={[Function]}
+                                target={null}
+                              >
+                                <a
+                                  className="bx--tile bx--tile--clickable bx--card bx--card__CTA"
+                                  data-autoid="dds--card"
+                                  disabled={false}
+                                  href=""
+                                  media={null}
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  target={null}
+                                >
+                                  <div
+                                    className="bx--card__wrapper"
+                                  >
+                                    <div
+                                      className="bx--card__copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                        }
+                                      }
+                                    />
+                                    <div
+                                      className="bx--card__footer"
+                                    >
+                                      <ForwardRef(ArrowRight20)
+                                        className="bx--card__cta"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                      >
+                                        <Icon
+                                          className="bx--card__cta"
+                                          fill="currentColor"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            className="bx--card__cta"
+                                            fill="currentColor"
+                                            focusable="false"
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            src={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              }
+                                            }
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </ForwardRef(ArrowRight20)>
+                                    </div>
+                                  </div>
+                                </a>
+                              </ClickableTile>
+                            </Card>
+                          </CardLink>
+                        </CardCTA>
+                      </div>
+                    </CTA>
+                  </div>
+                </div>
+              </ContentBlock>
+            </div>
+          </ContentBlockSimple>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|ContentBlockSimple With Video 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+        >
+          <ContentBlockSimple
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:
+
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
+"
+            cta={
+              Object {
+                "copy": "Lorem ipsum dolor sit ametttt",
+                "cta": Object {
+                  "href": "https://www.ibm.com",
+                },
+                "style": "card",
+                "type": "local",
+              }
+            }
+            heading="Curabitur malesuada varius mi eu posuere"
+            mediaData={
+              Object {
+                "showCaption": true,
+                "videoId": "0_uka1msg4",
+              }
+            }
+            mediaType="video"
+          >
+            <div
+              className="bx--content-block-simple"
+              data-autoid="dds--content-block-simple"
+            >
+              <ContentBlock
+                border={false}
+                cta={
+                  Object {
+                    "copy": "Lorem ipsum dolor sit ametttt",
+                    "cta": Object {
+                      "href": "https://www.ibm.com",
+                    },
+                    "style": "card",
+                    "type": "local",
+                  }
+                }
+                heading="Curabitur malesuada varius mi eu posuere"
+              >
+                <div
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
+                >
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Curabitur malesuada varius mi eu posuere
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  >
+                    <div
+                      className="bx--content-block-simple__content"
+                    >
+                      <ContentItem
+                        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:
+
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
+"
+                      >
+                        <div
+                          className="bx--content-item"
+                          data-autoid="dds--content-item"
+                        >
+                          <div
+                            className="bx--content-item__copy"
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                              }
+                            }
+                            data-autoid="dds--content-item__copy"
+                          />
+                        </div>
+                      </ContentItem>
+                      <div
+                        className="bx--content-block-simple__media-video"
+                        data-autoid="dds--content-block-simple__media"
+                      >
+                        <VideoPlayer
+                          autoPlay={false}
+                          showCaption={true}
+                          videoId="0_uka1msg4"
+                        >
+                          <div
+                            aria-label=" (1:00)"
+                            className="bx--video-player"
+                          >
+                            <div
+                              className="bx--video-player__video-container "
+                              data-autoid="dds--video-player__video-0_uka1msg4"
+                            >
+                              <div
+                                className="bx--video-player__video"
+                                id="bx--video-player__video-0_uka1msg4-40"
+                              >
+                                <VideoImageOverlay
+                                  embedVideo={[Function]}
+                                  videoData={
+                                    Object {
+                                      "description": "",
+                                      "name": "",
+                                    }
+                                  }
+                                  videoId="0_uka1msg4"
+                                >
+                                  <button
+                                    className="bx--video-player__image-overlay"
+                                    data-autoid="dds--video-player__image-overlay"
+                                    onClick={[Function]}
+                                  >
+                                    <Image
+                                      alt=""
+                                      defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                                      icon={[Function]}
+                                    />
+                                  </button>
+                                </VideoImageOverlay>
+                              </div>
+                            </div>
+                            <div
+                              className="bx--video-player__video-caption"
+                            >
+                               
+                              (1:00)
+                            </div>
+                          </div>
+                        </VideoPlayer>
                       </div>
                     </div>
                   </div>
@@ -27321,7 +28009,7 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
             heading="Curabitur malesuada varius mi eu posuere"
             mediaData={
               Object {
-                "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "heading": "Mauris iaculis eget dolor nec hendrerit.",
                 "image": Object {
                   "alt": "Image alt text",
                   "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
@@ -27489,7 +28177,7 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                               >
                                 <ImageWithCaption
                                   copy=""
-                                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                  heading="Mauris iaculis eget dolor nec hendrerit."
                                   image={
                                     Object {
                                       "alt": "Image alt text",
@@ -27569,7 +28257,7 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                       className="bx--image__caption--inverse"
                                       data-autoid="dds--image__caption"
                                     >
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                      Mauris iaculis eget dolor nec hendrerit.
                                     </p>
                                   </div>
                                 </ImageWithCaption>
@@ -31723,7 +32411,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--video-player__video"
-                                                          id="bx--video-player__video-0_uka1msg4-42"
+                                                          id="bx--video-player__video-0_uka1msg4-44"
                                                         >
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
@@ -33666,7 +34354,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-0_uka1msg4-47"
+                                                                id="bx--video-player__video-0_uka1msg4-49"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -37171,7 +37859,7 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
         >
           <FeatureCardBlockLarge
             copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -37191,27 +37879,27 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
             image={
               Object {
                 "alt": "Image alt text",
-                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
-                    "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": "md",
-                    "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": 991,
-                    "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                    "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                   },
                   Object {
                     "breakpoint": "lg",
-                    "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                    "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                   },
                   Object {
                     "breakpoint": "xlg",
-                    "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                    "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                   },
                 ],
               }
@@ -37243,27 +37931,27 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                   image={
                     Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                       "sources": Array [
                         Object {
                           "breakpoint": "sm",
-                          "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": "md",
-                          "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": 991,
-                          "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                          "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                         },
                         Object {
                           "breakpoint": "lg",
-                          "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                          "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                         },
                         Object {
                           "breakpoint": "xlg",
-                          "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                          "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                         },
                       ],
                     }
@@ -37292,28 +37980,28 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                       <Image
                         alt="Image alt text"
                         classname="bx--card__img"
-                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                         sources={
                           Array [
                             Object {
                               "breakpoint": "sm",
-                              "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/320x160/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": "md",
-                              "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/400x200/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": 991,
-                              "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                              "src": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
                             },
                             Object {
                               "breakpoint": "lg",
-                              "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                              "src": "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
                             },
                             Object {
                               "breakpoint": "xlg",
-                              "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                              "src": "https://dummyimage.com/672x672/ee5396/161616&text=1:1",
                             },
                           ]
                         }
@@ -37326,32 +38014,32 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                             <source
                               key="0"
                               media="(min-width: 1312px)"
-                              srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                              srcSet="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                             />
                             <source
                               key="1"
                               media="(min-width: 1056px)"
-                              srcSet="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/600x300/ee5396/161616&text=2:1"
                             />
                             <source
                               key="2"
                               media="(min-width: 991px)"
-                              srcSet="https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1"
+                              srcSet="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
                             />
                             <source
                               key="3"
                               media="(min-width: 672px)"
-                              srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/400x200/ee5396/161616&text=2:1"
                             />
                             <source
                               key="4"
                               media="(min-width: 320px)"
-                              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
+                              srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2:1"
                             />
                             <img
                               alt="Image alt text"
                               className="bx--image__img bx--card__img"
-                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                              src="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                             />
                           </picture>
                         </div>
@@ -41367,7 +42055,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-67"
+                                    id="bx--video-player__video-0_uka1msg4-69"
                                   />
                                 </div>
                               </div>
@@ -45212,55 +45900,55 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company A",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company B",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company C",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company D",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company E",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company F",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company G",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company H",
                 },
                 Object {
                   "altText": "Image alt text",
                   "href": "http://example.com/",
-                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1",
+                  "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
                   "label": "Company I",
                 },
               ]
@@ -45324,7 +46012,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company A"
                                 >
                                   <div
@@ -45334,14 +46022,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-68"
+                                        aria-describedby="bx--image-70"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-68"
+                                      id="bx--image-70"
                                     >
                                       Company A
                                     </div>
@@ -45365,7 +46053,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company B"
                                 >
                                   <div
@@ -45375,14 +46063,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-69"
+                                        aria-describedby="bx--image-71"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-69"
+                                      id="bx--image-71"
                                     >
                                       Company B
                                     </div>
@@ -45406,7 +46094,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company C"
                                 >
                                   <div
@@ -45416,14 +46104,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-70"
+                                        aria-describedby="bx--image-72"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-70"
+                                      id="bx--image-72"
                                     >
                                       Company C
                                     </div>
@@ -45447,7 +46135,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company D"
                                 >
                                   <div
@@ -45457,14 +46145,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-71"
+                                        aria-describedby="bx--image-73"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-71"
+                                      id="bx--image-73"
                                     >
                                       Company D
                                     </div>
@@ -45488,7 +46176,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company E"
                                 >
                                   <div
@@ -45498,14 +46186,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-72"
+                                        aria-describedby="bx--image-74"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-72"
+                                      id="bx--image-74"
                                     >
                                       Company E
                                     </div>
@@ -45529,7 +46217,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company F"
                                 >
                                   <div
@@ -45539,14 +46227,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-73"
+                                        aria-describedby="bx--image-75"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-73"
+                                      id="bx--image-75"
                                     >
                                       Company F
                                     </div>
@@ -45570,7 +46258,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company G"
                                 >
                                   <div
@@ -45580,14 +46268,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-74"
+                                        aria-describedby="bx--image-76"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-74"
+                                      id="bx--image-76"
                                     >
                                       Company G
                                     </div>
@@ -45611,7 +46299,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company H"
                                 >
                                   <div
@@ -45621,14 +46309,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-75"
+                                        aria-describedby="bx--image-77"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-75"
+                                      id="bx--image-77"
                                     >
                                       Company H
                                     </div>
@@ -45652,7 +46340,7 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                 <Image
                                   alt="Image alt text"
                                   classname="bx--logo-grid_img"
-                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                  defaultSrc="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                   longDescription="Company I"
                                 >
                                   <div
@@ -45662,14 +46350,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-76"
+                                        aria-describedby="bx--image-78"
                                         className="bx--image__img bx--logo-grid_img"
-                                        src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                        src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-76"
+                                      id="bx--image-78"
                                     >
                                       Company I
                                     </div>
@@ -48920,14 +49608,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-77"
+                            aria-describedby="bx--image-79"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-77"
+                          id="bx--image-79"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -49295,14 +49983,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-78"
+                              aria-describedby="bx--image-80"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-78"
+                            id="bx--image-80"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -49514,7 +50202,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-80"
+                  id="bx--video-player__video-0_uka1msg4-82"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
