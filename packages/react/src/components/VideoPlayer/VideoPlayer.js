@@ -21,7 +21,6 @@ const { prefix } = settings;
  * VideoPlayer component.
  */
 const VideoPlayer = ({
-  inverse,
   showCaption,
   videoId,
   customClassName,
@@ -61,7 +60,6 @@ const VideoPlayer = ({
 
   const classnames = cx(
     `${prefix}--video-player`,
-    { [`${prefix}--video-player--inverse`]: inverse },
     customClassName
   );
 
@@ -123,11 +121,6 @@ VideoPlayer.propTypes = {
    * `true` to show the description.
    */
   showCaption: PropTypes.bool,
-
-  /**
-   * `true` to use the inverse theme.
-   */
-  inverse: PropTypes.bool,
 };
 
 VideoPlayer.defaultProps = {
