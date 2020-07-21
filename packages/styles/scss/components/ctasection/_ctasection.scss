@@ -151,10 +151,6 @@
         padding-bottom: 0;
       }
     }
-
-    @include carbon--breakpoint('lg') {
-      padding-bottom: $carbon--layout-05;
-    }
   }
 
   .#{$prefix}--cta-section--g10 {
