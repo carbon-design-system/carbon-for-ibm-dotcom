@@ -17,7 +17,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.test.{js,ts}", "**/*_steps.js"],
+      "files": ["**/*.test.{js,ts}", "**/*.steps.js"],
       "globals": {
         "describe": true,
         "beforeAll": true,
@@ -28,7 +28,8 @@
         "expect": true,
         "jasmine": true,
         "spyOn": true,
-        "spyOnProperty": true
+        "spyOnProperty": true,
+        "page": true
       },
       "rules": {
         "func-names": 0,
