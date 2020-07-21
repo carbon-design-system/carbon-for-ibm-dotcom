@@ -31,10 +31,7 @@ const ImageWithCaption = ({
   if (!image) {
     return null;
   }
-  const classnames = cx(
-    `${prefix}--image-with-caption`,
-    customClassName
-  );
+  const classnames = cx(`${prefix}--image-with-caption`, customClassName);
 
   const media = {
     type: 'image',

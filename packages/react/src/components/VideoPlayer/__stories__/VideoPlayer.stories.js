@@ -35,8 +35,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio } =
-    parameters?.props?.VideoPlayer ?? {};
+  const { showCaption, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
 
   return (
     <div className="bx--grid">

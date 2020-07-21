@@ -58,10 +58,7 @@ const VideoPlayer = ({
     };
   }, [autoPlay, videoId, videoPlayerId, embedVideo]);
 
-  const classnames = cx(
-    `${prefix}--video-player`,
-    customClassName
-  );
+  const classnames = cx(`${prefix}--video-player`, customClassName);
 
   const aspectRatioClass = cx({
     [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
