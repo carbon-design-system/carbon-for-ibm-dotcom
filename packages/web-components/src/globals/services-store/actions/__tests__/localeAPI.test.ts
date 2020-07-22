@@ -154,7 +154,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action to load display language', async () => {
-    LocaleAPI.getLang.mockResolvedValue('lang-display-foo');
+    LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
     const store = mockStore();
     expect(await store.dispatch(loadLangDisplay())).toBe('lang-display-foo');
     expect(convertValue(store.getActions())).toEqual([
@@ -180,7 +180,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action of error in loading display language', async () => {
-    LocaleAPI.getLang.mockRejectedValue(new Error('error-getlangdisplay'));
+    LocaleAPI.getLangDisplay.mockRejectedValue(new Error('error-getlangdisplay'));
     const store = mockStore();
     let caught;
     try {

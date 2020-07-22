@@ -169,7 +169,7 @@ export function loadLangDisplay(): ThunkAction<Promise<string>, { localeAPI: Loc
     if (requestLangDisplay) {
       return requestLangDisplay;
     }
-    const promiseLangDisplay: Promise<string> = LocaleAPI.getLang();
+    const promiseLangDisplay: Promise<string> = LocaleAPI.getLangDisplay();
     dispatch(setRequestLangDisplayInProgress(promiseLangDisplay));
     try {
       dispatch(setLangDisplay(await promiseLangDisplay));
