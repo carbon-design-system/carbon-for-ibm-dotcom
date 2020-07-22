@@ -121,12 +121,10 @@ export const cardPropTypes = {
    */
   copy: PropTypes.string,
 
-  ...{
-    /**
-     * Disable card link
-     */
-    disable: PropTypes.bool,
-  },
+  /**
+   * Disable card link
+   */
+  disabled: PropTypes.bool,
 
   /**
    * CTA options. Has the following structure in summary:
