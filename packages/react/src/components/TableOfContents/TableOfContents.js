@@ -149,7 +149,6 @@ const TableOfContents = ({
    */
   const layoutProps = {
     type: '1-3',
-    stickyOffset,
   };
 
   /**
