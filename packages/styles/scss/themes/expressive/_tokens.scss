@@ -98,7 +98,7 @@ $carbon-expressive-type-tokens: (
 /// @access public
 /// @group carbon-expressive
 $carbon-expressive-component-tokens: (
-  button-height:
+  button-md-height:
     var(
       --#{$custom-property-prefix}-container-04,
       map-get($carbon-expressive-size-tokens, 'container-04')
@@ -136,7 +136,7 @@ $carbon-expressive-component-tokens: (
 /// @param {Map} $type-tokens [$carbon-expressive-type-tokens] - The type tokens.
 /// @param {Map} $component-tokens [$carbon-expressive-component-tokens] - The component tokens.
 /// @group carbon-expressive
-@mixin carbon-expressive-tokens-custom-propreties(
+@mixin carbon-expressive-tokens-custom-properties(
   $size-tokens: $carbon-expressive-size-tokens,
   $type-tokens: $carbon-expressive-type-tokens,
   $component-tokens: $carbon-expressive-component-tokens
@@ -331,7 +331,7 @@ $carbon-expressive-component-tokens: (
   );
 
   :root {
-    @include carbon-expressive-tokens-custom-propreties($component-tokens: ());
+    @include carbon-expressive-tokens-custom-properties($component-tokens: ());
   }
 }
 
@@ -342,9 +342,9 @@ $carbon-expressive-component-tokens: (
   /// @type Number
   /// @access public
   /// @group button
-  $button-height: var(
-    --#{$custom-property-prefix}-button-height,
-    map-get($carbon-expressive-component-tokens, 'button-height')
+  $button-md-height: var(
+    --#{$custom-property-prefix}-button-md-height,
+    map-get($carbon-expressive-component-tokens, 'button-md-height')
   ) !global;
 
   /// @type Number
@@ -388,7 +388,7 @@ $carbon-expressive-component-tokens: (
   ) !global;
 
   :root {
-    @include carbon-expressive-tokens-custom-propreties(
+    @include carbon-expressive-tokens-custom-properties(
       $size-tokens: (),
       $type-tokens: ()
     );

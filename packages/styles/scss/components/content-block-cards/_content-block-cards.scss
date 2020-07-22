@@ -1,0 +1,52 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../internal/content-block/content-block';
+@import '../card-group/card-group';
+
+@mixin content-block-cards {
+  .#{$prefix}--content-block-cards {
+    &__content {
+      .#{$prefix}--card__CTA {
+        max-width: none;
+        margin: 0;
+      }
+    }
+    .#{$prefix}--content-block {
+      padding-top: $carbon--layout-03;
+      padding-bottom: $carbon--layout-05;
+      @include carbon--breakpoint('md') {
+        padding-top: $carbon--layout-03;
+        padding-bottom: $carbon--layout-06;
+      }
+      @include carbon--breakpoint('lg') {
+        padding-top: $carbon--layout-05;
+        padding-bottom: $carbon--layout-07;
+      }
+
+      &__heading {
+        margin-bottom: $carbon--layout-03;
+        @include carbon--breakpoint('md') {
+          margin-bottom: $carbon--layout-04;
+        }
+        @include carbon--breakpoint('lg') {
+          margin-bottom: $carbon--layout-05;
+        }
+      }
+      &__cta {
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(4, 12);
+        }
+      }
+    }
+  }
+}
+
+@include exports('content-block-cards') {
+  @include content-block-cards;
+}

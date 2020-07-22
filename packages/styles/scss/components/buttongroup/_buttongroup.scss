@@ -23,7 +23,7 @@
     .#{$prefix}--btn {
       font-size: 1rem;
       position: relative;
-      width: 100%;
+      width: auto;
       height: 100%;
       word-break: break-word;
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,

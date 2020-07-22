@@ -45,10 +45,18 @@ class DDSLightboxVideoPlayer extends DDSVideoPlayer {
             ${hideCaption
               ? undefined
               : html`
-                  <div class="${prefix}--lightbox-media-viewer__content__title">
+                  <div
+                    part="title"
+                    class="${prefix}--lightbox-media-viewer__content__title"
+                    data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title"
+                  >
                     <slot name="name">${formatCaption({ duration, name })}</slot>
                   </div>
-                  <div class="${prefix}--lightbox-media-viewer__content__desc">
+                  <div
+                    part="description"
+                    class="${prefix}--lightbox-media-viewer__content__desc"
+                    data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc"
+                  >
                     <slot name="description">${description}</slot>
                   </div>
                 `}
