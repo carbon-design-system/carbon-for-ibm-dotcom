@@ -62,6 +62,11 @@ exports.config = {
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
+      'goog:chromeOptions': {
+        args: ['--headless', '--window-size=1024,768', '--disable-gpu'],
+        // binary: binPath,
+        // w3c: true
+      },
     },
   ],
   //

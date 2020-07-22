@@ -39645,15 +39645,15 @@ exports[`Storyshots Components|Image Default 1`] = `
               Array [
                 Object {
                   "breakpoint": "sm",
-                  "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                  "src": "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
                 },
                 Object {
                   "breakpoint": "md",
-                  "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                  "src": "https://dummyimage.com/400x200/ee5396/161616&text=2x1",
                 },
                 Object {
                   "breakpoint": "lg",
-                  "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                  "src": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                 },
               ]
             }
@@ -39666,17 +39666,17 @@ exports[`Storyshots Components|Image Default 1`] = `
                 <source
                   key="0"
                   media="(min-width: 1056px)"
-                  srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                  srcSet="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                 />
                 <source
                   key="1"
                   media="(min-width: 672px)"
-                  srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                  srcSet="https://dummyimage.com/400x200/ee5396/161616&text=2x1"
                 />
                 <source
                   key="2"
                   media="(min-width: 320px)"
-                  srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                  srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2x1"
                 />
                 <img
                   alt="Image alt text"
@@ -39726,19 +39726,19 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
             image={
               Object {
                 "alt": "image with caption image",
-                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
-                    "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
                   },
                   Object {
                     "breakpoint": "md",
-                    "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/400x200/ee5396/161616&text=2x1",
                   },
                   Object {
                     "breakpoint": "lg",
-                    "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                    "src": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                   },
                 ],
               }
@@ -39757,20 +39757,20 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
               >
                 <Image
                   alt="image with caption image"
-                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                   sources={
                     Array [
                       Object {
                         "breakpoint": "sm",
-                        "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
                       },
                       Object {
                         "breakpoint": "md",
-                        "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/400x200/ee5396/161616&text=2x1",
                       },
                       Object {
                         "breakpoint": "lg",
-                        "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                        "src": "https://dummyimage.com/672x336/ee5396/161616&text=2x1",
                       },
                     ]
                   }
@@ -39783,22 +39783,22 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                       <source
                         key="0"
                         media="(min-width: 1056px)"
-                        srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                       />
                       <source
                         key="1"
                         media="(min-width: 672px)"
-                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/400x200/ee5396/161616&text=2x1"
                       />
                       <source
                         key="2"
                         media="(min-width: 320px)"
-                        srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                        srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2x1"
                       />
                       <img
                         alt="image with caption image"
                         className="bx--image__img"
-                        src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
+                        src="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
                       />
                     </picture>
                   </div>
@@ -49733,30 +49733,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
     }
   >
     <TableOfContents
-      menuItems={
-        Array [
-          Object {
-            "id": "8",
-            "title": "Cras molestie condimentum",
-          },
-          Object {
-            "id": "7",
-            "title": "Praesent fermentum sodales",
-          },
-          Object {
-            "id": "2",
-            "title": "Nulla tristique lacinia",
-          },
-          Object {
-            "id": "3",
-            "title": "Morbi id nibh metus",
-          },
-          Object {
-            "id": "14",
-            "title": "Integer non scelerisque",
-          },
-        ]
-      }
+      menuItems={null}
       menuLabel="Jump to"
       menuRule={false}
       stickyOffset={null}
@@ -49803,101 +49780,19 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           "id": "menuLabel",
                           "title": "Jump to ...",
                         },
-                        Object {
-                          "id": "8",
-                          "title": "Cras molestie condimentum",
-                        },
-                        Object {
-                          "id": "7",
-                          "title": "Praesent fermentum sodales",
-                        },
-                        Object {
-                          "id": "2",
-                          "title": "Nulla tristique lacinia",
-                        },
-                        Object {
-                          "id": "3",
-                          "title": "Morbi id nibh metus",
-                        },
-                        Object {
-                          "id": "14",
-                          "title": "Integer non scelerisque",
-                        },
                       ]
                     }
                     menuLabel="Jump to"
                     menuRule={false}
-                    selectedId="8"
-                    selectedTitle="Cras molestie condimentum"
+                    selectedId=""
+                    selectedTitle=""
                     updateState={[Function]}
                   >
                     <div
                       className="bx--tableofcontents__desktop"
                       data-autoid="dds--tableofcontents__desktop"
                     >
-                      <ul>
-                        <li
-                          className="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"
-                          data-autoid="dds--tableofcontents__desktop__item-8"
-                          key="0"
-                        >
-                          <a
-                            aria-current="location"
-                            href="#8"
-                            onClick={[Function]}
-                          >
-                            Cras molestie condimentum
-                          </a>
-                        </li>
-                        <li
-                          className="bx--tableofcontents__desktop__item"
-                          data-autoid="dds--tableofcontents__desktop__item-7"
-                          key="1"
-                        >
-                          <a
-                            href="#7"
-                            onClick={[Function]}
-                          >
-                            Praesent fermentum sodales
-                          </a>
-                        </li>
-                        <li
-                          className="bx--tableofcontents__desktop__item"
-                          data-autoid="dds--tableofcontents__desktop__item-2"
-                          key="2"
-                        >
-                          <a
-                            href="#2"
-                            onClick={[Function]}
-                          >
-                            Nulla tristique lacinia
-                          </a>
-                        </li>
-                        <li
-                          className="bx--tableofcontents__desktop__item"
-                          data-autoid="dds--tableofcontents__desktop__item-3"
-                          key="3"
-                        >
-                          <a
-                            href="#3"
-                            onClick={[Function]}
-                          >
-                            Morbi id nibh metus
-                          </a>
-                        </li>
-                        <li
-                          className="bx--tableofcontents__desktop__item"
-                          data-autoid="dds--tableofcontents__desktop__item-14"
-                          key="4"
-                        >
-                          <a
-                            href="#14"
-                            onClick={[Function]}
-                          >
-                            Integer non scelerisque
-                          </a>
-                        </li>
-                      </ul>
+                      <ul />
                     </div>
                   </TOCDesktop>
                   <TOCMobile
@@ -49907,31 +49802,11 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           "id": "menuLabel",
                           "title": "Jump to ...",
                         },
-                        Object {
-                          "id": "8",
-                          "title": "Cras molestie condimentum",
-                        },
-                        Object {
-                          "id": "7",
-                          "title": "Praesent fermentum sodales",
-                        },
-                        Object {
-                          "id": "2",
-                          "title": "Nulla tristique lacinia",
-                        },
-                        Object {
-                          "id": "3",
-                          "title": "Morbi id nibh metus",
-                        },
-                        Object {
-                          "id": "14",
-                          "title": "Integer non scelerisque",
-                        },
                       ]
                     }
                     menuLabel="Jump to"
-                    selectedId="8"
-                    selectedTitle="Cras molestie condimentum"
+                    selectedId=""
+                    selectedTitle=""
                     updateState={[Function]}
                   >
                     <div
@@ -49945,7 +49820,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           className="bx--tableofcontents__mobile__select"
                           onBlur={[Function]}
                           onChange={[Function]}
-                          value="8"
+                          value=""
                         >
                           <option
                             className="bx--tableofcontents__mobile__select__option"
@@ -49957,61 +49832,6 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                             value="menuLabel"
                           >
                             Jump to ...
-                          </option>
-                          <option
-                            className="bx--tableofcontents__mobile__select__option"
-                            data-autoid="dds}--tableofcontents__mobile__select__option-8"
-                            disabled={false}
-                            hidden={false}
-                            key="1"
-                            selected={false}
-                            value="8"
-                          >
-                            Cras molestie condimentum
-                          </option>
-                          <option
-                            className="bx--tableofcontents__mobile__select__option"
-                            data-autoid="dds}--tableofcontents__mobile__select__option-7"
-                            disabled={false}
-                            hidden={false}
-                            key="2"
-                            selected={false}
-                            value="7"
-                          >
-                            Praesent fermentum sodales
-                          </option>
-                          <option
-                            className="bx--tableofcontents__mobile__select__option"
-                            data-autoid="dds}--tableofcontents__mobile__select__option-2"
-                            disabled={false}
-                            hidden={false}
-                            key="3"
-                            selected={false}
-                            value="2"
-                          >
-                            Nulla tristique lacinia
-                          </option>
-                          <option
-                            className="bx--tableofcontents__mobile__select__option"
-                            data-autoid="dds}--tableofcontents__mobile__select__option-3"
-                            disabled={false}
-                            hidden={false}
-                            key="4"
-                            selected={false}
-                            value="3"
-                          >
-                            Morbi id nibh metus
-                          </option>
-                          <option
-                            className="bx--tableofcontents__mobile__select__option"
-                            data-autoid="dds}--tableofcontents__mobile__select__option-14"
-                            disabled={false}
-                            hidden={false}
-                            key="5"
-                            selected={false}
-                            value="14"
-                          >
-                            Integer non scelerisque
                           </option>
                         </select>
                         <ForwardRef(TableOfContents20)
@@ -50286,28 +50106,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   }
                 }
               />,
-              "menuItems": Array [
-                Object {
-                  "id": "8",
-                  "title": "Cras molestie condimentum",
-                },
-                Object {
-                  "id": "7",
-                  "title": "Praesent fermentum sodales",
-                },
-                Object {
-                  "id": "2",
-                  "title": "Nulla tristique lacinia",
-                },
-                Object {
-                  "id": "3",
-                  "title": "Morbi id nibh metus",
-                },
-                Object {
-                  "id": "14",
-                  "title": "Integer non scelerisque",
-                },
-              ],
               "menuLabel": "Jump to",
               "menuRule": false,
             },
@@ -50348,30 +50146,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
             }
           />
         }
-        menuItems={
-          Array [
-            Object {
-              "id": "8",
-              "title": "Cras molestie condimentum",
-            },
-            Object {
-              "id": "7",
-              "title": "Praesent fermentum sodales",
-            },
-            Object {
-              "id": "2",
-              "title": "Nulla tristique lacinia",
-            },
-            Object {
-              "id": "3",
-              "title": "Morbi id nibh metus",
-            },
-            Object {
-              "id": "14",
-              "title": "Integer non scelerisque",
-            },
-          ]
-        }
+        menuItems={null}
         menuLabel="Jump to"
         menuRule={false}
         stickyOffset={null}
@@ -50517,101 +50292,19 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             "id": "menuLabel",
                             "title": "Jump to ...",
                           },
-                          Object {
-                            "id": "8",
-                            "title": "Cras molestie condimentum",
-                          },
-                          Object {
-                            "id": "7",
-                            "title": "Praesent fermentum sodales",
-                          },
-                          Object {
-                            "id": "2",
-                            "title": "Nulla tristique lacinia",
-                          },
-                          Object {
-                            "id": "3",
-                            "title": "Morbi id nibh metus",
-                          },
-                          Object {
-                            "id": "14",
-                            "title": "Integer non scelerisque",
-                          },
                         ]
                       }
                       menuLabel="Jump to"
                       menuRule={false}
-                      selectedId="8"
-                      selectedTitle="Cras molestie condimentum"
+                      selectedId=""
+                      selectedTitle=""
                       updateState={[Function]}
                     >
                       <div
                         className="bx--tableofcontents__desktop"
                         data-autoid="dds--tableofcontents__desktop"
                       >
-                        <ul>
-                          <li
-                            className="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"
-                            data-autoid="dds--tableofcontents__desktop__item-8"
-                            key="0"
-                          >
-                            <a
-                              aria-current="location"
-                              href="#8"
-                              onClick={[Function]}
-                            >
-                              Cras molestie condimentum
-                            </a>
-                          </li>
-                          <li
-                            className="bx--tableofcontents__desktop__item"
-                            data-autoid="dds--tableofcontents__desktop__item-7"
-                            key="1"
-                          >
-                            <a
-                              href="#7"
-                              onClick={[Function]}
-                            >
-                              Praesent fermentum sodales
-                            </a>
-                          </li>
-                          <li
-                            className="bx--tableofcontents__desktop__item"
-                            data-autoid="dds--tableofcontents__desktop__item-2"
-                            key="2"
-                          >
-                            <a
-                              href="#2"
-                              onClick={[Function]}
-                            >
-                              Nulla tristique lacinia
-                            </a>
-                          </li>
-                          <li
-                            className="bx--tableofcontents__desktop__item"
-                            data-autoid="dds--tableofcontents__desktop__item-3"
-                            key="3"
-                          >
-                            <a
-                              href="#3"
-                              onClick={[Function]}
-                            >
-                              Morbi id nibh metus
-                            </a>
-                          </li>
-                          <li
-                            className="bx--tableofcontents__desktop__item"
-                            data-autoid="dds--tableofcontents__desktop__item-14"
-                            key="4"
-                          >
-                            <a
-                              href="#14"
-                              onClick={[Function]}
-                            >
-                              Integer non scelerisque
-                            </a>
-                          </li>
-                        </ul>
+                        <ul />
                       </div>
                     </TOCDesktop>
                     <TOCMobile
@@ -50621,31 +50314,11 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             "id": "menuLabel",
                             "title": "Jump to ...",
                           },
-                          Object {
-                            "id": "8",
-                            "title": "Cras molestie condimentum",
-                          },
-                          Object {
-                            "id": "7",
-                            "title": "Praesent fermentum sodales",
-                          },
-                          Object {
-                            "id": "2",
-                            "title": "Nulla tristique lacinia",
-                          },
-                          Object {
-                            "id": "3",
-                            "title": "Morbi id nibh metus",
-                          },
-                          Object {
-                            "id": "14",
-                            "title": "Integer non scelerisque",
-                          },
                         ]
                       }
                       menuLabel="Jump to"
-                      selectedId="8"
-                      selectedTitle="Cras molestie condimentum"
+                      selectedId=""
+                      selectedTitle=""
                       updateState={[Function]}
                     >
                       <div
@@ -50659,7 +50332,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             className="bx--tableofcontents__mobile__select"
                             onBlur={[Function]}
                             onChange={[Function]}
-                            value="8"
+                            value=""
                           >
                             <option
                               className="bx--tableofcontents__mobile__select__option"
@@ -50671,61 +50344,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                               value="menuLabel"
                             >
                               Jump to ...
-                            </option>
-                            <option
-                              className="bx--tableofcontents__mobile__select__option"
-                              data-autoid="dds}--tableofcontents__mobile__select__option-8"
-                              disabled={false}
-                              hidden={false}
-                              key="1"
-                              selected={false}
-                              value="8"
-                            >
-                              Cras molestie condimentum
-                            </option>
-                            <option
-                              className="bx--tableofcontents__mobile__select__option"
-                              data-autoid="dds}--tableofcontents__mobile__select__option-7"
-                              disabled={false}
-                              hidden={false}
-                              key="2"
-                              selected={false}
-                              value="7"
-                            >
-                              Praesent fermentum sodales
-                            </option>
-                            <option
-                              className="bx--tableofcontents__mobile__select__option"
-                              data-autoid="dds}--tableofcontents__mobile__select__option-2"
-                              disabled={false}
-                              hidden={false}
-                              key="3"
-                              selected={false}
-                              value="2"
-                            >
-                              Nulla tristique lacinia
-                            </option>
-                            <option
-                              className="bx--tableofcontents__mobile__select__option"
-                              data-autoid="dds}--tableofcontents__mobile__select__option-3"
-                              disabled={false}
-                              hidden={false}
-                              key="4"
-                              selected={false}
-                              value="3"
-                            >
-                              Morbi id nibh metus
-                            </option>
-                            <option
-                              className="bx--tableofcontents__mobile__select__option"
-                              data-autoid="dds}--tableofcontents__mobile__select__option-14"
-                              disabled={false}
-                              hidden={false}
-                              key="5"
-                              selected={false}
-                              value="14"
-                            >
-                              Integer non scelerisque
                             </option>
                           </select>
                           <ForwardRef(TableOfContents20)
