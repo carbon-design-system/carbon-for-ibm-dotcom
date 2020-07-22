@@ -48,19 +48,13 @@ export const Default = ({ parameters }) => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
-    <div className="bx--grid">
-      <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <CTASection
-            heading={heading}
-            copy={copy}
-            theme={theme}
-            cta={cta}
-            items={items}
-          />
-        </div>
-      </div>
-    </div>
+    <CTASection
+      heading={heading}
+      copy={copy}
+      theme={theme}
+      cta={cta}
+      items={items}
+    />
   );
 };
 
@@ -107,19 +101,13 @@ export const WithContentItems = ({ parameters }) => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return (
-    <div className="bx--grid">
-      <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <CTASection
-            heading={heading}
-            copy={copy}
-            theme={theme}
-            cta={cta}
-            items={items}
-          />
-        </div>
-      </div>
-    </div>
+    <CTASection
+      heading={heading}
+      copy={copy}
+      theme={theme}
+      cta={cta}
+      items={items}
+    />
   );
 };
 

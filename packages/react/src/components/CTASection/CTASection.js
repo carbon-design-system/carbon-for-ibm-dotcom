@@ -22,29 +22,38 @@ const { prefix } = settings;
  */
 const CTASection = ({ heading, copy, cta, items, theme }) => {
   return (
-    <section
-      data-autoid={`${stablePrefix}--cta-section`}
-      className={classNames(`${prefix}--cta-section`, {
-        [`${prefix}--cta-section__has-items`]: items,
+    <div
+      className={classNames(`${prefix}--grid`, {
         [`${prefix}--cta-section--${theme}`]: theme,
       })}>
-      <ContentBlock heading={heading} copy={copy} />
-      <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
-      {items && (
-        <div className={`${prefix}--helper-wrapper`}>
-          <div className={`${prefix}--content-item-wrapper`}>
-            {items.map((item, index) => (
-              <ContentItem
-                key={index}
-                heading={item.heading}
-                copy={item.copy}
-                cta={item.cta}
-              />
-            ))}
-          </div>
+      <div className={`${prefix}--row`}>
+        <div
+          className={`${prefix}--col-sm-4 ${prefix}--col-lg-12 ${prefix}--offset-lg-4`}>
+          <section
+            data-autoid={`${stablePrefix}--cta-section`}
+            className={classNames(`${prefix}--cta-section`, {
+              [`${prefix}--cta-section__has-items`]: items,
+            })}>
+            <ContentBlock heading={heading} copy={copy} />
+            <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
+            {items && (
+              <div className={`${prefix}--helper-wrapper`}>
+                <div className={`${prefix}--content-item-wrapper`}>
+                  {items.map((item, index) => (
+                    <ContentItem
+                      key={index}
+                      heading={item.heading}
+                      copy={item.copy}
+                      cta={item.cta}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
         </div>
-      )}
-    </section>
+      </div>
+    </div>
   );
 };
 

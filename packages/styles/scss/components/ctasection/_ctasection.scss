@@ -33,6 +33,9 @@
       @include carbon--breakpoint('md') {
         padding-bottom: $carbon--layout-06;
       }
+      @include carbon--breakpoint('sm') {
+        padding-bottom: $carbon--layout-05;
+      }
     }
 
     .#{$prefix}--content-block {
