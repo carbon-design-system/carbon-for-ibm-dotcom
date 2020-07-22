@@ -21,7 +21,5 @@ jobs:
         run: yarn install
       - name: Install xvfb
         run: sudo apt-get install xvfb
-      - name: Build
-        run: yarn build
       - name: Run checks
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:e2e
