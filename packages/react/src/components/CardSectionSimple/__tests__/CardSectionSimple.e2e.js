@@ -20,13 +20,13 @@ const _url =
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=patterns-sections-cardsectionimages--default';
+const _path = '/iframe.html?id=components-cardsectionsimple--default';
 
-describe('CardSectionImages', () => {
+describe('CardSectionSimple', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    $('[data-autoid="dds--card-group-simple-group"]').waitForExist();
   });
 
   it('should open to a different url', () => {
@@ -57,13 +57,13 @@ describe('CardSectionImages', () => {
   });*/
 });
 
-describe('CardSectionImages: Heading', () => {
+describe('CardSectionSimple: Heading', () => {
   beforeAll(() => {
     const query =
-      '&knob-Heading%20(heading):_CardSectionImages=Serving%20society%20ethically%20in%20the%20age%20of%20Artificial%20Intelligence.';
+      '&knob-Heading%20(heading):_CardSectionSimple=Serving%20society%20ethically%20in%20the%20age%20of%20Artificial%20Intelligence.';
     browser.url(_url + _path + query);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    $('[data-autoid="dds--card-group-simple-group"]').waitForExist();
   });
 
   it('should set the heading correctly', () => {

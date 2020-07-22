@@ -8,3 +8,16 @@
 @import '../../globals/imports';
 @import '../../internal/callout/callout';
 @import '../quote/quote';
+@import '../../globals/utils/hang';
+
+@mixin callout-quote {
+  .#{$prefix}--callout-quote {
+    @include carbon--breakpoint('md') {
+      @include hang;
+    }
+  }
+}
+
+@include exports('callout-quote') {
+  @include callout-quote;
+}

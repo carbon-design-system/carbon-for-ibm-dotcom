@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, number, object, select, text } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import LeadSpace from '../LeadSpace';
@@ -57,18 +57,18 @@ DefaultWithNoImage.story = {
 
         for (let i = 0; i < buttonCount; i++) {
           buttons.push({
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
             renderIcon:
               iconMap[
                 select(
-                  `Button Icon ${i + 1}`,
+                  `Button Icon ${i + 1} (renderIcon)`,
                   iconOptions,
                   iconOptions.ArrowRight,
                   groupId
                 )
               ],
             href: text(
-              'Primary button link',
+              `Button link (href)`,
               'https://www.example.com',
               groupId
             ),
@@ -76,9 +76,9 @@ DefaultWithNoImage.story = {
         }
 
         return {
-          title: text('title', 'Lead space title', groupId),
+          title: text('title (title)', 'Lead space title', groupId),
           copy: text(
-            'copy',
+            'copy (copy)',
             'Use this area for a short line of copy to support the title',
             groupId
           ),
@@ -116,8 +116,8 @@ DefaultWithImage.story = {
         });
         return {
           ...knobs,
-          gradient: boolean('gradient overlay', true, groupId),
-          image: object('image', images, groupId),
+          gradient: boolean('gradient overlay (gradient)', true, groupId),
+          image: images,
         };
       },
     },
@@ -152,18 +152,18 @@ Centered.story = {
 
         for (let i = 0; i < buttonCount; i++) {
           buttons.push({
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
             renderIcon:
               iconMap[
                 select(
-                  `Button Icon ${i + 1}`,
+                  `Button Icon ${i + 1} (renderIcon)`,
                   iconOptions,
                   iconOptions.ArrowRight,
                   groupId
                 )
               ],
             href: text(
-              'Primary button link',
+              `Button link (href)`,
               'https://www.example.com',
               groupId
             ),
@@ -171,9 +171,9 @@ Centered.story = {
         }
 
         return {
-          title: text('title', 'Leadspace Title', groupId),
+          title: text('title (title)', 'Leadspace Title', groupId),
           copy: text(
-            'copy',
+            'copy (copy)',
             'Use this area for a short line of copy to support the title',
             groupId
           ),
@@ -224,18 +224,18 @@ CenteredWithImage.story = {
 
         for (let i = 0; i < buttonCount; i++) {
           buttons.push({
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
             renderIcon:
               iconMap[
                 select(
-                  `Button Icon ${i + 1}`,
+                  `Button Icon ${i + 1} (renderIcon)`,
                   iconOptions,
                   iconOptions.ArrowRight,
                   groupId
                 )
               ],
             href: text(
-              'Primary button link',
+              `Button link (href)`,
               'https://www.example.com',
               groupId
             ),
@@ -243,13 +243,13 @@ CenteredWithImage.story = {
         }
 
         return {
-          title: text('title', 'Leadspace Title', groupId),
+          title: text('title (title)', 'Leadspace Title', groupId),
           copy: text(
-            'copy',
+            'copy (copy)',
             'Use this area for a short line of copy to support the title',
             groupId
           ),
-          gradient: boolean('gradient overlay', true, groupId),
+          gradient: boolean('gradient overlay (gradient)', true, groupId),
           buttons,
         };
       },
@@ -285,18 +285,18 @@ Small.story = {
 
         for (let i = 0; i < buttonCount; i++) {
           buttons.push({
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
             renderIcon:
               iconMap[
                 select(
-                  `Button Icon ${i + 1}`,
+                  `Button Icon ${i + 1} (renderIcon)`,
                   iconOptions,
                   iconOptions.ArrowRight,
                   groupId
                 )
               ],
             href: text(
-              'Primary button link',
+              `Button link (href)`,
               'https://www.example.com',
               groupId
             ),
@@ -304,9 +304,9 @@ Small.story = {
         }
 
         return {
-          title: text('title', 'Leadspace Title', groupId),
+          title: text('title (title)', 'Leadspace Title', groupId),
           copy: text(
-            'copy',
+            'copy (copy)',
             'Use this area for a short line of copy to support the title',
             groupId
           ),
@@ -345,18 +345,18 @@ SmallWithImage.story = {
 
         for (let i = 0; i < buttonCount; i++) {
           buttons.push({
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
             renderIcon:
               iconMap[
                 select(
-                  `Button Icon ${i + 1}`,
+                  `Button Icon ${i + 1} (renderIcon)`,
                   iconOptions,
                   iconOptions.ArrowRight,
                   groupId
                 )
               ],
             href: text(
-              'Primary button link',
+              `Button link (href)`,
               'https://www.example.com',
               groupId
             ),
@@ -364,14 +364,14 @@ SmallWithImage.story = {
         }
 
         return {
-          title: text('title', 'Leadspace Title', groupId),
+          title: text('title (title)', 'Leadspace Title', groupId),
           copy: text(
-            'copy',
+            'copy (copy)',
             'Use this area for a short line of copy to support the title',
             groupId
           ),
-          gradient: boolean('gradient overlay', true, groupId),
-          image: object('image', images, groupId),
+          gradient: boolean('gradient overlay (gradient)', true, groupId),
+          image: images,
           buttons,
         };
       },

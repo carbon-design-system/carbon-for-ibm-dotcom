@@ -93,6 +93,12 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
   @property({ attribute: 'menu-label' })
   menuLabel?: string;
 
+  /**
+   * The `aria-label` attribute for the trigger button.
+   */
+  @property({ attribute: 'trigger-label' })
+  triggerLabel = 'User profile';
+
   createRenderRoot() {
     return this.attachShadow({ mode: 'open', delegatesFocus: true });
   }
@@ -105,7 +111,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   render() {
-    const { authenticated, expanded, menuLabel, _handleClick: handleClick } = this;
+    const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
         role="menuitem"
@@ -114,6 +120,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
         href="javascript:void 0"
         aria-haspopup="menu"
         aria-expanded="${String(Boolean(expanded))}"
+        aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}
       >
         ${authenticated ? UserOnline20() : User20()}
