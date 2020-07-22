@@ -76,7 +76,6 @@ const CardCTA = ({
     return (
       <CardLink
         card={{
-          ...cardProps,
           cta: {
             type,
             href: otherProps.cta.href,
