@@ -8,6 +8,7 @@
 <a
   aria-expanded="false"
   aria-haspopup="menu"
+  aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
   role="menuitem"
@@ -30,6 +31,7 @@
 <a
   aria-expanded="true"
   aria-haspopup="menu"
+  aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
   role="menuitem"

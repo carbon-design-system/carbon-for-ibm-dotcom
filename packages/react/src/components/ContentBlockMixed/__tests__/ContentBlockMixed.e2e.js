@@ -20,7 +20,7 @@ const _url =
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=patterns-blocks-contentblockmixed--default';
+const _path = '/iframe.html?id=components-contentblockmixed--default';
 
 /**
  * Path with aside items
@@ -29,13 +29,13 @@ const _path = '/iframe.html?id=patterns-blocks-contentblockmixed--default';
  * @private
  */
 const _pathAsideItems =
-  '/iframe.html?id=patterns-blocks-contentblockmixed--with-aside-elements';
+  '/iframe.html?id=components-contentblockmixed--with-aside-elements';
 
 describe('ContentBlockMixed', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    $('[data-autoid="dds--content-block-mixed"]').waitForExist();
   });
 
   it('should have the correct top padding', () => {
@@ -139,7 +139,7 @@ describe('ContentBlockMixed: With Aside Items', () => {
   beforeAll(() => {
     browser.url(_url + _pathAsideItems);
     browser.setWindowSize(1200, 800);
-    browser.pause(1000);
+    $('[data-autoid="dds--content-block-mixed"]').waitForExist();
   });
 
   it('should load an aside element with link list', () => {
