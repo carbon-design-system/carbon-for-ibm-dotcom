@@ -179,6 +179,7 @@ class DDSMastheadSearch extends BXDropdown {
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
+        aria-label="IBM search field"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}"
       />
