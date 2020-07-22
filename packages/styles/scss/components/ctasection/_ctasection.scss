@@ -30,8 +30,13 @@
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
     &__cta {
+      padding-bottom: $carbon--layout-05;
+
       @include carbon--breakpoint('md') {
         padding-bottom: $carbon--layout-06;
+      }
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $carbon--layout-07;
       }
     }
 
@@ -138,7 +143,7 @@
           }
 
           @include carbon--breakpoint('lg') {
-            padding-bottom: $carbon--layout-06;
+            padding-bottom: $carbon--layout-07;
           }
         }
       }
