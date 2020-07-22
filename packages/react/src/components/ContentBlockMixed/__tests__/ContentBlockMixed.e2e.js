@@ -35,7 +35,7 @@ describe('ContentBlockMixed', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
-    $('[data-autoid="dds--content-block-mixed"]').waitForExist();
+    $('[data-autoid="dds--content-block-mixed"]').waitForExist(10000);
   });
 
   it('should have the correct top padding', () => {
@@ -139,7 +139,7 @@ describe('ContentBlockMixed: With Aside Items', () => {
   beforeAll(() => {
     browser.url(_url + _pathAsideItems);
     browser.setWindowSize(1200, 800);
-    $('[data-autoid="dds--content-block-mixed"]').waitForExist();
+    $('[data-autoid="dds--content-block-mixed"]').waitForExist(10000);
   });
 
   it('should load an aside element with link list', () => {
