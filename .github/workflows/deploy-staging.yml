@@ -7,7 +7,7 @@ on:
 
 jobs:
   react:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -42,7 +42,7 @@ jobs:
           cf-manifest: manifest-staging.yml
           package-to-deploy: react
   web-components:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -77,7 +77,7 @@ jobs:
           cf-manifest: manifest-staging.yml
           package-to-deploy: web-components
   vanilla:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
