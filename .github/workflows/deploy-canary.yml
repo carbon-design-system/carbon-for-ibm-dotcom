@@ -7,7 +7,7 @@ on:
 
 jobs:
   react:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -40,7 +40,7 @@ jobs:
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/react
   react-experimental:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -74,7 +74,7 @@ jobs:
           cf-manifest: manifest-experimental.yml
           deploy-dir: packages/react
   react-rtl:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -108,7 +108,7 @@ jobs:
           cf-manifest: manifest-rtl.yml
           deploy-dir: packages/react
   web-components:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -141,7 +141,7 @@ jobs:
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/web-components
   services:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -174,7 +174,7 @@ jobs:
           cf-manifest: manifest.yml
           deploy-dir: packages/services
   utilities:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -207,7 +207,7 @@ jobs:
           cf-manifest: manifest.yml
           deploy-dir: packages/utilities
   carbon-expressive:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -240,7 +240,7 @@ jobs:
           cf-manifest: manifest.yml
           deploy-dir: packages/styles
   vanilla:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
