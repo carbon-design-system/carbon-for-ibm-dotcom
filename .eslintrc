@@ -21,6 +21,7 @@
       "globals": {
         "browser": true,
         "$": true,
+        "$$": true,
         "describe": true,
         "beforeAll": true,
         "beforeEach": true,

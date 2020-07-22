@@ -20,12 +20,13 @@ const _url =
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=patterns-blocks-featurecardblockmedium--default';
+const _path = '/iframe.html?id=components-featurecardblockmedium--default';
 
 describe('FeatureCardBlockMedium', () => {
   beforeAll(() => {
     browser.url(_url + _path);
     browser.setWindowSize(1200, 800);
+    $('[data-autoid="dds--feature-card-block-medium"]').waitForExist(5000);
   });
 
   it('should have the correct top margin', () => {
