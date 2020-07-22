@@ -15,19 +15,19 @@
   <a href="https://github.com/carbon-design-system/carbon/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Carbon is released under the Apache-2.0 license" />
   </a>
-  <a href="https://circleci.com/gh/carbon-design-system/ibm-dotcom-library">
-    <img src="https://circleci.com/gh/carbon-design-system/ibm-dotcom-library/tree/master.svg?style=shield" alt="Build Status" />
-  </a>
   <a href="https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
   </a>
+  <a href="https://percy.io/538fc19a/IBM.com-Library-React">
+  <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing." />
+</a>
 </p>
 
 ## Getting started
 
 If you're just getting started, check out
 [`react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react).
-Vanilla components and patterns are coming soon!
+Web Components coming soon!
 
 If you're trying to find something specific, here's a full list of packages that
 we support!
@@ -35,11 +35,11 @@ we support!
 | Package name                                                                                                                         | Description                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
 | [`@carbon/ibmdotcom-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)                   | IBM.com React components and patterns                               |
+| [`@carbon/ibmdotcom-web-components`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/web-components) | IBM.com Vanilla components with a new web standard (Web Components) |
 | [`@carbon/ibmdotcom-vanilla`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/vanilla)               | IBM.com Vanilla components                                          |
 | [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)             | IBM.com ES6 Service classes                                         |
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)                 | Framework agnostic styles package for IBM.com components            |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities)           | IBM.com ES6 Utility classes                                         |
-| [`@carbon/ibmdotcom-web-components`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/web-components) | IBM.com Vanilla components with a new web standard (Web Components) |
 
 If you are building pages for IBM.com,
 [see what is needed on the page](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md).
