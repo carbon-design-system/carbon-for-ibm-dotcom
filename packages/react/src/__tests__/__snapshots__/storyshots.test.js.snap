@@ -31827,7 +31827,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           >
                             <div
                               className="bx--video-player__video"
-                              id="bx--video-player__video-0_uka1msg4-42"
+                              id="bx--video-player__video-0_uka1msg4-44"
                             >
                               <VideoImageOverlay
                                 embedVideo={[Function]}
@@ -33257,7 +33257,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--video-player__video"
-                                                          id="bx--video-player__video-0_uka1msg4-44"
+                                                          id="bx--video-player__video-0_uka1msg4-46"
                                                         >
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
@@ -35200,7 +35200,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <div
                                                                 className="bx--video-player__video"
-                                                                id="bx--video-player__video-0_uka1msg4-49"
+                                                                id="bx--video-player__video-0_uka1msg4-51"
                                                               >
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -42901,7 +42901,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-69"
+                                    id="bx--video-player__video-0_uka1msg4-71"
                                   />
                                 </div>
                               </div>
@@ -46868,14 +46868,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-70"
+                                        aria-describedby="bx--image-72"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-70"
+                                      id="bx--image-72"
                                     >
                                       Company A
                                     </div>
@@ -46909,14 +46909,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-71"
+                                        aria-describedby="bx--image-73"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-71"
+                                      id="bx--image-73"
                                     >
                                       Company B
                                     </div>
@@ -46950,14 +46950,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-72"
+                                        aria-describedby="bx--image-74"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-72"
+                                      id="bx--image-74"
                                     >
                                       Company C
                                     </div>
@@ -46991,14 +46991,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-73"
+                                        aria-describedby="bx--image-75"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-73"
+                                      id="bx--image-75"
                                     >
                                       Company D
                                     </div>
@@ -47032,14 +47032,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-74"
+                                        aria-describedby="bx--image-76"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-74"
+                                      id="bx--image-76"
                                     >
                                       Company E
                                     </div>
@@ -47073,14 +47073,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-75"
+                                        aria-describedby="bx--image-77"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-75"
+                                      id="bx--image-77"
                                     >
                                       Company F
                                     </div>
@@ -47114,14 +47114,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-76"
+                                        aria-describedby="bx--image-78"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-76"
+                                      id="bx--image-78"
                                     >
                                       Company G
                                     </div>
@@ -47155,14 +47155,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-77"
+                                        aria-describedby="bx--image-79"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-77"
+                                      id="bx--image-79"
                                     >
                                       Company H
                                     </div>
@@ -47196,14 +47196,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-78"
+                                        aria-describedby="bx--image-80"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-78"
+                                      id="bx--image-80"
                                     >
                                       Company I
                                     </div>
@@ -50454,14 +50454,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-79"
+                            aria-describedby="bx--image-81"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-79"
+                          id="bx--image-81"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -50829,14 +50829,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-80"
+                              aria-describedby="bx--image-82"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-80"
+                            id="bx--image-82"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -51048,7 +51048,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-82"
+                  id="bx--video-player__video-0_uka1msg4-84"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
