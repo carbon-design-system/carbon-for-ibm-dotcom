@@ -1,0 +1,9 @@
+name: Set .env file
+description: Setting .env file
+inputs:
+  env-file:
+    description: '.env file'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

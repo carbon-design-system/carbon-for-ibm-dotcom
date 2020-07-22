@@ -69,36 +69,12 @@ const LocaleModalRegions = ({
           .${prefix}--locale-modal__back .${prefix}--modal-close`
         );
 
-        /**
-         * Removes tabindex and role as it goes back
-         *
-         * @param {*} btn btn element
-         */
-        const localeBackActive = btn => {
-          setIsFiltering(false);
-          setClearResults(true);
-          document.getElementById(`${prefix}--locale-modal__filter`).value = '';
-          btn.removeAttribute('tabindex');
-          btn.removeAttribute('role');
-          btn.removeAttribute('aria-label');
-        };
-
-        [...localeBackBtn].forEach(btn => {
-          btn.setAttribute('tabindex', '0');
-          btn.setAttribute('role', 'button');
-          btn.setAttribute('aria-label', returnButtonLabel);
-
-          btn.addEventListener('click', function click() {
-            localeBackActive(btn);
-            btn.removeEventListener('click', click);
-          });
-          btn.addEventListener('keyup', function keyup(e) {
-            if (e.keyCode === 32 || e.keyCode === 13) {
-              localeBackActive(btn);
-              btn.removeEventListener('keyup', keyup);
-            }
-          });
-        });
+        addLocaleBackBtnListeners(
+          localeBackBtn,
+          returnButtonLabel,
+          setIsFiltering,
+          setClearResults
+        );
       });
     });
   });
@@ -137,6 +113,55 @@ const LocaleModalRegions = ({
       </div>
     </div>
   );
+};
+
+/**
+ * Removes tabindex and role as it goes back
+ *
+ * @param {*} btn btn element
+ */
+export const localeBackActive = (btn, setIsFiltering, setClearResults) => {
+  setIsFiltering(false);
+  setClearResults(true);
+  const filter = document.getElementById(`${prefix}--locale-modal__filter`);
+  if (filter) {
+    filter.value = '';
+  }
+  btn.removeAttribute('tabindex');
+  btn.removeAttribute('role');
+  btn.removeAttribute('aria-label');
+};
+
+/**
+ * Add listeners and appropriate role, tab-index and aria-label to the buttons provided
+ *
+ * @param {Array} buttons buttons to be processed
+ * @param {Function} returnButtonLabel hook from props
+ * @param {Function} setIsFiltering hook from props
+ * @param {Function} setClearResults hook from props
+ */
+export const addLocaleBackBtnListeners = (
+  buttons,
+  returnButtonLabel,
+  setIsFiltering,
+  setClearResults
+) => {
+  [...buttons].forEach(btn => {
+    btn.setAttribute('tabindex', '0');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('aria-label', returnButtonLabel);
+
+    btn.addEventListener('click', function click() {
+      localeBackActive(btn, setIsFiltering, setClearResults);
+      btn.removeEventListener('click', click);
+    });
+    btn.addEventListener('keyup', function keyup(e) {
+      if (e.keyCode === 32 || e.keyCode === 13) {
+        localeBackActive(btn, setIsFiltering, setClearResults);
+        btn.removeEventListener('keyup', keyup);
+      }
+    });
+  });
 };
 
 /**
