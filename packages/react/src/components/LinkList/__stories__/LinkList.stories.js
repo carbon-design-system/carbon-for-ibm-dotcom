@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, object, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -75,7 +75,7 @@ Default.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: object('Items (items):', items, groupId),
+        items: items,
       }),
     },
     propsSet: {
@@ -112,7 +112,7 @@ Horizontal.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: object('Items (items):', items.slice(0, 2), groupId),
+        items: items.slice(0, 2),
         iconPlacement: select(
           'Icon placement (iconPlacement):',
           iconPlacement,
@@ -155,7 +155,7 @@ Vertical.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: object('Items (items):', items, groupId),
+        items: items,
         iconPlacement: select(
           'Icon placement (iconPlacement):',
           iconPlacement,
@@ -199,7 +199,7 @@ VerticalWithCards.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: object('Items (items):', items, groupId),
+        items: items,
         iconPlacement: select(
           'Icon placement (iconPlacement):',
           iconPlacement,
@@ -237,7 +237,7 @@ EndOfSection.story = {
     knobs: {
       LinkList: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Tutorials', groupId),
-        items: object('Items (items):', items, groupId),
+        items: items,
       }),
     },
     propsSet: {
