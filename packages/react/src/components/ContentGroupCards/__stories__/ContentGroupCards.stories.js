@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+import {object, text} from "@storybook/addon-knobs";
 import ContentGroupCards from '../ContentGroupCards';
 import ContentGroupCardsKnobs from './data/ContentGroupCards.knobs';
 import React from 'react';
@@ -15,18 +15,26 @@ export default {
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      ContentGroupCards: ({ groupId }) => ({
+        heading: text('Heading (heading):', ContentGroupCardsKnobs.heading, groupId),
+        copy: text('Copy (copy):', ContentGroupCardsKnobs.copy, groupId),
+        items: object('Content group cards (Items) :', ContentGroupCardsKnobs.items, groupId),
+      }),
+    },
   },
 };
 
-export const Default = () => {
+export const Default = ({parameters}) => {
+  const { heading, copy, items } = parameters?.props?.ContentGroupCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-4">
           <ContentGroupCards
-            heading={ContentGroupCardsKnobs.heading}
-            copy={ContentGroupCardsKnobs.copy}
-            items={ContentGroupCardsKnobs.items}
+            heading={heading}
+            copy={copy}
+            items={items}
           />
         </div>
       </div>
