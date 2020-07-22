@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.9.0-rc.0...@carbon/ibmdotcom-react@1.9.0-rc.1) (2020-07-22)
+
+### Bug Fixes
+
+- **CardLink:** disabled state
+  ([#3247](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3247))
+  ([838d567](https://github.com/carbon-design-system/ibm-dotcom-library/commit/838d567)),
+  closes
+  [#3229](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3229)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.9.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.8.0...@carbon/ibmdotcom-react@1.9.0-rc.0) (2020-07-17)
 
 ### Bug Fixes
