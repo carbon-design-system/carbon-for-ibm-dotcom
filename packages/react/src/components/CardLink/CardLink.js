@@ -16,13 +16,9 @@ const { prefix } = settings;
 /**
  * CardLink component
  */
-const CardLink = ({ card, customClassName, disabled }) => {
-  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName, {
-    [`${prefix}--card__CTA--disabled`]: disabled,
-  });
-  return (
-    <Card customClassName={cardLinkClassname} {...card} disabled={disabled} />
-  );
+const CardLink = ({ card, customClassName }) => {
+  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName);
+  return <Card customClassName={cardLinkClassname} {...card} />;
 };
 
 CardLink.propTypes = {
@@ -36,10 +32,6 @@ CardLink.propTypes = {
    * Custom className
    */
   customClassName: PropTypes.string,
-  /**
-   * disabled: `true` to disable it.
-   */
-  disabled: PropTypes.bool,
 };
 
 CardLink.defaultProps = {
