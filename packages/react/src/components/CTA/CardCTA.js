@@ -86,6 +86,7 @@ const CardCTA = ({
           },
           copy: otherProps.copy,
           target: CTALogic.external(type),
+          href: otherProps.cta.href,
         }}
       />
     );
