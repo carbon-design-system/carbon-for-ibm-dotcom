@@ -42540,6 +42540,714 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+        >
+          <LeadSpaceBlock
+            copy="Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+            ensuring software is always ready for deployment."
+            cta={
+              Object {
+                "buttons": Array [
+                  Object {
+                    "copy": "Contact sales",
+                    "href": "https://example.com/",
+                    "iconDescription": "right arrow icon",
+                    "onClick": [Function],
+                    "renderIcon": Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "render": [Function],
+                    },
+                    "target": null,
+                    "type": "local",
+                  },
+                ],
+                "style": "button",
+                "type": "local",
+              }
+            }
+            heading="Innovate like a startup and scale for the enterprise "
+            items={
+              Object {
+                "heading": "Featured products",
+                "items": Array [
+                  Object {
+                    "copy": "IBM Cloud Continuous Delivery",
+                    "cta": Object {
+                      "href": "https://ibm.com",
+                    },
+                    "type": "local",
+                  },
+                  Object {
+                    "copy": "UrbanCode",
+                    "cta": Object {
+                      "href": "https://ibm.com",
+                    },
+                    "type": "local",
+                  },
+                  Object {
+                    "copy": "View all products",
+                    "cta": Object {
+                      "href": "https://ibm.com",
+                    },
+                    "type": "download",
+                  },
+                ],
+              }
+            }
+            mediaData={
+              Object {
+                "showCaption": true,
+                "videoId": "0_uka1msg4",
+              }
+            }
+            mediaType="video"
+            title="Continuous delivery"
+          >
+            <div
+              className="bx--leadspace-block"
+              data-autoid="dds--leadspace-block"
+            >
+              <div>
+                <h1
+                  className="bx--leadspace-block__title"
+                  data-autoid="dds--leadspace-block__title"
+                >
+                  Continuous delivery
+                </h1>
+              </div>
+              <ContentBlock
+                border={false}
+                copy="Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+            ensuring software is always ready for deployment."
+                heading="Innovate like a startup and scale for the enterprise "
+              >
+                <div
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
+                >
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Innovate like a startup and scale for the enterprise 
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p> ",
+                      }
+                    }
+                  />
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  >
+                    <div
+                      className="bx--leadspace-block__media"
+                      data-autoid="dds--leadspace-block__media"
+                    >
+                      <VideoPlayer
+                        autoPlay={false}
+                        showCaption={true}
+                        videoId="0_uka1msg4"
+                      >
+                        <div
+                          aria-label=" (1:00)"
+                          className="bx--video-player"
+                        >
+                          <div
+                            className="bx--video-player__video-container "
+                            data-autoid="dds--video-player__video-0_uka1msg4"
+                          >
+                            <div
+                              className="bx--video-player__video"
+                              id="bx--video-player__video-0_uka1msg4-70"
+                            >
+                              <VideoImageOverlay
+                                embedVideo={[Function]}
+                                videoData={
+                                  Object {
+                                    "description": "",
+                                    "name": "",
+                                  }
+                                }
+                                videoId="0_uka1msg4"
+                              >
+                                <button
+                                  className="bx--video-player__image-overlay"
+                                  data-autoid="dds--video-player__image-overlay"
+                                  onClick={[Function]}
+                                >
+                                  <Image
+                                    alt=""
+                                    defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                                    icon={[Function]}
+                                  />
+                                </button>
+                              </VideoImageOverlay>
+                            </div>
+                          </div>
+                          <div
+                            className="bx--video-player__video-caption"
+                          >
+                             
+                            (1:00)
+                          </div>
+                        </div>
+                      </VideoPlayer>
+                    </div>
+                    <LinkList
+                      heading="Featured products"
+                      items={
+                        Array [
+                          Object {
+                            "copy": "IBM Cloud Continuous Delivery",
+                            "cta": Object {
+                              "href": "https://ibm.com",
+                            },
+                            "type": "local",
+                          },
+                          Object {
+                            "copy": "UrbanCode",
+                            "cta": Object {
+                              "href": "https://ibm.com",
+                            },
+                            "type": "local",
+                          },
+                          Object {
+                            "copy": "View all products",
+                            "cta": Object {
+                              "href": "https://ibm.com",
+                            },
+                            "type": "download",
+                          },
+                        ]
+                      }
+                      style="vertical-end"
+                    >
+                      <div
+                        className="bx--link-list"
+                        data-autoid="dds--link-list"
+                      >
+                        <h4
+                          className="bx--link-list__heading"
+                        >
+                          Featured products
+                        </h4>
+                        <ul
+                          className="bx--link-list__list bx--link-list__list--vertical-end"
+                        >
+                          <li
+                            className="bx--link-list__list__CTA bx--link-list__list--local"
+                            key="0"
+                          >
+                            <CTA
+                              copy="IBM Cloud Continuous Delivery"
+                              cta={
+                                Object {
+                                  "href": "https://ibm.com",
+                                }
+                              }
+                              disableImage={true}
+                              href=""
+                              style="text"
+                              type="local"
+                            >
+                              <div>
+                                <TextCTA
+                                  copy="IBM Cloud Continuous Delivery"
+                                  cta={
+                                    Object {
+                                      "href": "https://ibm.com",
+                                    }
+                                  }
+                                  disableImage={true}
+                                  formatCTAcopy={[Function]}
+                                  href=""
+                                  iconPlacement="right"
+                                  openLightBox={[Function]}
+                                  renderLightBox={false}
+                                  style="text"
+                                  type="local"
+                                  videoTitle={
+                                    Array [
+                                      Object {
+                                        "duration": "",
+                                        "key": 0,
+                                        "title": "",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <LinkWithIcon
+                                    href="https://ibm.com"
+                                    iconPlacement="right"
+                                    onClick={[Function]}
+                                    target={null}
+                                  >
+                                    <div
+                                      className="bx--link-with-icon__container"
+                                      data-autoid="dds--link-with-icon"
+                                    >
+                                      <Link
+                                        className="bx--link-with-icon"
+                                        href="https://ibm.com"
+                                        onClick={[Function]}
+                                        target={null}
+                                      >
+                                        <a
+                                          className="bx--link bx--link-with-icon"
+                                          href="https://ibm.com"
+                                          onClick={[Function]}
+                                          target={null}
+                                        >
+                                          <span>
+                                            IBM Cloud Continuous Delivery
+                                          </span>
+                                          <ForwardRef(ArrowRight20)>
+                                            <Icon
+                                              fill="currentColor"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 20 20"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-hidden={true}
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ArrowRight20)>
+                                        </a>
+                                      </Link>
+                                    </div>
+                                  </LinkWithIcon>
+                                </TextCTA>
+                              </div>
+                            </CTA>
+                          </li>
+                          <li
+                            className="bx--link-list__list__CTA bx--link-list__list--local"
+                            key="1"
+                          >
+                            <CTA
+                              copy="UrbanCode"
+                              cta={
+                                Object {
+                                  "href": "https://ibm.com",
+                                }
+                              }
+                              disableImage={true}
+                              href=""
+                              style="text"
+                              type="local"
+                            >
+                              <div>
+                                <TextCTA
+                                  copy="UrbanCode"
+                                  cta={
+                                    Object {
+                                      "href": "https://ibm.com",
+                                    }
+                                  }
+                                  disableImage={true}
+                                  formatCTAcopy={[Function]}
+                                  href=""
+                                  iconPlacement="right"
+                                  openLightBox={[Function]}
+                                  renderLightBox={false}
+                                  style="text"
+                                  type="local"
+                                  videoTitle={
+                                    Array [
+                                      Object {
+                                        "duration": "",
+                                        "key": 0,
+                                        "title": "",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <LinkWithIcon
+                                    href="https://ibm.com"
+                                    iconPlacement="right"
+                                    onClick={[Function]}
+                                    target={null}
+                                  >
+                                    <div
+                                      className="bx--link-with-icon__container"
+                                      data-autoid="dds--link-with-icon"
+                                    >
+                                      <Link
+                                        className="bx--link-with-icon"
+                                        href="https://ibm.com"
+                                        onClick={[Function]}
+                                        target={null}
+                                      >
+                                        <a
+                                          className="bx--link bx--link-with-icon"
+                                          href="https://ibm.com"
+                                          onClick={[Function]}
+                                          target={null}
+                                        >
+                                          <span>
+                                            UrbanCode
+                                          </span>
+                                          <ForwardRef(ArrowRight20)>
+                                            <Icon
+                                              fill="currentColor"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 20 20"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-hidden={true}
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ArrowRight20)>
+                                        </a>
+                                      </Link>
+                                    </div>
+                                  </LinkWithIcon>
+                                </TextCTA>
+                              </div>
+                            </CTA>
+                          </li>
+                          <li
+                            className="bx--link-list__list__CTA bx--link-list__list--download"
+                            key="2"
+                          >
+                            <CTA
+                              copy="View all products"
+                              cta={
+                                Object {
+                                  "href": "https://ibm.com",
+                                }
+                              }
+                              disableImage={true}
+                              href=""
+                              style="text"
+                              type="download"
+                            >
+                              <div>
+                                <TextCTA
+                                  copy="View all products"
+                                  cta={
+                                    Object {
+                                      "href": "https://ibm.com",
+                                    }
+                                  }
+                                  disableImage={true}
+                                  formatCTAcopy={[Function]}
+                                  href=""
+                                  iconPlacement="right"
+                                  openLightBox={[Function]}
+                                  renderLightBox={false}
+                                  style="text"
+                                  type="download"
+                                  videoTitle={
+                                    Array [
+                                      Object {
+                                        "duration": "",
+                                        "key": 0,
+                                        "title": "",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <LinkWithIcon
+                                    href="https://ibm.com"
+                                    iconPlacement="right"
+                                    onClick={[Function]}
+                                    target={null}
+                                  >
+                                    <div
+                                      className="bx--link-with-icon__container"
+                                      data-autoid="dds--link-with-icon"
+                                    >
+                                      <Link
+                                        className="bx--link-with-icon"
+                                        href="https://ibm.com"
+                                        onClick={[Function]}
+                                        target={null}
+                                      >
+                                        <a
+                                          className="bx--link bx--link-with-icon"
+                                          href="https://ibm.com"
+                                          onClick={[Function]}
+                                          target={null}
+                                        >
+                                          <span>
+                                            View all products
+                                          </span>
+                                          <ForwardRef(Download20)>
+                                            <Icon
+                                              fill="currentColor"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-hidden={true}
+                                                fill="currentColor"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 32 32"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
+                                                />
+                                                <path
+                                                  d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(Download20)>
+                                        </a>
+                                      </Link>
+                                    </div>
+                                  </LinkWithIcon>
+                                </TextCTA>
+                              </div>
+                            </CTA>
+                          </li>
+                        </ul>
+                      </div>
+                    </LinkList>
+                    <CTA
+                      buttons={
+                        Array [
+                          Object {
+                            "copy": "Contact sales",
+                            "href": "https://example.com/",
+                            "iconDescription": "right arrow icon",
+                            "onClick": [Function],
+                            "renderIcon": Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
+                            },
+                            "target": null,
+                            "type": "local",
+                          },
+                        ]
+                      }
+                      copy=""
+                      customClassName="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                      href=""
+                      style="button"
+                      type="local"
+                    >
+                      <div
+                        className="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                      >
+                        <ButtonCTA
+                          buttons={
+                            Array [
+                              Object {
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
+                                "iconDescription": "right arrow icon",
+                                "onClick": [Function],
+                                "renderIcon": Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                },
+                                "target": null,
+                                "type": "local",
+                              },
+                            ]
+                          }
+                          copy=""
+                          formatCTAcopy={[Function]}
+                          href=""
+                          openLightBox={[Function]}
+                          renderLightBox={false}
+                          style="button"
+                          type="local"
+                          videoTitle={
+                            Array [
+                              Object {
+                                "duration": "",
+                                "key": 0,
+                                "title": "",
+                              },
+                            ]
+                          }
+                        >
+                          <ButtonGroup
+                            buttons={
+                              Array [
+                                Object {
+                                  "copy": "Contact sales",
+                                  "href": "https://example.com/",
+                                  "iconDescription": "right arrow icon",
+                                  "onClick": [Function],
+                                  "renderIcon": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                  "target": null,
+                                  "type": "local",
+                                },
+                              ]
+                            }
+                            enableSizeByContent={true}
+                          >
+                            <ol
+                              className="bx--buttongroup"
+                              data-autoid="dds--button-group"
+                            >
+                              <li
+                                className="bx--buttongroup-item"
+                              >
+                                <ForwardRef(Button)
+                                  copy="Contact sales"
+                                  data-autoid="dds--button-group-0"
+                                  disabled={false}
+                                  href="https://example.com/"
+                                  iconDescription="right arrow icon"
+                                  kind="primary"
+                                  onClick={[Function]}
+                                  renderIcon={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
+                                    }
+                                  }
+                                  tabIndex={0}
+                                  target={null}
+                                  type="button"
+                                >
+                                  <a
+                                    className="bx--btn bx--btn--primary"
+                                    copy="Contact sales"
+                                    data-autoid="dds--button-group-0"
+                                    href="https://example.com/"
+                                    onClick={[Function]}
+                                    tabIndex={0}
+                                    target={null}
+                                  >
+                                    Contact sales
+                                    <ForwardRef(ArrowRight20)
+                                      aria-hidden="true"
+                                      aria-label="right arrow icon"
+                                      className="bx--btn__icon"
+                                    >
+                                      <Icon
+                                        aria-hidden="true"
+                                        aria-label="right arrow icon"
+                                        className="bx--btn__icon"
+                                        fill="currentColor"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          aria-label="right arrow icon"
+                                          className="bx--btn__icon"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          role="img"
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </a>
+                                </ForwardRef(Button)>
+                              </li>
+                            </ol>
+                          </ButtonGroup>
+                        </ButtonCTA>
+                      </div>
+                    </CTA>
+                  </div>
+                </div>
+              </ContentBlock>
+              <HorizontalRule>
+                <hr
+                  className="bx--hr"
+                  data-autoid="dds--hr"
+                />
+              </HorizontalRule>
+            </div>
+          </LeadSpaceBlock>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
 <Container
   story={[Function]}
@@ -42901,7 +43609,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-71"
+                                    id="bx--video-player__video-0_uka1msg4-73"
                                   />
                                 </div>
                               </div>
@@ -46868,14 +47576,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-72"
+                                        aria-describedby="bx--image-74"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-72"
+                                      id="bx--image-74"
                                     >
                                       Company A
                                     </div>
@@ -46909,14 +47617,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-73"
+                                        aria-describedby="bx--image-75"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-73"
+                                      id="bx--image-75"
                                     >
                                       Company B
                                     </div>
@@ -46950,14 +47658,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-74"
+                                        aria-describedby="bx--image-76"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-74"
+                                      id="bx--image-76"
                                     >
                                       Company C
                                     </div>
@@ -46991,14 +47699,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-75"
+                                        aria-describedby="bx--image-77"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-75"
+                                      id="bx--image-77"
                                     >
                                       Company D
                                     </div>
@@ -47032,14 +47740,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-76"
+                                        aria-describedby="bx--image-78"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-76"
+                                      id="bx--image-78"
                                     >
                                       Company E
                                     </div>
@@ -47073,14 +47781,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-77"
+                                        aria-describedby="bx--image-79"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-77"
+                                      id="bx--image-79"
                                     >
                                       Company F
                                     </div>
@@ -47114,14 +47822,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-78"
+                                        aria-describedby="bx--image-80"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-78"
+                                      id="bx--image-80"
                                     >
                                       Company G
                                     </div>
@@ -47155,14 +47863,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-79"
+                                        aria-describedby="bx--image-81"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-79"
+                                      id="bx--image-81"
                                     >
                                       Company H
                                     </div>
@@ -47196,14 +47904,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-80"
+                                        aria-describedby="bx--image-82"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-80"
+                                      id="bx--image-82"
                                     >
                                       Company I
                                     </div>
@@ -50229,14 +50937,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-81"
+                            aria-describedby="bx--image-83"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-81"
+                          id="bx--image-83"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -50447,14 +51155,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-82"
+                              aria-describedby="bx--image-84"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-82"
+                            id="bx--image-84"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -50666,7 +51374,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-84"
+                  id="bx--video-player__video-0_uka1msg4-86"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
