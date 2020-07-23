@@ -25,7 +25,6 @@ const _path = '/iframe.html?id=components-calloutquote--default';
 describe('CalloutQuote', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    browser.setWindowSize(1200, 800);
     $('[data-autoid="dds--callout-quote"]').waitForExist(10000);
   });
 
