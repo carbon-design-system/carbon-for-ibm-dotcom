@@ -4,8 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import {
+  ClickableTile,
+  Tile,
+} from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import classNames from 'classnames';
-import { ClickableTile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
@@ -30,13 +33,16 @@ export const Card = ({
   cta,
   ...props
 }) => {
+  const TileType = props.disabled ? Tile : ClickableTile;
+
   return (
-    <ClickableTile
+    <TileType
       data-autoid={`${stablePrefix}--card`}
       className={classNames(
         `${prefix}--card`,
         {
           [`${prefix}--card--inverse`]: inverse,
+          [`${prefix}--card__CTA--disabled`]: props.disabled,
         },
         customClassName
       )}
@@ -53,7 +59,7 @@ export const Card = ({
         {optionalContent(copy)}
         {renderFooter(cta)}
       </div>
-    </ClickableTile>
+    </TileType>
   );
 };
 
@@ -114,6 +120,11 @@ export const cardPropTypes = {
    * Paragraph of text that further describing the resource with added detail.
    */
   copy: PropTypes.string,
+
+  /**
+   * Disable card link
+   */
+  disabled: PropTypes.bool,
 
   /**
    * CTA options. Has the following structure in summary:
