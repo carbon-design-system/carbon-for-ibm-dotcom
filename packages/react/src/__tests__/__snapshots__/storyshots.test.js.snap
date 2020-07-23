@@ -2319,7 +2319,6 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
       nulla quis, *consequat* libero. Here are
       some common categories:"
                         heading="Curabitur malesuada varius mi eu posuere"
-                        inverse={true}
                         mediaData={
                           Object {
                             "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -34871,7 +34870,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           <ContentBlockSimple
                                             copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
                                             heading="Mauris ultrices eros in cursus"
-                                            inverse={true}
                                             mediaData={
                                               Object {
                                                 "videoId": "0_uka1msg4",
@@ -42387,7 +42385,7 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p> ",
+                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p>",
                       }
                     }
                   />
