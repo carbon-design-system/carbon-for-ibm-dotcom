@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadLink } from '../masthead-container';
+import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
 
 /* eslint-disable max-len */
 
