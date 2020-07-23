@@ -8,11 +8,16 @@
  */
 
 import throttle from 'lodash-es/throttle';
+import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
+import { MastheadLink, Translation, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
+import store from '../../globals/services-store/store';
+import { loadLanguage, setLanguage } from '../../globals/services-store/actions/localeAPI';
+import { loadTranslation } from '../../globals/services-store/actions/translateAPI';
+import ConnectMixin from '../../globals/mixins/connect';
 import './masthead';
 import './masthead-logo';
 import './masthead-menu-button';
@@ -33,6 +38,9 @@ import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-overlay';
 import styles from './masthead.scss';
+
+export { default as reducers } from '../../globals/services-store/reducers';
+export { store };
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -56,71 +64,6 @@ enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
- * A quick link item in mega panel.
- */
-export interface MegapanelQuickLink {
-  title: string;
-  url?: string;
-}
-
-/**
- * A quick links in mega panel.
- */
-export interface MegapanelQuickLinks {
-  title: string;
-  links: MegapanelQuickLink[];
-}
-
-/**
- * A feature in mega panel.
- */
-export interface MegapanelFeature {
-  heading?: string;
-  imageUrl?: string;
-  linkTitle?: string;
-  linkUrl?: string;
-}
-
-/**
- * A content in mega panel.
- */
-export interface MegapanelContent {
-  headingTitle?: string;
-  headingUrl?: string;
-  description?: string;
-  quickLinks: MegapanelQuickLinks;
-  feature: MegapanelFeature;
-}
-
-/**
- * A menu item in masthead.
- */
-export interface MastheadMenuItem {
-  title: string;
-  url?: string;
-  megapanelContent?: MegapanelContent;
-}
-
-/**
- * A menu section in masthead.
- */
-export interface MastheadMenuSection {
-  heading?: string;
-  menuItems: MastheadMenuItem[];
-}
-
-/**
- * An item in masthead.
- */
-export interface MastheadLink {
-  title: string;
-  url?: string;
-  hasMenu?: boolean;
-  hasMegapanel?: boolean;
-  menuSections?: MastheadMenuSection[];
-}
-
-/**
  * An profile item in masthead.
  */
 export interface MastheadProfileItem {
@@ -139,6 +82,33 @@ export interface MastheadProfileItem {
    */
   url?: string;
 }
+
+/**
+ * The Redux state used for `<dds-masthead-container>`.
+ */
+export interface MastheadContainerState {
+  /**
+   * The Redux state for `LocaleAPI`.
+   */
+  localeAPI?: LocaleAPIState;
+
+  /**
+   * The Redux state for `TranslateAPI`.
+   */
+  translateAPI?: TranslateAPIState;
+}
+
+/**
+ * The properties for `<dds-masthead-container>` from Redux state.
+ */
+interface MastheadContainerStateProps {
+  /**
+   * The nav links.
+   */
+  navLinks?: MastheadLink[];
+}
+
+type MastheadActions = ReturnType<typeof loadLanguage> | ReturnType<typeof setLanguage> | ReturnType<typeof loadTranslation>;
 
 /**
  * The default nav items for authenticated state.
@@ -173,17 +143,68 @@ const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
 ];
 
 /**
+ * @param state The Redux state for masthead.
+ * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
+ */
+function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
+  const { localeAPI, translateAPI } = state;
+  const { language } = localeAPI ?? {};
+  const { translations } = translateAPI ?? {};
+  return {
+    navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+  };
+}
+
+/**
+ * @param dispatch The Redux `dispatch()` API.
+ * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
+ */
+function mapDispatchToProps(dispatch: Dispatch) {
+  return bindActionCreators<MastheadActions, ActionCreatorsMapObject<MastheadActions>>(
+    {
+      _loadLanguage: loadLanguage,
+      _setLanguage: setLanguage,
+      _loadTranslation: loadTranslation,
+    },
+    dispatch
+  );
+}
+
+/**
  * Container component for masthead.
  *
  * @element dds-masthead-container
  */
 @customElement(`${ddsPrefix}-masthead-container`)
-class DDSMastheadContainer extends LitElement {
+class DDSMastheadContainer extends ConnectMixin<
+  MastheadContainerState,
+  MastheadContainerStateProps,
+  ActionCreatorsMapObject<MastheadActions>
+>(
+  store as Store<MastheadContainerState>,
+  mapStateToProps,
+  mapDispatchToProps
+)(LitElement) {
   /**
    * The DOM element of the search UI.
    */
   @query(`${ddsPrefix}-masthead-search`)
   private _searchNode?: HTMLElement;
+
+  /**
+   * The placeholder for `loadLanguage()` Redux action that will be mixed in.
+   */
+  private _loadLanguage!: () => Promise<string>;
+
+  /**
+   * The placeholder for `setLanguage()` Redux action that will be mixed in.
+   */
+  private _setLanguage!: (string) => void;
+
+  /**
+   * The placeholder for `loadTranslation()` Redux action that will be mixed in.
+   */
+  private _loadTranslation!: () => Promise<Translation>;
 
   /**
    * `true` to open the search dropdown.
@@ -194,26 +215,6 @@ class DDSMastheadContainer extends LitElement {
    * `true` to stop further fetch operations. Should be set when this is detached from render tree.
    */
   private _shouldPreventFetch = false;
-
-  /**
-   * The promise to fetch default language.
-   */
-  private _promiseDefaultLanguage?: Promise<string>;
-
-  /**
-   * The promise to fetch default nav links, keyed by language.
-   */
-  private _promiseDefaultNavLinks: { [lang: string]: Promise<MastheadLink[]> } = {};
-
-  /**
-   * The default language.
-   */
-  private _defaultLanguage?: string;
-
-  /**
-   * The default nav links, keyed by language.
-   */
-  private _defaultNavLinks: { [lang: string]: MastheadLink[] } = {};
 
   /**
    * The search results to show in the UI.
@@ -231,112 +232,13 @@ class DDSMastheadContainer extends LitElement {
   private _throttledHandleInputImpl: (((event: InputEvent) => void) & Cancelable) | null = null;
 
   /**
-   * The effective language, that reflects the real-time state (without loading).
-   */
-  private get _currentEffectiveLanguage() {
-    return this.language || this._defaultLanguage;
-  }
-
-  /**
-   * The effective nav links, that reflects the real-time state (without loading).
-   */
-  private get _currentEffectiveNavLinks() {
-    return this.navLinks || this._defaultNavLinks[this._currentEffectiveLanguage!];
-  }
-
-  /**
    * @returns The endpoint to process the search query.
 _  */
   private async _getSearchEndpoint() {
     const { _searchQueryString: searchQueryString } = this;
-    const [primary, country] = (await this._getEffectiveLanguage()).split('-');
+    const language = await this._loadLanguage();
+    const [primary, country] = language!.split('-');
     return `https://www-api.ibm.com/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
-  }
-
-  /**
-   * @returns The default language data, fetched from `LocaleAPI`. MUST BE USED FROM `._fetchDefaultLanguageAsNeeded()`.
-   */
-  private async _fetchDefaultLanguage() {
-    const { cc: country, lc: primary } = await LocaleAPI.getLang();
-    const defaultLanguage = `${primary}-${country}`;
-    this._defaultLanguage = defaultLanguage;
-    return defaultLanguage;
-  }
-
-  /**
-   * Fetches the default language data, if it's not loaded yet.
-   *
-   * @returns The defualt language data.
-   */
-  private async _fetchDefaultLanguageAsNeeded() {
-    if (!this._promiseDefaultLanguage) {
-      this._promiseDefaultLanguage = this._fetchDefaultLanguage();
-    }
-    return this._promiseDefaultLanguage!;
-  }
-
-  /**
-   * @returns The language to use in this UI.
-   */
-  private async _getEffectiveLanguage() {
-    // If `this.language` is there, don't bother fetching the default language
-    const fetchedLanguage = this.language ? undefined : await this._fetchDefaultLanguageAsNeeded();
-    // If `this.language` is set while we are fetching the default language, use `this.language`
-    return (this.language || fetchedLanguage)!;
-  }
-
-  /**
-   * @param language The language.
-   * @returns The default nav links for the given language, fetched from `TranslationAPI`.
-   */
-  private async _fetchDefaultNavLinks(language: string) {
-    const [primary, country] = language.split('-');
-    const {
-      mastheadNav: { links: navLinks },
-    } = await TranslationAPI.getTranslation({ cc: country.toLowerCase(), lc: primary.toLowerCase() });
-    this._defaultNavLinks[language] = navLinks;
-    return navLinks;
-  }
-
-  /**
-   * Fetches default nav links for the given language, if it's not loaded yet.
-   *
-   * @param language The language.
-   * @returns The default nav links for the given language.
-   */
-  private async _fetchDefaultNavLinksAsNeeded(language: string) {
-    if (!this._promiseDefaultNavLinks[language]) {
-      this._promiseDefaultNavLinks[language] = this._fetchDefaultNavLinks(language);
-    }
-    return this._promiseDefaultNavLinks[language]!;
-  }
-
-  /**
-   * @returns The nav links to use in this UI.
-   */
-  private async _getEffectiveNavLinks() {
-    // If `this.navLinks` is there, don't bother fetching the default nav links
-    if (this.navLinks) {
-      return this.navLinks;
-    }
-    const language = await this._getEffectiveLanguage();
-    if (this._shouldPreventFetch) {
-      return undefined;
-    }
-    // If `this.navLinks` is set while we are fetching the default language, don't bother fetching the default nav links
-    const fetchedNavLinks = this.navLinks ? undefined : await this._fetchDefaultNavLinksAsNeeded(language);
-    // If `this.navLinks` is set while we are fetching the default nav links, use `this.navLinks`
-    return (this.navLinks ?? fetchedNavLinks)!;
-  }
-
-  /**
-   * Ensures nav links are rendered.
-   */
-  private async _ensureNavLinks() {
-    const effectiveNavLinks = await this._getEffectiveNavLinks();
-    if (effectiveNavLinks !== this.navLinks) {
-      this.requestUpdate();
-    }
   }
 
   /**
@@ -398,10 +300,10 @@ _  */
    * @returns The nav items.
    */
   private _renderNavItems({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
-    const { _currentEffectiveNavLinks: currentEffectiveNavLinks } = this;
-    return !currentEffectiveNavLinks
+    const { navLinks } = this;
+    return !navLinks
       ? undefined
-      : currentEffectiveNavLinks.map((link, i) => {
+      : navLinks.map((link, i) => {
           const { menuSections = [], title, url } = link;
           const sections = menuSections
             // eslint-disable-next-line no-use-before-define
@@ -556,16 +458,12 @@ _  */
     super.disconnectedCallback();
   }
 
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('language') || changedProperties.has('navLinks')) {
-      this._ensureNavLinks();
-    }
-    return true;
-  }
-
   firstUpdated() {
-    this._getEffectiveLanguage(); // Ensures that the effective language is fetched even if `navLinks` is explicitly given
-    this._ensureNavLinks();
+    const { language } = this;
+    if (language) {
+      this._setLanguage(language);
+    }
+    this._loadTranslation();
   }
 
   updated(changedProperties) {
@@ -575,6 +473,12 @@ _  */
         this._throttledHandleInputImpl = null;
       }
       this._throttledHandleInputImpl = throttle(this._handleInputImpl, this.inputTimeout);
+    }
+    if (changedProperties.has('language')) {
+      const { language } = this;
+      if (language) {
+        this._setLanguage(language);
+      }
     }
   }
 
