@@ -25,7 +25,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 describe('LocaleModal', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    browser.setWindowSize(1200, 800);
+
     $('[data-region="am"]').waitForExist(15000); // wait for data to load
   });
 
