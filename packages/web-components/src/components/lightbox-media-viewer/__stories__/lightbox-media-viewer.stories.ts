@@ -44,6 +44,9 @@ export default {
   title: 'Components/Lightbox media viewer',
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
     knobs: {
       'dds-modal': ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
