@@ -186,7 +186,7 @@ class DDSMastheadSearch extends BXDropdown {
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
-        aria-label="${ifDefined(searchLabel)}"
+        aria-label="${ifNonNull(searchLabel)}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}"
       />
