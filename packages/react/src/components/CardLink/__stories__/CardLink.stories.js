@@ -12,7 +12,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 const getBaseKnobs = ({ groupId }) => {
-  const disabled = boolean('disabled', false, groupId);
+  const disabled = boolean('Disabled (disabled):', false, groupId);
   const iconStyle = disabled ? Error20 : ArrowRight20;
   return {
     card: {
@@ -31,8 +31,8 @@ const getBaseKnobs = ({ groupId }) => {
           src: iconStyle,
         },
       },
+      disabled: disabled,
     },
-    disabled: disabled,
   };
 };
 

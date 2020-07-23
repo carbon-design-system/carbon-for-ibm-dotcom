@@ -19,7 +19,7 @@ export default {
       ContentGroupCards: ({ groupId }) => ({
         heading: text('Heading (heading):', ContentGroupCardsKnobs.heading, groupId),
         copy: text('Copy (copy):', ContentGroupCardsKnobs.copy, groupId),
-        items: object('Content group cards (Items) :', ContentGroupCardsKnobs.items, groupId),
+        items: ContentGroupCardsKnobs.items,
       }),
     },
   },
