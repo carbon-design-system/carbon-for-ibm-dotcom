@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
@@ -27,6 +27,52 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
     alt: '',
     description: '',
   });
+
+  /**
+   * Generates an ID for video title to be used by aria-labelledby.
+   */
+  const titleId = useMemo(
+    () =>
+      Math.random()
+        .toString(36)
+        .slice(2),
+    []
+  );
+
+  /**
+   * Generates an ID for video description, to be used by aria-describedby.
+   */
+  const descriptionId = useMemo(
+    () =>
+      Math.random()
+        .toString(36)
+        .slice(2),
+    []
+  );
+
+  const containerRef = useRef(null);
+
+  /**
+   * Adds aria-labelledby attribute to dialog container with video title.
+   */
+  useEffect(() => {
+    const { current: containerNode } = containerRef;
+    const dialogNode = containerNode.querySelector('div[role="dialog"]');
+    if (dialogNode && videoData.title) {
+      dialogNode.setAttribute('aria-labelledby', titleId);
+    }
+  }, [titleId, videoData.title]);
+
+  /**
+   * Adds aria-describedby attribute to dialog container with video description.
+   */
+  useEffect(() => {
+    const { current: containerNode } = containerRef;
+    const dialogNode = containerNode.querySelector('div[role="dialog"]');
+    if (dialogNode && videoData.description) {
+      dialogNode.setAttribute('aria-describedby', descriptionId);
+    }
+  }, [descriptionId, videoData.description]);
 
   useEffect(() => {
     let stale = false;
@@ -55,10 +101,12 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
 
   const videoDesc = removeHtmlTagEntities(videoData.description);
 
+  console.log(containerRef.current, 'oi');
   return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
-      className={`${prefix}--lightbox-media-viewer`}>
+      className={`${prefix}--lightbox-media-viewer`}
+      ref={containerRef}>
       <ExpressiveModal fullwidth={true} {...modalProps}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
@@ -76,6 +124,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                 <div className={`${prefix}--lightbox-media-viewer__content`}>
                   {videoData.title && (
                     <div
+                      id={titleId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
                       className={`${prefix}--lightbox-media-viewer__content__title`}>
                       {videoData.title}
@@ -83,6 +132,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                   )}
                   {videoData.description && (
                     <div
+                      id={descriptionId}
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
                       {videoDesc}
