@@ -5,10 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  Default as mastheadStory,
+  WithL1 as withL1Story,
+} from '../../Masthead/__stories__/Masthead.stories.js';
 import Content from './data/content';
+import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import DotcomShell from '../DotcomShell';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
-import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
+
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
@@ -60,3 +65,34 @@ export const Default = ({ parameters }) => {
     </DotcomShell>
   );
 };
+
+export const WithL1 = !DDS_MASTHEAD_L1
+  ? undefined
+  : ({ parameters }) => <Default parameters={parameters} />;
+
+if (WithL1) {
+  WithL1.story = {
+    parameters: {
+      knobs: {
+        DotcomShell: () => {
+          const {
+            Masthead: mastheadKnobs,
+          } = withL1Story.story.parameters.knobs;
+          const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+          return {
+            mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+            footerProps: {
+              ...footerKnobs({ groupId: 'Footer' }),
+              type: select(
+                'Footer (footerProps): sets the type of footer (type)',
+                footerTypeOptions,
+                footerTypeOptions.tall,
+                'Footer'
+              ),
+            },
+          };
+        },
+      },
+    },
+  };
+}

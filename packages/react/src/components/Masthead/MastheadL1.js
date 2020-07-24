@@ -147,6 +147,7 @@ MastheadL1.propTypes = {
 };
 
 MastheadL1.defaultProps = {
+  isShort: false,
   navigationL1: [],
   titleLink: null,
 };

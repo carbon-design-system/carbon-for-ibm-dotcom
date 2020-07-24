@@ -30,20 +30,6 @@ Default.story = {
   parameters: {
     knobs: {
       Masthead: ({ groupId }) => {
-        const mastheadL1Data = DDS_MASTHEAD_L1 && {
-          title: text(
-            'L1 title (title) (experimental)',
-            'Stock Charts',
-            groupId
-          ),
-          titleLink: text(
-            'L1 title link (titleLink) (experimental)',
-            'https://example.com/',
-            groupId
-          ),
-          navigationL1: mastheadKnobs.navigation.custom,
-        };
-
         const standardProps = {
           navigation: select(
             'navigation data (navigation)',
@@ -74,7 +60,6 @@ Default.story = {
             'Search all of IBM',
             groupId
           ),
-          mastheadL1Data,
         };
         return {
           ...standardProps,
@@ -129,28 +114,71 @@ WithPlatform.story = {
             groupId
           ),
         };
-        const mastheadL1Props = DDS_MASTHEAD_L1 && {
-          title: text(
-            'L1 title (title) (experimental)',
-            'Stock Charts',
-            groupId
-          ),
-          eyebrowText: text(
-            'L1 eyebrow text (eyebrowText) (experimental)',
-            'Eyebrow',
-            groupId
-          ),
-          eyebrowLink: text(
-            'L1 eyebrow link (eyebrowLink) (experimental)',
-            '#',
-            groupId
-          ),
-        };
         return {
           ...standardProps,
-          ...mastheadL1Props,
         };
       },
     },
   },
 };
+
+export const WithL1 = !DDS_MASTHEAD_L1
+  ? undefined
+  : ({ parameters }) => <Default parameters={parameters} />;
+
+if (WithL1) {
+  WithL1.story = {
+    parameters: {
+      knobs: {
+        Masthead: ({ groupId }) => {
+          const standardProps = {
+            hasProfile: boolean(
+              'show the profile functionality (hasProfile)',
+              true,
+              groupId
+            ),
+            hasSearch: boolean(
+              'show the search functionality (hasSearch)',
+              true,
+              groupId
+            ),
+            placeHolderText: text(
+              'search placeholder (placeHolderText)',
+              'Search all of IBM',
+              groupId
+            ),
+          };
+          const mastheadL1Props = {
+            mastheadL1Data: {
+              title: text(
+                'L1 title (mastheadL1Data.title) (experimental)',
+                'Stock Charts',
+                groupId
+              ),
+              titleLink: text(
+                'L1 title link(mastheadL1Data.titleLink) (experimental)',
+                'https://www.example.com',
+                groupId
+              ),
+              eyebrowText: text(
+                'L1 eyebrow text (mastheadL1Data.eyebrowText) (experimental)',
+                'Eyebrow',
+                groupId
+              ),
+              eyebrowLink: text(
+                'L1 eyebrow link (mastheadL1Data.eyebrowLink) (experimental)',
+                '#',
+                groupId
+              ),
+              navigationL1: mastheadKnobs.navigation.custom,
+            },
+          };
+          return {
+            ...standardProps,
+            ...mastheadL1Props,
+          };
+        },
+      },
+    },
+  };
+}

@@ -42,9 +42,7 @@ const { prefix } = settings;
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
  * @param {object} props.platform Platform name that appears on L0.
- * @param {string} props.title Title for the masthead L1
- * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
- * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
+ * @param {object} props.mastheadL1Data L1 data
  * @returns {*} Masthead component
  */
 const Masthead = ({
