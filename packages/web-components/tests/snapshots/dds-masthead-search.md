@@ -9,12 +9,14 @@
   <button
     aria-label="Open IBM search field"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
@@ -29,12 +31,14 @@
   <button
     aria-label="open-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
@@ -77,6 +81,7 @@
       autocomplete="off"
       class="bx--header__search--input"
       name="q"
+      part="search-input"
       placeholder="placeholder-foo"
       type="text"
     >
@@ -98,12 +103,14 @@
   <button
     aria-label="perform-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="close-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
