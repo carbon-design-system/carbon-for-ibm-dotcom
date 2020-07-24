@@ -73,6 +73,11 @@ export interface MastheadProfileItem {
   isLoginItem?: boolean;
 
   /**
+   * The key identifying this profile item within the menu.
+   */
+  key: string;
+
+  /**
    * The title text.
    */
   title: string;
@@ -116,18 +121,22 @@ type MastheadActions = ReturnType<typeof loadLanguage> | ReturnType<typeof setLa
 const defaultAuthenticateProfileItems: MastheadProfileItem[] = [
   {
     title: 'My IBM',
+    key: 'my-ibm',
     url: 'https://myibm.ibm.com/?lnk=mmi',
   },
   {
     title: 'Profile',
+    key: 'profile',
     url: 'https://myibm.ibm.com/profile/?lnk=mmi',
   },
   {
     title: 'Billing',
+    key: 'billing',
     url: 'https://myibm.ibm.com/billing/?lnk=mmi',
   },
   {
     title: 'Log out',
+    key: 'logout',
     url: 'https://myibm.ibm.com/pkmslogout?filename=accountRedir.html',
   },
 ];
@@ -138,6 +147,7 @@ const defaultAuthenticateProfileItems: MastheadProfileItem[] = [
 const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
   {
     title: 'Log in',
+    key: 'login',
     isLoginItem: true,
   },
 ];
@@ -434,6 +444,12 @@ _  */
   loginNonce?: string;
 
   /**
+   * The link target to the masthead logo.
+   */
+  @property({ attribute: 'logo-href' })
+  logoHref?: string;
+
+  /**
    * The navigation links.
    */
   @property({ attribute: false })
@@ -492,6 +508,7 @@ _  */
       menuButtonLabelActive,
       menuButtonLabelInactive,
       loginNonce,
+      logoHref,
       unauthenticatedProfileItems,
       _currentSearchResults: currentSearchResults,
       _handleInputSearch: handleInputSearch,
@@ -517,7 +534,7 @@ _  */
           button-label-inactive="${ifNonNull(menuButtonLabelInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo href="javascript:void 0"></dds-masthead-logo>
+        <dds-masthead-logo href="${ifNonNull(logoHref)}"></dds-masthead-logo>
         ${!brandName
           ? undefined
           : html`
@@ -536,10 +553,10 @@ _  */
         </dds-masthead-search>
         <dds-masthead-global-bar>
           <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems.map(({ isLoginItem, title, url }) => {
+            ${profileItems.map(({ isLoginItem, key, title, url }) => {
               const href = !isLoginItem ? url : loginUrl;
               return html`
-                <dds-masthead-profile-item href="${ifNonNull(href)}">${title}</dds-masthead-profile-item>
+                <dds-masthead-profile-item href="${ifNonNull(href)}" key="${key}">${title}</dds-masthead-profile-item>
               `;
             })}
           </dds-masthead-profile>
