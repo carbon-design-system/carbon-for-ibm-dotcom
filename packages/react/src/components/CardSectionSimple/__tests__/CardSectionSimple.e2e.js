@@ -25,8 +25,8 @@ const _path = '/iframe.html?id=components-cardsectionsimple--default';
 describe('CardSectionSimple', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    browser.setWindowSize(1200, 800);
-    $('[data-autoid="dds--card-group-simple-group"]').waitForExist();
+
+    $('[data-autoid="dds--card-group-simple-group"]').waitForExist(10000);
   });
 
   it('should open to a different url', () => {
@@ -62,8 +62,8 @@ describe('CardSectionSimple: Heading', () => {
     const query =
       '&knob-Heading%20(heading):_CardSectionSimple=Serving%20society%20ethically%20in%20the%20age%20of%20Artificial%20Intelligence.';
     browser.url(_url + _path + query);
-    browser.setWindowSize(1200, 800);
-    $('[data-autoid="dds--card-group-simple-group"]').waitForExist();
+
+    $('[data-autoid="dds--card-group-simple-group"]').waitForExist(10000);
   });
 
   it('should set the heading correctly', () => {

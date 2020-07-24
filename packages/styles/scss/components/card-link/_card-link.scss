@@ -17,14 +17,16 @@
       .#{$prefix}--card__eyebrow {
         color: $disabled-02;
       }
-
-      .#{$prefix}--card__footer {
-        .#{$prefix}--link-with-icon {
-          svg {
-            margin-left: 0;
-            color: $disabled-02;
-          }
+    }
+    .#{$prefix}--card__footer {
+      .#{$prefix}--link-with-icon {
+        svg {
+          margin-left: 0;
+          color: $disabled-02;
         }
+      }
+      svg {
+        fill: $disabled-02;
       }
     }
   }
