@@ -100,3 +100,11 @@ export const WithVideo = ({ parameters }) => {
     </div>
   );
 };
+
+WithVideo.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
