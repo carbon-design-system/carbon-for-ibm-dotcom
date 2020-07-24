@@ -46,12 +46,13 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
               0
             );
             const hasWordWrap = height > 48;
+            const mobileWidth = root.innerWidth <= 320;
             Array.prototype.forEach.call(
               group.querySelectorAll(
                 '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
               ),
               item => {
-                item.style.width = `${width + 1}px`;
+                item.style.width = mobileWidth ? `100%` : `${width + 1}px`;
                 item.classList.toggle(`${prefix}--btn--multiline`, hasWordWrap);
               }
             );
