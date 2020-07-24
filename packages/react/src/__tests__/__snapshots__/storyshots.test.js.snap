@@ -33333,7 +33333,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               style={
                                 Object {
                                   "position": "sticky",
-                                  "top": "0",
+                                  "top": 0,
                                 }
                               }
                             >
@@ -62331,7 +62331,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                     style={
                       Object {
                         "position": "sticky",
-                        "top": "0",
+                        "top": 0,
                       }
                     }
                   >
@@ -62658,7 +62658,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                   style={
                     Object {
                       "position": "sticky",
-                      "top": "0",
+                      "top": 0,
                     }
                   }
                 >
@@ -63139,7 +63139,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     style={
                       Object {
                         "position": "sticky",
-                        "top": "0",
+                        "top": 0,
                       }
                     }
                   >
