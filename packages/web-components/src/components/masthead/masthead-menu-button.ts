@@ -22,6 +22,24 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-menu-button`)
 class DDSMastheadMenuButton extends StableSelectorMixin(BXHeaderMenuButton) {
+  constructor() {
+    super();
+    this.addEventListener('click', this.toggleTabIndex);
+    this.addEventListener('keyup', event => {
+      if (event.code === 'Enter' || event.code === 'Space') {
+        this.toggleTabIndex();
+      }
+    });
+  }
+
+  private toggleTabIndex() {
+    const value = this.getAttribute('active') === null ? '0' : '-1';
+    document.querySelector(`${ddsPrefix}-masthead-logo`).shadowRoot.querySelector('a').tabIndex = value;
+    document.querySelector(`${ddsPrefix}-masthead-search`).shadowRoot.querySelectorAll('button')[0].tabIndex = value;
+    document.querySelector(`${ddsPrefix}-masthead-search`).shadowRoot.querySelectorAll('button')[1].tabIndex = value;
+    document.querySelector(`${ddsPrefix}-masthead-profile`).shadowRoot.querySelector('a').tabIndex = value;
+  }
+
   /**
    * The shadow slot this toggle button should be in.
    */
