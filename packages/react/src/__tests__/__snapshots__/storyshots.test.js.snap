@@ -41729,7 +41729,7 @@ exports[`Storyshots Components|Dotcom Shell With L 1 1`] = `
                                 style={
                                   Object {
                                     "position": "sticky",
-                                    "top": "0",
+                                    "top": 0,
                                   }
                                 }
                               >
