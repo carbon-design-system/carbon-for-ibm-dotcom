@@ -63,7 +63,7 @@ exports.config = {
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
       // excludeDriverLogs: ['bugreport', 'server'],
       'goog:chromeOptions': {
-        args: ['--headless', '--window-size=1024,768', '--disable-gpu'],
+        args: ['--headless', '--window-size=1200,800', '--disable-gpu'],
         // binary: binPath,
         // w3c: true
       },

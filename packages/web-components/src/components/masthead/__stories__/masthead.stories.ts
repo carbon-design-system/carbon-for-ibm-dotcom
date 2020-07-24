@@ -95,6 +95,7 @@ export default {
       'dds-masthead-container': ({ groupId }) => ({
         authenticated: boolean('Show the authenticated UI (authenticated)', false, groupId),
         brandName: textNullable('Brand name (brand-name)', '', groupId),
+        logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
       }),
     },
     props: {
