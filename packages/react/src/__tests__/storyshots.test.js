@@ -9,6 +9,8 @@ import initStoryshots from '@storybook/addon-storyshots';
 import { mount } from 'enzyme';
 import path from 'path';
 
+process.env = Object.assign(process.env, { DDS_FLAGS_ALL: true });
+
 /**
  * This will initialize storyshots for snapshot testing.
  * NOTE: If a molecule/organism requires deeper testing, a __tests__ folder must be created in the corresponding folder
