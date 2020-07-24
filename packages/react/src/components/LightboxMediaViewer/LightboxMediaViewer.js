@@ -101,7 +101,6 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
 
   const videoDesc = removeHtmlTagEntities(videoData.description);
 
-  console.log(containerRef.current, 'oi');
   return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
