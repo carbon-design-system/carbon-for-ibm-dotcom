@@ -6,6 +6,7 @@
  */
 
 @import '../../globals/imports';
+@import '../../themes/expressive/tokens';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 @import '../card/index';
 @import 'carbon-components/scss/components/search/search';
@@ -21,6 +22,8 @@
       $carbon--theme--white,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
+      @include carbon-productive-tokens-custom-properties();
+
       .#{$prefix}--modal-container {
         background-color: $ui-background;
         min-height: 80%;

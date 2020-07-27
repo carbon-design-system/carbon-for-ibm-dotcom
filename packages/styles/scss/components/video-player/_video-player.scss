@@ -12,6 +12,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
   .#{$prefix}--video-player {
+    @include carbon-productive-tokens-custom-properties();
+
     &__video-container {
       width: 100%;
       position: relative;

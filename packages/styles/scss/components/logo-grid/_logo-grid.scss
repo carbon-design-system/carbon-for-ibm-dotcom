@@ -13,6 +13,8 @@
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
+    @include carbon-productive-tokens-custom-properties();
+
     padding: $spacing-03;
 
     .#{$prefix}--content-block {

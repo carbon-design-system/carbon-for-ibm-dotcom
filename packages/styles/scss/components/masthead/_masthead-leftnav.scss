@@ -145,6 +145,8 @@
         }
 
         .#{$prefix}--masthead__side-nav--submemu-back {
+          @include carbon-productive-tokens-custom-properties();
+
           a {
             cursor: pointer;
             border-bottom: none;
