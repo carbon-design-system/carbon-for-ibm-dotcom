@@ -20,51 +20,26 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 ##### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal';
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/regions';
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/region-item';
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-search';
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-item';
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
+import { store, mapStateToProps, mapDispatchToProps } from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+
+// Wires `<dds-locale-modal-composite>` to `@carbon/ibmdotcom-servies` and creates `<app-locale-modal-container>`
+customElements.define('app-locale-modal-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSLocaleModalComposite) {})
 ```
 
 ##### HTML
 
 ```html
-<dds-locale-modal lang-display="United States — English" open>
-  <dds-regions>
-    <dds-region-item name="Americas"></dds-region-item>
-    <dds-region-item name="Asia Pacific"></dds-region-item>
-    <dds-region-item name="Europe"></dds-region-item>
-    <dds-region-item name="Middle East and Africa"></dds-region-item>
-  </dds-regions>
-  <dds-locale-search placeholder="Search by location or language">
-    <dds-locale-item
-      country="United States"
-      href="https://www.ibm.com/us-en/"
-      language="English"
-      locale="en-us"
-      region="Americas"
-    >
-    </dds-locale-item>
-    <dds-locale-item
-      country="Korea, Republic of"
-      href="https://www.ibm.com/kr-ko"
-      language="Korean"
-      locale="ko-kr"
-      region="Asia Pacific"
-    >
-    </dds-locale-item>
-    <dds-locale-item
-      country="Japan"
-      href="https://www.ibm.com/jp-ja"
-      language="Japanese"
-      locale="ja-jp"
-      region="Asia Pacific"
-    >
-    </dds-locale-item>
-  </dds-locale-search>
-</dds-locale-modal>
+<app-locale-modal-container></app-locale-modal-container>
 ```
+
+## `<dds-locale-modal-composite>`
+
+`<dds-locale-modal-composite>` automatically renders contents of locale modal from the given data.
+You can populate the data automatically from `@carbon/ibmdotcom-servies` by mixing a Redux store into this custom element class, shown in the example in Getting started section above.
+
+<Props of="dds-locale-modal-composite" />
 
 ## `<dds-locale-modal>`
 

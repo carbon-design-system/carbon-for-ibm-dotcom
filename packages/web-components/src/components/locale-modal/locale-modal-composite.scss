@@ -7,6 +7,6 @@
 
 @import '../../globals/scss/vars';
 
-:host(#{$dds-prefix}-locale-modal-container) {
+:host {
   display: contents;
 }

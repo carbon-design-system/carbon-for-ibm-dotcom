@@ -8,24 +8,22 @@
  */
 
 import { html, render } from 'lit-html';
-import { EventTarget } from 'event-target-shim';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import { forEach } from '../../../globals/internal/collection-helpers';
-import EventManager from '../../../../tests/utils/event-manager';
 /* eslint-disable import/no-duplicates */
-import { LocaleModalLocaleList } from '../locale-modal-container';
+import { LocaleList } from '../../../globals/services-store/types/localeAPI';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal-container';
 /* eslint-enable import/no-duplicates */
 import localeData from '../__stories__/locale-data.json';
 
-const minimumLocaleList: LocaleModalLocaleList = {
+const minimumLocaleList: LocaleList = {
   regionList: [],
   localeModal: localeData.localeModal,
 };
 
-const localeListFoo: LocaleModalLocaleList = {
+const localeListFoo: LocaleList = {
   regionList: [
     {
       name: 'region-name-foo',
@@ -102,8 +100,6 @@ const setupLinkAlternate = (set: boolean = true) => {
 };
 
 describe('dds-locale-modal-container', function() {
-  const events = new EventManager();
-
   describe('Misc attributes', function() {
     it('should render minimum attributes', async function() {
       render(template({ localeList: minimumLocaleList }), document.body);
@@ -126,7 +122,7 @@ describe('dds-locale-modal-container', function() {
     });
   });
 
-  describe('Determining the locale list language', function() {
+  describe('Using data', function() {
     it('should use the given language', async function() {
       spyOn(LocaleAPI, 'getLang');
       spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(Promise.resolve(''));
@@ -136,32 +132,6 @@ describe('dds-locale-modal-container', function() {
       expect(LocaleAPI.getLang).not.toHaveBeenCalled();
     });
 
-    it('should minimize the `LocaleAPI` calls', async function() {
-      spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(Promise.resolve(''));
-      spyOn(LocaleAPI, 'getList').and.returnValue(Promise.resolve(localeListFoo));
-      const eventTarget = new EventTarget();
-      spyOn(LocaleAPI, 'getLang').and.returnValue(
-        new Promise(resolve => {
-          events.on(eventTarget, 'drain-promise', () => {
-            resolve({ cc: 'US', lc: 'en' });
-          });
-        })
-      );
-      render(template(), document.body);
-      await Promise.resolve();
-      const localeModalContainer = document.body.querySelector('dds-locale-modal-container');
-      const promiseResults = Promise.all([
-        (localeModalContainer as any)._fetchDefaultLanguageAsNeeded(),
-        (localeModalContainer as any)._fetchDefaultLanguageAsNeeded(),
-      ]);
-      eventTarget.dispatchEvent(new CustomEvent('drain-promise'));
-      const results = await promiseResults;
-      expect(LocaleAPI.getLang).toHaveBeenCalledTimes(1);
-      expect(results).toEqual(['en-US', 'en-US']);
-    });
-  });
-
-  describe('Loading lang display', function() {
     it('should use the given lang display', async function() {
       spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(Promise.resolve(''));
       spyOn(LocaleAPI, 'getList').and.returnValue(Promise.resolve(localeListFoo));
@@ -170,94 +140,16 @@ describe('dds-locale-modal-container', function() {
       expect(LocaleAPI.getLangDisplay).not.toHaveBeenCalled();
     });
 
-    it('should minimize the `LocaleAPI.getLangDisplay()` calls', async function() {
-      const eventTarget = new EventTarget();
-      spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(
-        new Promise(resolve => {
-          events.on(eventTarget, 'drain-promise', () => {
-            resolve('lang-display-foo');
-          });
-        })
-      );
-      render(template({ localeList: minimumLocaleList }), document.body);
-      await Promise.resolve();
-      const localeModalContainer = document.body.querySelector('dds-locale-modal-container');
-      const promiseResults = Promise.all([
-        (localeModalContainer as any)._fetchDefaultLangDisplayAsNeeded(),
-        (localeModalContainer as any)._fetchDefaultLangDisplayAsNeeded(),
-      ]);
-      eventTarget.dispatchEvent(new CustomEvent('drain-promise'));
-      const results = await promiseResults;
-      expect(LocaleAPI.getLangDisplay).toHaveBeenCalledTimes(1);
-      expect(results).toEqual(['lang-display-foo', 'lang-display-foo']);
-    });
-  });
-
-  describe('Loading locale list', function() {
     it('should use the given locale list', async function() {
       spyOn(LocaleAPI, 'getList').and.returnValue(Promise.resolve(localeListFoo));
       render(template({ language: 'en-US', localeList: minimumLocaleList }), document.body);
       await Promise.resolve();
       expect(LocaleAPI.getList).not.toHaveBeenCalled();
     });
-
-    it('should minimize the `LocaleAPI.getList()` calls', async function() {
-      const eventTarget = new EventTarget();
-      spyOn(LocaleAPI, 'getList').and.returnValue(
-        new Promise(resolve => {
-          events.on(eventTarget, 'drain-promise', () => {
-            resolve(localeListFoo);
-          });
-        })
-      );
-      render(template({ langDisplay: 'lang-display-foo', language: 'en-US' }), document.body);
-      await Promise.resolve();
-      const localeModalContainer = document.body.querySelector('dds-locale-modal-container');
-      const promiseResults = Promise.all([
-        (localeModalContainer as any)._fetchDefaultLocaleListAsNeeded('en-US'),
-        (localeModalContainer as any)._fetchDefaultLocaleListAsNeeded('en-US'),
-      ]);
-      eventTarget.dispatchEvent(new CustomEvent('drain-promise'));
-      const results = await promiseResults;
-      expect(LocaleAPI.getList).toHaveBeenCalledTimes(1);
-      expect(results).toEqual([localeListFoo, localeListFoo]);
-    });
-
-    it('should manage `LocaleAPI.getList()` calls per locale', async function() {
-      const eventTarget = new EventTarget();
-      spyOn(LocaleAPI, 'getList').and.callFake(({ cc, lc }) => {
-        const language = `${lc}-${cc.toUpperCase()}`;
-        return new Promise(resolve => {
-          events.on(eventTarget, 'drain-promise', event => {
-            if (language === event.detail.language) {
-              resolve(
-                {
-                  'en-US': minimumLocaleList,
-                  'ko-KR': localeListFoo,
-                }[language]
-              );
-            }
-          });
-        });
-      });
-      render(template({ language: 'en-US' }), document.body);
-      await Promise.resolve();
-      const localeModalContainer = document.body.querySelector('dds-locale-modal-container');
-      const promiseResults = Promise.all([
-        (localeModalContainer as any)._fetchDefaultLocaleListAsNeeded('en-US'),
-        (localeModalContainer as any)._fetchDefaultLocaleListAsNeeded('ko-KR'),
-      ]);
-      eventTarget.dispatchEvent(new CustomEvent('drain-promise', { detail: { language: 'en-US' } }));
-      eventTarget.dispatchEvent(new CustomEvent('drain-promise', { detail: { language: 'ko-KR' } }));
-      const results = await promiseResults;
-      expect(LocaleAPI.getList).toHaveBeenCalledTimes(2);
-      expect(results).toEqual([minimumLocaleList, localeListFoo]);
-    });
   });
 
   afterEach(function() {
     setupLinkAlternate(false);
     render(undefined!, document.body);
-    events.reset();
   });
 });
