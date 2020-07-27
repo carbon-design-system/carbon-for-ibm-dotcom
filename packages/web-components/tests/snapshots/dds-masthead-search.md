@@ -78,6 +78,7 @@
     <input
       aria-autocomplete="list"
       aria-controls="result-list"
+      aria-label="IBM search field"
       autocomplete="off"
       class="bx--header__search--input"
       name="q"
