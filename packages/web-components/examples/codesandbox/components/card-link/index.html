@@ -1,0 +1,38 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      #app {
+        width: 300px;
+      }
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <h1>Hello World! 👋</h1>
+    <div id="app">
+      <dds-card-link href="https://example.com">
+        <p>Copy text</p>
+      </dds-card-link>
+    </div>
+  </body>
+  <script type="text/javascript">
+    document.getElementById('btn').addEventListener('click', () => {
+      console.log('Button clicked!');
+    });
+  </script>
+</html>

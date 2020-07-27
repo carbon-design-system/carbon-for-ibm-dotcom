@@ -25,6 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The search UI in the masthead.
  *
  * @element dds-masthead-search
+ * @csspart open-button The button to show the search box.
+ * @csspart close-button The button to hide the search box.
+ * @csspart search-input The input box for search.
  * @fires dds-masthead-search-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
@@ -173,6 +176,7 @@ class DDSMastheadSearch extends BXDropdown {
     return html`
       <input
         type="text"
+        part="search-input"
         class="${prefix}--header__search--input"
         name="q"
         placeholder="${placeholder}"
@@ -311,6 +315,7 @@ class DDSMastheadSearch extends BXDropdown {
       <div class="${prefix}--header__search--actions">
         <button
           type="button"
+          part="open-button"
           class="${prefix}--header__action ${prefix}--header__search--search"
           aria-label="${searchButtonAssistiveText}"
           @click="${handleClickSearchButton}"
@@ -319,6 +324,7 @@ class DDSMastheadSearch extends BXDropdown {
         </button>
         <button
           type="button"
+          part="close-button"
           class="${prefix}--header__action ${prefix}--header__search--close"
           aria-label="${closeSearchButtonAssistiveText}"
           @click="${handleClickCloseButton}"

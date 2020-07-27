@@ -3,6 +3,236 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.9.0-rc.0...@carbon/ibmdotcom-react@1.9.0-rc.1) (2020-07-22)
+
+### Bug Fixes
+
+- **CardLink:** disabled state
+  ([#3247](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3247))
+  ([838d567](https://github.com/carbon-design-system/ibm-dotcom-library/commit/838d567)),
+  closes
+  [#3229](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3229)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.9.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.8.0...@carbon/ibmdotcom-react@1.9.0-rc.0) (2020-07-17)
+
+### Bug Fixes
+
+- **ContentBlockCards:** add video and cta
+  ([#3196](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3196))
+  ([6dcfe8e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6dcfe8e)),
+  closes
+  [#2985](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2985)
+  [#3051](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3051)
+
+# 1.9.0-beta.4592 (2020-07-17)
+
+### Bug Fixes
+
+- **ButtonGroup:** added sameHeight feature - Leadspace issue related
+  ([#2939](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2939))
+  ([7762075](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7762075))
+- **ButtonGroup:** put React key in the right place
+  ([67706c1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/67706c1)),
+  closes
+  [#2693](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2693)
+- **ButtonGroup:** removed row-reverse styling
+  ([845d239](https://github.com/carbon-design-system/ibm-dotcom-library/commit/845d239))
+- **CalloutData:** add missing export
+  ([30c85d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/30c85d8))
+- **CalloutData:** hide it from Storybook
+  ([#3013](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3013))
+  ([6102089](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6102089))
+- **CalloutData:** moving all knobs to same tab
+  ([#3028](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3028))
+  ([6d68375](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6d68375))
+- **CalloutData:** updated docs
+  ([#2947](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2947))
+  ([6b00447](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6b00447))
+- **CalloutQuote:** fix icon size on mobile
+  ([#2926](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2926))
+  ([2ecf21f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2ecf21f))
+- **CallOutQuote:** added copy2 knob to the story pannel
+  ([#2963](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2963))
+  ([7ee99b9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7ee99b9))
+- **CallOutWithMedia:** media spacing adjustments
+  ([#3022](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3022))
+  ([e77da69](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e77da69))
+- **Card:** fix prop type
+  ([#2767](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2767))
+  ([2561006](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2561006))
+- **Card:** fixed column number for small breakpoint
+  ([#2934](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2934))
+  ([9640c18](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9640c18))
+- **Card:** reduce bottom margin when link has text
+  ([#3144](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3144))
+  ([c39e926](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c39e926))
+- **CardGroup:** allow CardGroup to set Card with cta copy
+  ([#3164](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3164))
+  ([f039d31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f039d31))
+- **CardLink:** `bx--grid--condensed` added to the storybook story
+  ([#2757](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2757))
+  ([8237778](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8237778))
+- **CardSectionSimple:** remove filter for card eyebrow
+  ([ff51c2f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ff51c2f))
+- **contentblockcards:** grid fix
+  ([#2924](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2924))
+  ([e3a72f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e3a72f9))
+- **ContentItem:** grid spacing fixes
+  ([#2986](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2986))
+  ([198f378](https://github.com/carbon-design-system/ibm-dotcom-library/commit/198f378))
+- **ContentItemHorizontal:** grid alignment
+  ([2ce7f5f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2ce7f5f))
+- **ContentItemHorizontal:** links default to vertical
+  ([06c609d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/06c609d))
+- **ContentItemHorizontal:** updated storybook with design specs
+  ([#2974](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2974))
+  ([8fa4ae1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8fa4ae1))
+- **CTASection:** add buttongroup for cta
+  ([#2992](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2992))
+  ([68e51a1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/68e51a1))
+- **CTASection:** adjust spacing when no content items
+  ([#2868](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2868))
+  ([0c606e6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0c606e6))
+- **FeatureCardBlockLarge:** ensure correct image asset ratio is passed in for
+  custom breakpoint
+  ([#2921](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2921))
+  ([6da2ba2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6da2ba2))
+- **FeatureCardBlockMedium:** fixed circular dependency
+  ([#2920](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2920))
+  ([7cd2008](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7cd2008))
+- **LanguageSelector:** placeholder prop added
+  ([#2807](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2807))
+  ([2a6682e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2a6682e))
+- **LanguageSelector:** refresh value on focus lost
+  ([#3131](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3131))
+  ([2830b77](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2830b77)),
+  closes
+  [#2319](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2319)
+- **LeadSpace:** prevent content from being cut off in mobile
+  ([#3181](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3181))
+  ([871869a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/871869a)),
+  closes
+  [#3114](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3114)
+- **LeadSpaceBlock:** grid adjustment
+  ([#2853](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2853))
+  ([876d57e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/876d57e))
+- **LocaleModal:** region card focus state
+  ([#2995](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2995))
+  ([64079e5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/64079e5))
+- **masthead:** fix to profile menu scroll away issue
+  ([3ac4c52](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3ac4c52))
+- **Masthead:** fixed missing platform on mobile
+  ([18d97ad](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18d97ad))
+- **MastheadL1:** increased max-width, eyebrow validation and new prop
+  ([#3091](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3091))
+  ([1f35219](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f35219))
+- **Quote:** optional `copy2` prop added to the component
+  ([#2835](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2835))
+  ([821f227](https://github.com/carbon-design-system/ibm-dotcom-library/commit/821f227))
+- **SimpleOverview:** remove SimpleOverview pattern
+  ([285d013](https://github.com/carbon-design-system/ibm-dotcom-library/commit/285d013))
+- **styles:** add missing css imports
+  ([#3064](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3064))
+  ([00875fe](https://github.com/carbon-design-system/ibm-dotcom-library/commit/00875fe))
+- **TableOfContents:** added offset to fix scroll issues on mobile
+  ([#2760](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2760))
+  ([ee9a229](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ee9a229))
+- **TableOfContents:** changed `headingContent` from div to Image
+  ([#2842](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2842))
+  ([35899c7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/35899c7))
+- **TableOfContents:** fixed missing hover and hidden default label
+  ([#2800](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2800))
+  ([a411717](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a411717))
+- **ToC:** mobile selector css fixes
+  ([b4371cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4371cd))
+- **VideoPlayer:** create distinct videoplayer ids in order to place multiple of
+  the same video
+  ([#2938](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2938))
+  ([d8aa7c2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d8aa7c2))
+- **VideoPlayer:** ensure only the video thumbnail for the video clicked gets
+  removed from DOM
+  ([#2857](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2857))
+  ([e723958](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e723958))
+
+### Features
+
+- **ButtonGroup:** added top alignment to icon in ButtonGroup
+  ([#2785](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2785))
+  ([129d897](https://github.com/carbon-design-system/ibm-dotcom-library/commit/129d897))
+- **CalloutData:** new experimental pattern created
+  ([#2873](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2873))
+  ([7de0938](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7de0938))
+- **Card:** add link text option to clickable card
+  ([#3097](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3097))
+  ([26b5678](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26b5678))
+- **CardSectionImages:** added codesandbox implementation
+  ([#2804](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2804))
+  ([48c7743](https://github.com/carbon-design-system/ibm-dotcom-library/commit/48c7743))
+- **CardSectionSimple:** added codesandbox implementation
+  ([#2846](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2846))
+  ([5d7bdcc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d7bdcc))
+- **content-group-simple:** added codesandbox example implementation
+  ([#2759](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2759))
+  ([d67f015](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d67f015))
+- **ContentBlockHeadlines:** add ContentBlockHeadlines pattern
+  ([#3040](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3040))
+  ([750587b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/750587b))
+- **ContentBlockMedia:** added codesandbox example implementation
+  ([#2843](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2843))
+  ([ecf5af4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ecf5af4))
+- **ContentBlockMixed:** added codesandbox example implementation
+  ([#2809](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2809))
+  ([86699c6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/86699c6))
+- **ContentBlockSegmented:** added codesandbox example implementation
+  ([#2808](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2808))
+  ([dcd12d4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dcd12d4))
+- **ContentBlockSimple:** added codesandbox example implementation
+  ([#2806](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2806))
+  ([abfd22f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abfd22f))
+- **ContentGroupCards:** added codesandbox example implementation
+  ([#2773](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2773))
+  ([2aee162](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2aee162))
+- **ContentGroupPictograms:** added codesandbox example implementation
+  ([#2763](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2763))
+  ([a4ff165](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4ff165))
+- **Leadspace:** added codesandbox implementation
+  ([#2844](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2844))
+  ([e3c8cb5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e3c8cb5))
+- **LinkList:** added codesandbox exampl
+  ([bf68a9b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bf68a9b))
+- **LinkWithIcon:** add option for icon on left
+  ([#2980](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2980))
+  ([109f926](https://github.com/carbon-design-system/ibm-dotcom-library/commit/109f926))
+- **LinkWithIcon:** enabled inverse theming
+  ([1278218](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1278218))
+- **MarkdownToHTML:** add full markdown support in content
+  ([#2925](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2925))
+  ([abd4848](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abd4848))
+- **MastheadL1:** component enabled for dynamic data
+  ([#3053](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3053))
+  ([6100d9d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6100d9d))
+- **VideoPlayer:** add aspect ratio overrides
+  ([#3139](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3139))
+  ([7be6d3b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7be6d3b))
+- **VideoPlayer:** added codesandbox example implementation
+  ([#2745](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2745))
+  ([39e192d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/39e192d))
+- **WebComponents:** add Web Components package
+  ([#2820](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2820))
+  ([6372912](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6372912)),
+  closes
+  [#2810](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2810)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.8.0-rc.5...@carbon/ibmdotcom-react@1.8.0) (2020-06-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

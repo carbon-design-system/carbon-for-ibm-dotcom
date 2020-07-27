@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   check-packages:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         node-version: [12.x]
@@ -23,7 +23,7 @@ jobs:
           yarn ci-check
           yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
   web-components:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         node-version: [12.x]
@@ -42,7 +42,7 @@ jobs:
       - name: Run basic checks
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
   a11y:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         node-version: [12.x]
@@ -61,7 +61,7 @@ jobs:
       - name: Run a11y compliance tests
         run: xvfb-run --auto-servernum --error-file=/dev/stderr yarn test:a11y || true
   integration-react:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     strategy:
       matrix:
         node-version: [12.x]
@@ -81,3 +81,35 @@ jobs:
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
       - name: Run bundle integration test
         run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:bundle
+  integration-ui-web-components:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        node-version: [12.x]
+        browser: [chromium, firefox]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Run web-component-analyzer
+        run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components wca
+      - name: Install xvfb
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get install xvfb
+      - name: Run checks with xvfb
+        if: matrix.os == 'ubuntu-latest'
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:ui
+        env:
+          DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
+      - name: Run checks without xvfb
+        if: matrix.os != 'ubuntu-latest'
+        run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:ui
+        env:
+          DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}

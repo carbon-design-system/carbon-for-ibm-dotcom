@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.9.0-rc.0...@carbon/ibmdotcom-vanilla@0.9.0-rc.1) (2020-07-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.9.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.8.0...@carbon/ibmdotcom-vanilla@0.9.0-rc.0) (2020-07-17)
+
+### Bug Fixes
+
+- **footer:** divide legal nav to chunks
+  ([420f82b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/420f82b)),
+  closes
+  [#3047](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3047)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.8.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.8.0-rc.5...@carbon/ibmdotcom-vanilla@0.8.0) (2020-06-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla
