@@ -43149,14 +43149,14 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                             <div
                               className="bx--lightbox-media-viewer__content__title"
                               data-autoid="dds--lightbox-media-viewer__content__title"
-                              id="53u49kmsxaq"
+                              id="5e16b89s9hw"
                             >
                               Curabitur malesuada varius mi eu posuere
                             </div>
                             <div
                               className="bx--lightbox-media-viewer__content__desc"
                               data-autoid="dds--lightbox-media-viewer__content__desc"
-                              id="ut34y6swtxk"
+                              id="ipaoeuo0c"
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
                             </div>
