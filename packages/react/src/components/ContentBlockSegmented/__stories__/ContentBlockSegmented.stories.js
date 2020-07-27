@@ -197,6 +197,9 @@ export const WithVideo = ({ parameters }) => {
 
 WithVideo.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockSegmented: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });
