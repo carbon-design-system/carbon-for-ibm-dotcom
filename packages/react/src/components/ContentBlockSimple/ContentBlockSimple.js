@@ -28,15 +28,14 @@ const ContentBlockSimple = ({
   mediaData,
   cta,
   aside,
-  inverse,
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
     className={`${prefix}--content-block-simple`}>
-    <ContentBlock inverse={inverse} heading={heading} cta={cta} aside={aside}>
+    <ContentBlock heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
-        <ContentItem inverse={inverse} copy={copy} />
-        {_renderMedia(mediaType, mediaData, inverse)}
+        <ContentItem copy={copy} />
+        {_renderMedia(mediaType, mediaData)}
       </div>
     </ContentBlock>
   </div>
@@ -47,11 +46,10 @@ const ContentBlockSimple = ({
  *
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
- * @param {boolean} inverse inverse theme
  * @private
  * @returns {*} media component
  */
-const _renderMedia = (type, data, inverse) => {
+const _renderMedia = (type, data) => {
   if (data) {
     return (
       <div
@@ -60,8 +58,8 @@ const _renderMedia = (type, data, inverse) => {
           [`${prefix}--content-block-simple__media-video`]: type === 'video',
           [`${prefix}--content-block-simple__media-image`]: type === 'image',
         })}>
-        {type === 'image' && <ImageWithCaption inverse={inverse} {...data} />}
-        {type === 'video' && <VideoPlayer inverse={inverse} {...data} />}
+        {type === 'image' && <ImageWithCaption {...data} />}
+        {type === 'video' && <VideoPlayer {...data} />}
       </div>
     );
   }
@@ -93,7 +91,6 @@ ContentBlockSimple.propTypes = {
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({
-      inverse: PropTypes.bool,
       image: PropTypes.shape({
         classname: PropTypes.string,
         sources: PropTypes.arrayOf(
@@ -118,7 +115,6 @@ ContentBlockSimple.propTypes = {
       customClassName: PropTypes.string,
       videoId: PropTypes.string.isRequired,
       showCaption: PropTypes.bool,
-      inverse: PropTypes.bool,
     }),
   ]),
 
@@ -150,11 +146,6 @@ ContentBlockSimple.propTypes = {
    * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.object,
-
-  /**
-   * `true` to change theme to inverse.
-   */
-  inverse: PropTypes.bool,
 };
 
 export default ContentBlockSimple;
