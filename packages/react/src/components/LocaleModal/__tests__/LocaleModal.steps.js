@@ -9,7 +9,7 @@ describe('LocaleModal', () => {
   describe('Main UI', () => {
     beforeAll(async () => {
       await page.goto(
-        `http://localhost:${process.env.PORT}/iframe.html?id=components-locale-modal--default`
+        `http://localhost:${process.env.PORT}/iframe.html?id=components-locale-modal--default&knob-Use%20mock%20data=true`
       );
     });
 
@@ -39,7 +39,7 @@ describe('LocaleModal', () => {
   describe('Locale search UI', () => {
     beforeAll(async () => {
       await page.goto(
-        `http://localhost:${process.env.PORT}/iframe.html?id=components-locale-modal--default`
+        `http://localhost:${process.env.PORT}/iframe.html?id=components-locale-modal--default&knob-Use%20mock%20data=true`
       );
       await page.click('.bx--tile--clickable');
     });

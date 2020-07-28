@@ -12,8 +12,6 @@
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption {
-    @include carbon-productive-tokens-custom-properties();
-
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
     max-width: carbon--mini-units(80);
@@ -81,6 +79,7 @@
   // can we set 2x1 ratio here?
 
   .#{$prefix}--image__caption {
+    @include carbon-productive-tokens-custom-properties();
     @include carbon--type-style('caption-01');
 
     color: $text-05;
@@ -97,6 +96,7 @@
   }
 
   .#{$prefix}--image__caption--inverse {
+    @include carbon-productive-tokens-custom-properties();
     @include carbon--type-style('body-short-01', true);
 
     margin-top: $carbon--spacing-03;

@@ -10,7 +10,7 @@ describe('Masthead', () => {
     beforeAll(async () => {
       await page.setViewportSize({ width: 672, height: 720 });
       await page.goto(
-        `http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default`
+        `http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&knob-Use%20mock%20data=true`
       );
       await page.click('[data-autoid="dds--masthead__hamburger"]');
       await page.click('button.bx--side-nav__submenu');

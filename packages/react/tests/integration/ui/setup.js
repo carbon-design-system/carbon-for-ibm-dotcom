@@ -15,7 +15,7 @@ const isPortReachable = require('is-port-reachable');
 
 module.exports = async config => {
   if (!process.env.LAUNCH_TIMEOUT) {
-    process.env.LAUNCH_TIMEOUT = 120000;
+    process.env.LAUNCH_TIMEOUT = 300000;
   }
   if (!process.env.PORT) {
     process.env.PORT = 9000;

@@ -22,8 +22,6 @@
       $carbon--theme--white,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
-      @include carbon-productive-tokens-custom-properties();
-
       .#{$prefix}--modal-container {
         background-color: $ui-background;
         min-height: 80%;
@@ -185,6 +183,7 @@
           padding: $carbon--spacing-05;
           min-height: $carbon--spacing-09;
 
+          @include carbon-productive-tokens-custom-properties();
           @include carbon--type-style(heading-01, true);
         }
       }
@@ -225,6 +224,7 @@
             margin-right: $carbon--spacing-03;
           }
 
+          @include carbon-productive-tokens-custom-properties();
           @include carbon--type-style(body-short-01, true);
         }
 

@@ -14,8 +14,6 @@
 
 @mixin card {
   .#{$prefix}--card {
-    @include carbon-productive-tokens-custom-properties();
-
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
@@ -49,6 +47,7 @@
     }
 
     &__eyebrow {
+      @include carbon-productive-tokens-custom-properties();
       @include carbon--type-style('body-short-01');
 
       margin-bottom: $carbon--spacing-03;
@@ -138,6 +137,7 @@
     &__video {
       .#{$prefix}--card__footer span {
         color: $text-02;
+        @include carbon-productive-tokens-custom-properties();
         @include carbon--type-style('body-short-01');
       }
     }

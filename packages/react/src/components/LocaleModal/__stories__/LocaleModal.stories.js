@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { boolean } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import localeData from '../__data__/locale-data.json';
 import LocaleModal from '../LocaleModal';
@@ -16,15 +17,21 @@ export default {
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      LocaleModal: () => ({
+        useMockData: boolean('Use mock data', inPercy()),
+      }),
+    },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { useMockData } = parameters?.props?.LocaleModal ?? {};
   return (
     <LocaleModal
       isOpen={true}
-      localeData={inPercy() ? localeData : null}
-      localeDisplay={inPercy() ? 'United States - English' : null}
+      localeData={useMockData ? localeData : null}
+      localeDisplay={useMockData ? 'United States - English' : null}
     />
   );
 };

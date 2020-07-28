@@ -103,7 +103,12 @@ jobs:
       - name: Install xvfb
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install xvfb
-      - name: Run checks with xvfb
+      - name: Run checks with xvfb (React)
+        if: matrix.os == 'ubuntu-latest'
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:ui
+        env:
+          DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
+      - name: Run checks with xvfb (Web Components)
         if: matrix.os == 'ubuntu-latest'
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:ui
         env:
