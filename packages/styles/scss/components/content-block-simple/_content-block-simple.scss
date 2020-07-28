@@ -6,9 +6,6 @@
  */
 
 @mixin content-block-simple {
-  .#{$prefix}--content-block-simple--inverse {
-    background-color: $inverse-02;
-  }
   .#{$prefix}--content-block {
     // empty for now
   }
