@@ -13,7 +13,7 @@ describe('ImageWithCaption', () => {
   });
 
   it('should have the right type for the caption', async () => {
-    const caption = await page.waitForSelector('.bx--image__caption--inverse');
+    const caption = await page.waitForSelector('.bx--image__caption');
     const styleValues = await page.evaluate(
       caption =>
         window.getStyleValues(caption, [
