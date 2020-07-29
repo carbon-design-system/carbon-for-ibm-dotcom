@@ -101,7 +101,8 @@ export default {
     props: {
       'dds-masthead-container': {
         // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set
-        navLinks: process.env.CORS_PROXY && !inPercy() ? undefined : links,
+        navLinks:
+          process.env.CORS_PROXY && !new URLSearchParams(window.location.search).has('mock') && !inPercy() ? undefined : links,
       },
     },
   },

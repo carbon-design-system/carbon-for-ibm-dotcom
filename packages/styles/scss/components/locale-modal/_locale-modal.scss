@@ -6,6 +6,7 @@
  */
 
 @import '../../globals/imports';
+@import '../../themes/expressive/tokens';
 @import '../card/index';
 @import 'carbon-components/scss/components/search/search';
 @import 'carbon-components/scss/components/modal/modal';
@@ -181,6 +182,7 @@
           padding: $carbon--spacing-05;
           min-height: $carbon--spacing-09;
 
+          @include carbon-productive-tokens-custom-properties();
           @include carbon--type-style(heading-01, true);
         }
       }
@@ -221,6 +223,7 @@
             margin-right: $carbon--spacing-03;
           }
 
+          @include carbon-productive-tokens-custom-properties();
           @include carbon--type-style(body-short-01, true);
         }
 
