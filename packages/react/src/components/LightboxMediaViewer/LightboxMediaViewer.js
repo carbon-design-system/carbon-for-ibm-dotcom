@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
@@ -12,6 +12,7 @@ import { ModalBody } from '../../internal/vendor/carbon-components-react/compone
 import PropTypes from 'prop-types';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
 import settings from 'carbon-components/es/globals/js/settings';
+import { uniqueid } from '@carbon/ibmdotcom-utilities';
 import { VideoPlayer } from '../VideoPlayer';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
@@ -31,24 +32,12 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
   /**
    * Generates an ID for video title to be used by aria-labelledby.
    */
-  const titleId = useMemo(
-    () =>
-      Math.random()
-        .toString(36)
-        .slice(2),
-    []
-  );
+  const titleId = uniqueid('dds-');
 
   /**
    * Generates an ID for video description, to be used by aria-describedby.
    */
-  const descriptionId = useMemo(
-    () =>
-      Math.random()
-        .toString(36)
-        .slice(2),
-    []
-  );
+  const descriptionId = uniqueid('dds-');
 
   const containerRef = useRef(null);
 
