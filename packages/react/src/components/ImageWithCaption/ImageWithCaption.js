@@ -20,7 +20,6 @@ const { prefix } = settings;
  * Picture element.
  */
 const ImageWithCaption = ({
-  inverse,
   image,
   lightbox,
   heading,
@@ -32,11 +31,7 @@ const ImageWithCaption = ({
   if (!image) {
     return null;
   }
-  const classnames = cx(
-    `${prefix}--image-with-caption`,
-    { [`${prefix}--image-with-caption--inverse`]: inverse },
-    customClassName
-  );
+  const classnames = cx(`${prefix}--image-with-caption`, customClassName);
 
   const media = {
     type: 'image',
@@ -65,7 +60,7 @@ const ImageWithCaption = ({
         <Image {...image} />
       )}
       <p
-        className={`${prefix}--image__caption--inverse`}
+        className={`${prefix}--image__caption`}
         data-autoid={`${stablePrefix}--image__caption`}>
         {heading}
       </p>
@@ -74,11 +69,6 @@ const ImageWithCaption = ({
 };
 
 ImageWithCaption.propTypes = {
-  /**
-   * `true` to change theme to inverse.
-   */
-  inverse: PropTypes.bool,
-
   /**
    * Image object needed for ImageWithCaption component.
    * Visit the [Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
@@ -119,7 +109,6 @@ ImageWithCaption.propTypes = {
 };
 
 ImageWithCaption.defaultProps = {
-  inverse: false,
   copy: '',
   lightbox: false,
 };

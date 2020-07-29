@@ -5,11 +5,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/generated/container';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/generated/icon-size';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-family';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/scale';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+
+/// Carbon core original size tokens.
+/// Used to theme-zone from expressive back to productive, and thus defines only items that expressive version defines.
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-productive-size-tokens: (
+  container-01: $carbon--container-01,
+  container-02: $carbon--container-02,
+  container-03: $carbon--container-03,
+  container-04: $carbon--container-04,
+  container-05: $carbon--container-05,
+  icon-size-01: $carbon--icon-size-01,
+);
 
 /// DDS version of size tokens.
 /// @type Map
@@ -22,6 +38,76 @@ $carbon-expressive-size-tokens: (
   container-04: 3rem,
   container-05: 4.5rem,
   icon-size-01: 1.25rem,
+);
+
+/// Carbon core original type tokens.
+/// Used to theme-zone from expressive back to productive, and thus defines only items that expressive version defines.
+/// From: carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/_inlined/_styles.scss
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-productive-type-tokens: (
+  body-short-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  body-long-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0.16px,
+  ),
+  label-01: (
+    font-size: carbon--type-scale(1),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(16px),
+    letter-spacing: 0.32px,
+  ),
+  caption-01: (
+    font-size: carbon--type-scale(1),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(16px),
+    letter-spacing: 0.32px,
+  ),
+  code-01: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(1),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(16px),
+    letter-spacing: 0.32px,
+  ),
+  code-02: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0.32px,
+  ),
+  helper-text-01: (
+    font-size: carbon--type-scale(1),
+    line-height: carbon--rem(16px),
+    letter-spacing: 0.32px,
+  ),
+  heading-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  productive-heading-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ),
+  expressive-heading-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0.16px,
+  ),
 );
 
 /// DDS version of type tokens.
@@ -93,6 +179,44 @@ $carbon-expressive-type-tokens: (
   ),
 ) !default;
 
+/// Carbon core original component tokens.
+/// Used to theme-zone from expressive back to productive, and thus defines only items that expressive version defines.
+/// @type Map
+/// @access public
+/// @group carbon-expressive
+$carbon-productive-component-tokens: (
+  button-md-height:
+    var(
+      --#{$custom-property-prefix}-container-04,
+      map-get($carbon-productive-size-tokens, 'container-04')
+    ),
+  button-sm-height:
+    var(
+      --#{$custom-property-prefix}-container-02,
+      map-get($carbon-productive-size-tokens, 'container-02')
+    ),
+  button-field-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-productive-size-tokens, 'container-03')
+    ),
+  input-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-productive-size-tokens, 'container-03')
+    ),
+  tab-height:
+    var(
+      --#{$custom-property-prefix}-container-03,
+      map-get($carbon-productive-size-tokens, 'container-03')
+    ),
+  tab-container-height:
+    var(
+      --#{$custom-property-prefix}-container-04,
+      map-get($carbon-productive-size-tokens, 'container-04')
+    ),
+) !default;
+
 /// DDS version of component tokens.
 /// @type Map
 /// @access public
@@ -129,6 +253,30 @@ $carbon-expressive-component-tokens: (
       map-get($carbon-expressive-size-tokens, 'container-04')
     ),
 ) !default;
+
+/// Sets size/type tokens as custom properties.
+/// @access public
+/// @param {Map} $size-tokens [$carbon-productive-size-tokens] - The size tokens.
+/// @param {Map} $type-tokens [$carbon-productive-type-tokens] - The type tokens.
+/// @param {Map} $component-tokens [$carbon-productive-component-tokens] - The component tokens.
+/// @group carbon-expressive
+@mixin carbon-productive-tokens-custom-properties(
+  $size-tokens: $carbon-productive-size-tokens,
+  $type-tokens: $carbon-productive-type-tokens,
+  $component-tokens: $carbon-productive-component-tokens
+) {
+  @each $key, $value in $size-tokens {
+    --#{$custom-property-prefix}-#{$key}: #{$value};
+  }
+  @each $key, $value in $type-tokens {
+    @each $subkey, $subvalue in $value {
+      --#{$custom-property-prefix}-#{$key}-#{$subkey}: #{$subvalue};
+    }
+  }
+  @each $key, $value in $component-tokens {
+    --#{$custom-property-prefix}-#{$key}: #{$value};
+  }
+}
 
 /// Sets size/type tokens as custom properties.
 /// @access public
