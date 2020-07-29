@@ -26,6 +26,7 @@
       &--eyebrow {
         color: $text-05;
         padding-bottom: $spacing-03;
+        @include carbon-productive-tokens-custom-properties();
         @include carbon--type-style('body-long-01');
       }
 

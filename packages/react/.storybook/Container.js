@@ -9,6 +9,24 @@ import React, { Component } from 'react';
 import './_container.scss';
 import { settings } from 'carbon-components';
 
+/**
+ * @param {Element} elem An element.
+ * @param {string[]} props CSS property names.
+ * @returns {Object<string, any>}
+ *   The key-value pair of CSS property name/value.
+ *   Used primary for integration testing.
+ */
+window.getStyleValues = function getStyleValues(elem, props) {
+  const computedStyle = elem.ownerDocument.defaultView.getComputedStyle(elem);
+  return props.reduce(
+    (acc, prop) => ({
+      ...acc,
+      [prop]: computedStyle.getPropertyValue(prop),
+    }),
+    {}
+  );
+};
+
 const { prefix } = settings;
 export default class Container extends Component {
   componentDidMount() {

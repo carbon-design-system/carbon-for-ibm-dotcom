@@ -144,6 +144,9 @@ export const WithVideos = ({ parameters }) => {
 
 WithVideos.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockCards: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });

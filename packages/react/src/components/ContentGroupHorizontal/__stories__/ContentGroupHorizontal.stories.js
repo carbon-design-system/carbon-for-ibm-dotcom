@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text } from '@storybook/addon-knobs';
 import ContentGroupHorizontal from '../ContentGroupHorizontal';
 import items from './data/items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|ContentGroupHorizontal',
@@ -18,8 +18,8 @@ export default {
     ...readme.parameters,
     knobs: {
       ContentGroupHorizontal: ({ groupId }) => ({
-        heading: text('Heading', 'Aliquam condimentum', groupId),
-        items: object('Items', items.items, groupId),
+        heading: text('Heading (heading):', 'Aliquam condimentum', groupId),
+        items: items.items,
       }),
     },
     propsSet: {

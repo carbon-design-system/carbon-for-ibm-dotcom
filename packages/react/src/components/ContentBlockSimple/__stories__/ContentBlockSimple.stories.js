@@ -5,15 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, object, boolean } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
-import cx from 'classnames';
 import { LinkList } from '../../../components/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
 
 const ctaStyles = {
   text: 'text',
@@ -26,32 +22,31 @@ const ctaTypes = {
   external: 'external',
 };
 
-const mediaDataByType = {
+const image = {
+  heading: 'Mauris iaculis eget dolor nec hendrerit.',
   image: {
-    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: {
-      sources: [
-        {
-          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-          breakpoint: 320,
-        },
-        {
-          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-          breakpoint: 400,
-        },
-        {
-          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-          breakpoint: 672,
-        },
-      ],
-      alt: 'Image alt text',
-      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-    },
+    sources: [
+      {
+        src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+        breakpoint: 320,
+      },
+      {
+        src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+        breakpoint: 400,
+      },
+      {
+        src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+        breakpoint: 672,
+      },
+    ],
+    alt: 'Image alt text',
+    defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
   },
-  video: {
-    videoId: '0_uka1msg4',
-    showCaption: true,
-  },
+};
+
+const video = {
+  videoId: '0_uka1msg4',
+  showCaption: true,
 };
 
 const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -75,12 +70,6 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
  * @returns {object} The knobs data.
  */
 const getBaseKnobs = ({ groupId }) => {
-  const mediaType = select(
-    'mediaType (optional)',
-    ['image', 'video', 'none'],
-    'image',
-    groupId
-  );
   return {
     copy,
     heading: text(
@@ -88,8 +77,6 @@ const getBaseKnobs = ({ groupId }) => {
       'Curabitur malesuada varius mi eu posuere',
       groupId
     ),
-    mediaType: mediaType === 'none' ? undefined : mediaType,
-    mediaData: mediaDataByType[mediaType],
     cta: {
       cta: {
         href: 'https://www.ibm.com',
@@ -110,23 +97,12 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { inverse, copy, heading, mediaType, mediaData, cta } =
-    parameters?.props?.ContentBlockSimple ?? {};
+  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
   return (
-    <div
-      className={cx('bx--grid', {
-        [`${prefix}--content-block-simple--inverse`]: inverse,
-      })}>
+    <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
-          <ContentBlockSimple
-            inverse={inverse}
-            copy={copy}
-            heading={heading}
-            mediaType={mediaType}
-            mediaData={mediaData}
-            cta={cta}
-          />
+          <ContentBlockSimple copy={copy} heading={heading} cta={cta} />
         </div>
       </div>
     </div>
@@ -140,7 +116,73 @@ Default.story = {
         const knobs = getBaseKnobs({ groupId });
         return {
           ...knobs,
-          inverse: boolean('inverse', false, groupId),
+        };
+      },
+    },
+  },
+};
+
+export const WithImage = ({ parameters }) => {
+  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+          <ContentBlockSimple
+            copy={copy}
+            heading={heading}
+            mediaType="image"
+            mediaData={image}
+            cta={cta}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithImage.story = {
+  parameters: {
+    knobs: {
+      ContentBlockSimple: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        return {
+          ...knobs,
+        };
+      },
+    },
+  },
+};
+
+export const WithVideo = ({ parameters }) => {
+  const { copy, heading, cta } = parameters?.props?.ContentBlockSimple ?? {};
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+          <ContentBlockSimple
+            copy={copy}
+            heading={heading}
+            mediaType="video"
+            mediaData={video}
+            cta={cta}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithVideo.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+    knobs: {
+      ContentBlockSimple: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        return {
+          ...knobs,
         };
       },
     },
@@ -148,7 +190,7 @@ Default.story = {
 };
 
 export const WithAsideElements = ({ parameters }) => {
-  const { copy, heading, mediaType, mediaData, cta, aside } =
+  const { copy, heading, cta, aside } =
     parameters?.props?.ContentBlockSimple ?? {};
   return (
     <div className="bx--grid">
@@ -157,8 +199,8 @@ export const WithAsideElements = ({ parameters }) => {
           <ContentBlockSimple
             copy={copy}
             heading={heading}
-            mediaType={mediaType}
-            mediaData={mediaData}
+            mediaType="image"
+            mediaData={image}
             cta={cta}
             aside={aside}
           />
@@ -174,8 +216,8 @@ WithAsideElements.story = {
     knobs: {
       ContentBlockSimple: ({ groupId }) => {
         const linkListProps = {
-          heading: text('link list heading:', 'Tutorials'),
-          items: object('link list items array', [
+          heading: text('Link list heading (heading):', 'Tutorials', groupId),
+          items: [
             {
               type: 'local',
               copy: 'Containerization A Complete Guide',
@@ -190,7 +232,7 @@ WithAsideElements.story = {
                 href: 'https://ibm.com',
               },
             },
-          ]),
+          ],
         };
         const knobs = getBaseKnobs({ groupId });
         return {
