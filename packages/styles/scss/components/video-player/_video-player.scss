@@ -41,6 +41,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
 
     &__video-caption {
+      @include carbon-productive-tokens-custom-properties();
       @include carbon--type-style(body-long-01, true);
 
       padding-top: $spacing-05;
@@ -65,12 +66,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       outline: 3px solid $focus;
       outline-offset: 1px;
     }
-  }
-  .#{$prefix}--video-player--inverse {
-    background-color: $inverse-02;
-  }
-  .#{$prefix}--video-player--inverse .#{$prefix}--video-player__video-caption {
-    color: $text-04;
   }
 }
 

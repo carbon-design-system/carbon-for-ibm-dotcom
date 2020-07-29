@@ -475,11 +475,13 @@ _  */
   }
 
   firstUpdated() {
-    const { language } = this;
+    const { language, navLinks } = this;
     if (language) {
       this._setLanguage(language);
     }
-    this._loadTranslation();
+    if (!navLinks) {
+      this._loadTranslation();
+    }
   }
 
   updated(changedProperties) {

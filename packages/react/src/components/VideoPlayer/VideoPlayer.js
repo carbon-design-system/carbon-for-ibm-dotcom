@@ -21,7 +21,6 @@ const { prefix } = settings;
  * VideoPlayer component.
  */
 const VideoPlayer = ({
-  inverse,
   showCaption,
   videoId,
   customClassName,
@@ -59,11 +58,7 @@ const VideoPlayer = ({
     };
   }, [autoPlay, videoId, videoPlayerId, embedVideo]);
 
-  const classnames = cx(
-    `${prefix}--video-player`,
-    { [`${prefix}--video-player--inverse`]: inverse },
-    customClassName
-  );
+  const classnames = cx(`${prefix}--video-player`, customClassName);
 
   const aspectRatioClass = cx({
     [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
@@ -123,11 +118,6 @@ VideoPlayer.propTypes = {
    * `true` to show the description.
    */
   showCaption: PropTypes.bool,
-
-  /**
-   * `true` to use the inverse theme.
-   */
-  inverse: PropTypes.bool,
 };
 
 VideoPlayer.defaultProps = {

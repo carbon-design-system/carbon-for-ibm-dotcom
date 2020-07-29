@@ -33,7 +33,7 @@
       }
     },
     {
-      "files": ["**/*_steps.js"],
+      "files": ["**/*_steps.js", "**/*.steps.js"],
       "globals": {
         "describe": true,
         "beforeAll": true,

@@ -7,18 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import links from '../__stories__/links';
-
 describe('dds-masthead-*', () => {
   let navigated;
 
   describe('With wide screen', () => {
     beforeAll(async () => {
       await page.setViewportSize({ width: 1280, height: 720 });
-      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default`);
-      await page.evaluate(navLinks => {
-        document.querySelector('dds-masthead-container').navLinks = navLinks;
-      }, links);
+      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
 
     it('should support clicking the logo', async () => {
@@ -56,10 +51,7 @@ describe('dds-masthead-*', () => {
   describe('With narrow screen', () => {
     beforeAll(async () => {
       await page.setViewportSize({ width: 672, height: 720 });
-      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default`);
-      await page.evaluate(navLinks => {
-        document.querySelector('dds-masthead-container').navLinks = navLinks;
-      }, links);
+      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
 
     it('should support navigating in top nav menu', async () => {
@@ -73,10 +65,7 @@ describe('dds-masthead-*', () => {
 
   afterEach(async () => {
     if (navigated) {
-      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default`);
-      await page.evaluate(navLinks => {
-        document.querySelector('dds-masthead-container').navLinks = navLinks;
-      }, links);
+      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
       navigated = false;
     }
   });
