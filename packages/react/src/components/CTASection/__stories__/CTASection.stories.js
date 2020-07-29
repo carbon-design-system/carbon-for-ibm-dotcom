@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, object } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import CTASection from '../CTASection';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -25,8 +25,7 @@ const contentItemsProps = [
   },
   {
     heading: 'Learn how',
-    copy:
-      'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
+    copy: 'IBM DevOps partners have a wide range of expertise',
     cta: {
       copy: 'Browse tutorials',
       type: types[0],
@@ -127,9 +126,9 @@ WithContentItems.story = {
   parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
-        heading: text('ContentBlock | heading:', 'Take the next step', groupId),
+        heading: text('Heading (heading):', 'Take the next step', groupId),
         copy: text(
-          'ContentBlock | copy:',
+          'Copy (copy):',
           `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
           groupId
         ),
@@ -138,18 +137,18 @@ WithContentItems.story = {
           type: types[0],
           buttons: [
             {
-              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              type: select('CTA (type):', types, types[2], groupId),
               copy: 'Secondary button',
               href: 'https://example.com/',
             },
             {
-              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              type: select('CTA (type):', types, types[2], groupId),
               copy: 'Primary button',
               href: 'https://example.com/',
             },
           ],
         },
-        items: object('ContentItems | Data', contentItemsProps, groupId),
+        items: contentItemsProps,
       }),
     },
   },

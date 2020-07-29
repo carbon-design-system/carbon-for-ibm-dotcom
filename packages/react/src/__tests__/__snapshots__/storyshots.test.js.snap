@@ -1574,7 +1574,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                   "heading": "Get connected",
                 },
                 Object {
-                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
+                  "copy": "IBM DevOps partners have a wide range of expertise",
                   "cta": Object {
                     "copy": "Browse tutorials",
                     "href": "https://example.com/",
@@ -1911,7 +1911,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                     </div>
                   </ContentItem>
                   <ContentItem
-                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
+                    copy="IBM DevOps partners have a wide range of expertise"
                     cta={
                       Object {
                         "copy": "Browse tutorials",
@@ -1936,7 +1936,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
