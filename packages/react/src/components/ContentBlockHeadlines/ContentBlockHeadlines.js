@@ -11,6 +11,7 @@ import { DDS_CONTENTBLOCK_HEADLINES } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -26,16 +27,16 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
 
   useEffect(() => {
     setSameHeight();
-    window.addEventListener('resize', setSameHeight);
+    root.addEventListener('resize', setSameHeight);
 
-    return () => window.removeEventListener('resize', setSameHeight);
+    return () => root.removeEventListener('resize', setSameHeight);
   }, []);
 
   /**
    * Function that activates the sameHeight utility
    */
   const setSameHeight = () => {
-    window.requestAnimationFrame(() => {
+    root.requestAnimationFrame(() => {
       const { current: containerNode } = containerRef;
       if (containerNode) {
         sameHeight(
