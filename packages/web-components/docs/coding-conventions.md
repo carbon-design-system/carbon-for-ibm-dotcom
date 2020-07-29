@@ -16,8 +16,10 @@
     - [Areas where component optinos are _not_ applied](#areas-where-component-optinos-are-_not_-applied)
   - [Creating inherited components](#creating-inherited-components)
 - [Polymorphism with static properties](#polymorphism-with-static-properties)
-- [Avoiding direct DOM mutation and data flow](#avoiding-direct-dom-mutation-and-data-flow)
+- [Encapsulation](#encapsulation)
+  - [Strive to avoid accessing shadow DOM nodes of other components](#strive-to-avoid-accessing-shadow-dom-nodes-of-other-components)
   - [Custom events](#custom-events)
+  - [Data flow (Summary)](#data-flow-summary)
 - [Globalization](#globalization)
   - [Translation](#translation)
   - [Collation](#collation)
@@ -158,7 +160,109 @@ We don't:
 CustomElementClass.staticPropName;
 ```
 
-## Avoiding direct DOM mutation and data flow
+## Encapsulation
+
+One of the greatest things about Web Components is that component's implementation details are encapsulated away from applications or other components. Here are some tips to achieve the goal:
+
+### Strive to avoid accessing shadow DOM nodes of other components
+
+Given we are using [`open` mode for Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM#Basic_usage), access to shadow DOM content won't be prohibited and it's sometime temptative to access shadow DOM nodes of a component from another component, like in `<dds-masthead-menu-button>`:
+
+`masthead-menu-button.ts`:
+
+```typescript
+// ❗️ Don't do this
+_handleClick(event: MouseEvent) {
+  // Grab `<dds-left-nav>`
+  const leftNav = document.querySelector('dds-left-nav');
+  // Poke into inner DOM node in shadow DOM
+  const leftNavContentInShadowDOM = leftNav.shadowRoot.querySelector('.dds--left-nav__content');
+  // Change the CSS class of inner DOM node
+  leftNavContentInShadowDOM.classList.togle('.dds--left-nav__content--shown');
+}
+```
+
+However, it means poking into `<dds-left-nav>`'s implementation details, in a similar manner to accessing `private` properties in a class. And thus when `<dds-left-nav>` removes `dds--left-nav__content` class from the content node (it's an implementation detail) `<dds-masthead-menu-button>` will be broken.
+
+The first step to fix this problem is adding an API to `<dds-left-nav>` for adding/removing `dds--left-nav__content--shown` class. For example, we can introduce `active` property to do so:
+
+`left-nav.ts`:
+
+```typescript
+@property({ type: Boolean, reflect: true })
+active = false;
+
+render() {
+  const { active } = this;
+  const classes = classMap({
+    [`${ddsPrefix}--left-nav__content`]: true,
+    [`${ddsPrefix}--left-nav__content__shown`]: active,
+  });
+  return html`
+    <div class="${classes}">
+      <slot></slot>
+    </div>
+  `;
+}
+```
+
+### Custom events
+
+Another step is adding an API to `<dds-masthead-menu-button>` that tells the user gesture of clicking and translating it to a meaning context to an application ("toggling" in this case):
+
+`masthead-menu-button.ts`:
+
+```typescript
+_handleClick(event: MouseEvent) {
+  const active = !this.active;
+  this.active = active;
+  this.dispatchEvent(
+    new CustomEvent((this.constructor as typeof BXHeaderMenuButton).eventToggle, {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      detail: {
+        active,
+      },
+    }
+  );
+}
+
+static get eventToggle() {
+  return `${ddsPrefix}-masthead-menu-button-toggled`;
+}
+```
+
+Above code fires `dds-masthead-menu-button-toggled` custom event so that other components can see when user toggles the state of `<dds-masthead-menu-button>`. For example, `<dds-left-nav>` can listen to `dds-masthead-menu-button-toggled` event and reflect the new state from the event to `<dds-left-nav>`:
+
+`left-nav.ts`:
+
+```typescript
+connectedCallback() {
+  super.connectedCallback();
+  this._hAfterButtonToggle = on(
+    // If `<dds-left-nav>` is placed in a shadow DOM, `.getRootNode()` finds such shadow DOM.
+    // Otherwise it finds the owning `document.
+    this.getRootNode() as Document,
+    (this.constructor as typeof DDSLeftNav).eventButtonToggle,
+    (event: CustomEvent) => {
+      this.active = event.detail.active;
+    }
+  );
+}
+
+static get eventButtonToggle() {
+  return `${ddsPrefix}-header-menu-button-toggled`;
+}
+```
+
+> 💡 Some components fire another event, which is [cancelable](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable), right before it changes the state. For example, [`<bx-modal>` fires `bx-modal-beingclosed` custom event before it updates its state from `open` to `closed`](https://github.com/carbon-design-system/carbon-custom-elements/blob/v1.0.0/src/components/modal/modal.ts#L166). If `.preventDefault()` is called on such event, the modal won't be closed.
+
+> 💡 We define custom event names as static properties so derived classes can customize them.
+
+> 💡 [`on()` API](https://github.com/carbon-design-system/carbon/blob/v10.16.0/packages/components/src/globals/js/misc/on.js) is used for a component lifecycle management, so `this._hAfterButtonToggle.release()` will clean-up the event listener. For native DOM events like `click`, we have better API called [`@HostListener`](<(#lifecycle-management)>).
+
+### Data flow (Summary)
 
 `@carbon/ibmdotcom-web-components` uses `lit-html` template primary to change the DOM. It means that most of the component DOM works as a projection of public attribute/property and internal state.
 
@@ -168,14 +272,7 @@ In general:
 
 - Data flow from parent component to child component is done via attributes and properties.
 - Data flow from child component to parent component is done via events, mostly custom events.
-
-### Custom events
-
-Similar to `carbon-custom-elements`, wherever it makes sense, `@carbon/ibmdotcom-web-components` translates user-initiated events to something that gives event listeners more context of what they mean. For example, `<bx-modal>` translates `click` event on `<bx-modal-close-button>` to `bx-modal-beingclosed` and `bx-modal-closed` custom events.
-
-`bx-modal-beingclosed` is cancelable in a similar manner as how `click` event on `<a href="...">` is cancelable; If `bx-modal-beingclosed` is canceled, `<bx-modal>` stops closing itself.
-
-We define custom event names as static properties so derived classes can customize them.
+- Data flow between sibling components should define parent/child roles between them and apply above rules.
 
 ## Globalization
 

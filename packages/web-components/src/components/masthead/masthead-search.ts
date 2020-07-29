@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -169,10 +170,16 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
+   * The `aria-label` attribute for the search input.
+   */
+  @property({ attribute: 'search-label' })
+  searchLabel = 'IBM search field';
+
+  /**
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder, _handleKeyInput: handleKeyInput } = this;
+    const { placeholder, _handleKeyInput: handleKeyInput, searchLabel } = this;
     return html`
       <input
         type="text"
@@ -183,6 +190,7 @@ class DDSMastheadSearch extends BXDropdown {
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
+        aria-label="${ifNonNull(searchLabel)}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}"
       />
