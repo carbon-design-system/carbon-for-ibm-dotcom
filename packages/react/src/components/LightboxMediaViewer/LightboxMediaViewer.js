@@ -12,7 +12,7 @@ import { ModalBody } from '../../internal/vendor/carbon-components-react/compone
 import PropTypes from 'prop-types';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
 import settings from 'carbon-components/es/globals/js/settings';
-import { uniqueid } from '@carbon/ibmdotcom-utilities';
+import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import { VideoPlayer } from '../VideoPlayer';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
