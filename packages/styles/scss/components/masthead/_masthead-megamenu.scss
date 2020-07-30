@@ -7,14 +7,23 @@
 
 @mixin masthead-megamenu {
   .#{$prefix}--masthead__megamenu {
-    &__container {
-      display: flex;
-      overflow-x: scroll;
-      min-height: carbon--mini-units(40);
-      background-color: $ui-background;
-      max-height: calc(100vh - 108px);
+    overflow-x: scroll;
+    min-height: carbon--mini-units(40);
+    background-color: $ui-background;
+    max-height: calc(100vh - 108px);
 
-      @include box-shadow;
+    @include box-shadow;
+
+    &__container {
+      width: 100%;
+      @include carbon--make-container;
+
+      &--row {
+        @include carbon--make-row;
+
+        flex-wrap: nowrap;
+        width: 100%;
+      }
     }
 
     &__overlay {
@@ -30,6 +39,7 @@
 
     &__categories {
       column-count: 4;
+      padding-bottom: $layout-03;
 
       .#{$prefix}--masthead__megamenu__container--hasHighlights & {
         column-count: 3;
@@ -37,7 +47,9 @@
     }
 
     &__categories-section {
-      padding: $spacing-06 0 $layout-05;
+      display: flex;
+      flex-direction: column;
+      padding: $spacing-06 0 0 $layout-01;
       width: 100%;
     }
 
@@ -48,13 +60,20 @@
       overflow: hidden;
       break-inside: avoid-column;
 
-      .#{$prefix}--link-with-icon__container {
-        height: $spacing-07;
-        display: flex;
+      // .#{$prefix}--link-with-icon__container {
+      //   height: $spacing-07;
+      //   display: flex;
+      // }
+
+      .#{$prefix}--masthead__megamenu__categories-section & {
+        margin-left: -1rem;
       }
     }
 
     &__category-headline {
+      height: $spacing-07;
+      display: flex;
+
       .#{$prefix}--link-with-icon {
         padding: 0 $spacing-05;
         text-decoration: none;
@@ -75,7 +94,6 @@
       }
 
       &:hover {
-        text-decoration: none;
         color: $text-01;
         background-color: $hover-ui;
       }
@@ -95,10 +113,33 @@
       }
     }
 
+    &__view-all-cta {
+      height: $spacing-09;
+      display: flex;
+      margin-top: auto;
+      border-top: carbon--rem(1px) solid $ui-03;
+
+      .#{$prefix}--link-with-icon {
+        padding: 0 $spacing-05;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      span {
+        @include type-style('label-01');
+      }
+
+      &:hover {
+        color: $hover-primary-text;
+        background-color: $hover-ui;
+      }
+    }
+
     &__highlight-section {
-      width: 25%;
+      height: 100%;
       padding-top: $spacing-06;
       border-right: carbon--rem(1px) solid $ui-03;
+      @include carbon--make-col(4, 16);
     }
   }
 }
