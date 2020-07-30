@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../themes/expressive/tokens';
 @import '../card/index';
@@ -16,6 +17,7 @@
 /// @group locale-modal
 
 @mixin locale-modal {
+  :host(#{$dds-prefix}-locale-modal),
   .#{$prefix}--locale-modal-container {
     @include carbon--theme(
       $carbon--theme--white,
