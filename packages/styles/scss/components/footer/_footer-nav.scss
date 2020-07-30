@@ -13,6 +13,7 @@
 /// @group footer
 
 @mixin footer-nav {
+  :host(#{$dds-prefix}-footer-nav),
   .#{$prefix}--footer-nav {
     @include carbon--theme(
       $carbon--theme--g90,
@@ -42,21 +43,21 @@
         @include carbon--make-col(12, 16);
         @include carbon--make-col-offset(2, 16);
       }
+    }
+  }
 
-      &__container {
-        @include carbon--breakpoint('md') {
-          @include carbon--make-row;
+  .#{$prefix}--footer-nav__container {
+    @include carbon--breakpoint('md') {
+      @include carbon--make-row;
 
-          display: block;
-          column-count: 2;
-          column-gap: $carbon--grid-gutter;
-        }
+      display: block;
+      column-count: 2;
+      column-gap: $carbon--grid-gutter;
+    }
 
-        @include carbon--breakpoint('lg') {
-          column-count: 3;
-          column-gap: $carbon--grid-gutter;
-        }
-      }
+    @include carbon--breakpoint('lg') {
+      column-count: 3;
+      column-gap: $carbon--grid-gutter;
     }
   }
 }

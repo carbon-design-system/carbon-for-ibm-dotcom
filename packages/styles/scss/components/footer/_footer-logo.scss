@@ -10,6 +10,7 @@
 /// @group footer
 
 @mixin footer-logo {
+  :host(#{$dds-prefix}-footer-logo),
   .#{$prefix}--footer-logo {
     @include carbon--theme(
       $carbon--theme--g90,
@@ -27,29 +28,29 @@
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(2, 16);
       }
-
-      &__link {
-        $logo-padding: $carbon--grid-gutter / 2;
-        $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
-
-        color: $text-01;
-        margin-top: -1 * $logo-padding;
-        margin-left: -1 * $logo-padding;
-        padding: $logo-padding;
-        display: inline-block;
-
-        &:focus {
-          outline: none;
-          box-shadow: inset 0 0 0 2px $focus;
-        }
-      }
-
-      &__logo {
-        fill: currentColor;
-        display: inline-block;
-        width: 128px;
-      }
     }
+  }
+
+  .#{$prefix}--footer-logo__link {
+    $logo-padding: $carbon--grid-gutter / 2;
+    $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
+
+    color: $text-01;
+    margin-top: -1 * $logo-padding;
+    margin-left: -1 * $logo-padding;
+    padding: $logo-padding;
+    display: inline-block;
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px $focus;
+    }
+  }
+
+  .#{$prefix}--footer-logo__logo {
+    fill: currentColor;
+    display: inline-block;
+    width: 128px;
   }
 }
 

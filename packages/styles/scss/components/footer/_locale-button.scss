@@ -13,6 +13,7 @@
 /// @group footer
 
 @mixin local-button {
+  :host(#{$dds-prefix}-locale-button),
   .#{$prefix}--locale-btn__container {
     @include carbon--theme(
       $carbon--theme--g90,
