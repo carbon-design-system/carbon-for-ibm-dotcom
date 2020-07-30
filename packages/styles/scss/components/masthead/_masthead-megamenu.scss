@@ -12,6 +12,7 @@
       overflow-x: scroll;
       min-height: carbon--mini-units(40);
       background-color: $ui-background;
+      max-height: calc(100vh - 108px);
 
       @include box-shadow;
     }
