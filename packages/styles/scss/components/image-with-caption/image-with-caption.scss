@@ -77,7 +77,7 @@
   }
 
   .#{$prefix}--image__caption {
-    @include carbon-productive-tokens-custom-properties();
+    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01', true);
 
     margin-top: $carbon--spacing-03;
