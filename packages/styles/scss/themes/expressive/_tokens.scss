@@ -260,7 +260,7 @@ $carbon-expressive-component-tokens: (
 /// @param {Map} $type-tokens [$carbon-productive-type-tokens] - The type tokens.
 /// @param {Map} $component-tokens [$carbon-productive-component-tokens] - The component tokens.
 /// @group carbon-expressive
-@mixin carbon-productive-tokens-custom-properties(
+@mixin use-carbon-productive-tokens(
   $size-tokens: $carbon-productive-size-tokens,
   $type-tokens: $carbon-productive-type-tokens,
   $component-tokens: $carbon-productive-component-tokens
@@ -284,7 +284,7 @@ $carbon-expressive-component-tokens: (
 /// @param {Map} $type-tokens [$carbon-expressive-type-tokens] - The type tokens.
 /// @param {Map} $component-tokens [$carbon-expressive-component-tokens] - The component tokens.
 /// @group carbon-expressive
-@mixin carbon-expressive-tokens-custom-properties(
+@mixin use-carbon-expressive-tokens(
   $size-tokens: $carbon-expressive-size-tokens,
   $type-tokens: $carbon-expressive-type-tokens,
   $component-tokens: $carbon-expressive-component-tokens
@@ -479,7 +479,7 @@ $carbon-expressive-component-tokens: (
   );
 
   :root {
-    @include carbon-expressive-tokens-custom-properties($component-tokens: ());
+    @include use-carbon-expressive-tokens($component-tokens: ());
   }
 }
 
@@ -536,9 +536,6 @@ $carbon-expressive-component-tokens: (
   ) !global;
 
   :root {
-    @include carbon-expressive-tokens-custom-properties(
-      $size-tokens: (),
-      $type-tokens: ()
-    );
+    @include use-carbon-expressive-tokens($size-tokens: (), $type-tokens: ());
   }
 }
