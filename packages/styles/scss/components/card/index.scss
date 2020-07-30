@@ -46,7 +46,7 @@
     }
 
     &__eyebrow {
-      @include carbon-productive-tokens-custom-properties();
+      @include use-carbon-productive-tokens();
       @include carbon--type-style('body-short-01');
 
       margin-bottom: $carbon--spacing-03;
@@ -136,7 +136,7 @@
     &__video {
       .#{$prefix}--card__footer span {
         color: $text-02;
-        @include carbon-productive-tokens-custom-properties();
+        @include use-carbon-productive-tokens();
         @include carbon--type-style('body-short-01');
       }
     }
