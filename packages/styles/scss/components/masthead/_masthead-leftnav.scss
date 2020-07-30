@@ -149,7 +149,7 @@
             cursor: pointer;
             border-bottom: none;
             > .#{$prefix}--side-nav__link-text {
-              @include carbon-productive-tokens-custom-properties();
+              @include use-carbon-productive-tokens();
               @include carbon--type-style(body-short-01, true);
 
               color: $icon-02;

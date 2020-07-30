@@ -56,7 +56,7 @@
       }
 
       .#{$prefix}--card__heading {
-        @include carbon-productive-tokens-custom-properties();
+        @include use-carbon-productive-tokens();
         @include carbon--type-style('productive-heading-01');
       }
     }
