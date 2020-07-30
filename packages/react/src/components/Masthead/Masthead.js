@@ -17,6 +17,7 @@ import HeaderMenuButton from '../../internal/vendor/carbon-components-react/comp
 import { IbmLogo } from '../Icon';
 import MastheadL1 from './MastheadL1';
 import MastheadLeftNav from './MastheadLeftNav';
+import MastheadMegaMenu from './MastheadMegaMenu';
 import MastheadProfile from './MastheadProfile';
 import MastheadSearch from './MastheadSearch';
 import MastheadTopNav from './MastheadTopNav';
@@ -57,6 +58,9 @@ const Masthead = ({
   mastheadL1Data,
   ...mastheadProps
 }) => {
+  const [showMegaMenu, setRenderMegaMenu] = useState(false);
+  const [megaMenuData, setMegaMenuData] = useState({});
+
   /**
    * Returns IBM.com authenticated status
    *
@@ -192,6 +196,8 @@ const Masthead = ({
                     {...mastheadProps}
                     platform={platform}
                     navigation={mastheadData}
+                    setRenderMegaMenu={setRenderMegaMenu}
+                    setMegaMenuData={setMegaMenuData}
                   />
                 )}
                 {hasSearch && (
@@ -235,6 +241,7 @@ const Masthead = ({
                 />
               )}
             </Header>
+            {showMegaMenu && <MastheadMegaMenu data={megaMenuData} />}
           </div>
           {mastheadL1Data && DDS_MASTHEAD_L1 && (
             <div ref={mastheadL1Ref}>

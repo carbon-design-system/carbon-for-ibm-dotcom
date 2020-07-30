@@ -5,13 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
-import MastheadMegaMenu from './MastheadMegaMenu';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -29,17 +27,28 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
-    if (link.hasMenu || link.hasMegapanel) {
+    if (link.hasMegapanel) {
       return (
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
-          className={classnames({
-            [`${prefix}--masthead__megamenu__l0-nav`]: link.hasMegapanel,
-          })}
+          onClick={() => {
+            topNavProps.setRenderMegaMenu(true);
+            topNavProps.setMegaMenuData(link);
+          }}
+          className={`${prefix}--masthead__megamenu__l0-nav`}
+          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
+          key={i}
+        />
+      );
+    } else if (link.hasMenu) {
+      return (
+        <HeaderMenu
+          aria-label={link.title}
+          menuLinkName={link.title}
           data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
           key={i}>
-          {renderNav(link)}
+          {renderNav(link.menuSections)}
         </HeaderMenu>
       );
     } else {
@@ -76,27 +85,23 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 /**
  * Loops through and renders a list of links for the masthead nav
  *
- * @param {object} link link object with menu section array
+ * @param {Array} sections A list of links to be rendered
  * @returns {object} JSX object
  */
-function renderNav(link) {
+function renderNav(sections) {
   const navItems = [];
-  if (link.hasMegapanel) {
-    navItems.push(<MastheadMegaMenu data={link} />);
-  } else if (link.hasMenu) {
-    link.menuSections.forEach((section, i) => {
-      section.menuItems.forEach((item, j) => {
-        navItems.push(
-          <HeaderMenuItem
-            href={item.url}
-            data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
-            key={item.title}>
-            {item.title}
-          </HeaderMenuItem>
-        );
-      });
+  sections.forEach((section, i) => {
+    section.menuItems.forEach((item, j) => {
+      navItems.push(
+        <HeaderMenuItem
+          href={item.url}
+          data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
+          key={item.title}>
+          {item.title}
+        </HeaderMenuItem>
+      );
     });
-  }
+  });
   return navItems;
 }
 

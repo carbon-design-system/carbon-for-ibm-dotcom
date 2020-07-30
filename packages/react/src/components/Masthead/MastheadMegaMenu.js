@@ -24,6 +24,9 @@ const MastheadMegaMenu = ({ data }) => {
   let highlightedItems = [];
   let viewAllLink;
   let menuItems = [];
+
+  console.log('rendering megamenu', data);
+
   data.menuSections[0].menuItems.forEach(item => {
     if (item.highlighted) return highlightedItems.push(item);
     if (item.megaPanelViewAll) return (viewAllLink = item);
@@ -32,34 +35,35 @@ const MastheadMegaMenu = ({ data }) => {
 
   const hasHighlights = highlightedItems.length !== 0;
 
-  console.log('menuItems', menuItems);
-
   return (
-    <section
-      className={classnames(`${prefix}--masthead__megamenu__container`, {
-        [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
-      })}
-      data-autoid={`${stablePrefix}--masthead__megamenu`}>
-      {hasHighlights && (
-        <div className={`${prefix}--masthead__megamenu__highlight-section`}>
-          {_renderMenuCategory(highlightedItems)}
-        </div>
-      )}
-      <div className={`${prefix}--masthead__megamenu__categories-section`}>
-        <div className={`${prefix}--masthead__megamenu__categories`}>
-          {_renderMenuCategory(menuItems)}
-        </div>
-        {viewAllLink && (
-          <div className={`${prefix}--masthead__megamenu__view-all-cta`}>
-            <HorizontalRule contrasts="low-contrast" />
-            <LinkWithIcon href={viewAllLink.url}>
-              <span>{viewAllLink.title}</span>
-              <ArrowRight16 />
-            </LinkWithIcon>
+    <>
+      <div className={`${prefix}--masthead__megamenu__overlay`}></div>
+      <section
+        className={classnames(`${prefix}--masthead__megamenu__container`, {
+          [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
+        })}
+        data-autoid={`${stablePrefix}--masthead__megamenu`}>
+        {hasHighlights && (
+          <div className={`${prefix}--masthead__megamenu__highlight-section`}>
+            {_renderMenuCategory(highlightedItems)}
           </div>
         )}
-      </div>
-    </section>
+        <div className={`${prefix}--masthead__megamenu__categories-section`}>
+          <div className={`${prefix}--masthead__megamenu__categories`}>
+            {_renderMenuCategory(menuItems)}
+          </div>
+          {viewAllLink && (
+            <div className={`${prefix}--masthead__megamenu__view-all-cta`}>
+              <HorizontalRule contrasts="low-contrast" />
+              <LinkWithIcon href={viewAllLink.url}>
+                <span>{viewAllLink.title}</span>
+                <ArrowRight16 />
+              </LinkWithIcon>
+            </div>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 
@@ -77,6 +81,7 @@ const _renderMenuCategory = items => {
         {item.megapanelContent?.quickLinks?.links.map(link => {
           return (
             <a
+              tabIndex={0}
               className={`${prefix}--masthead__megamenu__category-sublink`}
               href={link.url}>
               {link.title}
@@ -115,29 +120,34 @@ const _renderLinkOrString = item => {
 
 MastheadMegaMenu.propTypes = {
   /**
-   * Object containing megamenu elements
+   * Object containing megamenu nav data
    */
-  data: PropTypes.object,
-  /**
-   * Object containing left navigation elements.
-   */
-  // navigation: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     hasMenu: PropTypes.bool,
-  //     title: PropTypes.string,
-  //     url: PropTypes.string,
-  //     menuSections: PropTypes.arrayOf(
-  //       PropTypes.shape({
-  //         menuItems: PropTypes.arrayOf(
-  //           PropTypes.shape({
-  //             title: PropTypes.string,
-  //             url: PropTypes.string,
-  //           })
-  //         ),
-  //       })
-  //     ),
-  //   })
-  // ),
+  data: PropTypes.shape({
+    hasMenupanel: PropTypes.bool,
+    title: PropTypes.string,
+    url: PropTypes.string,
+    menuSections: PropTypes.arrayOf(
+      PropTypes.shape({
+        menuItems: PropTypes.arrayOf(
+          PropTypes.shape({
+            highlighted: PropTypes.bool,
+            title: PropTypes.string,
+            url: PropTypes.string,
+            megapanelContent: PropTypes.shape({
+              quickLinks: PropTypes.shape({
+                links: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    title: PropTypes.string,
+                    url: PropTypes.string,
+                  })
+                ),
+              }),
+            }),
+          })
+        ),
+      })
+    ),
+  }),
 };
 
 export default MastheadMegaMenu;

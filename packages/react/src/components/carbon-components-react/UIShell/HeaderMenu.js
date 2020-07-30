@@ -57,10 +57,16 @@ class HeaderMenu extends React.Component {
      * Optional component to render instead of string
      */
     renderMenuContent: PropTypes.func,
+
+    /**
+     * The event handler for the `click` event.
+     */
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
     renderMenuContent: defaultRenderMenuContent,
+    onClick: this.handleOnClick,
   };
 
   constructor(props) {
@@ -161,6 +167,7 @@ class HeaderMenu extends React.Component {
       children,
       renderMenuContent: MenuContent,
       menuLinkName,
+      onClick,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -178,7 +185,7 @@ class HeaderMenu extends React.Component {
       <li // eslint-disable-line jsx-a11y/mouse-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
         className={className}
         onKeyDown={this.handleMenuClose}
-        onClick={this.handleOnClick}
+        onClick={onClick}
         onBlur={this.handleOnBlur}>
         <a // eslint-disable-line jsx-a11y/role-supports-aria-props,jsx-a11y/anchor-is-valid
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
