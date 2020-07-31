@@ -45,6 +45,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       forEach(doc.querySelectorAll((this.constructor as typeof DDSLeftNav).selectorOverlay), item => {
         (item as DDSLeftNavOverlay).active = this.expanded;
       });
+      if (this.expanded) {
+        this.firstChild.nextElementSibling.focus();
+      }
     }
   }
 
