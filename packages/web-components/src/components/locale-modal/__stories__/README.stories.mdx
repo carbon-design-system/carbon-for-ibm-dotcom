@@ -22,10 +22,20 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 ```javascript
 import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
 import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
-import { store, mapStateToProps, mapDispatchToProps } from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+import {
+  reducers,
+  store,
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+
+store.replaceReducer(reducers);
 
 // Wires `<dds-locale-modal-composite>` to `@carbon/ibmdotcom-servies` and creates `<app-locale-modal-container>`
-customElements.define('app-locale-modal-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSLocaleModalComposite) {})
+customElements.define(
+  'app-locale-modal-container',
+  class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSLocaleModalComposite) {}
+);
 ```
 
 ##### HTML
