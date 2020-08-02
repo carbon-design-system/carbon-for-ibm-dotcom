@@ -11,11 +11,11 @@ import findLast from 'lodash-es/findLast';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { selectorTabbable } from 'carbon-custom-elements/es/globals/settings';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HostListener from 'carbon-custom-elements/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-custom-elements/es/globals/mixins/host-listener';
 import BXSideNav, { SIDE_NAV_USAGE_MODE } from 'carbon-custom-elements/es/components/ui-shell/side-nav';
+import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -38,9 +38,9 @@ const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONT
 @customElement(`${ddsPrefix}-left-nav`)
 class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
   /**
-   * The handle for the listener of `${prefix}-header-menu-button-request-focus-wrap` event.
+   * The handle for focus wrapping.
    */
-  private _hRequestMenuButtonFocusWrap: Handle | null = null;
+  private _hFocusWrap: Handle | null = null;
 
   /**
    * Node to track focus going outside of modal content.
@@ -55,64 +55,40 @@ class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
   private _endSentinelNode!: HTMLAnchorElement;
 
   /**
-   * Handles `blur` event on this element.
+   * Handles `dds-request-focus-wrap` event on the document.
    *
    * @param event The event.
    */
-  @HostListener('shadowRoot:focusout')
+  @HostListener('document:dds-request-focus-wrap')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleBlur = (event: FocusEvent) => {
-    const { target, relatedTarget } = event;
-    const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
-    const oldContains =
-      target !== this &&
-      (this.contains(target as Node) || this.shadowRoot!.contains(target as Node)) &&
-      target !== startSentinelNode &&
-      target !== endSentinelNode;
-    const currentContains =
-      relatedTarget !== this &&
-      (this.contains(relatedTarget as Node) || this.shadowRoot!.contains(relatedTarget as Node)) &&
-      relatedTarget !== startSentinelNode &&
-      relatedTarget !== endSentinelNode;
-
-    // Performs focus wrapping if _all_ of the following is met:
-    // * This left nav is expanded
-    // * The viewport still has focus
-    // * Left nav used to have focus but no longer has focus
+  private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
-    if (expanded && relatedTarget && oldContains && !currentContains) {
+    if (event.target === this) {
       const toggle = (this.getRootNode() as Document).querySelector(selectorButtonToggle);
       if (toggle) {
         (toggle as HTMLElement).focus();
       }
-    }
-  };
+    } else if ((event.target as HTMLElement).matches?.(selectorButtonToggle)) {
+      const { comparisonResult } = event.detail;
+      const { selectorTabbable: selectorTabbableForLeftnav } = this.constructor as typeof DDSLeftNav;
 
-  /**
-   * Handles `${prefix}-header-menu-button-request-focus-wrap` event on the document.
-   *
-   * @param event The event.
-   */
-  private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
-    const { comparisonResult } = event.detail;
-    const { selectorTabbable: selectorTabbableForLeftnav } = this.constructor as typeof DDSLeftNav;
-
-    // eslint-disable-next-line no-bitwise
-    if (comparisonResult & PRECEDING) {
-      const tabbable = findLast(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
-        Boolean((elem as HTMLElement).offsetParent)
-      );
-      if (tabbable) {
-        (tabbable as HTMLElement).focus();
+      // eslint-disable-next-line no-bitwise
+      if (comparisonResult & PRECEDING) {
+        const tabbable = findLast(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
+          Boolean((elem as HTMLElement).offsetParent)
+        );
+        if (tabbable) {
+          (tabbable as HTMLElement).focus();
+        }
       }
-    }
-    // eslint-disable-next-line no-bitwise
-    else if (comparisonResult & FOLLOWING) {
-      const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
-        Boolean((elem as HTMLElement).offsetParent)
-      );
-      if (tabbable) {
-        (tabbable as HTMLElement).focus();
+      // eslint-disable-next-line no-bitwise
+      else if (comparisonResult & FOLLOWING) {
+        const tabbable = find(this.querySelectorAll(selectorTabbableForLeftnav), elem =>
+          Boolean((elem as HTMLElement).offsetParent)
+        );
+        if (tabbable) {
+          (tabbable as HTMLElement).focus();
+        }
       }
     }
   };
@@ -122,24 +98,6 @@ class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
    */
   @property({ reflect: true, attribute: 'usage-mode' })
   usageMode = SIDE_NAV_USAGE_MODE.HEADER_NAV;
-
-  connectedCallback() {
-    super.connectedCallback();
-    // Manually hooks the event listeners on the host element to make the event names configurable
-    const { eventButtonRequestFocusWrap } = this.constructor as typeof DDSLeftNav;
-    this._hRequestMenuButtonFocusWrap = on(
-      this.getRootNode(),
-      eventButtonRequestFocusWrap,
-      this._handleRequestMenuButtonFocusWrap as EventListener
-    );
-  }
-
-  disconnectedCallback() {
-    if (this._hRequestMenuButtonFocusWrap) {
-      this._hRequestMenuButtonFocusWrap = this._hRequestMenuButtonFocusWrap.release();
-    }
-    super.disconnectedCallback();
-  }
 
   updated(changedProperties) {
     super.updated(changedProperties);
@@ -156,6 +114,12 @@ class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
       forEach(doc.querySelectorAll((this.constructor as typeof DDSLeftNav).selectorOverlay), item => {
         (item as DDSLeftNavOverlay).active = this.expanded;
       });
+      const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
+      if (expanded) {
+        this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
+      } else if (this._hFocusWrap) {
+        this._hFocusWrap = this._hFocusWrap.release();
+      }
     }
   }
 
@@ -195,13 +159,6 @@ class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
 
   static get stableSelector() {
     return `${ddsPrefix}--masthead__l0-sidenav`;
-  }
-
-  /**
-   * The name of the custom event fired when the masthead menu button in the document requests for focus wrapping.
-   */
-  static get eventButtonRequestFocusWrap() {
-    return `${ddsPrefix}-masthead-menu-button-request-focus-wrap`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
