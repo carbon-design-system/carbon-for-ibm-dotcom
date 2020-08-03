@@ -45,9 +45,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       forEach(doc.querySelectorAll((this.constructor as typeof DDSLeftNav).selectorOverlay), item => {
         (item as DDSLeftNavOverlay).active = this.expanded;
       });
-      if (this.expanded) {
-        this.firstChild.nextElementSibling.focus();
-      }
+    }
+  }
+
+  private _handleButtonToggle(event: CustomEvent) {
+    this.expanded = event.detail.active;
+    if (this.expanded) {
+      this.querySelectorAll((this.constructor as typeof DDSLeftNav).selectorNavItems)[0]?.focus();
     }
   }
 
@@ -63,6 +67,14 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   static get selectorOverlay() {
     return `${ddsPrefix}-left-nav-overlay`;
+  }
+
+  /**
+   * A selector that will return the left-nav items
+   */
+
+  static get selectorNavItems() {
+    return `${ddsPrefix}-left-nav-menu, ${ddsPrefix}-left-nav-item`;
   }
 
   static get stableSelector() {
