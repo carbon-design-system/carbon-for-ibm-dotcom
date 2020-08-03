@@ -91,13 +91,14 @@
       width: 100%;
 
       .#{$prefix}--link-with-icon {
-        padding: 5px $spacing-05;
+        padding: 9px $spacing-05;
         text-decoration: none;
         width: 100%;
       }
 
       span {
         color: $text-01;
+        @include use-carbon-productive-tokens();
         @include type-style('productive-heading-01');
       }
 
@@ -106,27 +107,19 @@
         min-width: $spacing-05;
       }
 
-      &:visited {
-        color: $text-01;
-      }
-
+      &:visited,
       &:hover {
         color: $text-01;
-        background-color: $hover-ui;
       }
     }
 
     &__category-sublink {
+      @include use-carbon-productive-tokens();
       @include type-style('body-short-01');
 
       color: $text-02;
       text-decoration: none;
-      padding: 5px $spacing-05;
-
-      &:hover,
-      &:active {
-        background-color: $hover-ui;
-      }
+      padding: 9px $spacing-05;
     }
 
     &__view-all-cta {
@@ -142,11 +135,28 @@
       }
 
       span {
+        @include use-carbon-productive-tokens();
         @include type-style('label-01');
       }
 
       &:hover {
         color: $hover-primary-text;
+      }
+    }
+
+    &__category-headline .#{$prefix}--link-with-icon,
+    &__view-all-cta .#{$prefix}--link-with-icon,
+    &__category-sublink {
+      &:focus,
+      &:active {
+        @include focus-outline;
+
+        outline-width: 2px;
+        outline-offset: -2px;
+      }
+
+      &:active,
+      &:hover {
         background-color: $hover-ui;
       }
     }
