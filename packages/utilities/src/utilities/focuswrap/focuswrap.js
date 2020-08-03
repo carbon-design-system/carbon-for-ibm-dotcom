@@ -26,11 +26,13 @@ function focuswrap(
     const { target, relatedTarget } = event;
     const [startSentinelNode, endSentinelNode] = sentinelNodes;
     const oldContains =
+      target &&
       target !== this &&
       (event.currentTarget.contains(target) ||
         event.currentTarget.host?.contains(target)) &&
       sentinelNodes.indexOf(target) < 0;
     const currentContains =
+      relatedTarget &&
       relatedTarget !== this &&
       (event.currentTarget.contains(relatedTarget) ||
         event.currentTarget.host?.contains(relatedTarget)) &&
