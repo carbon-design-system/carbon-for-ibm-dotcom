@@ -6,11 +6,33 @@
  */
 
 @mixin masthead-megamenu {
+  $l0-nav-height: $spacing-09;
+
+  .#{$prefix}--header__nav
+    .#{$prefix}--masthead__megamenu__l0-nav
+    .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
+    background-color: transparent;
+  }
+
   .#{$prefix}--masthead__megamenu {
+    &__l0-nav {
+      position: static;
+
+      .#{$prefix}--header__menu-title[aria-expanded='true']
+        + .#{$prefix}--header__menu {
+        position: fixed;
+        top: $l0-nav-height;
+        transform: translateZ(0);
+        left: 0;
+        width: 100vw;
+      }
+    }
+
     overflow-x: scroll;
     min-height: carbon--mini-units(40);
-    background-color: $ui-background;
     max-height: calc(100vh - 108px);
+    background-color: $ui-background;
 
     @include box-shadow;
 
@@ -56,14 +78,9 @@
     &__menu-category {
       display: flex;
       flex-direction: column;
-      margin-bottom: $spacing-07;
+      padding-bottom: $spacing-07;
       overflow: hidden;
       break-inside: avoid-column;
-
-      // .#{$prefix}--link-with-icon__container {
-      //   height: $spacing-07;
-      //   display: flex;
-      // }
 
       .#{$prefix}--masthead__megamenu__categories-section & {
         margin-left: -1rem;
@@ -71,11 +88,10 @@
     }
 
     &__category-headline {
-      height: $spacing-07;
-      display: flex;
+      width: 100%;
 
       .#{$prefix}--link-with-icon {
-        padding: 0 $spacing-05;
+        padding: 5px $spacing-05;
         text-decoration: none;
         width: 100%;
       }
@@ -87,6 +103,7 @@
 
       svg {
         color: $link-01;
+        min-width: $spacing-05;
       }
 
       &:visited {
@@ -104,8 +121,7 @@
 
       color: $text-02;
       text-decoration: none;
-      line-height: $spacing-07;
-      padding: 0 $spacing-05;
+      padding: 5px $spacing-05;
 
       &:hover,
       &:active {

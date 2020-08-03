@@ -83,7 +83,6 @@ const _renderMenuCategory = items => {
         {item.megapanelContent?.quickLinks?.links.map(link => {
           return (
             <a
-              tabIndex={0}
               className={`${prefix}--masthead__megamenu__category-sublink`}
               href={link.url}>
               {link.title}
