@@ -48,6 +48,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
     }
   }
 
+  private _handleButtonToggle(event: CustomEvent) {
+    this.expanded = event.detail.active;
+    if (this.expanded) {
+      this.querySelectorAll((this.constructor as typeof DDSLeftNav).selectorNavItems)[0]?.focus();
+    }
+  }
+
   /**
    * A selector that will return the toggle buttons.
    */
@@ -60,6 +67,14 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   static get selectorOverlay() {
     return `${ddsPrefix}-left-nav-overlay`;
+  }
+
+  /**
+   * A selector that will return the left-nav items
+   */
+
+  static get selectorNavItems() {
+    return `${ddsPrefix}-left-nav-menu, ${ddsPrefix}-left-nav-item`;
   }
 
   static get stableSelector() {
