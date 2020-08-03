@@ -10,7 +10,7 @@
 'use strict';
 
 const child = require('child_process');
-const https = require('https');
+const fetch = require('node-fetch');
 const program = require('commander');
 const chalk = require('chalk');
 
@@ -71,41 +71,33 @@ const newTag = args.newtag;
  * Creates the Beta Release on Github
  */
 function createBetaRelease() {
-  const changelog = child.spawn('node', [
-    `${__dirname}/get-changelog.js`,
-    `-f ${prevTag}`,
-    `-t ${newTag}`,
-  ]);
+  // Gets the git output between the two tags
+  const output = child
+    .execSync(`node ./tasks/get-changelog.js -f ${prevTag} -t ${newTag}`)
+    .toString('utf-8');
 
-  changelog.stdout.on('data', data => {
-    const options = {
-      hostname: 'api.github.com',
-      path: repoUrl,
-      method: 'POST',
+  if (
+    output.indexOf('## Features') !== -1 ||
+    output.indexOf('## Fixes') !== -1
+  ) {
+    fetch(`https://api.github.com${repoUrl}`, {
+      method: 'post',
+      body: JSON.stringify({
+        tag_name: newTag,
+        name: newTag,
+        target_commitish: 'master',
+        body: output,
+        draft: false,
+        prerelease: true,
+      }),
       headers: {
-        'User-Agent': 'node/https',
+        'Content-Type': 'application/json',
         Authorization: `token ${githubToken}`,
       },
-    };
-
-    const dataObj = JSON.stringify({
-      tag_name: newTag,
-      name: newTag,
-      target_commitish: 'master',
-      body: data.toString(),
-      draft: false,
-      prerelease: true,
-    });
-
-    const req = https.request(options, res => {
-      let response = '';
-
-      res.on('data', chunk => {
-        response += chunk;
-      });
-
-      res.on('end', () => {
-        if (JSON.parse(response).id) {
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.id) {
           console.log(
             chalk.green(
               `Release created: https://github.com/${repoSlug}/releases/tag/${newTag}`
@@ -115,15 +107,9 @@ function createBetaRelease() {
           console.log(chalk.red(`Error creating release:`, response));
         }
       });
-    });
-
-    req.on('error', error => {
-      console.error(error);
-    });
-
-    req.write(dataObj);
-    req.end();
-  });
+  } else {
+    console.log(chalk.red(`Error creating release:`, output));
+  }
 }
 
 createBetaRelease();
