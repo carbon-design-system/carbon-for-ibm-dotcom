@@ -38,10 +38,13 @@ import '@carbon/ibmdotcom-webcomponents/es/components/masthead/masthead-containe
 
 #### Custom Navigation
 
+```javascript
+const links = [...menu items...];
+document.getElementById('masthead-container').navLinks = links;
+```
+
 ```html
-<dds-masthead-container
-    navLinks="[...menu items...]"
-></dds-masthead-container>
+<dds-masthead-container id="masthead-container"></dds-masthead-container>
 ```
 
 ## Stable selectors
