@@ -116,3 +116,28 @@ WithPlatform.story = {
     },
   },
 };
+
+export const ShortFooter = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+ShortFooter.story = {
+  name: 'With short footer',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+            type: 'short',
+          },
+        };
+      },
+    },
+  },
+};
