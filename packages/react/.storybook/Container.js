@@ -7,6 +7,7 @@
 
 import React, { Component } from 'react';
 import './_container.scss';
+import inPercy from '@percy-io/in-percy';
 import { settings } from 'carbon-components';
 
 /**
@@ -33,6 +34,12 @@ export default class Container extends Component {
     if (process.env.REACT_STORYBOOK_USE_RTL === 'true') {
       document.documentElement.dir = 'rtl';
       document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+    }
+    // Trigger a resize for handling sameHeight discrepancies in percy
+    if (inPercy()) {
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 100);
     }
   }
 
