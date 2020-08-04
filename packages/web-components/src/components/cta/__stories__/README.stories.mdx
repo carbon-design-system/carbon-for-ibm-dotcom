@@ -8,19 +8,19 @@ import '../text-cta';
 > and buttons – as well as defining their behavior, such as anchor links,
 > videos, and external links.
 
-<Preview withToolbar>
-  <Story id="components-cta--default" height="120px" />
-</Preview>
-
 ## Getting started
 
-##### JS
+## `<dds-text-cta>`
+
+`<dds-text-cta>` is the most basic version of CTA, presented as a simple link.
+
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
 ```
 
-##### HTML
+### HTML
 
 ```html
 <dds-text-cta href="https://www.ibm.com/" type="local">
@@ -28,28 +28,36 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
 </dds-text-cta>
 ```
 
-## `<dds-text-cta>`
-
-`<dds-text-cta>` is the most basic version of CTA, presented as a simple link.
+### Props
 
 <Props of="dds-text-cta" />
 
-## Working with a video player
+## `<dds-cta-container>` and loading a video player
 
-There is `<dds-cta-container>` example component that lets you integrate `<dds-text-cta>` with video player quickly. `<dds-cta-container>` automatically renders `<dds-text-cta>`:
+The `<dds-cta-container>` component lets you integrate `<dds-text-cta>` with video player quickly. `<dds-cta-container>` automatically renders `<dds-text-cta>`:
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/cta-container';
 ```
 
 ```html
-<dds-cta-container cta-style="text" item='{ "copy": "Copy text", "href": "0_uka1msg4", "type": "video" }'> </dds-cta-container>
+<dds-cta-container
+    cta-style="text"
+    item='{
+        "copy": "Copy text",
+        "href": "0_uka1msg4",
+        "type": "video"
+    }'
+></dds-cta-container>
 ```
 
-### Customized approach
+### `dds-cta-run-action` customization
 
-For more flexible solution that is better tailered to your application's needs, CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA with `type="video"`.
-Appliction code can take care of creating/putting our video player component and working with our video player service API to put the video data into the video player component:
+For more flexible solution that is better tailored to your application's needs,
+CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA
+with `type="video"`. Application code can take care of creating/putting our
+video player component and working with our video player service API to put the
+video data into the video player component:
 
 ```javascript
 import 'carbon-custom-elements/es/components/modal/modal-close-button';
@@ -92,7 +100,5 @@ document.addEventListener('dds-cta-run-action', async event => {
   lightboxElem.open = true;
 });
 ```
-
-## Contributing
 
 <Description markdown={contributing} />
