@@ -203,7 +203,9 @@ class VideoPlayerAPI {
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
 
-          var container = document.querySelector(`.${prefix}--modal-close`);
+          var container = document.querySelector(
+            `.${prefix}--modal-close, ${prefix}-modal-close-button`
+          );
           container.addEventListener('click', function() {
             kdp.sendNotification('doStop');
           });
