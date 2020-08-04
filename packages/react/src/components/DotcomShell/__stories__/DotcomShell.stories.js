@@ -49,7 +49,6 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
-
   return (
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
@@ -59,4 +58,86 @@ export const Default = ({ parameters }) => {
       </main>
     </DotcomShell>
   );
+};
+
+export const SearchOpenByDefault = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+SearchOpenByDefault.story = {
+  name: 'Search open',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
+            searchOpenOnload: true,
+          },
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+          },
+        };
+      },
+    },
+  },
+};
+
+export const WithPlatform = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithPlatform.story = {
+  name: 'With platform',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
+            platform: {
+              name: 'IBM Cloud',
+              url: 'https://www.ibm.com/cloud',
+            },
+          },
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+          },
+        };
+      },
+    },
+  },
+};
+
+export const ShortFooter = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+ShortFooter.story = {
+  name: 'With short footer',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+            type: 'short',
+          },
+        };
+      },
+    },
+  },
 };
