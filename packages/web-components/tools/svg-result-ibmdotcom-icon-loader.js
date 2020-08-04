@@ -38,7 +38,7 @@ function convertAttrs(node) {
     result.attrs = Object.keys(attrs).reduce(
       (acc, name) => ({
         ...acc,
-        [name]: node.attrs[name].value,
+        [name]: attrs[name].value,
       }),
       {}
     );
