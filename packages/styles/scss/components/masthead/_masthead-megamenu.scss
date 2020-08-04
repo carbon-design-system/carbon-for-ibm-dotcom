@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/utils/hang';
+
 @mixin masthead-megamenu {
   $l0-nav-height: $spacing-09;
 
@@ -61,7 +63,7 @@
 
     &__categories {
       column-count: 4;
-      padding-bottom: $layout-03;
+      padding: 0 0 $layout-03 $layout-01;
 
       .#{$prefix}--masthead__megamenu__container--hasHighlights & {
         column-count: 3;
@@ -71,7 +73,7 @@
     &__categories-section {
       display: flex;
       flex-direction: column;
-      padding: $spacing-06 0 0 $layout-01;
+      padding-top: $spacing-06;
       width: 100%;
     }
 
@@ -105,6 +107,7 @@
       svg {
         color: $link-01;
         min-width: $spacing-05;
+        align-self: flex-start;
       }
 
       &:visited,
@@ -120,27 +123,35 @@
       color: $text-02;
       text-decoration: none;
       padding: 9px $spacing-05;
+
+      &:hover,
+      &:active {
+        color: $text-01;
+      }
     }
 
     &__view-all-cta {
-      height: $spacing-09;
-      display: flex;
       margin-top: auto;
-      border-top: carbon--rem(1px) solid $ui-03;
+      display: flex;
 
       .#{$prefix}--link-with-icon {
-        padding: 0 $spacing-05;
         text-decoration: none;
         width: 100%;
+        margin: 0 $spacing-05;
+        border-top: carbon--rem(1px) solid $ui-03;
+        height: $spacing-09;
+
+        &:hover {
+          border-top: carbon--rem(1px) solid transparent;
+          margin: 0;
+          padding: 0 $spacing-05;
+          color: $hover-primary-text;
+        }
       }
 
       span {
         @include use-carbon-productive-tokens();
-        @include type-style('label-01');
-      }
-
-      &:hover {
-        color: $hover-primary-text;
+        @include type-style('body-short-01');
       }
     }
 
