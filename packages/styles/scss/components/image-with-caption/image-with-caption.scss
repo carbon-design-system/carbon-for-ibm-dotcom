@@ -76,25 +76,8 @@
     }
   }
 
-  // can we set 2x1 ratio here?
-
   .#{$prefix}--image__caption {
-    @include carbon--type-style('caption-01');
-
-    color: $text-05;
-    margin-top: $carbon--spacing-03;
-    margin-bottom: $carbon--spacing-07;
-  }
-
-  .#{$prefix}--image-with-caption--inverse {
-    background-color: $inverse-02;
-  }
-  .#{$prefix}--image-with-caption--inverse
-    .#{$prefix}--image__caption--inverse {
-    color: $text-04;
-  }
-
-  .#{$prefix}--image__caption--inverse {
+    @include use-carbon-productive-tokens();
     @include carbon--type-style('body-short-01', true);
 
     margin-top: $carbon--spacing-03;

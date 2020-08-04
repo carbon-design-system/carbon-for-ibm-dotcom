@@ -1,0 +1,98 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../../docs/cors-proxy.md';
+
+# Locale modal
+
+> The locale modal allows users to change geographic regions and translate pages
+> to those region languages, if available.
+
+<Preview withToolbar>
+  <Story id="components-locale-modal--default" height="600px" />
+</Preview>
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/locale-modal)
+> example implementation.
+
+[![Edit carbon-custom-elements](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/locale-modal)
+
+## Getting started
+
+##### JS
+
+```javascript
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
+import {
+  reducers,
+  store,
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+
+store.replaceReducer(reducers);
+
+// Wires `<dds-locale-modal-composite>` to `@carbon/ibmdotcom-servies` and creates `<app-locale-modal-container>`
+customElements.define(
+  'app-locale-modal-container',
+  class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSLocaleModalComposite) {}
+);
+```
+
+##### HTML
+
+```html
+<app-locale-modal-container></app-locale-modal-container>
+```
+
+## `<dds-locale-modal-composite>`
+
+`<dds-locale-modal-composite>` automatically renders contents of locale modal from the given data.
+You can populate the data automatically from `@carbon/ibmdotcom-servies` by mixing a Redux store into this custom element class, shown in the example in Getting started section above.
+
+<Props of="dds-locale-modal-composite" />
+
+## `<dds-locale-modal>`
+
+**Note**: The events with `bx-` prefix and `size`, `expressive-size` attribute/property, and `header`/`footer` slots came from deriving `<dds-modal>`, but _not_ used in `<dds-locale-modal>`.
+
+`<dds-locale-modal>` works as the shell in locale modal.
+
+<Props of="dds-locale-modal" />
+
+## `<dds-regions>`
+
+`<dds-regions>` works as the shell for the regions in locale modal.
+
+## `<dds-region-item>`
+
+`<dds-region-item>` works as a region card in locale modal.
+
+<Props of="dds-region-item" />
+
+## `<dds-locale-search>`
+
+`<dds-locale-search>` works as the locale search UI in locale modal.
+
+<Props of="dds-locale-search" />
+
+## `<dds-locale-item>`
+
+`<dds-locale-item>` works as a locale selection link in locale modal.
+
+<Props of="dds-region-item" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                       | Compatibility selector                 | Description |
+| --------------------------------------------- | -------------------------------------- | ----------- |
+| `<dds-locale-modal>`                          | `dds--locale-modal`                    | Component   |
+| `<dds-region-item name="${region}">`          | `dds--locale-modal__geo-btn-${region}` | Interactive |
+| `::part(searchbox)` in `<dds-locale-search>`  | `dds--locale-modal__filter`            | Interactive |
+| `::part(back-button)` in `<dds-locale-modal>` | `dds--locale-modal__region-back`       | Interactive |
+
+<Description markdown={corsproxy} />
+<Description markdown={contributing} />

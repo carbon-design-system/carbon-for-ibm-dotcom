@@ -1574,7 +1574,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                   "heading": "Get connected",
                 },
                 Object {
-                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
+                  "copy": "IBM DevOps partners have a wide range of expertise",
                   "cta": Object {
                     "copy": "Browse tutorials",
                     "href": "https://example.com/",
@@ -1911,7 +1911,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                     </div>
                   </ContentItem>
                   <ContentItem
-                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
+                    copy="IBM DevOps partners have a wide range of expertise"
                     cta={
                       Object {
                         "copy": "Browse tutorials",
@@ -1936,7 +1936,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -2319,7 +2319,6 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
       nulla quis, *consequat* libero. Here are
       some common categories:"
                         heading="Curabitur malesuada varius mi eu posuere"
-                        inverse={true}
                         mediaData={
                           Object {
                             "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -2352,10 +2351,9 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
                           <ContentBlock
                             border={false}
                             heading="Curabitur malesuada varius mi eu posuere"
-                            inverse={true}
                           >
                             <div
-                              className="bx--content-block bx--content-block--inverse"
+                              className="bx--content-block"
                               data-autoid="dds--content-block"
                             >
                               <div>
@@ -2378,10 +2376,9 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:"
-                                    inverse={true}
                                   >
                                     <div
-                                      className="bx--content-item bx--content-item--inverse"
+                                      className="bx--content-item"
                                       data-autoid="dds--content-item"
                                     >
                                       <div
@@ -2422,11 +2419,10 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
                                           ],
                                         }
                                       }
-                                      inverse={true}
                                       lightbox={false}
                                     >
                                       <div
-                                        className="bx--image-with-caption bx--image-with-caption--inverse"
+                                        className="bx--image-with-caption"
                                         data-autoid="dds--image-with-caption"
                                       >
                                         <Image
@@ -2478,7 +2474,7 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
                                           </div>
                                         </Image>
                                         <p
-                                          className="bx--image__caption--inverse"
+                                          className="bx--image__caption"
                                           data-autoid="dds--image__caption"
                                         >
                                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -16630,7 +16626,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       ],
                                     }
                                   }
-                                  inverse={false}
                                   lightbox={false}
                                 >
                                   <div
@@ -16686,7 +16681,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       </div>
                                     </Image>
                                     <p
-                                      className="bx--image__caption--inverse"
+                                      className="bx--image__caption"
                                       data-autoid="dds--image__caption"
                                     >
                                       Lorem ipsum dolor sit amet.
@@ -17091,7 +17086,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       ],
                                     }
                                   }
-                                  inverse={false}
                                   lightbox={false}
                                 >
                                   <div
@@ -17147,7 +17141,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       </div>
                                     </Image>
                                     <p
-                                      className="bx--image__caption--inverse"
+                                      className="bx--image__caption"
                                       data-autoid="dds--image__caption"
                                     >
                                       Lorem ipsum dolor sit amet.
@@ -18157,7 +18151,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               ],
                                             }
                                           }
-                                          inverse={false}
                                           lightbox={false}
                                         >
                                           <div
@@ -18213,7 +18206,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               </div>
                                             </Image>
                                             <p
-                                              className="bx--image__caption--inverse"
+                                              className="bx--image__caption"
                                               data-autoid="dds--image__caption"
                                             >
                                               Lorem ipsum dolor sit amet.
@@ -18618,7 +18611,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               ],
                                             }
                                           }
-                                          inverse={false}
                                           lightbox={false}
                                         >
                                           <div
@@ -18674,7 +18666,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               </div>
                                             </Image>
                                             <p
-                                              className="bx--image__caption--inverse"
+                                              className="bx--image__caption"
                                               data-autoid="dds--image__caption"
                                             >
                                               Lorem ipsum dolor sit amet.
@@ -21180,7 +21172,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       ],
                                     }
                                   }
-                                  inverse={false}
                                   lightbox={false}
                                 >
                                   <div
@@ -21236,7 +21227,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       </div>
                                     </Image>
                                     <p
-                                      className="bx--image__caption--inverse"
+                                      className="bx--image__caption"
                                       data-autoid="dds--image__caption"
                                     >
                                       Lorem ipsum dolor sit amet.
@@ -23182,7 +23173,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               ],
                                             }
                                           }
-                                          inverse={false}
                                           lightbox={false}
                                         >
                                           <div
@@ -23238,7 +23228,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               </div>
                                             </Image>
                                             <p
-                                              className="bx--image__caption--inverse"
+                                              className="bx--image__caption"
                                               data-autoid="dds--image__caption"
                                             >
                                               Lorem ipsum dolor sit amet.
@@ -24109,7 +24099,6 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                             ],
                           }
                         }
-                        inverse={false}
                         lightbox={false}
                       >
                         <div
@@ -24165,7 +24154,7 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                             </div>
                           </Image>
                           <p
-                            className="bx--image__caption--inverse"
+                            className="bx--image__caption"
                             data-autoid="dds--image__caption"
                           >
                             Mauris iaculis eget dolor nec hendrerit.
@@ -24390,7 +24379,6 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                                     ],
                                   }
                                 }
-                                inverse={false}
                                 lightbox={false}
                               >
                                 <div
@@ -24446,7 +24434,7 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                                     </div>
                                   </Image>
                                   <p
-                                    className="bx--image__caption--inverse"
+                                    className="bx--image__caption"
                                     data-autoid="dds--image__caption"
                                   >
                                     Mauris iaculis eget dolor nec hendrerit.
@@ -25142,7 +25130,6 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
                                     ],
                                   }
                                 }
-                                inverse={false}
                                 lightbox={false}
                               >
                                 <div
@@ -25198,7 +25185,7 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
                                     </div>
                                   </Image>
                                   <p
-                                    className="bx--image__caption--inverse"
+                                    className="bx--image__caption"
                                     data-autoid="dds--image__caption"
                                   >
                                     Mauris iaculis eget dolor nec hendrerit.
@@ -25764,7 +25751,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                     ],
                                   }
                                 }
-                                inverse={false}
                                 lightbox={false}
                               >
                                 <div
@@ -25820,7 +25806,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                     </div>
                                   </Image>
                                   <p
-                                    className="bx--image__caption--inverse"
+                                    className="bx--image__caption"
                                     data-autoid="dds--image__caption"
                                   >
                                     Mauris iaculis eget dolor nec hendrerit.
@@ -25942,7 +25928,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                             ],
                                           }
                                         }
-                                        inverse={false}
                                         lightbox={false}
                                       >
                                         <div
@@ -25998,7 +25983,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                             </div>
                                           </Image>
                                           <p
-                                            className="bx--image__caption--inverse"
+                                            className="bx--image__caption"
                                             data-autoid="dds--image__caption"
                                           >
                                             Mauris iaculis eget dolor nec hendrerit.
@@ -27085,7 +27070,6 @@ exports[`Storyshots Components|ContentBlockSimple With Image 1`] = `
                               ],
                             }
                           }
-                          inverse={false}
                           lightbox={false}
                         >
                           <div
@@ -27141,7 +27125,7 @@ exports[`Storyshots Components|ContentBlockSimple With Image 1`] = `
                               </div>
                             </Image>
                             <p
-                              className="bx--image__caption--inverse"
+                              className="bx--image__caption"
                               data-autoid="dds--image__caption"
                             >
                               Mauris iaculis eget dolor nec hendrerit.
@@ -27983,7 +27967,6 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                       ],
                                     }
                                   }
-                                  inverse={false}
                                   lightbox={false}
                                 >
                                   <div
@@ -28039,7 +28022,7 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                       </div>
                                     </Image>
                                     <p
-                                      className="bx--image__caption--inverse"
+                                      className="bx--image__caption"
                                       data-autoid="dds--image__caption"
                                     >
                                       Mauris iaculis eget dolor nec hendrerit.
@@ -31118,7 +31101,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                             ],
                           }
                         }
-                        inverse={false}
                         lightbox={false}
                       >
                         <div
@@ -31174,7 +31156,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                             </div>
                           </Image>
                           <p
-                            className="bx--image__caption--inverse"
+                            className="bx--image__caption"
                             data-autoid="dds--image__caption"
                           >
                             Lorem ipsum dolor sit amet.
@@ -32770,7 +32752,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               style={
                                 Object {
                                   "position": "sticky",
-                                  "top": "0",
+                                  "top": 0,
                                 }
                               }
                             >
@@ -34365,7 +34347,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         ],
                                                       }
                                                     }
-                                                    inverse={false}
                                                     lightbox={false}
                                                   >
                                                     <div
@@ -34421,7 +34402,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         </div>
                                                       </Image>
                                                       <p
-                                                        className="bx--image__caption--inverse"
+                                                        className="bx--image__caption"
                                                         data-autoid="dds--image__caption"
                                                       >
                                                         Mauris iaculis eget dolor nec hendrerit.
@@ -34590,7 +34571,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         ],
                                                       }
                                                     }
-                                                    inverse={false}
                                                     lightbox={false}
                                                   >
                                                     <div
@@ -34646,7 +34626,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         </div>
                                                       </Image>
                                                       <p
-                                                        className="bx--image__caption--inverse"
+                                                        className="bx--image__caption"
                                                         data-autoid="dds--image__caption"
                                                       >
                                                         Mauris iaculis eget dolor nec hendrerit.
@@ -34890,7 +34870,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           <ContentBlockSimple
                                             copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
                                             heading="Mauris ultrices eros in cursus"
-                                            inverse={true}
                                             mediaData={
                                               Object {
                                                 "videoId": "0_uka1msg4",
@@ -34905,10 +34884,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               <ContentBlock
                                                 border={false}
                                                 heading="Mauris ultrices eros in cursus"
-                                                inverse={true}
                                               >
                                                 <div
-                                                  className="bx--content-block bx--content-block--inverse"
+                                                  className="bx--content-block"
                                                   data-autoid="dds--content-block"
                                                 >
                                                   <div>
@@ -34928,10 +34906,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <ContentItem
                                                         copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
-                                                        inverse={true}
                                                       >
                                                         <div
-                                                          className="bx--content-item bx--content-item--inverse"
+                                                          className="bx--content-item"
                                                           data-autoid="dds--content-item"
                                                         >
                                                           <div
@@ -34951,12 +34928,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <VideoPlayer
                                                           autoPlay={false}
-                                                          inverse={true}
                                                           videoId="0_uka1msg4"
                                                         >
                                                           <div
                                                             aria-label=" (1:00)"
-                                                            className="bx--video-player bx--video-player--inverse"
+                                                            className="bx--video-player"
                                                           >
                                                             <div
                                                               className="bx--video-player__video-container "
@@ -39495,7 +39471,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                 ],
               }
             }
-            inverse={false}
             lightbox={true}
           >
             <div
@@ -39593,7 +39568,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                 </div>
               </button>
               <p
-                className="bx--image__caption--inverse"
+                className="bx--image__caption"
                 data-autoid="dds--image__caption"
               >
                 this is a caption
@@ -41701,7 +41676,6 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                             ],
                           }
                         }
-                        inverse={false}
                         lightbox={false}
                       >
                         <div
@@ -41757,7 +41731,7 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                             </div>
                           </Image>
                           <p
-                            className="bx--image__caption--inverse"
+                            className="bx--image__caption"
                             data-autoid="dds--image__caption"
                           >
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -43149,12 +43123,14 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                             <div
                               className="bx--lightbox-media-viewer__content__title"
                               data-autoid="dds--lightbox-media-viewer__content__title"
+                              id="dds-77"
                             >
                               Curabitur malesuada varius mi eu posuere
                             </div>
                             <div
                               className="bx--lightbox-media-viewer__content__desc"
                               data-autoid="dds--lightbox-media-viewer__content__desc"
+                              id="dds-78"
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
                             </div>
@@ -43361,7 +43337,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                 >
                                   <div
                                     className="bx--video-player__video"
-                                    id="bx--video-player__video-0_uka1msg4-73"
+                                    id="bx--video-player__video-0_uka1msg4-85"
                                   />
                                 </div>
                               </div>
@@ -47304,14 +47280,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-74"
+                                        aria-describedby="bx--image-86"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-74"
+                                      id="bx--image-86"
                                     >
                                       Company A
                                     </div>
@@ -47345,14 +47321,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-75"
+                                        aria-describedby="bx--image-87"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-75"
+                                      id="bx--image-87"
                                     >
                                       Company B
                                     </div>
@@ -47386,14 +47362,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-76"
+                                        aria-describedby="bx--image-88"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-76"
+                                      id="bx--image-88"
                                     >
                                       Company C
                                     </div>
@@ -47427,14 +47403,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-77"
+                                        aria-describedby="bx--image-89"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-77"
+                                      id="bx--image-89"
                                     >
                                       Company D
                                     </div>
@@ -47468,14 +47444,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-78"
+                                        aria-describedby="bx--image-90"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-78"
+                                      id="bx--image-90"
                                     >
                                       Company E
                                     </div>
@@ -47509,14 +47485,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-79"
+                                        aria-describedby="bx--image-91"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-79"
+                                      id="bx--image-91"
                                     >
                                       Company F
                                     </div>
@@ -47550,14 +47526,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-80"
+                                        aria-describedby="bx--image-92"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-80"
+                                      id="bx--image-92"
                                     >
                                       Company G
                                     </div>
@@ -47591,14 +47567,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-81"
+                                        aria-describedby="bx--image-93"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-81"
+                                      id="bx--image-93"
                                     >
                                       Company H
                                     </div>
@@ -47632,14 +47608,14 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-82"
+                                        aria-describedby="bx--image-94"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-82"
+                                      id="bx--image-94"
                                     >
                                       Company I
                                     </div>
@@ -49875,7 +49851,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                     style={
                       Object {
                         "position": "sticky",
-                        "top": "0",
+                        "top": 0,
                       }
                     }
                   >
@@ -50202,7 +50178,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                   style={
                     Object {
                       "position": "sticky",
-                      "top": "0",
+                      "top": 0,
                     }
                   }
                 >
@@ -50662,14 +50638,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           />
                           <img
                             alt="Lorem Ipsum"
-                            aria-describedby="bx--image-83"
+                            aria-describedby="bx--image-95"
                             className="bx--image__img"
                             src="https://dummyimage.com/672x672"
                           />
                         </picture>
                         <div
                           className="bx--image__longdescription"
-                          id="bx--image-83"
+                          id="bx--image-95"
                         >
                           Lorem Ipsum Dolor
                         </div>
@@ -50683,7 +50659,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     style={
                       Object {
                         "position": "sticky",
-                        "top": "0",
+                        "top": 0,
                       }
                     }
                   >
@@ -50880,14 +50856,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             />
                             <img
                               alt="Lorem Ipsum"
-                              aria-describedby="bx--image-84"
+                              aria-describedby="bx--image-96"
                               className="bx--image__img"
                               src="https://dummyimage.com/672x672"
                             />
                           </picture>
                           <div
                             className="bx--image__longdescription"
-                            id="bx--image-84"
+                            id="bx--image-96"
                           >
                             Lorem Ipsum Dolor
                           </div>
@@ -51085,7 +51061,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
           <VideoPlayer
             aspectRatio="default"
             autoPlay={false}
-            inverse={false}
             showCaption={true}
             videoId="0_uka1msg4"
           >
@@ -51099,7 +51074,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-86"
+                  id="bx--video-player__video-0_uka1msg4-98"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}

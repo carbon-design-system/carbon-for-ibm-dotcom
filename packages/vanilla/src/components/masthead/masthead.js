@@ -260,7 +260,12 @@ class Masthead {
     }
 
     const lang = await LocaleAPI.getLang();
-    const response = await TranslationAPI.getTranslation(lang);
+    let response;
+    try {
+      response = await TranslationAPI.getTranslation(lang);
+    } catch (error) {
+      console.error('Error populating masthead data:', error);
+    }
 
     if (searchProps.hasSearch) {
       searchProps = Object.assign(searchProps, { locale: lang });
@@ -273,7 +278,7 @@ class Masthead {
         navigation:
           typeof navigation == 'object'
             ? navigation
-            : response.mastheadNav.links,
+            : response?.mastheadNav?.links,
       }),
       ...(platform && {
         platform: platform,
@@ -282,8 +287,8 @@ class Masthead {
         profileData: {
           isAuthenticated: isAuthenticated,
           menu: isAuthenticated
-            ? response.profileMenu.signedin
-            : response.profileMenu.signedout,
+            ? response?.profileMenu?.signedin
+            : response?.profileMenu?.signedout,
         },
       }),
       ...(searchProps.hasSearch && {

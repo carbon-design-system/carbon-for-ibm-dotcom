@@ -1,0 +1,30 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../locale-modal/locale-modal';
+
+// /// Include footer components with g90 theme
+// /// @access private
+// /// @group footer
+
+$TEMP--breakpoint-down--md: map-get(
+    map-get($carbon--grid-breakpoints, 'md'),
+    'width'
+  ) - carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
+
+@import 'language-selector';
+@import 'locale-button';
+@import 'footer';
+@import 'footer-logo';
+@import 'footer-nav';
+@import 'footer-nav-group';
+@import 'legal-nav';

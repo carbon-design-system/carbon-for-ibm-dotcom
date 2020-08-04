@@ -9,6 +9,18 @@
   .#{$prefix}--callout-with-media {
     .#{$prefix}--callout__content {
       padding-top: 0;
+
+      @include carbon--theme(
+        $carbon--theme--g90,
+        feature-flag-enabled('enable-css-custom-properties')
+      ) {
+        .#{$prefix}--image__caption {
+          color: $text-01;
+        }
+        .#{$prefix}--video-player__video-caption {
+          color: $text-01;
+        }
+      }
     }
 
     .#{$prefix}--content-block {

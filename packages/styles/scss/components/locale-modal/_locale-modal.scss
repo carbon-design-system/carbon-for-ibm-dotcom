@@ -5,8 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
-@import '../../temp-carbon-expressive/temp-carbon-expressive';
+@import '../../themes/expressive/tokens';
 @import '../card/index';
 @import 'carbon-components/scss/components/search/search';
 @import 'carbon-components/scss/components/modal/modal';
@@ -16,6 +17,7 @@
 /// @group locale-modal
 
 @mixin locale-modal {
+  :host(#{$dds-prefix}-locale-modal),
   .#{$prefix}--locale-modal-container {
     @include carbon--theme(
       $carbon--theme--white,
@@ -182,6 +184,7 @@
           padding: $carbon--spacing-05;
           min-height: $carbon--spacing-09;
 
+          @include use-carbon-productive-tokens();
           @include carbon--type-style(heading-01, true);
         }
       }
@@ -222,6 +225,7 @@
             margin-right: $carbon--spacing-03;
           }
 
+          @include use-carbon-productive-tokens();
           @include carbon--type-style(body-short-01, true);
         }
 

@@ -95,12 +95,14 @@ export default {
       'dds-masthead-container': ({ groupId }) => ({
         authenticated: boolean('Show the authenticated UI (authenticated)', false, groupId),
         brandName: textNullable('Brand name (brand-name)', '', groupId),
+        logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
       }),
     },
     props: {
       'dds-masthead-container': {
         // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set
-        navLinks: process.env.CORS_PROXY && !inPercy() ? undefined : links,
+        navLinks:
+          process.env.CORS_PROXY && !new URLSearchParams(window.location.search).has('mock') && !inPercy() ? undefined : links,
       },
     },
   },
