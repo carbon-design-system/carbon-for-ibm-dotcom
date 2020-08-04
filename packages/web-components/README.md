@@ -44,43 +44,17 @@ For quick start, you can use CDNs that support module mapping (e.g. [JSPM](https
 <html>
   <head>
     <script type="module">
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button/button.js';
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal.js';
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-header.js';
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-heading.js';
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-close-button.js';
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-body.js';
+      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@latest/es/components/masthead/masthead.js';
     </script>
     <style type="text/css">
       body {
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
         margin: 0;
       }
-
-      dds-btn:not(:defined),
-      dds-modal:not(:defined) {
-        visibility: hidden;
-      }
     </style>
   </head>
   <body>
-    <dds-btn id="launch-modal" kind="primary">Open modal</dds-btn>
-    <dds-modal>
-      <dds-modal-header>
-        <dds-modal-close-button></dds-modal-close-button>
-        <dds-modal-heading>Modal Title</dds-modal-heading>
-      </dds-modal-header>
-      <dds-modal-body>
-        Modal content
-      </dds-modal-body>
-    </dds-modal>
-    <script type="text/javascript">
-      document.addEventListener('click', event => {
-        if (event.target.matches('dds-btn#launch-modal')) {
-          document.querySelector('dds-modal').open = true;
-        }
-      });
-    </script>
+    <dds-masthead-container></dds-masthead-container>
   </body>
 </html>
 ```
@@ -88,38 +62,17 @@ For quick start, you can use CDNs that support module mapping (e.g. [JSPM](https
 For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s. Once you set up a module bundler, you can start importing our component modules, like:
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-header';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-heading';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-body';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
 ```
 
 Once you do that, you can use our components as easy as using HTML tags, like:
 
 ```html
-<dds-btn id="launch-modal" kind="primary">Open modal</dds-btn>
-<dds-modal>
-  <dds-modal-header>
-    <dds-modal-close-button></dds-modal-close-button>
-    <dds-modal-heading>Modal Title</dds-modal-heading>
-  </dds-modal-header>
-  <dds-modal-body>
-    Modal content
-  </dds-modal-body>
-</dds-modal>
-<script type="text/javascript">
-  document.addEventListener('click', event => {
-    if (event.target.matches('dds-btn#launch-modal')) {
-      document.querySelector('dds-modal').open = true;
-    }
-  });
-</script>
+<dds-masthead-container></dds-masthead-container>
 ```
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/modal)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
 ## Browser support
@@ -137,13 +90,15 @@ View available web components at: https://ibmdotcom-web-components.mybluemix.net
 2. Clicking the **KNOBS** tab at the bottom and changing values there. Most knobs are shown as something like `Button kind (kind)`, where `kind` is the attribute name
 3. Clicking the **ACTION LOGGER** tab at the bottom and interacting with the selected component. You may see something like `bx-modal-closed` which typically indicates that an event with such event type is fired.
 
-## Using custom styles in components
+## Advanced
+
+### Using custom styles in components
 
 As Shadow DOM (one of the Web Components specs that `@carbon/ibmdotcom-web-components` uses) promises, styles that `@carbon/ibmdotcom-web-components` defines does not affect styles in your application, or vice versa.
 
 However, in cases where your application or a Carbon-derived style guide wants to change the styles of our components, there are a few options.
 
-### Creating derived components with different style
+#### Creating derived components with different style
 
 You can create a derived class of our component and override [static `styles` property](https://lit-element.polymer-project.org/guide/styles#static-styles), like:
 
@@ -163,7 +118,7 @@ class MyLinkWithIcon extends DDSLinkWithIcon {
 }
 ```
 
-### Using CSS Custom Properties
+#### Using CSS Custom Properties
 
 Changes to CSS Custom Properties of the Carbon theme are reflected in the color scheme of `@carbon/ibmdotcom-web-components` components:
 
@@ -209,7 +164,7 @@ dds-link-with-icon {
 }
 ```
 
-### CSS Shadow Parts
+#### CSS Shadow Parts
 
 Some components support [CSS Shadow Parts](https://www.w3.org/TR/css-shadow-parts-1/) too, so you can use your application's CSS to affect `@carbon/ibmdotcom-web-components` styles in a more flexible manner.
 
@@ -223,36 +178,7 @@ dds-locale-modal::part(back-button) {
 
 ## Stable selectors (for analytics and integration/E2E testing) in Web Components
 
-`@carbon/ibmdotcom-react`, etc. libraries have `data-autoid` attributes in several places, to convey better context for e.g. analytics libraries, when they capture bubbling events e.g. `click` on `<body>` and inspects `event.target`. `data-autoid` is more useful than having to inspect contents in raw HTML `<div>` tags, etc., because `data-autoid` augments raw `<div>` tags with the context of application structure where raw `<div>` tags themselves tend to only convey how the UI should look like. We call such `data-autoid` attributes "stable selectors".
-
-`@carbon/ibmdotcom-web-components` being based on Web Components abstrats away such raw HTML `<div>`, etc. tags, into e.g. `<dds-header-logo>` (one for the IBM logo in masthead) and `<dds-masthead-search>` (one for the collapsible search box in masthead).
-
-It means that in Web Components world, tag names and their attributes well convey application structure, without having to rely on "stable selectors". For example, analytics code can do something like:
-
-```javascript
-document.body.addEventListener('click', event => {
-  if (event.target.tagName === 'DDS-MASTHEAD-LOGO') {
-    // Code to send header logo click event to analytics...
-  }
-});
-```
-
-`<dds-masthead-search>` has more than one clickable buttons. Therefore, `<dds-masthead-search>` fires custom events e.g. `dds-masthead-search-toggled` to better convey the context wrt what action is take upon clicking. You can use it like:
-
-```javascript
-document.body.addEventListener('dds-masthead-search-toggled', event => {
-  console.log('Search box new open state:', event.detail.active);
-  // Code to send masthead search bar toggle event to analytics...
-});
-```
-
-See Docs tab in each components in https://ibmdotcom-web-components.mybluemix.net/ to see more details on available custom events are available, available attributes/properties are for more context, etc.
-
-### `data-autoid` support for partial backward compatibility
-
-`@carbon/ibmdotcom-web-components` supports `data-autoid` stable selectors for some elements, to provide compatibility to and easier migration from `@carbon/ibmdotcom-react`. However, `document.querySelector('[data-autoid="stable-selector"]')` and `event.target.autoId` does not work with elements in shadow DOM, due to shadow DOM's nature. Therefore, `data-autoid` is _not_ provided for all elements.
-
-See Stable selectors section in Docs tab in each components in https://ibmdotcom-web-components.mybluemix.net/ to see the list of supported `data-autoid` and their Web Components alternatives.
+Can be found at [here](./docs/stable-selectors.md).
 
 ## Developer documentations
 
