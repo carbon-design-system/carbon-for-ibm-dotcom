@@ -37,7 +37,9 @@ function focuswrap(
       (event.currentTarget.contains(relatedTarget) ||
         event.currentTarget.host?.contains(relatedTarget)) &&
       sentinelNodes.indexOf(relatedTarget) < 0;
-    if (oldContains && !currentContains) {
+    // FF fires `focusout` event even if the page itself is losing focus (e.g. upon following outside link).
+    // In such case, we do nothing.
+    if (oldContains && !currentContains && relatedTarget) {
       let comparisonResult = target.compareDocumentPosition(relatedTarget);
       if (relatedTarget === startSentinelNode) {
         comparisonResult = Node.DOCUMENT_POSITION_PRECEDING;
