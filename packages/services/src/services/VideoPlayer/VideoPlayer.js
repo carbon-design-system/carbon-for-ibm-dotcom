@@ -7,6 +7,8 @@
 
 import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
+import settings from 'carbon-components/umd/globals/js/settings';
+const { prefix } = settings;
 
 /**
  * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
@@ -200,6 +202,11 @@ class VideoPlayerAPI {
         // Ready callback is issued for this player:
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
+
+          var container = document.querySelector(`.${prefix}--modal-close`);
+          container.addEventListener('click', function() {
+            kdp.sendNotification('doStop');
+          });
 
           kdp.addJsListener('playerPaused', function() {
             fireEvent({ playerState: 1, kdp, videoId });
