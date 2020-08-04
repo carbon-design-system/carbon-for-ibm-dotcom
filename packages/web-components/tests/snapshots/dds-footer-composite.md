@@ -6,7 +6,7 @@
 
 ```
 <dds-footer-composite>
-  <dds-footer-shell
+  <dds-footer
     data-auto-id="dds--footer"
     role="footer"
   >
@@ -17,14 +17,14 @@
       role="navigation"
     >
     </dds-footer-nav>
-    <dds-locale-button>
+    <dds-locale-button data-auto-id="dds--locale-btn">
     </dds-locale-button>
     <dds-legal-nav
-      data-auto-id="dds--footer-legal-nav__link"
+      data-auto-id="dds--footer-legal-nav"
       role="complementary"
     >
     </dds-legal-nav>
-  </dds-footer-shell>
+  </dds-footer>
 </dds-footer-composite>
 
 ```
@@ -36,7 +36,7 @@
   lang-display="lang-display-foo"
   language="ko-KR"
 >
-  <dds-footer-shell
+  <dds-footer
     data-auto-id="dds--footer"
     role="footer"
   >
@@ -83,11 +83,11 @@
         </dds-footer-nav-item>
       </dds-footer-nav-group>
     </dds-footer-nav>
-    <dds-locale-button>
+    <dds-locale-button data-auto-id="dds--locale-btn">
       lang-display-foo
     </dds-locale-button>
     <dds-legal-nav
-      data-auto-id="dds--footer-legal-nav__link"
+      data-auto-id="dds--footer-legal-nav"
       role="complementary"
     >
       <dds-legal-nav-item
@@ -103,7 +103,7 @@
         title-bar
       </dds-legal-nav-item>
     </dds-legal-nav>
-  </dds-footer-shell>
+  </dds-footer>
 </dds-footer-composite>
 
 ```

@@ -11,7 +11,7 @@ import { TRANSLATE_API_ACTION, Translation, TranslateAPIActions, TranslateAPISta
 import convertValue from '../../../../../tests/utils/convert-value';
 import reducer from '../translateAPI';
 
-const mockTranslation: Translation = {
+const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
       { title: 'item-title-foo', url: 'https://ibmdotcom-webcomponents.mybluemix.net/foo' },
@@ -29,14 +29,14 @@ describe('Redux reducers for `LocaleAPI`', () => {
   it('should return the state unmodified for unknown action', () => {
     const state = {
       translations: {
-        'lang-foo': mockTranslation,
+        'lang-foo': mockTranslation as Translation,
       },
     };
     expect(reducer(state, {} as TranslateAPIActions)).toEqual(state);
   });
 
   it('should support starting the spinner for loading translation data', () => {
-    const request = Promise.resolve(mockTranslation);
+    const request = Promise.resolve(mockTranslation as Translation);
     expect(
       convertValue(
         reducer({} as TranslateAPIState, {
@@ -80,7 +80,7 @@ describe('Redux reducers for `LocaleAPI`', () => {
         reducer({} as TranslateAPIState, {
           type: TRANSLATE_API_ACTION.SET_TRANSLATION,
           language: 'lang-foo',
-          translation: mockTranslation,
+          translation: mockTranslation as Translation,
         })
       )
     ).toEqual({
