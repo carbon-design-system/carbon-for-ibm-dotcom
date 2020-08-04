@@ -49,7 +49,6 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
-
   return (
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
@@ -59,4 +58,28 @@ export const Default = ({ parameters }) => {
       </main>
     </DotcomShell>
   );
+};
+
+export const SearchOpenByDefault = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+SearchOpenByDefault.story = {
+  name: 'Search open by default',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        // const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
+            searchOpenOnload: true,
+          },
+        };
+      },
+    },
+  },
 };
