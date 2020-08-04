@@ -33,7 +33,11 @@ export default {
     ...readme.parameters,
     knobs: {
       'dds-locale-modal-container': ({ groupId }) => ({
-        langDisplay: textNullable('Display language (lang-display)', 'United States — English', groupId),
+        langDisplay: textNullable(
+          'Display language (lang-display)',
+          process.env.CORS_PROXY && !inPercy() ? '' : 'United States — English',
+          groupId
+        ),
       }),
     },
     props: {

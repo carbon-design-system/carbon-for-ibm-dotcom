@@ -92,10 +92,14 @@ const Masthead = ({
   useEffect(() => {
     let unmounted = false;
     (async () => {
-      const pageData = await TranslationAPI.getTranslation();
-      if (!unmounted) {
-        setMastheadData(pageData.mastheadNav.links);
-        setProfileData(pageData.profileMenu);
+      try {
+        const pageData = await TranslationAPI.getTranslation();
+        if (!unmounted) {
+          setMastheadData(pageData.mastheadNav.links);
+          setProfileData(pageData.profileMenu);
+        }
+      } catch (error) {
+        console.error('Error populating masthead data:', error);
       }
     })();
     return () => {
