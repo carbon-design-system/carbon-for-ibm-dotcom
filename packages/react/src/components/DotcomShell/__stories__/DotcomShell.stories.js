@@ -65,18 +65,21 @@ export const SearchOpenByDefault = ({ parameters }) => (
 );
 
 SearchOpenByDefault.story = {
-  name: 'Search open by default',
+  name: 'Search open',
   parameters: {
     knobs: {
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
         } = mastheadStory.story.parameters.knobs;
-        // const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
         return {
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),
             searchOpenOnload: true,
+          },
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
           },
         };
       },
