@@ -86,3 +86,33 @@ SearchOpenByDefault.story = {
     },
   },
 };
+
+export const WithPlatform = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithPlatform.story = {
+  name: 'With platform',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
+            platform: {
+              name: 'IBM Cloud',
+              url: 'https://www.ibm.com/cloud',
+            },
+          },
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+          },
+        };
+      },
+    },
+  },
+};
