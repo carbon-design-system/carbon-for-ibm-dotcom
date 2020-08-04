@@ -161,9 +161,9 @@ class TranslationAPI {
           _translationFetch[`${country}-${lang}`] = false;
           resolve(data);
         })
-        .catch(() => {
+        .catch(error => {
           _translationFetch[`${country}-${lang}`] = false;
-          reject();
+          reject(error);
         });
     }
   }

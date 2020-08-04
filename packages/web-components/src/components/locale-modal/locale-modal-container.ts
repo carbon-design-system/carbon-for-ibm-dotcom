@@ -49,6 +49,11 @@ export interface LocaleModalContainerState {
  */
 interface LocaleModalContainerStateProps {
   /**
+   * The display language.
+   */
+  langDisplay?: string;
+
+  /**
    * The locale list.
    */
   localeList?: LocaleList;
@@ -60,8 +65,9 @@ interface LocaleModalContainerStateProps {
  */
 export function mapStateToProps(state: LocaleModalContainerState): LocaleModalContainerStateProps {
   const { localeAPI } = state;
-  const { language, localeLists } = localeAPI ?? {};
+  const { langDisplay, language, localeLists } = localeAPI ?? {};
   return {
+    langDisplay,
     localeList: !language ? undefined : localeLists?.[language],
   };
 }

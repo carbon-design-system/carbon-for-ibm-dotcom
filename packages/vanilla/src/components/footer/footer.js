@@ -39,12 +39,17 @@ class Footer {
    */
   static async getFooterWithData(type) {
     const lang = await LocaleAPI.getLang();
-    const response = await TranslationAPI.getTranslation(lang);
+    let response;
+    try {
+      response = await TranslationAPI.getTranslation(lang);
+    } catch (error) {
+      console.error('Error populating footer data:', error);
+    }
 
     return footerTemplate({
       type,
-      footerMenu: response.footerMenu,
-      footerThin: response.footerThin,
+      footerMenu: response?.footerMenu,
+      footerThin: response?.footerThin,
     });
   }
 }
