@@ -50,12 +50,6 @@ const ExpressiveModal = ({
    */
   function closeModal() {
     if (onClose?.() !== false) {
-      if (window.kWidget) {
-        window.kWidget.addReadyCallback(function(playerId) {
-          var kdp = document.getElementById(playerId);
-          kdp.sendNotification('doStop');
-        });
-      }
       setIsOpen(false);
     }
   }

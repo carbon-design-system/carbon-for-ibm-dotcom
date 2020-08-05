@@ -22,7 +22,7 @@ const { prefix } = settings;
 /**
  * LightboxMediaViewer Component.
  */
-const LightboxMediaViewer = ({ media, ...modalProps }) => {
+const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
   const [videoData, setVideoData] = useState({
     title: '',
     alt: '',
@@ -95,7 +95,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
       className={`${prefix}--lightbox-media-viewer`}
       ref={containerRef}>
-      <ExpressiveModal fullwidth={true} {...modalProps}>
+      <ExpressiveModal fullwidth={true} {...modalProps} onClose={closeModal}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
@@ -134,6 +134,20 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
       </ExpressiveModal>
     </section>
   );
+
+  /**
+   * Stop video on modal close
+   */
+  function closeModal() {
+    if (onClose?.() !== false) {
+      if (window.kWidget) {
+        window.kWidget.addReadyCallback(function(playerId) {
+          var kdp = document.getElementById(playerId);
+          kdp.sendNotification('doStop');
+        });
+      }
+    }
+  }
 };
 
 LightboxMediaViewer.propTypes = {
@@ -155,5 +169,10 @@ LightboxMediaViewer.propTypes = {
     alt: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
+
+  /**
+   * Function to be triggered on close of Modal.
+   */
+  onClose: PropTypes.func,
 };
 export default LightboxMediaViewer;
