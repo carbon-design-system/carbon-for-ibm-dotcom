@@ -72,7 +72,7 @@ export const aspectRatio4x3 = ({ parameters }) => (
 aspectRatio4x3.story = {
   name: 'Aspect ratio 4:3',
   parameters: {
-    knobs: {
+    props: {
       VideoPlayer: () => {
         return {
           showCation: true,
