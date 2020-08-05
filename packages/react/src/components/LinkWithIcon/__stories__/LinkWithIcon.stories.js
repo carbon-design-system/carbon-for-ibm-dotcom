@@ -53,7 +53,7 @@ export const Default = ({ parameters }) => {
         {...(visited && { visited })}
         iconPlacement={iconPlacement}>
         <span>Link text</span>
-        {iconPlacement == 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
+        {iconPlacement === 'left' ? <ArrowLeft20 /> : <ArrowRight20 />}
       </LinkWithIcon>
     </div>
   );
