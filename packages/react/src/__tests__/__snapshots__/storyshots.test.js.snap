@@ -68028,9 +68028,9 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
           },
           "props": Object {
             "VideoPlayer": Object {
-              "aspectRatio": "1x1",
+              "aspectRatio": "default",
               "showCaption": true,
-              "videoId": "1_9h94wo6b",
+              "videoId": "0_uka1msg4",
             },
           },
           "subcomponents": undefined,
@@ -68047,22 +68047,22 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
             className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
           >
             <VideoPlayer
-              aspectRatio="1x1"
+              aspectRatio="default"
               autoPlay={false}
               showCaption={true}
-              videoId="1_9h94wo6b"
+              videoId="0_uka1msg4"
             >
               <div
                 aria-label=" (1:00)"
                 className="bx--video-player"
               >
                 <div
-                  className="bx--video-player__video-container bx--video-player__aspect-ratio--1x1"
-                  data-autoid="dds--video-player__video-1_9h94wo6b"
+                  className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
+                  data-autoid="dds--video-player__video-0_uka1msg4"
                 >
                   <div
                     className="bx--video-player__video"
-                    id="bx--video-player__video-1_9h94wo6b-100"
+                    id="bx--video-player__video-0_uka1msg4-148"
                   >
                     <VideoImageOverlay
                       embedVideo={[Function]}
@@ -68072,7 +68072,7 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
                           "name": "",
                         }
                       }
-                      videoId="1_9h94wo6b"
+                      videoId="0_uka1msg4"
                     >
                       <button
                         className="bx--video-player__image-overlay"
@@ -68143,9 +68143,9 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
           },
           "props": Object {
             "VideoPlayer": Object {
-              "aspectRatio": "4x3",
-              "showCation": true,
-              "videoId": "1_p2osmd1z",
+              "aspectRatio": "default",
+              "showCaption": true,
+              "videoId": "0_uka1msg4",
             },
           },
           "subcomponents": undefined,
@@ -68162,21 +68162,22 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
             className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
           >
             <VideoPlayer
-              aspectRatio="4x3"
+              aspectRatio="default"
               autoPlay={false}
-              videoId="1_p2osmd1z"
+              showCaption={true}
+              videoId="0_uka1msg4"
             >
               <div
                 aria-label=" (1:00)"
                 className="bx--video-player"
               >
                 <div
-                  className="bx--video-player__video-container bx--video-player__aspect-ratio--4x3"
-                  data-autoid="dds--video-player__video-1_p2osmd1z"
+                  className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
+                  data-autoid="dds--video-player__video-0_uka1msg4"
                 >
                   <div
                     className="bx--video-player__video"
-                    id="bx--video-player__video-1_p2osmd1z-102"
+                    id="bx--video-player__video-0_uka1msg4-150"
                   >
                     <VideoImageOverlay
                       embedVideo={[Function]}
@@ -68186,7 +68187,7 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
                           "name": "",
                         }
                       }
-                      videoId="1_p2osmd1z"
+                      videoId="0_uka1msg4"
                     >
                       <button
                         className="bx--video-player__image-overlay"
@@ -68201,6 +68202,12 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
                       </button>
                     </VideoImageOverlay>
                   </div>
+                </div>
+                <div
+                  className="bx--video-player__video-caption"
+                >
+                   
+                  (1:00)
                 </div>
               </div>
             </VideoPlayer>
