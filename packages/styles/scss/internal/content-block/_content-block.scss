@@ -11,14 +11,6 @@
 @import '../../components/feature-card-block-medium/feature-card-block-medium';
 
 @mixin content-block {
-  .#{$prefix}--content-block--inverse {
-    background-color: $inverse-02;
-
-    .#{$prefix}--content-block__heading,
-    .#{$prefix}--content-block__copy p {
-      color: $text-04;
-    }
-  }
   .#{$prefix}--content-block {
     padding-top: $carbon--layout-03;
     padding-bottom: $carbon--layout-05;
