@@ -8880,18 +8880,18 @@ carbon-components@10.15.0, carbon-components@^10.15.0:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-custom-elements@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/carbon-custom-elements/-/carbon-custom-elements-1.2.1.tgz#13b233e4bdca577428ee0e4aa3c939403401fd6c"
-  integrity sha512-FSt3Z0fxgLYSeHKLKYJWayOdx8bSHGOc8Va/9B+KTu6mDrnq8icozttzbi0+m4HozMUfSMuWwxhvvsWYs2q3zg==
-  dependencies:
-    "@babel/runtime" "^7.8.0"
-    lodash-es "^4.17.0"
-
 carbon-icons@7.0.7:
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
+
+carbon-web-components@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.3.0.tgz#e7c358993433e7bb779ca0f661074560bbd21412"
+  integrity sha512-g/Fw+tSkuASWjxv8RsZwrN20TjDIVlAKnLdTeU8/U4A9o0a3MxaMEA/4NhQNOYAQzEs3XNqzngo8kDiQrTPZSA==
+  dependencies:
+    "@babel/runtime" "^7.8.0"
+    lodash-es "^4.17.0"
 
 cardinal@^2.1.1:
   version "2.1.1"

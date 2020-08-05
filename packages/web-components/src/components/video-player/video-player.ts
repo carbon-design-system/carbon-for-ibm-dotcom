@@ -10,7 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-custom-elements/es/globals/mixins/focus';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, customElement, property, TemplateResult, SVGTemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
-import BXModal from 'carbon-custom-elements/es/components/modal/modal';
+import BXModal from 'carbon-web-components/es/components/modal/modal';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './modal.scss';
 

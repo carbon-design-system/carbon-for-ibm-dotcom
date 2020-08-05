@@ -9,9 +9,9 @@
 
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
-import Error20 from 'carbon-custom-elements/es/icons/error/20';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Error20 from 'carbon-web-components/es/icons/error/20';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card-link';
