@@ -117,10 +117,19 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   useEffect(() => {
-    const abortController = new AbortController();
+    const abortController =
+      typeof AbortController !== 'undefined'
+        ? new AbortController()
+        : {
+            signal: {},
+            abort() {
+              this.signal.aborted = true;
+            },
+          };
+    abortController.abort();
     (async () => {
       const response = await LocaleAPI.getLang();
-      if (!abortController.signal && response) {
+      if (!abortController.signal.aborted && response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
         dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
