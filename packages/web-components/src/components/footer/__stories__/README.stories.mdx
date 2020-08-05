@@ -29,6 +29,10 @@ import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 <dds-footer-container></dds-footer-container>
 ```
 
+#### Attributes and properties `<dds-footer-container>`
+
+<Props of="dds-footer-composite" />
+
 ### Customizing service/data integration
 
 For better flexibility in service integration, we have `<dds-footer-composite>` that automatically renders contents of footer from the given data.
@@ -44,8 +48,8 @@ import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/con
 import DDSFooterComposite from '@carbon/ibmdotcom-web-components/es/components/footer/footer-composite';
 import { store, mapStateToProps, mapDispatchToProps } from '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 
-// Connects `<dds-footer-composite>` to `@carbon/ibmdotcom-servies` and creates `<app-footer-container>`
-customElements.define('app-footer-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {})
+// Connects `<dds-footer-composite>` to `@carbon/ibmdotcom-servies` and creates `<myapp-footer-container>`
+customElements.define('myapp-footer-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {})
 ```
 
 You can replace the Redux store or its property/action mappers of your own, as long as the comnination of those yields to the same data structure as the default one.
@@ -53,7 +57,7 @@ You can replace the Redux store or its property/action mappers of your own, as l
 ##### HTML
 
 ```html
-<app-footer-container></app-footer-container>
+<myapp-footer-container></myapp-footer-container>
 ```
 
 #### Attributes and properties `<dds-footer-composite>`
@@ -172,7 +176,5 @@ See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree
 | `<dds-legal-nav>`        | `data-autoid="dds--legal-nav"`         | Component   |
 
 <Description markdown={corsproxy} />
-
-## Contributing
 
 <Description markdown={contributing} />
