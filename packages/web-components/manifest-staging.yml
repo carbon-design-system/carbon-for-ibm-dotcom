@@ -1,0 +1,8 @@
+---
+applications:
+- name: ibmdotcom-web-components-staging
+  path: ./storybook-static
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  routes:
+    - route: ibmdotcom-web-components-staging.mybluemix.net

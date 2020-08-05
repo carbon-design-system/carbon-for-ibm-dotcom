@@ -60,14 +60,9 @@
 }
 
 :host(#{$dds-prefix}-modal-close-button) {
-  @extend :host(#{$prefix}-modal-close-button);
+  @extend .#{$prefix}--modal--expressive;
 
-  $button-size: carbon--rem(48px);
-  $icon-size: carbon--rem(20px);
-  $offset-close-icon: calc(#{$carbon--spacing-07} - ((#{$button-size} - #{$icon-size}) / 2));
-
-  top: $offset-close-icon;
-  right: $offset-close-icon;
+  display: contents;
 }
 
 :host(#{$dds-prefix}-modal-body),
@@ -95,4 +90,6 @@
 
 :host(#{$dds-prefix}-modal-heading) {
   @include carbon--type-style('expressive-heading-04');
+
+  display: block;
 }

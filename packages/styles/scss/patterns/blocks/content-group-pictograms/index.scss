@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../../globals/imports';
-@import '../../../components/pictogram-item/pictogram-item';
-
-@import './content-group-pictograms';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-group-pictograms/index"
+@warn 'Deprecated scss import for `content-group-pictograms`, remap to `@carbon/ibmdotcom-styles/scss/components/content-group-pictograms/index`';
+@import '../../../components/content-group-pictograms/index';

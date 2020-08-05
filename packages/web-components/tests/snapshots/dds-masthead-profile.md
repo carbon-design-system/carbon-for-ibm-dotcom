@@ -2,12 +2,13 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <a
   aria-expanded="false"
   aria-haspopup="menu"
+  aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
   role="menuitem"
@@ -24,12 +25,13 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <a
   aria-expanded="true"
   aria-haspopup="menu"
+  aria-label="User profile"
   class="bx--header__menu-item bx--header__menu-title"
   href="javascript:void 0"
   role="menuitem"
@@ -46,3 +48,4 @@
 </ul>
 
 ```
+

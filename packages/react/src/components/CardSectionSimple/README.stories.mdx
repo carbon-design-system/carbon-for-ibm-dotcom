@@ -1,0 +1,64 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import CardSectionSimple from './CardSectionSimple';
+
+# Card Section - Simple
+
+> The Card Section - Simple pattern is a collection of simple cards presented in
+> a section with a left-column header.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/sections/CardSectionSimple)
+> example implementation.
+
+[![Edit carbon-custom-elements](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/sections/CardSectionSimple)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple'
+```
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CardSectionSimple } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CardSectionSimple
+      cards={cards}
+      heading="Aliquam condimentum interdum"
+      theme={theme}
+      cta={cta}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
+
+```
+  SASS_PATH=node_modules:src
+```
+
+## Props
+
+<Props of={CardSectionSimple} />
+<Description markdown={contributing} />

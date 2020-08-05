@@ -17,16 +17,21 @@
       .#{$prefix}--card__eyebrow {
         color: $disabled-02;
       }
-
-      .#{$prefix}--card__footer {
-        .#{$prefix}--link-with-icon {
-          svg {
-            margin-left: 0;
-            color: $disabled-02;
-          }
+    }
+    .#{$prefix}--card__footer {
+      .#{$prefix}--link-with-icon {
+        svg {
+          margin-left: 0;
+          color: $disabled-02;
         }
       }
+      svg {
+        fill: $disabled-02;
+      }
     }
+  }
+  .#{$prefix}--card__CTA.#{$prefix}--card .#{$prefix}--card__copy {
+    @include carbon--type-style('expressive-heading-02');
   }
 }
 

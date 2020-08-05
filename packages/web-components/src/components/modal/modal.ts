@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, customElement, property } from 'lit-element';
+import { html, customElement, property, TemplateResult, SVGTemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXModal from 'carbon-custom-elements/es/components/modal/modal';
@@ -118,6 +118,44 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   }
 
   /**
+   * @returns The header content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderHeader(): TemplateResult | SVGTemplateResult | void {
+    const { _hasHeader: hasHeader, _hasBody: hasBody, _hasFooter: hasFooter } = this;
+    const headerClasses = classMap({
+      [`${ddsPrefix}-ce--modal__hedaer--with-body`]: hasHeader && (hasBody || hasFooter),
+    });
+    return html`
+      <div class="${headerClasses}"><slot name="header"></slot></div>
+    `;
+  }
+
+  /**
+   * @returns The body content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderBody(): TemplateResult | SVGTemplateResult | void {
+    const { _hasBody: hasBody, _hasFooter: hasFooter } = this;
+    const bodyClasses = classMap({
+      [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
+    });
+    return html`
+      <div class="${bodyClasses}"><slot></slot></div>
+    `;
+  }
+
+  /**
+   * @returns The footer content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderFooter(): TemplateResult | SVGTemplateResult | void {
+    return html`
+      <div><slot name="footer"></slot></div>
+    `;
+  }
+
+  /**
    * The size variant.
    */
   @property({ attribute: 'expressive-size' })
@@ -126,9 +164,6 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   render() {
     const {
       expressiveSize,
-      _hasHeader: hasHeader,
-      _hasBody: hasBody,
-      _hasFooter: hasFooter,
       _handleClickContainerExpressive: handleClickContainerExpressive,
       _handleSlotChange: handleSlotChange,
     } = this;
@@ -141,12 +176,6 @@ class DDSModal extends StableSelectorMixin(BXModal) {
       [`${prefix}--modal-container--fullwidth`]: expressiveSize === DDS_MODAL_SIZE.FULL_WIDTH,
       ...containerClass,
     });
-    const headerClasses = classMap({
-      [`${ddsPrefix}-ce--modal__hedaer--with-body`]: hasHeader && (hasBody || hasFooter),
-    });
-    const bodyClasses = classMap({
-      [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
-    });
     return html`
       <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
       <div
@@ -156,9 +185,7 @@ class DDSModal extends StableSelectorMixin(BXModal) {
         @click="${handleClickContainerExpressive}"
         @slotchange="${handleSlotChange}"
       >
-        <div class="${headerClasses}"><slot name="header"></slot></div>
-        <div class="${bodyClasses}"><slot></slot></div>
-        <div><slot name="footer"></slot></div>
+        ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
       </div>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;

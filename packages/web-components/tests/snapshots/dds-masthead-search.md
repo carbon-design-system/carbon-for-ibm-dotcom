@@ -2,19 +2,21 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <div class="bx--header__search--actions">
   <button
     aria-label="Open IBM search field"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
@@ -22,19 +24,21 @@
 
 ```
 
-#### `should render with various attributes in the inactive state`
+####   `should render with various attributes in the inactive state`
 
 ```
 <div class="bx--header__search--actions">
   <button
     aria-label="open-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Close"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
@@ -42,7 +46,7 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <form
@@ -74,9 +78,11 @@
     <input
       aria-autocomplete="list"
       aria-controls="result-list"
+      aria-label="IBM search field"
       autocomplete="off"
       class="bx--header__search--input"
       name="q"
+      part="search-input"
       placeholder="placeholder-foo"
       type="text"
     >
@@ -85,7 +91,7 @@
       id="result-list"
     >
       <ul
-        class="react-autosuggest__suggestions-list"
+        class="dds-ce--masthead__search__list react-autosuggest__suggestions-list"
         role="listbox"
       >
         <slot>
@@ -98,15 +104,18 @@
   <button
     aria-label="perform-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--search"
+    part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="close-search-button-assistive-text-foo"
     class="bx--header__action bx--header__search--close"
+    part="close-button"
     type="button"
   >
   </button>
 </div>
 
 ```
+

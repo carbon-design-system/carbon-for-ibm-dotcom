@@ -13,7 +13,7 @@
 
 :host(#{$dds-prefix}-btn) {
   // Enables expressive version of type/size/component tokens in this component
-  @include carbon-expressive-tokens-custom-propreties();
+  @include use-carbon-expressive-tokens();
 
   @extend :host(#{$prefix}-btn);
 

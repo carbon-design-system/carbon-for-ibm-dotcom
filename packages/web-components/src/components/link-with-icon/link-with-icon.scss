@@ -5,11 +5,15 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-with-icon) {
+  // Enables expressive version of type/size/component tokens in this component
+  @include use-carbon-expressive-tokens();
+
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $disabled-02;

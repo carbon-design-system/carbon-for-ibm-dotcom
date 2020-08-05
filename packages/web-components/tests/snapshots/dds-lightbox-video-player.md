@@ -14,11 +14,19 @@
   </div>
   <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
     <div class="bx--lightbox-media-viewer__content">
-      <div class="bx--lightbox-media-viewer__content__title">
+      <div
+        class="bx--lightbox-media-viewer__content__title"
+        data-autoid="dds--lightbox-media-viewer__content__title"
+        part="title"
+      >
         <slot name="name">
         </slot>
       </div>
-      <div class="bx--lightbox-media-viewer__content__desc">
+      <div
+        class="bx--lightbox-media-viewer__content__desc"
+        data-autoid="dds--lightbox-media-viewer__content__desc"
+        part="description"
+      >
         <slot name="description">
         </slot>
       </div>
@@ -42,12 +50,20 @@
   </div>
   <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
     <div class="bx--lightbox-media-viewer__content">
-      <div class="bx--lightbox-media-viewer__content__title">
+      <div
+        class="bx--lightbox-media-viewer__content__title"
+        data-autoid="dds--lightbox-media-viewer__content__title"
+        part="title"
+      >
         <slot name="name">
           video-name-foo (0:30)
         </slot>
       </div>
-      <div class="bx--lightbox-media-viewer__content__desc">
+      <div
+        class="bx--lightbox-media-viewer__content__desc"
+        data-autoid="dds--lightbox-media-viewer__content__desc"
+        part="description"
+      >
         <slot name="description">
           video-description-foo
         </slot>
@@ -57,3 +73,4 @@
 </div>
 
 ```
+

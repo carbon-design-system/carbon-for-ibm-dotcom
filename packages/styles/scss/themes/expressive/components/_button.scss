@@ -17,10 +17,10 @@
 @mixin button-expressive {
   .#{$prefix}--btn {
     padding-top: calc(
-      (#{$button-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
     );
     padding-bottom: calc(
-      (#{$button-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
     );
 
     .#{$prefix}--btn__icon {
@@ -54,9 +54,9 @@
   }
 
   .#{$prefix}--btn--icon-only {
-    min-width: $button-height;
+    min-width: $button-md-height;
     padding: calc(
-      (#{$button-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+      (#{$button-md-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
     );
 
     &.#{$prefix}--btn--field {

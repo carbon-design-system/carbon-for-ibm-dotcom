@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.9.0-rc.1...@carbon/ibmdotcom-utilities@1.9.0) (2020-07-29)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.9.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.9.0-rc.0...@carbon/ibmdotcom-utilities@1.9.0-rc.1) (2020-07-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.9.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.8.0...@carbon/ibmdotcom-utilities@1.9.0-rc.0) (2020-07-17)
+
+### Features
+
+- **MarkdownToHTML:** add full markdown support in content
+  ([#2925](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2925))
+  ([abd4848](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abd4848))
+- **masthead:** introduce web components
+  ([#2960](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2960))
+  ([3e3c3c5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3e3c3c5)),
+  closes
+  [#2861](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2861)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.8.0-rc.2...@carbon/ibmdotcom-utilities@1.8.0) (2020-06-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

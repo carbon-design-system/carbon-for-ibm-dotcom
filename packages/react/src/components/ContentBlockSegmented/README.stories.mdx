@@ -1,0 +1,101 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import ContentBlockSegmented from './ContentBlockSegmented';
+
+# Content Block - Segmented
+
+> The Content Block - Segmented pattern allows for larger groups of content to
+> be presented at once.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentBlockSegmented)
+> example implementation.
+
+[![Edit carbon-custom-elements](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentBlockSegmented)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/index';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ContentBlockSegmented styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ContentBlockSegmented } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  const mediaType = 'image';
+  const mediaData = {
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: {
+      sources: [
+        {
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          breakpoint: 320,
+        },
+        {
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          breakpoint: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          breakpoint: 672,
+        },
+      ],
+      alt: 'Image alt text',
+      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+    },
+  };
+
+  return (
+    <ContentBlockSegmented
+      copy={copy}
+      cta={cta}
+      heading={heading}
+      mediaType={mediaType}
+      mediaData={mediaData}
+      items={items}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+## Props
+
+<Props of={ContentBlockSegmented} />
+
+## Stable selectors
+
+| Name                                  | Description   |
+| ------------------------------------- | ------------- |
+| `dds--content-block-segmented`        | Pattern       |
+| `dds--content-block-segmented__media` | Media element |
+
+<Description markdown={contributing} />

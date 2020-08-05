@@ -1,19 +1,62 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import '../lightbox-video-player'
+import '../lightbox-video-player';
 
 # Lightbox Media Viewer
 
 > This launches a modal containing a video, and a description
 > detailing the media content.
 
-<Preview withToolbar>
-  <Story id="components-lightbox-media-viewer--embedded-video-player" height="600px" />
-</Preview>
-
 ## Getting started
 
-##### JS
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container';
+
+// Opens the lightbox media viewer
+document.getElementById('my-video').open = true;
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-lightbox-video-player-container
+    id="my-video"
+    video-id="0_uka1msg4"
+>
+</dds-lightbox-video-player-container>
+```
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                                | Compatibility selector                                     | Description |
+| ------------------------------------------------------ | ---------------------------------------------------------- | ----------- |
+| `<dds-modal>`                                          | `data-autoid="dds--expressive-modal"`                      | Component   |
+| `::part(title)` in `<dds-lightbox-video-player>`       | `data-autoid="dds--Lightbox-media-viewer__content__title"` | Interactive |
+| `::part(description)` in `<dds-lightbox-video-player>` | `data-autoid="dds--Lightbox-media-viewer__content__desc"`  | Interactive |
+
+## Under the Hood
+
+### `<dds-lightbox-video-player>`
+
+`<dds-lightbox-video-player>` works as the video player in lightbox media viewer.
+
+<Props of="dds-lightbox-video-player" />
+
+## Advanced: Custom Connect the Video Player
+
+### JS
 
 When application code opens the lightbox, it can work with our video player service API to put the video data into the video player component:
 
@@ -48,25 +91,16 @@ document.addEventListener('click', async event => {
 });
 ```
 
-##### HTML
+### HTML
 
 ```html
 <dds-btn id="open-modal-btn">Open modal</dds-btn>
 <dds-modal id="lightbox" size="full-width">
   <bx-modal-close-button></bx-modal-close-button>
   <dds-lightbox-media-viewer-body>
-    <dds-lightbox-video-player id="video-player">
-    </dds-lightbox-video-player>
+    <dds-lightbox-video-player id="video-player"> </dds-lightbox-video-player>
   </dds-lightbox-media-viewer-body>
 </dds-modal>
 ```
-
-## `<dds-lightbox-video-player>`
-
-`<dds-lightbox-video-player>` works as the video player in lightbox media viewer.
-
-<Props of="dds-lightbox-video-player" />
-
-## Contributing
 
 <Description markdown={contributing} />

@@ -7,16 +7,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Action, Reducer } from 'redux';
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../masthead-container';
+import { reducers, store } from '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
 import readme from './README.stories.mdx';
+
+store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 const StoryContent = () => html`
   <style type="text/css">
@@ -92,12 +95,14 @@ export default {
       'dds-masthead-container': ({ groupId }) => ({
         authenticated: boolean('Show the authenticated UI (authenticated)', false, groupId),
         brandName: textNullable('Brand name (brand-name)', '', groupId),
+        logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
       }),
     },
     props: {
       'dds-masthead-container': {
         // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set
-        navLinks: process.env.CORS_PROXY && !inPercy() ? undefined : links,
+        navLinks:
+          process.env.CORS_PROXY && !new URLSearchParams(window.location.search).has('mock') && !inPercy() ? undefined : links,
       },
     },
   },

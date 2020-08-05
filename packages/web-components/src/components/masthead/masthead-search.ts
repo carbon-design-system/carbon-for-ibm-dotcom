@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -25,6 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The search UI in the masthead.
  *
  * @element dds-masthead-search
+ * @csspart open-button The button to show the search box.
+ * @csspart close-button The button to hide the search box.
+ * @csspart search-input The input box for search.
  * @fires dds-masthead-search-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
@@ -166,19 +170,27 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
+   * The `aria-label` attribute for the search input.
+   */
+  @property({ attribute: 'search-label' })
+  searchLabel = 'IBM search field';
+
+  /**
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder, _handleKeyInput: handleKeyInput } = this;
+    const { placeholder, _handleKeyInput: handleKeyInput, searchLabel } = this;
     return html`
       <input
         type="text"
+        part="search-input"
         class="${prefix}--header__search--input"
         name="q"
         placeholder="${placeholder}"
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
+        aria-label="${ifNonNull(searchLabel)}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}"
       />
@@ -224,7 +236,7 @@ class DDSMastheadSearch extends BXDropdown {
         >
           ${this._renderTriggerContent()}
           <div id="result-list" class="react-autosuggest__suggestions-container">
-            <ul role="listbox" class="react-autosuggest__suggestions-list">
+            <ul role="listbox" class="${ddsPrefix}-ce--masthead__search__list react-autosuggest__suggestions-list">
               <slot></slot>
             </ul>
           </div>
@@ -311,6 +323,7 @@ class DDSMastheadSearch extends BXDropdown {
       <div class="${prefix}--header__search--actions">
         <button
           type="button"
+          part="open-button"
           class="${prefix}--header__action ${prefix}--header__search--search"
           aria-label="${searchButtonAssistiveText}"
           @click="${handleClickSearchButton}"
@@ -319,6 +332,7 @@ class DDSMastheadSearch extends BXDropdown {
         </button>
         <button
           type="button"
+          part="close-button"
           class="${prefix}--header__action ${prefix}--header__search--close"
           aria-label="${closeSearchButtonAssistiveText}"
           @click="${handleClickCloseButton}"

@@ -11,7 +11,29 @@
       }
     },
     {
-      "files": ["**/*_steps.js"],
+      "files": ["**/*.e2e.js"],
+      "rules": {
+        "jsdoc/require-jsdoc": 0
+      },
+      "env": {
+        "jasmine": true
+      },
+      "globals": {
+        "browser": true,
+        "$": true,
+        "$$": true,
+        "describe": true,
+        "beforeAll": true,
+        "beforeEach": true,
+        "afterAll": true,
+        "afterEach": true,
+        "it": true,
+        "expect": true,
+        "page": true
+      }
+    },
+    {
+      "files": ["**/*_steps.js", "**/*.steps.js"],
       "globals": {
         "describe": true,
         "beforeAll": true,

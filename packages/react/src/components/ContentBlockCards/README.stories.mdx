@@ -1,0 +1,62 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import ContentBlockCards from './ContentBlockCards';
+
+# Content Block - Cards
+
+> The Content Block - Simple pattern is a decorator of `ContentBlock`, and
+> includes a single `CardGroup`.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentBlockCards)
+> example implementation.
+
+[![Edit carbon-custom-elements](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentBlockCards)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards';
+```
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ContentBlockCards } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <ContentBlockCards heading={'Aliquam condimentum interdum'} cards={data} />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
+
+```
+  SASS_PATH=node_modules:src
+```
+
+## Props
+
+<Props of={ContentBlockCards} />
+
+## Stable selectors
+
+| Name                       | Description |
+| -------------------------- | ----------- |
+| `dds--content-block-cards` | Pattern     |
+
+<Description markdown={contributing} />

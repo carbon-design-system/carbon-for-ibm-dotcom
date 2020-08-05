@@ -6,6 +6,9 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/utils/ratio-base';
+
+$aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
   .#{$prefix}--video-player {
@@ -23,14 +26,22 @@
         bottom: 0;
       }
 
-      &::before {
-        content: '';
-        display: block;
-        margin-top: 56.25%;
+      @include ratio-base(16, 9, true);
+
+      @each $aspect-ratio in $aspect-ratios {
+        $width: nth($aspect-ratio, 1);
+        $height: nth($aspect-ratio, 2);
+
+        &.#{$prefix}--video-player__aspect-ratio {
+          &--#{$width}x#{$height} {
+            @include ratio-base($width, $height, true);
+          }
+        }
       }
     }
 
     &__video-caption {
+      @include use-carbon-productive-tokens();
       @include carbon--type-style(body-long-01, true);
 
       padding-top: $spacing-05;
@@ -55,12 +66,6 @@
       outline: 3px solid $focus;
       outline-offset: 1px;
     }
-  }
-  .#{$prefix}--video-player--inverse {
-    background-color: $inverse-02;
-  }
-  .#{$prefix}--video-player--inverse .#{$prefix}--video-player__video-caption {
-    color: $text-04;
   }
 }
 
