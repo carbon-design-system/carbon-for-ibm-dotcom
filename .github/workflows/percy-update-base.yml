@@ -25,14 +25,14 @@ jobs:
       - name: Build
         run: yarn build
       - name: Set env vars
-          uses: ./.github/actions/set-dotenv
-          with:
-            env-file: packages/react/.env
-          env:
-            CORS_PROXY: ${{ secrets.CORS_PROXY }}
-            KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
-            KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
-            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/react/.env
+        env:
+          CORS_PROXY: ${{ secrets.CORS_PROXY }}
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
       - name: Run percy-storybook
           run: yarn visual-snapshot
           working-directory: packages/react
@@ -54,14 +54,14 @@ jobs:
       - name: Build
         run: yarn build
       - name: Set env vars
-          uses: ./.github/actions/set-dotenv
-          with:
-            env-file: packages/web-components/.env
-          env:
-            CORS_PROXY: ${{ secrets.CORS_PROXY }}
-            KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
-            KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
-            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          CORS_PROXY: ${{ secrets.CORS_PROXY }}
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
       - name: Run percy-storybook
           run: yarn build-storybook && yarn percy-storybook --widths=320,1280
           working-directory: packages/web-components
@@ -83,11 +83,11 @@ jobs:
       - name: Build
         run: yarn build
       - name: Set env vars
-          uses: ./.github/actions/set-dotenv
-          with:
-            env-file: packages/styles/.env
-          env:
-            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_EXPRESSIVE }}
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/styles/.env
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_EXPRESSIVE }}
       - name: Run percy-storybook
           run: yarn visual-snapshot
           working-directory: packages/styles
