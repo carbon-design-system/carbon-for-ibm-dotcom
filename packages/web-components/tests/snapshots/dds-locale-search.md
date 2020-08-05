@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <div class="bx--locale-modal__filter">
@@ -32,7 +32,7 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <div class="bx--locale-modal__filter">
@@ -61,3 +61,4 @@
 </div>
 
 ```
+
