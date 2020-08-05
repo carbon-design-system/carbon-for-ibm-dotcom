@@ -157,7 +157,7 @@ WithAsideElements.story = {
         const items = [item, item];
 
         const linkListProps = {
-          heading: text('link list (heading)', 'Tutorials', groupId),
+          heading: text('Link List (heading)', 'Tutorials', groupId),
           items: [
             {
               type: 'local',
