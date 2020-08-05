@@ -32423,6 +32423,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
@@ -38003,6 +38006,9 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -43788,6 +43794,9 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -49382,6 +49391,9 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -64936,6 +64948,9 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -65376,6 +65391,9 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -66051,6 +66069,9 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
