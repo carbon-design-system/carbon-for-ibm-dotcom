@@ -101,6 +101,14 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
   }, []);
 
   useEffect(() => {
+    const buttonTertiary = document.getElementsByClassName(
+      `${prefix}--btn--tertiary`
+    );
+
+    [...buttonTertiary].forEach(button => {
+      button.style.backgroundColor = 'red';
+    });
+
     if (buttons.length > 1) {
       setSameHeight();
       root.addEventListener('resize', setSameHeight);
@@ -112,6 +120,14 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
    * Set the buttons to have the same height based on the tallest one
    */
   const setSameHeight = () => {
+    const buttonPrimary = document.getElementsByClassName(
+      `${prefix}--btn--primary`
+    );
+
+    [...buttonPrimary].forEach(button => {
+      button.style.backgroundColor = 'green';
+    });
+
     root.requestAnimationFrame(() => {
       const { current: containerNode } = groupRef;
       if (containerNode) {
