@@ -145,14 +145,17 @@ $search-transition-timing: 95ms;
     height: 100%;
     width: 100%;
     z-index: -1;
+    visibility: hidden;
     background-color: none;
     opacity: 0;
     transition: opacity $transition--expansion $carbon--standard-easing,
+      visibility $transition--expansion $carbon--standard-easing,
       background-color $transition--expansion $carbon--standard-easing;
   }
 
   .#{$prefix}--masthead__overlay-show {
     background-color: $overlay-01;
+    visibility: visible;
     opacity: 1;
   }
 
