@@ -68015,9 +68015,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
           "docs": Object {},
           "fileName": "./components/VideoPlayer/__stories__/VideoPlayer.stories.js",
           "framework": "react",
-          "knobs": Object {
-            "VideoPlayer": [Function],
-          },
           "options": Object {
             "name": "IBM.com Library React",
             "storySort": [Function],
@@ -68027,11 +68024,7 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
             "skip": true,
           },
           "props": Object {
-            "VideoPlayer": Object {
-              "aspectRatio": "default",
-              "showCaption": true,
-              "videoId": "0_uka1msg4",
-            },
+            "VideoPlayer": [Function],
           },
           "subcomponents": undefined,
         }
@@ -68047,22 +68040,19 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
             className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
           >
             <VideoPlayer
-              aspectRatio="default"
               autoPlay={false}
-              showCaption={true}
-              videoId="0_uka1msg4"
             >
               <div
                 aria-label=" (1:00)"
                 className="bx--video-player"
               >
                 <div
-                  className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
-                  data-autoid="dds--video-player__video-0_uka1msg4"
+                  className="bx--video-player__video-container "
+                  data-autoid="dds--video-player__video-undefined"
                 >
                   <div
                     className="bx--video-player__video"
-                    id="bx--video-player__video-0_uka1msg4-148"
+                    id="bx--video-player__video-undefined-148"
                   >
                     <VideoImageOverlay
                       embedVideo={[Function]}
@@ -68072,7 +68062,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
                           "name": "",
                         }
                       }
-                      videoId="0_uka1msg4"
                     >
                       <button
                         className="bx--video-player__image-overlay"
@@ -68087,12 +68076,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
                       </button>
                     </VideoImageOverlay>
                   </div>
-                </div>
-                <div
-                  className="bx--video-player__video-caption"
-                >
-                   
-                  (1:00)
                 </div>
               </div>
             </VideoPlayer>
@@ -68130,9 +68113,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
           "docs": Object {},
           "fileName": "./components/VideoPlayer/__stories__/VideoPlayer.stories.js",
           "framework": "react",
-          "knobs": Object {
-            "VideoPlayer": [Function],
-          },
           "options": Object {
             "name": "IBM.com Library React",
             "storySort": [Function],
@@ -68142,11 +68122,7 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
             "skip": true,
           },
           "props": Object {
-            "VideoPlayer": Object {
-              "aspectRatio": "default",
-              "showCaption": true,
-              "videoId": "0_uka1msg4",
-            },
+            "VideoPlayer": [Function],
           },
           "subcomponents": undefined,
         }
@@ -68162,22 +68138,19 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
             className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
           >
             <VideoPlayer
-              aspectRatio="default"
               autoPlay={false}
-              showCaption={true}
-              videoId="0_uka1msg4"
             >
               <div
                 aria-label=" (1:00)"
                 className="bx--video-player"
               >
                 <div
-                  className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
-                  data-autoid="dds--video-player__video-0_uka1msg4"
+                  className="bx--video-player__video-container "
+                  data-autoid="dds--video-player__video-undefined"
                 >
                   <div
                     className="bx--video-player__video"
-                    id="bx--video-player__video-0_uka1msg4-150"
+                    id="bx--video-player__video-undefined-150"
                   >
                     <VideoImageOverlay
                       embedVideo={[Function]}
@@ -68187,7 +68160,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
                           "name": "",
                         }
                       }
-                      videoId="0_uka1msg4"
                     >
                       <button
                         className="bx--video-player__image-overlay"
@@ -68202,12 +68174,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
                       </button>
                     </VideoImageOverlay>
                   </div>
-                </div>
-                <div
-                  className="bx--video-player__video-caption"
-                >
-                   
-                  (1:00)
                 </div>
               </div>
             </VideoPlayer>

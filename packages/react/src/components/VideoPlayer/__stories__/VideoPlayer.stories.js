@@ -17,13 +17,6 @@ export default {
     percy: {
       skip: true,
     },
-    knobs: {
-      VideoPlayer: ({ groupId }) => ({
-        showCaption: boolean('Show caption (showCaption):', true, groupId),
-        aspectRatio: 'default',
-        videoId: '0_uka1msg4',
-      }),
-    },
   },
 };
 
@@ -44,6 +37,18 @@ export const Default = ({ parameters }) => {
       </div>
     </div>
   );
+};
+
+Default.story = {
+  parameters: {
+    knobs: {
+      VideoPlayer: ({ groupId }) => ({
+        showCaption: boolean('Show caption (showCaption):', true, groupId),
+        aspectRatio: 'default',
+        videoId: '0_uka1msg4',
+      }),
+    },
+  },
 };
 
 export const aspectRatio1x1 = ({ parameters }) => {
