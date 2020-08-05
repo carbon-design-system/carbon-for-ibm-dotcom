@@ -32576,6 +32576,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               onOpen={[Function]}
                               open={false}
                               renderIcon={[Function]}
+                              selectorPrimaryFocus="[data-overflow-menu-primary-focus]"
                               style={
                                 Object {
                                   "width": "3rem",
@@ -37813,7 +37814,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
           </span>
           <div
             className="bx--modal-container"
-            tabIndex={-1}
+            role="dialog"
           >
             <ExpressiveModalCloseBtn
               iconDescription="Close"
@@ -38041,7 +38042,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
           </span>
           <div
             className="bx--modal-container"
-            tabIndex={-1}
+            role="dialog"
           >
             <ExpressiveModalCloseBtn
               iconDescription="Close"
@@ -43032,7 +43033,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               </span>
               <div
                 className="bx--modal-container"
-                tabIndex={-1}
+                role="dialog"
               >
                 <ExpressiveModalCloseBtn
                   iconDescription="Close"
@@ -43259,7 +43260,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                 </span>
                 <div
                   className="bx--modal-container"
-                  tabIndex={-1}
+                  role="dialog"
                 >
                   <ExpressiveModalCloseBtn
                     iconDescription="Close"
@@ -46871,7 +46872,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
           </span>
           <div
             className="bx--modal-container"
-            tabIndex={-1}
+            role="dialog"
           >
             <ModalHeader
               buttonOnClick={[Function]}
@@ -48130,6 +48131,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             onOpen={[Function]}
                             open={false}
                             renderIcon={[Function]}
+                            selectorPrimaryFocus="[data-overflow-menu-primary-focus]"
                             style={
                               Object {
                                 "width": "3rem",
@@ -48739,6 +48741,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             onOpen={[Function]}
                             open={false}
                             renderIcon={[Function]}
+                            selectorPrimaryFocus="[data-overflow-menu-primary-focus]"
                             style={
                               Object {
                                 "width": "3rem",
@@ -49243,6 +49246,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                               onOpen={[Function]}
                               open={false}
                               renderIcon={[Function]}
+                              selectorPrimaryFocus="[data-overflow-menu-primary-focus]"
                               style={
                                 Object {
                                   "width": "3rem",
