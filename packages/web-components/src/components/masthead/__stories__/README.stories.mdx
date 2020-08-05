@@ -8,45 +8,94 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 > displays consistently at the top of each page. It also includes search and
 > profile services for IBM.com.
 
-<Preview withToolbar>
-  <Story id="components-masthead--default" height="960px" />
-</Preview>
-
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
 [![Edit carbon-custom-elements](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 
-## `<dds-masthead>`
+## Getting Started
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-webcomponents/es/components/masthead/masthead-container';
+```
+
+### HTML
+
+```html
+<dds-masthead-container></dds-masthead-container>
+```
+
+#### Setting Platform
+
+```html
+<dds-masthead-container
+    brand-name="Lorem Ipsum"
+></dds-masthead-container>
+```
+
+#### Custom Navigation
+
+```javascript
+const links = [...menu items...];
+document.getElementById('masthead-container').navLinks = links;
+```
+
+```html
+<dds-masthead-container id="masthead-container"></dds-masthead-container>
+```
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                                                                   | Compatibility selector                                                   | Description |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
+| `<dds-masthead>`                                                                          | `data-autoid="dds--masthead"`                                            | Component   |
+| `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
+| `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
+| `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
+| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav-${item}"`                       | Interactive |
+| `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
+| `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
+| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav-${item}"`                   | Interactive |
+| `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
+
+<Description markdown={corsproxy} />
+
+## Under the hood
+
+### `<dds-masthead>`
 
 `<dds-masthead-logo>` works as the shell in masthead.
 
-## `<dds-masthead-logo>`
+### `<dds-masthead-logo>`
 
 `<dds-masthead-logo>` shows the IBM brand logo in masthead.
 
 <Props of="dds-masthead-logo" />
 
-## `<dds-masthead-menu-button>`
+### `<dds-masthead-menu-button>`
 
 `<dds-masthead-menu-button>` works as the trigger button of the left nav in masthead. It's shown when the browser's screen real estate gets shrunk at the point where it's not meaningful to put the menu content in the header menu bar.
 
 <Props of="dds-masthead-menu-button" />
 
-## `<dds-masthead-profile>`
+### `<dds-masthead-profile>`
 
 `<dds-masthead-profile>` works as the profile menu in masthead.
 
 <Props of="dds-masthead-profile" />
 
-## `<dds-masthead-profile-item>`
+### `<dds-masthead-profile-item>`
 
 `<dds-masthead-profile-item>` works as a menu item in the profile menu in masthead.
 
 <Props of="dds-masthead-profile-item" />
 
-## `<dds-masthead-search>`/`<dds-masthead-search-item>`
+### `<dds-masthead-search>`/`<dds-masthead-search-item>`
 
 `<dds-masthead-search>` works as the search box in masthead.
 
@@ -96,15 +145,15 @@ document.querySelector('dds-masthead-search').addEventListener('input', event =>
 });
 ```
 
-### Attributes, properties and events of `<dds-masthead-search>`
+#### Attributes, properties and events of `<dds-masthead-search>`
 
 <Props of="dds-masthead-search" />
 
-### Attributes and properties of `<dds-masthead-search-item>`
+#### Attributes and properties of `<dds-masthead-search-item>`
 
 <Props of="dds-masthead-search-item" />
 
-## `<dds-top-nav>`
+### `<dds-top-nav>`
 
 `<dds-top-nav>` works as the top navigation bar in masthead.
 The markup should be like:
@@ -127,25 +176,25 @@ The markup should be like:
 
 <Props of="dds-top-nav" />
 
-## `<dds-top-nav-item>`
+### `<dds-top-nav-item>`
 
 `<dds-top-nav-item>` works as a regular top navigation bar item in masthead.
 
 <Props of="dds-top-nav-item" />
 
-## `<dds-top-nav-menu>`
+### `<dds-top-nav-menu>`
 
 `<dds-top-nav-menu>` works as a sub menu in the top navigation bar in masthead.
 
 <Props of="dds-top-nav-menu" />
 
-## `<dds-top-nav-menu-item>`
+### `<dds-top-nav-menu-item>`
 
 `<dds-top-nav-menu-item>` works as a sub menu item in the top navigation bar in masthead.
 
 <Props of="dds-top-nav-menu-item" />
 
-## `<dds-left-nav>`
+### `<dds-left-nav>`
 
 `<dds-left-nav>` works as the left navigation bar in masthead.
 The markup should be like:
@@ -168,48 +217,28 @@ The markup should be like:
 
 <Props of="dds-left-nav" />
 
-## `<dds-left-nav-item>`
+### `<dds-left-nav-item>`
 
 `<dds-left-nav-item>` works as a regular left navigation bar item in masthead.
 
 <Props of="dds-left-nav-item" />
 
-## `<dds-left-nav-menu>`
+### `<dds-left-nav-menu>`
 
 `<dds-left-nav-menu>` works as a sub menu in the left navigation bar in masthead.
 
 <Props of="dds-left-nav-menu" />
 
-## `<dds-left-nav-menu-item>`
+### `<dds-left-nav-menu-item>`
 
 `<dds-left-nav-menu-item>` works as a sub menu item in the left navigation bar in masthead.
 
 <Props of="dds-left-nav-menu-item" />
 
-## `<dds-left-nav-overlay>`
+### `<dds-left-nav-overlay>`
 
 `<dds-left-nav-overlay>` works as the overlay that should be shown when the left nav is open.
 
 <Props of="dds-left-nav-overlay" />
-
-## Stable selectors
-
-See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
-
-| Web Components selector                                                                   | Compatibility selector                                                   | Description |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
-| `<dds-masthead>`                                                                          | `data-autoid="dds--masthead"`                                            | Component   |
-| `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
-| `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
-| `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
-| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav-${item}"`                       | Interactive |
-| `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
-| `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
-| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav-${item}"`                   | Interactive |
-| `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
-
-<Description markdown={corsproxy} />
-
-## Contributing
 
 <Description markdown={contributing} />
