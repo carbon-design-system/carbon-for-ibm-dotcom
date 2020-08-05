@@ -16,7 +16,7 @@ import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
 import { BasicLink, BasicLinkSet } from '../../globals/services-store/types/translateAPI';
 import Handle from '../../globals/internal/handle';
-import './footer';
+import { FOOTER_SIZE } from './footer';
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
@@ -127,6 +127,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
   openLocaleModal = false;
+
+  /**
+   * Footer size.
+   */
+  @property({ reflect: true })
+  size?: FOOTER_SIZE;
 
   connectedCallback() {
     super.connectedCallback();

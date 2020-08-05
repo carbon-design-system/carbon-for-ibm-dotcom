@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
+import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
 import '../footer-container';
 import styles from './footer.stories.scss';
@@ -19,7 +20,7 @@ import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { langDisplay, language, legalLinks, links, localeList } = parameters?.props?.['dds-footer-composite'] ?? {};
+  const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.['dds-footer-composite'] ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -30,6 +31,7 @@ export const Default = ({ parameters }) => {
           <dds-footer-composite
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
+            size="${ifNonNull(size)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -40,6 +42,7 @@ export const Default = ({ parameters }) => {
           <dds-footer-container
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
+            size="${ifNonNull(size)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -47,6 +50,15 @@ export const Default = ({ parameters }) => {
           </dds-footer-container>
         `}
   `;
+};
+
+export const short = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props['dds-footer-composite'] = {
+    ...(props['dds-footer-composite'] || {}),
+    size: FOOTER_SIZE.SHORT,
+  };
+  return Default({ parameters });
 };
 
 export default {
