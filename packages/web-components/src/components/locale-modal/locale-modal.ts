@@ -10,8 +10,8 @@
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ArrowLeft20 from 'carbon-custom-elements/es/icons/arrow--left/20';
-import EarthFilled20 from 'carbon-custom-elements/es/icons/earth--filled/20';
+import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20';
+import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
 import DDSModal from '../modal/modal';
 import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';

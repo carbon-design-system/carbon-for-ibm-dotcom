@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXModalHeading from 'carbon-custom-elements/es/components/modal/modal-heading';
+import BXModalHeading from 'carbon-web-components/es/components/modal/modal-heading';
 import styles from './modal.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -32,7 +32,7 @@ module.exports = ({ config, mode }) => {
     };
   }
 
-  // `carbon-custom-elements` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
+  // `@carbon/ibmdotcom-web-components` does not use `polymer-webpack-loader` as it does not use full-blown Polymer
   const htmlRuleIndex = config.module.rules.findIndex(
     item => item.use && item.use.some && item.use.some(use => /polymer-webpack-loader/i.test(use.loader))
   );
