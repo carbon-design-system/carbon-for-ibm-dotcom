@@ -13,6 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ArrowLeft16 from 'carbon-custom-elements/es/icons/arrow--left/16';
 import ChevronDown20 from 'carbon-custom-elements/es/icons/chevron--down/20';
 import FocusMixin from 'carbon-custom-elements/es/globals/mixins/focus';
+import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
@@ -68,6 +69,16 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
    */
   @property({ type: Boolean, reflect: true })
   expanded = false;
+
+  updated(changedProperties) {
+    if (changedProperties.has('expanded')) {
+      const { selectorItem } = this.constructor as typeof DDSLeftNavMenu;
+      const { expanded } = this;
+      forEach(this.querySelectorAll(selectorItem), elem => {
+        (elem as HTMLElement).tabIndex = expanded ? 0 : -1;
+      });
+    }
+  }
 
   render() {
     const { backButtonText, expanded, title, _handleClickExpando: handleClickExpando } = this;
