@@ -1,0 +1,93 @@
+name: percy-update-base
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+
+jobs:
+  react:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/react/.env
+        env:
+          CORS_PROXY: ${{ secrets.CORS_PROXY }}
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
+      - name: Run percy-storybook
+        run: yarn visual-snapshot
+        working-directory: packages/react
+  web-components:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          CORS_PROXY: ${{ secrets.CORS_PROXY }}
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
+      - name: Run percy-storybook
+        run: yarn build-storybook && yarn percy-storybook --widths=320,1280
+        working-directory: packages/web-components
+  carbon-expressive:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Build
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/styles/.env
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_EXPRESSIVE }}
+      - name: Run percy-storybook
+        run: yarn visual-snapshot
+        working-directory: packages/styles
