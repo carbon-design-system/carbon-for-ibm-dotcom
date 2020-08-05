@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render minimum attributes`
+####   `should render minimum attributes`
 
 ```
 <dds-locale-modal
@@ -17,7 +17,7 @@
 
 ```
 
-#### `should render various attributes`
+####   `should render various attributes`
 
 ```
 <dds-locale-modal
@@ -77,3 +77,4 @@
 </dds-locale-modal>
 
 ```
+

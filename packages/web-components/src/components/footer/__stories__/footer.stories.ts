@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';

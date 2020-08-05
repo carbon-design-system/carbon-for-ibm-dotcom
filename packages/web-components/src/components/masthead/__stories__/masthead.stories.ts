@@ -11,7 +11,7 @@ import { Action, Reducer } from 'redux';
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { reducers, store } from '../masthead-container';

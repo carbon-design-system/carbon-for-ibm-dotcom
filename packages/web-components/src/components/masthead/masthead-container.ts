@@ -10,7 +10,7 @@
 import throttle from 'lodash-es/throttle';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { html, property, query, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
 import { MastheadLink, Translation, TranslateAPIState } from '../../globals/services-store/types/translateAPI';

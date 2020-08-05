@@ -9,7 +9,7 @@
 
 import { property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXHeaderNav from 'carbon-custom-elements/es/components/ui-shell/header-nav';
+import BXHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 

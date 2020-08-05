@@ -10,7 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ChevronRight16 from 'carbon-custom-elements/es/icons/chevron--right/16';
+import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';
