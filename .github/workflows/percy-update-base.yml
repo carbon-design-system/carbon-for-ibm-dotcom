@@ -34,8 +34,8 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
       - name: Run percy-storybook
-          run: yarn visual-snapshot
-          working-directory: packages/react
+        run: yarn visual-snapshot
+        working-directory: packages/react
   web-components:
     runs-on: ubuntu-16.04
     strategy:
@@ -63,8 +63,8 @@ jobs:
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
       - name: Run percy-storybook
-          run: yarn build-storybook && yarn percy-storybook --widths=320,1280
-          working-directory: packages/web-components
+        run: yarn build-storybook && yarn percy-storybook --widths=320,1280
+        working-directory: packages/web-components
   carbon-expressive:
     runs-on: ubuntu-16.04
     strategy:
@@ -89,5 +89,5 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_EXPRESSIVE }}
       - name: Run percy-storybook
-          run: yarn visual-snapshot
-          working-directory: packages/styles
+        run: yarn visual-snapshot
+        working-directory: packages/styles
