@@ -187,9 +187,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
   }
 
   renderLightDOM() {
-    const { langDisplay, links, legalLinks, _handleClickLocaleButton: handleClickLocaleButton } = this;
+    const { langDisplay, size, links, legalLinks, _handleClickLocaleButton: handleClickLocaleButton } = this;
     return html`
-      <dds-footer>
+      <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav>
           ${links?.map(

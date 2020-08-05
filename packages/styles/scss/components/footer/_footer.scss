@@ -83,6 +83,7 @@
 
     flex-direction: column;
 
+    :host(#{$dds-prefix}-footer[size='short']) &,
     .#{$prefix}--footer--short & {
       flex-direction: row;
     }

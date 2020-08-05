@@ -36,44 +36,46 @@
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
           max-width: carbon--mini-units(40);
-
-          .#{$prefix}--footer--short & {
-            float: right;
-          }
         }
-      }
-
-      .#{$prefix}--footer--short & {
-        margin-top: 0;
       }
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
 
         margin-bottom: carbon--mini-units(2);
-
-        .#{$prefix}--footer--short & {
-          @include carbon--make-col-offset(2, 8);
-        }
       }
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
 
         order: 1;
-
-        .#{$prefix}--footer--short & {
-          @include carbon--make-col-offset(10, 16);
-        }
       }
 
       @include carbon--breakpoint('max') {
         @include carbon--make-col(3, 16);
-
-        .#{$prefix}--footer--short & {
-          @include carbon--make-col-offset(11, 16);
-        }
       }
+    }
+  }
+
+  :host(#{$dds-prefix}-footer[size='short'])
+    ::slotted(#{$dds-prefix}-locale-button),
+  .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
+    margin-top: 0;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col-offset(2, 8);
+
+      .#{$prefix}--locale-btn {
+        float: right;
+      }
+    }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col-offset(10, 16);
+    }
+
+    @include carbon--breakpoint('max') {
+      @include carbon--make-col-offset(11, 16);
     }
   }
 }

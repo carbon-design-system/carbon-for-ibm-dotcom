@@ -26,10 +26,6 @@
       padding: 0;
       order: 1;
 
-      .#{$prefix}--footer--short & {
-        display: none;
-      }
-
       @include carbon--breakpoint('md') {
         padding: 0 $carbon--grid-gutter / 2;
       }
@@ -59,6 +55,11 @@
       column-count: 3;
       column-gap: $carbon--grid-gutter;
     }
+  }
+
+  :host(#{$dds-prefix}-footer) ::slotted(#{$dds-prefix}-footer-nav),
+  .#{$prefix}--footer--short .#{$prefix}--footer-nav {
+    display: none;
   }
 }
 
