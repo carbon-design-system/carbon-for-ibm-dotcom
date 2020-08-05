@@ -7,8 +7,6 @@
 
 import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
-import settings from 'carbon-components/umd/globals/js/settings';
-const { prefix } = settings;
 
 /**
  * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
@@ -186,41 +184,43 @@ class VideoPlayerAPI {
   static async embedVideo(videoId, targetId, autoPlay) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
-      root.kWidget.embed({
-        targetId: targetId,
-        wid: '_' + _partnerId,
-        uiconf_id: _uiConfId,
-        entry_id: videoId,
-        flashvars: {
-          autoPlay: autoPlay,
-          titleLabel: {
-            plugin: true,
-            align: 'left',
-            text: '{mediaProxy.entry.name}',
+      const promiseKWidget = new Promise(resolve => {
+        root.kWidget.embed({
+          targetId: targetId,
+          wid: '_' + _partnerId,
+          uiconf_id: _uiConfId,
+          entry_id: videoId,
+          flashvars: {
+            autoPlay: autoPlay,
+            titleLabel: {
+              plugin: true,
+              align: 'left',
+              text: '{mediaProxy.entry.name}',
+            },
           },
-        },
-        // Ready callback is issued for this player:
-        readyCallback: function(playerId) {
-          var kdp = document.getElementById(playerId);
+          // Ready callback is issued for this player:
+          readyCallback: function(playerId) {
+            var kdp = document.getElementById(playerId);
 
-          var container = document.querySelector(
-            `.${prefix}--modal-close, ${prefix}-modal-close-button`
-          );
-          container.addEventListener('click', function() {
-            kdp.sendNotification('doStop');
-          });
+            kdp.addJsListener('playerPaused', function() {
+              fireEvent({ playerState: 1, kdp, videoId });
+            });
+            kdp.addJsListener('playerPlayed', function() {
+              fireEvent({ playerState: 2, kdp, videoId });
+            });
+            kdp.addJsListener('playerPlayEnd', function() {
+              fireEvent({ playerState: 3, kdp, videoId });
+            });
 
-          kdp.addJsListener('playerPaused', function() {
-            fireEvent({ playerState: 1, kdp, videoId });
-          });
-          kdp.addJsListener('playerPlayed', function() {
-            fireEvent({ playerState: 2, kdp, videoId });
-          });
-          kdp.addJsListener('playerPlayEnd', function() {
-            fireEvent({ playerState: 3, kdp, videoId });
-          });
-        },
+            resolve(kdp);
+          },
+        });
       });
+      return {
+        kWidget() {
+          return promiseKWidget;
+        },
+      };
     });
   }
 
