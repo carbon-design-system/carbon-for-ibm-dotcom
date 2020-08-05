@@ -8,6 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classnames from 'classnames';
 import ChevronDown20 from '@carbon/icons-react/es/chevron--down/20';
 import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
@@ -104,6 +105,22 @@ class HeaderMenu extends React.Component {
   };
 
   /**
+   * Checks if user has tabbed to menu items within the megamenu,
+   * if so do not set overlay to false
+   */
+  checkMenuItems = event => {
+    const megamenuItems = [
+      `${prefix}--masthead__megamenu__category-headline`,
+      `${prefix}--masthead__megamenu__menu-category`,
+      `${prefix}--masthead__megamenu__view-all-cta`,
+    ];
+
+    return megamenuItems.filter(item =>
+      event.relatedTarget.parentElement.className?.includes(item)
+    );
+  };
+
+  /**
    * Handle our blur event from our underlying menuitems. Will mostly be used
    * for toggling the expansion status of our menu in response to a user
    * clicking off of the menu or menubar.
@@ -113,10 +130,13 @@ class HeaderMenu extends React.Component {
       this.setState({ expanded: false, selectedIndex: null });
     }
 
-    if (
-      !event.relatedTarget ||
-      !event.relatedTarget.className?.includes('bx--header__menu-item')
-    ) {
+    const megamenuItems = [
+      `${prefix}--masthead__megamenu__category-headline`,
+      `${prefix}--masthead__megamenu__menu-category`,
+      `${prefix}--masthead__megamenu__view-all-cta`,
+    ];
+
+    if (!event.relatedTarget || !this.checkMenuItems(event).length) {
       this.props.setOverlay(false);
     }
   };
@@ -178,6 +198,7 @@ class HeaderMenu extends React.Component {
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
     };
+
     const className = cx(`${prefix}--header__submenu`, customClassName);
     // Notes on eslint comments and based on the examples in:
     // https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html#
@@ -208,7 +229,9 @@ class HeaderMenu extends React.Component {
         </a>
         <ul
           {...accessibilityLabel}
-          className={`${prefix}--header__menu`}
+          className={classnames(`${prefix}--header__menu`, {
+            [`${prefix}--header__menu--open`]: this.state.expanded,
+          })}
           role="menu">
           {React.Children.map(children, this._renderMenuItem)}
         </ul>
