@@ -44,7 +44,7 @@ For quick start, you can use CDNs that support module mapping (e.g. [JSPM](https
 <html>
   <head>
     <script type="module">
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@latest/es/components/masthead/masthead.js';
+      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@latest/es/components/masthead/masthead-container.js';
     </script>
     <style type="text/css">
       body {
