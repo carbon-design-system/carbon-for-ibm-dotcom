@@ -5,35 +5,46 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/utils/hang';
-
 @mixin masthead-megamenu {
   $l0-nav-height: $spacing-09;
+
+  @keyframes expand {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 100vh;
+    }
+  }
 
   .#{$prefix}--header__nav
     .#{$prefix}--masthead__megamenu__l0-nav
     .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: transparent;
+    bottom: 0;
+    box-shadow: none;
   }
 
   .#{$prefix}--masthead__megamenu {
     &__l0-nav {
-      position: static;
-
       .#{$prefix}--header__menu-title[aria-expanded='true']
         + .#{$prefix}--header__menu {
         position: fixed;
         top: $l0-nav-height;
         transform: translateZ(0);
         left: 0;
+        margin-bottom: $layout-05;
+        min-height: carbon--mini-units(40);
         width: 100vw;
+
+        .#{$prefix}--masthead__megamenu {
+          animation: $transition--expansion motion(standard, expressive) expand;
+        }
       }
     }
 
     overflow-x: scroll;
-    min-height: carbon--mini-units(40);
-    max-height: calc(100vh - 108px);
     background-color: $ui-background;
 
     @include box-shadow;

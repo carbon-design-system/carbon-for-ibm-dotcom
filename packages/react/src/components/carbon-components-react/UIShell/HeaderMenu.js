@@ -79,9 +79,13 @@ class HeaderMenu extends React.Component {
    * Toggle the expanded state of the menu on click.
    */
   handleOnClick = index => {
-    this.setState(prevState => ({
-      expanded: !prevState.expanded,
-    }));
+    this.setState(prevState => {
+      if (prevState.expanded) this.props.setOverlay(false);
+      else this.props.setOverlay(true);
+      return {
+        expanded: !prevState.expanded,
+      };
+    });
   };
 
   /**
@@ -93,9 +97,7 @@ class HeaderMenu extends React.Component {
       event.stopPropagation();
       event.preventDefault();
 
-      this.setState(prevState => ({
-        expanded: !prevState.expanded,
-      }));
+      this.handleOnClick();
 
       return;
     }
@@ -109,6 +111,13 @@ class HeaderMenu extends React.Component {
   handleOnBlur = event => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
+    }
+
+    if (
+      !event.relatedTarget ||
+      !event.relatedTarget.className?.includes('bx--header__menu-item')
+    ) {
+      this.props.setOverlay(false);
     }
   };
 
@@ -146,6 +155,9 @@ class HeaderMenu extends React.Component {
         expanded: false,
         selectedIndex: null,
       }));
+
+      // remove overlay
+      this.props.setOverlay(false);
 
       // Return focus to menu button when the user hits ESC.
       this.menuButtonRef.focus();

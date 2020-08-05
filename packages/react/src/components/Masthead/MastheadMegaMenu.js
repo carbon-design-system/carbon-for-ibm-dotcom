@@ -33,39 +33,34 @@ const MastheadMegaMenu = ({ data }) => {
   const hasHighlights = highlightedItems.length !== 0;
 
   return (
-    <>
-      <section
-        className={classnames(`${prefix}--masthead__megamenu`, {
-          [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
-        })}
-        data-autoid={`${stablePrefix}--masthead__megamenu`}>
-        <div className={`${prefix}--masthead__megamenu__container`}>
-          <div className={`${prefix}--masthead__megamenu__container--row`}>
-            {hasHighlights && (
-              <div
-                className={`${prefix}--masthead__megamenu__highlight-section`}>
-                {_renderMenuCategory(highlightedItems)}
-              </div>
-            )}
-            <div
-              className={`${prefix}--masthead__megamenu__categories-section`}>
-              <div className={`${prefix}--masthead__megamenu__categories`}>
-                {_renderMenuCategory(menuItems)}
-              </div>
-              {viewAllLink && (
-                <LinkWithIcon
-                  className={`${prefix}--masthead__megamenu__view-all-cta`}
-                  href={viewAllLink.url}>
-                  <span>{viewAllLink.title}</span>
-                  <ArrowRight16 />
-                </LinkWithIcon>
-              )}
+    <section
+      className={classnames(`${prefix}--masthead__megamenu`, {
+        [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
+      })}
+      data-autoid={`${stablePrefix}--masthead__megamenu`}>
+      <div className={`${prefix}--masthead__megamenu__container`}>
+        <div className={`${prefix}--masthead__megamenu__container--row`}>
+          {hasHighlights && (
+            <div className={`${prefix}--masthead__megamenu__highlight-section`}>
+              {_renderMenuCategory(highlightedItems)}
             </div>
+          )}
+          <div className={`${prefix}--masthead__megamenu__categories-section`}>
+            <div className={`${prefix}--masthead__megamenu__categories`}>
+              {_renderMenuCategory(menuItems)}
+            </div>
+            {viewAllLink && (
+              <LinkWithIcon
+                className={`${prefix}--masthead__megamenu__view-all-cta`}
+                href={viewAllLink.url}>
+                <span>{viewAllLink.title}</span>
+                <ArrowRight16 />
+              </LinkWithIcon>
+            )}
           </div>
         </div>
-      </section>
-      <div className={`${prefix}--masthead__megamenu__overlay`}></div>
-    </>
+      </div>
+    </section>
   );
 };
 
