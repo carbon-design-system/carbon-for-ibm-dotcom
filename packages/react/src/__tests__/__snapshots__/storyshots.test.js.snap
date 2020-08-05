@@ -68216,7 +68216,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             aspectRatio="default"
             autoPlay={false}
             showCaption={true}
-            videoId="0_uka1msg4"
+            videoId="1_9h94wo6b"
           >
             <div
               aria-label=" (1:00)"
@@ -68224,11 +68224,11 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             >
               <div
                 className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
-                data-autoid="dds--video-player__video-0_uka1msg4"
+                data-autoid="dds--video-player__video-1_9h94wo6b"
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-146"
+                  id="bx--video-player__video-1_9h94wo6b-146"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
@@ -68238,7 +68238,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                         "name": "",
                       }
                     }
-                    videoId="0_uka1msg4"
+                    videoId="1_9h94wo6b"
                   >
                     <button
                       className="bx--video-player__image-overlay"
