@@ -50,7 +50,6 @@ class DDSLink extends BXLink {
         rel="${ifNonNull(rel)}"
         target="${ifNonNull(target)}"
         type="${ifNonNull(type)}"
-        @click="${this._handleClickLink}"
       >
         ${this._renderInner()}
       </a>
