@@ -53,7 +53,7 @@ export const aspectRatio1x1 = ({ parameters }) => {
 aspectRatio1x1.story = {
   name: 'Aspect ratio 1:1',
   parameters: {
-    knobs: {
+    props: {
       VideoPlayer: () => {
         return {
           showCaption: true,
