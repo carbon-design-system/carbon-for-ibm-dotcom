@@ -8,10 +8,6 @@ import ExpressiveModal from './ExpressiveModal';
 > [Carbon's Button component](https://custom-elements.carbondesignsystem.com/?path=/story/components-button--default-story)
 > with slight styling updates to increase readability and reduce strain.
 
-<Preview withToolbar>
-  <Story id="components-button--default" height="120px" />
-</Preview>
-
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/button)
 > example implementation.
@@ -22,13 +18,21 @@ import ExpressiveModal from './ExpressiveModal';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/button/button';
 ```
 
-##### HTML
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button/button.js';
+</script>
+```
+
+### HTML
 
 ```html
 <dds-btn kind="primary">
@@ -39,7 +43,5 @@ import '@carbon/ibmdotcom-web-components/es/components/button/button';
 ## Props
 
 <Props of="dds-btn" />
-
-## Contributing
 
 <Description markdown={contributing} />
