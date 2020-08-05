@@ -10,6 +10,9 @@
 @import '../card-group/card-group';
 
 @mixin content-block-cards {
+  .#{$prefix}--modal.is-visible {
+    background-color: rgba(140, 140, 140, 1);
+  }
   .#{$prefix}--content-block-cards {
     &__content {
       .#{$prefix}--card__CTA {
