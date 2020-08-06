@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LocaleList, LOCALE_API_ACTION, LocaleAPIActions, LocaleAPIState } from '../../types/localeAPI';
+import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../../types/localeAPI';
+import { LocaleAPIActions } from '../../actions/localeAPI';
 import convertValue from '../../../../../tests/utils/convert-value';
 import reducer from '../localeAPI';
 

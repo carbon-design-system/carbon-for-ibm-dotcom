@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action } from 'redux';
-
 /**
  * The translation data for locale modal.
  */
@@ -126,125 +124,6 @@ export enum LOCALE_API_ACTION {
    */
   SET_LOCALE_LIST = 'SET_LOCALE_LIST',
 }
-
-/**
- * A Redux action to set the state that the REST call for language data is in progress or not.
- */
-export interface RequestLanguageInProgressAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The promise of the REST call for language data that is in progress.
-   */
-  request: Promise<string>;
-}
-
-/**
- * A Redux action to set the state that the REST call for language data failed.
- */
-export interface ErrorRequestLanguageAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * An error from the REST call for language data.
-   */
-  error: Error;
-}
-
-/**
- * A Redux action to set the given language data.
- */
-export interface SetLanguageAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The language data from the REST call.
-   */
-  language: string;
-}
-
-/**
- * A Redux action to set the state that the REST call for language data is in progress or not.
- */
-export interface RequestLangDisplayInProgressAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The promise of the REST call for display language data that is in progress.
-   */
-  request: Promise<string>;
-}
-
-/**
- * A Redux action to set the state that the REST call for display language data failed.
- */
-export interface ErrorRequestLangDisplayAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * An error from the REST call for display language data.
-   */
-  error: Error;
-}
-
-/**
- * A Redux action to set the given display language data.
- */
-export interface SetLangDisplayAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The display language data from the REST call.
-   */
-  langDisplay: string;
-}
-
-/**
- * A Redux action to set the state that the REST call for locale list data is in progress or not.
- */
-export interface RequestLocaleListInProgressAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The language the request is for.
-   */
-  language: string;
-
-  /**
-   * The promise of the REST call for locale list data that is in progress.
-   */
-  request: Promise<LocaleList>;
-}
-
-/**
- * A Redux action to set the state that the REST call for locale list data failed.
- */
-export interface ErrorRequestLocaleListAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The language the request is for.
-   */
-  language: string;
-
-  /**
-   * An error from the REST call for locale list data.
-   */
-  error: Error;
-}
-
-/**
- * A Redux action to set the given locale list data.
- */
-export interface SetLocaleListAction extends Action<LOCALE_API_ACTION> {
-  /**
-   * The language the the locale list data is of.
-   */
-  language: string;
-
-  /**
-   * The locale list data from the REST call.
-   */
-  localeList: LocaleList;
-}
-
-/**
- * A Redux action to work with `LocaleAPI.getLang()`.
- */
-export type LocaleAPIActions =
-  | RequestLanguageInProgressAction
-  | ErrorRequestLanguageAction
-  | SetLanguageAction
-  | RequestLangDisplayInProgressAction
-  | ErrorRequestLangDisplayAction
-  | SetLangDisplayAction
-  | RequestLocaleListInProgressAction
-  | ErrorRequestLocaleListAction
-  | SetLocaleListAction;
 
 /**
  * A Redux substate for `LocaleAPI`.

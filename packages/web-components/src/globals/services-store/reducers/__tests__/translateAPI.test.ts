@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TRANSLATE_API_ACTION, Translation, TranslateAPIActions, TranslateAPIState } from '../../types/translateAPI';
+import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
+import { TranslateAPIActions } from '../../actions/translateAPI';
 import convertValue from '../../../../../tests/utils/convert-value';
 import reducer from '../translateAPI';
 

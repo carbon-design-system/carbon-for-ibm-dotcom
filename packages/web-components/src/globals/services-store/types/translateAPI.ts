@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action } from 'redux';
-
 /**
  * A link item.
  * Used for masthead, footer, etc.
@@ -117,56 +115,6 @@ export enum TRANSLATE_API_ACTION {
    */
   SET_TRANSLATION = 'SET_TRANSLATION',
 }
-
-/**
- * A Redux action to set the state that the REST call for translation data is in progress.
- */
-export interface RequestTranslationInProgressAction extends Action<TRANSLATE_API_ACTION> {
-  /**
-   * The language the request is for.
-   */
-  language: string;
-
-  /**
-   * The promise of the REST call for translation data that is in progress.
-   */
-  request: Promise<Translation>;
-}
-
-/**
- * A Redux action to set the state that the REST call for translation data failed.
- */
-export interface ErrorRequestTranslationAction extends Action<TRANSLATE_API_ACTION> {
-  /**
-   * The language the request is for.
-   */
-  language: string;
-
-  /**
-   * An error from the REST call for translation data.
-   */
-  error: Error;
-}
-
-/**
- * A Redux action to set the given translation data.
- */
-export interface SetTranslationAction extends Action<TRANSLATE_API_ACTION> {
-  /**
-   * The language the request is for.
-   */
-  language: string;
-
-  /**
-   * The translation data from the REST call.
-   */
-  translation: Translation;
-}
-
-/**
- * A Redux action to work with `TranslateAPI.getTranslation()`.
- */
-export type TranslateAPIActions = RequestTranslationInProgressAction | ErrorRequestTranslationAction | SetTranslationAction;
 
 /**
  * A Redux substate for `TranslateAPI`.
