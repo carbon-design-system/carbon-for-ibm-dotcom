@@ -7,7 +7,6 @@
 
 import React, { Component } from 'react';
 import './_container.scss';
-import inPercy from '@percy-io/in-percy';
 import { settings } from 'carbon-components';
 
 /**
