@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import PropTypes from 'prop-types';
@@ -28,8 +28,12 @@ const LocaleModalCountries = ({
   setClearResults,
   ...modalLabels
 }) => {
+  const localList = useRef(null);
   useEffect(() => {
-    const localeList = document.querySelector(`.${prefix}--locale-modal__list`);
+    localList.current.scrollTop = 0;
+  });
+
+  useEffect(() => {
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
     );
@@ -40,8 +44,6 @@ const LocaleModalCountries = ({
       `.${prefix}--search .${prefix}--search-close`
     );
     const localeHidden = `${prefix}--locale-modal__locales-hidden`;
-
-    localeList.scrollTop = 0;
 
     localeFilter?.addEventListener(
       'keyup',
@@ -96,7 +98,8 @@ const LocaleModalCountries = ({
         role="listbox"
         tabIndex="0"
         aria-labelledby={`${prefix}--locale-modal__filter`}
-        className={`${prefix}--locale-modal__list`}>
+        className={`${prefix}--locale-modal__list`}
+        ref={localList}>
         {regionList &&
           regionList.map(region =>
             region.countries.map((country, index) => (
