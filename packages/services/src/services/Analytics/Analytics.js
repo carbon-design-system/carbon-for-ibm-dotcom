@@ -86,7 +86,7 @@ class AnalyticsAPI {
       let didScroll = false;
       const fireEvent = this.registerEvent;
 
-      const scrollAnalytics = root.addEventListener('scroll', () => {
+      root.addEventListener('scroll', () => {
         didScroll = true;
       });
 
@@ -107,8 +107,6 @@ class AnalyticsAPI {
           }
         }
       }, 50);
-
-      root.removeEventListener('scroll', () => scrollAnalytics);
     }
   }
 
@@ -124,7 +122,7 @@ class AnalyticsAPI {
    * }
    */
   static initDynamicTabs() {
-    const tabSelected = this.triggerTabSelected;
+    const tabSelected = this.triggerTabSelected.bind(this);
     root.document.addEventListener('tab-selected', function(evt) {
       tabSelected(evt.target.id, evt.detail.item.innerText);
     });
@@ -165,12 +163,12 @@ class AnalyticsAPI {
    * }
    */
   static initModals() {
-    const modalHide = this.triggerModalHide;
+    const modalHide = this.triggerModalHide.bind(this);
     root.document.addEventListener('modal-hidden', function(evt) {
       modalHide(evt.target.id, evt.detail.launchingElement.innerText);
     });
 
-    const modalShow = this.triggerModalShow;
+    const modalShow = this.triggerModalShow.bind(this);
     root.document.addEventListener('modal-shown', function(evt) {
       modalShow(evt.target.id, evt.detail.launchingElement.innerText);
     });

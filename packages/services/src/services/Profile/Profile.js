@@ -51,6 +51,22 @@ class ProfileAPI {
       jsonp(url, null, (err, data) => (err ? reject(err) : resolve(data)))
     );
   }
+
+  /**
+   * Monitors user status (authenticated or unauthenticated)
+   *
+   * @example
+   * import { ProfileAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function monitorUserStatus() {
+   *   ProfileAPI.monitorUserStatus((err, status) => {
+   *     console.log('The new login status:', status.user);
+   *   });
+   * }
+   */
+  static monitorUserStatus(callback) {
+    return jsonp(_endpoint, null, callback);
+  }
 }
 
 export default ProfileAPI;

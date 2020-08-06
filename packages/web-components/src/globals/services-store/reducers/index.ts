@@ -10,13 +10,15 @@
 import { combineReducers } from 'redux';
 import localeAPIReducer from './localeAPI';
 import translateAPIReducer from './translateAPI';
+import profileAPIReducer from './profileAPI';
 
 /**
- * The combined reducer of one for `LocaleAPI` and one for `TranslateAPI`.
+ * The combined reducer of one for `LocaleAPI`, one for `TranslateAPI`. and one for `ProfileAPI`.
  */
 const reducers = combineReducers({
   localeAPI: localeAPIReducer,
   translateAPI: translateAPIReducer,
+  profileAPI: profileAPIReducer,
 });
 
 export default reducers;
