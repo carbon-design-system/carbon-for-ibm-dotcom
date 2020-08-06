@@ -25,7 +25,7 @@ const mockStore = configureMockStore<
   ThunkDispatch<{ translateAPI: TranslateAPIState }, void, AnyAction>
 >([thunk]);
 
-const mockTranslation: Translation = {
+const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
       { title: 'item-title-foo', url: 'https://ibmdotcom-webcomponents.mybluemix.net/foo' },
@@ -42,7 +42,7 @@ const mockTranslation: Translation = {
 describe('Redux actions for `TranslateAPI`', () => {
   it('dispatches the action to set translation data', () => {
     const store = mockStore();
-    store.dispatch(setTranslation('lang-foo', mockTranslation));
+    store.dispatch(setTranslation('lang-foo', mockTranslation as Translation));
     expect(store.getActions()).toEqual([
       {
         type: TRANSLATE_API_ACTION.SET_TRANSLATION,
@@ -56,7 +56,7 @@ describe('Redux actions for `TranslateAPI`', () => {
     LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     TranslateAPI.getTranslation.mockResolvedValue(mockTranslation);
     const store = mockStore();
-    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation);
+    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation as Translation);
     expect(convertValue(store.getActions())).toEqual([
       {
         type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
@@ -85,11 +85,11 @@ describe('Redux actions for `TranslateAPI`', () => {
     const store = mockStore({
       translateAPI: {
         requestsTranslation: {
-          'ko-KR': Promise.resolve(mockTranslation),
+          'ko-KR': Promise.resolve(mockTranslation as Translation),
         },
       },
     });
-    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation);
+    expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation as Translation);
     expect(convertValue(store.getActions())).toEqual([
       {
         type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
