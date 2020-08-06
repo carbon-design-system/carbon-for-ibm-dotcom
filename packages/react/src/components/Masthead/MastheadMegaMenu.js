@@ -108,7 +108,7 @@ const _renderLinkOrString = item => {
   } else {
     return (
       <div className={`${prefix}--masthead__megamenu__category-headline`}>
-        <span>{item.title}</span>
+        <p>{item.title}</p>
       </div>
     );
   }

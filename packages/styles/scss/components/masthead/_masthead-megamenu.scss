@@ -120,13 +120,15 @@
     &__category-headline {
       width: 100%;
 
+      p,
       .#{$prefix}--link-with-icon {
         padding: 9px $spacing-05;
         text-decoration: none;
         width: 100%;
       }
 
-      span {
+      span,
+      p {
         color: $text-01;
         @include use-carbon-productive-tokens();
         @include type-style('productive-heading-01');
