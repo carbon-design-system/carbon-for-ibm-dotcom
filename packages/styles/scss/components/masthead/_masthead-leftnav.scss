@@ -53,6 +53,13 @@
     }
   }
 
+  .#{$prefix}--side-nav {
+    &__header-navigation {
+      height: 100%;
+      margin-bottom: 0;
+    }
+  }
+
   .#{$prefix}--masthead .#{$prefix}--side-nav {
     &__items {
       padding-top: 0;
@@ -100,11 +107,11 @@
 
   a.#{$prefix}--side-nav__link {
     height: carbon--mini-units(6);
-    @include carbon--type-style(body-short-02, true);
+    @include carbon--type-style(body-short-02);
 
     > {
       .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(body-short-02, true);
+        @include carbon--type-style(body-short-02);
 
         color: $text-01;
       }
@@ -125,7 +132,7 @@
         transition-duration: $search-transition-timing;
 
         a {
-          @include carbon--type-style(body-short-02, true);
+          @include carbon--type-style(body-short-02);
 
           padding-left: $carbon--spacing-05;
           height: carbon--mini-units(6);
@@ -137,11 +144,32 @@
         }
 
         .#{$prefix}--masthead__side-nav--submemu-title {
-          @include carbon--type-style(expressive-heading-03, true);
+          @include use-carbon-productive-tokens();
+          @include carbon--type-style(productive-heading-02);
 
+          display: flex;
           color: $text-01;
-          padding: $carbon--spacing-05;
+          padding: 0 $carbon--spacing-05;
+          height: 3rem;
           border-bottom: 1px solid $ui-03;
+          align-items: center;
+        }
+
+        .#{$prefix}--masthead__side-nav--submemu-section-title {
+          span {
+            @include use-carbon-productive-tokens();
+            @include carbon--type-style(productive-heading-02);
+
+            display: flex;
+            width: 100%;
+          }
+        }
+
+        .#{$prefix}--masthead__side-nav--submemu-section-title__icon {
+          display: flex;
+          flex: 1;
+          justify-content: flex-end;
+          align-items: center;
         }
 
         .#{$prefix}--masthead__side-nav--submemu-back {
@@ -150,17 +178,17 @@
             border-bottom: none;
             > .#{$prefix}--side-nav__link-text {
               @include use-carbon-productive-tokens();
-              @include carbon--type-style(body-short-01, true);
+              @include carbon--type-style(body-short-02);
 
-              color: $icon-02;
+              color: $link-01;
+              display: flex;
+              align-items: center;
             }
 
             svg {
-              position: relative;
-              top: 3px;
               margin-right: 5px;
               path {
-                fill: $text-02;
+                fill: currentColor;
               }
             }
           }
@@ -175,7 +203,7 @@
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include carbon--type-style(body-short-02, true);
+      @include carbon--type-style(body-short-02);
 
       color: $text-01;
     }
@@ -187,7 +215,7 @@
         text-decoration: none;
         color: $text-01;
 
-        @include carbon--type-style(expressive-heading-02, true);
+        @include carbon--type-style(expressive-heading-02);
       }
     }
 

@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import ChevronLeft20 from '@carbon/icons-react/es/chevron--left/20';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
@@ -39,13 +40,13 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
             data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
             isbackbutton="true"
             key={i}>
-            <ArrowLeft16 />
+            <ChevronLeft20 />
             Back
           </SideNavMenuItem>
           <li className={`${prefix}--masthead__side-nav--submemu-title`}>
             {link.title}
           </li>
-          {renderNav(link.menuSections)}
+          {renderNavSections(link.menuSections)}
         </SideNavMenu>
       );
     } else {
@@ -86,22 +87,74 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
 /**
  * Loops through and renders a list of links for the side nav
  *
- * @param {Array} sections A list of links to be rendered
+ * @param {Array} sections A list of link sections to be rendered
  * @returns {object} JSX object
  */
-function renderNav(sections) {
-  const navItems = [];
+function renderNavSections(sections) {
+  const sectionItems = [];
   sections.forEach((section, i) => {
     section.menuItems.forEach((item, j) => {
-      navItems.push(
-        <SideNavMenuItem
-          href={item.url}
-          data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}`}
-          key={item.title}>
-          {item.title}
-        </SideNavMenuItem>
-      );
+      if (item.megapanelContent) {
+        sectionItems.push(
+          <SideNavMenu title={item.title} key={j}>
+            <SideNavMenuItem
+              onClick={event => event.preventDefault()}
+              className={`${prefix}--masthead__side-nav--submemu-back`}
+              data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${j}`}
+              isbackbutton="true"
+              key={i}>
+              <ChevronLeft20 />
+              Back
+            </SideNavMenuItem>
+
+            <SideNavLink
+              className={`${prefix}--masthead__side-nav--submemu-section-title`}
+              href={item.url}
+              data-autoid={`${stablePrefix}--masthead__l0-sidenav--nav-${i}`}
+              key={i}>
+              {item.title}
+              <div
+                className={`${prefix}--masthead__side-nav--submemu-section-title__icon`}>
+                <ArrowRight20 />
+              </div>
+            </SideNavLink>
+
+            {renderNavItem(item.megapanelContent.quickLinks.links)}
+          </SideNavMenu>
+        );
+      } else {
+        sectionItems.push(
+          <SideNavMenuItem
+            href={item.url}
+            data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}`}
+            key={item.title}>
+            {item.title}
+          </SideNavMenuItem>
+        );
+      }
     });
+  });
+
+  return sectionItems;
+}
+
+/**
+ * Loops through and renders a list of links for the side nav
+ *
+ * @param {Array} items A list of links to be rendered
+ * @returns {object} JSX object
+ */
+function renderNavItem(items) {
+  const navItems = [];
+  items.forEach((item, i) => {
+    navItems.push(
+      <SideNavMenuItem
+        href={item.url}
+        data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}`}
+        key={item.title}>
+        {item.title}
+      </SideNavMenuItem>
+    );
   });
   return navItems;
 }
