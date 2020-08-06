@@ -2,7 +2,7 @@
 
 ## `Text CTA`
 
-#### `should render default type`
+####   `should render default type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -16,7 +16,7 @@
 
 ```
 
-#### `should render local type`
+####   `should render local type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -31,7 +31,7 @@
 
 ```
 
-#### `should render download type`
+####   `should render download type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -47,7 +47,7 @@
 
 ```
 
-#### `should render jump type`
+####   `should render jump type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -62,7 +62,7 @@
 
 ```
 
-#### `should render external type`
+####   `should render external type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -77,7 +77,7 @@
 
 ```
 
-#### `should render video type`
+####   `should render video type`
 
 ```
 <dds-cta-container cta-style="text">
@@ -94,7 +94,7 @@
 
 ## `Handling video type`
 
-#### `should render the media viewer`
+####   `should render the media viewer`
 
 ```
 <div>
@@ -116,3 +116,4 @@
 </div>
 
 ```
+

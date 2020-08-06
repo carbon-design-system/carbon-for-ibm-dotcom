@@ -49,10 +49,14 @@ const Footer = ({
     let stale = false;
     if (!navigation) {
       (async () => {
-        const response = await TranslationAPI.getTranslation();
-        if (!stale) {
-          setFooterMenuData(response.footerMenu);
-          setFooterLegalData(response.footerThin);
+        try {
+          const response = await TranslationAPI.getTranslation();
+          if (!stale) {
+            setFooterMenuData(response.footerMenu);
+            setFooterLegalData(response.footerThin);
+          }
+        } catch (error) {
+          console.error('Error populating footer data:', error);
         }
       })();
     }
