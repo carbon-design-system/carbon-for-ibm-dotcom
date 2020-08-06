@@ -12,7 +12,7 @@ import { html, render } from 'lit-html';
 import fetchMock from 'fetch-mock';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import EventManager from '../../../../tests/utils/event-manager';
 import getSearchParams from '../../../../tests/utils/search-params';
 import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
