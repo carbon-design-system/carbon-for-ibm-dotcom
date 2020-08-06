@@ -34,13 +34,13 @@ describe('Redux actions for `ProfileAPI`', () => {
     ]);
   });
 
-  it('dispatches the action to monitor user authentication status', async () => {
+  it('dispatches the action to monitor user authentication status', () => {
     ProfileAPI.monitorUserStatus.mockImplementation(callback => {
       callback(null, { user: USER_AUTHENTICATION_STATUS.AUTHENTICATED });
       callback(null, { user: USER_AUTHENTICATION_STATUS.UNAUTHENTICATED });
     });
     const store = mockStore();
-    await store.dispatch(monitorUserStatus());
+    store.dispatch(monitorUserStatus());
     expect(convertValue(store.getActions())).toEqual([
       {
         type: PROFILE_API_ACTION.SET_USER_STATUS,
@@ -53,7 +53,7 @@ describe('Redux actions for `ProfileAPI`', () => {
     ]);
   });
 
-  it('dispatches the action of error in monitoring user authentication status', async () => {
+  it('dispatches the action of error in monitoring user authentication status', () => {
     ProfileAPI.monitorUserStatus.mockImplementation(callback => {
       callback(new Error('error-monitoruserstatus'));
     });

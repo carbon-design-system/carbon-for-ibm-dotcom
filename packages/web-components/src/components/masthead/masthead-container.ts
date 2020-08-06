@@ -169,6 +169,23 @@ const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
 ];
 
 /**
+ * @param props A key/value pair.
+ * @returns The modified version of the given `props` with all properties with `undefined` value removed.
+ */
+function cleanProps(props: { [key: string]: unknown }) {
+  return Object.keys(props).reduce(
+    (acc, prop) =>
+      typeof props[prop] === 'undefined'
+        ? acc
+        : {
+            ...acc,
+            [prop]: props[prop],
+          },
+    {}
+  );
+}
+
+/**
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
@@ -177,10 +194,10 @@ function mapStateToProps(state: MastheadContainerState): MastheadContainerStateP
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { status } = profileAPI ?? {};
-  return {
+  return cleanProps({
     navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
     userStatus: status?.user,
-  };
+  });
 }
 
 /**
