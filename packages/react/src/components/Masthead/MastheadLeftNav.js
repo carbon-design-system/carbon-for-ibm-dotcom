@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import ChevronLeft20 from '@carbon/icons-react/es/chevron--left/20';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
@@ -15,8 +13,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
 import SideNavLink from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
-import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
 import SideNavMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
+import SideNavMenuWithBackFoward from '../carbon-components-react/UIShell/SideNavMenuWithBackForward';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,7 +22,12 @@ const { prefix } = settings;
 /**
  * Masthead left nav component.
  */
-const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
+const MastheadLeftNav = ({
+  backButtonText,
+  navigation,
+  isSideNavExpanded,
+  platform,
+}) => {
   /**
    * Left side navigation
    *
@@ -33,21 +36,12 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       return (
-        <SideNavMenu title={link.title} key={i}>
-          <SideNavMenuItem
-            onClick={event => event.preventDefault()}
-            className={`${prefix}--masthead__side-nav--submemu-back`}
-            data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
-            isbackbutton="true"
-            key={i}>
-            <ChevronLeft20 />
-            Back
-          </SideNavMenuItem>
-          <li className={`${prefix}--masthead__side-nav--submemu-title`}>
-            {link.title}
-          </li>
-          {renderNavSections(link.menuSections)}
-        </SideNavMenu>
+        <SideNavMenuWithBackFoward
+          title={link.title}
+          backButtonText={backButtonText}
+          key={i}>
+          {renderNavSections(link.menuSections, backButtonText)}
+        </SideNavMenuWithBackFoward>
       );
     } else {
       return (
@@ -90,37 +84,19 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
  * @param {Array} sections A list of link sections to be rendered
  * @returns {object} JSX object
  */
-function renderNavSections(sections) {
+function renderNavSections(sections, backButtonText) {
   const sectionItems = [];
   sections.forEach((section, i) => {
     section.menuItems.forEach((item, j) => {
       if (item.megapanelContent) {
         sectionItems.push(
-          <SideNavMenu title={item.title} key={j}>
-            <SideNavMenuItem
-              onClick={event => event.preventDefault()}
-              className={`${prefix}--masthead__side-nav--submemu-back`}
-              data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${j}`}
-              isbackbutton="true"
-              key={i}>
-              <ChevronLeft20 />
-              Back
-            </SideNavMenuItem>
-
-            <SideNavLink
-              className={`${prefix}--masthead__side-nav--submemu-section-title`}
-              href={item.url}
-              data-autoid={`${stablePrefix}--masthead__l0-sidenav--nav-${i}`}
-              key={i}>
-              {item.title}
-              <div
-                className={`${prefix}--masthead__side-nav--submemu-section-title__icon`}>
-                <ArrowRight20 />
-              </div>
-            </SideNavLink>
-
+          <SideNavMenuWithBackFoward
+            title={item.title}
+            titleUrl={item.url}
+            backButtonText={backButtonText}
+            key={j}>
             {renderNavItem(item.megapanelContent.quickLinks.links)}
-          </SideNavMenu>
+          </SideNavMenuWithBackFoward>
         );
       } else {
         sectionItems.push(
@@ -161,6 +137,11 @@ function renderNavItem(items) {
 
 MastheadLeftNav.propTypes = {
   /**
+   * Back button text
+   */
+  backButtonText: PropTypes.string,
+
+  /**
    * Object containing left navigation elements.
    */
   navigation: PropTypes.arrayOf(
@@ -192,6 +173,10 @@ MastheadLeftNav.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+};
+
+MastheadLeftNav.defaultProps = {
+  backButtonText: 'Back',
 };
 
 export default MastheadLeftNav;
