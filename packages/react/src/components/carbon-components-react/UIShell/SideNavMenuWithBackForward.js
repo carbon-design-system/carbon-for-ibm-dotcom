@@ -65,12 +65,12 @@ SideNavMenuWithBackForward.propTypes = {
   /**
    * Submenu nav section title
    */
-  title: propTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 
   /**
    * Submenu nav section title url
    */
-  titleUrl: propTypes.string,
+  titleUrl: PropTypes.string,
 
   /**
    * Back button text
