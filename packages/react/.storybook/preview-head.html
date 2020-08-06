@@ -147,5 +147,15 @@
     .bx--card__video {
       display: none !important;
     }
+
+    /* hiding elements with sameHeight in long pages to prevent percy
+    false positives */
+    [data-autoid="dds--dotcom-shell__content"]
+    [data-autoid="dds--cta-section"]
+    [data-autoid="dds--content-item"],
+    [data-autoid="dds--content-block-mixed"]
+    [data-autoid="dds--content-group-cards"] {
+      display: none !important;
+    }
   }
 </style>
