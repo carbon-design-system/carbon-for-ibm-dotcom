@@ -18,6 +18,7 @@ const packs = {
   services: path.resolve(__dirname, '../../../../services'),
   styles: path.resolve(__dirname, '../../../../styles'),
   utilities: path.resolve(__dirname, '../../../../utilities'),
+  'web-components': path.resolve(__dirname, '../../../../web-components'),
 };
 
 const projectRoot = path.resolve(__dirname, '../../../../..');

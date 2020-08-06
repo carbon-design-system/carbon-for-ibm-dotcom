@@ -5,9 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  DDS_MASTHEAD_L1,
+  DDS_USE_WEB_COMPONENTS_REACT,
+} from '../../internal/FeatureFlags';
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
@@ -47,210 +51,214 @@ const { prefix } = settings;
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
  * @returns {*} Masthead component
  */
-const Masthead = ({
-  navigation,
-  hasProfile,
-  hasSearch,
-  searchOpenOnload,
-  placeHolderText,
-  platform,
-  mastheadL1Data,
-  ...mastheadProps
-}) => {
-  /**
-   * Returns IBM.com authenticated status
-   *
-   * @param {boolean} isAuthenticated Whether the user is authenticated to IBM.com
-   * @returns {*} The user status
-   */
-  const [isAuthenticated, setStatus] = useState(false);
-
-  useEffect(() => {
-    // initialize global execution calls
-    globalInit();
-  }, []);
-
-  useEffect(() => {
-    let unmounted = false;
-    (async () => {
-      const status = await ProfileAPI.getUserStatus();
-      if (!unmounted) {
-        setStatus(status.user === 'Authenticated');
-      }
-    })();
-    return () => {
-      unmounted = true;
-    };
-  }, []);
-
-  let [mastheadData, setMastheadData] = useState([]);
-  const [profileData, setProfileData] = useState({
-    signedin: [],
-    signedout: [],
-  });
-
-  useEffect(() => {
-    let unmounted = false;
-    (async () => {
-      try {
-        const pageData = await TranslationAPI.getTranslation();
-        if (!unmounted) {
-          setMastheadData(pageData.mastheadNav.links);
-          setProfileData(pageData.profileMenu);
-        }
-      } catch (error) {
-        console.error('Error populating masthead data:', error);
-      }
-    })();
-    return () => {
-      unmounted = true;
-    };
-  }, []);
-
-  /**
-   * Forces profile menu position to fixed to prevent scrolling
-   *
-   */
-  const _setProfileListPosition = () => {
-    const profileMenuList = document.querySelector(
-      `.${prefix}--masthead__profile-item`
-    );
-    profileMenuList.closest('ul').style.position = 'fixed';
-    profileMenuList.closest('ul').style.top = '48px';
-  };
-
-  const [isMastheadSticky, setIsMastheadSticky] = useState(false);
-  const stickyRef = useRef(null);
-  const mastheadL1Ref = useRef(null);
-
-  const mastheadSticky = cx({
-    [`${prefix}--masthead--sticky`]: isMastheadSticky,
-    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
-  });
-
-  const hasPlatform = cx({
-    [`${prefix}--masthead__platform`]: platform,
-  });
-
-  useEffect(() => {
-    /**
-     * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
-     *
-     */
-    const hideTopnavThreshold = 0.25;
-    const handleScroll = root.addEventListener('scroll', () => {
+const Masthead = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSMastheadContainer
+  : ({
+      navigation,
+      hasProfile,
+      hasSearch,
+      searchOpenOnload,
+      placeHolderText,
+      platform,
+      mastheadL1Data,
+      ...mastheadProps
+    }) => {
       /**
-       * L0 will hide/show only in the top 25% of the viewport.
+       * Returns IBM.com authenticated status
+       *
+       * @param {boolean} isAuthenticated Whether the user is authenticated to IBM.com
+       * @returns {*} The user status
+       */
+      const [isAuthenticated, setStatus] = useState(false);
+
+      useEffect(() => {
+        // initialize global execution calls
+        globalInit();
+      }, []);
+
+      useEffect(() => {
+        let unmounted = false;
+        (async () => {
+          const status = await ProfileAPI.getUserStatus();
+          if (!unmounted) {
+            setStatus(status.user === 'Authenticated');
+          }
+        })();
+        return () => {
+          unmounted = true;
+        };
+      }, []);
+
+      let [mastheadData, setMastheadData] = useState([]);
+      const [profileData, setProfileData] = useState({
+        signedin: [],
+        signedout: [],
+      });
+
+      useEffect(() => {
+        let unmounted = false;
+        (async () => {
+          try {
+            const pageData = await TranslationAPI.getTranslation();
+            if (!unmounted) {
+              setMastheadData(pageData.mastheadNav.links);
+              setProfileData(pageData.profileMenu);
+            }
+          } catch (error) {
+            console.error('Error populating masthead data:', error);
+          }
+        })();
+        return () => {
+          unmounted = true;
+        };
+      }, []);
+
+      /**
+       * Forces profile menu position to fixed to prevent scrolling
        *
        */
-      if (mastheadL1Ref.current != null) {
-        setIsMastheadSticky(
-          root.pageYOffset > root.innerHeight * hideTopnavThreshold
+      const _setProfileListPosition = () => {
+        const profileMenuList = document.querySelector(
+          `.${prefix}--masthead__profile-item`
         );
+        profileMenuList.closest('ul').style.position = 'fixed';
+        profileMenuList.closest('ul').style.top = '48px';
+      };
+
+      const [isMastheadSticky, setIsMastheadSticky] = useState(false);
+      const stickyRef = useRef(null);
+      const mastheadL1Ref = useRef(null);
+
+      const mastheadSticky = cx({
+        [`${prefix}--masthead--sticky`]: isMastheadSticky,
+        [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
+      });
+
+      const hasPlatform = cx({
+        [`${prefix}--masthead__platform`]: platform,
+      });
+
+      useEffect(() => {
+        /**
+         * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
+         *
+         */
+        const hideTopnavThreshold = 0.25;
+        const handleScroll = root.addEventListener('scroll', () => {
+          /**
+           * L0 will hide/show only in the top 25% of the viewport.
+           *
+           */
+          if (mastheadL1Ref.current != null) {
+            setIsMastheadSticky(
+              root.pageYOffset > root.innerHeight * hideTopnavThreshold
+            );
+          }
+        });
+
+        return () => {
+          root.removeEventListener('scroll', () => handleScroll);
+        };
+      }, []);
+
+      if (navigation) {
+        switch (typeof navigation) {
+          case 'default':
+            // eslint-disable-next-line
+            mastheadData = mastheadData;
+            break;
+          case 'object':
+            mastheadData = navigation;
+            break;
+          default:
+            break;
+        }
       }
-    });
 
-    return () => {
-      root.removeEventListener('scroll', () => handleScroll);
-    };
-  }, []);
+      return (
+        <HeaderContainer
+          render={({ isSideNavExpanded, onClickSideNavExpand }) => (
+            <div
+              className={`${prefix}--masthead ${mastheadSticky}`}
+              ref={stickyRef}>
+              <div className={`${prefix}--masthead__l0`}>
+                <Header
+                  aria-label="IBM"
+                  data-autoid={`${stablePrefix}--masthead`}>
+                  <SkipToContent />
 
-  if (navigation) {
-    switch (typeof navigation) {
-      case 'default':
-        // eslint-disable-next-line
-        mastheadData = mastheadData;
-        break;
-      case 'object':
-        mastheadData = navigation;
-        break;
-      default:
-        break;
-    }
-  }
+                  {(mastheadL1Data || navigation) && (
+                    <HeaderMenuButton
+                      aria-label="Open menu"
+                      data-autoid={`${stablePrefix}--masthead__hamburger`}
+                      onClick={onClickSideNavExpand}
+                      isActive={isSideNavExpanded}
+                    />
+                  )}
 
-  return (
-    <HeaderContainer
-      render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-        <div
-          className={`${prefix}--masthead ${mastheadSticky}`}
-          ref={stickyRef}>
-          <div className={`${prefix}--masthead__l0`}>
-            <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
-              <SkipToContent />
+                  <IbmLogo />
 
-              {(mastheadL1Data || navigation) && (
-                <HeaderMenuButton
-                  aria-label="Open menu"
-                  data-autoid={`${stablePrefix}--masthead__hamburger`}
-                  onClick={onClickSideNavExpand}
-                  isActive={isSideNavExpanded}
-                />
-              )}
+                  <div className={`${prefix}--header__search ${hasPlatform}`}>
+                    {navigation && !mastheadL1Data && (
+                      <MastheadTopNav
+                        {...mastheadProps}
+                        platform={platform}
+                        navigation={mastheadData}
+                      />
+                    )}
+                    {hasSearch && (
+                      <MastheadSearch
+                        searchOpenOnload={searchOpenOnload}
+                        placeHolderText={placeHolderText}
+                      />
+                    )}
+                  </div>
 
-              <IbmLogo />
+                  {hasProfile && (
+                    <HeaderGlobalBar>
+                      <MastheadProfile
+                        overflowMenuProps={{
+                          ariaLabel: 'User Profile',
+                          'data-autoid': `${stablePrefix}--masthead__profile`,
+                          flipped: true,
+                          style: { width: '3rem' },
+                          onOpen: () => _setProfileListPosition(),
+                          renderIcon: () =>
+                            isAuthenticated ? <UserOnline20 /> : <User20 />,
+                        }}
+                        overflowMenuItemProps={{
+                          wrapperClassName: `${prefix}--masthead__profile-item`,
+                        }}
+                        profileMenu={
+                          isAuthenticated
+                            ? profileData.signedin
+                            : profileData.signedout
+                        }
+                      />
+                    </HeaderGlobalBar>
+                  )}
 
-              <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation && !mastheadL1Data && (
-                  <MastheadTopNav
-                    {...mastheadProps}
-                    platform={platform}
-                    navigation={mastheadData}
-                  />
-                )}
-                {hasSearch && (
-                  <MastheadSearch
-                    searchOpenOnload={searchOpenOnload}
-                    placeHolderText={placeHolderText}
-                  />
-                )}
+                  {(navigation || mastheadL1Data) && (
+                    <MastheadLeftNav
+                      {...mastheadProps}
+                      backButtonText="Back"
+                      platform={platform}
+                      navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
+                      isSideNavExpanded={isSideNavExpanded}
+                    />
+                  )}
+                </Header>
               </div>
-
-              {hasProfile && (
-                <HeaderGlobalBar>
-                  <MastheadProfile
-                    overflowMenuProps={{
-                      ariaLabel: 'User Profile',
-                      'data-autoid': `${stablePrefix}--masthead__profile`,
-                      flipped: true,
-                      style: { width: '3rem' },
-                      onOpen: () => _setProfileListPosition(),
-                      renderIcon: () =>
-                        isAuthenticated ? <UserOnline20 /> : <User20 />,
-                    }}
-                    overflowMenuItemProps={{
-                      wrapperClassName: `${prefix}--masthead__profile-item`,
-                    }}
-                    profileMenu={
-                      isAuthenticated
-                        ? profileData.signedin
-                        : profileData.signedout
-                    }
-                  />
-                </HeaderGlobalBar>
+              {mastheadL1Data && DDS_MASTHEAD_L1 && (
+                <div ref={mastheadL1Ref}>
+                  <MastheadL1 {...mastheadL1Data} isShort={isMastheadSticky} />
+                </div>
               )}
-
-              {(navigation || mastheadL1Data) && (
-                <MastheadLeftNav
-                  {...mastheadProps}
-                  backButtonText="Back"
-                  platform={platform}
-                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
-                  isSideNavExpanded={isSideNavExpanded}
-                />
-              )}
-            </Header>
-          </div>
-          {mastheadL1Data && DDS_MASTHEAD_L1 && (
-            <div ref={mastheadL1Ref}>
-              <MastheadL1 {...mastheadL1Data} isShort={isMastheadSticky} />
             </div>
           )}
-        </div>
-      )}
-    />
-  );
-};
+        />
+      );
+    };
 
 Masthead.propTypes = {
   /**

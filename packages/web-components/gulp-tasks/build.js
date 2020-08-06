@@ -29,6 +29,8 @@ const stripComments = require('strip-comments');
 const autoprefixer = require('autoprefixer');
 const rtlcss = require('rtlcss');
 const replaceExtension = require('replace-ext');
+const babelPluginCreateReactCustomElementType = require('../tools/babel-plugin-create-react-custom-element-type');
+const babelPluginCreateReactCustomElementTypeDef = require('../tools/babel-plugin-create-react-custom-element-type-def');
 const babelPluginResourceJSPaths = require('../tools/babel-plugin-resource-js-paths');
 const fixHostPseudo = require('../tools/postcss-fix-host-pseudo');
 const descriptorFromSVG = require('../tools/descriptor-from-svg');
@@ -111,6 +113,67 @@ module.exports = {
           .pipe(prettier())
           .pipe(header(banner))
           .pipe(gulp.dest(path.resolve(config.jsDestDir, 'icons')))
+      );
+    },
+
+    async react() {
+      const banner = await readFileAsync(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
+      await promisifyStream(() =>
+        gulp
+          .src([
+            `${config.srcDir}/components/**/*.ts`,
+            `!${config.srcDir}/components/**/mixins/**/*.ts`,
+            `!${config.srcDir}/**/__stories__/*.ts`,
+            `!${config.srcDir}/**/__tests__/*.ts`,
+          ])
+          .pipe(
+            babel({
+              babelrc: false,
+              plugins: [
+                ['@babel/plugin-syntax-decorators', { decoratorsBeforeExport: true }],
+                '@babel/plugin-syntax-typescript',
+                '@babel/plugin-proposal-nullish-coalescing-operator',
+                '@babel/plugin-proposal-optional-chaining',
+                babelPluginCreateReactCustomElementType,
+              ],
+            })
+          )
+          .pipe(prettier())
+          .pipe(header(banner))
+          .pipe(gulp.dest(`${config.jsDestDir}/components-react`))
+      );
+    },
+
+    async reactTypes() {
+      const banner = await readFileAsync(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
+      await promisifyStream(() =>
+        gulp
+          .src([
+            `${config.srcDir}/components/**/*.ts`,
+            `!${config.srcDir}/components/**/mixins/**/*.ts`,
+            `!${config.srcDir}/**/__stories__/*.ts`,
+            `!${config.srcDir}/**/__tests__/*.ts`,
+          ])
+          .pipe(
+            babel({
+              babelrc: false,
+              plugins: [
+                ['@babel/plugin-syntax-decorators', { decoratorsBeforeExport: true }],
+                '@babel/plugin-syntax-typescript',
+                '@babel/plugin-proposal-nullish-coalescing-operator',
+                '@babel/plugin-proposal-optional-chaining',
+                babelPluginCreateReactCustomElementTypeDef,
+              ],
+            })
+          )
+          .pipe(prettier())
+          .pipe(header(banner))
+          .pipe(
+            rename(pathObj => {
+              pathObj.extname = '.d.ts';
+            })
+          )
+          .pipe(gulp.dest(`${config.jsDestDir}/components-react`))
       );
     },
 

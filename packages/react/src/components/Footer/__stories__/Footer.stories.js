@@ -6,7 +6,10 @@
  */
 
 import { boolean, object } from '@storybook/addon-knobs';
-import { DDS_LANGUAGE_SELECTOR } from '../../../internal/FeatureFlags';
+import {
+  DDS_LANGUAGE_SELECTOR,
+  DDS_USE_WEB_COMPONENTS_REACT,
+} from '../../../internal/FeatureFlags';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-thin.json';
@@ -14,6 +17,10 @@ import inPercy from '@percy-io/in-percy';
 import languageItems from '../__data__/language-items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import store from '@carbon/ibmdotcom-web-components/es/globals/services-store/store';
+
+store.replaceReducer(reducers);
 
 export default {
   title: 'Components|Footer',
@@ -35,8 +42,17 @@ export const Default = ({ parameters }) => {
     languageInitialItem,
     languageCallback,
   } = parameters?.props?.Footer ?? {};
+  const { footerMenu, footerThin } = navigation ?? {};
 
-  return (
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <Footer
+      language={inPercy() ? 'en-us' : null}
+      links={footerMenu}
+      legalLinks={footerThin}
+      localeList={languageOnly ? items : null}
+      size={type}
+    />
+  ) : (
     <Footer
       navigation={isCustom ? navigation : null}
       type={type}

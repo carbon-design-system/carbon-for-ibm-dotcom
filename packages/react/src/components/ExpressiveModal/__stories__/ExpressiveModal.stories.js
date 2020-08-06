@@ -8,6 +8,8 @@
 import { boolean, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { ButtonGroup } from '../../ButtonGroup';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../../internal/FeatureFlags';
+import DDSModalBody from '@carbon/ibmdotcom-web-components/es/components-react/modal/modal-body';
 import { ExpressiveModal } from '../';
 import { ModalBody } from 'carbon-components-react';
 import React from 'react';
@@ -68,7 +70,13 @@ export default {
 export const Default = ({ parameters }) => {
   const { open } = parameters?.props?.ExpressiveModal ?? {};
   const { title, paragraph, button } = parameters?.props?.Other ?? {};
-  return (
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <ExpressiveModal open={open}>
+      <DDSModalBody>
+        <StoryContent title={title} paragraph={paragraph} button={button} />
+      </DDSModalBody>
+    </ExpressiveModal>
+  ) : (
     <ExpressiveModal open={open} className="bx--modal--expressive">
       <ModalBody>
         <StoryContent title={title} paragraph={paragraph} button={button} />
@@ -80,7 +88,13 @@ export const Default = ({ parameters }) => {
 export const Expanded = ({ parameters }) => {
   const { open } = parameters?.props?.ExpressiveModal ?? {};
   const { title, paragraph, button } = parameters?.props?.Other ?? {};
-  return (
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <ExpressiveModal open={open} fullWidth={true}>
+      <DDSModalBody>
+        <StoryContent title={title} paragraph={paragraph} button={button} />
+      </DDSModalBody>
+    </ExpressiveModal>
+  ) : (
     <ExpressiveModal
       open={open}
       fullwidth={true}

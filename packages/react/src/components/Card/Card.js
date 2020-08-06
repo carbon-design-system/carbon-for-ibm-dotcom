@@ -10,6 +10,8 @@ import {
 } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../internal/FeatureFlags';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
@@ -23,45 +25,49 @@ const { prefix } = settings;
 /**
  * Card Link Component.
  */
-export const Card = ({
-  inverse,
-  image,
-  eyebrow,
-  heading,
-  customClassName,
-  copy,
-  cta,
-  ...props
-}) => {
-  const TileType = props.disabled ? Tile : ClickableTile;
+export const Card = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSCard
+  : ({
+      inverse,
+      image,
+      eyebrow,
+      heading,
+      customClassName,
+      copy,
+      cta,
+      ...props
+    }) => {
+      const TileType = props.disabled ? Tile : ClickableTile;
 
-  return (
-    <TileType
-      data-autoid={`${stablePrefix}--card`}
-      className={classNames(
-        `${prefix}--card`,
-        {
-          [`${prefix}--card--inverse`]: inverse,
-          [`${prefix}--card__CTA--disabled`]: props.disabled,
-        },
-        customClassName
-      )}
-      href={cta?.href}
-      target={CTALogic.external(cta?.type)}
-      onClick={e => {
-        cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
-      }}
-      {...props}>
-      {image && <Image {...image} classname={`${prefix}--card__img`} />}
-      <div className={`${prefix}--card__wrapper`}>
-        {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
-        {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
-        {optionalContent(copy)}
-        {renderFooter(cta)}
-      </div>
-    </TileType>
-  );
-};
+      return (
+        <TileType
+          data-autoid={`${stablePrefix}--card`}
+          className={classNames(
+            `${prefix}--card`,
+            {
+              [`${prefix}--card--inverse`]: inverse,
+              [`${prefix}--card__CTA--disabled`]: props.disabled,
+            },
+            customClassName
+          )}
+          href={cta?.href}
+          target={CTALogic.external(cta?.type)}
+          onClick={e => {
+            cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+          }}
+          {...props}>
+          {image && <Image {...image} classname={`${prefix}--card__img`} />}
+          <div className={`${prefix}--card__wrapper`}>
+            {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
+            {heading && (
+              <h3 className={`${prefix}--card__heading`}>{heading}</h3>
+            )}
+            {optionalContent(copy)}
+            {renderFooter(cta)}
+          </div>
+        </TileType>
+      );
+    };
 
 /**
  * Card Link optional content

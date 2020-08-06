@@ -6,6 +6,7 @@
  */
 
 import { boolean } from '@storybook/addon-knobs';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import VideoPlayer from '../VideoPlayer';
@@ -28,11 +29,15 @@ export const Default = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <VideoPlayer
-            videoId={videoId}
-            showCaption={showCaption}
-            aspectRatio={aspectRatio}
-          />
+          {DDS_USE_WEB_COMPONENTS_REACT ? (
+            <VideoPlayer videoId={videoId} hideCaption={!showCaption} />
+          ) : (
+            <VideoPlayer
+              videoId={videoId}
+              showCaption={showCaption}
+              aspectRatio={aspectRatio}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -7,17 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Action, Reducer } from 'redux';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
-import '../footer-container';
+import { reducers, store } from '../footer-container';
 import styles from './footer.stories.scss';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
+
+store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 export const Default = ({ parameters }) => {
   const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.['dds-footer-composite'] ?? {};

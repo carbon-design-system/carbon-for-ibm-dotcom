@@ -21,8 +21,10 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.tsx",
     "tests/**/*.ts",
-    ".storybook/**/*.ts"
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ],
   "exclude": []
 }

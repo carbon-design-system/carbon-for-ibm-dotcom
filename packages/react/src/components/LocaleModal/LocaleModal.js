@@ -13,6 +13,8 @@ import React, { useEffect, useState } from 'react';
 import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../internal/FeatureFlags';
+import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
@@ -27,126 +29,128 @@ const { prefix } = settings;
 /**
  * LocaleModal component.
  */
-const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
-  const [list, setList] = useState({});
-  const [langDisplay, setLangDisplay] = useState();
-  const [modalLabels, setModalLabels] = useState({});
-  const [isFiltering, setIsFiltering] = useState(false);
-  const [clearResults, setClearResults] = useState(false);
-  const [currentRegion, setCurrentRegion] = useState();
+const LocaleModal = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSLocaleModalContainer
+  : ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
+      const [list, setList] = useState({});
+      const [langDisplay, setLangDisplay] = useState();
+      const [modalLabels, setModalLabels] = useState({});
+      const [isFiltering, setIsFiltering] = useState(false);
+      const [clearResults, setClearResults] = useState(false);
+      const [currentRegion, setCurrentRegion] = useState();
 
-  const filterClass = cx({
-    [`${prefix}--locale-modal__filtering`]: isFiltering,
-  });
-
-  useEffect(() => {
-    let stale = false;
-
-    (async () => {
-      let list, getLangDisplay;
-      if (localeData && localeDisplay) {
-        list = Object.assign({}, localeData);
-        getLangDisplay = localeDisplay;
-      } else {
-        const pair = await Promise.all([
-          LocaleAPI.getLocale(),
-          LocaleAPI.getLangDisplay(),
-        ]);
-        if (!stale) {
-          const locale = pair[0];
-          getLangDisplay = pair[1];
-          list = locale && (await LocaleAPI.getList(locale));
-        }
-      }
-
-      setLangDisplay(getLangDisplay);
-      setList(list);
-      setModalLabels(list.localeModal);
-
-      document
-        .querySelector(`.${prefix}--modal-header__heading`)
-        ?.setAttribute('tabindex', '0');
-
-      const localeModalContainer = document.querySelector(
-        `.${prefix}--locale-modal-container .${prefix}--modal-container`
-      );
-
-      localeModalContainer?.setAttribute('role', 'dialog');
-      localeModalContainer?.setAttribute('tabindex', '-1');
-      localeModalContainer?.setAttribute('aria-modal', 'true');
-    })();
-
-    // reset the country search results when clicking close icon or back to region button
-    if (clearResults) {
-      const localeItems = document.querySelectorAll(
-        `.${prefix}--locale-modal__locales`
-      );
-
-      const localeHidden = `${prefix}--locale-modal__locales-hidden`;
-
-      [...localeItems].map(item => {
-        item.classList.remove(localeHidden);
+      const filterClass = cx({
+        [`${prefix}--locale-modal__filtering`]: isFiltering,
       });
-    }
 
-    return () => {
-      stale = true;
+      useEffect(() => {
+        let stale = false;
+
+        (async () => {
+          let list, getLangDisplay;
+          if (localeData && localeDisplay) {
+            list = Object.assign({}, localeData);
+            getLangDisplay = localeDisplay;
+          } else {
+            const pair = await Promise.all([
+              LocaleAPI.getLocale(),
+              LocaleAPI.getLangDisplay(),
+            ]);
+            if (!stale) {
+              const locale = pair[0];
+              getLangDisplay = pair[1];
+              list = locale && (await LocaleAPI.getList(locale));
+            }
+          }
+
+          setLangDisplay(getLangDisplay);
+          setList(list);
+          setModalLabels(list.localeModal);
+
+          document
+            .querySelector(`.${prefix}--modal-header__heading`)
+            ?.setAttribute('tabindex', '0');
+
+          const localeModalContainer = document.querySelector(
+            `.${prefix}--locale-modal-container .${prefix}--modal-container`
+          );
+
+          localeModalContainer?.setAttribute('role', 'dialog');
+          localeModalContainer?.setAttribute('tabindex', '-1');
+          localeModalContainer?.setAttribute('aria-modal', 'true');
+        })();
+
+        // reset the country search results when clicking close icon or back to region button
+        if (clearResults) {
+          const localeItems = document.querySelectorAll(
+            `.${prefix}--locale-modal__locales`
+          );
+
+          const localeHidden = `${prefix}--locale-modal__locales-hidden`;
+
+          [...localeItems].map(item => {
+            item.classList.remove(localeHidden);
+          });
+        }
+
+        return () => {
+          stale = true;
+        };
+      }, [clearResults, localeData, localeDisplay]);
+
+      return (
+        <ComposedModal
+          open={isOpen}
+          onClose={() => {
+            _close(setIsOpen);
+          }}
+          className={`${prefix}--locale-modal-container`}
+          data-autoid={`${stablePrefix}--locale-modal`}
+          selectorPrimaryFocus={`.${prefix}--modal-close`}>
+          {isFiltering ? (
+            <ModalHeader
+              data-autoid={`${stablePrefix}--locale-modal__region-back`}
+              label={[
+                <ArrowLeft20
+                  className={`${prefix}--locale-modal__label-arrow`}
+                  key="arrow-left"
+                />,
+                modalLabels.headerTitle,
+              ]}
+              title={currentRegion}
+              className={`${prefix}--locale-modal__back`}
+            />
+          ) : (
+            <ModalHeader
+              label={[
+                langDisplay,
+                <EarthFilled20
+                  key="earthfilled"
+                  className={`${prefix}--locale-modal__label-globe`}
+                />,
+              ]}
+              title={modalLabels.headerTitle}
+              iconDescription={modalLabels.modalClose}
+            />
+          )}
+          <ModalBody className={`${prefix}--locale-modal ${filterClass}`}>
+            <LocaleModalRegions
+              regionList={sortList(list)}
+              setCurrentRegion={setCurrentRegion}
+              setIsFiltering={setIsFiltering}
+              setClearResults={setClearResults}
+              returnButtonLabel={modalLabels.headerTitle}
+              closeModalLabel={modalLabels.modalClose}
+            />
+            <LocaleModalCountries
+              regionList={sortList(list)}
+              setClearResults={setClearResults}
+              {...modalLabels}
+            />
+          </ModalBody>
+        </ComposedModal>
+      );
     };
-  }, [clearResults, localeData, localeDisplay]);
-
-  return (
-    <ComposedModal
-      open={isOpen}
-      onClose={() => {
-        _close(setIsOpen);
-      }}
-      className={`${prefix}--locale-modal-container`}
-      data-autoid={`${stablePrefix}--locale-modal`}
-      selectorPrimaryFocus={`.${prefix}--modal-close`}>
-      {isFiltering ? (
-        <ModalHeader
-          data-autoid={`${stablePrefix}--locale-modal__region-back`}
-          label={[
-            <ArrowLeft20
-              className={`${prefix}--locale-modal__label-arrow`}
-              key="arrow-left"
-            />,
-            modalLabels.headerTitle,
-          ]}
-          title={currentRegion}
-          className={`${prefix}--locale-modal__back`}
-        />
-      ) : (
-        <ModalHeader
-          label={[
-            langDisplay,
-            <EarthFilled20
-              key="earthfilled"
-              className={`${prefix}--locale-modal__label-globe`}
-            />,
-          ]}
-          title={modalLabels.headerTitle}
-          iconDescription={modalLabels.modalClose}
-        />
-      )}
-      <ModalBody className={`${prefix}--locale-modal ${filterClass}`}>
-        <LocaleModalRegions
-          regionList={sortList(list)}
-          setCurrentRegion={setCurrentRegion}
-          setIsFiltering={setIsFiltering}
-          setClearResults={setClearResults}
-          returnButtonLabel={modalLabels.headerTitle}
-          closeModalLabel={modalLabels.modalClose}
-        />
-        <LocaleModalCountries
-          regionList={sortList(list)}
-          setClearResults={setClearResults}
-          {...modalLabels}
-        />
-      </ModalBody>
-    </ComposedModal>
-  );
-};
 
 LocaleModal.propTypes = {
   /**

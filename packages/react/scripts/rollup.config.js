@@ -12,7 +12,7 @@ const Table = require('cli-table');
 const gzip = require('gzip-size');
 
 const commonjs = require('rollup-plugin-commonjs');
-const resolve = require('rollup-plugin-node-resolve');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const builtins = require('rollup-plugin-node-builtins');
 const babel = require('rollup-plugin-babel');
 const scss = require('rollup-plugin-scss');
@@ -73,7 +73,7 @@ process.env.BABEL_ENV = 'es';
 module.exports = {
   input: 'src/index.js',
   plugins: [
-    resolve({
+    nodeResolve({
       browser: true,
       mainFields: ['jsnext', 'module', 'main'],
     }),

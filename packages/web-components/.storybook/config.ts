@@ -12,6 +12,8 @@ import { configure, addDecorator, addParameters, setCustomElements } from '@stor
 import { withKnobs } from '@storybook/addon-knobs';
 import customElements from '../custom-elements.json';
 import theme from './theme';
+import getSimpleStorySort from './get-simple-story-sort';
+import decoratorKnobs from './decorator-knobs';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
@@ -20,25 +22,14 @@ if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
 
 setCustomElements(customElements);
 
-const SORT_ORDER = [
-  'overview-getting-started--page',
-  'overview-building-for-ibm-dotcom--page',
-  'overview-stable-selectors--page',
-];
-
 addParameters({
   options: {
     showRoots: true,
-    storySort(lhs, rhs) {
-      const [lhsId] = lhs;
-      const [rhsId] = rhs;
-      const lhsSortOrder = SORT_ORDER.indexOf(lhsId);
-      const rhsSortOrder = SORT_ORDER.indexOf(rhsId);
-      if (lhsSortOrder >= 0 && rhsSortOrder >= 0) {
-        return lhsSortOrder - rhsSortOrder;
-      }
-      return 0;
-    },
+    storySort: getSimpleStorySort([
+      'overview-getting-started--page',
+      'overview-building-for-ibm-dotcom--page',
+      'overview-stable-selectors--page',
+    ]),
     theme: theme,
   },
 });
@@ -65,24 +56,7 @@ addDecorator(story => {
 });
 
 addDecorator(withKnobs);
-
-addDecorator((story, { parameters }) => {
-  const { knobs } = parameters;
-  if (Object(knobs) === knobs) {
-    if (!parameters.props) {
-      parameters.props = {};
-    }
-    Object.keys(knobs).forEach(name => {
-      if (!parameters.props[name]) {
-        parameters.props[name] = {};
-      }
-      if (typeof knobs[name] === 'function') {
-        Object.assign(parameters.props[name], knobs[name]({ groupId: name }));
-      }
-    });
-  }
-  return story();
-});
+addDecorator(decoratorKnobs);
 
 const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);

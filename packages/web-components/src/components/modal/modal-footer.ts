@@ -21,6 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-modal-footer`)
 class DDSModalFooter extends BXModalFooter {
+  /**
+   * The slot in parent `<dds-modal>`.
+   */
   @property({ reflect: true })
   slot = 'footer';
 

@@ -7,7 +7,9 @@
 
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
@@ -20,77 +22,75 @@ const { prefix } = settings;
 /**
  * VideoPlayer component.
  */
-const VideoPlayer = ({
-  showCaption,
-  videoId,
-  customClassName,
-  autoPlay,
-  aspectRatio,
-}) => {
-  const [videoData, setVideoData] = useState({ description: '', name: '' });
+const VideoPlayer = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSVideoPlayerContainer
+  : ({ showCaption, videoId, customClassName, autoPlay, aspectRatio }) => {
+      const [videoData, setVideoData] = useState({ description: '', name: '' });
 
-  // embedVideo is set to true when overlay thumbnail is clicked
-  const [embedVideo, setEmbedVideo] = useState(false);
-  const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
-  const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
+      // embedVideo is set to true when overlay thumbnail is clicked
+      const [embedVideo, setEmbedVideo] = useState(false);
+      const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
+      const videoDuration = VideoPlayerAPI.getVideoDuration(
+        videoData.msDuration
+      );
 
-  useEffect(() => {
-    let stale = false;
-    (async () => {
-      if (autoPlay || embedVideo) {
-        await VideoPlayerAPI.embedVideo(
-          videoId,
-          `${prefix}--${videoPlayerId}`,
-          true
-        );
-      }
-      if (stale) {
-        return;
-      }
-      const newVideoData = await VideoPlayerAPI.api(videoId);
-      if (stale) {
-        return;
-      }
-      setVideoData(newVideoData);
-    })();
-    return () => {
-      stale = true;
-    };
-  }, [autoPlay, videoId, videoPlayerId, embedVideo]);
+      useEffect(() => {
+        let stale = false;
+        (async () => {
+          if (autoPlay || embedVideo) {
+            await VideoPlayerAPI.embedVideo(
+              videoId,
+              `${prefix}--${videoPlayerId}`,
+              true
+            );
+          }
+          if (stale) {
+            return;
+          }
+          const newVideoData = await VideoPlayerAPI.api(videoId);
+          if (stale) {
+            return;
+          }
+          setVideoData(newVideoData);
+        })();
+        return () => {
+          stale = true;
+        };
+      }, [autoPlay, videoId, videoPlayerId, embedVideo]);
 
-  const classnames = cx(`${prefix}--video-player`, customClassName);
+      const classnames = cx(`${prefix}--video-player`, customClassName);
 
-  const aspectRatioClass = cx({
-    [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
-  });
+      const aspectRatioClass = cx({
+        [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
+      });
 
-  return (
-    <div
-      aria-label={`${videoData.name} ${videoDuration}`}
-      className={classnames}>
-      <div
-        className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
-        data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
+      return (
         <div
-          className={`${prefix}--video-player__video`}
-          id={`${prefix}--${videoPlayerId}`}>
-          {!autoPlay && (
-            <VideoImageOverlay
-              videoId={videoId}
-              videoData={videoData}
-              embedVideo={setEmbedVideo}
-            />
+          aria-label={`${videoData.name} ${videoDuration}`}
+          className={classnames}>
+          <div
+            className={`${prefix}--video-player__video-container ${aspectRatioClass}`}
+            data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
+            <div
+              className={`${prefix}--video-player__video`}
+              id={`${prefix}--${videoPlayerId}`}>
+              {!autoPlay && (
+                <VideoImageOverlay
+                  videoId={videoId}
+                  videoData={videoData}
+                  embedVideo={setEmbedVideo}
+                />
+              )}
+            </div>
+          </div>
+          {showCaption && (
+            <div className={`${prefix}--video-player__video-caption`}>
+              {videoData.name} {videoDuration}
+            </div>
           )}
         </div>
-      </div>
-      {showCaption && (
-        <div className={`${prefix}--video-player__video-caption`}>
-          {videoData.name} {videoDuration}
-        </div>
-      )}
-    </div>
-  );
-};
+      );
+    };
 
 VideoPlayer.propTypes = {
   /**

@@ -6,11 +6,16 @@
  */
 
 import { boolean } from '@storybook/addon-knobs';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../../internal/FeatureFlags';
 import inPercy from '@percy-io/in-percy';
 import localeData from '../__data__/locale-data.json';
 import LocaleModal from '../LocaleModal';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import store from '@carbon/ibmdotcom-web-components/es/globals/services-store/store';
+
+store.replaceReducer(reducers);
 
 export default {
   title: 'Components|Locale Modal',
@@ -27,7 +32,13 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { useMockData } = parameters?.props?.LocaleModal ?? {};
-  return (
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <LocaleModal
+      open
+      langDisplay={useMockData ? 'United States - English' : null}
+      localeList={useMockData ? localeData.localeList : null}
+    />
+  ) : (
     <LocaleModal
       isOpen={true}
       localeData={useMockData ? localeData : null}

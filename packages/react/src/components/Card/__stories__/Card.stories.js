@@ -8,6 +8,7 @@
 import { text, boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -53,13 +54,26 @@ export default {
 export const Default = ({ parameters }) => {
   const theme =
     document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+  const props = parameters?.props?.Card ?? {};
+  const { copy, eyebrow, heading, cta } = props;
+  const { href, icon } = cta;
+  const { src: Icon } = icon;
 
   return (
     <div className={`bx--card--${theme}`}>
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card {...(parameters?.props?.Card ?? {})} />
+            {DDS_USE_WEB_COMPONENTS_REACT ? (
+              <Card href={href}>
+                <div slot="eyebrow">{eyebrow}</div>
+                <div slot="heading">{heading}</div>
+                {copy}
+                <Icon slot="footer" />
+              </Card>
+            ) : (
+              <Card {...props} />
+            )}
           </div>
         </div>
       </div>

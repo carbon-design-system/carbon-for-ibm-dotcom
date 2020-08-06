@@ -16,7 +16,11 @@ import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
 import { BasicLink, BasicLinkSet } from '../../globals/services-store/types/translateAPI';
 import Handle from '../../globals/internal/handle';
+/* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
+// Above import does not seem to register the custom element
+import './footer';
+/* eslint-enable import/no-duplicates */
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';

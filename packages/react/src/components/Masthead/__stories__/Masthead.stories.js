@@ -6,13 +6,20 @@
  */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
+import {
+  DDS_MASTHEAD_L1,
+  DDS_USE_WEB_COMPONENTS_REACT,
+} from '../../../internal/FeatureFlags';
 import inPercy from '@percy-io/in-percy';
 import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import store from '@carbon/ibmdotcom-web-components/es/globals/services-store/store';
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+
+store.replaceReducer(reducers);
 
 // For mocking in integration tests
 // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
@@ -27,9 +34,15 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} />
-);
+export const Default = ({ parameters }) => {
+  const props = parameters?.props?.Masthead ?? {};
+  const { navigation } = props;
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <Masthead navLinks={navigation} />
+  ) : (
+    <Masthead {...props} />
+  );
+};
 
 Default.story = {
   parameters: {
@@ -100,9 +113,18 @@ Default.story = {
   },
 };
 
-export const SearchOpenByDefault = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload={true} />
-);
+export const SearchOpenByDefault = ({ parameters }) => {
+  const props = parameters?.props?.Masthead ?? {};
+  const { navigation } = props;
+  return DDS_USE_WEB_COMPONENTS_REACT ? (
+    <Masthead navLinks={navigation} openSearch={true} />
+  ) : (
+    <Masthead
+      {...(parameters?.props?.Masthead ?? {})}
+      searchOpenOnload={true}
+    />
+  );
+};
 
 SearchOpenByDefault.story = {
   name: 'Search open by default',

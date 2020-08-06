@@ -7,6 +7,7 @@
 import { boolean, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CardLink from '../CardLink';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../../internal/FeatureFlags';
 import Error20 from '@carbon/icons-react/es/error/20';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -55,11 +56,22 @@ export default {
 export const Default = ({ parameters }) => {
   const { card, disabled } = parameters?.props?.CardLink ?? {};
 
+  const { copy, cta } = card;
+  const { href, icon } = cta;
+  const { src: Icon } = icon;
+
   return (
     <div className="bx--grid bx--grid--condensed">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
-          <CardLink card={card} disabled={disabled} />
+          {DDS_USE_WEB_COMPONENTS_REACT ? (
+            <CardLink href={href}>
+              {copy}
+              <Icon slot="footer" />
+            </CardLink>
+          ) : (
+            <CardLink card={card} disabled={disabled} />
+          )}
         </div>
       </div>
     </div>

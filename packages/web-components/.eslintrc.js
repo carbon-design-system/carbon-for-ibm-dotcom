@@ -58,15 +58,24 @@ module.exports = {
       },
     },
     {
-      files: ['**/*-react.tsx'],
+      files: ['**/*.stories.react.tsx'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', 'react'],
       rules: {
         'no-unused-vars': 0,
         '@typescript-eslint/no-unused-vars': 2,
-        'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/(components-react|icons)/'] }],
+        'import/no-unresolved': [
+          2,
+          {
+            ignore: [
+              '^carbon-web-components/es/(components-react|icons)/',
+              '^@carbon/ibmdotcom-web-components/es/(components-react|icons)/',
+            ],
+          },
+        ],
         'react/jsx-uses-react': 2,
         'react/jsx-uses-vars': 2,
+        'react/prop-types': 0,
       },
     },
     {

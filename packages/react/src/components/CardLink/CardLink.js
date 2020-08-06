@@ -7,6 +7,8 @@
 
 import { Card } from '../Card';
 import cx from 'classnames';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../internal/FeatureFlags';
+import DDSCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -16,10 +18,12 @@ const { prefix } = settings;
 /**
  * CardLink component
  */
-const CardLink = ({ card, customClassName }) => {
-  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName);
-  return <Card customClassName={cardLinkClassname} {...card} />;
-};
+const CardLink = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSCardLink
+  : ({ card, customClassName }) => {
+      const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName);
+      return <Card customClassName={cardLinkClassname} {...card} />;
+    };
 
 CardLink.propTypes = {
   /**

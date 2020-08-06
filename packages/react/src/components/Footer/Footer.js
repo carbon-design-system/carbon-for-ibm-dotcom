@@ -4,9 +4,13 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import {
+  DDS_LANGUAGE_SELECTOR,
+  DDS_USE_WEB_COMPONENTS_REACT,
+} from '../../internal/FeatureFlags';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { DDS_LANGUAGE_SELECTOR } from '../../internal/FeatureFlags';
+import DDSFooterContainer from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-container';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
@@ -25,100 +29,102 @@ const { prefix } = settings;
 /**
  * Footer component.
  */
-const Footer = ({
-  type,
-  navigation,
-  langCode,
-  disableLocaleButton,
-  languageOnly,
-  languageItems,
-  languageInitialItem,
-  languageCallback,
-}) => {
-  let [footerMenuData, setFooterMenuData] = useState([]);
-  let [footerLegalData, setFooterLegalData] = useState([]);
-  let [displayLang, setDisplayLang] = useState('');
-  let [localeButtonAria, setLocaleButtonAria] = useState('');
+const Footer = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSFooterContainer
+  : ({
+      type,
+      navigation,
+      langCode,
+      disableLocaleButton,
+      languageOnly,
+      languageItems,
+      languageInitialItem,
+      languageCallback,
+    }) => {
+      let [footerMenuData, setFooterMenuData] = useState([]);
+      let [footerLegalData, setFooterLegalData] = useState([]);
+      let [displayLang, setDisplayLang] = useState('');
+      let [localeButtonAria, setLocaleButtonAria] = useState('');
 
-  useEffect(() => {
-    // initialize global execution calls
-    globalInit();
-  }, []);
+      useEffect(() => {
+        // initialize global execution calls
+        globalInit();
+      }, []);
 
-  useEffect(() => {
-    let stale = false;
-    if (!navigation) {
-      (async () => {
-        try {
-          const response = await TranslationAPI.getTranslation();
-          if (!stale) {
-            setFooterMenuData(response.footerMenu);
-            setFooterLegalData(response.footerThin);
-          }
-        } catch (error) {
-          console.error('Error populating footer data:', error);
+      useEffect(() => {
+        let stale = false;
+        if (!navigation) {
+          (async () => {
+            try {
+              const response = await TranslationAPI.getTranslation();
+              if (!stale) {
+                setFooterMenuData(response.footerMenu);
+                setFooterLegalData(response.footerThin);
+              }
+            } catch (error) {
+              console.error('Error populating footer data:', error);
+            }
+          })();
         }
-      })();
-    }
-    return () => {
-      stale = true;
+        return () => {
+          stale = true;
+        };
+      }, [navigation]);
+
+      useEffect(() => {
+        let stale = false;
+        (async () => {
+          const response = await LocaleAPI.getLangDisplay(langCode);
+          if (stale) {
+            return;
+          }
+          setDisplayLang(response);
+
+          const locale = await LocaleAPI.getLocale();
+          if (stale) {
+            return;
+          }
+          const list = await LocaleAPI.getList(locale);
+          if (stale) {
+            return;
+          }
+          setLocaleButtonAria(list.localeModal.headerTitle);
+        })();
+        return () => {
+          stale = true;
+        };
+      }, [langCode]);
+
+      if (navigation) {
+        footerMenuData = navigation.footerMenu;
+        footerLegalData = navigation.footerThin;
+      }
+
+      return (
+        <footer
+          data-autoid={`${stablePrefix}--footer`}
+          className={classNames(`${prefix}--footer`, {
+            [`${prefix}--footer--short`]: type === 'short',
+          })}>
+          <section className={`${prefix}--footer__main`}>
+            <div className={`${prefix}--footer__main-container`}>
+              <FooterLogo />
+              {_optionalFooterNav(type, footerMenuData)}
+              {_loadLocaleLanguage(
+                disableLocaleButton,
+                localeButtonAria,
+                displayLang,
+                languageOnly,
+                languageItems,
+                languageInitialItem,
+                languageCallback
+              )}
+            </div>
+          </section>
+          <LegalNav links={footerLegalData} />
+        </footer>
+      );
     };
-  }, [navigation]);
-
-  useEffect(() => {
-    let stale = false;
-    (async () => {
-      const response = await LocaleAPI.getLangDisplay(langCode);
-      if (stale) {
-        return;
-      }
-      setDisplayLang(response);
-
-      const locale = await LocaleAPI.getLocale();
-      if (stale) {
-        return;
-      }
-      const list = await LocaleAPI.getList(locale);
-      if (stale) {
-        return;
-      }
-      setLocaleButtonAria(list.localeModal.headerTitle);
-    })();
-    return () => {
-      stale = true;
-    };
-  }, [langCode]);
-
-  if (navigation) {
-    footerMenuData = navigation.footerMenu;
-    footerLegalData = navigation.footerThin;
-  }
-
-  return (
-    <footer
-      data-autoid={`${stablePrefix}--footer`}
-      className={classNames(`${prefix}--footer`, {
-        [`${prefix}--footer--short`]: type === 'short',
-      })}>
-      <section className={`${prefix}--footer__main`}>
-        <div className={`${prefix}--footer__main-container`}>
-          <FooterLogo />
-          {_optionalFooterNav(type, footerMenuData)}
-          {_loadLocaleLanguage(
-            disableLocaleButton,
-            localeButtonAria,
-            displayLang,
-            languageOnly,
-            languageItems,
-            languageInitialItem,
-            languageCallback
-          )}
-        </div>
-      </section>
-      <LegalNav links={footerLegalData} />
-    </footer>
-  );
-};
 
 /**
  * Loads in the locale modal, language selector, or null

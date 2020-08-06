@@ -8,6 +8,8 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ComposedModal from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
+import { DDS_USE_WEB_COMPONENTS_REACT } from '../../internal/FeatureFlags';
+import DDSModal from '@carbon/ibmdotcom-web-components/es/components-react/modal/modal';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ExpressiveModalCloseBtn from './ExpressiveModalCloseBtn';
 import PropTypes from 'prop-types';
@@ -19,48 +21,43 @@ const { prefix } = settings;
 /**
  * Expressive Modal.
  */
-const ExpressiveModal = ({
-  open,
-  className,
-  children,
-  fullwidth,
-  onClose,
-  ...props
-}) => {
-  const [isOpen, setIsOpen] = useState(open);
+const ExpressiveModal = DDS_USE_WEB_COMPONENTS_REACT
+  ? DDSModal
+  : ({ open, className, children, fullwidth, onClose, ...props }) => {
+      const [isOpen, setIsOpen] = useState(open);
 
-  useEffect(manageOpenState, [open]);
+      useEffect(manageOpenState, [open]);
 
-  return (
-    <ComposedModal
-      onClose={onClose}
-      open={isOpen}
-      data-autoid={`${stablePrefix}--expressive-modal`}
-      className={classNames(`${prefix}--modal--expressive`, className, {
-        [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
-      })}
-      {...props}>
-      <ExpressiveModalCloseBtn onClick={closeModal} />
-      {children}
-    </ComposedModal>
-  );
+      return (
+        <ComposedModal
+          onClose={onClose}
+          open={isOpen}
+          data-autoid={`${stablePrefix}--expressive-modal`}
+          className={classNames(`${prefix}--modal--expressive`, className, {
+            [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
+          })}
+          {...props}>
+          <ExpressiveModalCloseBtn onClick={closeModal} />
+          {children}
+        </ComposedModal>
+      );
 
-  /**
-   * Close modal
-   */
-  function closeModal() {
-    if (onClose?.() !== false) {
-      setIsOpen(false);
-    }
-  }
+      /**
+       * Close modal
+       */
+      function closeModal() {
+        if (onClose?.() !== false) {
+          setIsOpen(false);
+        }
+      }
 
-  /**
-   * Manage open prop and isOpen state
-   */
-  function manageOpenState() {
-    setIsOpen(open);
-  }
-};
+      /**
+       * Manage open prop and isOpen state
+       */
+      function manageOpenState() {
+        setIsOpen(open);
+      }
+    };
 
 ExpressiveModal.propTypes = {
   /**
