@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -104,8 +104,14 @@ export class SideNavMenu extends React.Component {
     };
   }
 
-  handleToggleExpand = () => {
+  handleToggleExpand = event => {
     this.setState(state => ({ isExpanded: !state.isExpanded }));
+  };
+
+  handleKeyToggleExpand = event => {
+    if (event.charCode === 13 || event.charCode === 32) {
+      this.setState(state => ({ isExpanded: !state.isExpanded }));
+    }
   };
 
   render() {
@@ -179,6 +185,10 @@ export class SideNavMenu extends React.Component {
         onClick:
           item.props.isbackbutton === 'true'
             ? this.handleToggleExpand.bind(this)
+            : null,
+        onKeyPress:
+          item.props.isbackbutton === 'true'
+            ? this.handleKeyToggleExpand.bind(this)
             : null,
       });
     }
