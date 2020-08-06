@@ -16252,19 +16252,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16312,19 +16312,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16439,19 +16439,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -16499,19 +16499,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -16524,20 +16524,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -16550,22 +16550,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
@@ -16899,19 +16899,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -16959,19 +16959,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -16984,20 +16984,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -17010,22 +17010,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
