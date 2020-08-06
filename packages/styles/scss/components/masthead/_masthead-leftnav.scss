@@ -53,11 +53,9 @@
     }
   }
 
-  .#{$prefix}--side-nav {
-    &__header-navigation {
-      height: 100%;
-      margin-bottom: 0;
-    }
+  .#{$prefix}--side-nav__header-navigation {
+    height: 100%;
+    margin-bottom: 0;
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav {
