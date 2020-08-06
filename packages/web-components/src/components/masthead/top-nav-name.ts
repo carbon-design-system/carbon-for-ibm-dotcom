@@ -9,7 +9,7 @@
 
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSMastheadTopNav from './top-nav';
 import DDSLeftNavName from './left-nav-name';

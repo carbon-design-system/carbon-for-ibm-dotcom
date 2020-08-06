@@ -10,7 +10,7 @@
 import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import 'carbon-custom-elements/es/components/ui-shell/header';
+import 'carbon-web-components/es/components/ui-shell/header';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 

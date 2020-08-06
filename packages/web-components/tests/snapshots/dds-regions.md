@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <div class="bx--row">
@@ -11,3 +11,4 @@
 </div>
 
 ```
+
