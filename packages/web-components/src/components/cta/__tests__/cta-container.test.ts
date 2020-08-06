@@ -179,8 +179,8 @@ describe('dds-cta-container', function() {
         document.body
       );
       await Promise.resolve();
-      const { _modalContainerRoot: modalContainerRoot } = document.querySelector('dds-cta-container') as any;
-      expect(modalContainerRoot).toMatchSnapshot();
+      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
+      expect(modalRenderRoot).toMatchSnapshot();
     });
 
     it('should support opening/closing the media viewer', async function() {
@@ -201,16 +201,16 @@ describe('dds-cta-container', function() {
       const ctaContainer = document.querySelector('dds-cta-container');
       ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4' } }));
       await Promise.resolve();
-      const { _modalContainerRoot: modalContainerRoot } = document.querySelector('dds-cta-container') as any;
-      expect((modalContainerRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
-      const { videoId: videoIdInVideoPlayerContainerOpen } = modalContainerRoot!.querySelector(
+      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
+      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
+      const { videoId: videoIdInVideoPlayerContainerOpen } = modalRenderRoot!.querySelector(
         'dds-lightbox-video-player-container'
       ) as DDSLightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerOpen).toBe('0_uka1msg4');
-      modalContainerRoot!.querySelector('bx-modal-close-button').click();
+      modalRenderRoot!.querySelector('bx-modal-close-button').click();
       await Promise.resolve();
-      expect((modalContainerRoot!.querySelector('dds-modal') as DDSModal).open).toBe(false);
-      const { videoId: videoIdInVideoPlayerContainerClosed } = modalContainerRoot!.querySelector(
+      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(false);
+      const { videoId: videoIdInVideoPlayerContainerClosed } = modalRenderRoot!.querySelector(
         'dds-lightbox-video-player-container'
       ) as DDSLightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerClosed).toBeFalsy();
