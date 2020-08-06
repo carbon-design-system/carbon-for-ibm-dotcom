@@ -59648,11 +59648,13 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
       >
         <ExpressiveModal
           fullwidth={true}
+          onClose={[Function]}
           open={true}
         >
           <ComposedModal
             className="bx--modal--expressive bx--modal--expressive--fullwidth"
             data-autoid="dds--expressive-modal"
+            onClose={[Function]}
             onKeyDown={[Function]}
             open={true}
             selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -59662,6 +59664,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               data-autoid="dds--expressive-modal"
               onBlur={[Function]}
               onClick={[Function]}
+              onClose={[Function]}
               onKeyDown={[Function]}
               onTransitionEnd={[Function]}
               open={true}
@@ -59870,11 +59873,13 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
         >
           <ExpressiveModal
             fullwidth={true}
+            onClose={[Function]}
             open={true}
           >
             <ComposedModal
               className="bx--modal--expressive bx--modal--expressive--fullwidth"
               data-autoid="dds--expressive-modal"
+              onClose={[Function]}
               onKeyDown={[Function]}
               open={true}
               selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -59884,6 +59889,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                 data-autoid="dds--expressive-modal"
                 onBlur={[Function]}
                 onClick={[Function]}
+                onClose={[Function]}
                 onKeyDown={[Function]}
                 onTransitionEnd={[Function]}
                 open={true}
