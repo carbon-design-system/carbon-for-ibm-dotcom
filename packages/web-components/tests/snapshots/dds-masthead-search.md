@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <div class="bx--header__search--actions">
@@ -24,7 +24,7 @@
 
 ```
 
-#### `should render with various attributes in the inactive state`
+####   `should render with various attributes in the inactive state`
 
 ```
 <div class="bx--header__search--actions">
@@ -46,7 +46,7 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <form
@@ -118,3 +118,4 @@
 </div>
 
 ```
+

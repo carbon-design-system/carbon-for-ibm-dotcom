@@ -10,11 +10,11 @@
 import findLast from 'lodash-es/findLast';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import { selectorTabbable } from 'carbon-custom-elements/es/globals/settings';
+import { selectorTabbable } from 'carbon-web-components/es/globals/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import HostListener from 'carbon-custom-elements/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-custom-elements/es/globals/mixins/host-listener';
-import BXSideNav, { SIDE_NAV_USAGE_MODE } from 'carbon-custom-elements/es/components/ui-shell/side-nav';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import BXSideNav, { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav';
 import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
