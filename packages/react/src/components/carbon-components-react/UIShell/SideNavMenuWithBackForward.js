@@ -61,4 +61,29 @@ const SideNavMenuWithBackForward = ({
   );
 };
 
+SideNavMenuWithBackForward.propTypes = {
+  /**
+   * Submenu nav section title
+   */
+  title: propTypes.string.isRequired,
+
+  /**
+   * Submenu nav section title url
+   */
+  titleUrl: propTypes.string,
+
+  /**
+   * Back button text
+   */
+  backButtonText: PropTypes.string,
+
+  /**
+   * Sidenav child elements to be rendered
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
+
 export default SideNavMenuWithBackForward;
