@@ -10,29 +10,13 @@
 import { css, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
+
+export { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME };
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-/**
- * The style scheme for the megamenu link with icon.
- */
-export enum MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME {
-  /**
-   * view all link style.
-   */
-  VIEW_ALL = 'view-all',
-
-  /**
-   * category headline link style.
-   */
-  CATEGORY_HEADLINE = 'category-headline',
-
-  /**
-   * default link style.
-   */
-  DEFAULT = 'default',
-}
 /**
  * Megamenu link with icon.
  *

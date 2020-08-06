@@ -22,7 +22,7 @@ import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-v
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 /* eslint-enable import/no-duplicates */
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import { CTAMixinImpl } from './mixins/cta';
 import styles from './video-cta-composite.scss';
 

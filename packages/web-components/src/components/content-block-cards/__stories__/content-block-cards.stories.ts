@@ -20,7 +20,7 @@ import '../../card-group/card-group-item';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 
-import { CTA_TYPE } from '../../cta/shared-enums';
+import { CTA_TYPE } from '../../cta/defs';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,

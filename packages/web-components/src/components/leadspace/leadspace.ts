@@ -11,46 +11,14 @@ import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
+export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME };
+
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Leadspace type
- */
-export enum LEADSPACE_TYPE {
-  /**
-   * Left-aligned - small style of the leadspace title (default)
-   */
-  SMALL = 'small',
-
-  /**
-   * Left-aligned - large style of the leadspace title
-   */
-  LEFT = 'left',
-
-  /**
-   * Centered type of the LeadSpace
-   */
-  CENTERED = 'centered',
-}
-
-/**
- * Gradient style scheme.
- */
-export enum LEADSPACE_GRADIENT_STYLE_SCHEME {
-  /**
-   * No gradient.
-   */
-  NONE = '',
-
-  /**
-   * With gradient.
-   */
-  WITH_GRADIENT = 'with-gradient',
-}
 
 /**
  * The LeadSpace component.

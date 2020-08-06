@@ -77,7 +77,7 @@ module.exports = ({ config, mode }) => {
       use: [...babelLoaderRule.use, require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
     },
     {
-      test: /-story\.[jt]s$/,
+      test: /\.stories\.[jt]sx?$/,
       use: [
         {
           loader: require.resolve('@storybook/source-loader'),
@@ -96,12 +96,12 @@ module.exports = ({ config, mode }) => {
       enforce: 'pre',
     },
     {
-      test: /\.ts$/,
+      test: /\.tsx?$/,
       use: [
         {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-modules'],
+            presets: ['@babel/preset-react', '@babel/preset-modules'],
             plugins: [
               [
                 'babel-plugin-emotion',
@@ -156,7 +156,7 @@ module.exports = ({ config, mode }) => {
     })
   );
 
-  config.resolve.extensions.push('.ts', '.d.ts');
+  config.resolve.extensions.push('.ts', '.tsx', '.d.ts');
 
   return config;
 };

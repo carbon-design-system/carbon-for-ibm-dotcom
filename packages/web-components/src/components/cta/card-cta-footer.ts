@@ -16,7 +16,7 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCardFooter from '../card/card-footer';
 import CTAMixin from './mixins/cta';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 const { prefix } = settings;

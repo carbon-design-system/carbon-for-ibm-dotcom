@@ -11,7 +11,7 @@ import { property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSFeatureCardFooter from '../feature-card/feature-card-footer';
 import CTAMixin from './mixins/cta';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -19,7 +19,7 @@ import {
 import DDSCard from '../card/card';
 import CTAMixin from './mixins/cta';
 import DDSCardCTAFooter from './card-cta-footer';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 export { CTA_TYPE };

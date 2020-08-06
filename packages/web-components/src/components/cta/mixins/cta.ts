@@ -15,7 +15,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Download20 from 'carbon-web-components/es/icons/download/20.js';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
-import { CTA_TYPE } from '../shared-enums';
+import { CTA_TYPE } from '../defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

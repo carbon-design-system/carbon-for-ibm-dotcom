@@ -9,21 +9,12 @@
 import { customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
+import { BUTTON_TYPES } from './defs';
 import styles from './button-group.scss';
 
+export { BUTTON_TYPES };
+
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-export enum BUTTON_TYPES {
-  /**
-   * Default / Primary
-   */
-  DEFAULT = 'primary',
-
-  /**
-   * Alternate / Tertiary
-   */
-  ALTERNATE = 'tertiary',
-}
 
 /**
  * Button group.

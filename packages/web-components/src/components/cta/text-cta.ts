@@ -15,7 +15,7 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from './mixins/cta';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 export { CTA_TYPE };

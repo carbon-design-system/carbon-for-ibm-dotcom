@@ -17,7 +17,7 @@ import {
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from './mixins/cta';
 import DDSFeatureCTAFooter from './feature-cta-footer';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 export { CTA_TYPE };
