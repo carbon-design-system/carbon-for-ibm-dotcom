@@ -57,7 +57,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer) ::slotted(#{$dds-prefix}-footer-nav),
+  :host(#{$dds-prefix}-footer[size='short'])
+    ::slotted(#{$dds-prefix}-footer-nav),
   .#{$prefix}--footer--short .#{$prefix}--footer-nav {
     display: none;
   }
