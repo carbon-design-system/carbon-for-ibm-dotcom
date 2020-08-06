@@ -16,17 +16,18 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import EventManager from '../../../../tests/utils/event-manager';
 import getSearchParams from '../../../../tests/utils/search-params';
 import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
+import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
 import { reducers, store } from '../masthead-container';
 
 store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 const template = (props?) => {
-  const { authenticated, language, loginNonce, navLinks } = props ?? {};
+  const { language, loginNonce, userStatus, navLinks } = props ?? {};
   return html`
     <dds-masthead-container
-      ?authenticated="${authenticated}"
       language="${ifNonNull(language)}"
       login-nonce="${ifNonNull(loginNonce)}"
+      user-status="${ifNonNull(userStatus)}"
       .navLinks="${navLinks}"
     >
     </dds-masthead-container>
@@ -58,7 +59,7 @@ describe('dds-masthead-container', function() {
     });
 
     it('should render authenticated state', async function() {
-      render(template({ authenticated: true }), document.body);
+      render(template({ userStatus: USER_AUTHENTICATION_STATUS.AUTHENTICATED }), document.body);
       await Promise.resolve();
       const mastheadContainer = document.body.querySelector('dds-masthead-container');
       expect(mastheadContainer!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
