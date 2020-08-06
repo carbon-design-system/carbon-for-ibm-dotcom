@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <a
@@ -25,7 +25,7 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <a
@@ -48,3 +48,4 @@
 </ul>
 
 ```
+

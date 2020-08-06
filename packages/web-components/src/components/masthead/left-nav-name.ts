@@ -10,8 +10,8 @@
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
-import BXHeaderName from 'carbon-custom-elements/es/components/ui-shell/header-name';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
