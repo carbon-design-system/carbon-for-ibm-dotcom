@@ -11,11 +11,11 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import User20 from 'carbon-custom-elements/es/icons/user/20';
-import UserOnline20 from 'carbon-custom-elements/es/icons/user--online/20';
-import FocusMixin from 'carbon-custom-elements/es/globals/mixins/focus';
-import HostListenerMixin from 'carbon-custom-elements/es/globals/mixins/host-listener';
-import HostListener from 'carbon-custom-elements/es/globals/decorators/host-listener';
+import User20 from 'carbon-web-components/es/icons/user/20';
+import UserOnline20 from 'carbon-web-components/es/icons/user--online/20';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import styles from './masthead.scss';
 
 const { prefix } = settings;

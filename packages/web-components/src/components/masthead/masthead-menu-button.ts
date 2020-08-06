@@ -10,7 +10,7 @@
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXHeaderMenuButton from 'carbon-custom-elements/es/components/ui-shell/header-menu-button';
+import BXHeaderMenuButton from 'carbon-web-components/es/components/ui-shell/header-menu-button';
 import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
