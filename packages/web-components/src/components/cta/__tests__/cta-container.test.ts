@@ -8,11 +8,11 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowDown20 from 'carbon-custom-elements/es/icons/arrow--down/20';
-import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
-import Download20 from 'carbon-custom-elements/es/icons/download/20';
-import Launch20 from 'carbon-custom-elements/es/icons/launch/20';
-import PlayOutline20 from 'carbon-custom-elements/es/icons/play--outline/20';
+import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Download20 from 'carbon-web-components/es/icons/download/20';
+import Launch20 from 'carbon-web-components/es/icons/launch/20';
+import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20';
 import DDSModal from '../../modal/modal';
 import DDSLightboxVideoPlayerContainer from '../../lightbox-media-viewer/lightbox-video-player-container';
 import { CTA_STYLE, CTA_TYPE } from '../cta-container';

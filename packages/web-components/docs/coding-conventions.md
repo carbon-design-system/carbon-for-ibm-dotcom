@@ -72,14 +72,14 @@ For example, `<CTA>` in `@carbon/ibmdotcom-react` is heavy, and thus components 
 
 To avoid memory leaks and zombie event listeners, we ensure the event listeners on custom elements themselves (hosts) and ones on `document`, etc. are released when they get out of render tree.
 
-For that purpose, similar to `carbon-custom-elements`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener. The `type` argument can be something like `document:click` so the `click` event listener is attached to `document`.
+For that purpose, similar to `carbon-web-components`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener. The `type` argument can be something like `document:click` so the `click` event listener is attached to `document`.
 
 Here's an example seen in `<bx-modal>` code:
 
 ```typescript
 ...
-import HostListener from 'carbon-custom-elements/es/globals/decorators/HostListener';
-import HostListenerMixin from 'carbon-custom-elements/es/globals/mixins/HostListener';
+import HostListener from 'carbon-web-components/es/globals/decorators/HostListener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/HostListener';
 ...
 
 @customElement(`${prefix}-modal` as any)
@@ -256,7 +256,7 @@ static get eventButtonToggle() {
 }
 ```
 
-> 💡 Some components fire another event, which is [cancelable](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable), right before it changes the state. For example, [`<bx-modal>` fires `bx-modal-beingclosed` custom event before it updates its state from `open` to `closed`](https://github.com/carbon-design-system/carbon-custom-elements/blob/v1.0.0/src/components/modal/modal.ts#L166). If `.preventDefault()` is called on such event, the modal won't be closed.
+> 💡 Some components fire another event, which is [cancelable](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable), right before it changes the state. For example, [`<bx-modal>` fires `bx-modal-beingclosed` custom event before it updates its state from `open` to `closed`](https://github.com/carbon-design-system/carbon-web-components/blob/v1.0.0/src/components/modal/modal.ts#L166). If `.preventDefault()` is called on such event, the modal won't be closed.
 
 > 💡 We define custom event names as static properties so derived classes can customize them.
 
@@ -284,7 +284,7 @@ Some translatable strings are specified as a property, whose value is a function
 
 ### Collation
 
-Similar to `carbon-custom-elements`, to avoid problems with collation, the primary means for user to determine order in list item is ordering them in DOM, for example:
+Similar to `carbon-web-components`, to avoid problems with collation, the primary means for user to determine order in list item is ordering them in DOM, for example:
 
 ```html
 <bx-dropdown>
@@ -318,7 +318,7 @@ It may not be desirable in two scenarios:
 
 ## Propagating misc attributes from shadow host to an element in shadow DOM
 
-Similar to `carbon-custom-elements`, some components, e.g. `<bx-btn>`, simply represent the content in shadow DOM, e.g. `<button>` in it. It's sometimes desiable for applications to have control of attributes in `<button>`, for example, adding `data-` attributes there.
+Similar to `carbon-web-components`, some components, e.g. `<bx-btn>`, simply represent the content in shadow DOM, e.g. `<button>` in it. It's sometimes desiable for applications to have control of attributes in `<button>`, for example, adding `data-` attributes there.
 
 In such case, we let consumer create a derived class. For example, its `.attributeChangedCallback()` can propagate `<bx-btn>`'s attribute to `<button>` in it.
 

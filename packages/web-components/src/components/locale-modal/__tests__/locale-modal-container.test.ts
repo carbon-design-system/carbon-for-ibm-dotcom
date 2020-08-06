@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import { forEach } from '../../../globals/internal/collection-helpers';
 /* eslint-disable import/no-duplicates */
 import { LocaleList } from '../../../globals/services-store/types/localeAPI';

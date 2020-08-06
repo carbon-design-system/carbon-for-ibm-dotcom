@@ -10,8 +10,8 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
-import BXLink from 'carbon-custom-elements/es/components/link/link';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import BXLink from 'carbon-web-components/es/components/link/link';
 
 const { prefix } = settings;
 
@@ -50,7 +50,6 @@ class DDSLink extends BXLink {
         rel="${ifNonNull(rel)}"
         target="${ifNonNull(target)}"
         type="${ifNonNull(type)}"
-        @click="${this._handleClickLink}"
       >
         ${this._renderInner()}
       </a>
