@@ -1,0 +1,81 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
+@import 'carbon-components/scss/globals/scss/vars';
+@import 'carbon-components/scss/components/link/link';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
+
+@include carbon-expressive-component-tokens;
+
+@import '@carbon/ibmdotcom-styles/scss/components/footer/temp-breakpoints';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/footer';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-logo';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/footer-nav-group';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/legal-nav';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/locale-button';
+
+:host(#{$dds-prefix}-footer),
+:host(#{$dds-prefix}-footer-nav-group),
+:host(#{$dds-prefix}-footer-nav),
+:host(#{$dds-prefix}-locale-button),
+.#{$prefix}--legal-nav {
+  // Overrides productive type tokens set by `g90` theme zoning
+  @include use-carbon-expressive-tokens();
+}
+
+:host(#{$dds-prefix}-footer),
+:host(#{$dds-prefix}-legal-nav) {
+  display: block;
+}
+
+:host(#{$dds-prefix}-footer-nav-item),
+:host(#{$dds-prefix}-legal-nav-item) {
+  display: list-item;
+
+  outline: none;
+}
+
+:host(#{$dds-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
+  display: block;
+}
+
+:host(#{$dds-prefix}-locale-button) {
+  outline: none;
+
+  .#{$prefix}--btn {
+    // Forces the style of text + icon button style
+    padding-right: 12px;
+  }
+}
+
+// The style of legal nav deviates from the one of React, so we can make the markup simpler.
+// FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+:host(#{$dds-prefix}-legal-nav) .#{$prefix}--legal-nav__list {
+  @include carbon--breakpoint('lg') {
+    margin-left: 25%;
+  }
+}
+
+// The style of legal nav deviates from the one of React, so we can make the markup simpler.
+// FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+.#{$prefix}--legal-nav__list > ul {
+  width: 100%;
+
+  @include carbon--breakpoint('md') {
+    display: block;
+    column-count: 2;
+    column-gap: $carbon--grid-gutter;
+  }
+
+  @include carbon--breakpoint('lg') {
+    column-count: 3;
+  }
+}
