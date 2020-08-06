@@ -10,19 +10,21 @@
 import { Action } from 'redux';
 
 /**
- * A quick link item in mega panel.
+ * A link item.
+ * Used for masthead, footer, etc.
  */
-export interface MegapanelQuickLink {
+export interface BasicLink {
   title: string;
   url?: string;
 }
 
 /**
- * A quick links in mega panel.
+ * A set of links.
+ * Used for masthead, footer, etc.
  */
-export interface MegapanelQuickLinks {
+export interface BasicLinkSet {
   title: string;
-  links: MegapanelQuickLink[];
+  links: BasicLink[];
 }
 
 /**
@@ -42,7 +44,7 @@ export interface MegapanelContent {
   headingTitle?: string;
   headingUrl?: string;
   description?: string;
-  quickLinks: MegapanelQuickLinks;
+  quickLinks: BasicLinkSet;
   feature: MegapanelFeature;
 }
 
@@ -84,6 +86,16 @@ export interface Translation {
      */
     links: MastheadLink[];
   };
+
+  /**
+   * The link sets for footer menu.
+   */
+  footerMenu: BasicLinkSet[];
+
+  /**
+   * The compact version of the links for footer menu.
+   */
+  footerThin: BasicLink[];
 }
 
 /**
