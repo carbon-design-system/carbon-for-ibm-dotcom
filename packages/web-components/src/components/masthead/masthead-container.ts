@@ -14,9 +14,11 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
 import { MastheadLink, Translation, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
+import { USER_AUTHENTICATION_STATUS, ProfileAPIState } from '../../globals/services-store/types/profileAPI';
 import store from '../../globals/services-store/store';
 import { loadLanguage, setLanguage } from '../../globals/services-store/actions/localeAPI';
 import { loadTranslation } from '../../globals/services-store/actions/translateAPI';
+import { monitorUserStatus } from '../../globals/services-store/actions/profileAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 import './masthead';
 import './masthead-logo';
@@ -101,6 +103,11 @@ export interface MastheadContainerState {
    * The Redux state for `TranslateAPI`.
    */
   translateAPI?: TranslateAPIState;
+
+  /**
+   * The Redux state for `ProfileAPI`.
+   */
+  profileAPI?: ProfileAPIState;
 }
 
 /**
@@ -111,9 +118,18 @@ interface MastheadContainerStateProps {
    * The nav links.
    */
   navLinks?: MastheadLink[];
+
+  /**
+   * The user authentication status.
+   */
+  userStatus?: USER_AUTHENTICATION_STATUS;
 }
 
-type MastheadActions = ReturnType<typeof loadLanguage> | ReturnType<typeof setLanguage> | ReturnType<typeof loadTranslation>;
+type MastheadActions =
+  | ReturnType<typeof loadLanguage>
+  | ReturnType<typeof setLanguage>
+  | ReturnType<typeof loadTranslation>
+  | ReturnType<typeof monitorUserStatus>;
 
 /**
  * The default nav items for authenticated state.
@@ -153,16 +169,35 @@ const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
 ];
 
 /**
+ * @param props A key/value pair.
+ * @returns The modified version of the given `props` with all properties with `undefined` value removed.
+ */
+function cleanProps(props: { [key: string]: unknown }) {
+  return Object.keys(props).reduce(
+    (acc, prop) =>
+      typeof props[prop] === 'undefined'
+        ? acc
+        : {
+            ...acc,
+            [prop]: props[prop],
+          },
+    {}
+  );
+}
+
+/**
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
 function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
-  const { localeAPI, translateAPI } = state;
+  const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
-  return {
+  const { status } = profileAPI ?? {};
+  return cleanProps({
     navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
-  };
+    userStatus: status?.user,
+  });
 }
 
 /**
@@ -175,6 +210,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
+      _monitorUserStatus: monitorUserStatus,
     },
     dispatch
   );
@@ -217,6 +253,11 @@ class DDSMastheadContainer extends ConnectMixin<
   private _loadTranslation!: () => Promise<Translation>;
 
   /**
+   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
+   */
+  private _monitorUserStatus!: () => void;
+
+  /**
    * `true` to open the search dropdown.
    */
   private _openSearchDropdown = false;
@@ -243,7 +284,7 @@ class DDSMastheadContainer extends ConnectMixin<
 
   /**
    * @returns The endpoint to process the search query.
-_  */
+   */
   private async _getSearchEndpoint() {
     const { _searchQueryString: searchQueryString } = this;
     const language = await this._loadLanguage();
@@ -378,12 +419,6 @@ _  */
   }
 
   /**
-   * `true` if this masthead UI should show the authenticated status.
-   */
-  @property({ type: Boolean, reflect: true })
-  authenticated = false;
-
-  /**
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
@@ -455,6 +490,12 @@ _  */
   @property({ attribute: false })
   navLinks?: MastheadLink[];
 
+  /**
+   * The user authentication status.
+   */
+  @property({ attribute: 'user-status' })
+  userStatus?: USER_AUTHENTICATION_STATUS;
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -482,6 +523,7 @@ _  */
     if (!navLinks) {
       this._loadTranslation().catch(() => {}); // The error is logged in the Redux store
     }
+    this._monitorUserStatus();
   }
 
   updated(changedProperties) {
@@ -502,7 +544,6 @@ _  */
 
   render() {
     const {
-      authenticated,
       authenticateProfileItems,
       brandName,
       mastheadLabel,
@@ -512,11 +553,13 @@ _  */
       loginNonce,
       logoHref,
       unauthenticatedProfileItems,
+      userStatus,
       _currentSearchResults: currentSearchResults,
       _handleInputSearch: handleInputSearch,
       _openSearchDropdown: openSearchDropdown,
     } = this;
     const searchParams = new URLSearchParams();
+    const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     if (!authenticated) {
       searchParams.append('response_type', 'token');
       searchParams.append('client_id', 'v18loginprod');
