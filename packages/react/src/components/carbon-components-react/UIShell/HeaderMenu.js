@@ -58,10 +58,16 @@ class HeaderMenu extends React.Component {
      * Optional component to render instead of string
      */
     renderMenuContent: PropTypes.func,
+
+    /**
+     * function to toogle overlay that appears when opening menu
+     */
+    setOverlay: PropTypes.func,
   };
 
   static defaultProps = {
     renderMenuContent: defaultRenderMenuContent,
+    setOverlay: () => {},
   };
 
   constructor(props) {
