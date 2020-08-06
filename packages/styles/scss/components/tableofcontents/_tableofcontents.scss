@@ -36,6 +36,10 @@
         color: $text-01;
         border-left-color: $interactive-04;
       }
+
+      &:hover {
+        border-left-color: $interactive-04;
+      }
     }
   }
 }
