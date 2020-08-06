@@ -39,22 +39,9 @@ export default class Container extends Component {
   render() {
     const { story } = this.props;
 
-    let bgColor = '';
-    if (
-      story().props.context &&
-      story().props.context.kind === '[Experimental] UI Shell'
-    ) {
-      bgColor = '#f3f3f3';
-    }
-
     return (
       <React.StrictMode>
-        <div
-          data-floating-menu-container=""
-          role="main"
-          style={{
-            backgroundColor: bgColor,
-          }}>
+        <div data-floating-menu-container="" role="main">
           {story()}
         </div>
         <input

@@ -96,7 +96,7 @@ module.exports = {
               const descriptor = await descriptorFromSVG(String(file.contents));
               file.contents = Buffer.from(`
                 import { svg } from 'lit-html';
-                import spread from 'carbon-custom-elements/es/globals/directives/spread';
+                import spread from 'carbon-web-components/es/globals/directives/spread';
                 const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(descriptor)};
                 export default svgResultIBMdotcomIcon;
               `);

@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import { EventTarget } from 'event-target-shim';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSVideoPlayer from '../video-player';

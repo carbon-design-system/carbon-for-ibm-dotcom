@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXHeaderMenuItem from 'carbon-custom-elements/es/components/ui-shell/header-menu-item';
+import BXHeaderMenuItem from 'carbon-web-components/es/components/ui-shell/header-menu-item';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
