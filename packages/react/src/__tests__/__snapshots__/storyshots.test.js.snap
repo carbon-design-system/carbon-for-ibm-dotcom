@@ -67607,11 +67607,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -67722,11 +67717,6 @@ exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
