@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @param {Function} props.setCurrentRegion sets state for region name
  * @param {boolean} props.setIsFiltering true when search filter is visible
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
- * @param {string} props.closeModalLabel label for the return button
+ * @param {string} props.closeModalLabel label for the close button
  * @param {string} props.returnButtonLabel label for the return button
  * @returns {*} LocaleModalRegions component
  */
