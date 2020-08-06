@@ -7,11 +7,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx-grid"
@@ -196,11 +191,6 @@ exports[`Storyshots Components|CTA Button 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid "
@@ -547,11 +537,6 @@ exports[`Storyshots Components|CTA Card 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid "
@@ -780,11 +765,6 @@ exports[`Storyshots Components|CTA Feature Card 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid "
@@ -1112,11 +1092,6 @@ exports[`Storyshots Components|CTA Text 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid "
@@ -1252,11 +1227,6 @@ exports[`Storyshots Components|CTASection Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -1518,11 +1488,6 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -2052,11 +2017,6 @@ exports[`Storyshots Components|CalloutQuote Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -2250,11 +2210,6 @@ exports[`Storyshots Components|CalloutWithMedia Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -2513,11 +2468,6 @@ exports[`Storyshots Components|Card Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--card--white"
@@ -2662,11 +2612,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--content-group-story"
@@ -3758,11 +3703,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--content-group-story"
@@ -4963,11 +4903,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--content-group-story"
@@ -6274,11 +6209,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--content-group-story"
@@ -7694,11 +7624,6 @@ exports[`Storyshots Components|CardLink Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--grid--condensed"
@@ -7850,11 +7775,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <CardSectionImages
       cards={
@@ -9245,11 +9165,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <CardSectionSimple
       cards={
@@ -10425,11 +10340,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <CardSectionSimple
       cards={
@@ -11722,11 +11632,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -13110,11 +13015,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -14713,11 +14613,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -16276,11 +16171,6 @@ exports[`Storyshots Components|ContentBlockMedia Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -16362,19 +16252,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16422,19 +16312,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16549,19 +16439,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -16609,19 +16499,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -16634,20 +16524,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -16660,22 +16550,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
@@ -17009,19 +16899,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -17069,19 +16959,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -17094,20 +16984,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -17120,22 +17010,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
@@ -17703,11 +17593,6 @@ exports[`Storyshots Components|ContentBlockMedia With aside elements 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -19629,11 +19514,6 @@ exports[`Storyshots Components|ContentBlockMixed Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -21532,11 +21412,6 @@ exports[`Storyshots Components|ContentBlockMixed With aside elements 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -23934,11 +23809,6 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -24738,11 +24608,6 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -25489,11 +25354,6 @@ exports[`Storyshots Components|ContentBlockSegmented With aside elements 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -26597,11 +26457,6 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -26909,11 +26764,6 @@ exports[`Storyshots Components|ContentBlockSimple With Image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -27335,11 +27185,6 @@ exports[`Storyshots Components|ContentBlockSimple With Video 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -27708,11 +27553,6 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -28633,11 +28473,6 @@ exports[`Storyshots Components|ContentGroupCards Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -29211,11 +29046,6 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -30153,11 +29983,6 @@ exports[`Storyshots Components|ContentGroupPictograms Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -30563,11 +30388,6 @@ exports[`Storyshots Components|ContentGroupSimple Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -30953,11 +30773,6 @@ exports[`Storyshots Components|ContentGroupSimple With Image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -31456,11 +31271,6 @@ exports[`Storyshots Components|ContentGroupSimple With Video 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -31906,11 +31716,6 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid bx--content-group-story"
@@ -32246,11 +32051,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <DotcomShell
       footerProps={
@@ -37779,11 +37579,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -43531,11 +43326,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -49160,11 +48950,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -54740,11 +54525,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <ExpressiveModal
       className="bx--modal--expressive"
@@ -54967,11 +54747,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <ExpressiveModal
       className="bx--modal--expressive"
@@ -55195,11 +54970,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -55382,11 +55152,6 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -55678,11 +55443,6 @@ exports[`Storyshots Components|FeatureCardBlockMedium Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -55892,11 +55652,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Footer
       disableLocaleButton={false}
@@ -56051,11 +55806,6 @@ exports[`Storyshots Components|Footer Short 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -56232,11 +55982,6 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div>
       <h1>
@@ -56313,11 +56058,6 @@ exports[`Storyshots Components|Image Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -56395,11 +56135,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -56556,11 +56291,6 @@ exports[`Storyshots Components|Layout Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <p
       style={
@@ -56850,11 +56580,6 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LeadSpace
       buttons={
@@ -57088,11 +56813,6 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LeadSpace
       buttons={
@@ -57357,11 +57077,6 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LeadSpace
       buttons={
@@ -57655,11 +57370,6 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <DefaultWithImage
       parameters={
@@ -57937,11 +57647,6 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LeadSpace
       buttons={
@@ -58175,11 +57880,6 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LeadSpace
       buttons={
@@ -58474,11 +58174,6 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -59235,11 +58930,6 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -59943,11 +59633,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LightboxMediaViewer
       media={
@@ -59967,11 +59652,13 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
       >
         <ExpressiveModal
           fullwidth={true}
+          onClose={[Function]}
           open={true}
         >
           <ComposedModal
             className="bx--modal--expressive bx--modal--expressive--fullwidth"
             data-autoid="dds--expressive-modal"
+            onClose={[Function]}
             onKeyDown={[Function]}
             open={true}
             selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -59981,6 +59668,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               data-autoid="dds--expressive-modal"
               onBlur={[Function]}
               onClick={[Function]}
+              onClose={[Function]}
               onKeyDown={[Function]}
               onTransitionEnd={[Function]}
               open={true}
@@ -60131,11 +59819,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -60194,11 +59877,13 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
         >
           <ExpressiveModal
             fullwidth={true}
+            onClose={[Function]}
             open={true}
           >
             <ComposedModal
               className="bx--modal--expressive bx--modal--expressive--fullwidth"
               data-autoid="dds--expressive-modal"
+              onClose={[Function]}
               onKeyDown={[Function]}
               open={true}
               selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -60208,6 +59893,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                 data-autoid="dds--expressive-modal"
                 onBlur={[Function]}
                 onClick={[Function]}
+                onClose={[Function]}
                 onKeyDown={[Function]}
                 onTransitionEnd={[Function]}
                 open={true}
@@ -60346,11 +60032,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -61160,11 +60841,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -61655,11 +61331,6 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -61932,11 +61603,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -62432,11 +62098,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -63712,11 +63373,6 @@ exports[`Storyshots Components|LinkwithIcon Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       style={
@@ -63794,11 +63450,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <LocaleModal
       isOpen={true}
@@ -64095,11 +63746,6 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -64790,11 +64436,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Masthead
       hasProfile={true}
@@ -65231,11 +64872,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Masthead
       hasProfile={true}
@@ -65842,11 +65478,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <Default
       parameters={
@@ -66362,11 +65993,6 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -66592,11 +66218,6 @@ exports[`Storyshots Components|Quote Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"
@@ -66749,11 +66370,6 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <ManuallyDefineMenuItems
       parameters={
@@ -67100,11 +66716,6 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <TableOfContents
       menuItems={null}
@@ -67427,11 +67038,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <ManuallyDefineMenuItems
       parameters={
@@ -68008,11 +67614,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
   <div
     data-floating-menu-container=""
     role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
   >
     <div
       className="bx--grid"

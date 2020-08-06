@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
 import { html, property, customElement, LitElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
+import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import '../modal/modal';
 import '../modal/modal-header';
@@ -68,7 +68,7 @@ export type TEXT_CTA_ITEM = TYPED_CTA_ITEM;
  * @element dds-cta-container
  */
 @customElement(`${ddsPrefix}-cta-container`)
-class DDSCTAContainer extends HybridRenderMixin(LitElement) {
+class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
   /**
    * The handle for the listener of `${ddsPrefix}-cta-run-action` event.
    */
@@ -78,26 +78,6 @@ class DDSCTAContainer extends HybridRenderMixin(LitElement) {
    * `true` to show the video player.
    */
   private _currentVideoId?: string;
-
-  /**
-   * The element where `<dds-lightbox-media-viewer>` should be put in.
-   */
-  private _modalContainerRoot: HTMLDivElement | null = null;
-
-  /**
-   * Creates the element where `<dds-lightbox-media-viewer>` should be put in, if it's not created yet.
-   *
-   * @returns The element where `<dds-lightbox-media-viewer>` should be put in.
-   */
-  private _createModalContainerRoot() {
-    if (!this._modalContainerRoot) {
-      const { ownerDocument: doc } = this;
-      const div = doc!.createElement('div');
-      doc!.body.appendChild(div);
-      this._modalContainerRoot = div;
-    }
-    return this._modalContainerRoot;
-  }
 
   /**
    * Handles the user gesture of closing video player modal.
@@ -154,10 +134,6 @@ class DDSCTAContainer extends HybridRenderMixin(LitElement) {
   }
 
   disconnectedCallback() {
-    if (this._modalContainerRoot) {
-      this._modalContainerRoot.remove();
-      this._modalContainerRoot = null;
-    }
     if (this._hRunAction) {
       this._hRunAction = this._hRunAction.release();
     }
@@ -167,7 +143,7 @@ class DDSCTAContainer extends HybridRenderMixin(LitElement) {
   /**
    * @returns The media viewer lightbox for `type="video"`.
    */
-  renderLightboxMediaViewer() {
+  renderModal() {
     const { _currentVideoId: currentVideoId, _handleCloseVideoPlayer: handleCloseVideoPlayer } = this;
     return html`
       <dds-lightbox-video-player-container video-id="${ifNonNull(currentVideoId)}">
@@ -193,14 +169,6 @@ class DDSCTAContainer extends HybridRenderMixin(LitElement) {
     return html`
       <slot></slot>
     `;
-  }
-
-  update(changedProperties) {
-    super.update(changedProperties);
-    const modalContainer = this._createModalContainerRoot();
-    if (modalContainer) {
-      render(this.renderLightboxMediaViewer(), modalContainer);
-    }
   }
 
   /**
