@@ -58,10 +58,10 @@ export const aspectRatio1x1 = ({ parameters }) => {
 aspectRatio1x1.story = {
   name: 'Aspect ratio 1:1',
   parameters: {
-    props: {
-      VideoPlayer: () => {
+    knobs: {
+      VideoPlayer: ({ groupId }) => {
         return {
-          showCaption: true,
+          showCaption: boolean('Show caption (showCaption):', true, groupId),
           aspectRatio: '1x1',
           videoId: '1_9h94wo6b',
         };
@@ -77,10 +77,10 @@ export const aspectRatio4x3 = ({ parameters }) => (
 aspectRatio4x3.story = {
   name: 'Aspect ratio 4:3',
   parameters: {
-    props: {
-      VideoPlayer: () => {
+    knobs: {
+      VideoPlayer: ({ groupId }) => {
         return {
-          showCation: true,
+          showCaption: boolean('Show caption (showCaption):', true, groupId),
           aspectRatio: '4x3',
           videoId: '1_p2osmd1z',
         };
