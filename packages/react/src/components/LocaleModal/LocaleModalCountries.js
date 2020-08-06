@@ -29,6 +29,7 @@ const LocaleModalCountries = ({
   ...modalLabels
 }) => {
   useEffect(() => {
+    const localeList = document.querySelector(`.${prefix}--locale-modal__list`);
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
     );
@@ -39,6 +40,8 @@ const LocaleModalCountries = ({
       `.${prefix}--search .${prefix}--search-close`
     );
     const localeHidden = `${prefix}--locale-modal__locales-hidden`;
+
+    localeList.scrollTop = 0;
 
     localeFilter?.addEventListener(
       'keyup',
