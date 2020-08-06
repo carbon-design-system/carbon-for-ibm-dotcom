@@ -80,6 +80,7 @@ function _renderLegalItems(footerThin) {
       )
       .join('');
   }
+  return '';
 }
 
 /**
@@ -91,7 +92,7 @@ function _renderLegalItems(footerThin) {
  * @private
  */
 function _optionalFooterNav(type, footerMenu) {
-  if (type !== 'short') {
+  if (footerMenu && type !== 'short') {
     return footerNav(footerMenu);
   }
   return '';

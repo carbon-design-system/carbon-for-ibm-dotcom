@@ -9,7 +9,7 @@
 
 import { html, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-container.scss';
