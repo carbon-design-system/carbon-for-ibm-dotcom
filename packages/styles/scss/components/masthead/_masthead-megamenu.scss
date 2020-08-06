@@ -1,0 +1,216 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin masthead-megamenu {
+  $l0-nav-height: $spacing-09;
+
+  @keyframes expand {
+    0% {
+      max-height: 0;
+    }
+    100% {
+      max-height: 100vh;
+    }
+  }
+
+  @keyframes collapse {
+    0% {
+      overflow-y: auto;
+      max-height: 100vh;
+    }
+    100% {
+      max-height: 0;
+      overflow-y: hidden;
+    }
+  }
+
+  .#{$prefix}--header__nav
+    .#{$prefix}--masthead__megamenu__l0-nav
+    .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
+    background-color: transparent;
+    bottom: 0;
+    box-shadow: none;
+  }
+
+  .#{$prefix}--masthead__megamenu {
+    &__l0-nav {
+      .#{$prefix}--header__menu {
+        position: fixed;
+        display: block;
+        visibility: hidden;
+        margin-bottom: $layout-05;
+        left: 0;
+        width: 100vw;
+        transition: visibility $transition--expansion $carbon--standard-easing;
+      }
+
+      .#{$prefix}--header__menu-title[aria-expanded='false']
+        + .#{$prefix}--header__menu
+        .#{$prefix}--masthead__megamenu {
+        animation: $transition--expansion motion(standard, expressive) collapse;
+      }
+
+      .#{$prefix}--header__menu-title[aria-expanded='true']
+        + .#{$prefix}--header__menu {
+        position: fixed;
+        top: $l0-nav-height;
+        left: 0;
+        transform: translateZ(0);
+        visibility: visible;
+        margin-bottom: $layout-05;
+        min-height: carbon--mini-units(40);
+        width: 100vw;
+
+        .#{$prefix}--masthead__megamenu {
+          animation: $transition--expansion motion(standard, expressive) expand;
+        }
+      }
+    }
+
+    overflow-x: scroll;
+    background-color: $ui-background;
+
+    @include box-shadow;
+
+    &__container {
+      width: 100%;
+      @include carbon--make-container;
+
+      &--row {
+        @include carbon--make-row;
+
+        flex-wrap: nowrap;
+        width: 100%;
+      }
+    }
+
+    &__categories {
+      column-count: 4;
+      padding: 0 0 $layout-03 $layout-01;
+
+      .#{$prefix}--masthead__megamenu__container--hasHighlights & {
+        column-count: 3;
+      }
+    }
+
+    &__categories-section {
+      display: flex;
+      flex-direction: column;
+      padding-top: $spacing-06;
+      width: 100%;
+    }
+
+    &__menu-category {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: $spacing-07;
+      overflow: hidden;
+      break-inside: avoid-column;
+
+      .#{$prefix}--masthead__megamenu__categories-section & {
+        margin-left: -1rem;
+      }
+    }
+
+    &__category-headline {
+      width: 100%;
+
+      p,
+      .#{$prefix}--link-with-icon {
+        padding: 9px $spacing-05;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      span,
+      p {
+        color: $text-01;
+        @include use-carbon-productive-tokens();
+        @include type-style('productive-heading-01');
+      }
+
+      svg {
+        color: $link-01;
+        min-width: $spacing-05;
+        align-self: flex-start;
+      }
+
+      &:visited,
+      &:hover {
+        color: $text-01;
+      }
+    }
+
+    &__category-sublink {
+      @include use-carbon-productive-tokens();
+      @include type-style('body-short-01');
+
+      color: $text-02;
+      text-decoration: none;
+      padding: 9px $spacing-05;
+
+      &:hover,
+      &:active {
+        color: $text-01;
+      }
+    }
+
+    &__view-all-cta {
+      margin-top: auto;
+      display: flex;
+
+      .#{$prefix}--link-with-icon {
+        text-decoration: none;
+        width: 100%;
+        margin: 0 $spacing-05;
+        border-top: carbon--rem(1px) solid $ui-03;
+        height: $spacing-09;
+
+        &:hover {
+          border-top: carbon--rem(1px) solid transparent;
+          margin: 0;
+          padding: 0 $spacing-05;
+          color: $hover-primary-text;
+        }
+      }
+
+      span {
+        @include use-carbon-productive-tokens();
+        @include type-style('body-short-01');
+      }
+    }
+
+    &__category-headline .#{$prefix}--link-with-icon,
+    &__view-all-cta .#{$prefix}--link-with-icon,
+    &__category-sublink {
+      &:focus,
+      &:active {
+        @include focus-outline;
+
+        outline-width: 2px;
+        outline-offset: -2px;
+      }
+
+      &:active,
+      &:hover {
+        background-color: $hover-ui;
+      }
+    }
+
+    &__highlight-section {
+      height: 100%;
+      padding-top: $spacing-06;
+      border-right: carbon--rem(1px) solid $ui-03;
+      @include carbon--make-col(4, 16);
+    }
+  }
+}
+
+@include exports('masthead-megamenu') {
+  @include masthead-megamenu;
+}

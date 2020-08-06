@@ -9,6 +9,7 @@
 @import 'carbon-components/scss/components/overflow-menu/overflow-menu';
 @import 'carbon-components/scss/components/ui-shell/ui-shell';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
+@import '../link-with-icon/link-with-icon';
 
 // Include masthead components
 // @access private
@@ -18,3 +19,4 @@
 @import 'masthead-l1';
 @import 'masthead-search';
 @import 'masthead-leftnav';
+@import 'masthead-megamenu';
