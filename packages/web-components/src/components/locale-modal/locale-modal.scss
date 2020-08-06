@@ -163,6 +163,8 @@
     @extend .#{$prefix}--tile--clickable;
     @extend .#{$prefix}--card;
 
+    outline: 1px solid $ui-02;
+    outline-offset: -1px;
     flex: 1;
 
     &:focus {
