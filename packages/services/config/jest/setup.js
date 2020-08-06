@@ -11,7 +11,11 @@ jest.unmock('promise');
 jest.unmock('whatwg-fetch');
 jest.unmock('object-assign');
 
+jest.useFakeTimers();
+
 global.__DEV__ = true;
 
 require('../../../../tasks/jest/env');
 require('../polyfills');
+
+process.env.SCROLL_TRACKING = 'true';
