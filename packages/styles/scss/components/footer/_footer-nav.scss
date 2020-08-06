@@ -13,6 +13,7 @@
 /// @group footer
 
 @mixin footer-nav {
+  :host(#{$dds-prefix}-footer-nav),
   .#{$prefix}--footer-nav {
     @include carbon--theme(
       $carbon--theme--g90,
@@ -24,10 +25,6 @@
 
       padding: 0;
       order: 1;
-
-      .#{$prefix}--footer--short & {
-        display: none;
-      }
 
       @include carbon--breakpoint('md') {
         padding: 0 $carbon--grid-gutter / 2;
@@ -42,22 +39,28 @@
         @include carbon--make-col(12, 16);
         @include carbon--make-col-offset(2, 16);
       }
-
-      &__container {
-        @include carbon--breakpoint('md') {
-          @include carbon--make-row;
-
-          display: block;
-          column-count: 2;
-          column-gap: $carbon--grid-gutter;
-        }
-
-        @include carbon--breakpoint('lg') {
-          column-count: 3;
-          column-gap: $carbon--grid-gutter;
-        }
-      }
     }
+  }
+
+  .#{$prefix}--footer-nav__container {
+    @include carbon--breakpoint('md') {
+      @include carbon--make-row;
+
+      display: block;
+      column-count: 2;
+      column-gap: $carbon--grid-gutter;
+    }
+
+    @include carbon--breakpoint('lg') {
+      column-count: 3;
+      column-gap: $carbon--grid-gutter;
+    }
+  }
+
+  :host(#{$dds-prefix}-footer[size='short'])
+    ::slotted(#{$dds-prefix}-footer-nav),
+  .#{$prefix}--footer--short .#{$prefix}--footer-nav {
+    display: none;
   }
 }
 
