@@ -134,7 +134,7 @@
 <link rel="alternate" hreflang="en-zw" href="https://www.ibm.com/zw-en">
 
 <!-- IBM Tag Management and Site Analytics -->
-<script src="//1.www.s81c.com/common/stats/ibm-common.js"></script>
+<script src="//1.www.s81c.com/common/stats/ibm-common.js" defer></script>
 
 <style>
   @media only percy {
@@ -145,6 +145,16 @@
     .bx--link-list__list--video,
     .bx--video-player,
     .bx--card__video {
+      display: none !important;
+    }
+
+    /* hiding elements with sameHeight in long pages to prevent percy
+    false positives */
+    [data-autoid="dds--dotcom-shell__content"]
+    [data-autoid="dds--cta-section"]
+    [data-autoid="dds--content-item"],
+    [data-autoid="dds--content-block-mixed"]
+    [data-autoid="dds--content-group-cards"] {
       display: none !important;
     }
   }

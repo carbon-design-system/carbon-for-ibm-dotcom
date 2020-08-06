@@ -24,6 +24,7 @@ const { prefix } = settings;
  * @param {Function} props.setCurrentRegion sets state for region name
  * @param {boolean} props.setIsFiltering true when search filter is visible
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
+ * @param {string} props.closeModalLabel label for the close button
  * @param {string} props.returnButtonLabel label for the return button
  * @returns {*} LocaleModalRegions component
  */
@@ -33,6 +34,7 @@ const LocaleModalRegions = ({
   setIsFiltering,
   setClearResults,
   returnButtonLabel,
+  closeModalLabel,
 }) => {
   useEffect(() => {
     const regionLink = document.querySelectorAll(`.${prefix}--card`);
@@ -73,7 +75,8 @@ const LocaleModalRegions = ({
           localeBackBtn,
           returnButtonLabel,
           setIsFiltering,
-          setClearResults
+          setClearResults,
+          closeModalLabel
         );
       });
     });
@@ -139,17 +142,24 @@ export const localeBackActive = (btn, setIsFiltering, setClearResults) => {
  * @param {Function} returnButtonLabel hook from props
  * @param {Function} setIsFiltering hook from props
  * @param {Function} setClearResults hook from props
+ * @param {Function} closeModalLabel hook from props
  */
 export const addLocaleBackBtnListeners = (
   buttons,
   returnButtonLabel,
   setIsFiltering,
-  setClearResults
+  setClearResults,
+  closeModalLabel
 ) => {
   [...buttons].forEach(btn => {
     btn.setAttribute('tabindex', '0');
     btn.setAttribute('role', 'button');
-    btn.setAttribute('aria-label', returnButtonLabel);
+    btn.setAttribute(
+      'aria-label',
+      btn.tagName.toLowerCase() === 'button'
+        ? closeModalLabel
+        : returnButtonLabel
+    );
 
     btn.addEventListener('click', function click() {
       localeBackActive(btn, setIsFiltering, setClearResults);
@@ -195,6 +205,11 @@ LocaleModalRegions.propTypes = {
    * Back button copy
    */
   returnButtonLabel: PropTypes.string,
+
+  /**
+   * Close button copy
+   */
+  closeModalLabel: PropTypes.string,
 };
 
 export default LocaleModalRegions;

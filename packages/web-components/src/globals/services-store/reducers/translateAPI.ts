@@ -7,14 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { TRANSLATE_API_ACTION, TranslateAPIState } from '../types/translateAPI';
 import {
-  TRANSLATE_API_ACTION,
-  RequestTranslationInProgressAction,
-  ErrorRequestTranslationAction,
-  SetTranslationAction,
   TranslateAPIActions,
-  TranslateAPIState,
-} from '../types/translateAPI';
+  setRequestTranslationInProgress,
+  setErrorRequestTranslation,
+  setTranslation,
+} from '../actions/translateAPI';
 
 /**
  * @param state The state for translate API.
@@ -24,7 +23,7 @@ import {
 export default function reducer(state: TranslateAPIState = {}, action: TranslateAPIActions): TranslateAPIState {
   switch (action.type) {
     case TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS: {
-      const { language, request } = action as RequestTranslationInProgressAction;
+      const { language, request } = action as ReturnType<typeof setRequestTranslationInProgress>;
       return {
         ...state,
         requestsTranslationInProgress: {
@@ -38,7 +37,7 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
       };
     }
     case TRANSLATE_API_ACTION.SET_ERROR_REQUEST_TRANSLATION: {
-      const { language, error } = action as ErrorRequestTranslationAction;
+      const { language, error } = action as ReturnType<typeof setErrorRequestTranslation>;
       return {
         ...state,
         requestsTranslationInProgress: {
@@ -52,7 +51,7 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
       };
     }
     case TRANSLATE_API_ACTION.SET_TRANSLATION: {
-      const { language, translation } = action as SetTranslationAction;
+      const { language, translation } = action as ReturnType<typeof setTranslation>;
       return {
         ...state,
         // If application sets language data without making a REST call, mark the request as resolved already
