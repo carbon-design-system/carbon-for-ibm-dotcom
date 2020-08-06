@@ -8,11 +8,11 @@
  */
 
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ArrowDown20 from 'carbon-custom-elements/es/icons/arrow--down/20';
-import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
-import Download20 from 'carbon-custom-elements/es/icons/download/20';
-import Launch20 from 'carbon-custom-elements/es/icons/launch/20';
-import PlayOutline20 from 'carbon-custom-elements/es/icons/play--outline/20';
+import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Download20 from 'carbon-web-components/es/icons/download/20';
+import Launch20 from 'carbon-web-components/es/icons/launch/20';
+import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20';
 import { CTA_TYPE } from '../shared-enums';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

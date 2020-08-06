@@ -33,6 +33,7 @@
       &:not([button]) {
         pointer-events: auto;
         &:hover {
+          display: flex;
           text-decoration: none;
         }
       }

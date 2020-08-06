@@ -2,7 +2,7 @@
 
 ## `Rendering global bar`
 
-#### `should render unauthenticated state`
+####   `should render unauthenticated state`
 
 ```
 <dds-masthead-global-bar>
@@ -18,7 +18,7 @@
 
 ```
 
-#### `should render authenticated state`
+####   `should render authenticated state`
 
 ```
 <dds-masthead-global-bar>
@@ -57,7 +57,7 @@
 
 ## `Rendering nav items`
 
-#### `should render the given nav items to the top`
+####   `should render the given nav items to the top`
 
 ```
 <dds-top-nav
@@ -87,7 +87,7 @@
 
 ```
 
-#### `should render the given nav items to the left`
+####   `should render the given nav items to the left`
 
 ```
 <dds-left-nav
@@ -115,3 +115,4 @@
 </dds-left-nav>
 
 ```
+

@@ -28,15 +28,9 @@ const ContentBlock = ({
   customClassName,
   cta,
   aside,
-  inverse,
   border,
 }) => {
-  const classnames = cx(
-    `${prefix}--content-block`,
-    { [`${prefix}--content-block--inverse`]: inverse },
-    customClassName
-  );
-
+  const classnames = cx(`${prefix}--content-block`, customClassName);
   const setborder = aside ? false : border;
   const content = (
     <>
@@ -134,11 +128,6 @@ function _renderCTA(cta) {
 }
 
 ContentBlock.propTypes = {
-  /**
-   * `true` to use the inverse theme.
-   */
-  inverse: PropTypes.bool,
-
   /**
    * Heading text.
    */

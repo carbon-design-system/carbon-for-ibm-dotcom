@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import inPercy from '@percy-io/in-percy';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../locale-modal-container';
 import localeData from './locale-data.json';
@@ -33,7 +33,11 @@ export default {
     ...readme.parameters,
     knobs: {
       'dds-locale-modal-container': ({ groupId }) => ({
-        langDisplay: textNullable('Display language (lang-display)', 'United States — English', groupId),
+        langDisplay: textNullable(
+          'Display language (lang-display)',
+          process.env.CORS_PROXY && !inPercy() ? '' : 'United States — English',
+          groupId
+        ),
       }),
     },
     props: {

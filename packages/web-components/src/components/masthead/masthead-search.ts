@@ -7,15 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import Close20 from 'carbon-custom-elements/es/icons/close/20';
-import Search20 from 'carbon-custom-elements/es/icons/search/20';
-import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-custom-elements/es/components/dropdown/dropdown';
-import BXDropdownItem from 'carbon-custom-elements/es/components/dropdown/dropdown-item';
+import Close20 from 'carbon-web-components/es/icons/close/20';
+import Search20 from 'carbon-web-components/es/icons/search/20';
+import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown';
+import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
 

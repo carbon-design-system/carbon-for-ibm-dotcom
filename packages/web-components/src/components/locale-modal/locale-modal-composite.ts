@@ -9,7 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
@@ -100,17 +100,22 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * The placeholder for `setLanguage()` Redux action that may be mixed in.
    */
-  private _setLanguage!: (string) => void;
+  private _setLanguage?: (string) => void;
 
   /**
    * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
    */
-  private _setLangDisplay!: (string) => void;
+  private _setLangDisplay?: (string) => void;
+
+  /**
+   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
+   */
+  private _loadLangDisplay?: () => Promise<string>;
 
   /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
    */
-  private _loadLocaleList!: () => Promise<LocaleList>;
+  private _loadLocaleList?: () => Promise<LocaleList>;
 
   /**
    * @param countries A country list.
@@ -159,6 +164,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     if (langDisplay) {
       this._setLangDisplay?.(langDisplay);
     }
+    this._loadLangDisplay?.();
     this._loadLocaleList?.();
   }
 

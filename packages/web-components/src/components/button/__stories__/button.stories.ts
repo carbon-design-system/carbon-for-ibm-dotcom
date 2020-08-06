@@ -10,11 +10,11 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-// Below path will be there when an application installs `carbon-custom-elements` package.
+// Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Add20 from 'carbon-custom-elements/es/icons/add/20';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import Add20 from 'carbon-web-components/es/icons/add/20';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import { BUTTON_KIND, BUTTON_SIZE } from '../button';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';

@@ -10,7 +10,7 @@
 import throttle from 'lodash-es/throttle';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { html, property, query, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
 import { MastheadLink, Translation, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
@@ -288,7 +288,7 @@ _  */
     const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
     const cachedSearchResults = searchResults.get(searchQueryString);
     if (!cachedSearchResults) {
-      this._fetchResults();
+      this._fetchResults().catch(() => {}); // The error is logged in the Redux store
     }
     // While we fetch the search results, we see if there is a cached search results for partial search query string.
     // If so, updates the UI with the cached search results.
@@ -480,7 +480,7 @@ _  */
       this._setLanguage(language);
     }
     if (!navLinks) {
-      this._loadTranslation();
+      this._loadTranslation().catch(() => {}); // The error is logged in the Redux store
     }
   }
 

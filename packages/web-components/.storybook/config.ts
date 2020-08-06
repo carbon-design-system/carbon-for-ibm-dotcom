@@ -20,7 +20,11 @@ if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
 
 setCustomElements(customElements);
 
-const SORT_ORDER = ['overview-getting-started--page'];
+const SORT_ORDER = [
+  'overview-getting-started--page',
+  'overview-building-for-ibm-dotcom--page',
+  'overview-stable-selectors--page',
+];
 
 addParameters({
   options: {
