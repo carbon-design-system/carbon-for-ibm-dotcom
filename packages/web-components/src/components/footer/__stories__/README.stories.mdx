@@ -1,0 +1,182 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../../docs/cors-proxy.md';
+
+# Footer
+
+> The footer component is a required navigational pattern for IBM.com that
+> displays consistently at the bottom of each page.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/footer)
+> example implementation.
+
+## Getting started
+
+### Quick start
+
+`<dds-footer-container>` automatically renders contents of footer from default service data. If you want change in services/data integration, etc., see ["Customizing data integration" section](#customizing-data-integration) below.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
+```
+
+##### HTML
+
+```html
+<dds-footer-container></dds-footer-container>
+```
+
+> 💡 You can get short variant of footer with `size="short"` attribute.
+
+#### Attributes and properties `<dds-footer-container>`
+
+<Props of="dds-footer-composite" />
+
+### Customizing service/data integration
+
+For better flexibility in service integration, we have `<dds-footer-composite>` that automatically renders contents of footer from the given data.
+You can populate the data automatically from `@carbon/ibmdotcom-servies` by connecting a Redux store into `<dds-footer-composite>`.
+
+The default Redux store as well as its property/action mappers are available in `@carbon/ibmdotcom-web-components/es/components/footer/footer-container` module. You can connect `<dds-footer-composite>` to the default Redux store and its property/action mappers by below code:
+
+
+##### JS
+
+```javascript
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+import DDSFooterComposite from '@carbon/ibmdotcom-web-components/es/components/footer/footer-composite';
+import { store, mapStateToProps, mapDispatchToProps } from '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
+
+// Connects `<dds-footer-composite>` to `@carbon/ibmdotcom-servies` and creates `<myapp-footer-container>`
+customElements.define('myapp-footer-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {})
+```
+
+You can replace the Redux store or its property/action mappers of your own, as long as the comnination of those yields to the same data structure as the default one.
+
+##### HTML
+
+```html
+<myapp-footer-container></myapp-footer-container>
+```
+
+#### Attributes and properties `<dds-footer-composite>`
+
+<Props of="dds-footer-composite" />
+
+### Rendering footer content by your own
+
+You can also render the footer content by your own, e.g. for server-side rendering, like:
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer';
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer-logo';
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer-nav';
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer-nav-group';
+import '@carbon/ibmdotcom-web-components/es/components/footer/footer-nav-item';
+import '@carbon/ibmdotcom-web-components/es/components/footer/legal-nav';
+import '@carbon/ibmdotcom-web-components/es/components/footer/legal-nav-item';
+import '@carbon/ibmdotcom-web-components/es/components/footer/locale-button';
+
+document.addEventListener('click', event => {
+  if (event.target.matches('dds-locale-button')) {
+    document.querySelector('dds-locale-modal').open = true;
+  }
+});
+```
+
+##### HTML
+
+```html
+<dds-footer>
+  <dds-footer-logo></dds-footer-logo>
+  <dds-footer-nav>
+    <dds-footer-nav-group title-text="Discover">
+      <dds-footer-nav-item href="https://www.ibm.com/products">Products</dds-footer-nav-item>
+      <dds-footer-nav-item href="https://www.redbooks.ibm.com/">Redbooks</dds-footer-nav-item>
+      <dds-footer-nav-item href="https://www.ibm.com/services">Services</dds-footer-nav-item>
+    </dds-footer-nav-group>
+    <dds-footer-nav-group title-text="Information for...">
+      <dds-footer-nav-item href="https://developer.ibm.com/">Developers</dds-footer-nav-item>
+      <dds-footer-nav-item href="https://www.ibm.com/partnerworld/public">Business</dds-footer-nav-item>
+    </dds-footer-nav-group>
+  </dds-footer-nav>
+  <dds-locale-button></dds-locale-button>
+  <dds-legal-nav>
+    <dds-legal-nav-item href="https://www.ibm.com/contact/us/en/>Contact IBM</dds-legal-nav-item>
+    <dds-legal-nav-item href="https://www.ibm.com/privacy/us/en/">Privacy</dds-legal-nav-item>
+    <dds-legal-nav-item href="https://www.ibm.com/us-en/legal">Terms of use</dds-legal-nav-item>
+  </dds-legal-nav>
+</dds-footer>
+```
+
+> 💡 See [`<dds-locale-modal>` doc](/?path=/docs/components-locale-modal--default) for generating the content for locale modal.
+
+## `<dds-footer>`
+
+`<dds-footer>` works as the shell in footer.
+
+<Props of="dds-footer" />
+
+## `<dds-footer-logo>`
+
+`<dds-footer-logo>` shows the IBM brand logo in footer.
+
+<Props of="dds-masthead-logo" />
+
+## `<dds-footer-nav>`
+
+`<dds-footer-nav>` works as the primary collection of links in footer.
+
+<Props of="dds-footer-nav" />
+
+## `<dds-footer-nav-group>`
+
+`<dds-footer-nav-group>` works as a group of links in `<dds-footer-nav>`.
+
+<Props of="dds-footer-nav-group" />
+
+## `<dds-footer-nav-item>`
+
+`<dds-footer-nav-item>` works as a link in `<dds-footer-nav>`.
+
+<Props of="dds-footer-nav-item" />
+
+## `<dds-legal-nav>`
+
+`<dds-legal-nav>` works as the secondary collection of links in footer.
+
+<Props of="dds-legal-nav" />
+
+## `<dds-legal-nav-item>`
+
+`<dds-legal-nav-item>` works as a link in `<dds-legal-nav>`.
+
+<Props of="dds-legal-nav-item" />
+
+## `<dds-locale-button>`
+
+`<dds-locale-button>` works as a launcher of locale modal (`<dds-locale-modal>`).
+
+<Props of="dds-locale-button" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector  | Compatibility selector                 | Description |
+| ------------------------ | -------------------------------------- | ----------- |
+| `<dds-footer>`           | `data-autoid="dds--footer"`            | Component   |
+| `<dds-footer-nav>`       | `data-autoid="dds--footer-nav"`        | Component   |
+| `<dds-footer-nav-group>` | `data-autoid="dds--footer-nav-group"`  | Component   |
+| `<dds-footer-logo>`      | `data-autoid="dds--footer-logo"`       | Component   |
+| `<dds-locale-button>`    | `data-autoid="dds--footer-locale-btn"` | Interactive |
+| `<dds-legal-nav>`        | `data-autoid="dds--legal-nav"`         | Component   |
+
+<Description markdown={corsproxy} />
+
+<Description markdown={contributing} />
