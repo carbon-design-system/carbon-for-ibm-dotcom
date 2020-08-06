@@ -67,7 +67,7 @@ function svgResultIBMDotcomIconLoader(content) {
           null,
           `
           import { svg } from 'lit-html';
-          import spread from 'carbon-custom-elements/es/globals/directives/spread';
+          import spread from 'carbon-web-components/es/globals/directives/spread';
           const svgResultCarbonIcon = ${createSVGResultFromCarbonIcon(convertAttrs(svgNode))};
           export default svgResultCarbonIcon;
         `

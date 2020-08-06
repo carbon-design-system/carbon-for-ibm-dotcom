@@ -8,9 +8,9 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
-import User20 from 'carbon-custom-elements/es/icons/user/20';
-import UserOnline20 from 'carbon-custom-elements/es/icons/user--online/20';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import User20 from 'carbon-web-components/es/icons/user/20';
+import UserOnline20 from 'carbon-web-components/es/icons/user--online/20';
 import DDSMastheadProfile from '../masthead-profile';
 
 const template = (props?) => {
