@@ -16252,19 +16252,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16312,19 +16312,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     "heading": "Lorem ipsum dolor sit amet.",
                     "image": Object {
                       "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                       "sources": Array [
                         Object {
                           "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                         },
                         Object {
                           "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                         },
                       ],
                     },
@@ -16439,19 +16439,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -16499,19 +16499,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -16524,20 +16524,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -16550,22 +16550,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
@@ -16899,19 +16899,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -16959,19 +16959,19 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -16984,20 +16984,20 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -17010,22 +17010,22 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <source
                                             key="0"
                                             media="(min-width: 672px)"
-                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
                                             media="(min-width: 400px)"
-                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
                                             media="(min-width: 320px)"
-                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
                                             alt="Image alt text"
                                             className="bx--image__img"
-                                            src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                         </picture>
                                       </div>
@@ -32223,6 +32223,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
@@ -37798,6 +37801,9 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -43578,6 +43584,9 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -49167,6 +49176,9 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -59648,11 +59660,13 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
       >
         <ExpressiveModal
           fullwidth={true}
+          onClose={[Function]}
           open={true}
         >
           <ComposedModal
             className="bx--modal--expressive bx--modal--expressive--fullwidth"
             data-autoid="dds--expressive-modal"
+            onClose={[Function]}
             onKeyDown={[Function]}
             open={true}
             selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -59662,6 +59676,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               data-autoid="dds--expressive-modal"
               onBlur={[Function]}
               onClick={[Function]}
+              onClose={[Function]}
               onKeyDown={[Function]}
               onTransitionEnd={[Function]}
               open={true}
@@ -59870,11 +59885,13 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
         >
           <ExpressiveModal
             fullwidth={true}
+            onClose={[Function]}
             open={true}
           >
             <ComposedModal
               className="bx--modal--expressive bx--modal--expressive--fullwidth"
               data-autoid="dds--expressive-modal"
+              onClose={[Function]}
               onKeyDown={[Function]}
               open={true}
               selectorPrimaryFocus="[data-modal-primary-focus]"
@@ -59884,6 +59901,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                 data-autoid="dds--expressive-modal"
                 onBlur={[Function]}
                 onClick={[Function]}
+                onClose={[Function]}
                 onKeyDown={[Function]}
                 onTransitionEnd={[Function]}
                 open={true}
@@ -64569,6 +64587,9 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -65004,6 +65025,9 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -65674,6 +65698,9 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
@@ -67592,6 +67619,226 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Components|VideoPlayer Aspect ratio 1:1 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+  >
+    <Default
+      parameters={
+        Object {
+          "__id": "components-videoplayer--aspect-ratio-1-x-1",
+          "component": undefined,
+          "docs": Object {},
+          "fileName": "./components/VideoPlayer/__stories__/VideoPlayer.stories.js",
+          "framework": "react",
+          "knobs": Object {
+            "VideoPlayer": [Function],
+          },
+          "options": Object {
+            "name": "IBM.com Library React",
+            "storySort": [Function],
+            "url": "https://github.com/carbon-design-system/ibm-dotcom-library",
+          },
+          "percy": Object {
+            "skip": true,
+          },
+          "props": Object {
+            "VideoPlayer": Object {
+              "aspectRatio": "1x1",
+              "showCaption": true,
+              "videoId": "1_9h94wo6b",
+            },
+          },
+          "subcomponents": undefined,
+        }
+      }
+    >
+      <div
+        className="bx--grid"
+      >
+        <div
+          className="bx--row"
+        >
+          <div
+            className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          >
+            <VideoPlayer
+              aspectRatio="1x1"
+              autoPlay={false}
+              showCaption={true}
+              videoId="1_9h94wo6b"
+            >
+              <div
+                aria-label=" (1:00)"
+                className="bx--video-player"
+              >
+                <div
+                  className="bx--video-player__video-container bx--video-player__aspect-ratio--1x1"
+                  data-autoid="dds--video-player__video-1_9h94wo6b"
+                >
+                  <div
+                    className="bx--video-player__video"
+                    id="bx--video-player__video-1_9h94wo6b-148"
+                  >
+                    <VideoImageOverlay
+                      embedVideo={[Function]}
+                      videoData={
+                        Object {
+                          "description": "",
+                          "name": "",
+                        }
+                      }
+                      videoId="1_9h94wo6b"
+                    >
+                      <button
+                        className="bx--video-player__image-overlay"
+                        data-autoid="dds--video-player__image-overlay"
+                        onClick={[Function]}
+                      >
+                        <Image
+                          alt=""
+                          defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                          icon={[Function]}
+                        />
+                      </button>
+                    </VideoImageOverlay>
+                  </div>
+                </div>
+                <div
+                  className="bx--video-player__video-caption"
+                >
+                   
+                  (1:00)
+                </div>
+              </div>
+            </VideoPlayer>
+          </div>
+        </div>
+      </div>
+    </Default>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|VideoPlayer Aspect ratio 4:3 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+  >
+    <Default
+      parameters={
+        Object {
+          "__id": "components-videoplayer--aspect-ratio-4-x-3",
+          "component": undefined,
+          "docs": Object {},
+          "fileName": "./components/VideoPlayer/__stories__/VideoPlayer.stories.js",
+          "framework": "react",
+          "knobs": Object {
+            "VideoPlayer": [Function],
+          },
+          "options": Object {
+            "name": "IBM.com Library React",
+            "storySort": [Function],
+            "url": "https://github.com/carbon-design-system/ibm-dotcom-library",
+          },
+          "percy": Object {
+            "skip": true,
+          },
+          "props": Object {
+            "VideoPlayer": Object {
+              "aspectRatio": "4x3",
+              "showCaption": true,
+              "videoId": "1_p2osmd1z",
+            },
+          },
+          "subcomponents": undefined,
+        }
+      }
+    >
+      <div
+        className="bx--grid"
+      >
+        <div
+          className="bx--row"
+        >
+          <div
+            className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          >
+            <VideoPlayer
+              aspectRatio="4x3"
+              autoPlay={false}
+              showCaption={true}
+              videoId="1_p2osmd1z"
+            >
+              <div
+                aria-label=" (1:00)"
+                className="bx--video-player"
+              >
+                <div
+                  className="bx--video-player__video-container bx--video-player__aspect-ratio--4x3"
+                  data-autoid="dds--video-player__video-1_p2osmd1z"
+                >
+                  <div
+                    className="bx--video-player__video"
+                    id="bx--video-player__video-1_p2osmd1z-150"
+                  >
+                    <VideoImageOverlay
+                      embedVideo={[Function]}
+                      videoData={
+                        Object {
+                          "description": "",
+                          "name": "",
+                        }
+                      }
+                      videoId="1_p2osmd1z"
+                    >
+                      <button
+                        className="bx--video-player__image-overlay"
+                        data-autoid="dds--video-player__image-overlay"
+                        onClick={[Function]}
+                      >
+                        <Image
+                          alt=""
+                          defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                          icon={[Function]}
+                        />
+                      </button>
+                    </VideoImageOverlay>
+                  </div>
+                </div>
+                <div
+                  className="bx--video-player__video-caption"
+                >
+                   
+                  (1:00)
+                </div>
+              </div>
+            </VideoPlayer>
+          </div>
+        </div>
+      </div>
+    </Default>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Components|VideoPlayer Default 1`] = `
 <Container
   story={[Function]}
@@ -67613,7 +67860,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             aspectRatio="default"
             autoPlay={false}
             showCaption={true}
-            videoId="0_uka1msg4"
+            videoId="1_9h94wo6b"
           >
             <div
               aria-label=" (1:00)"
@@ -67621,11 +67868,11 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             >
               <div
                 className="bx--video-player__video-container bx--video-player__aspect-ratio--default"
-                data-autoid="dds--video-player__video-0_uka1msg4"
+                data-autoid="dds--video-player__video-1_9h94wo6b"
               >
                 <div
                   className="bx--video-player__video"
-                  id="bx--video-player__video-0_uka1msg4-146"
+                  id="bx--video-player__video-1_9h94wo6b-146"
                 >
                   <VideoImageOverlay
                     embedVideo={[Function]}
@@ -67635,7 +67882,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                         "name": "",
                       }
                     }
-                    videoId="0_uka1msg4"
+                    videoId="1_9h94wo6b"
                   >
                     <button
                       className="bx--video-player__image-overlay"
