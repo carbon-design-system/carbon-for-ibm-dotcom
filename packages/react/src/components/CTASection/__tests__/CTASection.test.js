@@ -10,9 +10,12 @@ import CTASection from '../CTASection';
 import { mount } from 'enzyme';
 import React from 'react';
 
-const contentItemsProps = {
+const ctaSectionProps = {
   heading: 'Content item heading',
   copy: 'Content item copy',
+};
+
+const contentItemsProps = {
   items: [
     {
       heading: 'Get connected',
@@ -42,8 +45,8 @@ describe('CTA Section', () => {
   it('renders two ContentItems', () => {
     const wrapper = mount(
       <CTASection
-        heading={contentItemsProps.heading}
-        copy={contentItemsProps.copy}
+        heading={ctaSectionProps.heading}
+        copy={ctaSectionProps.copy}
         items={contentItemsProps.items}
       />
     );
