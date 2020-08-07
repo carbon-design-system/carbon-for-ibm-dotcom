@@ -2,17 +2,14 @@
   "**/*.{js,ts,tsx}": [
     "prettier --write",
     "yarn lint:license:staged",
-    "yarn lint:scripts:staged",
-    "git add"
+    "yarn lint:scripts:staged"
   ],
   "**/*.scss": [
     "prettier --write",
     "yarn lint:license:staged",
-    "stylelint '**/*.scss' --config ./packages/stylelint-config-ibmdotcom",
-    "git add"
+    "stylelint '**/*.scss' --config ./packages/stylelint-config-ibmdotcom"
   ],
   "*.md": [
-    "prettier --write",
-    "git add"
+    "prettier --write"
   ]
 }

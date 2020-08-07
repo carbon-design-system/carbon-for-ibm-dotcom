@@ -97,8 +97,6 @@ const LocaleModalCountries = ({
         </p>
       </div>
       <div
-        role="listbox"
-        tabIndex="0"
         aria-labelledby={`${prefix}--locale-modal__filter`}
         className={`${prefix}--locale-modal__list`}
         ref={localList}>

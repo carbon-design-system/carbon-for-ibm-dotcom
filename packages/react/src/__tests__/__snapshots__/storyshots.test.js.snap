@@ -63724,8 +63724,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                     <div
                       aria-labelledby="bx--locale-modal__filter"
                       className="bx--locale-modal__list"
-                      role="listbox"
-                      tabIndex="0"
                     />
                   </div>
                 </LocaleModalCountries>
