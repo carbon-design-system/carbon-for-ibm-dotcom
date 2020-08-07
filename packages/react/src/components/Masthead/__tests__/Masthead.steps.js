@@ -31,10 +31,10 @@ describe('Masthead', () => {
         linkText
       );
       expect(styleValues).toEqual({
-        'font-size': '14px',
+        'font-size': '16px',
         'font-weight': '400',
-        'line-height': '18px',
-        'letter-spacing': '0.16px',
+        'line-height': '22px',
+        'letter-spacing': 'normal',
       });
     });
   });
