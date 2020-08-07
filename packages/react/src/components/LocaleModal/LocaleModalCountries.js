@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import PropTypes from 'prop-types';
@@ -28,6 +28,13 @@ const LocaleModalCountries = ({
   setClearResults,
   ...modalLabels
 }) => {
+  const localList = useRef(null);
+  useEffect(() => {
+    if (open) {
+      localList.current.scrollTop = 0;
+    }
+  }, [open]);
+
   useEffect(() => {
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
@@ -91,7 +98,8 @@ const LocaleModalCountries = ({
       </div>
       <div
         aria-labelledby={`${prefix}--locale-modal__filter`}
-        className={`${prefix}--locale-modal__list`}>
+        className={`${prefix}--locale-modal__list`}
+        ref={localList}>
         {regionList &&
           regionList.map(region =>
             region.countries.map((country, index) => (
