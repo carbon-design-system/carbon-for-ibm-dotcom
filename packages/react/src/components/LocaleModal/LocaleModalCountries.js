@@ -30,8 +30,10 @@ const LocaleModalCountries = ({
 }) => {
   const localList = useRef(null);
   useEffect(() => {
-    localList.current.scrollTop = 0;
-  });
+    if (open) {
+      localList.current.scrollTop = 0;
+    }
+  }, [open]);
 
   useEffect(() => {
     const localeFilter = document.getElementById(
