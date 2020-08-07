@@ -1,0 +1,32 @@
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
+@import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
+@import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
+
+:host(#{$dds-prefix}-link-list) {
+  @extend .#{$prefix}--link-list;
+  .#{$prefix}--link-list__list-- {
+    &horizontal {
+      display: flex;
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        padding-right: 2rem;
+      }
+    }
+    &card {
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        border-top: 1px solid $ui-03;
+      }
+    }
+  }
+}
+
+:host(#{$dds-prefix}-link-list-item) {
+  @extend .#{$prefix}--link-list__list__CTA;
+
+  ::slotted(#{$dds-prefix}-card-link) {
+    @extend .#{$prefix}--card;
+    border-top: 1px solid $ui-03;
+    border-bottom: 1px solid $ui-03;
+    margin-bottom: -1px;
+  }
+}
