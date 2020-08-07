@@ -17,7 +17,7 @@ const { prefix } = settings;
  * contains the category headline and sublinks
  */
 const CategoryGroup = ({ href, title, children, ...props }) => (
-  <div className={`${prefix}--masthead__megamenu__menu-category`} {...props}>
+  <div className={`${prefix}--masthead__megamenu__category-group`} {...props}>
     {href ? (
       <LinkWithIcon
         className={`${prefix}--masthead__megamenu__category-headline`}>
