@@ -32611,10 +32611,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       <option
                                         className="bx--tableofcontents__mobile__select__option"
                                         data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                        defaultValue={true}
                                         disabled={true}
                                         hidden={true}
                                         key="0"
-                                        selected={true}
                                         value="menuLabel"
                                       >
                                         Jump to ...
@@ -38360,10 +38360,10 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -43987,10 +43987,10 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -49567,10 +49567,10 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -66506,10 +66506,10 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              defaultValue={true}
                               disabled={true}
                               hidden={true}
                               key="0"
-                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
@@ -66829,10 +66829,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                            defaultValue={true}
                             disabled={true}
                             hidden={true}
                             key="0"
-                            selected={true}
                             value="menuLabel"
                           >
                             Jump to ...
@@ -67336,10 +67336,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              defaultValue={true}
                               disabled={true}
                               hidden={true}
                               key="0"
-                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
