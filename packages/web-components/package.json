@@ -50,6 +50,7 @@
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
+    "upgrade-carbon": "yarn upgrade carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {

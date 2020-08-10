@@ -34,7 +34,8 @@
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "start": "yarn storybook",
-    "storybook": "start-storybook -p 9000"
+    "storybook": "start-storybook -p 9000",
+    "upgrade-carbon": "yarn upgrade @carbon/icon-helpers @carbon/icons @carbon/grid --latest"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",

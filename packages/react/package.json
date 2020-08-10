@@ -45,6 +45,7 @@
     "test:integration:bundle": "cross-env NODE_OPTIONS=--max-old-space-size=8192 jest -c tests/integration/bundle/jest.config.js",
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
     "test-ssr": "yarn build && node ssr-tests/*.js",
+    "upgrade-carbon": "yarn upgrade carbon-components carbon-components-react carbon-icons @carbon/icons-react @carbon/pictograms-react @carbon/storybook-addon-theme --latest",
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {

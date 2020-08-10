@@ -29,6 +29,7 @@
     "ci-check": "yarn build",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "storybook": "start-storybook -p 9000",
+    "upgrade-carbon": "yarn upgrade @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react carbon-components-react --latest",
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
@@ -38,7 +39,7 @@
     "@carbon/motion": "10.9.0",
     "@carbon/themes": "10.14.0",
     "@carbon/type": "10.12.0",
-    "carbon-components": "10.15.0"
+    "carbon-components": "10.17.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
