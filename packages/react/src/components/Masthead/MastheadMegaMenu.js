@@ -71,13 +71,16 @@ const MastheadMegaMenu = ({ data }) => {
  * @returns {*} menu items and associated links
  */
 const _renderMenuCategory = items => {
-  return items.map(item => {
+  return items.map((item, index) => {
     return (
-      <div className={`${prefix}--masthead__megamenu__menu-category`}>
+      <div
+        key={index}
+        className={`${prefix}--masthead__megamenu__menu-category`}>
         {_renderLinkOrString(item)}
         {item.megapanelContent?.quickLinks?.links.map(link => {
           return (
             <a
+              key={link.title}
               className={`${prefix}--masthead__megamenu__category-sublink`}
               href={link.url}>
               {link.title}
