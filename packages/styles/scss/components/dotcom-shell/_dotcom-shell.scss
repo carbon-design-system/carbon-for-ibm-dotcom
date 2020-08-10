@@ -10,6 +10,7 @@
 @import '../masthead/index';
 
 @mixin dotcom-shell {
+  :host(#{$dds-prefix}-dotcom-shell),
   .#{$prefix}--dotcom-shell {
     display: flex;
     flex-direction: column;

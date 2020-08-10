@@ -419,6 +419,12 @@ class DDSMastheadContainer extends ConnectMixin<
   }
 
   /**
+   * `true` to activate the search box.
+   */
+  @property({ attribute: 'activate-search' })
+  activateSearch = false;
+
+  /**
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
@@ -544,6 +550,7 @@ class DDSMastheadContainer extends ConnectMixin<
 
   render() {
     const {
+      activateSearch,
       authenticateProfileItems,
       brandName,
       mastheadLabel,
@@ -588,7 +595,7 @@ class DDSMastheadContainer extends ConnectMixin<
         <dds-top-nav menu-bar-label="${ifNonNull(menuBarLabel)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
-        <dds-masthead-search ?open="${openSearchDropdown}" @input="${handleInputSearch}">
+        <dds-masthead-search ?active="${activateSearch}" ?open="${openSearchDropdown}" @input="${handleInputSearch}">
           ${currentSearchResults.map(
             item =>
               html`
