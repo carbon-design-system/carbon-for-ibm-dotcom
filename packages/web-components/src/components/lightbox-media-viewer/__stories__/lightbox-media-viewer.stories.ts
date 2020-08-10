@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
 import 'carbon-web-components/es/components/modal/modal-close-button';
-import root from 'window-or-global';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../modal/modal';
 import '../lightbox-media-viewer-body';
@@ -24,12 +23,6 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
   const { hideCaption, videoId } = parameters?.props?.['dds-lightbox-video-player-container'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
-    if (root.kWidget) {
-      root.kWidget.addReadyCallback(function(playerId) {
-        const kdp = document.getElementById(playerId);
-        kdp.sendNotification('doStop');
-      });
-    }
     if (disableClose) {
       event.preventDefault();
     }
