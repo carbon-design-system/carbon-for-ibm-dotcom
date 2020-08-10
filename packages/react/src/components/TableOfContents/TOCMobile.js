@@ -95,7 +95,7 @@ const renderOptions = (options, label) => {
           data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
           key={index}
           value={option.id}
-          selected={index === 0}
+          defaultValue={index === 0}
           disabled={index === 0}
           hidden={index === 0}>
           {option.title}

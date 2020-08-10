@@ -14,18 +14,21 @@ describe('ContentItemHorizontal', () => {
     const eyebrow = 'Lorem ipsum';
     const heading = 'Aliquam condimentum';
     const copy = 'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit.';
-    const cta = [
-      {
-        type: 'local',
-        copy: 'Link text',
-        href: 'https://example.com',
-      },
-      {
-        type: 'external',
-        copy: 'External link text',
-        href: 'https://example.com',
-      },
-    ];
+    const cta = {
+      heading: 'Example heading',
+      items: [
+        {
+          type: 'local',
+          copy: 'Link text',
+          href: 'https://example.com',
+        },
+        {
+          type: 'external',
+          copy: 'External link text',
+          href: 'https://example.com',
+        },
+      ],
+    };
 
     const callout = shallow(
       <ContentItemHorizontal
