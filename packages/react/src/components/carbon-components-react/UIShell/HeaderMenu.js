@@ -117,7 +117,7 @@ class HeaderMenu extends React.Component {
   checkMenuItems = event => {
     const megamenuItems = [
       `${prefix}--masthead__megamenu__category-headline`,
-      `${prefix}--masthead__megamenu__menu-category`,
+      `${prefix}--masthead__megamenu__category-group`,
       `${prefix}--masthead__megamenu__view-all-cta`,
     ];
 
