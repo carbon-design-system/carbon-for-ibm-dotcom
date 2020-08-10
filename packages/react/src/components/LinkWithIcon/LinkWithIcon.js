@@ -18,12 +18,23 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component.
  */
-const LinkWithIcon = ({ children, href, inverse, iconPlacement, ...props }) => {
+const LinkWithIcon = ({
+  children,
+  className: customClassName,
+  href,
+  inverse,
+  iconPlacement,
+  ...props
+}) => {
   return (
     <div
-      className={classNames(`${prefix}--link-with-icon__container`, {
-        [`${prefix}--link-with-icon__container__inverse`]: inverse,
-      })}
+      className={classNames(
+        `${prefix}--link-with-icon__container`,
+        customClassName,
+        {
+          [`${prefix}--link-with-icon__container__inverse`]: inverse,
+        }
+      )}
       data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link
         href={href}
@@ -57,6 +68,11 @@ LinkWithIcon.propTypes = {
    * Toggles inverse theming
    */
   inverse: PropTypes.bool,
+
+  /**
+   * custom classname
+   */
+  className: PropTypes.string,
 };
 
 LinkWithIcon.defaultProps = {

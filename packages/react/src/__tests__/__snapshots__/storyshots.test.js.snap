@@ -32223,6 +32223,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
@@ -32445,6 +32448,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       </div>
                     </HeaderGlobalBar>
                     <MastheadLeftNav
+                      backButtonText="Back"
                       isSideNavExpanded={false}
                       navigation={Array []}
                       platform={null}
@@ -32607,10 +32611,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       <option
                                         className="bx--tableofcontents__mobile__select__option"
                                         data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                        defaultValue={true}
                                         disabled={true}
                                         hidden={true}
                                         key="0"
-                                        selected={true}
                                         value="menuLabel"
                                       >
                                         Jump to ...
@@ -37798,6 +37802,9 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -38190,6 +38197,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                         </div>
                       </HeaderGlobalBar>
                       <MastheadLeftNav
+                        backButtonText="Back"
                         isSideNavExpanded={false}
                         navigation={Array []}
                         platform={null}
@@ -38352,10 +38360,10 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -43578,6 +43586,9 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -43800,6 +43811,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                         </div>
                       </HeaderGlobalBar>
                       <MastheadLeftNav
+                        backButtonText="Back"
                         isSideNavExpanded={false}
                         navigation={Array []}
                         platform={
@@ -43975,10 +43987,10 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -49167,6 +49179,9 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               </nav>
                             </HeaderNavigation>
                           </div>
+                          <div
+                            className="bx--masthead__overlay"
+                          />
                         </MastheadTopNav>
                         <MastheadSearch
                           placeHolderText="Search all of IBM"
@@ -49389,6 +49404,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                         </div>
                       </HeaderGlobalBar>
                       <MastheadLeftNav
+                        backButtonText="Back"
                         isSideNavExpanded={false}
                         navigation={Array []}
                         platform={null}
@@ -49551,10 +49567,10 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                         <option
                                           className="bx--tableofcontents__mobile__select__option"
                                           data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                          defaultValue={true}
                                           disabled={true}
                                           hidden={true}
                                           key="0"
-                                          selected={true}
                                           value="menuLabel"
                                         >
                                           Jump to ...
@@ -63708,8 +63724,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                     <div
                       aria-labelledby="bx--locale-modal__filter"
                       className="bx--locale-modal__list"
-                      role="listbox"
-                      tabIndex="0"
                     />
                   </div>
                 </LocaleModalCountries>
@@ -64577,6 +64591,9 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -64799,6 +64816,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                     </div>
                   </HeaderGlobalBar>
                   <MastheadLeftNav
+                    backButtonText="Back"
                     isSideNavExpanded={false}
                     navigation={Array []}
                     platform={null}
@@ -65012,6 +65030,9 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           </nav>
                         </HeaderNavigation>
                       </div>
+                      <div
+                        className="bx--masthead__overlay"
+                      />
                     </MastheadTopNav>
                     <MastheadSearch
                       placeHolderText="Search all of IBM"
@@ -65404,6 +65425,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                     </div>
                   </HeaderGlobalBar>
                   <MastheadLeftNav
+                    backButtonText="Back"
                     isSideNavExpanded={false}
                     navigation={Array []}
                     platform={null}
@@ -65682,6 +65704,9 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             </nav>
                           </HeaderNavigation>
                         </div>
+                        <div
+                          className="bx--masthead__overlay"
+                        />
                       </MastheadTopNav>
                       <MastheadSearch
                         placeHolderText="Search all of IBM"
@@ -65904,6 +65929,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                       </div>
                     </HeaderGlobalBar>
                     <MastheadLeftNav
+                      backButtonText="Back"
                       isSideNavExpanded={false}
                       navigation={Array []}
                       platform={
@@ -66480,10 +66506,10 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              defaultValue={true}
                               disabled={true}
                               hidden={true}
                               key="0"
-                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
@@ -66803,10 +66829,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                            defaultValue={true}
                             disabled={true}
                             hidden={true}
                             key="0"
-                            selected={true}
                             value="menuLabel"
                           >
                             Jump to ...
@@ -67310,10 +67336,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              defaultValue={true}
                               disabled={true}
                               hidden={true}
                               key="0"
-                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
