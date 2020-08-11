@@ -145,23 +145,25 @@
 :host(#{$dds-prefix}-left-nav) {
   @extend :host(#{$prefix}-side-nav);
 
-  display: block;
   overflow: auto;
   margin-top: calc(#{mini-units(6)} + 1px);
   height: calc(100% - #{mini-units(6)} - 1px);
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
+    display: none;
     width: 0;
   }
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     @include carbon--breakpoint-down('lg') {
+      display: block;
       width: mini-units(32);
     }
 
     @include carbon--breakpoint-down('md') {
+      display: block;
       max-width: 100vw;
       width: 100vw;
     }
