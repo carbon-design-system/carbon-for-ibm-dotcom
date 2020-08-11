@@ -96,29 +96,28 @@ const LocaleModalCountries = ({
           {modalLabels.availabilityText}
         </p>
       </div>
-      <div
-        aria-labelledby={`${prefix}--locale-modal__filter`}
-        className={`${prefix}--locale-modal__list`}
-        ref={localList}>
-        {regionList &&
-          regionList.map(region =>
+      <ul className={`${prefix}--locale-modal__list`} ref={localList}>
+        {regionList?.map(
+          region =>
+            currentRegion === region.name &&
             region.countries.map((country, index) => (
-              <a
-                key={index}
-                className={`${prefix}--locale-modal__locales`}
-                onClick={() => _setCookie(country.locale)}
-                href={country.href}
-                data-region={country.region}>
-                <div className={`${prefix}--locale-modal__locales__name`}>
-                  {country.name}
-                </div>
-                <div className={`${prefix}--locale-modal__locales__name`}>
-                  {country.language}
-                </div>
-              </a>
+              <li key={index}>
+                <a
+                  className={`${prefix}--locale-modal__locales`}
+                  onClick={() => _setCookie(country.locale)}
+                  href={country.href}
+                  data-region={country.region}>
+                  <div className={`${prefix}--locale-modal__locales__name`}>
+                    {country.name}
+                  </div>
+                  <div className={`${prefix}--locale-modal__locales__name`}>
+                    {country.language}
+                  </div>
+                </a>
+              </li>
             ))
-          )}
-      </div>
+        )}
+      </ul>
     </div>
   );
 };
