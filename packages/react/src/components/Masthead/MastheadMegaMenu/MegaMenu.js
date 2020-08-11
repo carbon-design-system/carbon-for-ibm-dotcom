@@ -46,11 +46,13 @@ const MegaMenu = ({ data }) => {
       <RightNavigation
         viewAllLinkHref={viewAllLink?.url}
         viewAllLinkTitle={viewAllLink?.title}>
-        {menuItems.map(item => (
-          <CategoryGroup href={item.url} title={item.title}>
-            {item.megapanelContent?.quickLinks?.links.map(({ title, url }) => (
-              <CategoryLink href={url} title={title} />
-            ))}
+        {menuItems.map((item, index) => (
+          <CategoryGroup key={index} href={item.url} title={item.title}>
+            {item.megapanelContent?.quickLinks?.links.map(
+              ({ title, url }, linkIndex) => (
+                <CategoryLink key={linkIndex} href={url} title={title} />
+              )
+            )}
           </CategoryGroup>
         ))}
       </RightNavigation>

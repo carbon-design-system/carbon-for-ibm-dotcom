@@ -35,6 +35,7 @@ describe('dds-lightbox-video-player-container', function() {
       replaceElem.dataset.videoId = videoId;
       replaceElem.dataset.autoplay = String(Boolean(autoplay));
       playerElem!.parentNode!.replaceChild(replaceElem, playerElem!);
+      return { kWidget() {} };
     });
     render(videoPlayerTemplate({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`

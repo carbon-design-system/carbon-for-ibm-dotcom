@@ -11,6 +11,7 @@ import { Image } from '../Image';
 import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import { VideoPlayer } from '../VideoPlayer';
@@ -140,12 +141,10 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
    */
   function closeModal() {
     if (onClose?.() !== false) {
-      if (window.kWidget) {
-        window.kWidget.addReadyCallback(function(playerId) {
-          var kdp = document.getElementById(playerId);
-          kdp.sendNotification('doStop');
-        });
-      }
+      root.kWidget.addReadyCallback(videoId => {
+        const kdp = document.getElementById(videoId);
+        kdp.sendNotification('doStop');
+      });
     }
   }
 };
