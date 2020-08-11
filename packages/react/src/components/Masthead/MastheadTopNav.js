@@ -90,7 +90,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 function renderNav(link) {
   const navItems = [];
   if (link.hasMegapanel) {
-    navItems.push(<MegaMenu data={link} />);
+    navItems.push(<MegaMenu key={link.title} data={link} />);
   } else {
     link.menuSections.forEach((section, i) => {
       section.menuItems.forEach((item, j) => {

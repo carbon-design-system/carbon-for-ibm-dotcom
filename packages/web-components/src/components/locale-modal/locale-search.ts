@@ -43,6 +43,9 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   @query('bx-search')
   private _searchNode?: BXSearch;
 
+  @query(`.${prefix}--locale-modal__list`)
+  private _listNode?: HTMLElement;
+
   _handleThrottledInput() {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
     const { region: currentRegion, _searchNode: searchNode } = this;
@@ -94,6 +97,15 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
    */
   @property({ reflect: true })
   slot = 'locales-selector';
+
+  /**
+   * Resets the scroll position.
+   */
+  resetScrollPosition() {
+    if (this._listNode) {
+      this._listNode.scrollTop = 0;
+    }
+  }
 
   updated(changedProperties) {
     if (changedProperties.has('region')) {
