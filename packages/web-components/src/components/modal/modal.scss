@@ -24,8 +24,13 @@
     }
   }
 
+  .#{$prefix}--modal-container {
+    grid-template-rows: 1fr;
+  }
+
   .#{$prefix}--modal-content {
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
   }
 
   .#{$dds-prefix}-ce--modal__hedaer--with-body {
