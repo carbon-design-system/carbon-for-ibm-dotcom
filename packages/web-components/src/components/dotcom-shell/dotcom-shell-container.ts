@@ -45,127 +45,121 @@ class DDSLinkWithIcon extends LitElement {
   }
 
   /**
-   * `true` to activate the search box.
+   * `true` to activate the search box. This goes to masthead.
    */
   @property({ attribute: 'activate-search' })
   activateSearch = false;
 
   /**
-   * The profile items for authenticated state.
+   * The profile items for authenticated state. This goes to masthead.
    */
   @property({ attribute: false })
   authenticateProfileItems?: MastheadProfileItem[];
 
   /**
-   * The brand name.
+   * The brand name. This goes to masthead.
    */
   @property({ attribute: 'brand-name' })
   brandName?: string;
 
   /**
-   * The g11n collator to use for sorting contry names.
+   * The g11n collator to use for sorting contry names. This goes to footer.
    */
   @property({ attribute: false })
   collatorCountryName = new Intl.Collator();
 
   /**
-   * The throttle timeout to run query upon user input.
+   * The throttle timeout to run query upon user input. This goes to masthead.
    */
   @property({ type: Number })
   inputTimeout?: number;
 
   /**
-   * The footer links.
+   * The footer links. This goes to footer.
    */
   @property({ attribute: false })
   footerLinks: BasicLinkSet[] = [];
 
   /**
-   * The language to show in the UI.
+   * The language to show in the UI. This goes to footer.
    */
   @property({ attribute: 'lang-display' })
   langDisplay?: string;
 
   /**
-   * The language used for query.
+   * The language used for query. This goes to masthead and footer.
    */
   @property()
   language?: string;
 
   /**
-   * The legal nav links.
+   * The legal nav links. This goes to footer.
    */
   @property({ attribute: false })
   legalLinks: BasicLink[] = [];
 
   /**
-   * The locale list.
+   * The locale list. This goes to footer.
    */
   @property({ attribute: false })
   localeList?: LocaleModalLocaleList;
 
   /**
-   * The nonce used for logging in.
+   * The nonce used for logging in. This goes to masthead.
    */
   @property({ attribute: 'login-nonce' })
   loginNonce?: string;
 
   /**
-   * The link target to the masthead logo.
-   */
-  @property({ attribute: 'logo-href' })
-  logoHref?: string;
-
-  /**
-   * The `aria-label` attribute for the top-level container.
+   * The `aria-label` attribute for the top-level container. This goes to masthead.
    */
   @property({ attribute: 'masthead-label' })
   mastheadLabel?: string;
 
   /**
-   * The `aria-label` attribute for the menu bar UI.
+   * The `aria-label` attribute for the menu bar UI. This goes to masthead.
    */
   @property({ attribute: 'menu-bar-label' })
   menuBarLabel?: string;
 
   /**
-   * The `aria-label` attribute for the header menu button in its active state.
+   * The `aria-label` attribute for the header menu button in its active state. This goes to masthead.
    */
   @property({ attribute: 'menu-button-label-active' })
   menuButtonLabelActive?: string;
 
   /**
-   * The `aria-label` attribute for the header menu button in its active state.
+   * The `aria-label` attribute for the header menu button in its active state. This goes to masthead.
    */
   @property({ attribute: 'menu-button-label-inactive' })
   menuButtonLabelInactive?: string;
 
   /**
-   * `true` to open the locale modal.
+   * `true` to open the locale modal. This goes to footer.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
   openLocaleModal = false;
 
   /**
-   * Footer size.
+   * Footer size. This goes to footer.
    */
   @property({ reflect: true, attribute: 'footer-size' })
   footerSize?: FOOTER_SIZE;
 
   /**
-   * The profile items for unauthenticated state.
+   * The profile items for unauthenticated state. This goes to masthead.
    */
   @property({ attribute: false })
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The navigation links.
+   * The navigation links. This goes to masthead.
    */
   @property({ attribute: false })
   navLinks?: MastheadLink[];
 
   /**
-   * The user authentication status.
+   * The user authentication status. This goes to masthead.
    */
   @property({ attribute: 'user-status' })
   userStatus?: USER_AUTHENTICATION_STATUS;
@@ -191,7 +185,6 @@ class DDSLinkWithIcon extends LitElement {
       legalLinks,
       localeList,
       loginNonce,
-      logoHref,
       footerLinks,
       footerSize,
       openLocaleModal,
@@ -213,7 +206,6 @@ class DDSLinkWithIcon extends LitElement {
           inputTimeout,
           language,
           loginNonce,
-          logoHref,
           navLinks,
           userStatus,
         },

@@ -485,12 +485,6 @@ class DDSMastheadContainer extends ConnectMixin<
   loginNonce?: string;
 
   /**
-   * The link target to the masthead logo.
-   */
-  @property({ attribute: 'logo-href' })
-  logoHref?: string;
-
-  /**
    * The navigation links.
    */
   @property({ attribute: false })
@@ -558,7 +552,6 @@ class DDSMastheadContainer extends ConnectMixin<
       menuButtonLabelActive,
       menuButtonLabelInactive,
       loginNonce,
-      logoHref,
       unauthenticatedProfileItems,
       userStatus,
       _currentSearchResults: currentSearchResults,
@@ -586,7 +579,7 @@ class DDSMastheadContainer extends ConnectMixin<
           button-label-inactive="${ifNonNull(menuButtonLabelInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo href="${ifNonNull(logoHref)}"></dds-masthead-logo>
+        <dds-masthead-logo></dds-masthead-logo>
         ${!brandName
           ? undefined
           : html`
