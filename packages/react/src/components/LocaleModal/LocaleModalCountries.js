@@ -21,19 +21,19 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {object} props.regionList object of country and language codes
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
+ * @param {string} props.currentRegion current region
  * @returns {*} LocaleModal component
  */
 const LocaleModalCountries = ({
   regionList,
   setClearResults,
+  currentRegion,
   ...modalLabels
 }) => {
   const localList = useRef(null);
   useEffect(() => {
-    if (open) {
-      localList.current.scrollTop = 0;
-    }
-  }, [open]);
+    localList.current.scrollTop = 0;
+  }, [currentRegion, regionList]);
 
   useEffect(() => {
     const localeFilter = document.getElementById(
@@ -138,6 +138,10 @@ LocaleModalCountries.propTypes = {
    * Func to clear search input.
    */
   setClearResults: PropTypes.func,
+  /**
+   * String of current region.
+   */
+  currentRegion: PropTypes.string,
 };
 
 LocaleModalCountries.defaultProps = {
