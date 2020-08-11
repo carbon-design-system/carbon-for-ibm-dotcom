@@ -154,6 +154,7 @@ class DDSLocaleModal extends DDSModal {
       const localeSaarch = this.querySelector(selectorLocaleSearch);
       if (localeSaarch) {
         (localeSaarch as DDSLocaleSearch).region = this._currentRegion ?? '';
+        (localeSaarch as DDSLocaleSearch).resetScrollPosition();
       }
     }
   }

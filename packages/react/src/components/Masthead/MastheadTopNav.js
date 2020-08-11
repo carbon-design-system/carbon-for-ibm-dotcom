@@ -12,7 +12,7 @@ import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
-import MastheadMegaMenu from './MastheadMegaMenu';
+import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -90,7 +90,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 function renderNav(link) {
   const navItems = [];
   if (link.hasMegapanel) {
-    navItems.push(<MastheadMegaMenu data={link} />);
+    navItems.push(<MegaMenu key={link.title} data={link} />);
   } else {
     link.menuSections.forEach((section, i) => {
       section.menuItems.forEach((item, j) => {
