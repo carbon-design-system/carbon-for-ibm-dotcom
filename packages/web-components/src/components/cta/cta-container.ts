@@ -96,8 +96,11 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
    * @param event The event.
    */
   private _handleRunAction(event: CustomEvent) {
-    this._currentVideoId = event.detail.href;
-    this.requestUpdate();
+    const { href, type } = event.detail;
+    if (type === CTA_TYPE.VIDEO) {
+      this._currentVideoId = href;
+      this.requestUpdate();
+    }
   }
 
   /**

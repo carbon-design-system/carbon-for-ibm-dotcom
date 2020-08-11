@@ -5,6 +5,7 @@
 ```
 <dds-video-player-container video-id="video-id-foo">
   <dds-video-player
+    aria-label="video-name-foo (1:00)"
     duration="60000"
     name="video-name-foo"
   >

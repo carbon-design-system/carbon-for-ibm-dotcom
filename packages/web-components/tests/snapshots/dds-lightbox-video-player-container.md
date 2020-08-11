@@ -17,6 +17,7 @@
     </bx-modal-close-button>
     <dds-lightbox-media-viewer-body>
       <dds-lightbox-video-player
+        aria-label="video-name-foo (1:00)"
         duration="60000"
         name="video-name-foo"
       >
