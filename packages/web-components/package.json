@@ -106,8 +106,6 @@
     "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-istanbul": "^4.1.0",
-    "carbon-components": "10.17.0",
-    "carbon-web-components": "1.4.0",
     "commander": "^2.13.0",
     "css-loader": "^2.0.0",
     "del": "^2.2.0",

@@ -116,7 +116,6 @@
     "babel-plugin-transform-define": "^2.0.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "browserslist-config-carbon": "10.3.0",
-    "carbon-components": "10.17.0",
     "chalk": "^2.3.0",
     "child-process-promise": "^2.2.0",
     "chromedriver": "^83.0.0",
