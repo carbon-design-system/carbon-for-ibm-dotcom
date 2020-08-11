@@ -6,7 +6,8 @@
 <dds-lightbox-video-player-container video-id="video-id-foo">
   <dds-modal
     data-auto-id="dds--expressive-modal"
-    size="full-width"
+    expressive-size="full-width"
+    size=""
     tabindex="0"
   >
     <bx-modal-close-button
