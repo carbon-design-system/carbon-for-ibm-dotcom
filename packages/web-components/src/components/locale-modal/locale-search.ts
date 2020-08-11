@@ -98,11 +98,14 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   @property({ reflect: true })
   slot = 'locales-selector';
 
-  updated(changedProperties) {
-    const { _listNode: listNode } = this;
-    if (listNode) {
-      listNode.scrollTop = 0;
+  resetScrollPosition() {
+    console.log('here');
+    if (this._listNode) {
+      this._listNode.scrollTop = 0;
     }
+  }
+
+  updated(changedProperties) {
     if (changedProperties.has('region')) {
       const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
       const { region } = this;
