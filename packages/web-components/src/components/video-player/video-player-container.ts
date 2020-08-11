@@ -48,6 +48,11 @@ class DDSVideoPlayerContainer extends HybridRenderMixin(LitElement) {
   protected _duration = '';
 
   /**
+   * The Kaltura video player element.
+   */
+  protected _kWidget = '';
+
+  /**
    * The video name.
    */
   protected _name = '';
@@ -83,13 +88,17 @@ class DDSVideoPlayerContainer extends HybridRenderMixin(LitElement) {
         loadVideoPromises.set(videoId, promise);
         return promise;
       })();
-    const [videoData] = await loadVideoPromise;
+    const [videoData, embedVideoHandle] = await loadVideoPromise;
     const { name: videoName, description: videoDescription, msDuration: videoDuration } = videoData;
     if (videoId === this.videoId) {
       this._name = videoName;
       this._description = videoDescription;
       this._duration = videoDuration;
       this.requestUpdate();
+    }
+    const kWidget = await embedVideoHandle.kWidget();
+    if (videoId === this.videoId) {
+      this._kWidget = kWidget;
     }
   }
 
