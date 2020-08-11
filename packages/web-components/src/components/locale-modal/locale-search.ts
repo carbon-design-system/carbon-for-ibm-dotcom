@@ -99,7 +99,6 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   slot = 'locales-selector';
 
   resetScrollPosition() {
-    console.log('here');
     if (this._listNode) {
       this._listNode.scrollTop = 0;
     }
