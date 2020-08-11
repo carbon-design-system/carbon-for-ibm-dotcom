@@ -122,7 +122,7 @@
 
       @include carbon--breakpoint-down(md) {
         width: 100vw;
-        right: (-$carbon--spacing-09);
+        right: 0;
       }
 
       .#{$prefix}--header__search--input {
