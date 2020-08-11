@@ -169,6 +169,16 @@ const Masthead = ({
     }
   }
 
+  // set navigation type (default, alternate, or ecosystem) for autoids
+  let navType;
+  if (!navigation) {
+    navType = 'alt';
+  } else if (navigation && !platform) {
+    navType = 'default';
+  } else if (platform) {
+    navType = 'eco';
+  }
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -196,12 +206,14 @@ const Masthead = ({
                     {...mastheadProps}
                     platform={platform}
                     navigation={mastheadData}
+                    navType={navType}
                   />
                 )}
                 {hasSearch && (
                   <MastheadSearch
                     searchOpenOnload={searchOpenOnload}
                     placeHolderText={placeHolderText}
+                    navType={navType}
                   />
                 )}
               </div>
@@ -226,6 +238,7 @@ const Masthead = ({
                         ? profileData.signedin
                         : profileData.signedout
                     }
+                    navType={navType}
                   />
                 </HeaderGlobalBar>
               )}
@@ -243,7 +256,11 @@ const Masthead = ({
           </div>
           {mastheadL1Data && DDS_MASTHEAD_L1 && (
             <div ref={mastheadL1Ref}>
-              <MastheadL1 {...mastheadL1Data} isShort={isMastheadSticky} />
+              <MastheadL1
+                {...mastheadL1Data}
+                isShort={isMastheadSticky}
+                navType={navType}
+              />
             </div>
           )}
         </div>
