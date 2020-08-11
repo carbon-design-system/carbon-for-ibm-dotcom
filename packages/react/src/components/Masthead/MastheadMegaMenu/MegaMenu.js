@@ -47,9 +47,9 @@ const MegaMenu = ({ data }) => {
         viewAllLinkHref={viewAllLink?.url}
         viewAllLinkTitle={viewAllLink?.title}>
         {menuItems.map(item => (
-          <CategoryGroup href={item.url} title={item.title}>
+          <CategoryGroup key={item.title} href={item.url} title={item.title}>
             {item.megapanelContent?.quickLinks?.links.map(({ title, url }) => (
-              <CategoryLink href={url} title={title} />
+              <CategoryLink key={title} href={url} title={title} />
             ))}
           </CategoryGroup>
         ))}
