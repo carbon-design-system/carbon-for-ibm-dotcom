@@ -7,8 +7,7 @@
 ```
 <a
   class="bx--link bx--link-with-icon"
-  id="button"
-  role="button"
+  id="link"
 >
   <span>
     <slot>
@@ -23,11 +22,9 @@
 ####   `should render with various attributes`
 
 ```
-<a
+<p
   class="bx--link bx--link--disabled bx--link-with-icon"
-  href="about:blank"
-  id="button"
-  role="button"
+  id="link"
 >
   <span>
     <slot>
@@ -35,7 +32,7 @@
   </span>
   <slot name="icon">
   </slot>
-</a>
+</p>
 
 ```
 
