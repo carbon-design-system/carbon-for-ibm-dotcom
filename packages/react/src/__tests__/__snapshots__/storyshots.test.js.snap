@@ -63721,8 +63721,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         className="bx--locale-modal__search-text"
                       />
                     </div>
-                    <div
-                      aria-labelledby="bx--locale-modal__filter"
+                    <ul
                       className="bx--locale-modal__list"
                     />
                   </div>
