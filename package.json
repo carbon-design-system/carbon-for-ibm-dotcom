@@ -11,12 +11,7 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": [
-      "**/carbon-components",
-      "**/@carbon/ibmdotcom-services",
-      "**/@carbon/ibmdotcom-styles",
-      "**/@carbon/ibmdotcom-utilities"
-    ]
+    "nohoist": []
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
@@ -34,8 +29,7 @@
     "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
-    "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-vanilla test:integration:build && yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build",
-    "upgrade-carbon": "yarn lerna run --stream --prefix upgrade-carbon"
+    "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-vanilla test:integration:build && yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build"
   },
   "devDependencies": {
     "@actions/core": "^1.2.0",

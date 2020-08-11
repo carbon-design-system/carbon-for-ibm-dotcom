@@ -35,7 +35,7 @@
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
-    "upgrade-carbon": "yarn upgrade @carbon/icon-helpers @carbon/icons @carbon/grid --latest"
+    "upgrade-carbon": "yarn upgrade-interactive @carbon/icon-helpers @carbon/icons @carbon/grid --latest"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
@@ -43,7 +43,7 @@
     "@carbon/ibmdotcom-styles": "1.9.0",
     "@carbon/ibmdotcom-utilities": "1.9.0",
     "@carbon/icon-helpers": "10.9.0",
-    "@carbon/icons": "10.13.0",
+    "@carbon/icons": "10.15.0",
     "@tarekraafat/autocomplete.js": "^7.2.0",
     "classnames": "2.2.6",
     "window-or-global": "^1.0.1"

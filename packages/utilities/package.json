@@ -31,11 +31,12 @@
     "contributors:generate": "all-contributors generate",
     "prepublish": "yarn build",
     "test": "jest",
-    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md"
+    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
+    "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest"
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "carbon-components": "^10.15.0",
+    "carbon-components": "10.17.0",
     "isomorphic-dompurify": "0.4.0",
     "js-cookie": "^2.2.1",
     "marked": "1.1.0",
@@ -59,6 +60,7 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "babel-polyfill": "^6.26.0",
     "browserslist-config-carbon": "10.3.0",
+    "carbon-components": "10.17.0",
     "chalk": "^2.3.0",
     "cli-table": "^0.3.0",
     "core-js": "^3.1.3",
