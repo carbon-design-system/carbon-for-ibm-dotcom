@@ -199,7 +199,7 @@ describe('dds-cta-container', function() {
       );
       await Promise.resolve();
       const ctaContainer = document.querySelector('dds-cta-container');
-      ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4' } }));
+      ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4', type: 'video' } }));
       await Promise.resolve();
       const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
       expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
