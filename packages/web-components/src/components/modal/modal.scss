@@ -12,41 +12,28 @@
 
 :host(#{$dds-prefix}-modal) {
   @extend :host(#{$prefix}-modal);
-  @extend .#{$prefix}--modal--expressive;
 
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
   }
 
   &[expressive-size='full-width'] {
-    ::slotted(#{$dds-prefix}-modal-body),
-    ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
-      padding-right: 0;
-      height: auto;
-    }
-
     ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
       height: 100%;
       overflow: auto;
     }
+  }
 
-    .#{$prefix}--modal-close {
-      top: 0;
-      right: 0;
-    }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--modal-container {
-        width: calc(100% - #{$carbon--spacing-07});
-        max-width: calc(100% - #{$carbon--spacing-07});
-        height: calc(100% - #{$carbon--spacing-07});
-        max-height: none;
-      }
-    }
+  .#{$prefix}--modal-content {
+    flex-direction: column;
   }
 
   .#{$dds-prefix}-ce--modal__hedaer--with-body {
     margin-bottom: $spacing-05;
+  }
+
+  .#{$dds-prefix}-ce--modal__body {
+    width: 100%;
   }
 
   .#{$dds-prefix}-ce--modal__body--with-footer {
@@ -54,8 +41,13 @@
   }
 }
 
-:host(#{$dds-prefix}-modal-header) {
+:host(#{$dds-prefix}-modal-header),
+:host(#{$dds-prefix}-modal-heading),
+:host(#{$dds-prefix}-modal-footer) {
   display: block;
+}
+
+:host(#{$dds-prefix}-modal-header) {
   padding: 0;
 }
 
@@ -69,27 +61,7 @@
 :host(#{$dds-prefix}-lightbox-media-viewer-body) {
   @include carbon--type-style('body-long-02');
 
-  $button-size: carbon--rem(48px);
-  $icon-size: carbon--rem(20px);
-  $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
-
-  display: flex;
-  padding-left: 0;
-  padding-right: $button-size - $offset-close-icon;
-  margin-bottom: 0;
-  padding-top: 0;
-
   *:last-child {
     padding-bottom: 0;
   }
-}
-
-:host(#{$dds-prefix}-modal-footer) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-modal-heading) {
-  @include carbon--type-style('expressive-heading-04');
-
-  display: block;
 }
