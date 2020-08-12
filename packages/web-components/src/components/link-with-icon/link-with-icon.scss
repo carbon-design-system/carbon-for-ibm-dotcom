@@ -18,4 +18,8 @@
   .#{$prefix}--link--disabled {
     color: $disabled-02;
   }
+
+  ::slotted(svg[slot="icon-left"]) {
+    margin-right:  $carbon--spacing-03;
+  }
 }

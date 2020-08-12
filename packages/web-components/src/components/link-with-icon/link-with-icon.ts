@@ -27,6 +27,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
     return html`
+      <slot name="icon-left"></slot>
       <span><slot></slot></span>
       <slot name="icon"></slot>
     `;

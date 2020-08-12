@@ -40,6 +40,8 @@ class DDSLinkList extends LitElement {
     switch (this.type) {
       case 'horizontal':
         return `${prefix}--link-list__list--horizontal`;
+      case 'vertical':
+        return `${prefix}--link-list__list--vertical`;
       default:
         return `${prefix}--link-list__list--card`;
     }

@@ -4,12 +4,25 @@
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-list) {
-  @extend .#{$prefix}--link-list;
+  &:last-of-type {
+    padding-bottom: $carbon--layout-05;
+  }
+  .#{$prefix}--link-list {
+    padding-bottom: 0;
+  }
+
   .#{$prefix}--link-list__list-- {
     &horizontal {
       display: flex;
       ::slotted(#{$dds-prefix}-link-list-item) {
-        padding-right: 2rem;
+        padding-right: $carbon--layout-03;
+      }
+    }
+    &vertical {
+      display: flex;
+      flex-direction: column;
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        padding-bottom: $carbon--layout-02;
       }
     }
     &card {
@@ -17,12 +30,18 @@
         border-top: 1px solid $ui-03;
       }
     }
+    &vertical {
+      display: flex;
+      flex-direction: column;
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        padding-bottom: $carbon--layout-02;
+      }
+    }
   }
 }
 
 :host(#{$dds-prefix}-link-list-item) {
   @extend .#{$prefix}--link-list__list__CTA;
-
   ::slotted(#{$dds-prefix}-card-link) {
     @extend .#{$prefix}--card;
     border-top: 1px solid $ui-03;
