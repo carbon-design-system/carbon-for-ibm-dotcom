@@ -52,6 +52,8 @@ class DDSLinkWithIcon extends LitElement {
 
   /**
    * The profile items for authenticated state. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   authenticateProfileItems?: MastheadProfileItem[];
@@ -76,30 +78,40 @@ class DDSLinkWithIcon extends LitElement {
 
   /**
    * The footer links. This goes to footer.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   footerLinks: BasicLinkSet[] = [];
 
   /**
    * The language to show in the UI. This goes to footer.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: 'lang-display' })
   langDisplay?: string;
 
   /**
    * The language used for query. This goes to masthead and footer.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property()
   language?: string;
 
   /**
    * The legal nav links. This goes to footer.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   legalLinks: BasicLink[] = [];
 
   /**
    * The locale list. This goes to footer.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   localeList?: LocaleModalLocaleList;
@@ -148,18 +160,24 @@ class DDSLinkWithIcon extends LitElement {
 
   /**
    * The profile items for unauthenticated state. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
    * The navigation links. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   navLinks?: MastheadLink[];
 
   /**
    * The user authentication status. This goes to masthead.
+   * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: 'user-status' })
   userStatus?: USER_AUTHENTICATION_STATUS;
