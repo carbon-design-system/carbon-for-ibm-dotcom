@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'carbon-custom-elements/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
 import '@carbon/ibmdotcom-web-components/es/components/modal/modal';

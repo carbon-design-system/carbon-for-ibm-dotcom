@@ -5,13 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useState } from 'react';
+import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
+import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -21,20 +23,25 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
+  const [overlay, setOverlay] = useState(false);
   /**
    * Top masthead navigation
    *
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
-    if (link.hasMenu) {
+    if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
+          className={classnames({
+            [`${prefix}--masthead__megamenu__l0-nav`]: link.hasMegapanel,
+          })}
           data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
-          key={i}>
-          {renderNav(link.menuSections)}
+          key={i}
+          setOverlay={setOverlay}>
+          {renderNav(link)}
         </HeaderMenu>
       );
     } else {
@@ -50,44 +57,54 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   });
 
   return (
-    <div className={`${prefix}--header__nav-container`}>
-      {topNavProps.platform && (
-        <HeaderName
-          prefix=""
-          href={topNavProps.platform.url}
-          data-autoid={`${stablePrefix}--masthead__platform-name`}>
-          {topNavProps.platform.name}
-        </HeaderName>
-      )}
-      <HeaderNavigation
-        aria-label="IBM"
-        data-autoid={`${stablePrefix}--masthead__l0-nav`}>
-        {mastheadLinks}
-      </HeaderNavigation>
-    </div>
+    <>
+      <div className={`${prefix}--header__nav-container`}>
+        {topNavProps.platform && (
+          <HeaderName
+            prefix=""
+            href={topNavProps.platform.url}
+            data-autoid={`${stablePrefix}--masthead__platform-name`}>
+            {topNavProps.platform.name}
+          </HeaderName>
+        )}
+        <HeaderNavigation
+          aria-label="IBM"
+          data-autoid={`${stablePrefix}--masthead__l0-nav`}>
+          {mastheadLinks}
+        </HeaderNavigation>
+      </div>
+      <div
+        className={classnames(`${prefix}--masthead__overlay`, {
+          [`${prefix}--masthead__overlay-show`]: overlay,
+        })}></div>
+    </>
   );
 };
 
 /**
  * Loops through and renders a list of links for the masthead nav
  *
- * @param {Array} sections A list of links to be rendered
+ * @param {object} link A list of links to be rendered
  * @returns {object} JSX object
  */
-function renderNav(sections) {
+function renderNav(link) {
   const navItems = [];
-  sections.forEach((section, i) => {
-    section.menuItems.forEach((item, j) => {
-      navItems.push(
-        <HeaderMenuItem
-          href={item.url}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
-          key={item.title}>
-          {item.title}
-        </HeaderMenuItem>
-      );
+  if (link.hasMegapanel) {
+    navItems.push(<MegaMenu key={link.title} data={link} />);
+  } else {
+    link.menuSections.forEach((section, i) => {
+      section.menuItems.forEach((item, j) => {
+        navItems.push(
+          <HeaderMenuItem
+            href={item.url}
+            data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
+            key={item.title}>
+            {item.title}
+          </HeaderMenuItem>
+        );
+      });
     });
-  });
+  }
   return navItems;
 }
 

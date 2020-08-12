@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
-import 'carbon-custom-elements/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-close-button';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../modal/modal';
 import '../lightbox-media-viewer-body';
@@ -32,7 +32,12 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
       ${styles}
     </style>
     <dds-lightbox-video-player-container ?hide-caption="${hideCaption}" video-id="${videoId}">
-      <dds-modal ?open="${open}" size="full-width" @dds-modal-beingclosed="${handleBeforeClose}" @dds-modal-closed="${onClose}">
+      <dds-modal
+        ?open="${open}"
+        expressive-size="full-width"
+        @dds-modal-beingclosed="${handleBeforeClose}"
+        @dds-modal-closed="${onClose}"
+      >
         <bx-modal-close-button></bx-modal-close-button>
         <dds-lightbox-media-viewer-body></dds-lightbox-media-viewer-body>
       </dds-modal>

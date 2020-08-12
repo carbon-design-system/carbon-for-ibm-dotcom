@@ -11,6 +11,7 @@ import { Image } from '../Image';
 import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import { VideoPlayer } from '../VideoPlayer';
@@ -22,7 +23,7 @@ const { prefix } = settings;
 /**
  * LightboxMediaViewer Component.
  */
-const LightboxMediaViewer = ({ media, ...modalProps }) => {
+const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
   const [videoData, setVideoData] = useState({
     title: '',
     alt: '',
@@ -95,7 +96,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
       className={`${prefix}--lightbox-media-viewer`}
       ref={containerRef}>
-      <ExpressiveModal fullwidth={true} {...modalProps}>
+      <ExpressiveModal fullwidth={true} {...modalProps} onClose={closeModal}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
@@ -134,6 +135,18 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
       </ExpressiveModal>
     </section>
   );
+
+  /**
+   * Stop video on modal close
+   */
+  function closeModal() {
+    if (onClose?.() !== false) {
+      root.kWidget.addReadyCallback(videoId => {
+        const kdp = document.getElementById(videoId);
+        kdp.sendNotification('doStop');
+      });
+    }
+  }
 };
 
 LightboxMediaViewer.propTypes = {
@@ -155,5 +168,10 @@ LightboxMediaViewer.propTypes = {
     alt: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
+
+  /**
+   * Function to be triggered on close of Modal.
+   */
+  onClose: PropTypes.func,
 };
 export default LightboxMediaViewer;

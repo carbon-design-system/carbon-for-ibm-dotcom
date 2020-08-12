@@ -8,11 +8,12 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowDown20 from 'carbon-custom-elements/es/icons/arrow--down/20';
-import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
-import Download20 from 'carbon-custom-elements/es/icons/download/20';
-import Launch20 from 'carbon-custom-elements/es/icons/launch/20';
-import PlayOutline20 from 'carbon-custom-elements/es/icons/play--outline/20';
+import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Download20 from 'carbon-web-components/es/icons/download/20';
+import Launch20 from 'carbon-web-components/es/icons/launch/20';
+import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import DDSModal from '../../modal/modal';
 import DDSLightboxVideoPlayerContainer from '../../lightbox-media-viewer/lightbox-video-player-container';
 import { CTA_STYLE, CTA_TYPE } from '../cta-container';
@@ -164,6 +165,11 @@ describe('dds-cta-container', function() {
   });
 
   describe('Handling video type', function() {
+    beforeEach(function() {
+      spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
+      spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
+    });
+
     it('should render the media viewer', async function() {
       render(
         html`
@@ -179,8 +185,8 @@ describe('dds-cta-container', function() {
         document.body
       );
       await Promise.resolve();
-      const { _modalContainerRoot: modalContainerRoot } = document.querySelector('dds-cta-container') as any;
-      expect(modalContainerRoot).toMatchSnapshot();
+      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
+      expect(modalRenderRoot).toMatchSnapshot();
     });
 
     it('should support opening/closing the media viewer', async function() {
@@ -199,18 +205,18 @@ describe('dds-cta-container', function() {
       );
       await Promise.resolve();
       const ctaContainer = document.querySelector('dds-cta-container');
-      ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4' } }));
+      ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4', type: 'video' } }));
       await Promise.resolve();
-      const { _modalContainerRoot: modalContainerRoot } = document.querySelector('dds-cta-container') as any;
-      expect((modalContainerRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
-      const { videoId: videoIdInVideoPlayerContainerOpen } = modalContainerRoot!.querySelector(
+      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
+      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
+      const { videoId: videoIdInVideoPlayerContainerOpen } = modalRenderRoot!.querySelector(
         'dds-lightbox-video-player-container'
       ) as DDSLightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerOpen).toBe('0_uka1msg4');
-      modalContainerRoot!.querySelector('bx-modal-close-button').click();
+      modalRenderRoot!.querySelector('bx-modal-close-button').click();
       await Promise.resolve();
-      expect((modalContainerRoot!.querySelector('dds-modal') as DDSModal).open).toBe(false);
-      const { videoId: videoIdInVideoPlayerContainerClosed } = modalContainerRoot!.querySelector(
+      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(false);
+      const { videoId: videoIdInVideoPlayerContainerClosed } = modalRenderRoot!.querySelector(
         'dds-lightbox-video-player-container'
       ) as DDSLightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerClosed).toBeFalsy();

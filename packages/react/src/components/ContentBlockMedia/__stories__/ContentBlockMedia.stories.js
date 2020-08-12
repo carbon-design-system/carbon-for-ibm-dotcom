@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, boolean } from '@storybook/addon-knobs';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
@@ -80,14 +80,14 @@ Default.story = {
       ContentBlockMedia: ({ groupId }) => {
         const item = {
           mediaType: simpleMediaType,
-          mediaData: object(
-            'Simple group media (image)',
-            simpleMediaData,
+          mediaData: simpleMediaData,
+          heading: text(
+            'Simple Group Heading (heading)',
+            simpleHeading,
             groupId
           ),
-          heading: text('Simple group heading', simpleHeading, groupId),
-          items: object('Simple group content', simpleItems, groupId),
-          cta: object('Simple group CTA', simpleCta, groupId),
+          items: simpleItems,
+          cta: simpleCta,
         };
 
         const items = [item, item];
@@ -102,7 +102,7 @@ Default.story = {
         return {
           copy,
           heading: text(
-            'Heading (required)',
+            'Heading (heading)',
             'Curabitur malesuada varius mi eu posuere',
             groupId
           ),
@@ -157,27 +157,23 @@ WithAsideElements.story = {
         const items = [item, item];
 
         const linkListProps = {
-          heading: text('link list heading:', 'Tutorials', groupId),
-          items: object(
-            'link list items array',
-            [
-              {
-                type: 'local',
-                copy: 'Containerization A Complete Guide',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+          heading: text('Link List (heading)', 'Tutorials', groupId),
+          items: [
+            {
+              type: 'local',
+              copy: 'Containerization A Complete Guide',
+              cta: {
+                href: 'https://ibm.com',
               },
-              {
-                type: 'external',
-                copy: 'Why should you use microservices and containers',
-                cta: {
-                  href: 'https://ibm.com',
-                },
+            },
+            {
+              type: 'external',
+              copy: 'Why should you use microservices and containers',
+              cta: {
+                href: 'https://ibm.com',
               },
-            ],
-            groupId
-          ),
+            },
+          ],
         };
 
         const aside = {

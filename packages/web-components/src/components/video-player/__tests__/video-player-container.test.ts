@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import { EventTarget } from 'event-target-shim';
-import ifNonNull from 'carbon-custom-elements/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSVideoPlayer from '../video-player';
@@ -28,7 +28,7 @@ describe('dds-video-player-container', function() {
 
   it('should send props to video player', async function() {
     spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve());
+    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
     const formatCaption = () => {};
     render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
@@ -53,6 +53,7 @@ describe('dds-video-player-container', function() {
       replaceElem.dataset.videoId = videoId;
       replaceElem.dataset.autoplay = String(Boolean(autoplay));
       playerElem!.parentNode!.replaceChild(replaceElem, playerElem!);
+      return { kWidget() {} };
     });
     render(template({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
@@ -76,7 +77,7 @@ describe('dds-video-player-container', function() {
           });
         })
     );
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve());
+    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
     render(template({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
     render(template({ videoId: 'video-id-bar' }), document.body);
@@ -96,7 +97,7 @@ describe('dds-video-player-container', function() {
 
   it('should cache the API call result for video data', async function() {
     spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve());
+    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
     render(template({ videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
     render(template({ videoId: 'video-id-bar' }), document.body);
@@ -109,7 +110,7 @@ describe('dds-video-player-container', function() {
 
   it('should send props to video player', async function() {
     spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve());
+    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
     const formatCaption = () => {};
     render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Update cycle to trigger `._loadVideo()`

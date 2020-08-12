@@ -10,8 +10,8 @@
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { INPUT_SIZE } from 'carbon-custom-elements/es/components/input/input';
-import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-custom-elements/es/components/search/search';
+import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input';
+import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSLocaleItem from './locale-item';
@@ -42,6 +42,9 @@ function search(target?: (string | void)[], searchText?: string) {
 class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   @query('bx-search')
   private _searchNode?: BXSearch;
+
+  @query(`.${prefix}--locale-modal__list`)
+  private _listNode?: HTMLElement;
 
   _handleThrottledInput() {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
@@ -94,6 +97,15 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
    */
   @property({ reflect: true })
   slot = 'locales-selector';
+
+  /**
+   * Resets the scroll position.
+   */
+  resetScrollPosition() {
+    if (this._listNode) {
+      this._listNode.scrollTop = 0;
+    }
+  }
 
   updated(changedProperties) {
     if (changedProperties.has('region')) {

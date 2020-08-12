@@ -12,6 +12,7 @@
 /* eslint-disable global-require */
 
 const path = require('path');
+const webpack = require('webpack');
 
 function normalizeBrowser(browser) {
   return (
@@ -23,6 +24,14 @@ function normalizeBrowser(browser) {
     }[browser.toLowerCase()] || browser
   );
 }
+
+const serviceMocks = {
+  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(__dirname, 'mocks/LocaleAPI'),
+  '@carbon/ibmdotcom-services/es/services/Translation/Translation': path.resolve(__dirname, 'mocks/TranslationAPI'),
+  '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer': path.resolve(__dirname, 'mocks/VideoPlayerAPI'),
+};
+
+const reServices = /^@carbon\/ibmdotcom-services/i;
 
 module.exports = function setupKarma(config) {
   const { browsers, collectCoverage, noPruneShapshot, specs, random, updateSnapshot, verbose } = config.customConfig;
@@ -135,6 +144,16 @@ module.exports = function setupKarma(config) {
           },
         ],
       },
+
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('test'),
+        }),
+        new webpack.NormalModuleReplacementPlugin(reServices, resource => {
+          const { request } = resource;
+          resource.request = serviceMocks[request] || request;
+        }),
+      ],
     },
 
     webpackMiddleware: {

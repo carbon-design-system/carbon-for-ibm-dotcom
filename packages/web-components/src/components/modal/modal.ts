@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, customElement, property, TemplateResult, SVGTemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
-import BXModal from 'carbon-custom-elements/es/components/modal/modal';
+import BXModal from 'carbon-web-components/es/components/modal/modal';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './modal.scss';
 
@@ -138,6 +138,7 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   protected _renderBody(): TemplateResult | SVGTemplateResult | void {
     const { _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const bodyClasses = classMap({
+      [`${ddsPrefix}-ce--modal__body`]: true,
       [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
     return html`
@@ -185,7 +186,9 @@ class DDSModal extends StableSelectorMixin(BXModal) {
         @click="${handleClickContainerExpressive}"
         @slotchange="${handleSlotChange}"
       >
-        ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
+        <div class="bx--modal-content">
+          ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
+        </div>
       </div>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;
