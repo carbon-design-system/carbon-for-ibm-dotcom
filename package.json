@@ -11,12 +11,7 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": [
-      "**/carbon-components",
-      "**/@carbon/ibmdotcom-services",
-      "**/@carbon/ibmdotcom-styles",
-      "**/@carbon/ibmdotcom-utilities"
-    ]
+    "nohoist": []
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",

@@ -50,6 +50,7 @@
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
+    "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
@@ -59,7 +60,7 @@
     "@carbon/ibmdotcom-services": "1.9.0",
     "@carbon/ibmdotcom-styles": "1.9.0",
     "@carbon/ibmdotcom-utilities": "1.9.0",
-    "carbon-components": "10.15.0",
+    "carbon-components": "10.17.0",
     "carbon-web-components": "1.4.0",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
