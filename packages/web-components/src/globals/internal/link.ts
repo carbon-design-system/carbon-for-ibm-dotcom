@@ -34,7 +34,19 @@ class DDSLink extends BXLink {
   }
 
   render() {
-    const { disabled, download, href, hreflang, linkRole, ping, rel, target, type, _classes: classes, _handleClickLink: handleClickLink } = this;
+    const {
+      disabled,
+      download,
+      href,
+      hreflang,
+      linkRole,
+      ping,
+      rel,
+      target,
+      type,
+      _classes: classes,
+      _handleClickLink: handleClickLink,
+    } = this;
     return disabled
       ? html`
           <p id="link" class="${classes}">${this._renderInner()}</p>
