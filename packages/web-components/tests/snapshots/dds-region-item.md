@@ -8,8 +8,7 @@
 <a
   class="bx--link"
   href="about:blank"
-  id="button"
-  role="button"
+  id="link"
 >
   <div class="bx--card__wrapper">
     <h3 class="bx--card__heading">
@@ -30,8 +29,7 @@
 <a
   class="bx--link"
   href="#"
-  id="button"
-  role="button"
+  id="link"
 >
   <div class="bx--card__wrapper">
     <h3 class="bx--card__heading">
