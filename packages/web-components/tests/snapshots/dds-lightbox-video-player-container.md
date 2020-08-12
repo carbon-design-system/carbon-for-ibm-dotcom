@@ -6,7 +6,8 @@
 <dds-lightbox-video-player-container video-id="video-id-foo">
   <dds-modal
     data-auto-id="dds--expressive-modal"
-    size="full-width"
+    expressive-size="full-width"
+    size=""
     tabindex="0"
   >
     <bx-modal-close-button
@@ -16,6 +17,7 @@
     </bx-modal-close-button>
     <dds-lightbox-media-viewer-body>
       <dds-lightbox-video-player
+        aria-label="video-name-foo (1:00)"
         duration="60000"
         name="video-name-foo"
       >

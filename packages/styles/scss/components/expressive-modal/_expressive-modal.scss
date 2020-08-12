@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 
 @import 'carbon-components/scss/components/modal/modal';
@@ -15,25 +16,13 @@
 
 @mixin expressive-model {
   $modal: '.#{$prefix}--modal';
+  $button-size: carbon--rem(48px);
+  $icon-size: carbon--rem(20px);
+  $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
 
+  :host(#{$dds-prefix}-modal),
   #{$modal}--expressive {
-    $button-size: carbon--rem(48px);
-    $icon-size: carbon--rem(20px);
-    $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
-
     color: $text-01;
-
-    #{$modal}-content {
-      display: flex;
-      padding-left: 0;
-      padding-right: $button-size - $offset-close-icon;
-      margin-bottom: 0;
-      padding-top: 0;
-
-      h1 {
-        @include carbon--type-style('expressive-heading-04');
-      }
-    }
 
     #{$modal}-close {
       top: $offset-close-icon;
@@ -44,28 +33,48 @@
       padding: $carbon--spacing-08 $carbon--spacing-07 $carbon--spacing-07;
       min-height: $carbon--spacing-07 + $icon-size + $carbon--spacing-07;
     }
-    &--fullwidth {
+
+    #{$modal}-content {
+      display: flex;
+      padding-left: 0;
+      padding-right: $button-size - $offset-close-icon;
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  :host(#{$dds-prefix}-modal-heading),
+  #{$modal}--expressive #{$modal}-content h1 {
+    @include carbon--type-style('expressive-heading-04');
+  }
+
+  :host(#{$dds-prefix}-modal)[expressive-size='full-width'],
+  #{$modal}--expressive--fullwidth {
+    #{$modal}-container {
+      padding: $carbon--spacing-07;
+    }
+    #{$modal}-close {
+      top: 0;
+      right: 0;
+    }
+    @include carbon--breakpoint('md') {
       #{$modal}-container {
-        padding: $carbon--spacing-07;
-      }
-      #{$modal}-content {
-        padding-right: 0;
-        height: auto;
-        min-height: carbon--rem(500px);
-      }
-      #{$modal}-close {
-        top: 0;
-        right: 0;
-      }
-      @include carbon--breakpoint('md') {
-        #{$modal}-container {
-          width: calc(100% - #{$carbon--spacing-07});
-          max-width: calc(100% - #{$carbon--spacing-07});
-          height: calc(100% - #{$carbon--spacing-07});
-          max-height: none;
-        }
+        width: calc(100% - #{$carbon--spacing-07});
+        max-width: calc(100% - #{$carbon--spacing-07});
+        height: calc(100% - #{$carbon--spacing-07});
+        max-height: none;
       }
     }
+  }
+
+  :host(#{$dds-prefix}-modal[expressive-size='full-width'])
+    ::slotted(#{$dds-prefix}-modal-body),
+  :host(#{$dds-prefix}-modal[expressive-size='full-width'])
+    ::slotted(#{$dds-prefix}-lightbox-media-viewer-body),
+  #{$modal}--expressive--fullwidth #{$modal}-content {
+    padding-right: 0;
+    height: auto;
+    min-height: carbon--rem(500px);
   }
 }
 
