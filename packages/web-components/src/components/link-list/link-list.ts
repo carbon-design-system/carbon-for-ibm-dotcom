@@ -42,6 +42,8 @@ class DDSLinkList extends LitElement {
         return `${prefix}--link-list__list--horizontal`;
       case 'vertical':
         return `${prefix}--link-list__list--vertical`;
+      case 'end':
+        return `${prefix}--link-list__list--end`;
       default:
         return `${prefix}--link-list__list--card`;
     }

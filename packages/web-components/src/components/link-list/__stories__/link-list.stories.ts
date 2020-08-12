@@ -17,10 +17,9 @@ import '../../link-with-icon/link-with-icon';
 
 const styles = css`
   .bx--grid {
-    width: 100%
+    width: 100%;
   }
-`
-
+`;
 
 export const Default = () => {
   return html`
@@ -31,7 +30,7 @@ export const Default = () => {
       <div class="bx--row">
         <div class="bx--col-sm-4 bx--col-lg-3 bx--offset-lg-4">
           <dds-link-list type="default">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
                 Learn more ${ArrowRight20({ slot: 'footer' })}
@@ -58,7 +57,7 @@ export const Horizontal = () => {
       <div class="bx--row">
         <div class="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
           <dds-link-list type="horizontal">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-link-with-icon>
                 Learn more ${ArrowRight20({ slot: 'icon' })}
@@ -85,10 +84,10 @@ export const Vertical = () => {
       <div class="bx--row">
         <div class="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
           <dds-link-list type="vertical">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-link-with-icon>
-                Learn more ${ArrowRight20({ slot: 'icon-left'})}
+                Learn more ${ArrowRight20({ slot: 'icon-left' })}
               </dds-link-with-icon>
             </dds-link-list-item>
             <dds-link-list-item>
@@ -112,7 +111,7 @@ export const VerticalWithCards = () => {
       <div class="bx--row">
         <div class="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
           <dds-link-list type="vertical">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-link-with-icon>
                 Learn more ${ArrowRight20({ slot: 'icon-left' })}
@@ -123,9 +122,9 @@ export const VerticalWithCards = () => {
                 Containerization A Complete Guide ${ArrowRight20({ slot: 'icon-left' })}
               </dds-link-with-icon>
             </dds-link-list-item>
-         </dds-link-list>
+          </dds-link-list>
           <dds-link-list type="default">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
                 Learn more ${ArrowRight20({ slot: 'footer' })}
@@ -145,14 +144,14 @@ export const VerticalWithCards = () => {
 
 export const EndOfSection = () => {
   return html`
-  <style>
-    ${styles}
-  </style>
+    <style>
+      ${styles}
+    </style>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        <div class="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
           <dds-link-list type="end">
-            <span slot="heading">Hey there</span>
+            <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-link-with-icon>
                 Learn more ${ArrowRight20({ slot: 'icon' })}

@@ -13,13 +13,11 @@
 :host(#{$dds-prefix}-link-with-icon) {
   // Enables expressive version of type/size/component tokens in this component
   @include use-carbon-expressive-tokens();
-
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $disabled-02;
   }
-
-  ::slotted(svg[slot="icon-left"]) {
-    margin-right:  $carbon--spacing-03;
+  ::slotted(svg[slot='icon-left']) {
+    margin-right: $carbon--spacing-03;
   }
 }
