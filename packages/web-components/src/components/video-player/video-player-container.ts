@@ -122,7 +122,7 @@ class DDSVideoPlayerContainer extends HybridRenderMixin(LitElement) {
   videoId = '';
 
   updated(changedProperties) {
-    if (changedProperties.has('videoId')) {
+    if (changedProperties.has('videoId') && this.videoId) {
       this._loadVideo();
     }
     return true;
