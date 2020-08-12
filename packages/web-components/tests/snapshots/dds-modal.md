@@ -17,17 +17,19 @@
   role="dialog"
   tabindex="-1"
 >
-  <div class="dds-ce--modal__hedaer--with-body">
-    <slot name="header">
-    </slot>
-  </div>
-  <div class="dds-ce--modal__body--with-footer">
-    <slot>
-    </slot>
-  </div>
-  <div>
-    <slot name="footer">
-    </slot>
+  <div class="bx--modal-content">
+    <div class="dds-ce--modal__hedaer--with-body">
+      <slot name="header">
+      </slot>
+    </div>
+    <div class="dds-ce--modal__body dds-ce--modal__body--with-footer">
+      <slot>
+      </slot>
+    </div>
+    <div>
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
 </div>
 <a
@@ -55,17 +57,19 @@
   role="dialog"
   tabindex="-1"
 >
-  <div class="dds-ce--modal__hedaer--with-body">
-    <slot name="header">
-    </slot>
-  </div>
-  <div class="dds-ce--modal__body--with-footer">
-    <slot>
-    </slot>
-  </div>
-  <div>
-    <slot name="footer">
-    </slot>
+  <div class="bx--modal-content">
+    <div class="dds-ce--modal__hedaer--with-body">
+      <slot name="header">
+      </slot>
+    </div>
+    <div class="dds-ce--modal__body dds-ce--modal__body--with-footer">
+      <slot>
+      </slot>
+    </div>
+    <div>
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
 </div>
 <a
@@ -95,17 +99,19 @@
   role="dialog"
   tabindex="-1"
 >
-  <div>
-    <slot name="header">
-    </slot>
-  </div>
-  <div>
-    <slot>
-    </slot>
-  </div>
-  <div>
-    <slot name="footer">
-    </slot>
+  <div class="bx--modal-content">
+    <div>
+      <slot name="header">
+      </slot>
+    </div>
+    <div class="dds-ce--modal__body">
+      <slot>
+      </slot>
+    </div>
+    <div>
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
 </div>
 <a
@@ -133,17 +139,19 @@
   role="dialog"
   tabindex="-1"
 >
-  <div class="dds-ce--modal__hedaer--with-body">
-    <slot name="header">
-    </slot>
-  </div>
-  <div>
-    <slot>
-    </slot>
-  </div>
-  <div>
-    <slot name="footer">
-    </slot>
+  <div class="bx--modal-content">
+    <div class="dds-ce--modal__hedaer--with-body">
+      <slot name="header">
+      </slot>
+    </div>
+    <div class="dds-ce--modal__body">
+      <slot>
+      </slot>
+    </div>
+    <div>
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
 </div>
 <a
@@ -171,17 +179,19 @@
   role="dialog"
   tabindex="-1"
 >
-  <div class="dds-ce--modal__hedaer--with-body">
-    <slot name="header">
-    </slot>
-  </div>
-  <div>
-    <slot>
-    </slot>
-  </div>
-  <div>
-    <slot name="footer">
-    </slot>
+  <div class="bx--modal-content">
+    <div class="dds-ce--modal__hedaer--with-body">
+      <slot name="header">
+      </slot>
+    </div>
+    <div class="dds-ce--modal__body">
+      <slot>
+      </slot>
+    </div>
+    <div>
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
 </div>
 <a

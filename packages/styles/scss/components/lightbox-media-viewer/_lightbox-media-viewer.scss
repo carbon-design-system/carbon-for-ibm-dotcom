@@ -34,17 +34,45 @@
       width: 100%;
     }
 
-    &__container {
-      display: flex;
-      width: 100%;
-      padding-bottom: 0;
-
-      @include carbon--breakpoint-down('lg') {
-        display: block;
+    @include carbon--breakpoint('md') {
+      .#{$prefix}--model-container {
+        padding-top: $carbon--layout-05;
+        padding-bottom: 0;
       }
     }
 
-    &__row {
+    @include carbon--breakpoint('lg') {
+      .#{$prefix}--model-container {
+        padding-top: $carbon--layout-04;
+        padding-bottom: $carbon--spacing-05;
+      }
+
+      .#{$prefix}--modal-close {
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-lightbox-media-viewer-body),
+  .#{$prefix}--lightbox-media-viewer__container {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0;
+
+    @include carbon--breakpoint-down('lg') {
+      display: block;
+    }
+
+    @include carbon--breakpoint('lg') {
+      padding-top: 0;
+      padding-bottom: $carbon--spacing-05;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .#{$prefix}--lightbox-media-viewer__row {
       @include carbon--make-row(0);
 
       flex-flow: column nowrap;
@@ -54,7 +82,8 @@
         flex-direction: row;
       }
     }
-    &__media {
+
+    .#{$prefix}--lightbox-media-viewer__media {
       @include carbon--breakpoint-down('lg') {
         position: relative;
         height: 100%;
@@ -72,76 +101,52 @@
         flex: auto;
         align-items: center;
       }
-    }
 
-    &__media-description {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    &__content {
-      max-width: 95%;
-      @include carbon--type-style('body-long-02');
       @include carbon--breakpoint('lg') {
-        overflow: auto;
-      }
-
-      &__title {
-        padding-top: $carbon--spacing-05;
-        padding-bottom: $carbon--spacing-07;
-
-        @include carbon--type-style('expressive-heading-03');
-      }
-
-      &__desc {
-        color: $text-02;
-
-        @include carbon--type-style('body-long-02');
-      }
-
-      @include carbon--breakpoint-up('lg') {
-        padding-right: 0;
-        padding-left: $carbon--spacing-07;
-      }
-    }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--model-container {
-        padding-top: $carbon--layout-05;
-        padding-bottom: 0;
-      }
-    }
-    @include carbon--breakpoint('lg') {
-      .#{$prefix}--model-container {
-        padding-top: $carbon--layout-04;
-        padding-bottom: $carbon--spacing-05;
-      }
-
-      &__media {
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
       }
+    }
 
-      &__media-description {
+    .#{$prefix}--lightbox-media-viewer__media-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      @include carbon--breakpoint('lg') {
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
 
         display: flex;
       }
-      .#{$prefix}--modal-close {
-        top: 0;
-        right: 0;
+    }
+
+    .#{$prefix}--lightbox-media-viewer__content {
+      max-width: 95%;
+      @include carbon--type-style('body-long-02');
+      @include carbon--breakpoint('lg') {
+        overflow: auto;
+        padding-right: 0;
+        padding-left: $carbon--spacing-07;
       }
-      &__container {
-        padding-top: 0;
-        padding-bottom: $carbon--spacing-05;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      &__title,
-      &__desc {
+    }
+
+    .#{$prefix}--lightbox-media-viewer__content__title {
+      padding-top: $carbon--spacing-05;
+      padding-bottom: $carbon--spacing-07;
+
+      @include carbon--type-style('expressive-heading-03');
+    }
+
+    .#{$prefix}--lightbox-media-viewer__content__desc {
+      color: $text-02;
+
+      @include carbon--type-style('body-long-02');
+    }
+
+    .#{$prefix}--lightbox-media-viewer__title,
+    .#{$prefix}--lightbox-media-viewer__desc {
+      @include carbon--breakpoint('lg') {
         display: flex;
         max-width: 95%;
         height: 100%;
