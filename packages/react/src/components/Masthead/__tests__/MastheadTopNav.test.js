@@ -37,11 +37,14 @@ describe('MastheadTopNav', () => {
       url: 'https://www.ibm.com/cloud',
     };
 
+    const navType = 'eco';
+
     const wrapper = mount(
-      <MastheadTopNav navigation={[]} platform={platform} />
+      <MastheadTopNav navigation={[]} navType={navType} platform={platform} />
     );
+
     const headerName = wrapper.find(
-      `a[data-autoid="${stablePrefix}--masthead-eco__l0-ecosystemname"]`
+      `a[data-autoid="${stablePrefix}--masthead-${navType}__l0-ecosystemname"]`
     );
     expect(headerName.prop('href')).toMatch(platform.url);
     expect(headerName.text()).toMatch(platform.name);

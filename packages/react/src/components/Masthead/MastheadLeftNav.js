@@ -67,9 +67,10 @@ const MastheadLeftNav = ({
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-sidenav`}>
         {platform && (
-          <a
+          <a // eslint-disable-line jsx-a11y/role-supports-aria-props
             data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-side-nav__productname`}
             href={platform.url}
+            aria-haspopup="true"
             className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
             {platform.name}
           </a>

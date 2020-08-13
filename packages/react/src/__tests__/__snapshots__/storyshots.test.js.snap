@@ -43879,6 +43879,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               data-autoid="dds--masthead-eco__l0-sidenav"
                             >
                               <a
+                                aria-haspopup="true"
                                 className="bx--side-nav__submenu bx--side-nav__submenu-platform"
                                 data-autoid="dds--masthead-eco__l0-side-nav__productname"
                                 href="https://www.ibm.com/cloud"
@@ -66044,6 +66045,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             data-autoid="dds--masthead-eco__l0-sidenav"
                           >
                             <a
+                              aria-haspopup="true"
                               className="bx--side-nav__submenu bx--side-nav__submenu-platform"
                               data-autoid="dds--masthead-eco__l0-side-nav__productname"
                               href="https://www.ibm.com/cloud"

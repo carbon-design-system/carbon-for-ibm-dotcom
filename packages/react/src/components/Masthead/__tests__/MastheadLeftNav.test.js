@@ -30,12 +30,18 @@ describe('MastheadLeftNav', () => {
       url: 'https://www.ibm.com/cloud',
     };
 
+    const navType = 'eco';
+
     const component = mount(
-      <MastheadLeftNav navigation={[]} platform={platform} />
+      <MastheadLeftNav
+        navigation={mockData.links}
+        navType={navType}
+        platform={platform}
+      />
     );
 
     const anchor = component.find(
-      `a[data-autoid="${stablePrefix}--masthead-eco__l0-side-nav__productname"]`
+      `a[data-autoid="${stablePrefix}--masthead-${navType}__l0-side-nav__productname"]`
     );
 
     expect(anchor.text()).toMatch('IBM Cloud');
