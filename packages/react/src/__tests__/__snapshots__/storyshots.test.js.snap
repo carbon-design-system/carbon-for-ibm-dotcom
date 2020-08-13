@@ -2959,7 +2959,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   href=""
                   key="0"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -2986,7 +2986,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -3009,7 +3009,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -3032,7 +3032,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -3162,7 +3162,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   href=""
                   key="1"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -3189,7 +3189,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -3212,7 +3212,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -3235,7 +3235,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -3365,7 +3365,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   href=""
                   key="2"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -3392,7 +3392,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -3415,7 +3415,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -3438,7 +3438,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -3568,7 +3568,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   href=""
                   key="3"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -3595,7 +3595,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -3618,7 +3618,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -3641,7 +3641,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -3771,7 +3771,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   href=""
                   key="4"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -3798,7 +3798,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -3821,7 +3821,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -3844,7 +3844,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -4058,7 +4058,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                   href=""
                   key="0"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -4085,7 +4085,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -4108,7 +4108,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -4131,7 +4131,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -4261,7 +4261,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                   href=""
                   key="1"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -4288,7 +4288,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -4311,7 +4311,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -4334,7 +4334,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -4464,7 +4464,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                   href=""
                   key="2"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -4491,7 +4491,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -4514,7 +4514,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -4537,7 +4537,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -4667,7 +4667,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                   href=""
                   key="3"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -4694,7 +4694,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -4717,7 +4717,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -4740,7 +4740,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -4870,7 +4870,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                   href=""
                   key="4"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -4897,7 +4897,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -4920,7 +4920,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": undefined,
                             "heading": "Nunc convallis lobortis",
@@ -4943,7 +4943,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -5277,7 +5277,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                   }
                   key="0"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -5311,7 +5311,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -5334,7 +5334,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -5360,7 +5360,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -5519,7 +5519,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                   }
                   key="1"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -5553,7 +5553,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -5576,7 +5576,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -5602,7 +5602,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -5761,7 +5761,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                   }
                   key="2"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -5795,7 +5795,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -5818,7 +5818,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -5844,7 +5844,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -6003,7 +6003,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                   }
                   key="3"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -6037,7 +6037,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -6060,7 +6060,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -6086,7 +6086,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -6245,7 +6245,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                   }
                   key="4"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -6279,7 +6279,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -6302,7 +6302,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -6328,7 +6328,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -6591,7 +6591,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                   }
                   key="0"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -6625,7 +6625,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -6648,7 +6648,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -6674,7 +6674,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -6833,7 +6833,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                   }
                   key="1"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -6867,7 +6867,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -6890,7 +6890,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -6916,7 +6916,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -7075,7 +7075,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                   }
                   key="2"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -7109,7 +7109,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -7132,7 +7132,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -7158,7 +7158,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -7317,7 +7317,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                   }
                   key="3"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -7351,7 +7351,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -7374,7 +7374,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -7400,7 +7400,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -7559,7 +7559,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                   }
                   key="4"
                   style="card"
-                  type="link"
+                  type="local"
                 >
                   <div
                     aria-label=""
@@ -7593,7 +7593,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                       openLightBox={[Function]}
                       renderLightBox={false}
                       style="card"
-                      type="link"
+                      type="local"
                       videoTitle={
                         Array [
                           Object {
@@ -7616,7 +7616,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             },
                             "eyebrow": "Topic",
                             "heading": "Natural language processing.",
@@ -7642,7 +7642,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                                   "render": [Function],
                                 },
                               },
-                              "type": "link",
+                              "type": "local",
                             }
                           }
                           customClassName="bx--card__CTA"
@@ -8230,7 +8230,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                         }
                         key="0"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label=""
@@ -8264,7 +8264,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -8287,7 +8287,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": "Topic",
                                   "heading": "Natural language processing.",
@@ -8313,7 +8313,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -8472,7 +8472,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                         }
                         key="1"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label=""
@@ -8506,7 +8506,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -8529,7 +8529,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": "Blog",
                                   "heading": "Natural language processing.",
@@ -8555,7 +8555,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -8714,7 +8714,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                         }
                         key="2"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label=""
@@ -8748,7 +8748,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -8771,7 +8771,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": "Topic",
                                   "heading": "Natural language processing.",
@@ -8797,7 +8797,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -8956,7 +8956,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                         }
                         key="3"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label=""
@@ -8990,7 +8990,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -9013,7 +9013,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": "Blog",
                                   "heading": "Serving society ethically in the age of Artificial Intelligence.",
@@ -9039,7 +9039,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -9198,7 +9198,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                         }
                         key="4"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label=""
@@ -9232,7 +9232,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -9255,7 +9255,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": "Topic",
                                   "heading": "Serving society ethically in the age of Artificial Intelligence.",
@@ -9281,7 +9281,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -9584,7 +9584,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                         href=""
                         key="0"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -9612,7 +9612,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -9635,7 +9635,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis lobortis",
@@ -9658,7 +9658,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -9789,7 +9789,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                         href=""
                         key="1"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -9817,7 +9817,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -9840,7 +9840,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Fusce gravida eu arcu",
@@ -9863,7 +9863,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -9994,7 +9994,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                         href=""
                         key="2"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -10022,7 +10022,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -10045,7 +10045,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Interdum et malesuada",
@@ -10068,7 +10068,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -10199,7 +10199,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                         href=""
                         key="3"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -10227,7 +10227,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -10250,7 +10250,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis loborti",
@@ -10273,7 +10273,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -10404,7 +10404,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                         href=""
                         key="4"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -10432,7 +10432,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -10455,7 +10455,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis lbortis",
@@ -10478,7 +10478,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -10775,7 +10775,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                         href=""
                         key="0"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -10803,7 +10803,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -10826,7 +10826,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis lobortis",
@@ -10849,7 +10849,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -10980,7 +10980,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                         href=""
                         key="1"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -11008,7 +11008,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -11031,7 +11031,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Fusce gravida eu arcu",
@@ -11054,7 +11054,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -11185,7 +11185,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                         href=""
                         key="2"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -11213,7 +11213,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -11236,7 +11236,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Interdum et malesuada",
@@ -11259,7 +11259,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -11390,7 +11390,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                         href=""
                         key="3"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -11418,7 +11418,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -11441,7 +11441,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis loborti",
@@ -11464,7 +11464,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -11595,7 +11595,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                         href=""
                         key="4"
                         style="card"
-                        type="link"
+                        type="local"
                       >
                         <div
                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -11623,7 +11623,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                             openLightBox={[Function]}
                             renderLightBox={false}
                             style="card"
-                            type="link"
+                            type="local"
                             videoTitle={
                               Array [
                                 Object {
@@ -11646,7 +11646,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   },
                                   "eyebrow": undefined,
                                   "heading": "Nunc convallis lbortis",
@@ -11669,7 +11669,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                         "render": [Function],
                                       },
                                     },
-                                    "type": "link",
+                                    "type": "local",
                                   }
                                 }
                                 customClassName="bx--card__CTA"
@@ -12079,7 +12079,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                               href=""
                               key="0"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -12107,7 +12107,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -12130,7 +12130,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": undefined,
                                         "heading": "Nunc convallis lobortis",
@@ -12153,7 +12153,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -12284,7 +12284,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                               href=""
                               key="1"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -12312,7 +12312,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -12335,7 +12335,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": undefined,
                                         "heading": "Fusce gravida eu arcu",
@@ -12358,7 +12358,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -12489,7 +12489,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                               href=""
                               key="2"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -12517,7 +12517,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -12540,7 +12540,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": undefined,
                                         "heading": "Interdum et malesuada",
@@ -12563,7 +12563,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -12694,7 +12694,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                               href=""
                               key="3"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -12722,7 +12722,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -12745,7 +12745,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": undefined,
                                         "heading": "Nunc convallis loborti",
@@ -12768,7 +12768,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -12899,7 +12899,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                               href=""
                               key="4"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -12927,7 +12927,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -12950,7 +12950,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": undefined,
                                         "heading": "Nunc convallis lbortis",
@@ -12973,7 +12973,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -13498,7 +13498,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                               }
                               key="0"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label=""
@@ -13532,7 +13532,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -13555,7 +13555,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": "Topic",
                                         "heading": "Natural language processing.",
@@ -13581,7 +13581,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -13740,7 +13740,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                               }
                               key="1"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label=""
@@ -13774,7 +13774,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -13797,7 +13797,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": "Blog",
                                         "heading": "Natural language processing.",
@@ -13823,7 +13823,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -13982,7 +13982,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                               }
                               key="2"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label=""
@@ -14016,7 +14016,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -14039,7 +14039,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": "Topic",
                                         "heading": "Natural language processing.",
@@ -14065,7 +14065,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -14224,7 +14224,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                               }
                               key="3"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label=""
@@ -14258,7 +14258,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -14281,7 +14281,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": "Blog",
                                         "heading": "Serving society ethically in the age of Artificial Intelligence.",
@@ -14307,7 +14307,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -14466,7 +14466,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                               }
                               key="4"
                               style="card"
-                              type="link"
+                              type="local"
                             >
                               <div
                                 aria-label=""
@@ -14500,7 +14500,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
-                                  type="link"
+                                  type="local"
                                   videoTitle={
                                     Array [
                                       Object {
@@ -14523,7 +14523,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         },
                                         "eyebrow": "Topic",
                                         "heading": "Serving society ethically in the age of Artificial Intelligence.",
@@ -14549,7 +14549,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                               "render": [Function],
                                             },
                                           },
-                                          "type": "link",
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
@@ -36319,7 +36319,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                   key="0"
                                                   style="card"
-                                                  type="link"
+                                                  type="local"
                                                 >
                                                   <div
                                                     aria-label=""
@@ -36353,7 +36353,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
                                                       style="card"
-                                                      type="link"
+                                                      type="local"
                                                       videoTitle={
                                                         Array [
                                                           Object {
@@ -36376,7 +36376,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             },
                                                             "eyebrow": "Topic",
                                                             "heading": "Natural language processing.",
@@ -36402,7 +36402,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             }
                                                           }
                                                           customClassName="bx--card__CTA"
@@ -36561,7 +36561,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                   key="1"
                                                   style="card"
-                                                  type="link"
+                                                  type="local"
                                                 >
                                                   <div
                                                     aria-label=""
@@ -36595,7 +36595,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
                                                       style="card"
-                                                      type="link"
+                                                      type="local"
                                                       videoTitle={
                                                         Array [
                                                           Object {
@@ -36618,7 +36618,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             },
                                                             "eyebrow": "Topic",
                                                             "heading": "Natural language processing.",
@@ -36644,7 +36644,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             }
                                                           }
                                                           customClassName="bx--card__CTA"
@@ -36803,7 +36803,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                   key="2"
                                                   style="card"
-                                                  type="link"
+                                                  type="local"
                                                 >
                                                   <div
                                                     aria-label=""
@@ -36837,7 +36837,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
                                                       style="card"
-                                                      type="link"
+                                                      type="local"
                                                       videoTitle={
                                                         Array [
                                                           Object {
@@ -36860,7 +36860,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             },
                                                             "eyebrow": "Topic",
                                                             "heading": "Natural language processing.",
@@ -36886,7 +36886,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 },
                                                               },
-                                                              "type": "link",
+                                                              "type": "local",
                                                             }
                                                           }
                                                           customClassName="bx--card__CTA"
@@ -42068,7 +42068,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                     }
                                                     key="0"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -42102,7 +42102,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -42125,7 +42125,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -42151,7 +42151,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -42310,7 +42310,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                     }
                                                     key="1"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -42344,7 +42344,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -42367,7 +42367,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -42393,7 +42393,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -42552,7 +42552,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                     }
                                                     key="2"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -42586,7 +42586,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -42609,7 +42609,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -42635,7 +42635,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -47695,7 +47695,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                     }
                                                     key="0"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -47729,7 +47729,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -47752,7 +47752,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -47778,7 +47778,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -47937,7 +47937,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                     }
                                                     key="1"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -47971,7 +47971,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -47994,7 +47994,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -48020,7 +48020,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -48179,7 +48179,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                     }
                                                     key="2"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -48213,7 +48213,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -48236,7 +48236,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -48262,7 +48262,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -53275,7 +53275,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                     }
                                                     key="0"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -53309,7 +53309,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -53332,7 +53332,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -53358,7 +53358,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -53517,7 +53517,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                     }
                                                     key="1"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -53551,7 +53551,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -53574,7 +53574,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -53600,7 +53600,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
@@ -53759,7 +53759,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                     }
                                                     key="2"
                                                     style="card"
-                                                    type="link"
+                                                    type="local"
                                                   >
                                                     <div
                                                       aria-label=""
@@ -53793,7 +53793,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                         openLightBox={[Function]}
                                                         renderLightBox={false}
                                                         style="card"
-                                                        type="link"
+                                                        type="local"
                                                         videoTitle={
                                                           Array [
                                                             Object {
@@ -53816,7 +53816,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               },
                                                               "eyebrow": "Topic",
                                                               "heading": "Natural language processing.",
@@ -53842,7 +53842,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   },
                                                                 },
-                                                                "type": "link",
+                                                                "type": "local",
                                                               }
                                                             }
                                                             customClassName="bx--card__CTA"
