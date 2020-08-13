@@ -393,6 +393,18 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
   }
+
+  .#{$prefix}--masthead--hide-items .#{$prefix}--header__menu-toggle__hidden,
+  .#{$prefix}--masthead--hide-items.bx--masthead
+    .#{$prefix}--side-nav__navigation,
+  .#{$prefix}--masthead--hide-items.bx--masthead
+    .#{$prefix}--side-nav__header-navigation {
+    display: block;
+  }
+
+  .#{$prefix}--masthead--hide-items .#{$prefix}--header__nav-container {
+    display: none;
+  }
 }
 
 @include exports('masthead') {

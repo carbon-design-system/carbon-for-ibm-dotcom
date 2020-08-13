@@ -171,42 +171,61 @@ const Masthead = ({
   }
 
   /**
-   * get total width of masthead items (logo, nav menu items, search icons) and set css media query
-   * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
-   * from overlapping
+   * Determines whether to add class to masthead to hide nav items and
+   * display hamburger menu instead to prevent overlapping of menu items
    */
-  const width = calculateTotalWidth([
-    'bx--header__logo',
-    'bx--header__nav-container',
-    'bx--header__search--actions',
-    'bx--header__global',
-  ]);
+  const [hideNavItems, setHideNavItems] = useState(false);
 
-  const navbar = document.getElementsByClassName(
-    'bx--header__nav-container'
-  )[0];
-  if (navbar?.offsetWidth !== 0) {
-    if (!document.getElementById('ibmdotcom-masthead-hidelinks')) {
-      const styleEle = document.createElement('style');
-      styleEle.id = 'ibmdotcom-masthead-hidelinks';
-
-      document.head.appendChild(styleEle);
+  useEffect(() => {
+    /**
+     * set nav items to hide/show depending if the window size is smaller/larger to
+     * the total width of the masthead items calculated previously
+     *
+     * @param {object} mediaQuery MediaQueryList object
+     */
+    function hideShowNavItems(mediaQuery) {
+      if (mediaQuery.matches) {
+        setHideNavItems(true);
+      } else {
+        setHideNavItems(false);
+      }
     }
 
-    // Inject the dynamic media query style to hide masthead links under calculated width
-    document.getElementById(
-      'ibmdotcom-masthead-hidelinks'
-    ).innerHTML = `@media screen and (max-width: ${width +
-      50}px) { .bx--header__nav-container {display:none}
-          .bx--header__menu-toggle__hidden, .bx--masthead .bx--side-nav__navigation, .bx--side-nav__header-navigation {display: block} 
-          .bx--side-nav__overlay-active {height: 100vh; width: 100%; background-color: rgba(22, 22, 22, 0.5); opacity: 1}`;
-  }
+    if (window.innerWidth >= 1056) {
+      /**
+       * get total width of masthead items (logo, nav menu items, search icons) and set css media query
+       * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
+       * from overlapping
+       */
+      const width = calculateTotalWidth([
+        'bx--header__logo',
+        'bx--header__nav-container',
+        'bx--masthead__platform-name',
+        'bx--header__search--actions',
+        'bx--header__global',
+      ]);
+
+      if (width > 1056) {
+        const mediaQuery = window.matchMedia(
+          `(min-width: 1056px) and (max-width: ${width + 50}px)`
+        );
+        hideShowNavItems(mediaQuery);
+        mediaQuery.addListener(hideShowNavItems);
+
+        return () => {
+          mediaQuery.removeListener(hideShowNavItems);
+        };
+      }
+    }
+  });
 
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <div
-          className={`${prefix}--masthead ${mastheadSticky}`}
+          className={cx(`${prefix}--masthead ${mastheadSticky}`, {
+            [`${prefix}--masthead--hide-items`]: hideNavItems,
+          })}
           ref={stickyRef}>
           <div className={`${prefix}--masthead__l0`}>
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
