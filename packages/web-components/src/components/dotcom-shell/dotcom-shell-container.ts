@@ -125,26 +125,26 @@ class DDSLinkWithIcon extends LitElement {
   /**
    * The `aria-label` attribute for the top-level container. This goes to masthead.
    */
-  @property({ attribute: 'masthead-label' })
-  mastheadLabel?: string;
+  @property({ attribute: 'masthead-assistive-text' })
+  mastheadAssistiveText?: string;
 
   /**
    * The `aria-label` attribute for the menu bar UI. This goes to masthead.
    */
-  @property({ attribute: 'menu-bar-label' })
-  menuBarLabel?: string;
+  @property({ attribute: 'menu-bar-assistive-text' })
+  menuBarAssistiveText?: string;
 
   /**
    * The `aria-label` attribute for the header menu button in its active state. This goes to masthead.
    */
-  @property({ attribute: 'menu-button-label-active' })
-  menuButtonLabelActive?: string;
+  @property({ attribute: 'menu-button-assistive-text-active' })
+  menuButtonAssistiveTextActive?: string;
 
   /**
    * The `aria-label` attribute for the header menu button in its active state. This goes to masthead.
    */
-  @property({ attribute: 'menu-button-label-inactive' })
-  menuButtonLabelInactive?: string;
+  @property({ attribute: 'menu-button-assistive-text-inactive' })
+  menuButtonAssistiveTextInactive?: string;
 
   /**
    * `true` to open the locale modal. This goes to footer.
@@ -192,10 +192,10 @@ class DDSLinkWithIcon extends LitElement {
       authenticateProfileItems,
       brandName,
       collatorCountryName,
-      mastheadLabel,
-      menuBarLabel,
-      menuButtonLabelActive,
-      menuButtonLabelInactive,
+      mastheadAssistiveText,
+      menuBarAssistiveText,
+      menuButtonAssistiveTextActive,
+      menuButtonAssistiveTextInactive,
       unauthenticatedProfileItems,
       inputTimeout,
       language,
@@ -216,10 +216,10 @@ class DDSLinkWithIcon extends LitElement {
           activateSearch,
           authenticateProfileItems,
           brandName,
-          mastheadLabel,
-          menuBarLabel,
-          menuButtonLabelActive,
-          menuButtonLabelInactive,
+          mastheadAssistiveText,
+          menuBarAssistiveText,
+          menuButtonAssistiveTextActive,
+          menuButtonAssistiveTextInactive,
           unauthenticatedProfileItems,
           inputTimeout,
           language,
