@@ -32174,14 +32174,15 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         </ForwardRef(Menu20)>
                       </button>
                     </HeaderMenuButton>
-                    <IbmLogo>
+                    <IbmLogo
+                      autoid="dds--masthead-default__l0-logo"
+                    >
                       <div
                         className="bx--header__logo"
-                        data-autoid="dds--masthead-logo"
                       >
                         <a
                           aria-label="IBM®"
-                          data-autoid="dds--masthead-logo__link"
+                          data-autoid="dds--masthead-default__l0-logo"
                           href="https://www.ibm.com/"
                         >
                           <MastheadLogo
@@ -32210,6 +32211,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       className="bx--header__search "
                     >
                       <MastheadTopNav
+                        navType="default"
                         navigation={Array []}
                         platform={null}
                       >
@@ -32238,6 +32240,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         />
                       </MastheadTopNav>
                       <MastheadSearch
+                        navType="default"
                         placeHolderText="Search all of IBM"
                         renderValue={3}
                         searchOpenOnload={false}
@@ -32252,14 +32255,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             <HeaderGlobalAction
                               aria-label="Open IBM search field"
                               className="bx--header__search--search"
-                              data-autoid="dds--header__search--search"
+                              data-autoid="dds--masthead-default__l0-search"
                               onClick={[Function]}
                               tabIndex="0"
                             >
                               <button
                                 aria-label="Open IBM search field"
                                 className="bx--header__search--search bx--header__action"
-                                data-autoid="dds--header__search--search"
+                                data-autoid="dds--masthead-default__l0-search"
                                 onClick={[Function]}
                                 tabIndex="0"
                                 type="button"
@@ -32294,13 +32297,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             <HeaderGlobalAction
                               aria-label="Close"
                               className="bx--header__search--close"
-                              data-autoid="dds--header__search--close"
+                              data-autoid="dds--masthead-default__l0-search--close"
                               onClick={[Function]}
                             >
                               <button
                                 aria-label="Close"
                                 className="bx--header__search--close bx--header__action"
-                                data-autoid="dds--header__search--close"
+                                data-autoid="dds--masthead-default__l0-search--close"
                                 onClick={[Function]}
                                 type="button"
                               >
@@ -32340,6 +32343,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         className="bx--header__global"
                       >
                         <MastheadProfile
+                          navType="default"
                           overflowMenuItemProps={
                             Object {
                               "wrapperClassName": "bx--masthead__profile-item",
@@ -32348,7 +32352,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           overflowMenuProps={
                             Object {
                               "ariaLabel": "User Profile",
-                              "data-autoid": "dds--masthead__profile",
+                              "data-autoid": "dds--masthead-default__l0-account",
                               "flipped": true,
                               "onOpen": [Function],
                               "renderIcon": [Function],
@@ -32362,7 +32366,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           <ForwardRef(OverflowMenu)
                             ariaLabel="User Profile"
                             className="bx--header__action"
-                            data-autoid="dds--masthead__profile"
+                            data-autoid="dds--masthead-default__l0-account"
                             flipped={true}
                             onOpen={[Function]}
                             renderIcon={[Function]}
@@ -32375,7 +32379,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             <OverflowMenu
                               ariaLabel="User Profile"
                               className="bx--header__action"
-                              data-autoid="dds--masthead__profile"
+                              data-autoid="dds--masthead-default__l0-account"
                               direction="bottom"
                               flipped={true}
                               iconDescription="open and close list of options"
@@ -32405,7 +32409,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   aria-haspopup={true}
                                   aria-label="User Profile"
                                   className="bx--header__action bx--overflow-menu"
-                                  data-autoid="dds--masthead__profile"
+                                  data-autoid="dds--masthead-default__l0-account"
                                   onClick={[Function]}
                                   onClose={[Function]}
                                   onKeyDown={[Function]}
@@ -32461,6 +32465,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     <MastheadLeftNav
                       backButtonText="Back"
                       isSideNavExpanded={false}
+                      navType="default"
                       navigation={Array []}
                       platform={null}
                     >
@@ -32485,7 +32490,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           onFocus={[Function]}
                         >
                           <nav
-                            data-autoid="dds--masthead__l0-sidenav"
+                            data-autoid="dds--masthead-default__l0-sidenav"
                           >
                             <SideNavItems>
                               <ul
@@ -37757,14 +37762,15 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           </ForwardRef(Menu20)>
                         </button>
                       </HeaderMenuButton>
-                      <IbmLogo>
+                      <IbmLogo
+                        autoid="dds--masthead-default__l0-logo"
+                      >
                         <div
                           className="bx--header__logo"
-                          data-autoid="dds--masthead-logo"
                         >
                           <a
                             aria-label="IBM®"
-                            data-autoid="dds--masthead-logo__link"
+                            data-autoid="dds--masthead-default__l0-logo"
                             href="https://www.ibm.com/"
                           >
                             <MastheadLogo
@@ -37793,6 +37799,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                         className="bx--header__search "
                       >
                         <MastheadTopNav
+                          navType="default"
                           navigation={Array []}
                           platform={null}
                         >
@@ -37821,6 +37828,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           />
                         </MastheadTopNav>
                         <MastheadSearch
+                          navType="default"
                           placeHolderText="Search all of IBM"
                           renderValue={3}
                           searchOpenOnload={true}
@@ -38005,14 +38013,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Search all of IBM"
                                 className="bx--header__search--search"
-                                data-autoid="dds--header__search--search"
+                                data-autoid="dds--masthead-default__l0-search"
                                 onClick={[Function]}
                                 tabIndex="0"
                               >
                                 <button
                                   aria-label="Search all of IBM"
                                   className="bx--header__search--search bx--header__action"
-                                  data-autoid="dds--header__search--search"
+                                  data-autoid="dds--masthead-default__l0-search"
                                   onClick={[Function]}
                                   tabIndex="0"
                                   type="button"
@@ -38047,13 +38055,13 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Close"
                                 className="bx--header__search--close"
-                                data-autoid="dds--header__search--close"
+                                data-autoid="dds--masthead-default__l0-search--close"
                                 onClick={[Function]}
                               >
                                 <button
                                   aria-label="Close"
                                   className="bx--header__search--close bx--header__action"
-                                  data-autoid="dds--header__search--close"
+                                  data-autoid="dds--masthead-default__l0-search--close"
                                   onClick={[Function]}
                                   type="button"
                                 >
@@ -38093,6 +38101,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           className="bx--header__global"
                         >
                           <MastheadProfile
+                            navType="default"
                             overflowMenuItemProps={
                               Object {
                                 "wrapperClassName": "bx--masthead__profile-item",
@@ -38101,7 +38110,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                             overflowMenuProps={
                               Object {
                                 "ariaLabel": "User Profile",
-                                "data-autoid": "dds--masthead__profile",
+                                "data-autoid": "dds--masthead-default__l0-account",
                                 "flipped": true,
                                 "onOpen": [Function],
                                 "renderIcon": [Function],
@@ -38115,7 +38124,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                             <ForwardRef(OverflowMenu)
                               ariaLabel="User Profile"
                               className="bx--header__action"
-                              data-autoid="dds--masthead__profile"
+                              data-autoid="dds--masthead-default__l0-account"
                               flipped={true}
                               onOpen={[Function]}
                               renderIcon={[Function]}
@@ -38128,7 +38137,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                               <OverflowMenu
                                 ariaLabel="User Profile"
                                 className="bx--header__action"
-                                data-autoid="dds--masthead__profile"
+                                data-autoid="dds--masthead-default__l0-account"
                                 direction="bottom"
                                 flipped={true}
                                 iconDescription="open and close list of options"
@@ -38158,7 +38167,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                     aria-haspopup={true}
                                     aria-label="User Profile"
                                     className="bx--header__action bx--overflow-menu"
-                                    data-autoid="dds--masthead__profile"
+                                    data-autoid="dds--masthead-default__l0-account"
                                     onClick={[Function]}
                                     onClose={[Function]}
                                     onKeyDown={[Function]}
@@ -38214,6 +38223,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                       <MastheadLeftNav
                         backButtonText="Back"
                         isSideNavExpanded={false}
+                        navType="default"
                         navigation={Array []}
                         platform={null}
                       >
@@ -38238,7 +38248,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead__l0-sidenav"
+                              data-autoid="dds--masthead-default__l0-sidenav"
                             >
                               <SideNavItems>
                                 <ul
@@ -43520,14 +43530,15 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           </ForwardRef(Menu20)>
                         </button>
                       </HeaderMenuButton>
-                      <IbmLogo>
+                      <IbmLogo
+                        autoid="dds--masthead-eco__l0-logo"
+                      >
                         <div
                           className="bx--header__logo"
-                          data-autoid="dds--masthead-logo"
                         >
                           <a
                             aria-label="IBM®"
-                            data-autoid="dds--masthead-logo__link"
+                            data-autoid="dds--masthead-eco__l0-logo"
                             href="https://www.ibm.com/"
                           >
                             <MastheadLogo
@@ -43556,6 +43567,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                         className="bx--header__search bx--masthead__platform"
                       >
                         <MastheadTopNav
+                          navType="eco"
                           navigation={Array []}
                           platform={
                             Object {
@@ -43568,19 +43580,19 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                             className="bx--header__nav-container"
                           >
                             <HeaderName
-                              data-autoid="dds--masthead__platform-name"
+                              data-autoid="dds--masthead-eco__l0-ecosystemname"
                               href="https://www.ibm.com/cloud"
                               prefix=""
                             >
                               <Link
                                 className="bx--header__name"
-                                data-autoid="dds--masthead__platform-name"
+                                data-autoid="dds--masthead-eco__l0-ecosystemname"
                                 element="a"
                                 href="https://www.ibm.com/cloud"
                               >
                                 <a
                                   className="bx--header__name"
-                                  data-autoid="dds--masthead__platform-name"
+                                  data-autoid="dds--masthead-eco__l0-ecosystemname"
                                   href="https://www.ibm.com/cloud"
                                 >
                                   IBM Cloud
@@ -43609,6 +43621,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           />
                         </MastheadTopNav>
                         <MastheadSearch
+                          navType="eco"
                           placeHolderText="Search all of IBM"
                           renderValue={3}
                           searchOpenOnload={false}
@@ -43623,14 +43636,14 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Open IBM search field"
                                 className="bx--header__search--search"
-                                data-autoid="dds--header__search--search"
+                                data-autoid="dds--masthead-eco__l0-search"
                                 onClick={[Function]}
                                 tabIndex="0"
                               >
                                 <button
                                   aria-label="Open IBM search field"
                                   className="bx--header__search--search bx--header__action"
-                                  data-autoid="dds--header__search--search"
+                                  data-autoid="dds--masthead-eco__l0-search"
                                   onClick={[Function]}
                                   tabIndex="0"
                                   type="button"
@@ -43665,13 +43678,13 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Close"
                                 className="bx--header__search--close"
-                                data-autoid="dds--header__search--close"
+                                data-autoid="dds--masthead-eco__l0-search--close"
                                 onClick={[Function]}
                               >
                                 <button
                                   aria-label="Close"
                                   className="bx--header__search--close bx--header__action"
-                                  data-autoid="dds--header__search--close"
+                                  data-autoid="dds--masthead-eco__l0-search--close"
                                   onClick={[Function]}
                                   type="button"
                                 >
@@ -43711,6 +43724,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           className="bx--header__global"
                         >
                           <MastheadProfile
+                            navType="eco"
                             overflowMenuItemProps={
                               Object {
                                 "wrapperClassName": "bx--masthead__profile-item",
@@ -43719,7 +43733,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                             overflowMenuProps={
                               Object {
                                 "ariaLabel": "User Profile",
-                                "data-autoid": "dds--masthead__profile",
+                                "data-autoid": "dds--masthead-eco__l0-account",
                                 "flipped": true,
                                 "onOpen": [Function],
                                 "renderIcon": [Function],
@@ -43733,7 +43747,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                             <ForwardRef(OverflowMenu)
                               ariaLabel="User Profile"
                               className="bx--header__action"
-                              data-autoid="dds--masthead__profile"
+                              data-autoid="dds--masthead-eco__l0-account"
                               flipped={true}
                               onOpen={[Function]}
                               renderIcon={[Function]}
@@ -43746,7 +43760,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               <OverflowMenu
                                 ariaLabel="User Profile"
                                 className="bx--header__action"
-                                data-autoid="dds--masthead__profile"
+                                data-autoid="dds--masthead-eco__l0-account"
                                 direction="bottom"
                                 flipped={true}
                                 iconDescription="open and close list of options"
@@ -43776,7 +43790,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                     aria-haspopup={true}
                                     aria-label="User Profile"
                                     className="bx--header__action bx--overflow-menu"
-                                    data-autoid="dds--masthead__profile"
+                                    data-autoid="dds--masthead-eco__l0-account"
                                     onClick={[Function]}
                                     onClose={[Function]}
                                     onKeyDown={[Function]}
@@ -43832,6 +43846,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                       <MastheadLeftNav
                         backButtonText="Back"
                         isSideNavExpanded={false}
+                        navType="eco"
                         navigation={Array []}
                         platform={
                           Object {
@@ -43861,12 +43876,11 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead__l0-sidenav"
+                              data-autoid="dds--masthead-eco__l0-sidenav"
                             >
                               <a
-                                aria-haspopup="true"
                                 className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                                data-autoid="dds--side-nav__submenu-platform"
+                                data-autoid="dds--masthead-eco__l0-side-nav__productname"
                                 href="https://www.ibm.com/cloud"
                               >
                                 IBM Cloud
@@ -49142,14 +49156,15 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           </ForwardRef(Menu20)>
                         </button>
                       </HeaderMenuButton>
-                      <IbmLogo>
+                      <IbmLogo
+                        autoid="dds--masthead-default__l0-logo"
+                      >
                         <div
                           className="bx--header__logo"
-                          data-autoid="dds--masthead-logo"
                         >
                           <a
                             aria-label="IBM®"
-                            data-autoid="dds--masthead-logo__link"
+                            data-autoid="dds--masthead-default__l0-logo"
                             href="https://www.ibm.com/"
                           >
                             <MastheadLogo
@@ -49178,6 +49193,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                         className="bx--header__search "
                       >
                         <MastheadTopNav
+                          navType="default"
                           navigation={Array []}
                           platform={null}
                         >
@@ -49206,6 +49222,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           />
                         </MastheadTopNav>
                         <MastheadSearch
+                          navType="default"
                           placeHolderText="Search all of IBM"
                           renderValue={3}
                           searchOpenOnload={false}
@@ -49220,14 +49237,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Open IBM search field"
                                 className="bx--header__search--search"
-                                data-autoid="dds--header__search--search"
+                                data-autoid="dds--masthead-default__l0-search"
                                 onClick={[Function]}
                                 tabIndex="0"
                               >
                                 <button
                                   aria-label="Open IBM search field"
                                   className="bx--header__search--search bx--header__action"
-                                  data-autoid="dds--header__search--search"
+                                  data-autoid="dds--masthead-default__l0-search"
                                   onClick={[Function]}
                                   tabIndex="0"
                                   type="button"
@@ -49262,13 +49279,13 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               <HeaderGlobalAction
                                 aria-label="Close"
                                 className="bx--header__search--close"
-                                data-autoid="dds--header__search--close"
+                                data-autoid="dds--masthead-default__l0-search--close"
                                 onClick={[Function]}
                               >
                                 <button
                                   aria-label="Close"
                                   className="bx--header__search--close bx--header__action"
-                                  data-autoid="dds--header__search--close"
+                                  data-autoid="dds--masthead-default__l0-search--close"
                                   onClick={[Function]}
                                   type="button"
                                 >
@@ -49308,6 +49325,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           className="bx--header__global"
                         >
                           <MastheadProfile
+                            navType="default"
                             overflowMenuItemProps={
                               Object {
                                 "wrapperClassName": "bx--masthead__profile-item",
@@ -49316,7 +49334,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                             overflowMenuProps={
                               Object {
                                 "ariaLabel": "User Profile",
-                                "data-autoid": "dds--masthead__profile",
+                                "data-autoid": "dds--masthead-default__l0-account",
                                 "flipped": true,
                                 "onOpen": [Function],
                                 "renderIcon": [Function],
@@ -49330,7 +49348,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                             <ForwardRef(OverflowMenu)
                               ariaLabel="User Profile"
                               className="bx--header__action"
-                              data-autoid="dds--masthead__profile"
+                              data-autoid="dds--masthead-default__l0-account"
                               flipped={true}
                               onOpen={[Function]}
                               renderIcon={[Function]}
@@ -49343,7 +49361,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                               <OverflowMenu
                                 ariaLabel="User Profile"
                                 className="bx--header__action"
-                                data-autoid="dds--masthead__profile"
+                                data-autoid="dds--masthead-default__l0-account"
                                 direction="bottom"
                                 flipped={true}
                                 iconDescription="open and close list of options"
@@ -49373,7 +49391,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                     aria-haspopup={true}
                                     aria-label="User Profile"
                                     className="bx--header__action bx--overflow-menu"
-                                    data-autoid="dds--masthead__profile"
+                                    data-autoid="dds--masthead-default__l0-account"
                                     onClick={[Function]}
                                     onClose={[Function]}
                                     onKeyDown={[Function]}
@@ -49429,6 +49447,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                       <MastheadLeftNav
                         backButtonText="Back"
                         isSideNavExpanded={false}
+                        navType="default"
                         navigation={Array []}
                         platform={null}
                       >
@@ -49453,7 +49472,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead__l0-sidenav"
+                              data-autoid="dds--masthead-default__l0-sidenav"
                             >
                               <SideNavItems>
                                 <ul
@@ -64576,14 +64595,15 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       </ForwardRef(Menu20)>
                     </button>
                   </HeaderMenuButton>
-                  <IbmLogo>
+                  <IbmLogo
+                    autoid="dds--masthead-default__l0-logo"
+                  >
                     <div
                       className="bx--header__logo"
-                      data-autoid="dds--masthead-logo"
                     >
                       <a
                         aria-label="IBM®"
-                        data-autoid="dds--masthead-logo__link"
+                        data-autoid="dds--masthead-default__l0-logo"
                         href="https://www.ibm.com/"
                       >
                         <MastheadLogo
@@ -64612,6 +64632,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                     className="bx--header__search "
                   >
                     <MastheadTopNav
+                      navType="default"
                       navigation={Array []}
                       platform={null}
                     >
@@ -64640,6 +64661,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       />
                     </MastheadTopNav>
                     <MastheadSearch
+                      navType="default"
                       placeHolderText="Search all of IBM"
                       renderValue={3}
                       searchOpenOnload={false}
@@ -64654,14 +64676,14 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           <HeaderGlobalAction
                             aria-label="Open IBM search field"
                             className="bx--header__search--search"
-                            data-autoid="dds--header__search--search"
+                            data-autoid="dds--masthead-default__l0-search"
                             onClick={[Function]}
                             tabIndex="0"
                           >
                             <button
                               aria-label="Open IBM search field"
                               className="bx--header__search--search bx--header__action"
-                              data-autoid="dds--header__search--search"
+                              data-autoid="dds--masthead-default__l0-search"
                               onClick={[Function]}
                               tabIndex="0"
                               type="button"
@@ -64696,13 +64718,13 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           <HeaderGlobalAction
                             aria-label="Close"
                             className="bx--header__search--close"
-                            data-autoid="dds--header__search--close"
+                            data-autoid="dds--masthead-default__l0-search--close"
                             onClick={[Function]}
                           >
                             <button
                               aria-label="Close"
                               className="bx--header__search--close bx--header__action"
-                              data-autoid="dds--header__search--close"
+                              data-autoid="dds--masthead-default__l0-search--close"
                               onClick={[Function]}
                               type="button"
                             >
@@ -64742,6 +64764,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       className="bx--header__global"
                     >
                       <MastheadProfile
+                        navType="default"
                         overflowMenuItemProps={
                           Object {
                             "wrapperClassName": "bx--masthead__profile-item",
@@ -64750,7 +64773,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                         overflowMenuProps={
                           Object {
                             "ariaLabel": "User Profile",
-                            "data-autoid": "dds--masthead__profile",
+                            "data-autoid": "dds--masthead-default__l0-account",
                             "flipped": true,
                             "onOpen": [Function],
                             "renderIcon": [Function],
@@ -64764,7 +64787,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                         <ForwardRef(OverflowMenu)
                           ariaLabel="User Profile"
                           className="bx--header__action"
-                          data-autoid="dds--masthead__profile"
+                          data-autoid="dds--masthead-default__l0-account"
                           flipped={true}
                           onOpen={[Function]}
                           renderIcon={[Function]}
@@ -64777,7 +64800,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                           <OverflowMenu
                             ariaLabel="User Profile"
                             className="bx--header__action"
-                            data-autoid="dds--masthead__profile"
+                            data-autoid="dds--masthead-default__l0-account"
                             direction="bottom"
                             flipped={true}
                             iconDescription="open and close list of options"
@@ -64807,7 +64830,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 aria-haspopup={true}
                                 aria-label="User Profile"
                                 className="bx--header__action bx--overflow-menu"
-                                data-autoid="dds--masthead__profile"
+                                data-autoid="dds--masthead-default__l0-account"
                                 onClick={[Function]}
                                 onClose={[Function]}
                                 onKeyDown={[Function]}
@@ -64863,6 +64886,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                   <MastheadLeftNav
                     backButtonText="Back"
                     isSideNavExpanded={false}
+                    navType="default"
                     navigation={Array []}
                     platform={null}
                   >
@@ -64887,7 +64911,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                         onFocus={[Function]}
                       >
                         <nav
-                          data-autoid="dds--masthead__l0-sidenav"
+                          data-autoid="dds--masthead-default__l0-sidenav"
                         >
                           <SideNavItems>
                             <ul
@@ -65016,14 +65040,15 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       </ForwardRef(Menu20)>
                     </button>
                   </HeaderMenuButton>
-                  <IbmLogo>
+                  <IbmLogo
+                    autoid="dds--masthead-default__l0-logo"
+                  >
                     <div
                       className="bx--header__logo"
-                      data-autoid="dds--masthead-logo"
                     >
                       <a
                         aria-label="IBM®"
-                        data-autoid="dds--masthead-logo__link"
+                        data-autoid="dds--masthead-default__l0-logo"
                         href="https://www.ibm.com/"
                       >
                         <MastheadLogo
@@ -65052,6 +65077,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                     className="bx--header__search "
                   >
                     <MastheadTopNav
+                      navType="default"
                       navigation={Array []}
                       platform={null}
                     >
@@ -65080,6 +65106,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       />
                     </MastheadTopNav>
                     <MastheadSearch
+                      navType="default"
                       placeHolderText="Search all of IBM"
                       renderValue={3}
                       searchOpenOnload={true}
@@ -65264,14 +65291,14 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           <HeaderGlobalAction
                             aria-label="Search all of IBM"
                             className="bx--header__search--search"
-                            data-autoid="dds--header__search--search"
+                            data-autoid="dds--masthead-default__l0-search"
                             onClick={[Function]}
                             tabIndex="0"
                           >
                             <button
                               aria-label="Search all of IBM"
                               className="bx--header__search--search bx--header__action"
-                              data-autoid="dds--header__search--search"
+                              data-autoid="dds--masthead-default__l0-search"
                               onClick={[Function]}
                               tabIndex="0"
                               type="button"
@@ -65306,13 +65333,13 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           <HeaderGlobalAction
                             aria-label="Close"
                             className="bx--header__search--close"
-                            data-autoid="dds--header__search--close"
+                            data-autoid="dds--masthead-default__l0-search--close"
                             onClick={[Function]}
                           >
                             <button
                               aria-label="Close"
                               className="bx--header__search--close bx--header__action"
-                              data-autoid="dds--header__search--close"
+                              data-autoid="dds--masthead-default__l0-search--close"
                               onClick={[Function]}
                               type="button"
                             >
@@ -65352,6 +65379,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       className="bx--header__global"
                     >
                       <MastheadProfile
+                        navType="default"
                         overflowMenuItemProps={
                           Object {
                             "wrapperClassName": "bx--masthead__profile-item",
@@ -65360,7 +65388,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                         overflowMenuProps={
                           Object {
                             "ariaLabel": "User Profile",
-                            "data-autoid": "dds--masthead__profile",
+                            "data-autoid": "dds--masthead-default__l0-account",
                             "flipped": true,
                             "onOpen": [Function],
                             "renderIcon": [Function],
@@ -65374,7 +65402,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                         <ForwardRef(OverflowMenu)
                           ariaLabel="User Profile"
                           className="bx--header__action"
-                          data-autoid="dds--masthead__profile"
+                          data-autoid="dds--masthead-default__l0-account"
                           flipped={true}
                           onOpen={[Function]}
                           renderIcon={[Function]}
@@ -65387,7 +65415,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                           <OverflowMenu
                             ariaLabel="User Profile"
                             className="bx--header__action"
-                            data-autoid="dds--masthead__profile"
+                            data-autoid="dds--masthead-default__l0-account"
                             direction="bottom"
                             flipped={true}
                             iconDescription="open and close list of options"
@@ -65417,7 +65445,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 aria-haspopup={true}
                                 aria-label="User Profile"
                                 className="bx--header__action bx--overflow-menu"
-                                data-autoid="dds--masthead__profile"
+                                data-autoid="dds--masthead-default__l0-account"
                                 onClick={[Function]}
                                 onClose={[Function]}
                                 onKeyDown={[Function]}
@@ -65473,6 +65501,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                   <MastheadLeftNav
                     backButtonText="Back"
                     isSideNavExpanded={false}
+                    navType="default"
                     navigation={Array []}
                     platform={null}
                   >
@@ -65497,7 +65526,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                         onFocus={[Function]}
                       >
                         <nav
-                          data-autoid="dds--masthead__l0-sidenav"
+                          data-autoid="dds--masthead-default__l0-sidenav"
                         >
                           <SideNavItems>
                             <ul
@@ -65666,14 +65695,15 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                         </ForwardRef(Menu20)>
                       </button>
                     </HeaderMenuButton>
-                    <IbmLogo>
+                    <IbmLogo
+                      autoid="dds--masthead-eco__l0-logo"
+                    >
                       <div
                         className="bx--header__logo"
-                        data-autoid="dds--masthead-logo"
                       >
                         <a
                           aria-label="IBM®"
-                          data-autoid="dds--masthead-logo__link"
+                          data-autoid="dds--masthead-eco__l0-logo"
                           href="https://www.ibm.com/"
                         >
                           <MastheadLogo
@@ -65702,6 +65732,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                       className="bx--header__search bx--masthead__platform"
                     >
                       <MastheadTopNav
+                        navType="eco"
                         navigation={Array []}
                         platform={
                           Object {
@@ -65714,19 +65745,19 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           className="bx--header__nav-container"
                         >
                           <HeaderName
-                            data-autoid="dds--masthead__platform-name"
+                            data-autoid="dds--masthead-eco__l0-ecosystemname"
                             href="https://www.ibm.com/cloud"
                             prefix=""
                           >
                             <Link
                               className="bx--header__name"
-                              data-autoid="dds--masthead__platform-name"
+                              data-autoid="dds--masthead-eco__l0-ecosystemname"
                               element="a"
                               href="https://www.ibm.com/cloud"
                             >
                               <a
                                 className="bx--header__name"
-                                data-autoid="dds--masthead__platform-name"
+                                data-autoid="dds--masthead-eco__l0-ecosystemname"
                                 href="https://www.ibm.com/cloud"
                               >
                                 IBM Cloud
@@ -65755,6 +65786,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                         />
                       </MastheadTopNav>
                       <MastheadSearch
+                        navType="eco"
                         placeHolderText="Search all of IBM"
                         renderValue={3}
                         searchOpenOnload={false}
@@ -65769,14 +65801,14 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             <HeaderGlobalAction
                               aria-label="Open IBM search field"
                               className="bx--header__search--search"
-                              data-autoid="dds--header__search--search"
+                              data-autoid="dds--masthead-eco__l0-search"
                               onClick={[Function]}
                               tabIndex="0"
                             >
                               <button
                                 aria-label="Open IBM search field"
                                 className="bx--header__search--search bx--header__action"
-                                data-autoid="dds--header__search--search"
+                                data-autoid="dds--masthead-eco__l0-search"
                                 onClick={[Function]}
                                 tabIndex="0"
                                 type="button"
@@ -65811,13 +65843,13 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             <HeaderGlobalAction
                               aria-label="Close"
                               className="bx--header__search--close"
-                              data-autoid="dds--header__search--close"
+                              data-autoid="dds--masthead-eco__l0-search--close"
                               onClick={[Function]}
                             >
                               <button
                                 aria-label="Close"
                                 className="bx--header__search--close bx--header__action"
-                                data-autoid="dds--header__search--close"
+                                data-autoid="dds--masthead-eco__l0-search--close"
                                 onClick={[Function]}
                                 type="button"
                               >
@@ -65857,6 +65889,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                         className="bx--header__global"
                       >
                         <MastheadProfile
+                          navType="eco"
                           overflowMenuItemProps={
                             Object {
                               "wrapperClassName": "bx--masthead__profile-item",
@@ -65865,7 +65898,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           overflowMenuProps={
                             Object {
                               "ariaLabel": "User Profile",
-                              "data-autoid": "dds--masthead__profile",
+                              "data-autoid": "dds--masthead-eco__l0-account",
                               "flipped": true,
                               "onOpen": [Function],
                               "renderIcon": [Function],
@@ -65879,7 +65912,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           <ForwardRef(OverflowMenu)
                             ariaLabel="User Profile"
                             className="bx--header__action"
-                            data-autoid="dds--masthead__profile"
+                            data-autoid="dds--masthead-eco__l0-account"
                             flipped={true}
                             onOpen={[Function]}
                             renderIcon={[Function]}
@@ -65892,7 +65925,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             <OverflowMenu
                               ariaLabel="User Profile"
                               className="bx--header__action"
-                              data-autoid="dds--masthead__profile"
+                              data-autoid="dds--masthead-eco__l0-account"
                               direction="bottom"
                               flipped={true}
                               iconDescription="open and close list of options"
@@ -65922,7 +65955,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                   aria-haspopup={true}
                                   aria-label="User Profile"
                                   className="bx--header__action bx--overflow-menu"
-                                  data-autoid="dds--masthead__profile"
+                                  data-autoid="dds--masthead-eco__l0-account"
                                   onClick={[Function]}
                                   onClose={[Function]}
                                   onKeyDown={[Function]}
@@ -65978,6 +66011,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                     <MastheadLeftNav
                       backButtonText="Back"
                       isSideNavExpanded={false}
+                      navType="eco"
                       navigation={Array []}
                       platform={
                         Object {
@@ -66007,12 +66041,11 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           onFocus={[Function]}
                         >
                           <nav
-                            data-autoid="dds--masthead__l0-sidenav"
+                            data-autoid="dds--masthead-eco__l0-sidenav"
                           >
                             <a
-                              aria-haspopup="true"
                               className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                              data-autoid="dds--side-nav__submenu-platform"
+                              data-autoid="dds--masthead-eco__l0-side-nav__productname"
                               href="https://www.ibm.com/cloud"
                             >
                               IBM Cloud

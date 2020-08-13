@@ -31,7 +31,6 @@ const SideNavMenuWithBackForward = ({
   children,
   ...rest
 }) => {
-  console.log('autoid', rest.autoid);
   return (
     <SideNavMenu autoid={rest.autoid} title={title}>
       <SideNavMenuItem

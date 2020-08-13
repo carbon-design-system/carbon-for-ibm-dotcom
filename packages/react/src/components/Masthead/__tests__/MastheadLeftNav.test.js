@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,7 +35,7 @@ describe('MastheadLeftNav', () => {
     );
 
     const anchor = component.find(
-      `a[data-autoid="${stablePrefix}--side-nav__submenu-platform"]`
+      `a[data-autoid="${stablePrefix}--masthead-eco__l0-side-nav__productname"]`
     );
 
     expect(anchor.text()).toMatch('IBM Cloud');
