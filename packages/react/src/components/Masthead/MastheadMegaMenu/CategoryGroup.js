@@ -16,16 +16,19 @@ const { prefix } = settings;
  * Category Group of the MegaMenu
  * contains the category headline and sublinks
  */
-const CategoryGroup = ({ href, title, children, ...props }) => (
-  <div className={`${prefix}--masthead__megamenu__category-group`} {...props}>
+const CategoryGroup = ({ href, title, children, ...rest }) => (
+  <div className={`${prefix}--masthead__megamenu__category-group`}>
     {href ? (
       <LinkWithIcon
-        className={`${prefix}--masthead__megamenu__category-headline`}>
+        className={`${prefix}--masthead__megamenu__category-headline`}
+        data-autoid={`${rest.autoid}-list${rest.index}`}>
         <span>{title}</span>
         <ArrowRight16 />
       </LinkWithIcon>
     ) : (
-      <div className={`${prefix}--masthead__megamenu__category-headline`}>
+      <div
+        className={`${prefix}--masthead__megamenu__category-headline`}
+        data-autoid={`${rest.autoid}-list${rest.index}`}>
         <p>{title}</p>
       </div>
     )}
