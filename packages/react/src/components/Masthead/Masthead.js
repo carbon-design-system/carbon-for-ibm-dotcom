@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import React, { useEffect, useRef, useState } from 'react';
 import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import cx from 'classnames';
@@ -190,11 +191,13 @@ const Masthead = ({
     }
   };
 
+  const lgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+
   /**
    * check window size to determine whether to trigger hide/show nav item function
    */
   const onResize = () => {
-    if (window.innerWidth >= 1056) {
+    if (root.innerWidth >= lgBreakpoint) {
       /**
        * get total width of masthead items (logo, nav menu items, search icons) and set css media query
        * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
@@ -208,9 +211,9 @@ const Masthead = ({
         'bx--header__global',
       ]);
 
-      if (width > 1056) {
-        const mediaQuery = window.matchMedia(
-          `(min-width: 1056px) and (max-width: ${width + 50}px)`
+      if (width > lgBreakpoint) {
+        const mediaQuery = root.matchMedia(
+          `(min-width: ${lgBreakpoint}px) and (max-width: ${width + 50}px)`
         );
         hideShowNavItems(mediaQuery);
         mediaQuery.addListener(hideShowNavItems);
