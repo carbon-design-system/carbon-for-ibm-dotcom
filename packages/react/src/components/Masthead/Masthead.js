@@ -169,6 +169,16 @@ const Masthead = ({
     }
   }
 
+  // set navigation type (default, alternate, or ecosystem) for autoids
+  let navType;
+  if (!navigation && !platform) {
+    navType = 'alt';
+  } else if (navigation && !platform) {
+    navType = 'default';
+  } else if (platform) {
+    navType = 'eco';
+  }
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -188,7 +198,9 @@ const Masthead = ({
                 />
               )}
 
-              <IbmLogo />
+              <IbmLogo
+                autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
+              />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
                 {navigation && !mastheadL1Data && (
@@ -196,12 +208,14 @@ const Masthead = ({
                     {...mastheadProps}
                     platform={platform}
                     navigation={mastheadData}
+                    navType={navType}
                   />
                 )}
                 {hasSearch && (
                   <MastheadSearch
                     searchOpenOnload={searchOpenOnload}
                     placeHolderText={placeHolderText}
+                    navType={navType}
                   />
                 )}
               </div>
@@ -211,7 +225,7 @@ const Masthead = ({
                   <MastheadProfile
                     overflowMenuProps={{
                       ariaLabel: 'User Profile',
-                      'data-autoid': `${stablePrefix}--masthead__profile`,
+                      'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
                       flipped: true,
                       style: { width: '3rem' },
                       onOpen: () => _setProfileListPosition(),
@@ -226,6 +240,7 @@ const Masthead = ({
                         ? profileData.signedin
                         : profileData.signedout
                     }
+                    navType={navType}
                   />
                 </HeaderGlobalBar>
               )}
@@ -237,13 +252,18 @@ const Masthead = ({
                   platform={platform}
                   navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
+                  navType={navType}
                 />
               )}
             </Header>
           </div>
           {mastheadL1Data && DDS_MASTHEAD_L1 && (
             <div ref={mastheadL1Ref}>
-              <MastheadL1 {...mastheadL1Data} isShort={isMastheadSticky} />
+              <MastheadL1
+                {...mastheadL1Data}
+                isShort={isMastheadSticky}
+                navType={navType}
+              />
             </div>
           )}
         </div>

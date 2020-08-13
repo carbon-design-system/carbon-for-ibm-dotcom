@@ -199,6 +199,7 @@ class HeaderMenu extends React.Component {
       children,
       renderMenuContent: MenuContent,
       menuLinkName,
+      autoId,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -216,6 +217,7 @@ class HeaderMenu extends React.Component {
     return (
       <li // eslint-disable-line jsx-a11y/mouse-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
         className={className}
+        data-autoid={autoId}
         onKeyDown={this.handleMenuClose}
         onClick={this.handleOnClick}
         onBlur={this.handleOnBlur}>
