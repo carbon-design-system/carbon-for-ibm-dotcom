@@ -38,7 +38,7 @@
   }
 
   .#{$prefix}--masthead__megamenu {
-    overflow-x: scroll;
+    overflow-y: scroll;
     background-color: $ui-background;
 
     @include box-shadow;
