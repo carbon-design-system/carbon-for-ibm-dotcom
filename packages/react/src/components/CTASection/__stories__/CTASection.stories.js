@@ -89,6 +89,7 @@ Default.story = {
             },
           ],
         },
+        items: contentItemsProps,
       }),
     },
     propsSet: {
