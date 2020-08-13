@@ -15,7 +15,7 @@ import RightNavigation from './RightNavigation';
 /**
  * Masthead megamenu component.
  */
-const MegaMenu = ({ data }) => {
+const MegaMenu = ({ data, ...rest }) => {
   let highlightedItems = [];
   let viewAllLink;
   let menuItems = [];
@@ -32,11 +32,20 @@ const MegaMenu = ({ data }) => {
     <NavigationGroup hasHighlights={hasHighlights}>
       {hasHighlights && (
         <LeftNavigation>
-          {highlightedItems.map(item => (
-            <CategoryGroup href={item.url} title={item.title}>
+          {highlightedItems.map((item, i) => (
+            <CategoryGroup
+              autoid={rest.autoid}
+              index={i}
+              href={item.url}
+              title={item.title}>
               {item.megapanelContent?.quickLinks?.links.map(
-                ({ title, url }) => (
-                  <CategoryLink href={url} title={title} />
+                ({ title, url }, key) => (
+                  <CategoryLink
+                    href={url}
+                    title={title}
+                    autoid={`${rest.autoid}-list${i}`}
+                    index={key}
+                  />
                 )
               )}
             </CategoryGroup>
@@ -45,12 +54,24 @@ const MegaMenu = ({ data }) => {
       )}
       <RightNavigation
         viewAllLinkHref={viewAllLink?.url}
-        viewAllLinkTitle={viewAllLink?.title}>
-        {menuItems.map((item, index) => (
-          <CategoryGroup key={index} href={item.url} title={item.title}>
+        viewAllLinkTitle={viewAllLink?.title}
+        autoid={rest.autoid}>
+        {menuItems.map((item, i) => (
+          <CategoryGroup
+            key={i}
+            autoid={rest.autoid}
+            index={i + highlightedItems.length}
+            href={item.url}
+            title={item.title}>
             {item.megapanelContent?.quickLinks?.links.map(
-              ({ title, url }, linkIndex) => (
-                <CategoryLink key={linkIndex} href={url} title={title} />
+              ({ title, url }, key) => (
+                <CategoryLink
+                  key={key}
+                  href={url}
+                  title={title}
+                  autoid={`${rest.autoid}-list${i + highlightedItems.length}`}
+                  index={key}
+                />
               )
             )}
           </CategoryGroup>

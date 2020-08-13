@@ -30,6 +30,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    * @returns {*} Top masthead navigation
    */
   const mastheadLinks = navigation.map((link, i) => {
+    const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
@@ -38,18 +39,15 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           className={classnames({
             [`${prefix}--masthead__megamenu__l0-nav`]: link.hasMegapanel,
           })}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
+          autoId={autoid}
           key={i}
           setOverlay={setOverlay}>
-          {renderNav(link)}
+          {renderNav(link, autoid)}
         </HeaderMenu>
       );
     } else {
       return (
-        <HeaderMenuItem
-          href={link.url}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
-          key={i}>
+        <HeaderMenuItem href={link.url} data-autoid={autoid} key={i}>
           {link.title}
         </HeaderMenuItem>
       );
@@ -63,7 +61,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           <HeaderName
             prefix=""
             href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead__platform-name`}>
+            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
             {topNavProps.platform.name}
           </HeaderName>
         )}
@@ -85,19 +83,20 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
  * Loops through and renders a list of links for the masthead nav
  *
  * @param {object} link A list of links to be rendered
+ * @param {string} autoid autoid predecessor for megamenu items/menu items data-autoids
  * @returns {object} JSX object
  */
-function renderNav(link) {
+function renderNav(link, autoid) {
   const navItems = [];
   if (link.hasMegapanel) {
-    navItems.push(<MegaMenu key={link.title} data={link} />);
+    navItems.push(<MegaMenu key={link.title} data={link} autoid={autoid} />);
   } else {
     link.menuSections.forEach((section, i) => {
       section.menuItems.forEach((item, j) => {
         navItems.push(
           <HeaderMenuItem
             href={item.url}
-            data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
+            data-autoid={`${autoid}--subnav-col${i}-item${j}`}
             key={item.title}>
             {item.title}
           </HeaderMenuItem>
