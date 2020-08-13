@@ -49,12 +49,13 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               <li
                 className="bx--buttongroup-item"
               >
-                <ForwardRef(Button)
+                <Button
                   copy="Button 1"
                   data-autoid="dds--button-group-0"
                   disabled={false}
                   href="https://example.com"
                   kind="tertiary"
+                  size="default"
                   tabIndex={0}
                   type="button"
                 >
@@ -67,17 +68,18 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   >
                     Button 1
                   </a>
-                </ForwardRef(Button)>
+                </Button>
               </li>
               <li
                 className="bx--buttongroup-item"
               >
-                <ForwardRef(Button)
+                <Button
                   copy="Button 2"
                   data-autoid="dds--button-group-1"
                   disabled={false}
                   href="https://example.com"
                   kind="primary"
+                  size="default"
                   tabIndex={0}
                   type="button"
                 >
@@ -90,7 +92,7 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   >
                     Button 2
                   </a>
-                </ForwardRef(Button)>
+                </Button>
               </li>
             </ol>
           </ButtonGroup>
@@ -129,12 +131,13 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
           <li
             className="bx--buttongroup-item"
           >
-            <ForwardRef(Button)
+            <Button
               copy="Button 1"
               data-autoid="dds--button-group-0"
               disabled={false}
               href="https://example.com"
               kind="tertiary"
+              size="default"
               tabIndex={0}
               type="button"
             >
@@ -147,17 +150,18 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               >
                 Button 1
               </a>
-            </ForwardRef(Button)>
+            </Button>
           </li>
           <li
             className="bx--buttongroup-item"
           >
-            <ForwardRef(Button)
+            <Button
               copy="Button 2"
               data-autoid="dds--button-group-1"
               disabled={false}
               href="https://example.com"
               kind="primary"
+              size="default"
               tabIndex={0}
               type="button"
             >
@@ -170,7 +174,7 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               >
                 Button 2
               </a>
-            </ForwardRef(Button)>
+            </Button>
           </li>
         </ol>
       </ButtonGroup>
@@ -354,7 +358,7 @@ exports[`Storyshots Components|CTA Button 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Lorem ipsum dolor sit amet"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -374,6 +378,7 @@ exports[`Storyshots Components|CTA Button 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         target={null}
                         type="button"
@@ -430,12 +435,12 @@ exports[`Storyshots Components|CTA Button 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Consectetur adipisicing elit"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -455,6 +460,7 @@ exports[`Storyshots Components|CTA Button 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         target={null}
                         type="button"
@@ -511,7 +517,7 @@ exports[`Storyshots Components|CTA Button 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -1429,7 +1435,7 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Secondary button"
                             data-autoid="dds--button-group-0"
                             disabled={false}
@@ -1438,6 +1444,7 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             kind="tertiary"
                             onClick={[Function]}
                             renderIcon={null}
+                            size="default"
                             tabIndex={0}
                             target={null}
                             type="button"
@@ -1453,12 +1460,12 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             >
                               Secondary button
                             </a>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Primary button"
                             data-autoid="dds--button-group-1"
                             disabled={false}
@@ -1467,6 +1474,7 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             kind="primary"
                             onClick={[Function]}
                             renderIcon={null}
+                            size="default"
                             tabIndex={0}
                             target={null}
                             type="button"
@@ -1482,7 +1490,7 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             >
                               Primary button
                             </a>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                       </ol>
                     </ButtonGroup>
@@ -1958,7 +1966,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Secondary button"
                             data-autoid="dds--button-group-0"
                             disabled={false}
@@ -1967,6 +1975,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             kind="tertiary"
                             onClick={[Function]}
                             renderIcon={null}
+                            size="default"
                             tabIndex={0}
                             target={null}
                             type="button"
@@ -1982,12 +1991,12 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             >
                               Secondary button
                             </a>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Primary button"
                             data-autoid="dds--button-group-1"
                             disabled={false}
@@ -1996,6 +2005,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             kind="primary"
                             onClick={[Function]}
                             renderIcon={null}
+                            size="default"
                             tabIndex={0}
                             target={null}
                             type="button"
@@ -2011,7 +2021,7 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             >
                               Primary button
                             </a>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                       </ol>
                     </ButtonGroup>
@@ -32678,6 +32688,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     }
                                   }
                                   tabIndex={0}
+                                  type="button"
                                 >
                                   <renderIcon
                                     aria-label="open and close list of options"
@@ -33542,7 +33553,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <li
                                                             className="bx--buttongroup-item"
                                                           >
-                                                            <ForwardRef(Button)
+                                                            <Button
                                                               copy="Excepteur sint occaecat"
                                                               data-autoid="dds--button-group-0"
                                                               disabled={false}
@@ -33556,6 +33567,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
+                                                              size="default"
                                                               tabIndex={0}
                                                               target={null}
                                                               type="button"
@@ -33606,7 +33618,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   </Icon>
                                                                 </ForwardRef(ArrowRight20)>
                                                               </a>
-                                                            </ForwardRef(Button)>
+                                                            </Button>
                                                           </li>
                                                         </ol>
                                                       </ButtonGroup>
@@ -37375,7 +37387,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     <li
                                       className="bx--buttongroup-item"
                                     >
-                                      <ForwardRef(Button)
+                                      <Button
                                         copy="Contact sales"
                                         data-autoid="dds--button-group-0"
                                         disabled={false}
@@ -37389,6 +37401,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             "render": [Function],
                                           }
                                         }
+                                        size="default"
                                         tabIndex={0}
                                         target={null}
                                         type="button"
@@ -37439,7 +37452,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             </Icon>
                                           </ForwardRef(ArrowRight20)>
                                         </a>
-                                      </ForwardRef(Button)>
+                                      </Button>
                                     </li>
                                   </ol>
                                 </ButtonGroup>
@@ -37766,7 +37779,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 <div
                   className="bx--locale-btn__container"
                 >
-                  <ForwardRef(Button)
+                  <Button
                     aria-label=""
                     className="bx--locale-btn"
                     data-autoid="dds--locale-btn"
@@ -37780,6 +37793,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         "render": [Function],
                       }
                     }
+                    size="default"
                     tabIndex={0}
                     type="button"
                   >
@@ -37828,7 +37842,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         </Icon>
                       </ForwardRef(EarthFilled20)>
                     </button>
-                  </ForwardRef(Button)>
+                  </Button>
                 </div>
               </LocaleButton>
             </div>
@@ -38432,6 +38446,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                       }
                                     }
                                     tabIndex={0}
+                                    type="button"
                                   >
                                     <renderIcon
                                       aria-label="open and close list of options"
@@ -39296,7 +39311,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                             <li
                                                               className="bx--buttongroup-item"
                                                             >
-                                                              <ForwardRef(Button)
+                                                              <Button
                                                                 copy="Excepteur sint occaecat"
                                                                 data-autoid="dds--button-group-0"
                                                                 disabled={false}
@@ -39310,6 +39325,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     "render": [Function],
                                                                   }
                                                                 }
+                                                                size="default"
                                                                 tabIndex={0}
                                                                 target={null}
                                                                 type="button"
@@ -39360,7 +39376,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
                                                                 </a>
-                                                              </ForwardRef(Button)>
+                                                              </Button>
                                                             </li>
                                                           </ol>
                                                         </ButtonGroup>
@@ -43129,7 +43145,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                       <li
                                         className="bx--buttongroup-item"
                                       >
-                                        <ForwardRef(Button)
+                                        <Button
                                           copy="Contact sales"
                                           data-autoid="dds--button-group-0"
                                           disabled={false}
@@ -43143,6 +43159,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                               "render": [Function],
                                             }
                                           }
+                                          size="default"
                                           tabIndex={0}
                                           target={null}
                                           type="button"
@@ -43193,7 +43210,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                               </Icon>
                                             </ForwardRef(ArrowRight20)>
                                           </a>
-                                        </ForwardRef(Button)>
+                                        </Button>
                                       </li>
                                     </ol>
                                   </ButtonGroup>
@@ -43520,7 +43537,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                   <div
                     className="bx--locale-btn__container"
                   >
-                    <ForwardRef(Button)
+                    <Button
                       aria-label=""
                       className="bx--locale-btn"
                       data-autoid="dds--locale-btn"
@@ -43534,6 +43551,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           "render": [Function],
                         }
                       }
+                      size="default"
                       tabIndex={0}
                       type="button"
                     >
@@ -43582,7 +43600,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           </Icon>
                         </ForwardRef(EarthFilled20)>
                       </button>
-                    </ForwardRef(Button)>
+                    </Button>
                   </div>
                 </LocaleButton>
               </div>
@@ -44051,6 +44069,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                       }
                                     }
                                     tabIndex={0}
+                                    type="button"
                                   >
                                     <renderIcon
                                       aria-label="open and close list of options"
@@ -44928,7 +44947,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                             <li
                                                               className="bx--buttongroup-item"
                                                             >
-                                                              <ForwardRef(Button)
+                                                              <Button
                                                                 copy="Excepteur sint occaecat"
                                                                 data-autoid="dds--button-group-0"
                                                                 disabled={false}
@@ -44942,6 +44961,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     "render": [Function],
                                                                   }
                                                                 }
+                                                                size="default"
                                                                 tabIndex={0}
                                                                 target={null}
                                                                 type="button"
@@ -44992,7 +45012,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
                                                                 </a>
-                                                              </ForwardRef(Button)>
+                                                              </Button>
                                                             </li>
                                                           </ol>
                                                         </ButtonGroup>
@@ -48761,7 +48781,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                       <li
                                         className="bx--buttongroup-item"
                                       >
-                                        <ForwardRef(Button)
+                                        <Button
                                           copy="Contact sales"
                                           data-autoid="dds--button-group-0"
                                           disabled={false}
@@ -48775,6 +48795,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                               "render": [Function],
                                             }
                                           }
+                                          size="default"
                                           tabIndex={0}
                                           target={null}
                                           type="button"
@@ -48825,7 +48846,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                               </Icon>
                                             </ForwardRef(ArrowRight20)>
                                           </a>
-                                        </ForwardRef(Button)>
+                                        </Button>
                                       </li>
                                     </ol>
                                   </ButtonGroup>
@@ -49152,7 +49173,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                   <div
                     className="bx--locale-btn__container"
                   >
-                    <ForwardRef(Button)
+                    <Button
                       aria-label=""
                       className="bx--locale-btn"
                       data-autoid="dds--locale-btn"
@@ -49166,6 +49187,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           "render": [Function],
                         }
                       }
+                      size="default"
                       tabIndex={0}
                       type="button"
                     >
@@ -49214,7 +49236,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           </Icon>
                         </ForwardRef(EarthFilled20)>
                       </button>
-                    </ForwardRef(Button)>
+                    </Button>
                   </div>
                 </LocaleButton>
               </div>
@@ -49649,6 +49671,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                       }
                                     }
                                     tabIndex={0}
+                                    type="button"
                                   >
                                     <renderIcon
                                       aria-label="open and close list of options"
@@ -50513,7 +50536,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                             <li
                                                               className="bx--buttongroup-item"
                                                             >
-                                                              <ForwardRef(Button)
+                                                              <Button
                                                                 copy="Excepteur sint occaecat"
                                                                 data-autoid="dds--button-group-0"
                                                                 disabled={false}
@@ -50527,6 +50550,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     "render": [Function],
                                                                   }
                                                                 }
+                                                                size="default"
                                                                 tabIndex={0}
                                                                 target={null}
                                                                 type="button"
@@ -50577,7 +50601,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                     </Icon>
                                                                   </ForwardRef(ArrowRight20)>
                                                                 </a>
-                                                              </ForwardRef(Button)>
+                                                              </Button>
                                                             </li>
                                                           </ol>
                                                         </ButtonGroup>
@@ -54346,7 +54370,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                       <li
                                         className="bx--buttongroup-item"
                                       >
-                                        <ForwardRef(Button)
+                                        <Button
                                           copy="Contact sales"
                                           data-autoid="dds--button-group-0"
                                           disabled={false}
@@ -54360,6 +54384,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                               "render": [Function],
                                             }
                                           }
+                                          size="default"
                                           tabIndex={0}
                                           target={null}
                                           type="button"
@@ -54410,7 +54435,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                               </Icon>
                                             </ForwardRef(ArrowRight20)>
                                           </a>
-                                        </ForwardRef(Button)>
+                                        </Button>
                                       </li>
                                     </ol>
                                   </ButtonGroup>
@@ -54735,7 +54760,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                   <div
                     className="bx--locale-btn__container"
                   >
-                    <ForwardRef(Button)
+                    <Button
                       aria-label=""
                       className="bx--locale-btn"
                       data-autoid="dds--locale-btn"
@@ -54749,6 +54774,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           "render": [Function],
                         }
                       }
+                      size="default"
                       tabIndex={0}
                       type="button"
                     >
@@ -54797,7 +54823,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           </Icon>
                         </ForwardRef(EarthFilled20)>
                       </button>
-                    </ForwardRef(Button)>
+                    </Button>
                   </div>
                 </LocaleButton>
               </div>
@@ -54956,7 +54982,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Lorem ipsum dolor"
                             data-autoid="dds--button-group-0"
                             disabled={false}
@@ -54968,6 +54994,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 "render": [Function],
                               }
                             }
+                            size="default"
                             tabIndex={0}
                             type="button"
                           >
@@ -55012,7 +55039,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
                             </button>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                       </ol>
                     </ButtonGroup>
@@ -55179,7 +55206,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                         <li
                           className="bx--buttongroup-item"
                         >
-                          <ForwardRef(Button)
+                          <Button
                             copy="Lorem ipsum dolor"
                             data-autoid="dds--button-group-0"
                             disabled={false}
@@ -55191,6 +55218,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 "render": [Function],
                               }
                             }
+                            size="default"
                             tabIndex={0}
                             type="button"
                           >
@@ -55235,7 +55263,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
                             </button>
-                          </ForwardRef(Button)>
+                          </Button>
                         </li>
                       </ol>
                     </ButtonGroup>
@@ -56018,7 +56046,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
               <div
                 className="bx--locale-btn__container"
               >
-                <ForwardRef(Button)
+                <Button
                   aria-label=""
                   className="bx--locale-btn"
                   data-autoid="dds--locale-btn"
@@ -56032,6 +56060,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                       "render": [Function],
                     }
                   }
+                  size="default"
                   tabIndex={0}
                   type="button"
                 >
@@ -56080,7 +56109,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                       </Icon>
                     </ForwardRef(EarthFilled20)>
                   </button>
-                </ForwardRef(Button)>
+                </Button>
               </div>
             </LocaleButton>
           </div>
@@ -56193,7 +56222,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
                 <div
                   className="bx--locale-btn__container"
                 >
-                  <ForwardRef(Button)
+                  <Button
                     aria-label=""
                     className="bx--locale-btn"
                     data-autoid="dds--locale-btn"
@@ -56207,6 +56236,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
                         "render": [Function],
                       }
                     }
+                    size="default"
                     tabIndex={0}
                     type="button"
                   >
@@ -56255,7 +56285,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
                         </Icon>
                       </ForwardRef(EarthFilled20)>
                     </button>
-                  </ForwardRef(Button)>
+                  </Button>
                 </div>
               </LocaleButton>
             </div>
@@ -56972,7 +57002,7 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -56984,6 +57014,7 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57027,12 +57058,12 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -57044,6 +57075,7 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57087,7 +57119,7 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -57227,7 +57259,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -57239,6 +57271,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57282,12 +57315,12 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -57299,6 +57332,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57342,7 +57376,7 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -57490,7 +57524,7 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -57502,6 +57536,7 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57545,12 +57580,12 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -57562,6 +57597,7 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -57605,7 +57641,7 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -57805,7 +57841,7 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                       <li
                         className="bx--buttongroup-item"
                       >
-                        <ForwardRef(Button)
+                        <Button
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
                           disabled={false}
@@ -57817,6 +57853,7 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                               "render": [Function],
                             }
                           }
+                          size="default"
                           tabIndex={0}
                           type="button"
                         >
@@ -57860,12 +57897,12 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                               </Icon>
                             </ForwardRef(ArrowRight20)>
                           </a>
-                        </ForwardRef(Button)>
+                        </Button>
                       </li>
                       <li
                         className="bx--buttongroup-item"
                       >
-                        <ForwardRef(Button)
+                        <Button
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
                           disabled={false}
@@ -57877,6 +57914,7 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                               "render": [Function],
                             }
                           }
+                          size="default"
                           tabIndex={0}
                           type="button"
                         >
@@ -57920,7 +57958,7 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                               </Icon>
                             </ForwardRef(ArrowRight20)>
                           </a>
-                        </ForwardRef(Button)>
+                        </Button>
                       </li>
                     </ol>
                   </ButtonGroup>
@@ -58039,7 +58077,7 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -58051,6 +58089,7 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -58094,12 +58133,12 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -58111,6 +58150,7 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -58154,7 +58194,7 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -58294,7 +58334,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
@@ -58306,6 +58346,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -58349,12 +58390,12 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                     <li
                       className="bx--buttongroup-item"
                     >
-                      <ForwardRef(Button)
+                      <Button
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
@@ -58366,6 +58407,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                             "render": [Function],
                           }
                         }
+                        size="default"
                         tabIndex={0}
                         type="button"
                       >
@@ -58409,7 +58451,7 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                             </Icon>
                           </ForwardRef(ArrowRight20)>
                         </a>
-                      </ForwardRef(Button)>
+                      </Button>
                     </li>
                   </ol>
                 </ButtonGroup>
@@ -59129,7 +59171,7 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                               <li
                                 className="bx--buttongroup-item"
                               >
-                                <ForwardRef(Button)
+                                <Button
                                   copy="Contact sales"
                                   data-autoid="dds--button-group-0"
                                   disabled={false}
@@ -59143,6 +59185,7 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                       "render": [Function],
                                     }
                                   }
+                                  size="default"
                                   tabIndex={0}
                                   target={null}
                                   type="button"
@@ -59193,7 +59236,7 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
                                   </a>
-                                </ForwardRef(Button)>
+                                </Button>
                               </li>
                             </ol>
                           </ButtonGroup>
@@ -59832,7 +59875,7 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                               <li
                                 className="bx--buttongroup-item"
                               >
-                                <ForwardRef(Button)
+                                <Button
                                   copy="Contact sales"
                                   data-autoid="dds--button-group-0"
                                   disabled={false}
@@ -59846,6 +59889,7 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                       "render": [Function],
                                     }
                                   }
+                                  size="default"
                                   tabIndex={0}
                                   target={null}
                                   type="button"
@@ -59896,7 +59940,7 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                       </Icon>
                                     </ForwardRef(ArrowRight20)>
                                   </a>
-                                </ForwardRef(Button)>
+                                </Button>
                               </li>
                             </ol>
                           </ButtonGroup>
@@ -63977,23 +64021,23 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                             onClick={[Function]}
                             type="button"
                           >
-                            <ForwardRef(Close20)>
+                            <ForwardRef(Close16)>
                               <Icon
                                 fill="currentColor"
-                                height={20}
+                                height={16}
                                 preserveAspectRatio="xMidYMid meet"
                                 viewBox="0 0 32 32"
-                                width={20}
+                                width={16}
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <svg
                                   aria-hidden={true}
                                   fill="currentColor"
                                   focusable="false"
-                                  height={20}
+                                  height={16}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 32 32"
-                                  width={20}
+                                  width={16}
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path
@@ -64001,7 +64045,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   />
                                 </svg>
                               </Icon>
-                            </ForwardRef(Close20)>
+                            </ForwardRef(Close16)>
                           </button>
                         </div>
                       </Search>
@@ -65066,6 +65110,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                   }
                                 }
                                 tabIndex={0}
+                                type="button"
                               >
                                 <renderIcon
                                   aria-label="open and close list of options"
@@ -65680,6 +65725,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                   }
                                 }
                                 tabIndex={0}
+                                type="button"
                               >
                                 <renderIcon
                                   aria-label="open and close list of options"
@@ -66189,6 +66235,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                     }
                                   }
                                   tabIndex={0}
+                                  type="button"
                                 >
                                   <renderIcon
                                     aria-label="open and close list of options"
