@@ -63571,7 +63571,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
               label={
                 Array [
                   undefined,
-                  <ForwardRef(EarthFilled20)
+                  <ForwardRef(EarthFilled16)
                     className="bx--locale-modal__label-globe"
                   />,
                 ]
@@ -63583,17 +63583,17 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                 <p
                   className="bx--modal-header__label bx--type-delta"
                 >
-                  <ForwardRef(EarthFilled20)
+                  <ForwardRef(EarthFilled16)
                     className="bx--locale-modal__label-globe"
                     key="earthfilled"
                   >
                     <Icon
                       className="bx--locale-modal__label-globe"
                       fill="currentColor"
-                      height={20}
+                      height={16}
                       preserveAspectRatio="xMidYMid meet"
                       viewBox="0 0 32 32"
-                      width={20}
+                      width={16}
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <svg
@@ -63601,10 +63601,10 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         className="bx--locale-modal__label-globe"
                         fill="currentColor"
                         focusable="false"
-                        height={20}
+                        height={16}
                         preserveAspectRatio="xMidYMid meet"
                         viewBox="0 0 32 32"
-                        width={20}
+                        width={16}
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
@@ -63612,7 +63612,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         />
                       </svg>
                     </Icon>
-                  </ForwardRef(EarthFilled20)>
+                  </ForwardRef(EarthFilled16)>
                 </p>
                 <button
                   aria-label="Close"
