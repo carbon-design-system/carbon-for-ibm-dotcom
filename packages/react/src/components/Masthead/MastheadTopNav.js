@@ -61,7 +61,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           <HeaderName
             prefix=""
             href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead__platform-name`}>
+            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
             {topNavProps.platform.name}
           </HeaderName>
         )}

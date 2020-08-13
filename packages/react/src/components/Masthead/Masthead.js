@@ -171,7 +171,7 @@ const Masthead = ({
 
   // set navigation type (default, alternate, or ecosystem) for autoids
   let navType;
-  if (!navigation) {
+  if (!navigation && !platform) {
     navType = 'alt';
   } else if (navigation && !platform) {
     navType = 'default';
@@ -198,7 +198,9 @@ const Masthead = ({
                 />
               )}
 
-              <IbmLogo />
+              <IbmLogo
+                autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
+              />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
                 {navigation && !mastheadL1Data && (
@@ -223,7 +225,7 @@ const Masthead = ({
                   <MastheadProfile
                     overflowMenuProps={{
                       ariaLabel: 'User Profile',
-                      'data-autoid': `${stablePrefix}--masthead__profile`,
+                      'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
                       flipped: true,
                       style: { width: '3rem' },
                       onOpen: () => _setProfileListPosition(),
@@ -250,6 +252,7 @@ const Masthead = ({
                   platform={platform}
                   navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
+                  navType={navType}
                 />
               )}
             </Header>

@@ -27,6 +27,7 @@ const MastheadLeftNav = ({
   navigation,
   isSideNavExpanded,
   platform,
+  ...rest
 }) => {
   /**
    * Left side navigation
@@ -35,19 +36,22 @@ const MastheadLeftNav = ({
    */
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
+      const autoid = `${stablePrefix}--masthead-${rest.navType}__l0-sidenav-nav${i}`;
       return (
         <SideNavMenuWithBackFoward
           title={link.title}
           backButtonText={backButtonText}
-          key={i}>
-          {renderNavSections(link.menuSections, backButtonText)}
+          key={i}
+          autoid={autoid}
+          navType={rest.navType}>
+          {renderNavSections(link.menuSections, backButtonText, autoid)}
         </SideNavMenuWithBackFoward>
       );
     } else {
       return (
         <SideNavLink
           href={link.url}
-          data-autoid={`${stablePrefix}--masthead__l0-sidenav--nav-${i}`}
+          data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-sidenav-nav${i}`}
           key={i}>
           {link.title}
         </SideNavLink>
@@ -60,12 +64,12 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}>
-      <nav data-autoid={`${stablePrefix}--masthead__l0-sidenav`}>
+      <nav
+        data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-sidenav`}>
         {platform && (
           <a
-            data-autoid={`${stablePrefix}--side-nav__submenu-platform`}
+            data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-side-nav__productname`}
             href={platform.url}
-            aria-haspopup="true"
             className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
             {platform.name}
           </a>
@@ -82,27 +86,31 @@ const MastheadLeftNav = ({
  * Loops through and renders a list of links for the side nav
  *
  * @param {Array} sections A list of link sections to be rendered
+ * @param {string} backButtonText back button text
+ * @param {string} autoid autoid predecessor
  * @returns {object} JSX object
  */
-function renderNavSections(sections, backButtonText) {
+function renderNavSections(sections, backButtonText, autoid) {
   const sectionItems = [];
-  sections.forEach((section, i) => {
+  sections.forEach(section => {
     section.menuItems.forEach((item, j) => {
+      const dataAutoId = `${autoid}-list${j}`;
       if (item.megapanelContent) {
         sectionItems.push(
           <SideNavMenuWithBackFoward
             title={item.title}
             titleUrl={item.url}
             backButtonText={backButtonText}
+            autoid={dataAutoId}
             key={j}>
-            {renderNavItem(item.megapanelContent.quickLinks.links)}
+            {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
           </SideNavMenuWithBackFoward>
         );
       } else {
         sectionItems.push(
           <SideNavMenuItem
             href={item.url}
-            data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}`}
+            data-autoid={dataAutoId}
             key={item.title}>
             {item.title}
           </SideNavMenuItem>
@@ -118,15 +126,17 @@ function renderNavSections(sections, backButtonText) {
  * Loops through and renders a list of links for the side nav
  *
  * @param {Array} items A list of links to be rendered
+ * @param {string} autoid autoid predecessor
  * @returns {object} JSX object
  */
-function renderNavItem(items) {
+function renderNavItem(items, autoid) {
   const navItems = [];
   items.forEach((item, i) => {
+    const dataAutoId = `${autoid}-list${i}`;
     navItems.push(
       <SideNavMenuItem
         href={item.url}
-        data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}`}
+        data-autoid={dataAutoId}
         key={item.title}>
         {item.title}
       </SideNavMenuItem>
