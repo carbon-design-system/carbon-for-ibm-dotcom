@@ -6,6 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -167,6 +168,38 @@ const Masthead = ({
       default:
         break;
     }
+  }
+
+  /**
+   * get total width of masthead items (logo, nav menu items, search icons) and set css media query
+   * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
+   * from overlapping
+   */
+  const width = calculateTotalWidth([
+    'bx--header__logo',
+    'bx--header__nav-container',
+    'bx--header__search--actions',
+    'bx--header__global',
+  ]);
+
+  const navbar = document.getElementsByClassName(
+    'bx--header__nav-container'
+  )[0];
+  if (navbar?.offsetWidth !== 0) {
+    if (!document.getElementById('ibmdotcom-masthead-hidelinks')) {
+      const styleEle = document.createElement('style');
+      styleEle.id = 'ibmdotcom-masthead-hidelinks';
+
+      document.head.appendChild(styleEle);
+    }
+
+    // Inject the dynamic media query style to hide masthead links under calculated width
+    document.getElementById(
+      'ibmdotcom-masthead-hidelinks'
+    ).innerHTML = `@media screen and (max-width: ${width +
+      50}px) { .bx--header__nav-container {display:none}
+          .bx--header__menu-toggle__hidden, .bx--masthead .bx--side-nav__navigation, .bx--side-nav__header-navigation {display: block} 
+          .bx--side-nav__overlay-active {height: 100vh; width: 100%; background-color: rgba(22, 22, 22, 0.5); opacity: 1}`;
   }
 
   return (
