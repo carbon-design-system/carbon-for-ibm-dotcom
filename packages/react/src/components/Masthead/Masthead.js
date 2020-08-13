@@ -176,21 +176,24 @@ const Masthead = ({
    */
   const [hideNavItems, setHideNavItems] = useState(false);
 
-  useEffect(() => {
-    /**
-     * set nav items to hide/show depending if the window size is smaller/larger to
-     * the total width of the masthead items calculated previously
-     *
-     * @param {object} mediaQuery MediaQueryList object
-     */
-    function hideShowNavItems(mediaQuery) {
-      if (mediaQuery.matches) {
-        setHideNavItems(true);
-      } else {
-        setHideNavItems(false);
-      }
+  /**
+   * set nav items to hide/show depending if the window size is smaller/larger to
+   * the total width of the masthead items calculated previously
+   *
+   * @param {object} mediaQuery MediaQueryList object
+   */
+  const hideShowNavItems = mediaQuery => {
+    if (mediaQuery.matches) {
+      setHideNavItems(true);
+    } else {
+      setHideNavItems(false);
     }
+  };
 
+  /**
+   * check window size to determine whether to trigger hide/show nav item function
+   */
+  const onResize = () => {
     if (window.innerWidth >= 1056) {
       /**
        * get total width of masthead items (logo, nav menu items, search icons) and set css media query
@@ -217,6 +220,15 @@ const Masthead = ({
         };
       }
     }
+  };
+
+  useEffect(() => {
+    onResize();
+    root.document.addEventListener('resize', onResize);
+
+    return () => {
+      root.document.removeEventListener('resize', onResize);
+    };
   });
 
   return (
