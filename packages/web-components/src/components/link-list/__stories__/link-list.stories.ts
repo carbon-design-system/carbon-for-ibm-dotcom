@@ -8,7 +8,7 @@
  */
 
 import { html, css } from 'lit-element';
-import ArrowRight20 from 'carbon-custom-elements/es/icons/arrow--right/20';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import '../link-list';
 import '../link-list-item';
 import '../../card-link/card-link';
