@@ -2,13 +2,12 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <a
   class="bx--footer__link bx--link"
-  id="button"
-  role="button"
+  id="link"
 >
   <slot>
   </slot>
@@ -16,13 +15,12 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <a
   class="bx--footer__link bx--link"
-  id="button"
-  role="button"
+  id="link"
 >
   <slot>
     title-text-foo
@@ -30,3 +28,4 @@
 </a>
 
 ```
+

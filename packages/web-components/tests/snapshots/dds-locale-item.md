@@ -7,8 +7,7 @@
 ```
 <a
   class="bx--link"
-  id="button"
-  role="button"
+  id="link"
 >
   <div class="bx--locale-modal__locales__name">
     country-foo

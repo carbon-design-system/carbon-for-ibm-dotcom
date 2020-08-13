@@ -7,20 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
 import { html, query } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import BXLink from 'carbon-web-components/es/components/link/link';
-
-const { prefix } = settings;
 
 /**
  * Link.
  */
 class DDSLink extends BXLink {
-  @query('#button')
+  @query('#link')
   protected _linkNode?: HTMLAnchorElement | HTMLParagraphElement;
+
+  /**
+   * Handles `click` event on the `<a>`.
+   */
+  protected _handleClickLink() {} // eslint-disable-line class-methods-use-this
 
   /**
    * @returns The inner content.
@@ -33,27 +34,40 @@ class DDSLink extends BXLink {
   }
 
   render() {
-    const { disabled, download, href, hreflang, ping, rel, target, type } = this;
-    const classes = classMap({
-      [`${prefix}--link`]: true,
-      [`${prefix}--link--disabled`]: disabled,
-    });
-    return html`
-      <a
-        id="button"
-        role="button"
-        class="${classes}"
-        download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}"
-        hreflang="${ifNonNull(hreflang)}"
-        ping="${ifNonNull(ping)}"
-        rel="${ifNonNull(rel)}"
-        target="${ifNonNull(target)}"
-        type="${ifNonNull(type)}"
-      >
-        ${this._renderInner()}
-      </a>
-    `;
+    const {
+      disabled,
+      download,
+      href,
+      hreflang,
+      linkRole,
+      ping,
+      rel,
+      target,
+      type,
+      _classes: classes,
+      _handleClickLink: handleClickLink,
+    } = this;
+    return disabled
+      ? html`
+          <p id="link" class="${classes}">${this._renderInner()}</p>
+        `
+      : html`
+          <a
+            id="link"
+            role="${ifNonNull(linkRole)}"
+            class="${classes}"
+            download="${ifNonNull(download)}"
+            href="${ifNonNull(href)}"
+            hreflang="${ifNonNull(hreflang)}"
+            ping="${ifNonNull(ping)}"
+            rel="${ifNonNull(rel)}"
+            target="${ifNonNull(target)}"
+            type="${ifNonNull(type)}"
+            @click="${handleClickLink}"
+          >
+            ${this._renderInner()}
+          </a>
+        `;
   }
 }
 
