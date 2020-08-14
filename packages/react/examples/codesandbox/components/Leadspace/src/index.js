@@ -14,7 +14,6 @@ import { LeadSpace } from "@carbon/ibmdotcom-react";
 import { ArrowRight20 } from "@carbon/icons-react";
 
 const App = () => (
-  <div>
     <LeadSpace
       type="default"
       theme="g100"
@@ -42,7 +41,6 @@ const App = () => (
         alt: "lead space image"
       }}
     />
-  </div>
 );
 
 ReactDom.render(<App />, document.getElementById("app"));
