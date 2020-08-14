@@ -41,7 +41,7 @@ describe('MastheadLeftNav', () => {
     );
 
     const anchor = component.find(
-      `a[data-autoid="${stablePrefix}--masthead-${navType}__l0-side-nav__productname"]`
+      `a[data-autoid="${stablePrefix}--masthead-${navType}-sidenav__l0-productname"]`
     );
 
     expect(anchor.text()).toMatch('IBM Cloud');
