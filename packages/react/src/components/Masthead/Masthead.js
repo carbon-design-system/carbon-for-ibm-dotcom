@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import React, { useEffect, useRef, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -169,6 +171,69 @@ const Masthead = ({
     }
   }
 
+  /**
+   * Determines whether to add class to masthead to hide nav items and
+   * display hamburger menu instead to prevent overlapping of menu items
+   */
+  const [hideNavItems, setHideNavItems] = useState(false);
+
+  /**
+   * set nav items to hide/show depending if the window size is smaller/larger to
+   * the total width of the masthead items calculated previously
+   *
+   * @param {object} mediaQuery MediaQueryList object
+   */
+  const hideShowNavItems = mediaQuery => {
+    if (mediaQuery.matches) {
+      setHideNavItems(true);
+    } else {
+      setHideNavItems(false);
+    }
+  };
+
+  const lgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+
+  /**
+   * check window size to determine whether to trigger hide/show nav item function
+   */
+  const onResize = () => {
+    if (root.innerWidth >= lgBreakpoint) {
+      /**
+       * get total width of masthead items (logo, nav menu items, search icons) and set css media query
+       * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
+       * from overlapping
+       */
+      const width = calculateTotalWidth([
+        'bx--header__logo',
+        'bx--header__nav-container',
+        'bx--masthead__platform-name',
+        'bx--header__search--actions',
+        'bx--header__global',
+      ]);
+
+      if (width > lgBreakpoint) {
+        const mediaQuery = root.matchMedia(
+          `(min-width: ${lgBreakpoint}px) and (max-width: ${width + 50}px)`
+        );
+        hideShowNavItems(mediaQuery);
+        mediaQuery.addListener(hideShowNavItems);
+
+        return () => {
+          mediaQuery.removeListener(hideShowNavItems);
+        };
+      }
+    }
+  };
+
+  useEffect(() => {
+    onResize();
+    root.document.addEventListener('resize', onResize);
+
+    return () => {
+      root.document.removeEventListener('resize', onResize);
+    };
+  });
+
   // set navigation type (default, alternate, or ecosystem) for autoids
   let navType;
   if (!navigation && !platform) {
@@ -183,7 +248,9 @@ const Masthead = ({
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <div
-          className={`${prefix}--masthead ${mastheadSticky}`}
+          className={cx(`${prefix}--masthead ${mastheadSticky}`, {
+            [`${prefix}--masthead--hide-items`]: hideNavItems,
+          })}
           ref={stickyRef}>
           <div className={`${prefix}--masthead__l0`}>
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
