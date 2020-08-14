@@ -159,10 +159,13 @@ $search-transition-timing: 95ms;
     opacity: 1;
   }
 
-  .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
+  .#{$prefix}--masthead--sticky:not(.#{$prefix}--masthead__l1) {
     top: -48px;
   }
 
+  .#{$prefix}--masthead--sticky .#{$prefix}--masthead__l0 {
+    top: -48px;
+  }
   .#{$prefix}--masthead__l0 {
     position: relative;
 

@@ -145,11 +145,9 @@ const Masthead = ({
        * L0 will hide/show only in the top 25% of the viewport.
        *
        */
-      if (mastheadL1Ref.current != null) {
-        setIsMastheadSticky(
-          root.pageYOffset > root.innerHeight * hideTopnavThreshold
-        );
-      }
+      setIsMastheadSticky(
+        root.pageYOffset > root.innerHeight * hideTopnavThreshold
+      );
     });
 
     return () => {
