@@ -32490,7 +32490,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           onFocus={[Function]}
                         >
                           <nav
-                            data-autoid="dds--masthead-default__l0-sidenav"
+                            data-autoid="dds--masthead-default-sidenav__l0"
                           >
                             <SideNavItems>
                               <ul
@@ -38248,7 +38248,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead-default__l0-sidenav"
+                              data-autoid="dds--masthead-default-sidenav__l0"
                             >
                               <SideNavItems>
                                 <ul
@@ -43876,12 +43876,12 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead-eco__l0-sidenav"
+                              data-autoid="dds--masthead-eco-sidenav__l0"
                             >
                               <a
                                 aria-haspopup="true"
                                 className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                                data-autoid="dds--masthead-eco__l0-side-nav__productname"
+                                data-autoid="dds--masthead-eco-sidenav__l0-productname"
                                 href="https://www.ibm.com/cloud"
                               >
                                 IBM Cloud
@@ -49473,7 +49473,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                             onFocus={[Function]}
                           >
                             <nav
-                              data-autoid="dds--masthead-default__l0-sidenav"
+                              data-autoid="dds--masthead-default-sidenav__l0"
                             >
                               <SideNavItems>
                                 <ul
@@ -63785,8 +63785,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         className="bx--locale-modal__search-text"
                       />
                     </div>
-                    <div
-                      aria-labelledby="bx--locale-modal__filter"
+                    <ul
                       className="bx--locale-modal__list"
                     />
                   </div>
@@ -64912,7 +64911,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                         onFocus={[Function]}
                       >
                         <nav
-                          data-autoid="dds--masthead-default__l0-sidenav"
+                          data-autoid="dds--masthead-default-sidenav__l0"
                         >
                           <SideNavItems>
                             <ul
@@ -65527,7 +65526,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                         onFocus={[Function]}
                       >
                         <nav
-                          data-autoid="dds--masthead-default__l0-sidenav"
+                          data-autoid="dds--masthead-default-sidenav__l0"
                         >
                           <SideNavItems>
                             <ul
@@ -66042,12 +66041,12 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           onFocus={[Function]}
                         >
                           <nav
-                            data-autoid="dds--masthead-eco__l0-sidenav"
+                            data-autoid="dds--masthead-eco-sidenav__l0"
                           >
                             <a
                               aria-haspopup="true"
                               className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                              data-autoid="dds--masthead-eco__l0-side-nav__productname"
+                              data-autoid="dds--masthead-eco-sidenav__l0-productname"
                               href="https://www.ibm.com/cloud"
                             >
                               IBM Cloud

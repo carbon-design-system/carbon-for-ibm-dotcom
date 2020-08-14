@@ -141,6 +141,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         <LocaleModalCountries
           regionList={sortList(list)}
           setClearResults={setClearResults}
+          currentRegion={currentRegion}
           {...modalLabels}
         />
       </ModalBody>
