@@ -36,7 +36,7 @@ const SideNavMenuWithBackForward = ({
       <SideNavMenuItem
         onClick={event => event.preventDefault()}
         className={`${prefix}--masthead__side-nav--submemu-back`}
-        data-autoid={`${stablePrefix}--masthead-${rest.navType}__l0-sidenav-back`}
+        data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
         isbackbutton="true"
         tabIndex="0">
         <ChevronLeft20 />
