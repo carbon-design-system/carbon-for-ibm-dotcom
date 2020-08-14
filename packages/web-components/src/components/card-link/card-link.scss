@@ -26,3 +26,17 @@
     fill: $disabled-02;
   }
 }
+
+:host(#{$dds-prefix}-card-link[style-scheme='link-list']) {
+  .#{$prefix}--card__copy {
+    color: $link-01;
+  }
+
+  .#{$prefix}--card__wrapper {
+    min-height: $carbon--layout-06 + $carbon--spacing-06;
+  }
+
+  .#{$prefix}--card:not(:hover) {
+    background-color: $ui-background;
+  }
+}

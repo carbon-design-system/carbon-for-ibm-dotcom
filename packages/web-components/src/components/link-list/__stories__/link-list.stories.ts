@@ -13,7 +13,7 @@ import '../link-list';
 import '../link-list-item';
 import '../../card-link/card-link';
 import '../../link-with-icon/link-with-icon';
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 
 const styles = css`
   .bx--grid {
@@ -33,12 +33,14 @@ export const Default = () => {
             <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
-                Learn more ${ArrowRight20({ slot: 'footer' })}
+                <p>Learn more</p>
+                ${ArrowRight20({ slot: 'footer' })}
               </dds-card-link>
             </dds-link-list-item>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
-                Containerization A Complete Guide ${ArrowRight20({ slot: 'footer' })}
+                <p>Containerization A Complete Guide</p>
+                ${ArrowRight20({ slot: 'footer' })}
               </dds-card-link>
             </dds-link-list-item>
           </dds-link-list>
@@ -127,12 +129,14 @@ export const VerticalWithCards = () => {
             <span slot="heading">Tutorial</span>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
-                Learn more ${ArrowRight20({ slot: 'footer' })}
+                <p>Learn more</p>
+                ${ArrowRight20({ slot: 'footer' })}
               </dds-card-link>
             </dds-link-list-item>
             <dds-link-list-item>
               <dds-card-link href="https://example.com">
-                Containerization A Complete Guide ${ArrowRight20({ slot: 'footer' })}
+                <p>Containerization A Complete Guide</p>
+                ${ArrowRight20({ slot: 'footer' })}
               </dds-card-link>
             </dds-link-list-item>
           </dds-link-list>
@@ -149,7 +153,7 @@ export const EndOfSection = () => {
     </style>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
+        <div class="bx--col-sm-4 bx--col-lg-6 bx--offset-lg-4">
           <dds-link-list type="end">
             <span slot="heading">Tutorial</span>
             <dds-link-list-item>
@@ -177,14 +181,6 @@ export const EndOfSection = () => {
 export default {
   title: 'Components/Link List',
   parameters: {
-    // ...readme.parameters,
-    // knobs: {
-    //   'dds-link-list/default': ({ groupId }) => ({
-    //     children: textNullable('Link text (unnamed slot)', 'Link text', groupId),
-    //     disabled: boolean('Disabled (disabled)', false, groupId),
-    //     href: textNullable('Link href (href)', 'https://github.com/carbon-design-system/carbon-custom-elements', groupId),
-    //     onClick: action('click'),
-    //   }),
-    // },
+    ...readme.parameters,
   },
 };

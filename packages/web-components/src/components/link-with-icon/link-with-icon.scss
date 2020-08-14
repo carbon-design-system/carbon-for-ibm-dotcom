@@ -21,3 +21,19 @@
     margin-right: $carbon--spacing-03;
   }
 }
+
+:host(#{$dds-prefix}-link-with-icon[style-scheme='link-list']) {
+  .#{$prefix}--link {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    span {
+      padding-right: $carbon--spacing-03;
+    }
+
+    ::slotted(svg[slot='icon']) {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}

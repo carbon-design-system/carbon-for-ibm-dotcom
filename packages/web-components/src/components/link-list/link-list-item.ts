@@ -30,6 +30,11 @@ class DDSLinkListItem extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
     }
+
+    if (!this.querySelector('*').hasAttribute('style-scheme')) {
+      this.querySelector('*').setAttribute('style-scheme', 'link-list');
+    }
+
     super.connectedCallback();
   }
 

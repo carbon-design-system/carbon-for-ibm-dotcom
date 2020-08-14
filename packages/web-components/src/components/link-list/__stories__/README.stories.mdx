@@ -1,0 +1,49 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ExpressiveModal from './ExpressiveModal';
+
+# Link List
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/link-list)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/link-list)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-list/link-list.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/card-link/card-link.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-link-list>
+  <dds-card-link href="https://example.com">
+    <p>Copy text</p>
+    <svg slot="footer" />
+  </dds-card-link>
+</dds-link-list>
+```
+
+## Props
+
+<Props of="dds-link-list" />
+
+<Description markdown={contributing} />
