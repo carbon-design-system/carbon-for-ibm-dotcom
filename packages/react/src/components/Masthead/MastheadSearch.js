@@ -95,7 +95,12 @@ function _reducer(state, action) {
  * http://react-autosuggest.js.org/
  * https://github.com/moroshko/react-autosuggest
  */
-const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
+const MastheadSearch = ({
+  placeHolderText,
+  renderValue,
+  searchOpenOnload,
+  navType,
+}) => {
   const { ref } = useSearchVisible(false);
 
   /**
@@ -242,7 +247,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   function closeBtnAction() {
     resetSearch();
     const searchIconRef = root.document.querySelectorAll(
-      `[data-autoid="${stablePrefix}--header__search--search"]`
+      `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
     );
     searchIconRef && searchIconRef[0].focus();
   }
@@ -394,7 +399,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
             state.isSearchOpen ? 'Search all of IBM' : 'Open IBM search field'
           }
           className={`${prefix}--header__search--search`}
-          data-autoid={`${stablePrefix}--header__search--search`}
+          data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
           tabIndex="0">
           <Search20 />
         </HeaderGlobalAction>
@@ -402,7 +407,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
           onClick={closeBtnAction}
           aria-label="Close"
           className={`${prefix}--header__search--close`}
-          data-autoid={`${stablePrefix}--header__search--close`}>
+          data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
           <Close20 />
         </HeaderGlobalAction>
       </div>
@@ -425,6 +430,11 @@ MastheadSearch.propTypes = {
    * `true` to make the search field open in the initial state.
    */
   searchOpenOnload: PropTypes.bool,
+
+  /**
+   * navigation type for autoids
+   */
+  navType: PropTypes.oneOf(['default, alt, eco']),
 };
 
 MastheadSearch.defaultProps = {
