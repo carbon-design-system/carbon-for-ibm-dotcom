@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/masthead/index';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/index';
 import links from './links';
 import './index.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!process.env.CORS_PROXY) {
-    document.getElementById('masthead-container').navLinks = links;
+    document.getElementsByTagName('masthead-container').navLinks = links;
   }
 });

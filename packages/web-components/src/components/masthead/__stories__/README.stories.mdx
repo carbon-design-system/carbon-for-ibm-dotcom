@@ -19,7 +19,7 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-webcomponents/es/components/masthead/masthead-container';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/index';
 ```
 
 ### HTML
@@ -64,6 +64,21 @@ See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree
 | `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={corsproxy} />
+
+## Advanced: Manually setting the Redux Store
+
+The Masthead takes advantage of a redux store which manages the API calls made
+to fetch translation data, locale data, etc. To manually initialize the Redux
+store (e.g. integrating with your application level redux store), the underlying
+component can be initialized instead:
+
+### JS
+
+```javascript
+import { reducers, store } from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+
+store.replaceReducer(reducers);
+```
 
 ## Under the hood
 

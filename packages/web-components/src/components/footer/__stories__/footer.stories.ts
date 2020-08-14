@@ -70,7 +70,7 @@ export default {
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         'dds-footer-composite': {
-          langDisplay: 'English - United States',
+          langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,
