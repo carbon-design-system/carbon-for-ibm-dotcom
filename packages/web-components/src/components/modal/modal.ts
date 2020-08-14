@@ -138,6 +138,7 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   protected _renderBody(): TemplateResult | SVGTemplateResult | void {
     const { _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const bodyClasses = classMap({
+      [`${ddsPrefix}-ce--modal__body`]: true,
       [`${ddsPrefix}-ce--modal__body--with-footer`]: hasBody && hasFooter,
     });
     return html`
@@ -185,7 +186,9 @@ class DDSModal extends StableSelectorMixin(BXModal) {
         @click="${handleClickContainerExpressive}"
         @slotchange="${handleSlotChange}"
       >
-        ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
+        <div class="bx--modal-content">
+          ${this._renderHeader()}${this._renderBody()}${this._renderFooter()}
+        </div>
       </div>
       <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
     `;

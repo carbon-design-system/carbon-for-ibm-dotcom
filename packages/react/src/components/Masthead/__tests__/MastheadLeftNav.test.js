@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,12 +30,18 @@ describe('MastheadLeftNav', () => {
       url: 'https://www.ibm.com/cloud',
     };
 
+    const navType = 'eco';
+
     const component = mount(
-      <MastheadLeftNav navigation={[]} platform={platform} />
+      <MastheadLeftNav
+        navigation={mockData.links}
+        navType={navType}
+        platform={platform}
+      />
     );
 
     const anchor = component.find(
-      `a[data-autoid="${stablePrefix}--side-nav__submenu-platform"]`
+      `a[data-autoid="${stablePrefix}--masthead-${navType}__l0-side-nav__productname"]`
     );
 
     expect(anchor.text()).toMatch('IBM Cloud');

@@ -38,7 +38,7 @@
   }
 
   .#{$prefix}--masthead__megamenu {
-    overflow-x: scroll;
+    overflow-y: scroll;
     background-color: $ui-background;
 
     @include box-shadow;
@@ -86,7 +86,6 @@
       @include carbon--make-row;
 
       flex-wrap: nowrap;
-      width: 100%;
     }
   }
 
@@ -172,10 +171,14 @@
       border-top: carbon--rem(1px) solid $ui-03;
       height: $spacing-09;
 
-      &:hover {
-        border-top: carbon--rem(1px) solid transparent;
+      &:hover,
+      &:focus {
         margin: 0;
         padding: 0 $spacing-05;
+      }
+
+      &:hover {
+        border-top: carbon--rem(1px) solid transparent;
         color: $hover-primary-text;
       }
     }

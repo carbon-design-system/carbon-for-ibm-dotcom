@@ -67,7 +67,7 @@ class DDSVideoPlayerContainer extends HybridRenderMixin(LitElement) {
       (() => {
         const promise = Promise.all([
           VideoPlayerAPI.api(videoId),
-          (async () => {
+          (() => {
             const { selectorVideoPlayer } = this.constructor as typeof DDSVideoPlayerContainer;
             const { ownerDocument: doc, _playerId: playerId } = this;
             if (!doc!.getElementById(playerId)) {
@@ -122,7 +122,7 @@ class DDSVideoPlayerContainer extends HybridRenderMixin(LitElement) {
   videoId = '';
 
   updated(changedProperties) {
-    if (changedProperties.has('videoId')) {
+    if (changedProperties.has('videoId') && this.videoId) {
       this._loadVideo();
     }
     return true;

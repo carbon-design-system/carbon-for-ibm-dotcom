@@ -208,14 +208,11 @@
         &__label {
           margin-bottom: $carbon--spacing-04;
           color: $text-01;
-
-          svg {
-            position: relative;
-            top: 5px;
-          }
+          display: flex;
+          align-items: center;
 
           .#{$prefix}--locale-modal__label-globe {
-            margin-left: $carbon--spacing-03;
+            margin-left: $spacing-02;
           }
           .#{$prefix}--locale-modal__label-arrow {
             margin-right: $carbon--spacing-03;

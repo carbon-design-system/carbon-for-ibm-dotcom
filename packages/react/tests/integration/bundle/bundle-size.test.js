@@ -165,7 +165,12 @@ describe('ES modules', () => {
               }
             },
           },
-          commonjs({ include: [/node_modules/] }),
+          commonjs({
+            include: [/node_modules/],
+            namedExports: {
+              'downshift/node_modules/react-is/index.js': ['isForwardRef'],
+            },
+          }),
           resolve({ browser: true }),
           replace({
             'process.env.NODE_ENV': JSON.stringify('production'),

@@ -19,6 +19,7 @@ describe('CTA', () => {
     div.innerHTML = `<div id="test"></test>`;
     window.domNode = div;
     document.body.appendChild(div);
+    window.scroll = jest.fn();
   });
 
   it('Renders TextCTA | type jump', () => {
