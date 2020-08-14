@@ -419,6 +419,12 @@ class DDSMastheadContainer extends ConnectMixin<
   }
 
   /**
+   * `true` to activate the search box.
+   */
+  @property({ attribute: 'activate-search' })
+  activateSearch = false;
+
+  /**
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
@@ -433,26 +439,26 @@ class DDSMastheadContainer extends ConnectMixin<
   /**
    * The `aria-label` attribute for the top-level container.
    */
-  @property({ attribute: 'masthead-label' })
-  mastheadLabel!: string;
+  @property({ attribute: 'masthead-assistive-text' })
+  mastheadAssistiveText!: string;
 
   /**
    * The `aria-label` attribute for the menu bar UI.
    */
-  @property({ attribute: 'menu-bar-label' })
-  menuBarLabel!: string;
+  @property({ attribute: 'menu-bar-assistive-text' })
+  menuBarAssistiveText!: string;
 
   /**
    * The `aria-label` attribute for the header menu button in its active state.
    */
-  @property({ attribute: 'menu-button-label-active' })
-  menuButtonLabelActive!: string;
+  @property({ attribute: 'menu-button-assistive-text-active' })
+  menuButtonAssistiveTextActive!: string;
 
   /**
    * The `aria-label` attribute for the header menu button in its active state.
    */
-  @property({ attribute: 'menu-button-label-inactive' })
-  menuButtonLabelInactive!: string;
+  @property({ attribute: 'menu-button-assistive-text-inactive' })
+  menuButtonAssistiveTextInactive!: string;
 
   /**
    * The profile items for unauthenticated state.
@@ -477,12 +483,6 @@ class DDSMastheadContainer extends ConnectMixin<
    */
   @property({ attribute: 'login-nonce' })
   loginNonce?: string;
-
-  /**
-   * The link target to the masthead logo.
-   */
-  @property({ attribute: 'logo-href' })
-  logoHref?: string;
 
   /**
    * The navigation links.
@@ -544,14 +544,14 @@ class DDSMastheadContainer extends ConnectMixin<
 
   render() {
     const {
+      activateSearch,
       authenticateProfileItems,
       brandName,
-      mastheadLabel,
-      menuBarLabel,
-      menuButtonLabelActive,
-      menuButtonLabelInactive,
+      mastheadAssistiveText,
+      menuBarAssistiveText,
+      menuButtonAssistiveTextActive,
+      menuButtonAssistiveTextInactive,
       loginNonce,
-      logoHref,
       unauthenticatedProfileItems,
       userStatus,
       _currentSearchResults: currentSearchResults,
@@ -573,22 +573,22 @@ class DDSMastheadContainer extends ConnectMixin<
     const loginUrl = `https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?${searchParams.toString()}`;
     const profileItems = authenticated ? authenticateProfileItems : unauthenticatedProfileItems;
     return html`
-      <dds-masthead aria-label="${ifNonNull(mastheadLabel)}">
+      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonLabelActive)}"
-          button-label-inactive="${ifNonNull(menuButtonLabelInactive)}"
+          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
+          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo href="${ifNonNull(logoHref)}"></dds-masthead-logo>
+        <dds-masthead-logo></dds-masthead-logo>
         ${!brandName
           ? undefined
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
-        <dds-top-nav menu-bar-label="${ifNonNull(menuBarLabel)}">
+        <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
-        <dds-masthead-search ?open="${openSearchDropdown}" @input="${handleInputSearch}">
+        <dds-masthead-search ?active="${activateSearch}" ?open="${openSearchDropdown}" @input="${handleInputSearch}">
           ${currentSearchResults.map(
             item =>
               html`
