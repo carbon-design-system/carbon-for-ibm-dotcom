@@ -72,9 +72,31 @@ const _timeoutRetries = 50;
 let _attempt = 0;
 
 /**
+ * The cache for in-flight or resolved requests for the i18n data, keyed by the initiating locale.
+ *
+ * @type {object<string, Translation>}
+ */
+const _requestsTranslation = {};
+
+/**
  * Translation API class with methods for fetching i18n data for ibm.com
  */
 class TranslationAPI {
+  /**
+   * Clears the cache.
+   */
+  static clearCache() {
+    Object.keys(_requestsTranslation).forEach(
+      key => delete _requestsTranslation[key]
+    );
+    for (let i = 0; i < sessionStorage.length; ++i) {
+      const key = sessionStorage.key(i);
+      if (key.indexOf(_sessionTranslationKey) === 0) {
+        sessionStorage.removeItem(key);
+      }
+    }
+  }
+
   /**
    * Returns translation i18n data
    *
@@ -105,9 +127,14 @@ class TranslationAPI {
       country = locale.cc;
     }
 
-    return new Promise((resolve, reject) => {
+    const key = `${lang}-${country}`;
+    const cachedRequest = _requestsTranslation[key];
+    if (cachedRequest) {
+      return cachedRequest;
+    }
+    return (_requestsTranslation[key] = new Promise((resolve, reject) => {
       this.fetchTranslation(lang, country, resolve, reject);
-    });
+    }));
   }
 
   /**
