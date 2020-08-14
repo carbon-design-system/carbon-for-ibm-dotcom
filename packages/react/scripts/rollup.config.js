@@ -97,6 +97,7 @@ module.exports = {
         ],
         'react-dom/index.js': ['render'],
         'react-is/index.js': ['isForwardRef'],
+        'downshift/node_modules/react-is/index.js': ['isForwardRef'],
       },
     }),
     babel({
