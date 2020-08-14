@@ -10,18 +10,19 @@
 @import '../masthead/index';
 
 @mixin dotcom-shell {
+  :host(#{$dds-prefix}-dotcom-shell),
   .#{$prefix}--dotcom-shell {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     padding-top: $carbon--layout-04;
+  }
 
-    &__content {
-      flex: 1;
-      margin: auto;
-      max-width: 99rem;
-      width: 100%;
-    }
+  .#{$prefix}--dotcom-shell__content {
+    flex: 1;
+    margin: auto;
+    max-width: 99rem;
+    width: 100%;
   }
 }
 
