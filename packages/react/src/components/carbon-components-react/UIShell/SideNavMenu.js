@@ -9,12 +9,14 @@
  */
 
 import ChevronDown20 from '@carbon/icons-react/es/chevron--down/20';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SideNavIcon from './SideNavIcon';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 export class SideNavMenu extends React.Component {
@@ -124,6 +126,7 @@ export class SideNavMenu extends React.Component {
       title,
       large,
       isbackbutton,
+      ...rest
     } = this.props;
     const { isExpanded } = this.state;
 
@@ -167,7 +170,11 @@ export class SideNavMenu extends React.Component {
               <IconElement />
             </SideNavIcon>
           )}
-          <span className={`${prefix}--side-nav__submenu-title`}>{title}</span>
+          <span
+            className={`${prefix}--side-nav__submenu-title`}
+            data-autoid={`${rest.autoid}`}>
+            {title}
+          </span>
           <SideNavIcon className={`${prefix}--side-nav__submenu-chevron`} small>
             <ChevronDown20 />
           </SideNavIcon>

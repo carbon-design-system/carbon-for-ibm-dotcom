@@ -92,26 +92,31 @@ const platformData = {
 
 ## Stable selectors
 
-| Name                                                       | Description |
-| ---------------------------------------------------------- | ----------- |
-| `dds--masthead`                                            | Component   |
-| `dds--masthead__hamburger`                                 | Interactive |
-| `dds--masthead__logo`                                      | Interactive |
-| `dds--masthead__platform-name`                             | Interactive |
-| `dds--masthead__l0-nav`                                    | Component   |
-| `dds--masthead__l0-nav--nav-${item}`                       | Interactive |
-| `dds--masthead__l0-nav--subnav-col${item}-item${item}`     | Interactive |
-| `dds--masthead__l0-sidenav`                                | Component   |
-| `dds--masthead__l0-sidenav--nav-${item}`                   | Interactive |
-| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
-| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
-| `dds--masthead__l1`                                        | Component   |
-| `dds--masthead__l1--short`                                 | Interactive |
-| `dds--masthead__l1--name`                                  | Interactive |
-| `dds--masthead__l1--name-eyebrow`                          | Interactive |
-| `dds--masthead__l1--name-title`                            | Interactive |
-| `dds--masthead__l1-nav`                                    | Component   |
-| `dds--masthead__l1--name-eyebrow`                          | Interactive |
+| Name                                                                     | Description |
+| ------------------------------------------------------------------------ | ----------- |
+| `dds--masthead`                                                          | Component   |
+| `dds--masthead__hamburger`                                               | Interactive |
+| `dds--masthead-${navType}__l0-logo`                                      | Interactive |
+| `dds--masthead-${navType}__l0-search`                                    | Interactive |
+| `dds--masthead-${navType}__l0-search--close`                             | Interactive |
+| `dds--masthead-${navType}__l0-account`                                   | Interactive |
+| `dds--masthead-${navType}__l0-ecosystemname`                             | Interactive |
+| `dds--masthead-${navType}__l1--platformname`                             | Interactive |
+| `dds--masthead__megamenu`                                                | Component   |
+| `dds--masthead-${navType}__l${level}-nav${item}`                         | Interactive |
+| `dds--masthead-${navType}__l${level}-nav${item}-list${item}`             | Interactive |
+| `dds--masthead-${navType}__l${level}-nav${item}-list${item}-item${item}` | Interactive |
+| `dds--masthead__l{level}-nav`                                            | Component   |
+| `dds--masthead-${navType}__l1-nav${item}`                                | Interactive |
+| `dds--masthead-${navType}__l1-nav${item}-item${item}`                    | Interactive |
+| `dds--masthead-${navType}__l0-sidenav`                                   | Component   |
+| `dds--masthead-${navType}__l0-sidenav-nav${item}`                        | Interactive |
+| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}`               | Interactive |
+| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}`               | Interactive |
+| `dds--masthead__l1`                                                      | Component   |
+| `dds--masthead__l1--short`                                               | Interactive |
+| `dds--masthead-${navType}__l1--name-platformname`                        | Interactive |
+| `dds--masthead__l1-nav`                                                  | Component   |
 
 \*\* All these selectors belongs to the `MastheadL1` component, which is
 experimental and is behind a feature flag.

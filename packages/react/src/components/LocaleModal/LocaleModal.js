@@ -14,7 +14,7 @@ import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
+import EarthFilled16 from '@carbon/icons-react/es/earth--filled/16';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleModalCountries from './LocaleModalCountries';
 import LocaleModalRegions from './LocaleModalRegions';
@@ -120,7 +120,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         <ModalHeader
           label={[
             langDisplay,
-            <EarthFilled20
+            <EarthFilled16
               key="earthfilled"
               className={`${prefix}--locale-modal__label-globe`}
             />,
@@ -141,6 +141,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         <LocaleModalCountries
           regionList={sortList(list)}
           setClearResults={setClearResults}
+          currentRegion={currentRegion}
           {...modalLabels}
         />
       </ModalBody>

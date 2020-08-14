@@ -28,6 +28,7 @@ const MastheadL1 = ({
   eyebrowText,
   eyebrowLink,
   navigationL1,
+  ...rest
 }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
@@ -40,16 +41,16 @@ const MastheadL1 = ({
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${index}`}
+          data-autoid={`${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`}
           key={index}>
-          {renderNav(link.menuSections)}
+          {renderNav(link.menuSections, rest.navType)}
         </HeaderMenu>
       );
     } else {
       return (
         <HeaderMenuItem
           href={link.url}
-          data-autoid={`${stablePrefix}--masthead__l1-nav--nav-${index}`}
+          data-autoid={`${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`}
           key={index}>
           {link.title}
         </HeaderMenuItem>
@@ -61,7 +62,9 @@ const MastheadL1 = ({
     <div className={className}>
       <div className={`${prefix}--masthead__l1-name`}>
         {eyebrowText && eyebrowLink && (
-          <span className={`${prefix}--masthead__l1-name-eyebrow`}>
+          <span
+            className={`${prefix}--masthead__l1-name-eyebrow`}
+            data-autoid={`${stablePrefix}--masthead-${rest.navType}__l1-productname`}>
             <ArrowLeft16 />
             <a href={eyebrowLink}>{eyebrowText}</a>
           </span>
@@ -81,16 +84,17 @@ const MastheadL1 = ({
  * Loops through and renders a list of links for the masthead nav
  *
  * @param {Array} sections A list of links to be rendered
+ * @param {string} navType navigation type for autoids
  * @returns {object} JSX object
  */
-function renderNav(sections) {
+function renderNav(sections, navType) {
   const navItems = [];
   sections.forEach((section, i) => {
     section.menuItems.forEach((item, j) => {
       navItems.push(
         <HeaderMenuItem
           href={item.url}
-          data-autoid={`${stablePrefix}--masthead__l1-nav--subnav-col${i}-item${j}`}
+          data-autoid={`${stablePrefix}--masthead-${navType}__l1-nav${i}-item${j}`}
           key={item.title}>
           {item.title}
         </HeaderMenuItem>
