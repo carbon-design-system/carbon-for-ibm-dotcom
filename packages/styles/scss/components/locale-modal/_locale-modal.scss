@@ -142,10 +142,6 @@
             display: none;
             transition: 240ms cubic-bezier(0, 0, 0.3, 1);
           }
-
-          .#{$prefix}--locale-modal__locales-filtered {
-            display: none;
-          }
         }
 
         &__back {
