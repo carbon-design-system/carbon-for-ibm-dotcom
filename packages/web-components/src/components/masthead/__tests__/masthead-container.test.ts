@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action, Reducer } from 'redux';
 import { html, render } from 'lit-html';
 import fetchMock from 'fetch-mock';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
@@ -17,9 +16,6 @@ import EventManager from '../../../../tests/utils/event-manager';
 import getSearchParams from '../../../../tests/utils/search-params';
 import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
-import { reducers, store } from '../masthead-container';
-
-store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 const template = (props?) => {
   const { language, loginNonce, userStatus, navLinks } = props ?? {};

@@ -7,63 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import throttle from 'lodash-es/throttle';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
-import { html, property, query, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
-import { MastheadLink, Translation, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
+import { MastheadLink, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS, ProfileAPIState } from '../../globals/services-store/types/profileAPI';
 import store from '../../globals/services-store/store';
-import { loadLanguage, setLanguage } from '../../globals/services-store/actions/localeAPI';
-import { loadTranslation } from '../../globals/services-store/actions/translateAPI';
-import { monitorUserStatus } from '../../globals/services-store/actions/profileAPI';
+import { loadLanguage, setLanguage, LocaleAPIActions } from '../../globals/services-store/actions/localeAPI';
+import { loadTranslation, TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
+import { monitorUserStatus, ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
 import ConnectMixin from '../../globals/mixins/connect';
-import './masthead';
-import './masthead-logo';
-import './masthead-menu-button';
-import './masthead-search';
-import './masthead-search-item';
-import './masthead-global-bar';
-import './masthead-profile';
-import './masthead-profile-item';
-import './top-nav';
-import './top-nav-name';
-import './top-nav-item';
-import './top-nav-menu';
-import './top-nav-menu-item';
-import './left-nav';
-import './left-nav-name';
-import './left-nav-item';
-import './left-nav-menu';
-import './left-nav-menu-item';
-import './left-nav-overlay';
-import styles from './masthead.scss';
-
-export { default as reducers } from '../../globals/services-store/reducers';
-export { store };
+import DDSMastheadComposite from './masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-interface Cancelable {
-  cancel(): void;
-}
-
-/**
- * Rendering target for masthead navigation items.
- */
-enum NAV_ITEMS_RENDER_TARGET {
-  /**
-   * For top navigation.
-   */
-  TOP_NAV = 'tpo-nav',
-
-  /**
-   * For left navigation.
-   */
-  LEFT_NAV = 'left-nav',
-}
 
 /**
  * An profile item in masthead.
@@ -113,7 +70,7 @@ export interface MastheadContainerState {
 /**
  * The properties for `<dds-masthead-container>` from Redux state.
  */
-interface MastheadContainerStateProps {
+export interface MastheadContainerStateProps {
   /**
    * The nav links.
    */
@@ -125,48 +82,11 @@ interface MastheadContainerStateProps {
   userStatus?: USER_AUTHENTICATION_STATUS;
 }
 
-type MastheadActions =
+export type MastheadActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
   | ReturnType<typeof monitorUserStatus>;
-
-/**
- * The default nav items for authenticated state.
- */
-const defaultAuthenticateProfileItems: MastheadProfileItem[] = [
-  {
-    title: 'My IBM',
-    key: 'my-ibm',
-    url: 'https://myibm.ibm.com/?lnk=mmi',
-  },
-  {
-    title: 'Profile',
-    key: 'profile',
-    url: 'https://myibm.ibm.com/profile/?lnk=mmi',
-  },
-  {
-    title: 'Billing',
-    key: 'billing',
-    url: 'https://myibm.ibm.com/billing/?lnk=mmi',
-  },
-  {
-    title: 'Log out',
-    key: 'logout',
-    url: 'https://myibm.ibm.com/pkmslogout?filename=accountRedir.html',
-  },
-];
-
-/**
- * The default nav items for unauthenticated state.
- */
-const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
-  {
-    title: 'Log in',
-    key: 'login',
-    isLoginItem: true,
-  },
-];
 
 /**
  * @param props A key/value pair.
@@ -189,7 +109,7 @@ function cleanProps(props: { [key: string]: unknown }) {
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
-function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
+export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
   const { localeAPI, translateAPI, profileAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
@@ -204,7 +124,7 @@ function mapStateToProps(state: MastheadContainerState): MastheadContainerStateP
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
  */
-function mapDispatchToProps(dispatch: Dispatch) {
+export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>) {
   return bindActionCreators<MastheadActions, ActionCreatorsMapObject<MastheadActions>>(
     {
       _loadLanguage: loadLanguage,
@@ -212,9 +132,117 @@ function mapDispatchToProps(dispatch: Dispatch) {
       _loadTranslation: loadTranslation,
       _monitorUserStatus: monitorUserStatus,
     },
-    dispatch
+    dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
 }
+
+/**
+ * A mixin for search container, TEMPORARY PURPOSE until we move this portion to Redux store.
+ */
+export const DDSMastheadSearchContainerMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
+  class DDSMastheadSearchContainerMixinImpl extends Base {
+    /**
+     * The search results to show in the UI.
+     */
+    _currentSearchResults!: string[];
+
+    /**
+     * `true` to open the search dropdown.
+     */
+    _openSearchDropdown!: boolean;
+
+    /**
+     * The query string in the search box.
+     */
+    _searchQueryString!: string;
+
+    /**
+     * The placeholder for `loadLanguage()` Redux action that will be mixed in.
+     */
+    _loadLanguage!: () => Promise<string>;
+
+    /**
+     * The query results.
+     */
+    _searchResults!: Map<string, string[]>;
+
+    /**
+     * `true` to stop further fetch operations. Should be set when this is detached from render tree.
+     */
+    _shouldPreventFetch = false;
+
+    /**
+     * @returns The endpoint to process the search query.
+     */
+    async _getSearchEndpoint() {
+      const { _searchQueryString: searchQueryString } = this;
+      const language = await this._loadLanguage();
+      const [primary, country] = language!.split('-');
+      return `https://www-api.ibm.com/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
+    }
+
+    /**
+     * Fetches results for the current search query string.
+     */
+    async _fetchResults() {
+      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
+      const endpoint = await this._getSearchEndpoint();
+      if (this._shouldPreventFetch) {
+        return;
+      }
+      const items = (await (await fetch(endpoint)).json()).response.map(([result]) => result);
+      searchResults.set(searchQueryString, items);
+      this._setCurrentSearchResults();
+    }
+
+    /**
+     * Updates the search results to show in the UI.
+     */
+    _setCurrentSearchResults() {
+      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
+      for (let { length } = searchQueryString; length > 0; --length) {
+        const items = searchResults.get(searchQueryString.slice(0, length));
+        if (items) {
+          this._currentSearchResults = items;
+          this._openSearchDropdown = true;
+          // TODO: Figure out how to make this mix-in type-defined as `LitElement` inheritance
+          (this as any).requestUpdate();
+          return;
+        }
+      }
+    }
+
+    /**
+     * Throttled version of `_handleInput()`.
+     */
+    async _handleInputImpl() {
+      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
+      const cachedSearchResults = searchResults.get(searchQueryString);
+      if (!cachedSearchResults) {
+        this._fetchResults().catch(() => {}); // The error is logged in the Redux store
+      }
+      // While we fetch the search results, we see if there is a cached search results for partial search query string.
+      // If so, updates the UI with the cached search results.
+      this._setCurrentSearchResults();
+    }
+
+    connectedCallback() {
+      this._shouldPreventFetch = false;
+      // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
+      // @ts-ignore
+      super.connectedCallback();
+    }
+
+    disconnectedCallback() {
+      this._shouldPreventFetch = true;
+      // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
+      // @ts-ignore
+      super.disconnectedCallback();
+    }
+  }
+
+  return DDSMastheadSearchContainerMixinImpl;
+};
 
 /**
  * Container component for masthead.
@@ -224,402 +252,13 @@ function mapDispatchToProps(dispatch: Dispatch) {
 @customElement(`${ddsPrefix}-masthead-container`)
 class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerState,
+  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,
   MastheadContainerStateProps,
   ActionCreatorsMapObject<MastheadActions>
 >(
-  store as Store<MastheadContainerState>,
+  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(LitElement) {
-  /**
-   * The DOM element of the search UI.
-   */
-  @query(`${ddsPrefix}-masthead-search`)
-  private _searchNode?: HTMLElement;
-
-  /**
-   * The placeholder for `loadLanguage()` Redux action that will be mixed in.
-   */
-  private _loadLanguage!: () => Promise<string>;
-
-  /**
-   * The placeholder for `setLanguage()` Redux action that will be mixed in.
-   */
-  private _setLanguage!: (string) => void;
-
-  /**
-   * The placeholder for `loadTranslation()` Redux action that will be mixed in.
-   */
-  private _loadTranslation!: () => Promise<Translation>;
-
-  /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
-   */
-  private _monitorUserStatus!: () => void;
-
-  /**
-   * `true` to open the search dropdown.
-   */
-  private _openSearchDropdown = false;
-
-  /**
-   * `true` to stop further fetch operations. Should be set when this is detached from render tree.
-   */
-  private _shouldPreventFetch = false;
-
-  /**
-   * The search results to show in the UI.
-   */
-  private _currentSearchResults: string[] = [];
-
-  /**
-   * The query results.
-   */
-  private _searchResults: Map<string, string[]> = new Map();
-
-  /**
-   * The handle for the throttled listener of `mousemove` event.
-   */
-  private _throttledHandleInputImpl: (((event: InputEvent) => void) & Cancelable) | null = null;
-
-  /**
-   * @returns The endpoint to process the search query.
-   */
-  private async _getSearchEndpoint() {
-    const { _searchQueryString: searchQueryString } = this;
-    const language = await this._loadLanguage();
-    const [primary, country] = language!.split('-');
-    return `https://www-api.ibm.com/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
-  }
-
-  /**
-   * Fetches results for the current search query string.
-   */
-  private async _fetchResults() {
-    const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-    const endpoint = await this._getSearchEndpoint();
-    if (this._shouldPreventFetch) {
-      return;
-    }
-    const items = (await (await fetch(endpoint)).json()).response.map(([result]) => result);
-    searchResults.set(searchQueryString, items);
-    this._setCurrentSearchResults();
-  }
-
-  /**
-   * Updates the search results to show in the UI.
-   */
-  private _setCurrentSearchResults() {
-    const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-    for (let { length } = searchQueryString; length > 0; --length) {
-      const items = searchResults.get(searchQueryString.slice(0, length));
-      if (items) {
-        this._currentSearchResults = items;
-        this._openSearchDropdown = true;
-        this.requestUpdate();
-        return;
-      }
-    }
-  }
-
-  /**
-   * Throttled version of `_handleInput()`.
-   */
-  private async _handleInputImpl() {
-    const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-    const cachedSearchResults = searchResults.get(searchQueryString);
-    if (!cachedSearchResults) {
-      this._fetchResults().catch(() => {}); // The error is logged in the Redux store
-    }
-    // While we fetch the search results, we see if there is a cached search results for partial search query string.
-    // If so, updates the UI with the cached search results.
-    this._setCurrentSearchResults();
-  }
-
-  /**
-   * Handles `input` event on the search form.
-   *
-   * @param event The event.
-   */
-  private async _handleInputSearch(event: InputEvent) {
-    this._throttledHandleInputImpl?.(event);
-  }
-
-  /**
-   * @param options The options.
-   * @param options.target The target of rendering navigation items.
-   * @returns The nav items.
-   */
-  private _renderNavItems({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
-    const { navLinks } = this;
-    return !navLinks
-      ? undefined
-      : navLinks.map((link, i) => {
-          const { menuSections = [], title, url } = link;
-          const sections = menuSections
-            // eslint-disable-next-line no-use-before-define
-            .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
-            .map(({ title: menuItemTitle, url: menuItemUrl }, j) =>
-              target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
-                ? html`
-                    <dds-top-nav-menu-item
-                      href="${menuItemUrl}"
-                      title="${menuItemTitle}"
-                      data-autoid="${ddsPrefix}--masthead__l0-nav--subnav-col${i}-item${j}"
-                    ></dds-top-nav-menu-item>
-                  `
-                : html`
-                    <dds-left-nav-menu-item
-                      href="${menuItemUrl}"
-                      title="${menuItemTitle}"
-                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}"
-                    ></dds-left-nav-menu-item>
-                  `
-            );
-          if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-            return sections.length === 0
-              ? html`
-                  <dds-top-nav-item
-                    href="${url}"
-                    title="${title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
-                  ></dds-top-nav-item>
-                `
-              : html`
-                  <dds-top-nav-menu
-                    menu-label="${title}"
-                    trigger-content="${title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
-                  >
-                    ${sections}
-                  </dds-top-nav-menu>
-                `;
-          }
-          return sections.length === 0
-            ? html`
-                <dds-left-nav-item
-                  href="${url}"
-                  title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
-                ></dds-left-nav-item>
-              `
-            : html`
-                <dds-left-nav-menu title="${title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
-                  ${sections}
-                </dds-left-nav-menu>
-              `;
-        });
-  }
-
-  /**
-   * The query string in the search box.
-   */
-  private get _searchQueryString() {
-    return (this._searchNode as any) /* DDSMastheadSearch */?.searchQueryString ?? '';
-  }
-
-  /**
-   * `true` to activate the search box.
-   */
-  @property({ attribute: 'activate-search' })
-  activateSearch = false;
-
-  /**
-   * The profile items for authenticated state.
-   */
-  @property({ attribute: false })
-  authenticateProfileItems = defaultAuthenticateProfileItems;
-
-  /**
-   * The brand name.
-   */
-  @property({ attribute: 'brand-name' })
-  brandName!: string;
-
-  /**
-   * The `aria-label` attribute for the top-level container.
-   */
-  @property({ attribute: 'masthead-assistive-text' })
-  mastheadAssistiveText!: string;
-
-  /**
-   * The `aria-label` attribute for the menu bar UI.
-   */
-  @property({ attribute: 'menu-bar-assistive-text' })
-  menuBarAssistiveText!: string;
-
-  /**
-   * The `aria-label` attribute for the header menu button in its active state.
-   */
-  @property({ attribute: 'menu-button-assistive-text-active' })
-  menuButtonAssistiveTextActive!: string;
-
-  /**
-   * The `aria-label` attribute for the header menu button in its active state.
-   */
-  @property({ attribute: 'menu-button-assistive-text-inactive' })
-  menuButtonAssistiveTextInactive!: string;
-
-  /**
-   * The profile items for unauthenticated state.
-   */
-  @property({ attribute: false })
-  unauthenticatedProfileItems = defaultUnauthenticateProfileItems;
-
-  /**
-   * The throttle timeout to run query upon user input.
-   */
-  @property({ type: Number })
-  inputTimeout = 200;
-
-  /**
-   * The language used for query.
-   */
-  @property()
-  language?: string;
-
-  /**
-   * The nonce used for logging in.
-   */
-  @property({ attribute: 'login-nonce' })
-  loginNonce?: string;
-
-  /**
-   * The navigation links.
-   */
-  @property({ attribute: false })
-  navLinks?: MastheadLink[];
-
-  /**
-   * The user authentication status.
-   */
-  @property({ attribute: 'user-status' })
-  userStatus?: USER_AUTHENTICATION_STATUS;
-
-  createRenderRoot() {
-    // We render child elements of `<dds-masthead-container>` by ourselves
-    return this;
-  }
-
-  connectedCallback() {
-    this._shouldPreventFetch = false;
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    if (this._throttledHandleInputImpl) {
-      this._throttledHandleInputImpl.cancel();
-      this._throttledHandleInputImpl = null;
-    }
-    this._shouldPreventFetch = true;
-    super.disconnectedCallback();
-  }
-
-  firstUpdated() {
-    const { language, navLinks } = this;
-    if (language) {
-      this._setLanguage(language);
-    }
-    if (!navLinks) {
-      this._loadTranslation().catch(() => {}); // The error is logged in the Redux store
-    }
-    this._monitorUserStatus();
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('inputTimeout')) {
-      if (this._throttledHandleInputImpl) {
-        this._throttledHandleInputImpl.cancel();
-        this._throttledHandleInputImpl = null;
-      }
-      this._throttledHandleInputImpl = throttle(this._handleInputImpl, this.inputTimeout);
-    }
-    if (changedProperties.has('language')) {
-      const { language } = this;
-      if (language) {
-        this._setLanguage(language);
-      }
-    }
-  }
-
-  render() {
-    const {
-      activateSearch,
-      authenticateProfileItems,
-      brandName,
-      mastheadAssistiveText,
-      menuBarAssistiveText,
-      menuButtonAssistiveTextActive,
-      menuButtonAssistiveTextInactive,
-      loginNonce,
-      unauthenticatedProfileItems,
-      userStatus,
-      _currentSearchResults: currentSearchResults,
-      _handleInputSearch: handleInputSearch,
-      _openSearchDropdown: openSearchDropdown,
-    } = this;
-    const searchParams = new URLSearchParams();
-    const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
-    if (!authenticated) {
-      searchParams.append('response_type', 'token');
-      searchParams.append('client_id', 'v18loginprod');
-      searchParams.append('state', this.ownerDocument!.defaultView!.location.href);
-      searchParams.append('redirect_uri', 'https://myibm.ibm.com/OIDCHandler.html');
-      searchParams.append('scope', 'openid');
-      if (loginNonce) {
-        searchParams.append('nonce', loginNonce);
-      }
-    }
-    const loginUrl = `https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?${searchParams.toString()}`;
-    const profileItems = authenticated ? authenticateProfileItems : unauthenticatedProfileItems;
-    return html`
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-        >
-        </dds-masthead-menu-button>
-        <dds-masthead-logo></dds-masthead-logo>
-        ${!brandName
-          ? undefined
-          : html`
-              <dds-top-nav-name>${brandName}</dds-top-nav-name>
-            `}
-        <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-          ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
-        </dds-top-nav>
-        <dds-masthead-search ?active="${activateSearch}" ?open="${openSearchDropdown}" @input="${handleInputSearch}">
-          ${currentSearchResults.map(
-            item =>
-              html`
-                <dds-masthead-search-item text="${item}"></dds-masthead-search-item>
-              `
-          )}
-        </dds-masthead-search>
-        <dds-masthead-global-bar>
-          <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems.map(({ isLoginItem, key, title, url }) => {
-              const href = !isLoginItem ? url : loginUrl;
-              return html`
-                <dds-masthead-profile-item href="${ifNonNull(href)}" key="${key}">${title}</dds-masthead-profile-item>
-              `;
-            })}
-          </dds-masthead-profile>
-        </dds-masthead-global-bar>
-      </dds-masthead>
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
-        ${!brandName
-          ? undefined
-          : html`
-              <dds-left-nav-name>${brandName}</dds-left-nav-name>
-            `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-      </dds-left-nav>
-    `;
-  }
-
-  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
-}
+)(DDSMastheadSearchContainerMixin(DDSMastheadComposite)) {}
 
 export default DDSMastheadContainer;

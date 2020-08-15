@@ -22,7 +22,7 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 #### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/index';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
 ```
 
 #### HTML
@@ -64,15 +64,40 @@ import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell
 The Masthead takes advantage of a redux store which manages the API calls made
 to fetch translation data, locale data, etc. To manually initialize the Redux
 store (e.g. integrating with your application level redux store), the underlying
-component can be initialized instead:
+component, `<dds-dotcom-shell-composite>`, can be initialized instead:
 
 #### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
-import { reducers, store } from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+// The default reducers, you can e.g. add your own reducer to `reducers` table
+import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+// The default property/action mappers
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/masthead/dotcom-shell-container';
+import DDSDotcomShellComposite from '@carbon/ibmdotcom-web-components/es/components/masthead/dotcom-shell-composite';
 
-store.replaceReducer(reducers);
+// Creates your own store
+const store = createStore(
+  combineReducers(reducers),
+  {},
+  applyMiddleware(thunkMiddleware, createLogger())
+);
+
+// Creates `<app-dotcom-shell-container>` custom element that wires your store to our rendering logic
+customElements.define(
+  'app-dotcom-shell-container',
+  class extends ConnectMixin(
+    store,
+    mapStateToProps,
+    mapDispatchToProps
+  )(DDSDotcomShellComposite) {}
+);
 ```
 
 ## `<dds-dotcom-shell>`

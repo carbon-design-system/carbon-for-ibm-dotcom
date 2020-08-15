@@ -7,12 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action, Reducer } from 'redux';
 import { render } from 'lit-html';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import { LocaleList } from '../../../globals/services-store/types/localeAPI';
-import { reducers, store } from '../footer-container';
 import localeData from '../../locale-modal/__stories__/locale-data.json';
 import { Default } from '../__stories__/footer.stories';
 
@@ -33,7 +31,6 @@ const template = (props?) => {
 
 describe('dds-footer-container', function() {
   it('should use the given language', async function() {
-    store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
     spyOn(LocaleAPI, 'getLang').and.returnValue(Promise.resolve(''));
     spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(Promise.resolve(''));
     spyOn(LocaleAPI, 'getList').and.returnValue(Promise.resolve(minimumLocaleList));
@@ -46,7 +43,6 @@ describe('dds-footer-container', function() {
   });
 
   it('should use the given lang display', async function() {
-    store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
     spyOn(LocaleAPI, 'getLangDisplay').and.returnValue(Promise.resolve(''));
     spyOn(LocaleAPI, 'getList').and.returnValue(Promise.resolve(minimumLocaleList));
     spyOn(TranslationAPI, 'getTranslation').and.returnValue(Promise.resolve({}));
@@ -58,7 +54,6 @@ describe('dds-footer-container', function() {
   });
 
   it('should use the given locale list', async function() {
-    store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
     spyOn(LocaleAPI, 'getList'); // .and.returnValue(Promise.resolve(minimumLocaleList));
     spyOn(TranslationAPI, 'getTranslation').and.returnValue(Promise.resolve({}));
     render(template({ language: 'en-US', localeList: minimumLocaleList }), document.body);
@@ -71,6 +66,5 @@ describe('dds-footer-container', function() {
 
   afterEach(function() {
     render(undefined!, document.body);
-    store.replaceReducer(state => state);
   });
 });
