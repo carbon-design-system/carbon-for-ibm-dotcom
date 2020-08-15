@@ -70,14 +70,40 @@ See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree
 The Masthead takes advantage of a redux store which manages the API calls made
 to fetch translation data, locale data, etc. To manually initialize the Redux
 store (e.g. integrating with your application level redux store), the underlying
-component can be initialized instead:
+component, `<dds-masthead-composite>`, can be initialized instead:
 
-### JS
+#### JS
 
 ```javascript
-import { reducers, store } from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+// The default reducers, you can e.g. add your own reducer to `reducers` table
+import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+// The default property/action mappers
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import DDSMastheadComposite from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-composite';
 
-store.replaceReducer(reducers);
+// Creates your own store
+const store = createStore(
+  combineReducers(reducers),
+  {},
+  applyMiddleware(thunkMiddleware, createLogger())
+);
+
+// Creates `<app-masthead-container>` custom element that wires your store to our rendering logic
+customElements.define(
+  'app-masthead-container',
+  class extends ConnectMixin(
+    store,
+    mapStateToProps,
+    mapDispatchToProps
+  )(DDSMastheadComposite) {}
+);
 ```
 
 ## Under the hood

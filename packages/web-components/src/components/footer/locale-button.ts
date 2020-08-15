@@ -14,7 +14,6 @@ import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
 import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import '../locale-modal/locale-modal-container';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

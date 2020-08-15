@@ -39,24 +39,41 @@ import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 
 ### Customizing service/data integration
 
-For better flexibility in service integration, we have `<dds-footer-composite>` that automatically renders contents of footer from the given data.
-You can populate the data automatically from `@carbon/ibmdotcom-servies` by connecting a Redux store into `<dds-footer-composite>`.
-
-The default Redux store as well as its property/action mappers are available in `@carbon/ibmdotcom-web-components/es/components/footer/footer-container` module. You can connect `<dds-footer-composite>` to the default Redux store and its property/action mappers by below code:
+The Footer takes advantage of a redux store which manages the API calls made
+to fetch translation data, locale data, etc. To manually initialize the Redux
+store (e.g. integrating with your application level redux store), the underlying
+component, `<dds-footer-composite>`, can be initialized instead:
 
 
 ##### JS
 
 ```javascript
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+// The default reducers, you can e.g. add your own reducer to `reducers` table
+import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
 import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 import DDSFooterComposite from '@carbon/ibmdotcom-web-components/es/components/footer/footer-composite';
-import { store, mapStateToProps, mapDispatchToProps } from '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
+
+// Creates `<app-footer-container>` custom element that wires your store to our rendering logic
+customElements.define(
+  'app-footer-container',
+  class extends ConnectMixin(
+    store,
+    mapStateToProps,
+    mapDispatchToProps
+  )(DDSFooterComposite) {}
+);
+```
 
 // Connects `<dds-footer-composite>` to `@carbon/ibmdotcom-servies` and creates `<myapp-footer-container>`
 customElements.define('myapp-footer-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {})
 ```
-
-You can replace the Redux store or its property/action mappers of your own, as long as the comnination of those yields to the same data structure as the default one.
 
 ##### HTML
 

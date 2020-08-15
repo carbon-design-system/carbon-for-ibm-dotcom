@@ -150,10 +150,6 @@ LICENSE file in the root directory of this source tree.
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
       }
 
-      app-locale-modal-container {
-        display: contents;
-      }
-
       #app {
         width: 300px;
       }
@@ -165,7 +161,7 @@ LICENSE file in the root directory of this source tree.
     <div id="app">
       <dds-btn id="open-modal-btn">Open modal</dds-btn>
     </div>
-    <app-locale-modal-container id="modal"></app-locale-modal-container>
+    <dds-locale-modal-container id="modal"></dds-locale-modal-container>
   </body>
   <script type="text/javascript">
     document.getElementById('open-modal-btn').addEventListener('click', () => {

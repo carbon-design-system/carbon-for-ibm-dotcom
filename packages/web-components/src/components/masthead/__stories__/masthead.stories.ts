@@ -14,7 +14,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
-import '../index';
+import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
 import readme from './README.stories.mdx';
