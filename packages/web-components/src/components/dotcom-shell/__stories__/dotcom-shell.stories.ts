@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action, Reducer } from 'redux';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
@@ -16,7 +15,6 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
 import '../dotcom-shell-container';
-import { reducers, store } from '../../masthead/masthead-container';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import footerStyles from '../../footer/__stories__/footer.stories.scss';
 import mastheadLinks from '../../masthead/__stories__/links';
@@ -24,8 +22,6 @@ import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
-
-store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 const userStatuses = {
   [`Authenticated (${USER_AUTHENTICATION_STATUS.AUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.AUTHENTICATED,
@@ -128,7 +124,7 @@ export default {
           navLinks: !useMock ? undefined : mastheadLinks,
         },
         'dds-footer-composite': {
-          langDisplay: 'English - United States',
+          langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockFooterLinks,
           localeList: !useMock ? undefined : mockLocaleList,

@@ -11,19 +11,21 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 > [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/dotcom-shell)
 > example implementation.
 
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/dotcom-shell)
+
 ## Getting started
 
 ### Quick start
 
 `<dds-dotcom-shell-container>` automatically renders contents of dotcom shell from default service data.
 
-##### JS
+#### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/index';
 ```
 
-##### HTML
+#### HTML
 
 ```html
 <dds-dotcom-shell-container>
@@ -31,21 +33,21 @@ import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell
 </dds-dotcom-shell-container>
 ```
 
-#### Attributes and properties `<dds-dotcom-shell-container>`
+### Attributes and properties `<dds-dotcom-shell-container>`
 
 <Props of="dds-dotcom-shell-container" />
 
-### Rendering dotcom shell content by your own
+### Advanced: Rendering dotcom shell manually
 
-You can also render the footer content by your own, e.g. for server-side rendering, like:
+You can also render the footer content on your own, e.g. for server-side rendering:
 
-##### JS
+#### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell';
 ```
 
-##### HTML
+#### HTML
 
 ```html
 (The masthead content)
@@ -56,6 +58,22 @@ import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell
 ```
 
 > 💡 See [masthead doc](/?path=/docs/components-masthead--default) for generating the content for masthead, and [footer doc](/?path=/docs/components-footer--default) for generating the content for footer.
+
+### Advanced: Manually setting the Redux Store
+
+The Masthead takes advantage of a redux store which manages the API calls made
+to fetch translation data, locale data, etc. To manually initialize the Redux
+store (e.g. integrating with your application level redux store), the underlying
+component can be initialized instead:
+
+#### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
+import { reducers, store } from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+
+store.replaceReducer(reducers);
+```
 
 ## `<dds-dotcom-shell>`
 
