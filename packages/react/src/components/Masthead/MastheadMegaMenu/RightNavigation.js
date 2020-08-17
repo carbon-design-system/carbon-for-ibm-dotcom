@@ -19,17 +19,16 @@ const RightNavigation = ({
   children,
   viewAllLinkHref,
   viewAllLinkTitle,
-  ...props
+  ...rest
 }) => (
-  <div
-    className={`${prefix}--masthead__megamenu__categories-section`}
-    {...props}>
+  <div className={`${prefix}--masthead__megamenu__categories-section`}>
     <div className={`${prefix}--masthead__megamenu__categories`}>
       {children}
     </div>
     {viewAllLinkHref && (
       <LinkWithIcon
         className={`${prefix}--masthead__megamenu__view-all-cta`}
+        data-autoid={`${rest.autoid}-view-all`}
         href={viewAllLinkHref}>
         <span>{viewAllLinkTitle}</span>
         <ArrowRight16 />

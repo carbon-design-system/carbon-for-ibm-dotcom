@@ -6,6 +6,7 @@
  */
 
 export * from './altlangs';
+export * from './calculateTotalWidth';
 export * from './decodeString';
 export * from './escaperegexp';
 export * from './featureflag';

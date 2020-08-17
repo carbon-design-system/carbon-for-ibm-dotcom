@@ -7,17 +7,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Dispatch, Store } from 'redux';
+import { Dispatch, Store, AnyAction } from 'redux';
 import Handle from '../internal/handle';
 
 /**
  * @param store A redux store.
  * @returns A funciton that takes a base class and returns a mix-in that connects the component to Redux store.
  */
-const ConnectMixin = <TState, TStateProps = { [name: string]: any }, TDispatchProps = { [name: string]: any }>(
-  store: Store<TState>,
+const ConnectMixin = <
+  TState,
+  TAction extends AnyAction = AnyAction,
+  TStateProps = { [name: string]: any },
+  TDispatchProps = { [name: string]: any }
+>(
+  store: Store<TState, TAction>,
   mapStateToProps: (state: TState) => TStateProps,
-  mapDispatchToProps: (dispatch: Dispatch) => TDispatchProps = () => ({} as TDispatchProps)
+  mapDispatchToProps: (dispatch: Dispatch<TAction>) => TDispatchProps = () => ({} as TDispatchProps)
 ) => <T extends Constructor<HTMLElement>>(Base: T) => {
   class ConnectMixinImpl extends Base {
     /**
