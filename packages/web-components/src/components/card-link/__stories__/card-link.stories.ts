@@ -19,10 +19,16 @@ import '../card-link';
 export const Default = ({ parameters }) => {
   const { disabled, href } = parameters?.props?.['dds-card-link'] ?? {};
   return html`
-    <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
-    </dds-card-link>
+    <div class="bx--grid bx--grid--condensed">
+      <div class="bx--row">
+        <div class="bx--col-lg-9">
+          <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
+          </dds-card-link>
+        </div>
+      </div>
+    </div>
   `;
 };
 
