@@ -26,14 +26,16 @@
 
   .#{$prefix}--modal-container {
     grid-template-rows: 1fr;
+    padding: $spacing-05;
   }
 
   .#{$prefix}--modal-content {
     display: grid;
     grid-template-rows: auto 1fr auto;
+    padding-right: 0;
   }
 
-  .#{$dds-prefix}-ce--modal__hedaer--with-body {
+  .#{$dds-prefix}-ce--modal__header--with-body {
     margin-bottom: $spacing-05;
   }
 
