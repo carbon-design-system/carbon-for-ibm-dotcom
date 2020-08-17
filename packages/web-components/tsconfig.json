@@ -4,7 +4,7 @@
     "module": "es2015",
     "moduleResolution": "node",
     "lib": ["es2017", "esnext.array", "dom", "dom.iterable"],
-    "typeRoots": ["src/typings", "node_modules/@types", "../../node_modules/@types"],
+    "typeRoots": ["src/typings", "tests/typings", "node_modules/@types", "../../node_modules/@types"],
     "declaration": true,
     "sourceMap": true,
     "noUnusedLocals": true,
