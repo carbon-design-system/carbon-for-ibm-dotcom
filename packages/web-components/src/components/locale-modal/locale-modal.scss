@@ -20,6 +20,14 @@
     margin-bottom: $carbon--spacing-03;
   }
 
+  .#{$prefix}--modal-container {
+    padding: $spacing-05;
+  }
+
+  .#{$prefix}--modal-content {
+    padding-right: 0;
+  }
+
   .#{$prefix}--locale-modal {
     margin-bottom: 0;
 
