@@ -52,6 +52,7 @@ const ConnectMixin = <
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
       // @ts-ignore
       super.connectedCallback();
+      this._handleChangeStoreState(store.getState());
       const unsubscribe = store.subscribe(() => this._handleChangeStoreState(store.getState()));
       this._hStore = {
         release() {
