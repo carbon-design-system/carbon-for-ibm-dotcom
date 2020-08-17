@@ -13,19 +13,19 @@ import contentStyles from 'carbon-components/scss/components/ui-shell/_content.s
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
 import '../dotcom-shell-container';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import footerStyles from '../../footer/__stories__/footer.stories.scss';
+import { FOOTER_SIZE } from '../../footer/footer';
 import mastheadLinks from '../../masthead/__stories__/links';
 import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 
-const userStatuses = {
-  [`Authenticated (${USER_AUTHENTICATION_STATUS.AUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.AUTHENTICATED,
-  [`Unauthenticated (${USER_AUTHENTICATION_STATUS.UNAUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.UNAUTHENTICATED,
+const footerSizes = {
+  Default: FOOTER_SIZE.REGULAR,
+  [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
 };
 
 const StoryContent = () => html`
@@ -80,9 +80,8 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { brandName, userStatus, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
-  const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
-    parameters?.props?.['dds-footer-composite'] ?? {};
+  const { brandName, userStatus, navLinks } = parameters?.props?.['Masthead'] ?? {};
+  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList } = parameters?.props?.['Footer'] ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -109,10 +108,12 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-masthead-container': ({ groupId }) => ({
+      Masthead: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
-        logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
+        logoHref: 'https://www.ibm.com',
+      }),
+      Footer: ({ groupId }) => ({
+        footerSize: select('Size (footer-size)', footerSizes, null, groupId),
       }),
     },
     props: (() => {
@@ -120,10 +121,10 @@ export default {
       // if `CORS_PROXY` is set
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        'dds-masthead-container': {
+        Masthead: {
           navLinks: !useMock ? undefined : mastheadLinks,
         },
-        'dds-footer-composite': {
+        Footer: {
           langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockFooterLinks,

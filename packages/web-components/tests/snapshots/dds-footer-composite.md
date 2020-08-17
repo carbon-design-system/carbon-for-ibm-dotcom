@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render minimum attributes`
+####   `should render minimum attributes`
 
 ```
 <dds-footer-composite>
@@ -29,7 +29,7 @@
 
 ```
 
-#### `should render various attributes`
+####   `should render various attributes`
 
 ```
 <dds-footer-composite
@@ -107,3 +107,4 @@
 </dds-footer-composite>
 
 ```
+
