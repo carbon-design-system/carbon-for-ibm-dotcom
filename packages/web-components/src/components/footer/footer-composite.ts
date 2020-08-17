@@ -211,6 +211,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
               <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
+          <dds-legal-nav-item data-autoid="${ddsPrefix}--privacy-cp"></dds-legal-nav-item>
         </dds-legal-nav>
       </dds-footer>
     `;
