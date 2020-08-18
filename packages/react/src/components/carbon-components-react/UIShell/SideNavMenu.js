@@ -111,7 +111,7 @@ export class SideNavMenu extends React.Component {
   };
 
   handleKeyToggleExpand = event => {
-    if (event.charCode === 'Enter' || event.charCode === ' ') {
+    if (event.charCode === 13 || event.charCode === ' ') {
       this.setState(state => ({ isExpanded: !state.isExpanded }));
     }
   };
