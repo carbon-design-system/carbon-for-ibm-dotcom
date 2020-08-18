@@ -20,13 +20,6 @@
     margin-bottom: $carbon--spacing-03;
   }
 
-  #{$dds-prefix}-modal-close-button {
-    button.bx--modal-close {
-      top: $carbon--spacing-05;
-      right: $carbon--spacing-05;
-    }
-  }
-
   .#{$prefix}--modal-container {
     padding: $spacing-05;
   }

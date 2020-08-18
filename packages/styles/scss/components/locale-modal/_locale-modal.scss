@@ -94,10 +94,10 @@
         }
       }
 
-      //.#{$prefix}--modal-close {
-      //  top: $carbon--spacing-05;
-      //  right: $carbon--spacing-05;
-      //}
+      .#{$prefix}--modal-close {
+        top: $carbon--spacing-05;
+        right: $carbon--spacing-05;
+      }
 
       .#{$prefix}--modal-header {
         padding-left: $carbon--spacing-07;
@@ -125,13 +125,6 @@
         }
       }
     }
-  }
-}
-//:host(#{$dds-prefix}-modal-close-button),
-.#{$prefix}--locale-modal-container {
-  .#{$prefix}--modal-close {
-    top: $carbon--spacing-05;
-    right: $carbon--spacing-05;
   }
 }
 
