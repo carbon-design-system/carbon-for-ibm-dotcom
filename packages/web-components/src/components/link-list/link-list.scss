@@ -12,50 +12,48 @@
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
+:host(#{$dds-prefix}-link-list):last-of-type {
+  padding-bottom: $carbon--layout-05;
+}
+
 :host(#{$dds-prefix}-link-list) {
   .#{$prefix}--link-list {
     padding-bottom: 0;
   }
 
-  &:last-of-type {
-    padding-bottom: $carbon--layout-05;
+  .#{$prefix}--link-list__list--horizontal {
+    display: flex;
+
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      padding-right: $carbon--layout-03;
+    }
   }
 
-  .#{$prefix}--link-list__list-- {
-    &horizontal {
-      display: flex;
+  .#{$prefix}--link-list__list--vertical {
+    display: flex;
+    flex-direction: column;
 
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        padding-right: $carbon--layout-03;
-      }
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      padding-bottom: $carbon--layout-02;
     }
+  }
 
-    &vertical {
-      display: flex;
-      flex-direction: column;
-
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        padding-bottom: $carbon--layout-02;
-      }
+  .#{$prefix}--link-list__list--card {
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      border-top: 1px solid $ui-03;
     }
+  }
 
-    &card {
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        border-top: 1px solid $ui-03;
-      }
-    }
+  .#{$prefix}--link-list__list--end {
+    display: flex;
+    flex-direction: column;
 
-    &end {
-      display: flex;
-      flex-direction: column;
-
-      ::slotted(#{$dds-prefix}-link-list-item) {
-        padding: $carbon--layout-01;
-        border-top: 1px solid $ui-03;
-        border-bottom: 1px solid $ui-03;
-        margin-top: -1px;
-        margin-left: -$carbon--layout-01;
-      }
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      padding: $carbon--layout-01;
+      border-top: 1px solid $ui-03;
+      border-bottom: 1px solid $ui-03;
+      margin-top: -1px;
+      margin-left: -$carbon--layout-01;
     }
   }
 }
