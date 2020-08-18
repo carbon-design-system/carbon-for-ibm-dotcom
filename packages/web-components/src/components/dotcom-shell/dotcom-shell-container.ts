@@ -41,9 +41,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 export function mapStateToProps(
   state: MastheadContainerState & FooterContainerState
 ): MastheadContainerStateProps & FooterContainerStateProps {
+  const footerProps = mapStateToPropsFooter(state);
   return {
     ...mapStateToPropsMasthead(state),
-    ...mapStateToPropsFooter(state),
+    ...Object.keys(footerProps).reduce((acc, key) => {
+      acc[key !== 'links' ? key : 'footerLinks'] = footerProps[key];
+      return acc;
+    }, {}),
   };
 }
 
