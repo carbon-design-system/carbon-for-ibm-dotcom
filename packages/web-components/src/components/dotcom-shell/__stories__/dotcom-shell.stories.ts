@@ -80,8 +80,9 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { brandName, userStatus, navLinks } = parameters?.props?.Masthead ?? {};
-  const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } = parameters?.props?.Footer ?? {};
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
+    parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -127,11 +128,11 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Masthead: ({ groupId }) => ({
+      MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
         logoHref: 'https://www.ibm.com',
       }),
-      Footer: ({ groupId }) => ({
+      FooterComposite: ({ groupId }) => ({
         footerSize: select('Size (footer-size)', footerSizes, null, groupId),
       }),
     },
@@ -140,10 +141,10 @@ export default {
       // if `CORS_PROXY` is set
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        Masthead: {
+        MastheadComposite: {
           navLinks: !useMock ? undefined : mastheadLinks,
         },
-        Footer: {
+        FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockFooterLinks,
