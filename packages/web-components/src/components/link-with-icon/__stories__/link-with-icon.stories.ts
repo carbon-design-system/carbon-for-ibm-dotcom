@@ -17,7 +17,7 @@ import '../link-with-icon';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { children, disabled, href, onClick } = parameters?.props?.['dds-link-with-icon'] ?? {};
+  const { children, disabled, href, onClick } = parameters?.props?.LinkWithIcon ?? {};
   return html`
     <dds-link-with-icon ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
       ${children}${ArrowRight20({ slot: 'icon' })}
@@ -30,7 +30,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-link-with-icon': ({ groupId }) => ({
+      LinkWithIcon: ({ groupId }) => ({
         children: textNullable('Link text (unnamed slot)', 'Link text', groupId),
         disabled: boolean('Disabled (disabled)', false, groupId),
         href: textNullable('Link href (href)', 'https://github.com/carbon-design-system/carbon-web-components', groupId),

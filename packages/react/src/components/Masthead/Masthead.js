@@ -258,7 +258,7 @@ const Masthead = ({
 
               {(mastheadL1Data || navigation) && (
                 <HeaderMenuButton
-                  aria-label="Open menu"
+                  aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
                   data-autoid={`${stablePrefix}--masthead__hamburger`}
                   onClick={onClickSideNavExpand}
                   isActive={isSideNavExpanded}

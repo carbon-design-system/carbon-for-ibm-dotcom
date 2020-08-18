@@ -30,7 +30,7 @@ const sizes = {
 };
 
 export const Default = ({ parameters }) => {
-  const { open, disableClose, expressiveSize, onBeforeClose, onClose } = parameters?.props?.['dds-modal'] ?? {};
+  const { open, disableClose, expressiveSize, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
   const { buttonContent } = parameters?.props?.Other ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
@@ -73,7 +73,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-modal': ({ groupId }) => ({
+      Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-modal-beingclosed event)',
