@@ -35,7 +35,6 @@ const MastheadSearchSuggestion = ({
         [`${prefix}--container-highlight-class`]: isHighlighted,
       })}
       tabIndex="-1"
-      role="link"
       data-autoid={`${stablePrefix}--masthead__searchresults--suggestion`}>
       {parts.map((part, index) => (
         <span
