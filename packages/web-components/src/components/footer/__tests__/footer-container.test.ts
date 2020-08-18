@@ -23,7 +23,7 @@ const template = (props?) => {
   return Default({
     parameters: {
       props: {
-        'dds-footer-composite': props,
+        FooterComposite: props,
       },
     },
   });

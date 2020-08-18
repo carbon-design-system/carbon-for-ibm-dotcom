@@ -15,7 +15,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-link-with-icon': props,
+        LinkWithIcon: props,
       },
     },
   });
