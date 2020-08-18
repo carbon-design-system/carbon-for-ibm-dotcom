@@ -5,10 +5,11 @@
 ####   `should render minimum attributes`
 
 ```
-<dds-footer-composite>
+<dds-footer-composite size="">
   <dds-footer
     data-auto-id="dds--footer"
     role="footer"
+    size=""
   >
     <dds-footer-logo data-auto-id="dds--footer-logo">
     </dds-footer-logo>
@@ -35,10 +36,12 @@
 <dds-footer-composite
   lang-display="lang-display-foo"
   language="ko-KR"
+  size=""
 >
   <dds-footer
     data-auto-id="dds--footer"
     role="footer"
+    size=""
   >
     <dds-footer-logo data-auto-id="dds--footer-logo">
     </dds-footer-logo>
