@@ -2,7 +2,7 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes for narrow screen`
+####   `should render with minimum attributes for narrow screen`
 
 ```
 <button
@@ -28,7 +28,7 @@
 
 ```
 
-#### `should render with minimum attributes for wide screen`
+####   `should render with minimum attributes for wide screen`
 
 ```
 <h2 class="bx--footer-nav-group__title">
@@ -47,7 +47,7 @@
 
 ```
 
-#### `should render with various attributes for narrow screen`
+####   `should render with various attributes for narrow screen`
 
 ```
 <button
@@ -74,7 +74,7 @@
 
 ```
 
-#### `should render with various attributes for wide screen`
+####   `should render with various attributes for wide screen`
 
 ```
 <h2 class="bx--footer-nav-group__title">
@@ -93,3 +93,4 @@
 </div>
 
 ```
+

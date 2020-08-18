@@ -364,7 +364,7 @@ class DDSMastheadComposite extends LitElement {
     if (!navLinks) {
       this._loadTranslation().catch(() => {}); // The error is logged in the Redux store
     }
-    this._monitorUserStatus();
+    this._monitorUserStatus?.();
   }
 
   updated(changedProperties) {

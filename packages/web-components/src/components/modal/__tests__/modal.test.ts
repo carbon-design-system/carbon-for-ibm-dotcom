@@ -16,7 +16,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-modal': props,
+        Modal: props,
       },
     },
   });
