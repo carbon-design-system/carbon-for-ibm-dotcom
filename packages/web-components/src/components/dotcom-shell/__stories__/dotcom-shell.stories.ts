@@ -132,7 +132,7 @@ export default {
         logoHref: 'https://www.ibm.com',
       }),
       Footer: ({ groupId }) => ({
-        footerSize: select('Size (footer-size)', footerSizes, null, groupId),
+        size: select('Size (footer-size)', footerSizes, null, groupId),
       }),
     },
     props: (() => {
