@@ -32135,14 +32135,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     </SkipToContent>
                     <HeaderMenuButton
                       aria-label="Open menu"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       isActive={false}
                       onClick={[Function]}
                     >
                       <button
                         aria-label="Open menu"
                         className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         onClick={[Function]}
                         title="Open menu"
                         type="button"
@@ -37723,14 +37723,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-default-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -43491,14 +43491,14 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-eco-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-eco-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -49118,14 +49118,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-default-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -64556,14 +64556,14 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                   </SkipToContent>
                   <HeaderMenuButton
                     aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
+                    data-autoid="dds--masthead-default-sidenav__l0-menu"
                     isActive={false}
                     onClick={[Function]}
                   >
                     <button
                       aria-label="Open menu"
                       className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       onClick={[Function]}
                       title="Open menu"
                       type="button"
@@ -65001,14 +65001,14 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                   </SkipToContent>
                   <HeaderMenuButton
                     aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
+                    data-autoid="dds--masthead-default-sidenav__l0-menu"
                     isActive={false}
                     onClick={[Function]}
                   >
                     <button
                       aria-label="Open menu"
                       className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       onClick={[Function]}
                       title="Open menu"
                       type="button"
@@ -65656,14 +65656,14 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                     </SkipToContent>
                     <HeaderMenuButton
                       aria-label="Open menu"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-eco-sidenav__l0-menu"
                       isActive={false}
                       onClick={[Function]}
                     >
                       <button
                         aria-label="Open menu"
                         className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-eco-sidenav__l0-menu"
                         onClick={[Function]}
                         title="Open menu"
                         type="button"
