@@ -83,24 +83,43 @@ export const Default = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.['dds-footer-composite'] ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
       ${footerStyles}
     </style>
-    <dds-dotcom-shell-container
-      brand-name="${ifNonNull(brandName)}"
-      language="${ifNonNull(language)}"
-      lang-display="${ifNonNull(langDisplay)}"
-      footer-size="${ifNonNull(footerSize)}"
-      user-status="${ifNonNull(userStatus)}"
-      .legalLinks="${ifNonNull(legalLinks)}"
-      .localeList="${ifNonNull(localeList)}"
-      .footerLinks="${ifNonNull(footerLinks)}"
-      .navLinks="${navLinks}"
-    >
-      ${StoryContent()}
-    </dds-dotcom-shell-container>
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-container>
+        `}
   `;
 };
 
