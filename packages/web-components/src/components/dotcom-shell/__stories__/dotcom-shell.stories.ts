@@ -82,7 +82,6 @@ const StoryContent = () => html`
 export const Default = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.Masthead ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
-    parameters?.props?.Footer ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
