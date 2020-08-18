@@ -107,6 +107,7 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
     langDisplay,
     localeList: !language ? undefined : localeLists?.[language],
     links: !language ? undefined : translations?.[language]?.footerMenu,
+    footerLinks: !language ? undefined : translations?.[language]?.footerMenu,
     legalLinks: !language ? undefined : translations?.[language]?.footerThin,
   });
 }
