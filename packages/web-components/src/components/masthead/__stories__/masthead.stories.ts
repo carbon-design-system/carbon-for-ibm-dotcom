@@ -76,7 +76,7 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { brandName, userStatus, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -106,7 +106,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-masthead-container': ({ groupId }) => ({
+      MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
         logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
@@ -116,7 +116,7 @@ export default {
       // Lets `<dds-masthead-container>` load the nav links, etc. if `CORS_PROXY` is set
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        'dds-masthead-container': {
+        MastheadComposite: {
           navLinks: !useMock ? undefined : links,
         },
         Other: {
