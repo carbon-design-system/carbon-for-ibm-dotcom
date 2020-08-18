@@ -14,7 +14,7 @@ import SideNavMenu from './SideNavMenu';
 import SideNavMenuItem from '../../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -31,8 +31,31 @@ const SideNavMenuWithBackForward = ({
   children,
   ...rest
 }) => {
+  const refSideNavMenu = useRef(null);
+  const handleToggle = useCallback((event, detail) => {
+    const { current: sideNavMenuNode } = refSideNavMenu;
+    const sideNav = sideNavMenuNode.closest('.bx--side-nav');
+    if (sideNav) {
+      const list = Array.prototype.forEach.call(
+        sideNav.querySelectorAll('.bx--side-nav__menu'),
+        elem => {
+          const hasExpandedSubmenu = elem.querySelector(
+            '.bx--side-nav__submenu[aria-expanded="true"]'
+          );
+          elem.classList.toggle(
+            'bx--side-nav__menu--hasactivechildren',
+            hasExpandedSubmenu
+          );
+        }
+      );
+    }
+  }, []);
   return (
-    <SideNavMenu autoid={rest.autoid} title={title}>
+    <SideNavMenu
+      autoid={rest.autoid}
+      title={title}
+      onToggle={handleToggle}
+      ref={refSideNavMenu}>
       <SideNavMenuItem
         onClick={event => event.preventDefault()}
         className={`${prefix}--masthead__side-nav--submemu-back`}
