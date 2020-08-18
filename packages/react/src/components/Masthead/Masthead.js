@@ -265,6 +265,17 @@ const Masthead = ({
                 />
               )}
 
+              {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                <MastheadLeftNav
+                  {...mastheadProps}
+                  backButtonText="Back"
+                  platform={platform}
+                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
+                  isSideNavExpanded={isSideNavExpanded}
+                  navType={navType}
+                />
+              )}
+
               <IbmLogo
                 autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
               />
@@ -310,17 +321,6 @@ const Masthead = ({
                     navType={navType}
                   />
                 </HeaderGlobalBar>
-              )}
-
-              {(navigation || mastheadL1Data) && (
-                <MastheadLeftNav
-                  {...mastheadProps}
-                  backButtonText="Back"
-                  platform={platform}
-                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
-                  isSideNavExpanded={isSideNavExpanded}
-                  navType={navType}
-                />
               )}
             </Header>
           </div>
