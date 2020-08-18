@@ -19,7 +19,7 @@ import mockLegalLinks from './legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
+export const base = ({ parameters }) => {
   const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.['dds-footer-composite'] ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -52,13 +52,22 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const Default = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props['dds-footer-composite'] = {
+    ...(props['dds-footer-composite'] || {}),
+    size: FOOTER_SIZE.REGULAR,
+  };
+  return base({ parameters });
+};
+
 export const short = ({ parameters }) => {
   const { props = {} } = parameters;
   props['dds-footer-composite'] = {
     ...(props['dds-footer-composite'] || {}),
     size: FOOTER_SIZE.SHORT,
   };
-  return Default({ parameters });
+  return base({ parameters });
 };
 
 export default {
@@ -81,4 +90,5 @@ export default {
       };
     })(),
   },
+  excludeStories: ['base'],
 };
