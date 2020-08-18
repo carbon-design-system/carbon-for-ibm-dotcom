@@ -17,14 +17,34 @@
 
   #{$dds-prefix}-modal-header {
     padding: 0 20% 0 $spacing-05;
+    margin-bottom: $carbon--spacing-03;
+  }
+
+  #{$dds-prefix}-modal-close-button {
+    button.bx--modal-close {
+      top: $carbon--spacing-05;
+      right: $carbon--spacing-05;
+    }
   }
 
   .#{$prefix}--modal-container {
     padding: $spacing-05;
   }
 
+  .#{$prefix}--modal-content {
+    padding-right: 0;
+  }
+
   .#{$prefix}--locale-modal {
     margin-bottom: 0;
+    &.#{$prefix}--modal-content {
+      padding-top: $carbon--spacing-03;
+      margin-top: $carbon--spacing-07;
+
+      @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
+        margin-top: auto;
+      }
+    }
   }
 
   button.#{$prefix}--modal-header__label {
@@ -48,135 +68,36 @@
       fill: currentColor;
     }
   }
-
-  ::slotted(#{$dds-prefix}-regions) {
-    margin-top: auto;
-    width: 100%;
-  }
 }
 
 :host(#{$dds-prefix}-locale-search) {
-  display: flex;
-  flex-direction: column;
-  margin-top: $carbon--spacing-07;
-  overflow: hidden;
-
-  .#{$prefix}--locale-modal__filter {
-    opacity: 1;
-    z-index: 1;
-    transform: translate3d(0, 0, 0);
-    transition: 240ms cubic-bezier(0, 0, 0.3, 1);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .#{$prefix}--locale-modal__search {
-    background-color: $ui-background;
-    border-bottom: 1px solid $icon-02;
-  }
-
-  .#{$prefix}--locale-modal__search-text {
-    @include carbon--type-style(heading-01, true);
-
-    padding: $carbon--spacing-05;
-    min-height: $carbon--spacing-09;
-  }
-
-  .#{$prefix}--locale-modal__list {
-    flex: 1;
-    overflow-y: auto;
-  }
-}
-
-:host(#{$dds-prefix}-locale-item) {
-  a.#{$prefix}--link {
-    text-decoration: none;
-    border: 2px solid transparent;
-    display: flex;
-    min-height: $carbon--spacing-09;
-    border-bottom: 1px solid $ui-03;
-    transition: background-color $duration--fast-02 motion(standard, expressive),
-      border $duration--fast-02 motion(standard, expressive);
-
-    &:hover {
-      background-color: $hover-ui;
-    }
-
-    &:active,
-    &:focus {
-      border: 2px solid $focus;
-      outline: none;
-    }
-  }
-
-  .#{$prefix}--locale-modal__locales__name {
-    width: 50%;
-    color: $text-03;
-    padding: $carbon--spacing-04 $carbon--spacing-05;
-    @include type-style('body-short-02');
-
-    &:first-of-type {
-      color: $text-01;
-    }
-  }
+  padding-top: $carbon--spacing-03;
 }
 
 :host(#{$dds-prefix}-region-item) {
-  min-height: rem(184px);
-  outline: none;
-  width: 100%;
-  height: 100%;
-  display: flex;
-
-  @include carbon--breakpoint-down(lg) {
-    min-height: rem(96px);
-  }
-
   @include carbon--breakpoint('sm', $carbon--grid-breakpoints) {
     @include carbon--make-col(4, map-get(map-get($carbon--grid-breakpoints, 'sm'), 'columns'));
-
-    display: flex;
   }
 
   @include carbon--breakpoint('md', $carbon--grid-breakpoints) {
     @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'md'), 'columns'));
-
-    display: flex;
   }
 
   @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
     @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'lg'), 'columns'));
-
-    display: flex;
   }
 
   @include carbon--breakpoint('xlg', $carbon--grid-breakpoints) {
     @include carbon--make-col(8, map-get(map-get($carbon--grid-breakpoints, 'xlg'), 'columns'));
-
-    display: flex;
   }
 
   .#{$prefix}--link {
     @extend .#{$prefix}--tile;
     @extend .#{$prefix}--tile--clickable;
     @extend .#{$prefix}--card;
-
-    flex: 1;
-
-    &:focus {
-      outline-width: 2px;
-      outline-offset: -2px;
-      outline-color: $interactive-01;
-    }
   }
 
   &[disabled] .#{$prefix}--link {
     @extend .#{$prefix}--card__CTA--disabled;
-  }
-
-  svg.#{$prefix}--card__cta {
-    color: $ui-05;
   }
 }
