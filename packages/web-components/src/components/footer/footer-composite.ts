@@ -14,7 +14,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet } from '../../globals/services-store/types/translateAPI';
+import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-store/types/translateAPI';
 import Handle from '../../globals/internal/handle';
 import { FOOTER_SIZE } from './footer';
 import './footer-logo';
@@ -68,7 +68,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
   /**
    * The placeholder for `loadTranslation()` Redux action that may be mixed in.
    */
-  private _loadTranslation!: () => Promise<LocaleList>;
+  private _loadTranslation!: () => Promise<Translation>;
 
   /**
    * Handles `click` event on the locale button.

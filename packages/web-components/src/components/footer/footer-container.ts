@@ -21,16 +21,14 @@ import {
   setLangDisplay,
   loadLocaleList,
   setLocaleList,
+  LocaleAPIActions,
 } from '../../globals/services-store/actions/localeAPI';
-import { loadTranslation, setTranslation } from '../../globals/services-store/actions/translateAPI';
+import { loadTranslation, setTranslation, TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
 import DDSFooterComposite from './footer-composite';
-
-export { store };
-export { default as reducers } from '../../globals/services-store/reducers';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-type FooterActions =
+export type FooterActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadLangDisplay>
@@ -58,7 +56,7 @@ export interface FooterContainerState {
 /**
  * The properties for `<dds-footer-container>` from Redux state.
  */
-interface FooterContainerStateProps {
+export interface FooterContainerStateProps {
   /**
    * The language to show in the UI.
    */
@@ -117,7 +115,7 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-footer-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch) {
+export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions>) {
   return bindActionCreators<FooterActions, ActionCreatorsMapObject<FooterActions>>(
     {
       _loadLanguage: loadLanguage,
@@ -129,7 +127,7 @@ export function mapDispatchToProps(dispatch: Dispatch) {
       _loadTranslation: loadTranslation,
       _setTranslation: setTranslation,
     },
-    dispatch
+    dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
 }
 
@@ -141,10 +139,11 @@ export function mapDispatchToProps(dispatch: Dispatch) {
 @customElement(`${ddsPrefix}-footer-container`)
 class DDSFooterContainer extends ConnectMixin<
   FooterContainerState,
+  LocaleAPIActions | TranslateAPIActions,
   FooterContainerStateProps,
   ActionCreatorsMapObject<FooterActions>
 >(
-  store as Store<FooterContainerState>,
+  store as Store<FooterContainerState, LocaleAPIActions | TranslateAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSFooterComposite) {}

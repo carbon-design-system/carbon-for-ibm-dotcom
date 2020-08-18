@@ -42,6 +42,8 @@ describe('LocaleAPI', () => {
     );
 
     root.digitalData = mockDigitalDataResponse;
+
+    LocaleAPI.clearCache();
   });
 
   afterEach(() => {
@@ -124,5 +126,13 @@ describe('LocaleAPI', () => {
         'Content-Type': 'application/json; charset=utf-8',
       },
     });
+  });
+
+  it('should use the cache for the country list, keyed by locale', async () => {
+    await LocaleAPI.getList({ cc: 'us', lc: 'en' });
+    await LocaleAPI.getList({ cc: 'us', lc: 'en' });
+    await LocaleAPI.getList({ cc: 'kr', lc: 'ko' });
+
+    expect(mockAxios.get).toHaveBeenCalledTimes(2);
   });
 });

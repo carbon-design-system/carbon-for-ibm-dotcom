@@ -19,11 +19,9 @@ import {
   loadLangDisplay,
   setLangDisplay,
   loadLocaleList,
+  LocaleAPIActions,
 } from '../../globals/services-store/actions/localeAPI';
 import DDSLocaleModalComposite from './locale-modal-composite';
-
-export { store };
-export { default as reducers } from '../../globals/services-store/reducers';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -76,7 +74,7 @@ export function mapStateToProps(state: LocaleModalContainerState): LocaleModalCo
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-locale-modal-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch) {
+export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
   return bindActionCreators<LocaleModalActions, ActionCreatorsMapObject<LocaleModalActions>>(
     {
       _loadLanguage: loadLanguage,
@@ -85,7 +83,7 @@ export function mapDispatchToProps(dispatch: Dispatch) {
       _setLangDisplay: setLangDisplay,
       _loadLocaleList: loadLocaleList,
     },
-    dispatch
+    dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
 }
 
@@ -97,10 +95,11 @@ export function mapDispatchToProps(dispatch: Dispatch) {
 @customElement(`${ddsPrefix}-locale-modal-container`)
 class DDSLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
+  LocaleAPIActions,
   LocaleModalContainerStateProps,
   ActionCreatorsMapObject<LocaleModalActions>
 >(
-  store as Store<LocaleModalContainerState>,
+  store as Store<LocaleModalContainerState, LocaleAPIActions>,
   mapStateToProps,
   mapDispatchToProps
 )(DDSLocaleModalComposite) {}

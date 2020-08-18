@@ -21,19 +21,19 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {object} props.regionList object of country and language codes
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
+ * @param {string} props.currentRegion current region
  * @returns {*} LocaleModal component
  */
 const LocaleModalCountries = ({
   regionList,
   setClearResults,
+  currentRegion,
   ...modalLabels
 }) => {
   const localList = useRef(null);
   useEffect(() => {
-    if (open) {
-      localList.current.scrollTop = 0;
-    }
-  }, [open]);
+    localList.current.scrollTop = 0;
+  }, [currentRegion, regionList]);
 
   useEffect(() => {
     const localeFilter = document.getElementById(
@@ -96,29 +96,28 @@ const LocaleModalCountries = ({
           {modalLabels.availabilityText}
         </p>
       </div>
-      <div
-        aria-labelledby={`${prefix}--locale-modal__filter`}
-        className={`${prefix}--locale-modal__list`}
-        ref={localList}>
-        {regionList &&
-          regionList.map(region =>
+      <ul className={`${prefix}--locale-modal__list`} ref={localList}>
+        {regionList?.map(
+          region =>
+            currentRegion === region.name &&
             region.countries.map((country, index) => (
-              <a
-                key={index}
-                className={`${prefix}--locale-modal__locales`}
-                onClick={() => _setCookie(country.locale)}
-                href={country.href}
-                data-region={country.region}>
-                <div className={`${prefix}--locale-modal__locales__name`}>
-                  {country.name}
-                </div>
-                <div className={`${prefix}--locale-modal__locales__name`}>
-                  {country.language}
-                </div>
-              </a>
+              <li key={index}>
+                <a
+                  className={`${prefix}--locale-modal__locales`}
+                  onClick={() => _setCookie(country.locale)}
+                  href={country.href}
+                  data-region={country.region}>
+                  <div className={`${prefix}--locale-modal__locales__name`}>
+                    {country.name}
+                  </div>
+                  <div className={`${prefix}--locale-modal__locales__name`}>
+                    {country.language}
+                  </div>
+                </a>
+              </li>
             ))
-          )}
-      </div>
+        )}
+      </ul>
     </div>
   );
 };
@@ -138,6 +137,10 @@ LocaleModalCountries.propTypes = {
    * Func to clear search input.
    */
   setClearResults: PropTypes.func,
+  /**
+   * String of current region.
+   */
+  currentRegion: PropTypes.string,
 };
 
 LocaleModalCountries.defaultProps = {
