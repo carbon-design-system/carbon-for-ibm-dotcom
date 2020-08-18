@@ -24,6 +24,7 @@ import './footer-nav-item';
 import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
+import './legal-nav-cookie-preferences-placeholder';
 import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -211,6 +212,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
               <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
+          <dds-legal-nav-cookie-perferences-placeholder></dds-legal-nav-cookie-perferences-placeholder>
         </dds-legal-nav>
       </dds-footer>
     `;
