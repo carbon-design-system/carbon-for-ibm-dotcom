@@ -17,7 +17,7 @@ import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { langDisplay, localeList } = parameters?.props?.['dds-locale-modal-container'];
+  const { langDisplay, localeList } = parameters?.props?.LocaleModalComposite;
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -44,12 +44,12 @@ export default {
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         knobs: {
-          'dds-locale-modal-container': ({ groupId }) => ({
+          LocaleModalComposite: ({ groupId }) => ({
             langDisplay: textNullable('Display language (lang-display)', !useMock ? '' : 'United States — English', groupId),
           }),
         },
         props: {
-          'dds-locale-modal-container': {
+          LocaleModalComposite: {
             localeList: !useMock ? undefined : localeData,
           },
           Other: {
