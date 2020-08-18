@@ -77,15 +77,26 @@ const StoryContent = () => html`
 
 export const Default = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container
-      brand-name="${ifNonNull(brandName)}"
-      user-status="${ifNonNull(userStatus)}"
-      .navLinks="${navLinks}"
-    ></dds-masthead-container>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
     ${StoryContent()}
   `;
 };
@@ -101,12 +112,17 @@ export default {
         logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
       }),
     },
-    props: {
-      'dds-masthead-container': {
-        // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set
-        navLinks:
-          process.env.CORS_PROXY && !new URLSearchParams(window.location.search).has('mock') && !inPercy() ? undefined : links,
-      },
-    },
+    props: (() => {
+      // Lets `<dds-masthead-container>` load the nav links, etc. if `CORS_PROXY` is set
+      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      return {
+        'dds-masthead-container': {
+          navLinks: !useMock ? undefined : links,
+        },
+        Other: {
+          useMock,
+        },
+      };
+    })(),
   },
 };
