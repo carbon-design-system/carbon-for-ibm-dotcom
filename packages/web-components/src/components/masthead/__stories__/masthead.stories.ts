@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Action, Reducer } from 'redux';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
@@ -15,12 +14,10 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
-import { reducers, store } from '../masthead-container';
+import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
 import readme from './README.stories.mdx';
-
-store.replaceReducer(reducers as Reducer<unknown, Action<any>>);
 
 const userStatuses = {
   [`Authenticated (${USER_AUTHENTICATION_STATUS.AUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.AUTHENTICATED,
@@ -79,16 +76,27 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { brandName, userStatus, navLinks } = parameters?.props?.['dds-masthead-container'] ?? {};
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container
-      brand-name="${ifNonNull(brandName)}"
-      user-status="${ifNonNull(userStatus)}"
-      .navLinks="${navLinks}"
-    ></dds-masthead-container>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
     ${StoryContent()}
   `;
 };
@@ -98,18 +106,23 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-masthead-container': ({ groupId }) => ({
+      MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
         logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
       }),
     },
-    props: {
-      'dds-masthead-container': {
-        // Lets `<dds-masthead-container>` load the nav links if `CORS_PROXY` is set
-        navLinks:
-          process.env.CORS_PROXY && !new URLSearchParams(window.location.search).has('mock') && !inPercy() ? undefined : links,
-      },
-    },
+    props: (() => {
+      // Lets `<dds-masthead-container>` load the nav links, etc. if `CORS_PROXY` is set
+      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      return {
+        MastheadComposite: {
+          navLinks: !useMock ? undefined : links,
+        },
+        Other: {
+          useMock,
+        },
+      };
+    })(),
   },
 };

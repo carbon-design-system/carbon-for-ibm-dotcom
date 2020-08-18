@@ -97,26 +97,44 @@ You can populate the data automatically from `@carbon/ibmdotcom-servies` by mixi
 
 <Props of="dds-region-item" />
 
-### Advanced: Custom connect the locale modal
+### Advanced: Manually setting the Redux Store
+
+The locale modal takes advantage of a redux store which manages the API calls made
+to fetch translation data, locale data, etc. To manually initialize the Redux
+store (e.g. integrating with your application level redux store), the underlying
+component, `<dds-locale-modal-composite>`, can be initialized instead:
 
 #### JS
 
 ```javascript
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+// The default reducers, you can e.g. add your own reducer to `reducers` table
+import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
 import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
-import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
+// The default property/action mappers
 import {
-  reducers,
-  store,
   mapStateToProps,
   mapDispatchToProps,
 } from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
+import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
 
-store.replaceReducer(reducers);
+// Creates your own store
+const store = createStore(
+  combineReducers(reducers),
+  {},
+  applyMiddleware(thunkMiddleware, createLogger())
+);
 
-// Wires `<myapp-locale-modal-composite>` to `@carbon/ibmdotcom-services` and creates `<myapp-locale-modal-container>`
+// Creates `<app-locale-modal-container>` custom element that wires your store to our rendering logic
 customElements.define(
   'app-locale-modal-container',
-  class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSLocaleModalComposite) {}
+  class extends ConnectMixin(
+    store,
+    mapStateToProps,
+    mapDispatchToProps
+  )(DDSLocaleModalComposite) {}
 );
 ```
 

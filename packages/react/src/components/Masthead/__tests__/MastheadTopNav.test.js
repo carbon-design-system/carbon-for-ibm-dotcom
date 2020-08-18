@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ describe('MastheadTopNav', () => {
     const wrapper = mount(<MastheadTopNav navigation={mockData.links} />);
     const menuItems = mockData.links.map((_itens, index) => {
       return wrapper.find(
-        `a[data-autoid="${stablePrefix}--masthead__l0-nav--nav-${index}"]`
+        `a[data-autoid="${stablePrefix}--masthead-default__l1-nav${index}"]`
       );
     });
 
@@ -37,11 +37,14 @@ describe('MastheadTopNav', () => {
       url: 'https://www.ibm.com/cloud',
     };
 
+    const navType = 'eco';
+
     const wrapper = mount(
-      <MastheadTopNav navigation={[]} platform={platform} />
+      <MastheadTopNav navigation={[]} navType={navType} platform={platform} />
     );
+
     const headerName = wrapper.find(
-      `a[data-autoid="${stablePrefix}--masthead__platform-name"]`
+      `a[data-autoid="${stablePrefix}--masthead-${navType}__l0-ecosystemname"]`
     );
     expect(headerName.prop('href')).toMatch(platform.url);
     expect(headerName.text()).toMatch(platform.name);

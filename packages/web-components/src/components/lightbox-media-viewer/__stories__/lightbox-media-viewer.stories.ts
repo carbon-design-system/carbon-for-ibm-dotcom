@@ -19,8 +19,8 @@ import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
 export const EmbeddedVideoPlayer = ({ parameters }) => {
-  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.['dds-modal'] ?? {};
-  const { hideCaption, videoId } = parameters?.props?.['dds-lightbox-video-player-container'] ?? {};
+  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { hideCaption, videoId } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -53,7 +53,7 @@ export default {
       skip: true,
     },
     knobs: {
-      'dds-modal': ({ groupId }) => ({
+      Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-modal-beingclosed event)',
@@ -63,7 +63,7 @@ export default {
         onBeforeClose: action('dds-modal-beingclosed'),
         onClose: action('dds-modal-closed'),
       }),
-      'dds-lightbox-video-player-container': ({ groupId }) => ({
+      LightboxVideoPlayerContainer: ({ groupId }) => ({
         hideCaption: boolean('hide caption (hide-caption)', false, groupId),
         videoId: textNullable('Video ID (video-id)', '0_uka1msg4', groupId),
       }),

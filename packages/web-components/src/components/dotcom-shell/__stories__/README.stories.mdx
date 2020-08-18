@@ -1,0 +1,116 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import corsproxy from '../../../../../../docs/cors-proxy.md';
+
+# Dotcom shell
+
+> The Dotcom shell includes the `<dds-masthead>`, and `<dds-footer>` components, all wrapped
+> in a UI shell using Carbon's grid.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/dotcom-shell)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/dotcom-shell)
+
+## Getting started
+
+### Quick start
+
+`<dds-dotcom-shell-container>` automatically renders contents of dotcom shell from default service data.
+
+#### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
+```
+
+#### HTML
+
+```html
+<dds-dotcom-shell-container>
+  <main>(The main content)</main>
+</dds-dotcom-shell-container>
+```
+
+### Advanced: Rendering dotcom shell manually
+
+You can also render the footer content on your own, e.g. for server-side rendering:
+
+#### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell';
+```
+
+#### HTML
+
+```html
+(The masthead content)
+<dds-dotcom-shell>
+  <main>(The main content)</main>
+</dds-dotcom-shell>
+(The footer content)
+```
+
+> 💡 See [masthead doc](/?path=/docs/components-masthead--default) for generating the content for masthead, and [footer doc](/?path=/docs/components-footer--default) for generating the content for footer.
+
+### Advanced: Manually setting the Redux Store
+
+The Masthead takes advantage of a redux store which manages the API calls made
+to fetch translation data, locale data, etc. To manually initialize the Redux
+store (e.g. integrating with your application level redux store), the underlying
+component, `<dds-dotcom-shell-composite>`, can be initialized instead:
+
+#### JS
+
+```javascript
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+// The default reducers, you can e.g. add your own reducer to `reducers` table
+import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
+import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
+// The default property/action mappers
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from '@carbon/ibmdotcom-web-components/es/components/masthead/dotcom-shell-container';
+import DDSDotcomShellComposite from '@carbon/ibmdotcom-web-components/es/components/masthead/dotcom-shell-composite';
+
+// Creates your own store
+const store = createStore(
+  combineReducers(reducers),
+  {},
+  applyMiddleware(thunkMiddleware, createLogger())
+);
+
+// Creates `<app-dotcom-shell-container>` custom element that wires your store to our rendering logic
+customElements.define(
+  'app-dotcom-shell-container',
+  class extends ConnectMixin(
+    store,
+    mapStateToProps,
+    mapDispatchToProps
+  )(DDSDotcomShellComposite) {}
+);
+```
+
+### Attributes and properties `<dds-dotcom-shell-composite>`
+
+<Props of="dds-dotcom-shell-composite" />
+
+## `<dds-dotcom-shell>`
+
+`<dds-dotcom-shell>` works as the shell in dotcom shell.
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector            | Description |
+| ----------------------- | --------------------------------- | ----------- |
+| `<dds-dotcom-shell>`    | `data-autoid="dds--dotcom-shell"` | Component   |
+
+<Description markdown={corsproxy} />
+<Description markdown={contributing} />

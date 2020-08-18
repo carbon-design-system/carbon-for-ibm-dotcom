@@ -7,11 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { reducers, store } from '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
 import links from './links';
 import './index.scss';
-
-store.replaceReducer(reducers);
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!process.env.CORS_PROXY) {

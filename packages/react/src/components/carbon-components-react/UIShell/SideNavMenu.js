@@ -9,12 +9,14 @@
  */
 
 import ChevronDown20 from '@carbon/icons-react/es/chevron--down/20';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SideNavIcon from './SideNavIcon';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 export class SideNavMenu extends React.Component {
@@ -67,6 +69,11 @@ export class SideNavMenu extends React.Component {
      * For submenu back button to toggle expand/collapse
      */
     isbackbutton: PropTypes.string,
+
+    /**
+     * A callback that is called when this side nav menu is toggled by user gesture.
+     */
+    onToggle: PropTypes.func,
   };
 
   static defaultProps = {
@@ -105,12 +112,30 @@ export class SideNavMenu extends React.Component {
   }
 
   handleToggleExpand = event => {
-    this.setState(state => ({ isExpanded: !state.isExpanded }));
+    const { onToggle } = this.props;
+    event.persist();
+    this.setState(
+      state => ({ isExpanded: !state.isExpanded }),
+      () => {
+        if (onToggle) {
+          onToggle(event, { isExpanded: this.state.isExpanded });
+        }
+      }
+    );
   };
 
   handleKeyToggleExpand = event => {
-    if (event.charCode === 'Enter' || event.charCode === ' ') {
-      this.setState(state => ({ isExpanded: !state.isExpanded }));
+    if (event.charCode === 13 || event.charCode === ' ') {
+      const { onToggle } = this.props;
+      event.persist();
+      this.setState(
+        state => ({ isExpanded: !state.isExpanded }),
+        () => {
+          if (onToggle) {
+            onToggle(event, { isExpanded: this.state.isExpanded });
+          }
+        }
+      );
     }
   };
 
@@ -124,6 +149,7 @@ export class SideNavMenu extends React.Component {
       title,
       large,
       isbackbutton,
+      ...rest
     } = this.props;
     const { isExpanded } = this.state;
 
@@ -167,7 +193,11 @@ export class SideNavMenu extends React.Component {
               <IconElement />
             </SideNavIcon>
           )}
-          <span className={`${prefix}--side-nav__submenu-title`}>{title}</span>
+          <span
+            className={`${prefix}--side-nav__submenu-title`}
+            data-autoid={`${rest.autoid}`}>
+            {title}
+          </span>
           <SideNavIcon className={`${prefix}--side-nav__submenu-chevron`} small>
             <ChevronDown20 />
           </SideNavIcon>

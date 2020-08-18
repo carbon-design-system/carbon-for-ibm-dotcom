@@ -13,11 +13,11 @@ const { prefix } = settings;
 /**
  * Category sublink
  */
-const CategoryLink = ({ href, title, ...props }) => (
+const CategoryLink = ({ href, title, ...rest }) => (
   <a
     href={href}
     className={`${prefix}--masthead__megamenu__category-sublink`}
-    {...props}>
+    data-autoid={`${rest.autoid}-item${rest.index}`}>
     {title}
   </a>
 );

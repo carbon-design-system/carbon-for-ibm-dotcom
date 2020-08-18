@@ -45,7 +45,7 @@ const types = {
 };
 
 export const Default = ({ parameters }) => {
-  const { ctaStyle, item } = parameters?.props?.['dds-cta-container'] ?? {};
+  const { ctaStyle, item } = parameters?.props?.CTAContainer ?? {};
   return html`
     <dds-cta-container cta-style="${ctaStyle}" .item="${item}"></dds-cta-container>
   `;
@@ -68,7 +68,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-cta-container': ({ groupId }) => {
+      CTAContainer: ({ groupId }) => {
         const ctaStyle = select('Style (cta-style)', styles, CTA_STYLE.TEXT, groupId);
         const type = select('Type (item.type)', types, null, groupId);
         const href = textNullable(knobNamesForType[type ?? CTA_TYPE.REGULAR], hrefsForType[type ?? CTA_TYPE.REGULAR], groupId);

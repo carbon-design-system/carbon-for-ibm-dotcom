@@ -17,13 +17,21 @@ import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { langDisplay, localeList } = parameters?.props?.['dds-locale-modal-container'];
+  const { langDisplay, localeList } = parameters?.props?.LocaleModalComposite;
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-locale-modal-container lang-display="${ifNonNull(langDisplay)}" open .localeList="${ifNonNull(localeList)}">
-    </dds-locale-modal-container>
+    ${useMock
+      ? html`
+          <dds-locale-modal-composite lang-display="${ifNonNull(langDisplay)}" open .localeList="${ifNonNull(localeList)}">
+          </dds-locale-modal-composite>
+        `
+      : html`
+          <dds-locale-modal-container lang-display="${ifNonNull(langDisplay)}" open .localeList="${ifNonNull(localeList)}">
+          </dds-locale-modal-container>
+        `}
   `;
 };
 
@@ -31,20 +39,24 @@ export default {
   title: 'Components/Locale modal',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      'dds-locale-modal-container': ({ groupId }) => ({
-        langDisplay: textNullable(
-          'Display language (lang-display)',
-          process.env.CORS_PROXY && !inPercy() ? '' : 'United States — English',
-          groupId
-        ),
-      }),
-    },
-    props: {
-      'dds-locale-modal-container': {
-        // Lets `<dds-locale-modal-container>` load the nav links if `CORS_PROXY` is set
-        localeList: process.env.CORS_PROXY && !inPercy() ? undefined : localeData,
-      },
-    },
+    ...(() => {
+      // Lets `<dds-footer-container>` load the locale list, etc. if `CORS_PROXY` is set
+      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      return {
+        knobs: {
+          LocaleModalComposite: ({ groupId }) => ({
+            langDisplay: textNullable('Display language (lang-display)', !useMock ? '' : 'United States — English', groupId),
+          }),
+        },
+        props: {
+          LocaleModalComposite: {
+            localeList: !useMock ? undefined : localeData,
+          },
+          Other: {
+            useMock,
+          },
+        },
+      };
+    })(),
   },
 };

@@ -19,8 +19,8 @@ import mockLegalLinks from './legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 
-export const Default = ({ parameters }) => {
-  const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.['dds-footer-composite'] ?? {};
+export const base = ({ parameters }) => {
+  const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -52,13 +52,22 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const Default = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.REGULAR,
+  };
+  return base({ parameters });
+};
+
 export const short = ({ parameters }) => {
   const { props = {} } = parameters;
-  props['dds-footer-composite'] = {
-    ...(props['dds-footer-composite'] || {}),
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
   };
-  return Default({ parameters });
+  return base({ parameters });
 };
 
 export default {
@@ -69,8 +78,8 @@ export default {
       // Lets `<dds-footer-container>` load the footer links if `CORS_PROXY` is set
       const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        'dds-footer-composite': {
-          langDisplay: 'English - United States',
+        FooterComposite: {
+          langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,
@@ -81,4 +90,5 @@ export default {
       };
     })(),
   },
+  excludeStories: ['base'],
 };

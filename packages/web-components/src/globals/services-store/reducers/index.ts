@@ -12,6 +12,8 @@ import localeAPIReducer from './localeAPI';
 import translateAPIReducer from './translateAPI';
 import profileAPIReducer from './profileAPI';
 
+export { localeAPIReducer as localeAPI, translateAPIReducer as translateAPI, profileAPIReducer as profileAPI };
+
 /**
  * The combined reducer of one for `LocaleAPI`, one for `TranslateAPI`. and one for `ProfileAPI`.
  */

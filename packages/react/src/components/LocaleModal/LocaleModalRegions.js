@@ -38,9 +38,6 @@ const LocaleModalRegions = ({
 }) => {
   useEffect(() => {
     const regionLink = document.querySelectorAll(`.${prefix}--card`);
-    const localeItems = document.querySelectorAll(
-      `.${prefix}--locale-modal__locales`
-    );
 
     [...regionLink].forEach(link => {
       link.setAttribute('tabindex', '0');
@@ -50,16 +47,8 @@ const LocaleModalRegions = ({
         );
         searchInput.focus();
 
-        const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
 
-        [...localeItems].forEach(item => {
-          if (item.dataset.region !== region) {
-            item.classList.add(`${prefix}--locale-modal__locales-filtered`);
-          } else {
-            item.classList.remove(`${prefix}--locale-modal__locales-filtered`);
-          }
-        });
         setIsFiltering(true);
 
         /**
