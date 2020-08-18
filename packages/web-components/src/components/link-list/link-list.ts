@@ -27,12 +27,10 @@ class DDSLinkList extends LitElement {
   // eslint-disable-next-line class-methods-use-this
   protected render() {
     return html`
-      <div class="${prefix}--link-list" data-autoid="${(this.constructor as typeof DDSLinkList).stableSelector}">
-        <h4 class="${prefix}--link-list__heading"><slot name="heading" /></h4>
-        <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
-          <slot />
-        </ul>
-      </div>
+      <h4 class="${prefix}--link-list__heading"><slot name="heading" /></h4>
+      <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
+        <slot />
+      </ul>
     `;
   }
 

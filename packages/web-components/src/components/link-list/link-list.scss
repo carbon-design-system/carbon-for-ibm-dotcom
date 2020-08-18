@@ -17,9 +17,7 @@
 }
 
 :host(#{$dds-prefix}-link-list) {
-  .#{$prefix}--link-list {
-    padding-bottom: 0;
-  }
+  padding-bottom: 0;
 
   .#{$prefix}--link-list__list--horizontal {
     display: flex;
