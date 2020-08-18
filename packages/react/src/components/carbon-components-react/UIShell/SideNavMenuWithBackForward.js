@@ -61,6 +61,7 @@ const SideNavMenuWithBackForward = ({
         className={`${prefix}--masthead__side-nav--submemu-back`}
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
         isbackbutton="true"
+        role="button"
         tabIndex="0">
         <ChevronLeft20 />
         {backButtonText}
