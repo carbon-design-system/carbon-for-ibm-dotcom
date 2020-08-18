@@ -19,21 +19,26 @@ import '../card-link';
 export const Default = ({ parameters }) => {
   const { disabled, href } = parameters?.props?.CardLink ?? {};
   return html`
-    <div class="bx--grid bx--grid--condensed">
-      <div class="bx--row">
-        <div class="bx--col-lg-9">
-          <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
-          </dds-card-link>
-        </div>
-      </div>
-    </div>
+    <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
+    </dds-card-link>
   `;
 };
 
 export default {
   title: 'Components/Card Link',
+  decorators: [
+    story => html`
+      <div class="bx--grid bx--grid--condensed">
+        <div class="bx--row">
+          <div class="bx--col-lg-9">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
