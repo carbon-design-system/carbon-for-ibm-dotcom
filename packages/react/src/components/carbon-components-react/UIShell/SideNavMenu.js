@@ -69,6 +69,11 @@ export class SideNavMenu extends React.Component {
      * For submenu back button to toggle expand/collapse
      */
     isbackbutton: PropTypes.string,
+
+    /**
+     * A callback that is called when this side nav menu is toggled by user gesture.
+     */
+    onToggle: PropTypes.func,
   };
 
   static defaultProps = {
@@ -107,12 +112,30 @@ export class SideNavMenu extends React.Component {
   }
 
   handleToggleExpand = event => {
-    this.setState(state => ({ isExpanded: !state.isExpanded }));
+    const { onToggle } = this.props;
+    event.persist();
+    this.setState(
+      state => ({ isExpanded: !state.isExpanded }),
+      () => {
+        if (onToggle) {
+          onToggle(event, { isExpanded: this.state.isExpanded });
+        }
+      }
+    );
   };
 
   handleKeyToggleExpand = event => {
     if (event.charCode === 'Enter' || event.charCode === ' ') {
-      this.setState(state => ({ isExpanded: !state.isExpanded }));
+      const { onToggle } = this.props;
+      event.persist();
+      this.setState(
+        state => ({ isExpanded: !state.isExpanded }),
+        () => {
+          if (onToggle) {
+            onToggle(event, { isExpanded: this.state.isExpanded });
+          }
+        }
+      );
     }
   };
 
