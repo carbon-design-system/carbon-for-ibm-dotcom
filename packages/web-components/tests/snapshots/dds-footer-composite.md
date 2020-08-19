@@ -7,23 +7,25 @@
 ```
 <dds-footer-composite size="">
   <dds-footer
-    data-auto-id="dds--footer"
+    data-autoid="dds--footer"
     role="footer"
     size=""
   >
-    <dds-footer-logo data-auto-id="dds--footer-logo">
+    <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
-      data-auto-id="dds--footer-nav"
+      data-autoid="dds--footer-nav"
       role="navigation"
     >
     </dds-footer-nav>
-    <dds-locale-button data-auto-id="dds--locale-btn">
+    <dds-locale-button data-autoid="dds--locale-btn">
     </dds-locale-button>
     <dds-legal-nav
-      data-auto-id="dds--footer-legal-nav"
+      data-autoid="dds--footer-legal-nav"
       role="complementary"
     >
+      <dds-legal-nav-cookie-perferences-placeholder data-autoid="dds--privacy-cp">
+      </dds-legal-nav-cookie-perferences-placeholder>
     </dds-legal-nav>
   </dds-footer>
 </dds-footer-composite>
@@ -39,18 +41,18 @@
   size=""
 >
   <dds-footer
-    data-auto-id="dds--footer"
+    data-autoid="dds--footer"
     role="footer"
     size=""
   >
-    <dds-footer-logo data-auto-id="dds--footer-logo">
+    <dds-footer-logo data-autoid="dds--footer-logo">
     </dds-footer-logo>
     <dds-footer-nav
-      data-auto-id="dds--footer-nav"
+      data-autoid="dds--footer-nav"
       role="navigation"
     >
       <dds-footer-nav-group
-        data-auto-id="dds--footer-nav-group"
+        data-autoid="dds--footer-nav-group"
         role="listitem"
         title-text="group-title-foo"
       >
@@ -68,7 +70,7 @@
         </dds-footer-nav-item>
       </dds-footer-nav-group>
       <dds-footer-nav-group
-        data-auto-id="dds--footer-nav-group"
+        data-autoid="dds--footer-nav-group"
         role="listitem"
         title-text="group-title-bar"
       >
@@ -86,11 +88,11 @@
         </dds-footer-nav-item>
       </dds-footer-nav-group>
     </dds-footer-nav>
-    <dds-locale-button data-auto-id="dds--locale-btn">
+    <dds-locale-button data-autoid="dds--locale-btn">
       lang-display-foo
     </dds-locale-button>
     <dds-legal-nav
-      data-auto-id="dds--footer-legal-nav"
+      data-autoid="dds--footer-legal-nav"
       role="complementary"
     >
       <dds-legal-nav-item
@@ -105,6 +107,8 @@
       >
         title-bar
       </dds-legal-nav-item>
+      <dds-legal-nav-cookie-perferences-placeholder data-autoid="dds--privacy-cp">
+      </dds-legal-nav-cookie-perferences-placeholder>
     </dds-legal-nav>
   </dds-footer>
 </dds-footer-composite>

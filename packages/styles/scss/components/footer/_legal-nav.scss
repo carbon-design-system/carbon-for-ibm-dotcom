@@ -83,6 +83,7 @@
   }
 
   :host(#{$dds-prefix}-legal-nav-item),
+  :host(#{$dds-prefix}-legal-nav-cookie-perferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     display: inline-block;
     margin-right: carbon--mini-units(4);
