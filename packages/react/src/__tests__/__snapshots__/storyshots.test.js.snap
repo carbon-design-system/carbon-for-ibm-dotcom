@@ -32135,14 +32135,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     </SkipToContent>
                     <HeaderMenuButton
                       aria-label="Open menu"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       isActive={false}
                       onClick={[Function]}
                     >
                       <button
                         aria-label="Open menu"
                         className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         onClick={[Function]}
                         title="Open menu"
                         type="button"
@@ -32462,54 +32462,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         </MastheadProfile>
                       </div>
                     </HeaderGlobalBar>
-                    <MastheadLeftNav
-                      backButtonText="Back"
-                      isSideNavExpanded={false}
-                      navType="default"
-                      navigation={Array []}
-                      platform={null}
-                    >
-                      <ForwardRef(SideNav)
-                        addFocusListeners={true}
-                        addMouseListeners={true}
-                        aria-label="Side navigation"
-                        defaultExpanded={false}
-                        expanded={false}
-                        isChildOfHeader={true}
-                        isFixedNav={false}
-                        isPersistent={false}
-                        translateById={[Function]}
-                      >
-                        <div
-                          className="bx--side-nav__overlay"
-                        />
-                        <nav
-                          aria-label="Side navigation"
-                          className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                          onBlur={[Function]}
-                          onFocus={[Function]}
-                        >
-                          <nav
-                            data-autoid="dds--masthead-default-sidenav__l0"
-                          >
-                            <SideNavItems>
-                              <ul
-                                className="bx--side-nav__items"
-                              >
-                                <HeaderSideNavItems
-                                  hasDivider={false}
-                                  key=".0"
-                                >
-                                  <div
-                                    className="bx--side-nav__header-navigation"
-                                  />
-                                </HeaderSideNavItems>
-                              </ul>
-                            </SideNavItems>
-                          </nav>
-                        </nav>
-                      </ForwardRef(SideNav)>
-                    </MastheadLeftNav>
                   </header>
                 </Header>
               </div>
@@ -37723,14 +37675,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-default-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -38220,54 +38172,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           </MastheadProfile>
                         </div>
                       </HeaderGlobalBar>
-                      <MastheadLeftNav
-                        backButtonText="Back"
-                        isSideNavExpanded={false}
-                        navType="default"
-                        navigation={Array []}
-                        platform={null}
-                      >
-                        <ForwardRef(SideNav)
-                          addFocusListeners={true}
-                          addMouseListeners={true}
-                          aria-label="Side navigation"
-                          defaultExpanded={false}
-                          expanded={false}
-                          isChildOfHeader={true}
-                          isFixedNav={false}
-                          isPersistent={false}
-                          translateById={[Function]}
-                        >
-                          <div
-                            className="bx--side-nav__overlay"
-                          />
-                          <nav
-                            aria-label="Side navigation"
-                            className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                            onBlur={[Function]}
-                            onFocus={[Function]}
-                          >
-                            <nav
-                              data-autoid="dds--masthead-default-sidenav__l0"
-                            >
-                              <SideNavItems>
-                                <ul
-                                  className="bx--side-nav__items"
-                                >
-                                  <HeaderSideNavItems
-                                    hasDivider={false}
-                                    key=".0"
-                                  >
-                                    <div
-                                      className="bx--side-nav__header-navigation"
-                                    />
-                                  </HeaderSideNavItems>
-                                </ul>
-                              </SideNavItems>
-                            </nav>
-                          </nav>
-                        </ForwardRef(SideNav)>
-                      </MastheadLeftNav>
                     </header>
                   </Header>
                 </div>
@@ -43491,14 +43395,14 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-eco-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-eco-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -43843,67 +43747,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                           </MastheadProfile>
                         </div>
                       </HeaderGlobalBar>
-                      <MastheadLeftNav
-                        backButtonText="Back"
-                        isSideNavExpanded={false}
-                        navType="eco"
-                        navigation={Array []}
-                        platform={
-                          Object {
-                            "name": "IBM Cloud",
-                            "url": "https://www.ibm.com/cloud",
-                          }
-                        }
-                      >
-                        <ForwardRef(SideNav)
-                          addFocusListeners={true}
-                          addMouseListeners={true}
-                          aria-label="Side navigation"
-                          defaultExpanded={false}
-                          expanded={false}
-                          isChildOfHeader={true}
-                          isFixedNav={false}
-                          isPersistent={false}
-                          translateById={[Function]}
-                        >
-                          <div
-                            className="bx--side-nav__overlay"
-                          />
-                          <nav
-                            aria-label="Side navigation"
-                            className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                            onBlur={[Function]}
-                            onFocus={[Function]}
-                          >
-                            <nav
-                              data-autoid="dds--masthead-eco-sidenav__l0"
-                            >
-                              <a
-                                aria-haspopup="true"
-                                className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                                data-autoid="dds--masthead-eco-sidenav__l0-productname"
-                                href="https://www.ibm.com/cloud"
-                              >
-                                IBM Cloud
-                              </a>
-                              <SideNavItems>
-                                <ul
-                                  className="bx--side-nav__items"
-                                >
-                                  <HeaderSideNavItems
-                                    hasDivider={false}
-                                    key=".0"
-                                  >
-                                    <div
-                                      className="bx--side-nav__header-navigation"
-                                    />
-                                  </HeaderSideNavItems>
-                                </ul>
-                              </SideNavItems>
-                            </nav>
-                          </nav>
-                        </ForwardRef(SideNav)>
-                      </MastheadLeftNav>
                     </header>
                   </Header>
                 </div>
@@ -49118,14 +48961,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                       </SkipToContent>
                       <HeaderMenuButton
                         aria-label="Open menu"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-default-sidenav__l0-menu"
                         isActive={false}
                         onClick={[Function]}
                       >
                         <button
                           aria-label="Open menu"
                           className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                          data-autoid="dds--masthead__hamburger"
+                          data-autoid="dds--masthead-default-sidenav__l0-menu"
                           onClick={[Function]}
                           title="Open menu"
                           type="button"
@@ -49445,54 +49288,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           </MastheadProfile>
                         </div>
                       </HeaderGlobalBar>
-                      <MastheadLeftNav
-                        backButtonText="Back"
-                        isSideNavExpanded={false}
-                        navType="default"
-                        navigation={Array []}
-                        platform={null}
-                      >
-                        <ForwardRef(SideNav)
-                          addFocusListeners={true}
-                          addMouseListeners={true}
-                          aria-label="Side navigation"
-                          defaultExpanded={false}
-                          expanded={false}
-                          isChildOfHeader={true}
-                          isFixedNav={false}
-                          isPersistent={false}
-                          translateById={[Function]}
-                        >
-                          <div
-                            className="bx--side-nav__overlay"
-                          />
-                          <nav
-                            aria-label="Side navigation"
-                            className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                            onBlur={[Function]}
-                            onFocus={[Function]}
-                          >
-                            <nav
-                              data-autoid="dds--masthead-default-sidenav__l0"
-                            >
-                              <SideNavItems>
-                                <ul
-                                  className="bx--side-nav__items"
-                                >
-                                  <HeaderSideNavItems
-                                    hasDivider={false}
-                                    key=".0"
-                                  >
-                                    <div
-                                      className="bx--side-nav__header-navigation"
-                                    />
-                                  </HeaderSideNavItems>
-                                </ul>
-                              </SideNavItems>
-                            </nav>
-                          </nav>
-                        </ForwardRef(SideNav)>
-                      </MastheadLeftNav>
                     </header>
                   </Header>
                 </div>
@@ -64556,14 +64351,14 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                   </SkipToContent>
                   <HeaderMenuButton
                     aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
+                    data-autoid="dds--masthead-default-sidenav__l0-menu"
                     isActive={false}
                     onClick={[Function]}
                   >
                     <button
                       aria-label="Open menu"
                       className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       onClick={[Function]}
                       title="Open menu"
                       type="button"
@@ -64883,54 +64678,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       </MastheadProfile>
                     </div>
                   </HeaderGlobalBar>
-                  <MastheadLeftNav
-                    backButtonText="Back"
-                    isSideNavExpanded={false}
-                    navType="default"
-                    navigation={Array []}
-                    platform={null}
-                  >
-                    <ForwardRef(SideNav)
-                      addFocusListeners={true}
-                      addMouseListeners={true}
-                      aria-label="Side navigation"
-                      defaultExpanded={false}
-                      expanded={false}
-                      isChildOfHeader={true}
-                      isFixedNav={false}
-                      isPersistent={false}
-                      translateById={[Function]}
-                    >
-                      <div
-                        className="bx--side-nav__overlay"
-                      />
-                      <nav
-                        aria-label="Side navigation"
-                        className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        <nav
-                          data-autoid="dds--masthead-default-sidenav__l0"
-                        >
-                          <SideNavItems>
-                            <ul
-                              className="bx--side-nav__items"
-                            >
-                              <HeaderSideNavItems
-                                hasDivider={false}
-                                key=".0"
-                              >
-                                <div
-                                  className="bx--side-nav__header-navigation"
-                                />
-                              </HeaderSideNavItems>
-                            </ul>
-                          </SideNavItems>
-                        </nav>
-                      </nav>
-                    </ForwardRef(SideNav)>
-                  </MastheadLeftNav>
                 </header>
               </Header>
             </div>
@@ -65001,14 +64748,14 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                   </SkipToContent>
                   <HeaderMenuButton
                     aria-label="Open menu"
-                    data-autoid="dds--masthead__hamburger"
+                    data-autoid="dds--masthead-default-sidenav__l0-menu"
                     isActive={false}
                     onClick={[Function]}
                   >
                     <button
                       aria-label="Open menu"
                       className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-default-sidenav__l0-menu"
                       onClick={[Function]}
                       title="Open menu"
                       type="button"
@@ -65498,54 +65245,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       </MastheadProfile>
                     </div>
                   </HeaderGlobalBar>
-                  <MastheadLeftNav
-                    backButtonText="Back"
-                    isSideNavExpanded={false}
-                    navType="default"
-                    navigation={Array []}
-                    platform={null}
-                  >
-                    <ForwardRef(SideNav)
-                      addFocusListeners={true}
-                      addMouseListeners={true}
-                      aria-label="Side navigation"
-                      defaultExpanded={false}
-                      expanded={false}
-                      isChildOfHeader={true}
-                      isFixedNav={false}
-                      isPersistent={false}
-                      translateById={[Function]}
-                    >
-                      <div
-                        className="bx--side-nav__overlay"
-                      />
-                      <nav
-                        aria-label="Side navigation"
-                        className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        <nav
-                          data-autoid="dds--masthead-default-sidenav__l0"
-                        >
-                          <SideNavItems>
-                            <ul
-                              className="bx--side-nav__items"
-                            >
-                              <HeaderSideNavItems
-                                hasDivider={false}
-                                key=".0"
-                              >
-                                <div
-                                  className="bx--side-nav__header-navigation"
-                                />
-                              </HeaderSideNavItems>
-                            </ul>
-                          </SideNavItems>
-                        </nav>
-                      </nav>
-                    </ForwardRef(SideNav)>
-                  </MastheadLeftNav>
                 </header>
               </Header>
             </div>
@@ -65656,14 +65355,14 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                     </SkipToContent>
                     <HeaderMenuButton
                       aria-label="Open menu"
-                      data-autoid="dds--masthead__hamburger"
+                      data-autoid="dds--masthead-eco-sidenav__l0-menu"
                       isActive={false}
                       onClick={[Function]}
                     >
                       <button
                         aria-label="Open menu"
                         className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
-                        data-autoid="dds--masthead__hamburger"
+                        data-autoid="dds--masthead-eco-sidenav__l0-menu"
                         onClick={[Function]}
                         title="Open menu"
                         type="button"
@@ -66008,67 +65707,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                         </MastheadProfile>
                       </div>
                     </HeaderGlobalBar>
-                    <MastheadLeftNav
-                      backButtonText="Back"
-                      isSideNavExpanded={false}
-                      navType="eco"
-                      navigation={Array []}
-                      platform={
-                        Object {
-                          "name": "IBM Cloud",
-                          "url": "https://www.ibm.com/cloud",
-                        }
-                      }
-                    >
-                      <ForwardRef(SideNav)
-                        addFocusListeners={true}
-                        addMouseListeners={true}
-                        aria-label="Side navigation"
-                        defaultExpanded={false}
-                        expanded={false}
-                        isChildOfHeader={true}
-                        isFixedNav={false}
-                        isPersistent={false}
-                        translateById={[Function]}
-                      >
-                        <div
-                          className="bx--side-nav__overlay"
-                        />
-                        <nav
-                          aria-label="Side navigation"
-                          className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
-                          onBlur={[Function]}
-                          onFocus={[Function]}
-                        >
-                          <nav
-                            data-autoid="dds--masthead-eco-sidenav__l0"
-                          >
-                            <a
-                              aria-haspopup="true"
-                              className="bx--side-nav__submenu bx--side-nav__submenu-platform"
-                              data-autoid="dds--masthead-eco-sidenav__l0-productname"
-                              href="https://www.ibm.com/cloud"
-                            >
-                              IBM Cloud
-                            </a>
-                            <SideNavItems>
-                              <ul
-                                className="bx--side-nav__items"
-                              >
-                                <HeaderSideNavItems
-                                  hasDivider={false}
-                                  key=".0"
-                                >
-                                  <div
-                                    className="bx--side-nav__header-navigation"
-                                  />
-                                </HeaderSideNavItems>
-                              </ul>
-                            </SideNavItems>
-                          </nav>
-                        </nav>
-                      </ForwardRef(SideNav)>
-                    </MastheadLeftNav>
                   </header>
                 </Header>
               </div>

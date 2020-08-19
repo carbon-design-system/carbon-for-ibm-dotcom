@@ -112,6 +112,10 @@
     }
   }
 
+  .#{$prefix}--side-nav__menu--hasactivechildren {
+    overflow: hidden;
+  }
+
   a.#{$prefix}--side-nav__link {
     height: carbon--mini-units(6);
     @include carbon--type-style(body-short-02);
