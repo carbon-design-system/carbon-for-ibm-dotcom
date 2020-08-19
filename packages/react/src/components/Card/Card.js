@@ -129,7 +129,7 @@ export const cardPropTypes = {
   disabled: PropTypes.bool,
 
   /**
-   * Disable card linkaaas
+   * Pictogram located at the bottom left side of the Card. Should be used without a CTA. (experimental)
    */
   pictogram: PropTypes.node,
 
