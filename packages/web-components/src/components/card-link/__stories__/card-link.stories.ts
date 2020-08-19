@@ -28,6 +28,17 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Card Link',
+  decorators: [
+    story => html`
+      <div class="bx--grid bx--grid--condensed">
+        <div class="bx--row">
+          <div class="bx--col-lg-9">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
