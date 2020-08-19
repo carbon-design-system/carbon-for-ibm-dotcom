@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.9.0...@carbon/ibmdotcom-utilities@1.10.0-rc.0) (2020-08-19)
+
+### Bug Fixes
+
+- **MegaMenu:** prevent menu items from overlapping
+  ([#3565](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3565))
+  ([8bd6375](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8bd6375)),
+  closes
+  [#3519](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3519)
+
+### Features
+
+- **left-nav:** support focus wrapping
+  ([#3348](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3348))
+  ([8414000](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8414000)),
+  closes
+  [#3160](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3160)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.9.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.9.0-rc.1...@carbon/ibmdotcom-utilities@1.9.0) (2020-07-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0...@carbon/ibmdotcom-services@1.10.0-rc.0) (2020-08-19)
+
+### Bug Fixes
+
+- **devenv:** use ibm-common.js
+  ([#3578](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3578))
+  ([36b148c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36b148c)),
+  closes
+  [#3575](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3575)
+- **VideoPlayerAPI:** stop video when modal closes
+  ([#3427](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3427))
+  ([b61b5ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b61b5ee)),
+  closes
+  [#3295](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3295)
+
+### Features
+
+- **masthead:** support profile API
+  ([#3463](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3463))
+  ([1f41b05](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f41b05)),
+  closes
+  [#3432](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3432)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.9.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0-rc.1...@carbon/ibmdotcom-services@1.9.0) (2020-07-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

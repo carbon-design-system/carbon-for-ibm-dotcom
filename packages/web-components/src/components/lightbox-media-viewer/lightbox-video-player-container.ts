@@ -10,9 +10,9 @@
 import { html, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import on from 'carbon-components/es/globals/js/misc/on';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
-import Handle from '../../globals/internal/handle';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-container.scss';
 
@@ -24,36 +24,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-lightbox-video-player-container
  */
 @customElement(`${ddsPrefix}-lightbox-video-player-container`)
-class DDSLightboxMediaViewerContainer extends DDSVideoPlayerContainer {
-  /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
-   */
-  private _hCloseModal: Handle | null = null;
-
+class DDSLightboxMediaViewerContainer extends HostListenerMixin(DDSVideoPlayerContainer) {
   /**
    * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
    */
+  @HostListener('eventCloseModal')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleCloseModal() {
     if (this._kWidget) {
       (this._kWidget as any).sendNotification('doStop');
     }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    // Manually hooks the event listeners on the host element to make the event names configurable
-    this._hCloseModal = on(
-      this,
-      (this.constructor as typeof DDSLightboxMediaViewerContainer).eventCloseModal,
-      this._handleCloseModal as EventListener
-    );
-  }
-
-  disconnectedCallback() {
-    if (this._hCloseModal) {
-      this._hCloseModal = this._hCloseModal.release();
-    }
-    super.disconnectedCallback();
   }
 
   createLightRenderRoot() {
