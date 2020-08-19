@@ -19,40 +19,45 @@ const { prefix } = settings;
  * Footer legal nav component.
  */
 const LegalNav = ({ links, type, button }) => {
+  if (!links?.length) {
+    return null;
+  }
+
   const listStyle = cx({
     [`${prefix}--legal-nav__micro`]: type === 'micro',
   });
 
   return (
-    links && (
-      <aside
-        data-autoid={`${stablePrefix}--footer-legal-nav`}
-        className={`${prefix}--legal-nav__container`}>
-        <nav className={`${prefix}--legal-nav`}>
-          <div className={`${prefix}--legal-nav__list ${listStyle}`}>
-            <ul className={`${prefix}--legal-nav__holder`}>
-              {links.map((link, index) => {
-                return (
-                  <li className={`${prefix}--legal-nav__list-item`} key={index}>
-                    <Link
-                      data-autoid={`${stablePrefix}--footer-legal-nav__link`}
-                      className={`${prefix}--footer__link`}
-                      href={link.url}>
-                      {link.title}
-                    </Link>
-                  </li>
-                );
-              })}
-              <li
-                className={`${prefix}--legal-nav__list-item`}
-                data-autoid={`${stablePrefix}--privacy-cp`}
-              />
-            </ul>
-            {button}
-          </div>
-        </nav>
-      </aside>
-    )
+    <aside
+      data-autoid={`${stablePrefix}--footer-legal-nav`}
+      className={`${prefix}--legal-nav__container`}>
+      <nav className={`${prefix}--legal-nav`}>
+        <div className={`${prefix}--legal-nav__list ${listStyle}`}>
+          <ul className={`${prefix}--legal-nav__holder`}>
+            {links.map(({ title, url }, index) => {
+              if (!title || !url) {
+                return null;
+              }
+              return (
+                <li className={`${prefix}--legal-nav__list-item`} key={index}>
+                  <Link
+                    data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+                    className={`${prefix}--footer__link`}
+                    href={url}>
+                    {title}
+                  </Link>
+                </li>
+              );
+            })}
+            <li
+              className={`${prefix}--legal-nav__list-item`}
+              data-autoid={`${stablePrefix}--privacy-cp`}
+            />
+          </ul>
+          {button}
+        </div>
+      </nav>
+    </aside>
   );
 };
 
