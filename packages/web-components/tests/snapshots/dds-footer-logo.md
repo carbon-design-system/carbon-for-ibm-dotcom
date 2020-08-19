@@ -2,10 +2,11 @@
 
 ## `Misc attributes`
 
-#### `should render with minimum attributes`
+####   `should render with minimum attributes`
 
 ```
 <a
+  aria-label="IBM logo"
   class="bx--footer-logo__link"
   href="https://www.ibm.com/"
 >
@@ -15,10 +16,11 @@
 
 ```
 
-#### `should render with various attributes`
+####   `should render with various attributes`
 
 ```
 <a
+  aria-label="IBM logo"
   class="bx--footer-logo__link"
   href="https://cloud.ibm.com/"
 >
@@ -27,3 +29,4 @@
 </a>
 
 ```
+

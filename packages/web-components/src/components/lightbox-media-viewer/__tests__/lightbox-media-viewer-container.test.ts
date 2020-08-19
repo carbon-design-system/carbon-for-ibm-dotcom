@@ -15,7 +15,7 @@ const videoPlayerTemplate = (props?) =>
   EmbeddedVideoPlayer({
     parameters: {
       props: {
-        'dds-lightbox-video-player-container': props,
+        LightboxVideoPlayerContainer: props,
       },
     },
   });

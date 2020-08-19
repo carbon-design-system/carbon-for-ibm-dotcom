@@ -34,7 +34,7 @@ const sizes = {
 
 export const Default = ({ parameters }) => {
   const { autofocus, disabled, download, href, hreflang, kind, ping, rel, size, target, type, onClick } =
-    parameters?.props?.['dds-btn'] ?? {};
+    parameters?.props?.Button ?? {};
   return html`
     <dds-btn
       ?autofocus="${autofocus}"
@@ -56,7 +56,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const icon = ({ parameters }) => {
-  const { kind, disabled, size, href, onClick } = parameters?.props?.['dds-btn'] ?? {};
+  const { kind, disabled, size, href, onClick } = parameters?.props?.Button ?? {};
   return html`
     <dds-btn
       kind=${ifNonNull(kind)}
@@ -71,7 +71,7 @@ export const icon = ({ parameters }) => {
 };
 
 export const textAndIcon = ({ parameters }) => {
-  const { kind, disabled, size, href, onClick } = parameters?.props?.['dds-btn'] ?? {};
+  const { kind, disabled, size, href, onClick } = parameters?.props?.Button ?? {};
   return html`
     <dds-btn
       kind=${ifNonNull(kind)}
@@ -94,11 +94,11 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-btn': () => ({
-        kind: select('Button kind (kind)', kinds, BUTTON_KIND.PRIMARY),
-        disabled: boolean('Disabled (disabled)', false),
-        size: select('Button size (size)', sizes, null),
-        href: textNullable('Link href (href)', ''),
+      Button: ({ groupId }) => ({
+        kind: select('Button kind (kind)', kinds, BUTTON_KIND.PRIMARY, groupId),
+        disabled: boolean('Disabled (disabled)', false, groupId),
+        size: select('Button size (size)', sizes, null, groupId),
+        href: textNullable('Link href (href)', '', groupId),
         onClick: action('click'),
       }),
     },

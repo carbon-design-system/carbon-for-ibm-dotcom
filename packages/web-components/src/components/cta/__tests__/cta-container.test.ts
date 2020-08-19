@@ -23,7 +23,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-cta-container': props,
+        CTAContainer: props,
       },
     },
   });

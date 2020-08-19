@@ -102,7 +102,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-footer-composite': props,
+        FooterComposite: props,
         Other: {
           useMock: true,
         },

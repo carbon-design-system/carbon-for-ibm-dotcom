@@ -258,10 +258,21 @@ const Masthead = ({
 
               {(mastheadL1Data || navigation) && (
                 <HeaderMenuButton
-                  aria-label="Open menu"
-                  data-autoid={`${stablePrefix}--masthead__hamburger`}
+                  aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
+                  data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
                   onClick={onClickSideNavExpand}
                   isActive={isSideNavExpanded}
+                />
+              )}
+
+              {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                <MastheadLeftNav
+                  {...mastheadProps}
+                  backButtonText="Back"
+                  platform={platform}
+                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
+                  isSideNavExpanded={isSideNavExpanded}
+                  navType={navType}
                 />
               )}
 
@@ -310,17 +321,6 @@ const Masthead = ({
                     navType={navType}
                   />
                 </HeaderGlobalBar>
-              )}
-
-              {(navigation || mastheadL1Data) && (
-                <MastheadLeftNav
-                  {...mastheadProps}
-                  backButtonText="Back"
-                  platform={platform}
-                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
-                  isSideNavExpanded={isSideNavExpanded}
-                  navType={navType}
-                />
               )}
             </Header>
           </div>

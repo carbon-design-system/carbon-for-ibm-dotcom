@@ -17,7 +17,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card-link';
 
 export const Default = ({ parameters }) => {
-  const { disabled, href } = parameters?.props?.['dds-card-link'] ?? {};
+  const { disabled, href } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -28,12 +28,23 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Card Link',
+  decorators: [
+    story => html`
+      <div class="bx--grid bx--grid--condensed">
+        <div class="bx--row">
+          <div class="bx--col-lg-9">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
-      'dds-card-link': () => ({
-        disabled: boolean('Disabled (disabled):', false),
-        href: textNullable('Card Href (href):', 'https://example.com'),
+      CardLink: ({ groupId }) => ({
+        disabled: boolean('Disabled (disabled):', false, groupId),
+        href: textNullable('Card Href (href):', 'https://example.com', groupId),
       }),
     },
   },
