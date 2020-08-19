@@ -31,6 +31,7 @@ export const Card = ({
   customClassName,
   copy,
   cta,
+  pictogram,
   ...props
 }) => {
   const TileType = props.disabled ? Tile : ClickableTile;
@@ -57,7 +58,7 @@ export const Card = ({
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta)}
+        {renderFooter(cta, pictogram)}
       </div>
     </TileType>
   );
@@ -85,7 +86,7 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta) {
+function renderFooter(cta, pictogram) {
   return (
     cta && (
       <div
@@ -99,6 +100,7 @@ function renderFooter(cta) {
         {cta.icon?.src && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
         )}
+        {pictogram && pictogram}
       </div>
     )
   );
@@ -125,6 +127,11 @@ export const cardPropTypes = {
    * Disable card link
    */
   disabled: PropTypes.bool,
+
+  /**
+   * Disable card linkaaas
+   */
+  pictogram: PropTypes.node,
 
   /**
    * CTA options. Has the following structure in summary:
