@@ -86,7 +86,6 @@
 
       .#{$prefix}--locale-btn__container {
         margin: 0;
-        text-align: right;
 
         @include carbon--breakpoint('md') {
           align-self: flex-end;
