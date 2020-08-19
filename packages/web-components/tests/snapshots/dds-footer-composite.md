@@ -24,8 +24,8 @@
       data-autoid="dds--footer-legal-nav"
       role="complementary"
     >
-      <dds-legal-nav-cookie-perferences-placeholder data-autoid="dds--privacy-cp">
-      </dds-legal-nav-cookie-perferences-placeholder>
+      <dds-legal-nav-cookie-preferences-placeholder data-autoid="dds--privacy-cp">
+      </dds-legal-nav-cookie-preferences-placeholder>
     </dds-legal-nav>
   </dds-footer>
 </dds-footer-composite>
@@ -107,8 +107,8 @@
       >
         title-bar
       </dds-legal-nav-item>
-      <dds-legal-nav-cookie-perferences-placeholder data-autoid="dds--privacy-cp">
-      </dds-legal-nav-cookie-perferences-placeholder>
+      <dds-legal-nav-cookie-preferences-placeholder data-autoid="dds--privacy-cp">
+      </dds-legal-nav-cookie-preferences-placeholder>
     </dds-legal-nav>
   </dds-footer>
 </dds-footer-composite>

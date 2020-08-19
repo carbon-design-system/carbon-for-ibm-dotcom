@@ -212,7 +212,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
               <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
-          <dds-legal-nav-cookie-perferences-placeholder></dds-legal-nav-cookie-perferences-placeholder>
+          <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
         </dds-legal-nav>
       </dds-footer>
     `;

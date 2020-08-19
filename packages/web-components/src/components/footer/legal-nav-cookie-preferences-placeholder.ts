@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Legal nav item, working as a placeholder for cookie perference link.
  *
- * @element dds-legal-nav-cookie-perferences-placeholder
+ * @element dds-legal-nav-cookie-preferences-placeholder
  */
 @customElement(`${ddsPrefix}-legal-nav-cookie-preferences-placeholder`)
 class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitElement) {
