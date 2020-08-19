@@ -37534,29 +37534,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           <LegalNav
             button={null}
             links={Array []}
-          >
-            <aside
-              className="bx--legal-nav__container"
-              data-autoid="dds--footer-legal-nav"
-            >
-              <nav
-                className="bx--legal-nav"
-              >
-                <div
-                  className="bx--legal-nav__list "
-                >
-                  <ul
-                    className="bx--legal-nav__holder"
-                  >
-                    <li
-                      className="bx--legal-nav__list-item"
-                      data-autoid="dds--privacy-cp"
-                    />
-                  </ul>
-                </div>
-              </nav>
-            </aside>
-          </LegalNav>
+          />
         </footer>
       </Footer>
     </DotcomShell>
@@ -43267,29 +43245,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
             <LegalNav
               button={null}
               links={Array []}
-            >
-              <aside
-                className="bx--legal-nav__container"
-                data-autoid="dds--footer-legal-nav"
-              >
-                <nav
-                  className="bx--legal-nav"
-                >
-                  <div
-                    className="bx--legal-nav__list "
-                  >
-                    <ul
-                      className="bx--legal-nav__holder"
-                    >
-                      <li
-                        className="bx--legal-nav__list-item"
-                        data-autoid="dds--privacy-cp"
-                      />
-                    </ul>
-                  </div>
-                </nav>
-              </aside>
-            </LegalNav>
+            />
           </footer>
         </Footer>
       </DotcomShell>
@@ -48732,102 +48688,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
               }
               links={Array []}
               type="micro"
-            >
-              <aside
-                className="bx--legal-nav__container"
-                data-autoid="dds--footer-legal-nav"
-              >
-                <nav
-                  className="bx--legal-nav"
-                >
-                  <div
-                    className="bx--legal-nav__list bx--legal-nav__micro"
-                  >
-                    <ul
-                      className="bx--legal-nav__holder"
-                    >
-                      <li
-                        className="bx--legal-nav__list-item"
-                        data-autoid="dds--privacy-cp"
-                      />
-                    </ul>
-                    <LocaleButton
-                      aria=""
-                      displayLang=""
-                    >
-                      <div
-                        className="bx--locale-btn__container"
-                      >
-                        <Button
-                          aria-label=""
-                          className="bx--locale-btn"
-                          data-autoid="dds--locale-btn"
-                          disabled={false}
-                          iconDescription="Earth Filled Icon"
-                          kind="secondary"
-                          onClick={[Function]}
-                          renderIcon={
-                            Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            }
-                          }
-                          size="default"
-                          tabIndex={0}
-                          type="button"
-                        >
-                          <button
-                            aria-label=""
-                            className="bx--locale-btn bx--btn bx--btn--secondary"
-                            data-autoid="dds--locale-btn"
-                            disabled={false}
-                            onClick={[Function]}
-                            tabIndex={0}
-                            type="button"
-                          >
-                            <ForwardRef(EarthFilled20)
-                              aria-hidden="true"
-                              aria-label="Earth Filled Icon"
-                              className="bx--btn__icon"
-                            >
-                              <Icon
-                                aria-hidden="true"
-                                aria-label="Earth Filled Icon"
-                                className="bx--btn__icon"
-                                fill="currentColor"
-                                height={20}
-                                preserveAspectRatio="xMidYMid meet"
-                                viewBox="0 0 32 32"
-                                width={20}
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  aria-label="Earth Filled Icon"
-                                  className="bx--btn__icon"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  role="img"
-                                  viewBox="0 0 32 32"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2ZM4.02,16.394l1.3384.4458L7,19.3027v1.2831a1,1,0,0,0,.2929.7071L10,24v2.3765A11.9941,11.9941,0,0,1,4.02,16.394ZM16,28a11.9682,11.9682,0,0,1-2.5718-.2847L14,26l1.8046-4.5116a1,1,0,0,0-.0964-.9261l-1.4113-2.117A1,1,0,0,0,13.4648,18h-4.93L7.2866,16.1274,9.4141,14H11v2h2V13.2656l3.8682-6.7695-1.7364-.9922L14.2769,7H11.5352l-1.086-1.6289A11.861,11.861,0,0,1,20,4.7V8a1,1,0,0,0,1,1h1.4648a1,1,0,0,0,.8321-.4453l.8769-1.3154A12.0331,12.0331,0,0,1,26.8945,11H22.82a1,1,0,0,0-.9806.8039l-.7221,4.4708a1,1,0,0,0,.54,1.0539L25,19l.6851,4.0557A11.9793,11.9793,0,0,1,16,28Z"
-                                  />
-                                </svg>
-                              </Icon>
-                            </ForwardRef(EarthFilled20)>
-                          </button>
-                        </Button>
-                      </div>
-                    </LocaleButton>
-                  </div>
-                </nav>
-              </aside>
-            </LegalNav>
+            />
           </footer>
         </Footer>
       </DotcomShell>
@@ -54403,29 +54264,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
             <LegalNav
               button={null}
               links={Array []}
-            >
-              <aside
-                className="bx--legal-nav__container"
-                data-autoid="dds--footer-legal-nav"
-              >
-                <nav
-                  className="bx--legal-nav"
-                >
-                  <div
-                    className="bx--legal-nav__list "
-                  >
-                    <ul
-                      className="bx--legal-nav__holder"
-                    >
-                      <li
-                        className="bx--legal-nav__list-item"
-                        data-autoid="dds--privacy-cp"
-                      />
-                    </ul>
-                  </div>
-                </nav>
-              </aside>
-            </LegalNav>
+            />
           </footer>
         </Footer>
       </DotcomShell>
@@ -59966,29 +59805,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
               button={null}
               links={Array []}
               type="short"
-            >
-              <aside
-                className="bx--legal-nav__container"
-                data-autoid="dds--footer-legal-nav"
-              >
-                <nav
-                  className="bx--legal-nav"
-                >
-                  <div
-                    className="bx--legal-nav__list "
-                  >
-                    <ul
-                      className="bx--legal-nav__holder"
-                    >
-                      <li
-                        className="bx--legal-nav__list-item"
-                        data-autoid="dds--privacy-cp"
-                      />
-                    </ul>
-                  </div>
-                </nav>
-              </aside>
-            </LegalNav>
+            />
           </footer>
         </Footer>
       </DotcomShell>
@@ -61275,29 +61092,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
         <LegalNav
           button={null}
           links={Array []}
-        >
-          <aside
-            className="bx--legal-nav__container"
-            data-autoid="dds--footer-legal-nav"
-          >
-            <nav
-              className="bx--legal-nav"
-            >
-              <div
-                className="bx--legal-nav__list "
-              >
-                <ul
-                  className="bx--legal-nav__holder"
-                >
-                  <li
-                    className="bx--legal-nav__list-item"
-                    data-autoid="dds--privacy-cp"
-                  />
-                </ul>
-              </div>
-            </nav>
-          </aside>
-        </LegalNav>
+        />
       </footer>
     </Footer>
   </div>
@@ -61370,102 +61165,7 @@ exports[`Storyshots Components|Footer Micro 1`] = `
             }
             links={Array []}
             type="micro"
-          >
-            <aside
-              className="bx--legal-nav__container"
-              data-autoid="dds--footer-legal-nav"
-            >
-              <nav
-                className="bx--legal-nav"
-              >
-                <div
-                  className="bx--legal-nav__list bx--legal-nav__micro"
-                >
-                  <ul
-                    className="bx--legal-nav__holder"
-                  >
-                    <li
-                      className="bx--legal-nav__list-item"
-                      data-autoid="dds--privacy-cp"
-                    />
-                  </ul>
-                  <LocaleButton
-                    aria=""
-                    displayLang=""
-                  >
-                    <div
-                      className="bx--locale-btn__container"
-                    >
-                      <Button
-                        aria-label=""
-                        className="bx--locale-btn"
-                        data-autoid="dds--locale-btn"
-                        disabled={false}
-                        iconDescription="Earth Filled Icon"
-                        kind="secondary"
-                        onClick={[Function]}
-                        renderIcon={
-                          Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "render": [Function],
-                          }
-                        }
-                        size="default"
-                        tabIndex={0}
-                        type="button"
-                      >
-                        <button
-                          aria-label=""
-                          className="bx--locale-btn bx--btn bx--btn--secondary"
-                          data-autoid="dds--locale-btn"
-                          disabled={false}
-                          onClick={[Function]}
-                          tabIndex={0}
-                          type="button"
-                        >
-                          <ForwardRef(EarthFilled20)
-                            aria-hidden="true"
-                            aria-label="Earth Filled Icon"
-                            className="bx--btn__icon"
-                          >
-                            <Icon
-                              aria-hidden="true"
-                              aria-label="Earth Filled Icon"
-                              className="bx--btn__icon"
-                              fill="currentColor"
-                              height={20}
-                              preserveAspectRatio="xMidYMid meet"
-                              viewBox="0 0 32 32"
-                              width={20}
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                aria-label="Earth Filled Icon"
-                                className="bx--btn__icon"
-                                fill="currentColor"
-                                focusable="false"
-                                height={20}
-                                preserveAspectRatio="xMidYMid meet"
-                                role="img"
-                                viewBox="0 0 32 32"
-                                width={20}
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2ZM4.02,16.394l1.3384.4458L7,19.3027v1.2831a1,1,0,0,0,.2929.7071L10,24v2.3765A11.9941,11.9941,0,0,1,4.02,16.394ZM16,28a11.9682,11.9682,0,0,1-2.5718-.2847L14,26l1.8046-4.5116a1,1,0,0,0-.0964-.9261l-1.4113-2.117A1,1,0,0,0,13.4648,18h-4.93L7.2866,16.1274,9.4141,14H11v2h2V13.2656l3.8682-6.7695-1.7364-.9922L14.2769,7H11.5352l-1.086-1.6289A11.861,11.861,0,0,1,20,4.7V8a1,1,0,0,0,1,1h1.4648a1,1,0,0,0,.8321-.4453l.8769-1.3154A12.0331,12.0331,0,0,1,26.8945,11H22.82a1,1,0,0,0-.9806.8039l-.7221,4.4708a1,1,0,0,0,.54,1.0539L25,19l.6851,4.0557A11.9793,11.9793,0,0,1,16,28Z"
-                                />
-                              </svg>
-                            </Icon>
-                          </ForwardRef(EarthFilled20)>
-                        </button>
-                      </Button>
-                    </div>
-                  </LocaleButton>
-                </div>
-              </nav>
-            </aside>
-          </LegalNav>
+          />
         </footer>
       </Footer>
     </Default>
@@ -61644,29 +61344,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
             button={null}
             links={Array []}
             type="short"
-          >
-            <aside
-              className="bx--legal-nav__container"
-              data-autoid="dds--footer-legal-nav"
-            >
-              <nav
-                className="bx--legal-nav"
-              >
-                <div
-                  className="bx--legal-nav__list "
-                >
-                  <ul
-                    className="bx--legal-nav__holder"
-                  >
-                    <li
-                      className="bx--legal-nav__list-item"
-                      data-autoid="dds--privacy-cp"
-                    />
-                  </ul>
-                </div>
-              </nav>
-            </aside>
-          </LegalNav>
+          />
         </footer>
       </Footer>
     </Default>
