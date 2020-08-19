@@ -33,61 +33,92 @@
   }
 
   .#{$prefix}--legal-nav__list {
-    @include carbon--make-col-ready;
+    width: 100%;
+    padding: 0 0 $carbon--layout-04 $carbon--spacing-05;
 
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: $carbon--layout-04;
-  }
-
-  .#{$prefix}--legal-nav__holder {
-    @include carbon--make-col-ready;
-    @include carbon--breakpoint-down('lg') {
-      @include carbon--make-col(4, 4);
-
+    &.#{$prefix}--legal-nav__micro {
       display: flex;
-      flex-direction: column;
+      padding-bottom: 0;
       padding-left: 0;
+      flex-direction: column-reverse;
 
       @include carbon--breakpoint('md') {
-        @include carbon--make-col(2, 4);
+        padding-left: 0;
+      }
 
-        display: flex;
-        flex-direction: column;
+      @include carbon--breakpoint('lg') {
+        justify-content: space-between;
+        flex-direction: row;
+      }
 
-        &:not(:first-child) {
-          padding-left: $carbon--layout-01;
+      .#{$prefix}--legal-nav__holder {
+        column-count: inherit;
+        margin-left: 0;
+        border-top: 1px solid $ui-03;
+        padding: 0 $carbon--spacing-05;
+
+        @include carbon--breakpoint('md') {
+          display: flex;
+          align-items: center;
+          padding: 0 $carbon--spacing-05 0;
         }
 
-        &:nth-child(odd):not(:first-child) {
-          padding-left: 0;
+        @include carbon--breakpoint('lg') {
+          border-top: none;
+        }
+
+        .#{$prefix}--legal-nav__list-item {
+          padding: 0;
+          margin-right: 0;
+
+          @include carbon--breakpoint('md') {
+            margin-right: $carbon--spacing-07;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: $carbon--spacing-09;
+          }
+        }
+      }
+
+      .#{$prefix}--locale-btn__container {
+        margin: 0;
+        text-align: right;
+
+        @include carbon--breakpoint('md') {
+          align-self: flex-end;
+          border-left: 1px solid $ui-03;
+        }
+
+        .#{$prefix}--btn--secondary {
+          background-color: $ui-background;
+          max-width: 100%;
         }
       }
     }
+  }
+
+  .#{$prefix}--legal-nav__holder {
+    margin-left: 0;
+
+    @include carbon--breakpoint('md') {
+      column-count: 2;
+    }
 
     @include carbon--breakpoint('lg') {
-      @include carbon--make-col(1, 4);
-
-      display: flex;
-      flex-direction: column;
-
-      &:nth-child(odd) {
-        padding-left: $carbon--spacing-06;
-      }
-      &:first-child {
-        @include carbon--make-col-offset(1, 4);
-
-        padding-left: $carbon--spacing-03;
-      }
+      margin-left: 25%;
+      column-count: 3;
     }
   }
 
   :host(#{$dds-prefix}-legal-nav-item),
   :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
-    display: inline-block;
     margin-right: carbon--mini-units(4);
-    padding: $spacing-05 0 0 0;
+    padding: $spacing-03 0 0 0;
 
     &:last-child {
       margin-right: 0;

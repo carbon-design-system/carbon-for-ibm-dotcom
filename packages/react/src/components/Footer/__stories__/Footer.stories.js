@@ -144,3 +144,22 @@ Short.story = {
     },
   },
 };
+
+/**
+ * Footer (micro)
+ *
+ * @returns {*} CSF story
+ */
+export const Micro = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'micro',
+      },
+    },
+  };
+
+  return <Default parameters={massagedParameters} />;
+};
