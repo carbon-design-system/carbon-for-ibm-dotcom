@@ -7,7 +7,9 @@
 
 import { text, boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import Bee from '@carbon/pictograms-react/lib/bee';
 import { Card } from '../';
+import { DDS_CARD_WITH_PICTOGRAM } from '../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -32,19 +34,22 @@ export default {
         ),
         copy: text('copy', '', groupId),
         inverse: boolean('inverse', false, groupId),
-        cta: {
-          href: text('Cta href (cta.href)', 'https://example.com', groupId),
-          copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
-          icon: {
-            src: ArrowRight20,
-          },
-          iconPlacement: select(
-            'Cta icon placement (cta.iconPlacement)',
-            ['left', 'right'],
-            'right',
-            groupId
-          ),
-        },
+        cta: !DDS_CARD_WITH_PICTOGRAM
+          ? {
+              href: text('Cta href (cta.href)', 'https://example.com', groupId),
+              copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
+              icon: {
+                src: ArrowRight20,
+              },
+              iconPlacement: select(
+                'Cta icon placement (cta.iconPlacement)',
+                ['left', 'right'],
+                'right',
+                groupId
+              ),
+            }
+          : null,
+        pictogram: DDS_CARD_WITH_PICTOGRAM ? <Bee /> : null,
       }),
     },
   },

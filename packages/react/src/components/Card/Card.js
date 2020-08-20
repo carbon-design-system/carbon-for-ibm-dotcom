@@ -87,7 +87,7 @@ function optionalContent(copy) {
  * @returns {object} JSX object
  */
 function renderFooter(cta, pictogram) {
-  return (
+  return [
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
@@ -100,10 +100,10 @@ function renderFooter(cta, pictogram) {
         {cta.icon?.src && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
         )}
-        {pictogram && pictogram}
       </div>
-    )
-  );
+    ),
+    pictogram && <div className={`${prefix}--card__foter`}>{pictogram}</div>,
+  ];
 }
 
 export const cardPropTypes = {
