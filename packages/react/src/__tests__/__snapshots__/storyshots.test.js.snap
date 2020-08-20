@@ -43289,8 +43289,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
           "props": Object {
             "DotcomShell": Object {
               "footerProps": Object {
-                "disableLocaleButton": false,
-                "isCustom": false,
                 "items": undefined,
                 "languageCallback": [Function],
                 "languageInitialItem": Object {
@@ -43298,7 +43296,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                   "text": "English",
                 },
                 "languageOnly": false,
-                "navigation": null,
                 "type": "micro",
               },
               "mastheadProps": Object {
@@ -43318,8 +43315,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
       <DotcomShell
         footerProps={
           Object {
-            "disableLocaleButton": false,
-            "isCustom": false,
             "items": undefined,
             "languageCallback": [Function],
             "languageInitialItem": Object {
@@ -43327,7 +43322,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
               "text": "English",
             },
             "languageOnly": false,
-            "navigation": null,
             "type": "micro",
           }
         }
@@ -48653,9 +48647,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
           </div>
         </div>
         <Footer
-          disableLocaleButton={false}
           footerProps={null}
-          isCustom={false}
           languageCallback={[Function]}
           languageInitialItem={
             Object {
@@ -48665,7 +48657,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
           }
           languageOnly={false}
           mastheadProps={null}
-          navigation={null}
           type="micro"
         >
           <footer
@@ -61123,6 +61114,9 @@ exports[`Storyshots Components|Footer Micro 1`] = `
           "docs": Object {},
           "fileName": "./components/Footer/__stories__/Footer.stories.js",
           "framework": "react",
+          "knobs": Object {
+            "Footer": [Function],
+          },
           "options": Object {
             "name": "IBM.com Library React",
             "storySort": [Function],
@@ -61130,6 +61124,13 @@ exports[`Storyshots Components|Footer Micro 1`] = `
           },
           "props": Object {
             "Footer": Object {
+              "items": undefined,
+              "languageCallback": [Function],
+              "languageInitialItem": Object {
+                "id": "en",
+                "text": "English",
+              },
+              "languageOnly": false,
               "type": "micro",
             },
           },
@@ -61140,7 +61141,15 @@ exports[`Storyshots Components|Footer Micro 1`] = `
       <Footer
         footerProps={null}
         langCode={null}
+        languageCallback={[Function]}
+        languageInitialItem={
+          Object {
+            "id": "en",
+            "text": "English",
+          }
+        }
         languageItems={null}
+        languageOnly={false}
         mastheadProps={null}
         navigation={null}
         type="micro"
