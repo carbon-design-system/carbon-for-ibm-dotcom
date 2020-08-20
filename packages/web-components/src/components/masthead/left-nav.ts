@@ -13,7 +13,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import BXSideNav, { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav';
 import focuswrap from '@carbon/ibmdotcom-utilities/es/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -36,7 +35,7 @@ const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONT
  * @element dds-left-nav
  */
 @customElement(`${ddsPrefix}-left-nav`)
-class DDSLeftNav extends StableSelectorMixin(HostListenerMixin(BXSideNav)) {
+class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   /**
    * The handle for focus wrapping.
    */
