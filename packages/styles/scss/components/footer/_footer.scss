@@ -36,6 +36,11 @@
     padding-top: carbon--mini-units(4);
   }
 
+  :host(#{$dds-prefix}-footer[size='micro']),
+  .#{$prefix}--footer--micro {
+    padding-top: 0;
+  }
+
   :host(#{$dds-prefix}-footer-nav-item),
   :host(#{$dds-prefix}-legal-nav-item),
   :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
