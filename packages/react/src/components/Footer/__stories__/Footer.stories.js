@@ -144,3 +144,63 @@ Short.story = {
     },
   },
 };
+
+/**
+ * Footer (micro)
+ *
+ * @returns {*} CSF story
+ */
+export const Micro = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'micro',
+      },
+    },
+  };
+
+  return <Default parameters={massagedParameters} />;
+};
+
+Micro.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const languageOnly =
+          DDS_LANGUAGE_SELECTOR &&
+          boolean(
+            'switch to the language selector (languageOnly)',
+            false,
+            groupId
+          );
+
+        /**
+         * Language callback demo function
+         *
+         * @param {string} selectedItem Selected item
+         */
+        const languageCallback = selectedItem => {
+          console.log(
+            'footer (language selector) selected item:',
+            selectedItem
+          );
+        };
+
+        return {
+          languageOnly,
+          items: !languageOnly
+            ? undefined
+            : object(
+                'language dropdown items (languageItems)',
+                languageItems,
+                groupId
+              ),
+          languageInitialItem: { id: 'en', text: 'English' },
+          languageCallback,
+        };
+      },
+    },
+  },
+};
