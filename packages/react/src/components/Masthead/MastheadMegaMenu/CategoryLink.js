@@ -15,6 +15,7 @@ const { prefix } = settings;
  */
 const CategoryLink = ({ href, title, ...rest }) => (
   <a
+    tabIndex={0}
     href={href}
     className={`${prefix}--masthead__megamenu__category-sublink`}
     data-autoid={`${rest.autoid}-item${rest.index}`}>
