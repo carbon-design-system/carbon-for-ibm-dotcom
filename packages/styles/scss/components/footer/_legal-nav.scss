@@ -84,7 +84,8 @@
         }
       }
 
-      .#{$prefix}--locale-btn__container {
+      .#{$prefix}--locale-btn__container,
+      .#{$prefix}--language-selector__container {
         margin: 0;
 
         @include carbon--breakpoint('md') {
@@ -92,9 +93,15 @@
           border-left: 1px solid $ui-03;
         }
 
-        .#{$prefix}--btn--secondary {
+        .#{$prefix}--btn--secondary,
+        .#{$prefix}--list-box {
           background-color: $ui-background;
           max-width: 100%;
+        }
+
+        .#{$prefix}--text-input,
+        .#{$prefix}--list-box {
+          border-bottom: none;
         }
       }
     }
