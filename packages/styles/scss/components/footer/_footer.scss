@@ -43,6 +43,7 @@
 
   :host(#{$dds-prefix}-footer-nav-item),
   :host(#{$dds-prefix}-legal-nav-item),
+  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--footer {
     .#{$prefix}--footer__link.#{$prefix}--link {
       &,

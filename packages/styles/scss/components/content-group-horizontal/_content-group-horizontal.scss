@@ -10,6 +10,12 @@
 
 @mixin content-group-horizontal {
   .#{$prefix}--content-group-horizontal {
+    .#{$prefix}--content-block__heading {
+      margin-bottom: $layout-05;
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $layout-06;
+      }
+    }
     .#{$prefix}--content-item-horizontal__item:last-child {
       @include carbon--breakpoint('max') {
         padding-bottom: $layout-07;

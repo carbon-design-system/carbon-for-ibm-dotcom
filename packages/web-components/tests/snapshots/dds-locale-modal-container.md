@@ -6,7 +6,7 @@
 
 ```
 <dds-locale-modal
-  data-auto-id="dds--locale-modal"
+  data-autoid="dds--locale-modal"
   lang-display=""
   tabindex="0"
 >
@@ -22,7 +22,7 @@
 
 ```
 <dds-locale-modal
-  data-auto-id="dds--locale-modal"
+  data-autoid="dds--locale-modal"
   lang-display=""
   open=""
   tabindex="0"

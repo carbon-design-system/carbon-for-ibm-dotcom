@@ -19,7 +19,7 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       super.connectedCallback();
       const { stableSelector } = this.constructor as typeof StableSelectorMixinImpl;
       if (stableSelector) {
-        this.dataset.autoId = stableSelector;
+        this.dataset.autoid = stableSelector;
       }
     }
 

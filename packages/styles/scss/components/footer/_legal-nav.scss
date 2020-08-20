@@ -121,6 +121,7 @@
   }
 
   :host(#{$dds-prefix}-legal-nav-item),
+  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     margin-right: carbon--mini-units(4);
     padding: $spacing-03 0 0 0;
