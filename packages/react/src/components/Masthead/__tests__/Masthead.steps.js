@@ -12,7 +12,9 @@ describe('Masthead', () => {
       await page.goto(
         `http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&knob-Use%20mock%20data=true`
       );
-      await page.click('[id="dds--masthead__hamburger"]');
+      await page.click(
+        '[data-autoid="dds--masthead"] .bx--header__menu-toggle'
+      );
       await page.click('button.bx--side-nav__submenu');
     });
 
