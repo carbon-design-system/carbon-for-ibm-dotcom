@@ -49,10 +49,6 @@ $search-transition-timing: 95ms;
     @include carbon--breakpoint-down(lg) {
       padding: 0 $carbon--spacing-05;
     }
-
-    @include carbon--breakpoint-between('md', 'lg') {
-      padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
-    }
   }
 }
 
@@ -392,6 +388,10 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
+  }
+
+  .#{$prefix}--header__action--active {
+    position: relative;
   }
 
   .#{$prefix}--masthead--hide-items .#{$prefix}--header__menu-toggle__hidden,

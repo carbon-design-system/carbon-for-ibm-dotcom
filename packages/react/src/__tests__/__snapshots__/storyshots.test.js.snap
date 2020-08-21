@@ -1171,12 +1171,14 @@ exports[`Storyshots Components|CTA Text 1`] = `
                       className="bx--link-with-icon"
                       href="https://www.example.com"
                       onClick={[Function]}
+                      tabIndex={0}
                       target={null}
                     >
                       <a
                         className="bx--link bx--link-with-icon"
                         href="https://www.example.com"
                         onClick={[Function]}
+                        tabIndex={0}
                         target={null}
                       >
                         <span>
@@ -1840,12 +1842,14 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                                   className="bx--link-with-icon"
                                   href="https://example.com/"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                   target={null}
                                 >
                                   <a
                                     className="bx--link bx--link-with-icon"
                                     href="https://example.com/"
                                     onClick={[Function]}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     <span>
@@ -1959,12 +1963,14 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                                   className="bx--link-with-icon"
                                   href="https://example.com/"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                   target={null}
                                 >
                                   <a
                                     className="bx--link bx--link-with-icon"
                                     href="https://example.com/"
                                     onClick={[Function]}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     <span>
@@ -2155,10 +2161,12 @@ exports[`Storyshots Components|CalloutQuote Default 1`] = `
                                 <Link
                                   className="bx--link-with-icon"
                                   href="https://example.com"
+                                  tabIndex={0}
                                 >
                                   <a
                                     className="bx--link bx--link-with-icon"
                                     href="https://example.com"
+                                    tabIndex={0}
                                   >
                                     <span>
                                       Link with Icon
@@ -20505,12 +20513,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--link-with-icon"
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
+                                                      tabIndex={0}
                                                       target={null}
                                                     >
                                                       <a
                                                         className="bx--link bx--link-with-icon"
                                                         href="https://www.ibm.com"
                                                         onClick={[Function]}
+                                                        tabIndex={0}
                                                         target={null}
                                                       >
                                                         <span>
@@ -20705,12 +20715,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--link-with-icon"
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
+                                                      tabIndex={0}
                                                       target={null}
                                                     >
                                                       <a
                                                         className="bx--link bx--link-with-icon"
                                                         href="https://www.ibm.com"
                                                         onClick={[Function]}
+                                                        tabIndex={0}
                                                         target={null}
                                                       >
                                                         <span>
@@ -20904,12 +20916,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--link-with-icon"
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
+                                                      tabIndex={0}
                                                       target={null}
                                                     >
                                                       <a
                                                         className="bx--link bx--link-with-icon"
                                                         href="https://www.ibm.com"
                                                         onClick={[Function]}
+                                                        tabIndex={0}
                                                         target={null}
                                                       >
                                                         <span>
@@ -22501,12 +22515,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                               className="bx--link-with-icon"
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <a
                                                                 className="bx--link bx--link-with-icon"
                                                                 href="https://www.ibm.com"
                                                                 onClick={[Function]}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 <span>
@@ -22701,12 +22717,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                               className="bx--link-with-icon"
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <a
                                                                 className="bx--link bx--link-with-icon"
                                                                 href="https://www.ibm.com"
                                                                 onClick={[Function]}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 <span>
@@ -22900,12 +22918,14 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                               className="bx--link-with-icon"
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <a
                                                                 className="bx--link bx--link-with-icon"
                                                                 href="https://www.ibm.com"
                                                                 onClick={[Function]}
+                                                                tabIndex={0}
                                                                 target={null}
                                                               >
                                                                 <span>
@@ -24140,12 +24160,14 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                                       className="bx--link-with-icon"
                                       href="https://example.com"
                                       onClick={[Function]}
+                                      tabIndex={0}
                                       target={null}
                                     >
                                       <a
                                         className="bx--link bx--link-with-icon"
                                         href="https://example.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <span>
@@ -24372,12 +24394,14 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                                       className="bx--link-with-icon"
                                       href="https://example.com"
                                       onClick={[Function]}
+                                      tabIndex={0}
                                       target={null}
                                     >
                                       <a
                                         className="bx--link bx--link-with-icon"
                                         href="https://example.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <span>
@@ -24886,12 +24910,14 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
                                       className="bx--link-with-icon"
                                       href="https://example.com"
                                       onClick={[Function]}
+                                      tabIndex={0}
                                       target={null}
                                     >
                                       <a
                                         className="bx--link bx--link-with-icon"
                                         href="https://example.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <span>
@@ -25118,12 +25144,14 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
                                       className="bx--link-with-icon"
                                       href="https://example.com"
                                       onClick={[Function]}
+                                      tabIndex={0}
                                       target={null}
                                     >
                                       <a
                                         className="bx--link bx--link-with-icon"
                                         href="https://example.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <span>
@@ -29312,12 +29340,14 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
                                                   className="bx--link-with-icon"
                                                   href="https://example.com"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <a
                                                     className="bx--link bx--link-with-icon"
                                                     href="https://example.com"
                                                     onClick={[Function]}
+                                                    tabIndex={0}
                                                     target={null}
                                                   >
                                                     <span>
@@ -29412,12 +29442,14 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
                                                   className="bx--link-with-icon"
                                                   href="https://example.com"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target="_blank"
                                                 >
                                                   <a
                                                     className="bx--link bx--link-with-icon"
                                                     href="https://example.com"
                                                     onClick={[Function]}
+                                                    tabIndex={0}
                                                     target="_blank"
                                                   >
                                                     <span>
@@ -29619,12 +29651,14 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
                                                   className="bx--link-with-icon"
                                                   href="https://example.com"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <a
                                                     className="bx--link bx--link-with-icon"
                                                     href="https://example.com"
                                                     onClick={[Function]}
+                                                    tabIndex={0}
                                                     target={null}
                                                   >
                                                     <span>
@@ -29719,12 +29753,14 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
                                                   className="bx--link-with-icon"
                                                   href="https://example.com"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target="_blank"
                                                 >
                                                   <a
                                                     className="bx--link bx--link-with-icon"
                                                     href="https://example.com"
                                                     onClick={[Function]}
+                                                    tabIndex={0}
                                                     target="_blank"
                                                   >
                                                     <span>
@@ -29912,12 +29948,14 @@ exports[`Storyshots Components|ContentGroupHorizontal Default 1`] = `
                                                   className="bx--link-with-icon"
                                                   href="https://example.com"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <a
                                                     className="bx--link bx--link-with-icon"
                                                     href="https://example.com"
                                                     onClick={[Function]}
+                                                    tabIndex={0}
                                                     target={null}
                                                   >
                                                     <span>
@@ -31888,12 +31926,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://www.ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://www.ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -31988,12 +32028,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://www.ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target="_blank"
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://www.ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target="_blank"
                                         >
                                           <span>
@@ -32905,12 +32947,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     className="bx--link-with-icon"
                                                                     href="https://ibm.com"
                                                                     onClick={[Function]}
+                                                                    tabIndex={0}
                                                                     target={null}
                                                                   >
                                                                     <a
                                                                       className="bx--link bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <span>
@@ -33005,12 +33049,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     className="bx--link-with-icon"
                                                                     href="https://ibm.com"
                                                                     onClick={[Function]}
+                                                                    tabIndex={0}
                                                                     target={null}
                                                                   >
                                                                     <a
                                                                       className="bx--link bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <span>
@@ -33105,12 +33151,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     className="bx--link-with-icon"
                                                                     href="https://ibm.com"
                                                                     onClick={[Function]}
+                                                                    tabIndex={0}
                                                                     target={null}
                                                                   >
                                                                     <a
                                                                       className="bx--link bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <span>
@@ -33483,12 +33531,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           className="bx--link-with-icon"
                                                           href="https://example.com"
                                                           onClick={[Function]}
+                                                          tabIndex={0}
                                                           target={null}
                                                         >
                                                           <a
                                                             className="bx--link bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <span>
@@ -33670,12 +33720,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           className="bx--link-with-icon"
                                                           href="https://example.com"
                                                           onClick={[Function]}
+                                                          tabIndex={0}
                                                           target={null}
                                                         >
                                                           <a
                                                             className="bx--link bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <span>
@@ -34233,12 +34285,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           className="bx--link-with-icon"
                                                           href="https://example.com"
                                                           onClick={[Function]}
+                                                          tabIndex={0}
                                                           target={null}
                                                         >
                                                           <a
                                                             className="bx--link bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <span>
@@ -34968,12 +35022,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://example.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -35058,12 +35114,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://example.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target="_blank"
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <span>
@@ -35251,12 +35309,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://example.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -35341,12 +35401,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://example.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target="_blank"
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <span>
@@ -36837,10 +36899,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     <Link
                                                       className="bx--link-with-icon"
                                                       href="https://example.com"
+                                                      tabIndex={0}
                                                     >
                                                       <a
                                                         className="bx--link bx--link-with-icon"
                                                         href="https://example.com"
+                                                        tabIndex={0}
                                                       >
                                                         <span>
                                                           Link with Icon
@@ -37224,12 +37288,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               className="bx--link-with-icon"
                                               href="https://example.com/"
                                               onClick={[Function]}
+                                              tabIndex={0}
                                               target={null}
                                             >
                                               <a
                                                 className="bx--link bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <span>
@@ -37343,12 +37409,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               className="bx--link-with-icon"
                                               href="https://example.com/"
                                               onClick={[Function]}
+                                              tabIndex={0}
                                               target={null}
                                             >
                                               <a
                                                 className="bx--link bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <span>
@@ -38616,12 +38684,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -38716,12 +38786,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -38816,12 +38888,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -39194,12 +39268,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -39381,12 +39457,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -39944,12 +40022,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -40679,12 +40759,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -40769,12 +40851,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -40962,12 +41046,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -41052,12 +41138,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -42548,10 +42636,12 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                       <Link
                                                         className="bx--link-with-icon"
                                                         href="https://example.com"
+                                                        tabIndex={0}
                                                       >
                                                         <a
                                                           className="bx--link bx--link-with-icon"
                                                           href="https://example.com"
+                                                          tabIndex={0}
                                                         >
                                                           <span>
                                                             Link with Icon
@@ -42935,12 +43025,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -43054,12 +43146,14 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -44152,12 +44246,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -44252,12 +44348,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -44352,12 +44450,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -44730,12 +44830,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -44917,12 +45019,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -45480,12 +45584,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -46215,12 +46321,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -46305,12 +46413,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -46498,12 +46608,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -46588,12 +46700,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -48084,10 +48198,12 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                       <Link
                                                         className="bx--link-with-icon"
                                                         href="https://example.com"
+                                                        tabIndex={0}
                                                       >
                                                         <a
                                                           className="bx--link bx--link-with-icon"
                                                           href="https://example.com"
+                                                          tabIndex={0}
                                                         >
                                                           <span>
                                                             Link with Icon
@@ -48471,12 +48587,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -48590,12 +48708,14 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -55168,12 +55288,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -55268,12 +55390,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -55368,12 +55492,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                       className="bx--link-with-icon"
                                                                       href="https://ibm.com"
                                                                       onClick={[Function]}
+                                                                      tabIndex={0}
                                                                       target={null}
                                                                     >
                                                                       <a
                                                                         className="bx--link bx--link-with-icon"
                                                                         href="https://ibm.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <span>
@@ -55746,12 +55872,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -55933,12 +56061,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -56496,12 +56626,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                             className="bx--link-with-icon"
                                                             href="https://example.com"
                                                             onClick={[Function]}
+                                                            tabIndex={0}
                                                             target={null}
                                                           >
                                                             <a
                                                               className="bx--link bx--link-with-icon"
                                                               href="https://example.com"
                                                               onClick={[Function]}
+                                                              tabIndex={0}
                                                               target={null}
                                                             >
                                                               <span>
@@ -57231,12 +57363,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -57321,12 +57455,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -57514,12 +57650,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target={null}
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target={null}
                                                                         >
                                                                           <span>
@@ -57604,12 +57742,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                         className="bx--link-with-icon"
                                                                         href="https://example.com"
                                                                         onClick={[Function]}
+                                                                        tabIndex={0}
                                                                         target="_blank"
                                                                       >
                                                                         <a
                                                                           className="bx--link bx--link-with-icon"
                                                                           href="https://example.com"
                                                                           onClick={[Function]}
+                                                                          tabIndex={0}
                                                                           target="_blank"
                                                                         >
                                                                           <span>
@@ -59100,10 +59240,12 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                       <Link
                                                         className="bx--link-with-icon"
                                                         href="https://example.com"
+                                                        tabIndex={0}
                                                       >
                                                         <a
                                                           className="bx--link bx--link-with-icon"
                                                           href="https://example.com"
+                                                          tabIndex={0}
                                                         >
                                                           <span>
                                                             Link with Icon
@@ -59487,12 +59629,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -59606,12 +59750,14 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                 className="bx--link-with-icon"
                                                 href="https://example.com/"
                                                 onClick={[Function]}
+                                                tabIndex={0}
                                                 target={null}
                                               >
                                                 <a
                                                   className="bx--link bx--link-with-icon"
                                                   href="https://example.com/"
                                                   onClick={[Function]}
+                                                  tabIndex={0}
                                                   target={null}
                                                 >
                                                   <span>
@@ -63897,12 +64043,14 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -63997,12 +64145,14 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -64097,12 +64247,14 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -64601,12 +64753,14 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -64701,12 +64855,14 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -64801,12 +64957,14 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                         className="bx--link-with-icon"
                                         href="https://ibm.com"
                                         onClick={[Function]}
+                                        tabIndex={0}
                                         target={null}
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
                                           href="https://ibm.com"
                                           onClick={[Function]}
+                                          tabIndex={0}
                                           target={null}
                                         >
                                           <span>
@@ -66361,12 +66519,14 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                               className="bx--link-with-icon"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -66461,12 +66621,14 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                               className="bx--link-with-icon"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -66564,12 +66726,14 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                               className="bx--link-with-icon"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target="_blank"
                             >
                               <a
                                 className="bx--link bx--link-with-icon"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target="_blank"
                               >
                                 <span>
@@ -66669,11 +66833,13 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 className="bx--link-with-icon"
                                 href="#"
                                 onClick={[Function]}
+                                tabIndex={0}
                               >
                                 <a
                                   className="bx--link bx--link-with-icon"
                                   href="#"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                 >
                                   <span>
                                      
@@ -66839,12 +67005,14 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                               className="bx--link-with-icon"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -66940,12 +67108,14 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                               className="bx--link-with-icon"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -67125,12 +67295,14 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -67226,12 +67398,14 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -67330,12 +67504,14 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target="_blank"
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target="_blank"
                               >
                                 <span>
@@ -67436,11 +67612,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
+                                tabIndex={0}
                               >
                                 <a
                                   className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                 >
                                   <span>
                                      
@@ -67620,12 +67798,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -67721,12 +67901,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target={null}
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target={null}
                               >
                                 <span>
@@ -67825,12 +68007,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
+                              tabIndex={0}
                               target="_blank"
                             >
                               <a
                                 className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
+                                tabIndex={0}
                                 target="_blank"
                               >
                                 <span>
@@ -67931,11 +68115,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
+                                tabIndex={0}
                               >
                                 <a
                                   className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                 >
                                   <span>
                                      
@@ -68802,10 +68988,12 @@ exports[`Storyshots Components|LinkwithIcon Default 1`] = `
           <Link
             className="bx--link-with-icon"
             href="https://www.example.com"
+            tabIndex={0}
           >
             <a
               className="bx--link bx--link-with-icon"
               href="https://www.example.com"
+              tabIndex={0}
             >
               <span>
                 Link text
@@ -71423,12 +71611,14 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                                   className="bx--link-with-icon"
                                   href="https://www.example.com"
                                   onClick={[Function]}
+                                  tabIndex={0}
                                   target={null}
                                 >
                                   <a
                                     className="bx--link bx--link-with-icon"
                                     href="https://www.example.com"
                                     onClick={[Function]}
+                                    tabIndex={0}
                                     target={null}
                                   >
                                     <span>
@@ -71584,10 +71774,12 @@ exports[`Storyshots Components|Quote Default 1`] = `
                     <Link
                       className="bx--link-with-icon"
                       href="https://example.com"
+                      tabIndex={0}
                     >
                       <a
                         className="bx--link bx--link-with-icon"
                         href="https://example.com"
+                        tabIndex={0}
                       >
                         <span>
                           Link with Icon
