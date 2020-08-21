@@ -93,10 +93,9 @@
 
         .#{$prefix}--content-item {
           width: 100%;
-          margin-bottom: 0;
-          padding-bottom: $carbon--spacing-05;
+          margin-top: $carbon--spacing-05;
+          margin-bottom: $carbon--spacing-05;
           position: relative;
-
           @include carbon--make-col-ready;
 
           &__heading {
@@ -116,6 +115,7 @@
           }
 
           @include carbon--breakpoint('md') {
+            margin-top: $carbon--spacing-07;
             @include carbon--make-col(4, 8);
 
             &__heading {
@@ -127,12 +127,7 @@
             }
           }
 
-          &:last-of-type {
-            margin-top: $carbon--spacing-05;
-
-            @include carbon--breakpoint('md') {
-              margin-top: $carbon--spacing-07;
-            }
+          @include carbon--breakpoint('md') {
           }
         }
       }

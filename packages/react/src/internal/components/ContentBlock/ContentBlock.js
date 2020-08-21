@@ -30,7 +30,12 @@ const ContentBlock = ({
   aside,
   border,
 }) => {
-  const classnames = cx(`${prefix}--content-block`, customClassName);
+  const linkListModifierClass = aside && `${prefix}--content-block_linkList`;
+  const classnames = cx(
+    `${prefix}--content-block`,
+    customClassName,
+    linkListModifierClass
+  );
   const setborder = aside ? false : border;
   const content = (
     <>

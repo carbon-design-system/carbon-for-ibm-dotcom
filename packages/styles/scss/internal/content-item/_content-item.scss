@@ -20,8 +20,6 @@
     color: $text-04;
   }
   .#{$prefix}--content-item {
-    margin-top: $carbon--spacing-07;
-    margin-bottom: $carbon--spacing-07;
     &__heading,
     &__copy {
       @include carbon--breakpoint(md) {

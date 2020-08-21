@@ -12,15 +12,17 @@
 
 @mixin content-block {
   .#{$prefix}--content-block {
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-06;
+    padding-top: $layout-05;
+    padding-bottom: $layout-07;
+
+    @include carbon--breakpoint-down('lg') {
+      padding-bottom: $layout-03;
+
+      &:not(.#{$prefix}--content-block_linkList) {
+        padding-bottom: $layout-06;
+      }
     }
-    @include carbon--breakpoint('max') {
-      padding-bottom: $carbon--layout-07;
-    }
+
     &__heading,
     &__copy {
       @include content-width;

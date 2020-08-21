@@ -7,10 +7,11 @@
 
 @mixin link-list {
   .#{$prefix}--link-list {
-    padding-bottom: $carbon--layout-05;
-
-    &:first-of-type {
-      padding-top: $carbon--layout-05;
+    @include carbon--breakpoint-down('lg') {
+      &:first-of-type {
+        padding-top: $carbon--layout-05;
+        padding-bottom: $carbon--layout-05;
+      }
     }
 
     &__heading {
