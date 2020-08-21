@@ -12,7 +12,8 @@
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin card {
-  .#{$prefix}--card {
+  .#{$prefix}--card,
+  :host(#{$dds-prefix}-card) {
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
@@ -65,7 +66,8 @@
       @include carbon--type-style('body-short-02');
     }
 
-    .#{$prefix}--card__footer {
+    .#{$prefix}--card__footer,
+    :host(#{$dds-prefix}-feature-card-footer) {
       display: flex;
       margin-top: auto;
 
@@ -143,7 +145,8 @@
     }
   }
 
-  .#{$prefix}--card--inverse {
+  .#{$prefix}--card--inverse,
+  :host(#{$dds-prefix}-card)[color-scheme='inverse'] {
     background-color: $inverse-02;
 
     .#{$prefix}--card__heading,

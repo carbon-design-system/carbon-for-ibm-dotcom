@@ -10,79 +10,79 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 @import '../../globals/scss/vars';
 
-:host(#{$dds-prefix}-card) {
-  @extend .#{$prefix}--card;
+// :host(#{$dds-prefix}-card) {
+//   @extend .#{$prefix}--card;
 
-  &[color-scheme='inverse'] {
-    @extend .#{$prefix}--card--inverse;
-  }
+//   &[color-scheme='inverse'] {
+//     @extend .#{$prefix}--card--inverse;
+//   }
 
-  &[href]:not([href='']) {
-    @extend .#{$prefix}--card--link;
-  }
-}
+//   &[href]:not([href='']) {
+//     @extend .#{$prefix}--card--link;
+//   }
+// }
 
-:host(#{$dds-prefix}-card-footer) {
-  margin-top: auto;
+// :host(#{$dds-prefix}-card-footer) {
+//   margin-top: auto;
 
-  .#{$dds-prefix}-ce--card__footer {
-    @extend .#{$prefix}--card__footer;
+//   .#{$dds-prefix}-ce--card__footer {
+//     @extend .#{$prefix}--card__footer;
 
-    display: flex;
+//     display: flex;
 
-    ::slotted(svg[slot='icon']) {
-      margin-left: 0;
-      margin-right: $carbon--spacing-03;
-      vertical-align: middle;
-      align-self: center;
-      fill: currentColor;
-    }
+//     ::slotted(svg[slot='icon']) {
+//       margin-left: 0;
+//       margin-right: $carbon--spacing-03;
+//       vertical-align: middle;
+//       align-self: center;
+//       fill: currentColor;
+//     }
 
-    &.#{$dds-prefix}-ce--card__footer--with-link-used {
-      ::slotted(svg[slot='icon']) {
-        margin-left: $carbon--spacing-03;
-        margin-right: 0;
-      }
-    }
-  }
+//     &.#{$dds-prefix}-ce--card__footer--with-link-used {
+//       ::slotted(svg[slot='icon']) {
+//         margin-left: $carbon--spacing-03;
+//         margin-right: 0;
+//       }
+//     }
+//   }
 
-  .#{$dds-prefix}-ce--card__footer--static {
-    color: $link-01;
-  }
+//   .#{$dds-prefix}-ce--card__footer--static {
+//     color: $link-01;
+//   }
 
-  &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
-    color: $inverse-link;
-  }
-}
+//   &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
+//     color: $inverse-link;
+//   }
+// }
 
-:host(#{$dds-prefix}-feature-card) {
-  @extend .#{$prefix}--feature-card;
+// :host(#{$dds-prefix}-feature-card) {
+//   @extend .#{$prefix}--feature-card;
 
-  display: flex;
+//   display: flex;
 
-  .#{$prefix}--feature-card__card {
-    flex: 1;
-    position: relative;
-  }
+//   .#{$prefix}--feature-card__card {
+//     flex: 1;
+//     position: relative;
+//   }
 
-  ::slotted(#{$dds-prefix}-feature-card-footer) {
-    flex: 1;
-  }
-}
+//   ::slotted(#{$dds-prefix}-feature-card-footer) {
+//     flex: 1;
+//   }
+// }
 
-:host(#{$dds-prefix}-feature-card-footer) {
-  @extend :host(#{$dds-prefix}-card-footer);
+// :host(#{$dds-prefix}-feature-card-footer) {
+//   @extend :host(#{$dds-prefix}-card-footer);
 
-  display: flex;
-  justify-content: flex-end;
+//   display: flex;
+//   justify-content: flex-end;
 
-  .#{$dds-prefix}-ce--card__footer {
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
+//   .#{$dds-prefix}-ce--card__footer {
+//     justify-content: flex-end;
+//     align-items: flex-end;
+//   }
 
-  ::slotted(svg[slot='icon']) {
-    float: right;
-    color: $inverse-link;
-  }
-}
+//   ::slotted(svg[slot='icon']) {
+//     float: right;
+//     color: $inverse-link;
+//   }
+// }
