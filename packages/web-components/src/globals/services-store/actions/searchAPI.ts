@@ -18,7 +18,7 @@ import { SEARCH_API_ACTION, SearchAPIState } from '../types/searchAPI';
  */
 function getSearchEndpoint(language: string, searchQueryString: string) {
   const [primary, country] = language!.split('-');
-  return `https://www-api.ibm.com/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
+  return `${(process && process.env.SEARCH_TYPEAHEAD_HOST) || 'https://www-api.ibm.com'}/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
 }
 
 /**
