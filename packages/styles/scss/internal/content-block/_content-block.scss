@@ -18,8 +18,16 @@
     @include carbon--breakpoint-down('lg') {
       padding-bottom: $layout-03;
 
-      &:not(.#{$prefix}--content-block_linkList) {
+      &:not(.#{$prefix}--content-block_has-linkList) {
         padding-bottom: $layout-06;
+      }
+    }
+
+    @include carbon--breakpoint-down('md') {
+      padding-top: $layout-03;
+
+      &:not(.#{$prefix}--content-block_has-linkList) {
+        padding-bottom: $layout-05;
       }
     }
 

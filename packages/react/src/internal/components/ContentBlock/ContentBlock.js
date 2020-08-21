@@ -30,7 +30,8 @@ const ContentBlock = ({
   aside,
   border,
 }) => {
-  const linkListModifierClass = aside && `${prefix}--content-block_linkList`;
+  const linkListModifierClass =
+    aside && `${prefix}--content-block_has-linkList`;
   const classnames = cx(
     `${prefix}--content-block`,
     customClassName,
