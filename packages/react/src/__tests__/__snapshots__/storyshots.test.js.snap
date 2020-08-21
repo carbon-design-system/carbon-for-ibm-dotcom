@@ -2767,6 +2767,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -2970,6 +2971,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -3173,6 +3175,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -3376,6 +3379,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -3579,6 +3583,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -3866,6 +3871,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -4069,6 +4075,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -4272,6 +4279,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -4475,6 +4483,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -4678,6 +4687,7 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             "href": "https://www.example.com",
                             "image": undefined,
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -5095,6 +5105,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -5337,6 +5348,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -5579,6 +5591,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -5821,6 +5834,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -6063,6 +6077,7 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -6409,6 +6424,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -6651,6 +6667,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -6893,6 +6910,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -7135,6 +7153,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -7377,6 +7396,7 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616&text=4:3",
                             },
                             "media": null,
+                            "pictogram": undefined,
                             "target": null,
                           }
                         }
@@ -8048,6 +8068,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                     "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                   },
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -8290,6 +8311,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                     "defaultSrc": "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
                                   },
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -8532,6 +8554,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                     "defaultSrc": "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
                                   },
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -8774,6 +8797,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                     "defaultSrc": "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
                                   },
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -9016,6 +9040,7 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                     "defaultSrc": "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
                                   },
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -9393,6 +9418,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -9598,6 +9624,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -9803,6 +9830,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -10008,6 +10036,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -10213,6 +10242,7 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -10584,6 +10614,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -10789,6 +10820,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -10994,6 +11026,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -11199,6 +11232,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -11404,6 +11438,7 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   "href": "https://www.example.com",
                                   "image": undefined,
                                   "media": null,
+                                  "pictogram": undefined,
                                   "target": null,
                                 }
                               }
@@ -11888,6 +11923,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         "href": "https://www.example.com",
                                         "image": undefined,
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -12093,6 +12129,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         "href": "https://www.example.com",
                                         "image": undefined,
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -12298,6 +12335,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         "href": "https://www.example.com",
                                         "image": undefined,
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -12503,6 +12541,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         "href": "https://www.example.com",
                                         "image": undefined,
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -12708,6 +12747,7 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         "href": "https://www.example.com",
                                         "image": undefined,
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -13316,6 +13356,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                           "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                         },
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -13558,6 +13599,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                           "defaultSrc": "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
                                         },
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -13800,6 +13842,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                           "defaultSrc": "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
                                         },
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -14042,6 +14085,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                           "defaultSrc": "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
                                         },
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -14284,6 +14328,7 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                           "defaultSrc": "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
                                         },
                                         "media": null,
+                                        "pictogram": undefined,
                                         "target": null,
                                       }
                                     }
@@ -14894,6 +14939,7 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                           "src": "0_uka1msg4",
                                           "type": "video",
                                         },
+                                        "pictogram": undefined,
                                       }
                                     }
                                     customClassName="bx--card__video"
@@ -15132,6 +15178,7 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                           "src": "0_uka1msg4",
                                           "type": "video",
                                         },
+                                        "pictogram": undefined,
                                       }
                                     }
                                     customClassName="bx--card__video"
@@ -15370,6 +15417,7 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                           "src": "0_uka1msg4",
                                           "type": "video",
                                         },
+                                        "pictogram": undefined,
                                       }
                                     }
                                     customClassName="bx--card__video"
@@ -15608,6 +15656,7 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                           "src": "0_uka1msg4",
                                           "type": "video",
                                         },
+                                        "pictogram": undefined,
                                       }
                                     }
                                     customClassName="bx--card__video"
@@ -15846,6 +15895,7 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                           "src": "0_uka1msg4",
                                           "type": "video",
                                         },
+                                        "pictogram": undefined,
                                       }
                                     }
                                     customClassName="bx--card__video"
@@ -36150,6 +36200,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                             },
                                                             "media": null,
+                                                            "pictogram": undefined,
                                                             "target": null,
                                                           }
                                                         }
@@ -36392,6 +36443,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                             },
                                                             "media": null,
+                                                            "pictogram": undefined,
                                                             "target": null,
                                                           }
                                                         }
@@ -36634,6 +36686,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                             },
                                                             "media": null,
+                                                            "pictogram": undefined,
                                                             "target": null,
                                                           }
                                                         }
@@ -41887,6 +41940,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -42129,6 +42183,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -42371,6 +42426,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -47449,6 +47505,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -47691,6 +47748,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -47933,6 +47991,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -52949,6 +53008,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -53191,6 +53251,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -53433,6 +53494,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -58517,6 +58579,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -58759,6 +58822,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
@@ -59001,6 +59065,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                 "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
                                                               },
                                                               "media": null,
+                                                              "pictogram": undefined,
                                                               "target": null,
                                                             }
                                                           }
