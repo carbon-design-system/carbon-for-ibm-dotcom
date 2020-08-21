@@ -91,6 +91,7 @@ const _renderCards = (cards, containerRef, cta) => (
             heading={card.heading}
             eyebrow={card.eyebrow}
             copy={card.copy}
+            pictogram={card.pictogram}
             cta={{
               ...card.cta,
               icon: {
@@ -172,6 +173,7 @@ CardGroup.propTypes = {
       cta: PropTypes.shape({
         href: PropTypes.string,
       }),
+      pictogram: PropTypes.node,
     })
   ).isRequired,
 
