@@ -99,23 +99,41 @@ const Footer = ({
       data-autoid={`${stablePrefix}--footer`}
       className={classNames(`${prefix}--footer`, {
         [`${prefix}--footer--short`]: type === 'short',
+        [`${prefix}--footer--micro`]: type === 'micro',
       })}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
-          <FooterLogo />
-          {_optionalFooterNav(type, footerMenuData)}
-          {_loadLocaleLanguage(
-            disableLocaleButton,
-            localeButtonAria,
-            displayLang,
-            languageOnly,
-            languageItems,
-            languageInitialItem,
-            languageCallback
-          )}
+          {type !== 'micro' && <FooterLogo />}
+          {type === undefined && <FooterNav groups={footerMenuData} />}
+          {type !== 'micro' &&
+            _loadLocaleLanguage(
+              disableLocaleButton,
+              localeButtonAria,
+              displayLang,
+              languageOnly,
+              languageItems,
+              languageInitialItem,
+              languageCallback
+            )}
         </div>
       </section>
-      <LegalNav links={footerLegalData} />
+      <LegalNav
+        links={footerLegalData}
+        type={type}
+        button={
+          type === 'micro'
+            ? _loadLocaleLanguage(
+                disableLocaleButton,
+                localeButtonAria,
+                displayLang,
+                languageOnly,
+                languageItems,
+                languageInitialItem,
+                languageCallback
+              )
+            : null
+        }
+      />
     </footer>
   );
 };
@@ -157,20 +175,6 @@ function _loadLocaleLanguage(
   }
 }
 
-/**
- * renders optional footer nav for tall
- *
- * @param {string} type type of footer in use
- * @param {string} data footer menu data
- * @returns {object} JSX object
- * @private
- */
-function _optionalFooterNav(type, data) {
-  if (type !== 'short') {
-    return <FooterNav groups={data} />;
-  }
-}
-
 Footer.propTypes = {
   /**
    * Navigation data object for Footer, used for server-side rendering.
@@ -202,8 +206,9 @@ Footer.propTypes = {
    * | ------- | --------------------------------------------------------------------------- |
    * | `tall`  | Default footer variant includes additional navigation taking up more space. |
    * | `short` | Short footer variant reduces space by removing any additional navigation.   |
+   * | `micro` | Micro footer variant includes legal navigation and locale button only.      |
    */
-  type: PropTypes.oneOf(['tall', 'short']),
+  type: PropTypes.oneOf(['tall', 'short', 'micro']),
 
   /**
    * Language code for fetching the display name.

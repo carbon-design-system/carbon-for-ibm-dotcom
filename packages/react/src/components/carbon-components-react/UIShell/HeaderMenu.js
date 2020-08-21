@@ -19,6 +19,7 @@ import {
   matches,
 } from '../../../internal/vendor/carbon-components-react/internal/keyboard';
 import { AriaLabelPropType } from '../../../internal/vendor/carbon-components-react/prop-types/AriaPropTypes';
+import root from 'window-or-global';
 
 const { prefix } = settings;
 
@@ -87,8 +88,13 @@ class HeaderMenu extends React.Component {
    */
   handleOnClick = index => {
     this.setState(prevState => {
-      if (prevState.expanded) this.props.setOverlay(false);
-      else this.props.setOverlay(true);
+      if (prevState.expanded) {
+        this.props.setOverlay(false);
+        root.document.body.style.overflowY = 'auto';
+      } else {
+        this.props.setOverlay(true);
+        root.document.body.style.overflowY = 'hidden';
+      }
       return {
         expanded: !prevState.expanded,
       };
@@ -134,6 +140,7 @@ class HeaderMenu extends React.Component {
   handleOnBlur = event => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
+      root.document.body.style.overflowY = 'auto';
     }
 
     const megamenuItems = [
