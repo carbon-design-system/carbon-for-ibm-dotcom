@@ -25,6 +25,14 @@ export const DDS_MASTHEAD_L1 =
   process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * Feature flag to turn on the Card with Pictogram
+ *
+ * @type {boolean}
+ */
+export const DDS_CARD_WITH_PICTOGRAM =
+  process.env.DDS_CARD_WITH_PICTOGRAM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * Feature flag for the optional language selector in the footer
  *
  * @type {boolean}
