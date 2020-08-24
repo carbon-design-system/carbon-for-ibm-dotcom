@@ -71,12 +71,6 @@ const styleLoaders = [
         path.resolve(__dirname, '..', 'node_modules'),
         path.resolve(__dirname, '../../../', 'node_modules'),
       ],
-      data: `
-        $feature-flags: (
-          ui-shell: true,
-          enable-css-custom-properties: true
-        );
-      `,
       sourceMap: useStyleSourceMap,
     },
   },

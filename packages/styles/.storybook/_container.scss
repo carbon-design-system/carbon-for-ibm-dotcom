@@ -9,10 +9,6 @@
 // as `src` directory is _not_ meant to be shipped in our NPM package.
 // Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
 
-$feature-flags: (
-  enable-css-custom-properties: true,
-);
-
 // Carbon Fonts
 @import '~@carbon/type/scss/font-face/mono';
 @import '~@carbon/type/scss/font-face/sans';
