@@ -90,10 +90,10 @@ class HeaderMenu extends React.Component {
     this.setState(prevState => {
       if (prevState.expanded) {
         this.props.setOverlay(false);
-        root.document.body.classList.remove(`${prefix}--body__lock-scroll`);
+        root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
       } else {
         this.props.setOverlay(true);
-        root.document.body.classList.add(`${prefix}--body__lock-scroll`);
+        root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
       }
       return {
         expanded: !prevState.expanded,
