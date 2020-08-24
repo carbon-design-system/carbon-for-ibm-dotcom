@@ -31,6 +31,7 @@ export const Card = ({
   customClassName,
   copy,
   cta,
+  pictogram,
   ...props
 }) => {
   const TileType = props.disabled ? Tile : ClickableTile;
@@ -57,7 +58,7 @@ export const Card = ({
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta)}
+        {renderFooter(cta, pictogram)}
       </div>
     </TileType>
   );
@@ -85,8 +86,8 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta) {
-  return (
+function renderFooter(cta, pictogram) {
+  return [
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
@@ -100,8 +101,9 @@ function renderFooter(cta) {
           <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
         )}
       </div>
-    )
-  );
+    ),
+    pictogram && <div className={`${prefix}--card__foter`}>{pictogram}</div>,
+  ];
 }
 
 export const cardPropTypes = {
@@ -125,6 +127,11 @@ export const cardPropTypes = {
    * Disable card link
    */
   disabled: PropTypes.bool,
+
+  /**
+   * Pictogram located at the bottom left side of the Card. Should be used without a CTA. (experimental)
+   */
+  pictogram: PropTypes.node,
 
   /**
    * CTA options. Has the following structure in summary:
