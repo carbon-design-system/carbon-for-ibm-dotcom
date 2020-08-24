@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
@@ -29,6 +29,16 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
+  const sideNavRef = useRef();
+
+  const preventOutFocus = () => {
+    if (isSideNavExpanded && useRef) {
+      sideNavRef.current?.parentNode
+        .querySelector(`.${prefix}--header__menu-toggle`)
+        .focus();
+    }
+  };
+
   /**
    * Left side navigation
    *
@@ -37,6 +47,26 @@ const MastheadLeftNav = ({
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
+      if (navigation.length === i + 1) {
+        return (
+          <>
+            <SideNavMenuWithBackFoward
+              title={link.title}
+              backButtonText={backButtonText}
+              key={i}
+              autoid={autoid}
+              navType={rest.navType}>
+              {renderNavSections(
+                link.menuSections,
+                backButtonText,
+                autoid,
+                rest.navType
+              )}
+            </SideNavMenuWithBackFoward>
+            <button onFocus={preventOutFocus} aria-hidden={true}></button>
+          </>
+        );
+      }
       return (
         <SideNavMenuWithBackFoward
           title={link.title}
@@ -53,6 +83,22 @@ const MastheadLeftNav = ({
         </SideNavMenuWithBackFoward>
       );
     } else {
+      if (navigation.length === i + 1) {
+        return (
+          <>
+            <SideNavLink
+              href={link.url}
+              data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
+              key={i}>
+              {link.title}
+            </SideNavLink>
+            <button
+              onFocus={preventOutFocus}
+              aria-hidden={true}
+              href="#"></button>
+          </>
+        );
+      }
       return (
         <SideNavLink
           href={link.url}
@@ -68,7 +114,8 @@ const MastheadLeftNav = ({
     <SideNav
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
-      isPersistent={false}>
+      isPersistent={false}
+      ref={sideNavRef}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
