@@ -63,7 +63,10 @@ const MastheadLeftNav = ({
                 rest.navType
               )}
             </SideNavMenuWithBackFoward>
-            <button onFocus={preventOutFocus} aria-hidden={true}></button>
+            <button
+              className={`${prefix}--masthead__focus`}
+              onFocus={preventOutFocus}
+              aria-hidden={true}></button>
           </>
         );
       }
@@ -93,6 +96,7 @@ const MastheadLeftNav = ({
               {link.title}
             </SideNavLink>
             <button
+              className={`${prefix}--masthead__focus}`}
               onFocus={preventOutFocus}
               aria-hidden={true}
               href="#"></button>
