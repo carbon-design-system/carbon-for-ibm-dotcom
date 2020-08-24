@@ -248,9 +248,9 @@ const Masthead = ({
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
         if (isSideNavExpanded) {
-          root.document.body.classList.add(`${prefix}--body__lock-scroll`);
+          root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
         } else {
-          root.document.body.classList.remove(`${prefix}--body__lock-scroll`);
+          root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         }
         return (
           <div
