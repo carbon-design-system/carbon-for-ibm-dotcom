@@ -17,12 +17,30 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Style schemes
+ */
+export enum STYLE_SCHEME {
+  /**
+   * Default style
+   */
+  DEFAULT = '',
+
+  /**
+   * Link List variant
+   */
+  LINK_LIST = 'link-list',
+}
+
+/**
  * Card Link.
  *
  * @element dds-card-link
  */
 @customElement(`${ddsPrefix}-card-link`)
 class DDSCardLink extends DDSCard {
+  @property({ reflect: true, attribute: 'style-scheme' })
+  styleScheme = STYLE_SCHEME.DEFAULT;
+
   /**
    * `true` to disable the card link.
    */

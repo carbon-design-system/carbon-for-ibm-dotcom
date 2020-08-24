@@ -15,13 +15,38 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Link list type
+ */
+export enum LINK_LIST_TYPE {
+  /**
+   * Default
+   */
+  DEFAULT = 'default',
+
+  /**
+   * Vertical
+   */
+  VERTICAL = 'vertical',
+
+  /**
+   * Horizontal
+   */
+  HORIZONTAL = 'horizontal',
+
+  /**
+   * End of section
+   */
+  END = 'end',
+}
+
+/**
  * Link list.
  *
  * @element dds-link-list
  */
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends LitElement {
-  @property({ type: String })
+  @property({ reflect: true })
   type = 'default';
 
   // eslint-disable-next-line class-methods-use-this
@@ -36,11 +61,11 @@ class DDSLinkList extends LitElement {
 
   protected ulClasses() {
     switch (this.type) {
-      case 'horizontal':
+      case LINK_LIST_TYPE.HORIZONTAL:
         return `${prefix}--link-list__list--horizontal`;
-      case 'vertical':
+      case LINK_LIST_TYPE.VERTICAL:
         return `${prefix}--link-list__list--vertical`;
-      case 'end':
+      case LINK_LIST_TYPE.END:
         return `${prefix}--link-list__list--end`;
       default:
         return `${prefix}--link-list__list--card`;
