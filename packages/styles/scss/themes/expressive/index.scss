@@ -43,12 +43,6 @@
 // Expressive Theme
 //-------------------------
 
-// CSS Custom Properties need to be enabled in order for the expressive theme
-// to work.
-$feature-flags: (
-  enable-css-custom-properties: true,
-);
-
 // This includes an overall expressive theme throughout the carbon design
 // system. In addition to the global changes in typography sizes, this also
 // addresses per-component container and icon spacing to account for the size

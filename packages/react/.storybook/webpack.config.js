@@ -14,14 +14,6 @@ const rtlcss = require('rtlcss');
 const NODE_ENV = 'development';
 
 /**
- * Flag to enable the expressive theme
- *
- * @type {boolean}
- */
-const useCarbonExpressive =
-  process.env.REACT_STORYBOOK_CARBON_EXPRESSIVE === 'true';
-
-/**
  * Flag to switch to use the miniextract plugin
  *
  * @type {boolean}
@@ -126,9 +118,6 @@ module.exports = ({ config, mode }) => {
         $feature-flags: (
           enable-css-custom-properties: true
         );
-        $dds-feature-flags: (
-          carbon-expressive: ${useCarbonExpressive},
-        );
       `,
       sourceMap: useStyleSourceMap,
     },
@@ -144,9 +133,6 @@ module.exports = ({ config, mode }) => {
       data: `
       $feature-flags: (
         enable-css-custom-properties: true
-      );
-      $dds-feature-flags: (
-        carbon-expressive: ${useCarbonExpressive},
       );
     `,
     },

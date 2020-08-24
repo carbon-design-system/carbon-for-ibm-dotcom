@@ -71,6 +71,11 @@ const styleLoaders = [
         path.resolve(__dirname, '..', 'node_modules'),
         path.resolve(__dirname, '../../../', 'node_modules'),
       ],
+      data: `
+        $feature-flags: (
+          enable-css-custom-properties: true
+        );
+      `,
       sourceMap: useStyleSourceMap,
     },
   },
