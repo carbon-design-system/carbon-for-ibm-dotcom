@@ -140,14 +140,8 @@ class HeaderMenu extends React.Component {
   handleOnBlur = event => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
-      root.document.body.classList.remove(`${prefix}--body__lock-scroll`);
+      root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
     }
-
-    const megamenuItems = [
-      `${prefix}--masthead__megamenu__category-headline`,
-      `${prefix}--masthead__megamenu__menu-category`,
-      `${prefix}--masthead__megamenu__view-all-cta`,
-    ];
 
     if (!event.relatedTarget || !this.checkMenuItems(event).length) {
       this.props.setOverlay(false);
