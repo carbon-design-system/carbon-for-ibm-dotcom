@@ -49,22 +49,6 @@ export const DDS_SIMPLEBENEFITS =
   process.env.DDS_SIMPLEBENEFITS === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the simple overview will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_SIMPLE_OVERVIEW =
-  process.env.DDS_SIMPLE_OVERVIEW === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the logo grid will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LOGO_GRID =
-  process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if the logo grid will be rendered or not
  *
  * @type {string | boolean}

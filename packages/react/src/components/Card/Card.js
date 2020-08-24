@@ -87,23 +87,23 @@ function optionalContent(copy) {
  * @returns {object} JSX object
  */
 function renderFooter(cta, pictogram) {
-  return [
+  return (
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
-          [`${prefix}--card__footer__icon-left`]: cta.iconPlacement === 'left',
-          [`${prefix}--card__footer__copy`]: cta.copy,
+          [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
+          [`${prefix}--card__footer__copy`]: cta?.copy,
         })}>
-        {cta.copy && (
-          <span className={`${prefix}--card__cta__copy`}>{cta.copy}</span>
+        {cta?.copy && !pictogram && (
+          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}
-        {cta.icon?.src && (
-          <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+        {cta?.icon?.src && !pictogram && (
+          <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
         )}
+        {pictogram && pictogram}
       </div>
-    ),
-    pictogram && <div className={`${prefix}--card__foter`}>{pictogram}</div>,
-  ];
+    )
+  );
 }
 
 export const cardPropTypes = {
@@ -129,7 +129,7 @@ export const cardPropTypes = {
   disabled: PropTypes.bool,
 
   /**
-   * Pictogram located at the bottom left side of the Card. Should be used without a CTA. (experimental)
+   * Pictogram located at the bottom left side of the Card. This prop disables the CTA.copy and CTA.icon (experimental)
    */
   pictogram: PropTypes.node,
 
