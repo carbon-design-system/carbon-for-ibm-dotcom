@@ -19,6 +19,10 @@
       background-color $transition--expansion $carbon--standard-easing;
   }
 
+  .#{$prefix}--masthead__focus {
+    opacity: 0;
+  }
+
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
     height: calc(100vh - #{mini-units(6)});
 
