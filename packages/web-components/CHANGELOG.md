@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.3.0-rc.0...@carbon/ibmdotcom-web-components@0.3.0-rc.1) (2020-08-25)
+
+### Features
+
+- **footer:** introduce cookie preference placeholder ([#3656](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3656)) ([a5ce796](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/commit/a5ce796)), closes [#3583](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3583) [#3624](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3624)
+
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.2.0...@carbon/ibmdotcom-web-components@0.3.0-rc.0) (2020-08-19)
 
 ### Bug Fixes
