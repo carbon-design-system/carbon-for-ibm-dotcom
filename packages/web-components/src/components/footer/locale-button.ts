@@ -13,7 +13,6 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
 import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import '../locale-modal/locale-modal-container';
 import styles from './footer.scss';
 
 const { prefix } = settings;
