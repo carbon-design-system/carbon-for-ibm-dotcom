@@ -140,7 +140,7 @@ const _requestsList = {};
 async function _getLocaleFromDDO() {
   const ddoLocal = await DDOAPI.getAll();
 
-  if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+  if (ddoLocal?.page?.pageInfo?.ibm) {
     let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
 
     // Set proper LC for us to use.
@@ -150,23 +150,21 @@ async function _getLocaleFromDDO() {
         .toLowerCase();
     }
 
-    if (pageInfoIBM) {
-      // Set proper CC for us to use.
-      if (pageInfoIBM.country) {
-        pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
+    // Set proper CC for us to use.
+    if (pageInfoIBM.country) {
+      pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
 
-        // If there are multiple countries use just the first one for the CC value
-        if (pageInfoIBM.cc.indexOf(',') > -1)
-          pageInfoIBM.cc = pageInfoIBM.cc
-            .substring(0, pageInfoIBM.cc.indexOf(','))
-            .trim();
+      // If there are multiple countries use just the first one for the CC value
+      if (pageInfoIBM.cc.indexOf(',') > -1)
+        pageInfoIBM.cc = pageInfoIBM.cc
+          .substring(0, pageInfoIBM.cc.indexOf(','))
+          .trim();
 
-        // Gb will be uk elsewhere
-        if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
+      // Gb will be uk elsewhere
+      if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
 
-        // Map worldwide (ZZ) pages to US
-        if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
-      }
+      // Map worldwide (ZZ) pages to US
+      if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
     }
 
     if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;

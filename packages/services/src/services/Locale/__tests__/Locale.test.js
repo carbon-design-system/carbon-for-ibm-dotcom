@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
@@ -17,8 +16,8 @@ const mockDigitalDataResponse = digitalDataResponse;
 jest.mock(
   '@carbon/ibmdotcom-utilities/lib/utilities/ipcinfoCookie/ipcinfoCookie',
   () => ({
-    get: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
-    set: jest.fn(() => Promise.resolve({})),
+    get: jest.fn(() => ({ cc: 'us', lc: 'en' })),
+    set: jest.fn(() => ({})),
   })
 );
 
@@ -28,12 +27,6 @@ jest.mock(
 );
 
 describe('LocaleAPI', () => {
-  const _cc = 'us';
-  const _lc = 'en';
-
-  const endpoint = `${process.env.REACT_APP_CORS_PROXY}${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
-  const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
-
   beforeEach(function() {
     mockAxios.get.mockImplementation(() =>
       Promise.resolve({
@@ -46,12 +39,7 @@ describe('LocaleAPI', () => {
     LocaleAPI.clearCache();
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-    sessionStorage.clear();
-  });
-
-  it('should fetch the lang from the html attribute', async () => {
+  it('should fetch the lang from the html attribute', async function() {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'fr-ca',
       configurable: true,
@@ -65,7 +53,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us from the html attribute if cc and lc are not defined', async () => {
+  it('should default to en-us from the html attribute if cc and lc are not defined', async function() {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'it',
       configurable: true,
@@ -79,7 +67,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us if lang is not defined', async () => {
+  it('should default to en-us if lang is not defined', async function() {
     const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
@@ -88,47 +76,434 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should fetch the display name based on language/locale combination', async () => {
-    const data = await LocaleAPI.getLangDisplay();
-    expect(data).toEqual('United States — English');
+  it('should default when ddo is undefined', async function() {
+    root.digitalData = undefined;
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
   });
 
-  it('should fetch locale from cookie if availiable', async () => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: 'ipcInfo=cc%253Dus%253Blc%253Den',
+  it('should default when no ddo.page', async function() {
+    root.digitalData.page = false;
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
     });
+  });
+
+  it('should default when no ddo.page.pageInfo', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: false,
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should default when no ddo.page.pageInfo.ibm', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          ibm: false,
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should default when no ddo.page.pageInfo.ibm.country', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          ibm: {
+            country: false,
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should default when no ddo.page.pageInfo.language', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: false,
+          ibm: {
+            country: 'de',
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should get from DDO', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: 'de-DE',
+          ibm: {
+            country: 'de',
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'de',
+      lc: 'de',
+    });
+  });
+
+  it('should handle multiple countries', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: 'de-DE',
+          ibm: {
+            country: 'de,ca',
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'de',
+      lc: 'de',
+    });
+  });
+
+  it('should handle map gb to uk', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: 'de-DE',
+          ibm: {
+            country: 'gb',
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'uk',
+      lc: 'de',
+    });
+  });
+
+  it('should handle map zz to us', async function() {
+    root.digitalData = {
+      page: {
+        pageInfo: {
+          language: 'de-DE',
+          ibm: {
+            country: 'zz',
+          },
+        },
+      },
+    };
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'de',
+    });
+  });
+
+  it('should get countries list', async function() {
+    const countries = await LocaleAPI.getList({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
+    expect(
+      mockAxios.get
+    ).toHaveBeenCalledWith(
+      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
+      { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+    );
+
+    expect(countries).toEqual(response);
+  });
+
+  it('should get countries list from session cache', async function() {
+    sessionStorage.clear();
+    mockAxios.get.mockClear();
+    const countries1 = await LocaleAPI.getList({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+    const countries2 = await LocaleAPI.getList({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
+    expect(countries1).toEqual(response);
+    expect(countries2).toEqual(response);
+  });
+
+  it('should exhaust countries list retries', function(done) {
+    let resolvePromise;
+    sessionStorage.clear();
+    mockAxios.get.mockImplementation(
+      () =>
+        new Promise(resolve => {
+          resolvePromise = resolve;
+        })
+    );
+
+    LocaleAPI.getList({ cc: 'testCC', lc: 'testLC' });
+    LocaleAPI.clearCache();
+    const listPromise = LocaleAPI.getList({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+
+    jest.advanceTimersByTime(100 * 51);
+
+    return listPromise.catch(() => {
+      resolvePromise({ data: response });
+      done();
+    });
+  }, 6000);
+
+  it('should get default countries list on inital reject', async function() {
+    sessionStorage.clear();
+    mockAxios.get.mockClear();
+    mockAxios.get.mockReturnValueOnce(
+      Promise.reject(),
+      Promise.resolve({ data: response })
+    );
+
+    const countries = await LocaleAPI.getList({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+
+    expect(mockAxios.get).toHaveBeenCalledTimes(2);
+    expect(
+      mockAxios.get
+    ).toHaveBeenCalledWith(
+      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
+      { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+    );
+    expect(
+      mockAxios.get
+    ).toHaveBeenCalledWith(
+      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/usen-utf8.json',
+      { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+    );
+
+    expect(countries).toEqual(response);
+  });
+
+  it('should reject countries list', function(done) {
+    sessionStorage.clear();
+    mockAxios.get.mockImplementation(() => Promise.reject());
+
+    LocaleAPI.getList({ cc: 'us', lc: 'en' }).catch(done);
+  });
+
+  it('should verify locale', function() {
+    const locale = LocaleAPI.verifyLocale('us', 'en', {
+      regionList: [
+        {
+          countryList: [
+            {
+              locale: [['en-us']],
+            },
+            {
+              locale: [['de-de']],
+            },
+          ],
+        },
+      ],
+    });
+
+    expect(locale).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should verify priority locale', function() {
+    const locale = LocaleAPI.verifyLocale('us', 'fr', {
+      regionList: [
+        {
+          countryList: [
+            {
+              locale: [['en-us']],
+            },
+            {
+              locale: [['de-de']],
+            },
+          ],
+        },
+      ],
+    });
+
+    expect(locale).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should verify undefined', function() {
+    const locale = LocaleAPI.verifyLocale('us', 'en', false);
+
+    expect(locale).toBeUndefined();
+  });
+
+  it('should get lang display', async function() {
+    jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(
+      Promise.resolve({
+        cc: 'testCC',
+        lc: 'testLC',
+      })
+    );
+    jest.spyOn(LocaleAPI, 'getList').mockReturnValue(
+      Promise.resolve({
+        regionList: [
+          {
+            countryList: [
+              {
+                name: 'testName',
+                locale: [
+                  ['testLC-testCC', 'testDisplay'],
+                  ['altLocale', 'altDisplay'],
+                ],
+              },
+              {
+                locale: [['testLC2-testCC2', 'testDisplay2']],
+              },
+            ],
+          },
+        ],
+      })
+    );
+
+    const display = await LocaleAPI.getLangDisplay({
+      cc: 'testCC',
+      lc: 'testLC',
+    });
+
+    expect(display).toEqual('testName — testDisplay');
+  });
+
+  it('should get lang for display', async function() {
+    const display = await LocaleAPI.getLangDisplay(false);
+
+    expect(display).toEqual('testName — testDisplay');
+  });
+
+  it('should get default lang display', async function() {
+    const display = await LocaleAPI.getLangDisplay({
+      cc: 'missingCC',
+      lc: 'missingLC',
+    });
+
+    expect(display).toEqual('United States — English');
+  });
+
+  it('should get locale from getLang', async function() {
+    jest
+      .spyOn(LocaleAPI, 'getLang')
+      .mockReturnValue(Promise.resolve('testLang'));
+    jest
+      .spyOn(LocaleAPI, 'getList')
+      .mockReturnValue(Promise.resolve('testList'));
+    jest.spyOn(LocaleAPI, 'verifyLocale').mockReturnValue('testVerified');
+    const locale = await LocaleAPI.getLocale();
+
+    expect(locale).toEqual('testLang');
+  });
+
+  it('should get locale from cookies', async function() {
+    jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(Promise.resolve(false));
 
     const locale = await LocaleAPI.getLocale();
 
     expect(locale).toEqual({ cc: 'us', lc: 'en' });
   });
 
-  it('should verify the locale and return existing combo', () => {
-    const locale = LocaleAPI.verifyLocale('us', 'es', response);
+  it('should get locale from geolocation on missing cookie', async function() {
+    ipcinfoCookie.get.mockImplementation(() => false);
 
-    expect(locale).toEqual({ cc: 'us', lc: 'en' });
-  });
-
-  xit('should set the ipcInfo cookie once combo has been verified', async () => {
     await LocaleAPI.getLocale();
 
-    expect(ipcinfoCookie.set).toHaveBeenCalledTimes(1);
     expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should make the call for the country list', async () => {
-    const data = await LocaleAPI.getList({ cc: _cc, lc: _lc });
+  it('should get locale from geolocation on missing cookie lc', async function() {
+    geolocation.mockClear();
+    ipcinfoCookie.get.mockImplementation(() => ({ cc: 'testCC' }));
 
-    expect(data).toEqual(response);
-    expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-    });
+    await LocaleAPI.getLocale();
+
+    expect(geolocation).toHaveBeenCalledTimes(1);
+  });
+
+  it('should get locale from geolocation on missing cookie cc', async function() {
+    geolocation.mockClear();
+    ipcinfoCookie.get.mockImplementation(() => ({ lc: 'testLC' }));
+
+    await LocaleAPI.getLocale();
+
+    expect(geolocation).toHaveBeenCalledTimes(1);
+  });
+
+  it('should get locale from geolocation', async function() {
+    ipcinfoCookie.set.mockClear();
+    ipcinfoCookie.get.mockImplementation(() => false);
+
+    const locale = await LocaleAPI.getLocale();
+
+    expect(locale).toEqual('testVerified');
+    expect(ipcinfoCookie.set).toHaveBeenCalledTimes(1);
+    expect(ipcinfoCookie.set).toHaveBeenCalledWith('testVerified');
+  });
+
+  it('should get undefined locale on no cc', async function() {
+    geolocation.mockImplementation(() => Promise.resolve(false));
+
+    const locale = await LocaleAPI.getLocale();
+    expect(locale).toBeUndefined();
   });
 
   it('should use the cache for the country list, keyed by locale', async () => {
+    mockAxios.get.mockClear();
+    LocaleAPI.getList.mockRestore();
     await LocaleAPI.getList({ cc: 'us', lc: 'en' });
     await LocaleAPI.getList({ cc: 'us', lc: 'en' });
     await LocaleAPI.getList({ cc: 'kr', lc: 'ko' });
