@@ -35,27 +35,30 @@ yarn add @carbon/ibmdotcom-react
 2. Components do not import any of the styles themselves, use the scss or css
    from `@carbon/ibmdotcom-styles` to bring in styling.
 
+### Styles
+
+Styles are in a separate package entirely, as they are considered to be
+framework agnostic and can be used with any framework.
+[Learn how to include styles here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/README.md).
+
 ## Usage
 
 ### List of Available Components
 
-View available React Components and patterns
-[here](https://ibmdotcom-react.mybluemix.net). You can see usage information in
-several ways:
+View available React Components [here](https://ibmdotcom-react.mybluemix.net).
+You can see usage information in several ways:
 
-1. Clicking the blue **Show Info** icon in the top right corner of the selected
-   component. You can see the list of available React props
+1. Clicking the **DOCS** tab in the top of the selected component. You can see
+   the list of available React props as well as how to use in your project.
 2. Clicking the **STORY** tab at the bottom. This tab contains the code that
    shows how the component is being used
 3. Clicking the **KNOBS** tab at the bottom and changing values there. Most
    knobs are shown as something like `Button kind (kind)`, where `kind` is the
    name of React prop
-4. Clicking the **ACTION LOGGER** tab at the bottom and interacting with the
-   selected component. You may see something like `onClick` which typically
-   indicates that the event handler (React prop) with the same name is called.
-   You can also expand the twistie to see the details of the event
-5. Clicking the **README** tab at the bottom. You can see some more document for
-   some components
+4. Clicking the **CARBON THEME** tab at the bottom and interacting with the
+   selected component. You can see what the component looks like in the four
+   available Carbon themes (NOTE: not all components are available in all
+   themes).
 
 ## Documentation
 
