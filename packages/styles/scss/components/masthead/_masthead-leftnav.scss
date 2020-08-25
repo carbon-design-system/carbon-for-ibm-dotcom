@@ -21,6 +21,9 @@
 
   .#{$prefix}--masthead__focus {
     opacity: 0;
+    padding: 0;
+    height: 0;
+    width: 0;
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {

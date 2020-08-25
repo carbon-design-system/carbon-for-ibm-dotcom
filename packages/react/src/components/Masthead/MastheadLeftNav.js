@@ -31,14 +31,6 @@ const MastheadLeftNav = ({
 }) => {
   const sideNavRef = useRef();
 
-  const preventOutFocus = () => {
-    if (isSideNavExpanded && useRef) {
-      sideNavRef.current?.parentNode
-        .querySelector(`.${prefix}--header__menu-toggle`)
-        .focus();
-    }
-  };
-
   /**
    * Left side navigation
    *
@@ -65,7 +57,14 @@ const MastheadLeftNav = ({
             </SideNavMenuWithBackFoward>
             <button
               className={`${prefix}--masthead__focus`}
-              onFocus={preventOutFocus}
+              onFocus={() => {
+                preventOutFocus(
+                  sideNavRef.current?.parentNode.querySelector(
+                    `.${prefix}--header__menu-toggle`
+                  ),
+                  isSideNavExpanded
+                );
+              }}
               aria-hidden={true}></button>
           </>
         );
@@ -96,10 +95,16 @@ const MastheadLeftNav = ({
               {link.title}
             </SideNavLink>
             <button
-              className={`${prefix}--masthead__focus}`}
-              onFocus={preventOutFocus}
-              aria-hidden={true}
-              href="#"></button>
+              className={`${prefix}--masthead__focus`}
+              onFocus={() => {
+                preventOutFocus(
+                  sideNavRef.current?.parentNode.querySelector(
+                    `.${prefix}--header__menu-toggle`
+                  ),
+                  isSideNavExpanded
+                );
+              }}
+              aria-hidden={true}></button>
           </>
         );
       }
@@ -139,6 +144,12 @@ const MastheadLeftNav = ({
   );
 };
 
+const preventOutFocus = (target, isSideNavExpanded) => {
+  if (isSideNavExpanded) {
+    target.focus();
+  }
+};
+
 /**
  * Loops through and renders a list of links for the side nav
  *
@@ -173,6 +184,17 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
             key={item.title}>
             {item.title}
           </SideNavMenuItem>
+        );
+      }
+
+      if (j === section.menuItems.length - 1) {
+        sectionItems.push(
+          <button
+            className={`${prefix}--masthead__focus`}
+            onFocus={e => {
+              preventOutFocus(e.target.parentElement.querySelector('a'), true);
+            }}
+            aria-hidden={true}></button>
         );
       }
     });
