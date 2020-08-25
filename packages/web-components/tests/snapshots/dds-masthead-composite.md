@@ -1,4 +1,4 @@
-# `dds-masthead-container`
+# `dds-masthead-composite`
 
 ## `Rendering global bar`
 
