@@ -71,7 +71,8 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
       // @ts-ignore
       super.connectedCallback();
-      this._hInputToBeThrottled = on(this, 'input', this._invokeHandleThrottledInput as EventListener);
+      const { eventInput } = this.constructor as typeof ThrottledInputMixinImpl;
+      this._hInputToBeThrottled = on(this, eventInput, this._invokeHandleThrottledInput as EventListener);
       this._updateThrottledHandleInput();
     }
 
@@ -93,6 +94,11 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         this._updateThrottledHandleInput();
       }
     }
+
+    /**
+     * The event that represents the user input gesture.
+     */
+    static eventInput = 'input';
   }
   return ThrottledInputMixinImpl;
 };
