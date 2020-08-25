@@ -18,6 +18,36 @@ yarn add @carbon/ibmdotcom-styles
 
 ## Usage
 
+### CSS Custom Properties
+
+In order for the expressive theme to work, CSS Custom Properties needs to be
+enabled. This needs to be introduced before any other imports:
+
+```scss
+$feature-flags: (
+  enable-css-custom-properties: true,
+);
+```
+
+This can also be added in webpack configurations:
+
+```javascript
+const sassLoader = {
+  loader: 'sass-loader',
+  options: {
+    includePaths: [path.resolve(__dirname, '..', 'node_modules')],
+    data: `
+        $feature-flags: (
+          enable-css-custom-properties: true
+        );
+      `,
+    sourceMap: true,
+  },
+};
+```
+
+### CSS Import
+
 This includes the expressive theme that would be applied to all Carbon
 components, as well as adjustments to the core type scale for IBM.com Library
 components and patterns.

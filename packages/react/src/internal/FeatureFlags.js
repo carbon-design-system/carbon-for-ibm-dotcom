@@ -25,6 +25,14 @@ export const DDS_MASTHEAD_L1 =
   process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * Feature flag to turn on the Card with Pictogram
+ *
+ * @type {boolean}
+ */
+export const DDS_CARD_WITH_PICTOGRAM =
+  process.env.DDS_CARD_WITH_PICTOGRAM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * Feature flag for the optional language selector in the footer
  *
  * @type {boolean}
@@ -39,22 +47,6 @@ export const DDS_LANGUAGE_SELECTOR =
  */
 export const DDS_SIMPLEBENEFITS =
   process.env.DDS_SIMPLEBENEFITS === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the simple overview will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_SIMPLE_OVERVIEW =
-  process.env.DDS_SIMPLE_OVERVIEW === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the logo grid will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LOGO_GRID =
-  process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the logo grid will be rendered or not

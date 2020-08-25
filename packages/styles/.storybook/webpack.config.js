@@ -73,7 +73,6 @@ const styleLoaders = [
       ],
       data: `
         $feature-flags: (
-          ui-shell: true,
           enable-css-custom-properties: true
         );
       `,
