@@ -25,7 +25,7 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
-import '../locale-modal/locale-modal-container';
+import '../locale-modal/locale-modal-composite';
 import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
