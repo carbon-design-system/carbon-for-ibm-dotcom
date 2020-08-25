@@ -18,6 +18,62 @@ instead:
 yarn add @carbon/ibmdotcom-styles
 ```
 
+## Expressive Theme
+
+The IBM.com Library runs optimally with the expressive theme enabled.
+
+### Step 1: CSS Custom Properties
+
+In order for the expressive theme to work, CSS Custom Properties needs to be
+enabled. This needs to be introduced before any other imports:
+
+```scss
+$feature-flags: (
+  enable-css-custom-properties: true,
+);
+```
+
+This can also be added in webpack configurations:
+
+```javascript
+const sassLoader = {
+  loader: 'sass-loader',
+  options: {
+    includePaths: [path.resolve(__dirname, '..', 'node_modules')],
+    data: `
+        $feature-flags: (
+          enable-css-custom-properties: true
+        );
+      `,
+    sourceMap: true,
+  },
+};
+```
+
+### Step 2: CSS Import
+
+This includes the expressive theme that would be applied to all Carbon
+components, as well as adjustments to the core type scale for IBM.com Library
+components and patterns.
+
+```css
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
+```
+
+### Learn More
+
+To read more about the expressive theme, visit
+https://www.ibm.com/standards/web/guidelines/expressive-theme.
+
+To see a storybook output of the Carbon components with the expressive theme
+applied, run the following command:
+
+```bash
+$ yarn storybook
+```
+
+This can also be viewed [here](https://carbon-expressive.mybluemix.net).
+
 ## Usage
 
 Import the package css into the top of your main CSS file.
@@ -27,7 +83,7 @@ Import the package css into the top of your main CSS file.
 ```
 
 In Webpack, the full package can also be included to the root of your
-application:
+application (though is recommended only for testing):
 
 ```javascript
 import '@carbon/ibmdotcom-styles';
@@ -43,20 +99,6 @@ SASS_PATH=node_modules:src
 
 💡 If importing `carbon-components.min.css`, remember to import our CSS after
 it.
-
-## Expressive Theme
-
-In addition to styles for IBM.com Library components and patterns, this package
-includes the
-[expressive theme](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles/scss/themes/expressive)
-for all Carbon components. To see a storybook output of the Carbon components
-with the expressive theme applied, run the following command:
-
-```bash
-$ yarn storybook
-```
-
-This can also be viewed [here](https://carbon-expressive.mybluemix.net).
 
 ## Documentation
 
