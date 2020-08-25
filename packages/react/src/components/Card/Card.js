@@ -31,6 +31,7 @@ export const Card = ({
   customClassName,
   copy,
   cta,
+  pictogram,
   ...props
 }) => {
   const TileType = props.disabled ? Tile : ClickableTile;
@@ -57,7 +58,7 @@ export const Card = ({
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta)}
+        {renderFooter(cta, pictogram)}
       </div>
     </TileType>
   );
@@ -85,20 +86,21 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta) {
+function renderFooter(cta, pictogram) {
   return (
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
-          [`${prefix}--card__footer__icon-left`]: cta.iconPlacement === 'left',
-          [`${prefix}--card__footer__copy`]: cta.copy,
+          [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
+          [`${prefix}--card__footer__copy`]: cta?.copy,
         })}>
-        {cta.copy && (
-          <span className={`${prefix}--card__cta__copy`}>{cta.copy}</span>
+        {cta?.copy && !pictogram && (
+          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}
-        {cta.icon?.src && (
-          <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+        {cta?.icon?.src && !pictogram && (
+          <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
         )}
+        {pictogram && pictogram}
       </div>
     )
   );
@@ -125,6 +127,11 @@ export const cardPropTypes = {
    * Disable card link
    */
   disabled: PropTypes.bool,
+
+  /**
+   * Pictogram located at the bottom left side of the Card. This prop disables the CTA.copy and CTA.icon (experimental)
+   */
+  pictogram: PropTypes.node,
 
   /**
    * CTA options. Has the following structure in summary:

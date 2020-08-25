@@ -61,7 +61,7 @@
 
 ```
 <dds-top-nav
-  data-auto-id="dds--masthead__l0-nav"
+  data-autoid="dds--masthead__l0-nav"
   role="navigation"
 >
   <dds-top-nav-item
@@ -91,7 +91,7 @@
 
 ```
 <dds-left-nav
-  data-auto-id="dds--masthead__l0-sidenav"
+  data-autoid="dds--masthead__l0-sidenav"
   role="navigation"
 >
   <dds-left-nav-item

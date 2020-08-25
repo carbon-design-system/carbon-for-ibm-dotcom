@@ -3,6 +3,228 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.0-rc.0...@carbon/ibmdotcom-react@1.10.0-rc.1) (2020-08-25)
+
+### Bug Fixes
+
+- **expressivetheme:** enable css custom properties with the theme
+  ([#3699](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3699))
+  ([cdf12a3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cdf12a3)),
+  closes
+  [#3698](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3698)
+  [#3643](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3643)
+- **masthead:** locked focus while left menu active
+  ([#3705](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3705))
+  ([ff766f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ff766f7)),
+  closes
+  [#3663](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3663)
+- **masthead:** ssr fix for scroll check
+  ([#3704](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3704))
+  ([c087815](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c087815)),
+  closes
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+- **MegaMenu:** add tabindex attr for safari not detecting event
+  ([#3673](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3673))
+  ([b3c1c7e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b3c1c7e)),
+  closes
+  [#3641](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3641)
+- **MegaMenu:** disable body scroll when megamenu is open
+  ([#3676](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3676))
+  ([828bfa7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/828bfa7)),
+  closes
+  [#3633](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3633)
+- **MegaMenu:** disable scrolling for mobile nav
+  ([#3692](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3692))
+  ([44167d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44167d5)),
+  closes
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+- **MegaMenu:** pass href prop to the CategoryGroup so link can be accessed as
+  expected
+  ([#3668](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3668))
+  ([abfbb56](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abfbb56))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.9.0...@carbon/ibmdotcom-react@1.10.0-rc.0) (2020-08-19)
+
+### Bug Fixes
+
+- **CalloutWithMedia:** g90 theme rendering well
+  ([#3392](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3392))
+  ([c0c6351](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c0c6351)),
+  closes
+  [#3383](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3383)
+- **docs:** fixed codesandbox links pointing to old folders
+  ([#3544](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3544))
+  ([902a1c3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/902a1c3)),
+  closes
+  [#3541](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3541)
+- **jest:** remove console errors
+  ([#3490](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3490))
+  ([e43bbfe](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e43bbfe))
+- **lightboxMediaViewer:** update react version
+  ([#3489](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3489))
+  ([d58e6fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d58e6fa)),
+  closes
+  [#3295](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3295)
+- **LinkwithIcon:** disabled hover styling
+  ([#3384](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3384))
+  ([af30476](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af30476)),
+  closes
+  [#3294](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3294)
+- **LocaleModal:** accessibility issue on navigation
+  ([#3466](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3466))
+  ([e7e10a9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e7e10a9)),
+  closes
+  [#3412](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3412)
+- **LocaleModal:** changing icon size and margin
+  ([#3532](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3532))
+  ([69109dd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/69109dd)),
+  closes
+  [#3329](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3329)
+- **LocaleModal:** html semantic, filter by region, scrollTop by region
+  ([#3513](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3513))
+  ([5a703d1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5a703d1)),
+  closes
+  [#3409](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3409)
+- **LocaleModal:** modal close btn accessibility
+  ([#3447](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3447))
+  ([88b3a53](https://github.com/carbon-design-system/ibm-dotcom-library/commit/88b3a53)),
+  closes
+  [#3410](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3410)
+- **LocalModal:** reset scroll to top
+  ([#3465](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3465))
+  ([8ffa44d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ffa44d)),
+  closes
+  [#3350](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3350)
+- **masthead:** left menu focus
+  ([#3611](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3611))
+  ([26ce5f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26ce5f9)),
+  closes
+  [#3588](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3588)
+- **Masthead:** edit hamburger menu autoid to new format
+  ([#3618](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3618))
+  ([eaf073f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eaf073f))
+- **MastheadSearch:** fix UC browser
+  ([#3442](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3442))
+  ([5d5f0c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d5f0c9)),
+  closes
+  [#2896](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2896)
+- **MegaMenu:** assign button role for the back button in mobile menu
+  ([#3610](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3610))
+  ([f840b28](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f840b28)),
+  closes
+  [#3587](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3587)
+- **MegaMenu:** break down MegaMenu into smaller components
+  ([#3488](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3488))
+  ([cf32071](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cf32071)),
+  closes
+  [/github.com/carbon-design-system/ibm-dotcom-library/pull/3395#issuecomment-669766125](https://github.com//github.com/carbon-design-system/ibm-dotcom-library/pull/3395/issues/issuecomment-669766125)
+- **MegaMenu:** prevent menu items from overlapping
+  ([#3565](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3565))
+  ([8bd6375](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8bd6375)),
+  closes
+  [#3519](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3519)
+- **MegaMenu:** set correct aria label to hamburger menu when open/closed
+  ([#3608](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3608))
+  ([e780ffa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e780ffa)),
+  closes
+  [#3584](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3584)
+- **MegaMenu:** tweak data-autoids for the mobile navigation
+  ([#3576](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3576))
+  ([7520594](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7520594)),
+  closes
+  [#3381](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3381)
+- **side-nav:** cope with large list of parent menu items
+  ([#3607](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3607))
+  ([bce8890](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bce8890)),
+  closes
+  [#3512](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3512)
+- **storybook:** fix to storybook react docs pages
+  ([#3572](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3572))
+  ([2a8c72d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2a8c72d)),
+  closes
+  [#3571](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3571)
+- **VideoPlayerAPI:** stop video when modal closes
+  ([#3427](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3427))
+  ([b61b5ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b61b5ee)),
+  closes
+  [#3295](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3295)
+
+### Features
+
+- **left-nav:** support focus wrapping
+  ([#3348](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3348))
+  ([8414000](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8414000)),
+  closes
+  [#3160](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3160)
+- **Masthead:** add megamenu to mobile nav
+  ([#3464](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3464))
+  ([5422747](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5422747)),
+  closes
+  [#3300](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3300)
+- **MegaMenu:** MegaMenu component
+  ([#3395](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3395))
+  ([c962e2f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c962e2f)),
+  closes
+  [#3279](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3279)
+- **MegaMenu:** set up auto ids
+  ([#3517](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3517))
+  ([f106790](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f106790)),
+  closes
+  [#3381](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3381)
+- **VideoPlayer:** adding stories for different aspect ratios
+  ([#3434](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3434))
+  ([055e10f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/055e10f)),
+  closes
+  [#3396](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3396)
+
+# 1.10.0-beta.4670 (2020-07-31)
+
+### Bug Fixes
+
+- **callout-data:** fixed wrong story display on iframe mode
+  ([#3241](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3241))
+  ([217095b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/217095b))
+- **components:** revert type size back to one of v1.8.0
+  ([#3293](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3293))
+  ([b97771b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b97771b)),
+  closes
+  [#3287](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3287)
+- **CTASection:** add sameHeight to content items
+  ([#3330](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3330))
+  ([18aff80](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18aff80))
+- **CTASection:** buttongroup styling
+  ([#3254](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3254))
+  ([4857422](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4857422)),
+  closes
+  [#3016](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3016)
+- **docs:** wrong scss import path in docs
+  ([#3335](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3335))
+  ([57ee99b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/57ee99b)),
+  closes
+  [#3332](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3332)
+  [#3333](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3333)
+- **LightboxMediaViewer:** modal dialog accessibility
+  ([#3275](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3275))
+  ([e0dd2d2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e0dd2d2)),
+  closes
+  [#2727](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2727)
+- **TableOfContents:** Sticky offset not working
+  ([#3255](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3255))
+  ([195a26e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/195a26e)),
+  closes
+  [#2979](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2979)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.9.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.9.0-rc.1...@carbon/ibmdotcom-react@1.9.0) (2020-07-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

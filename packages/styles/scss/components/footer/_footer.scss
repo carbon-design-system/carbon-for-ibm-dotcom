@@ -36,40 +36,60 @@
     padding-top: carbon--mini-units(4);
   }
 
+  :host(#{$dds-prefix}-footer[size='micro']),
+  .#{$prefix}--footer--micro {
+    padding-top: 0;
+  }
+
   :host(#{$dds-prefix}-footer-nav-item),
   :host(#{$dds-prefix}-legal-nav-item),
+  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--footer {
-    .#{$prefix}--footer__link.#{$prefix}--link {
-      &,
-      &:visited {
-        color: $text-02;
-      }
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      .#{$prefix}--footer__link.#{$prefix}--link {
+        @include carbon--type-style('body-long-02');
 
-      &:focus {
-        outline-color: $focus;
-        outline-offset: -1px;
-      }
+        &,
+        &:visited {
+          color: $text-02;
+        }
 
-      &:active {
-        color: $text-04;
-      }
+        &:focus {
+          outline-color: $focus;
+          outline-offset: -1px;
+        }
 
-      &:hover,
-      &:visited:hover {
-        color: $text-01;
+        &:active {
+          color: $text-04;
+        }
+
+        &:hover,
+        &:visited:hover {
+          color: $text-01;
+        }
       }
     }
   }
 
   :host(#{$dds-prefix}-legal-nav),
   .#{$prefix}--footer {
-    .#{$prefix}--legal-nav__list
-      .#{$prefix}--legal-nav__list-item
-      .#{$prefix}--link {
-      color: $text-02;
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      .#{$prefix}--legal-nav__list {
+        .#{$prefix}--legal-nav__list-item {
+          .#{$prefix}--link {
+            color: $text-02;
 
-      &:hover {
-        color: $text-01;
+            &:hover {
+              color: $text-01;
+            }
+          }
+        }
       }
     }
   }

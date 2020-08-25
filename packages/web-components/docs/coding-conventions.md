@@ -8,7 +8,9 @@
 - [No kitchen-sink "base" class and using mix-in](#no-kitchen-sink-base-class-and-using-mix-in)
 - [Minimize dependencies](#minimize-dependencies)
 - [Lifecycle management](#lifecycle-management)
+  - [Raw API from `carbon-components` for lifecycle management](#raw-api-from-carbon-components-for-lifecycle-management)
 - [Component styles for different component states/variants](#component-styles-for-different-component-statesvariants)
+- [Enum component attributes/properties](#enum-component-attributesproperties)
 - [Customizing components](#customizing-components)
   - [Defining (default) component options](#defining-default-component-options)
   - [Component variants with different options](#component-variants-with-different-options)
@@ -25,7 +27,9 @@
   - [Collation](#collation)
 - [Null checks](#null-checks)
 - [Updating view upon change in `private`/`protected` properties](#updating-view-upon-change-in-privateprotected-properties)
+- [Avoiding global `document`/`window` reference](#avoiding-global-documentwindow-reference)
 - [Custom element registration](#custom-element-registration)
+- [Custom element itself as an eleement](#custom-element-itself-as-an-eleement)
 - [Propagating misc attributes from shadow host to an element in shadow DOM](#propagating-misc-attributes-from-shadow-host-to-an-element-in-shadow-dom)
 - [Private properties](#private-properties)
 - [Limiting components that works with complex data](#limiting-components-that-works-with-complex-data)
@@ -72,7 +76,7 @@ For example, `<CTA>` in `@carbon/ibmdotcom-react` is heavy, and thus components 
 
 To avoid memory leaks and zombie event listeners, we ensure the event listeners on custom elements themselves (hosts) and ones on `document`, etc. are released when they get out of render tree.
 
-For that purpose, similar to `carbon-web-components`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener. The `type` argument can be something like `document:click` so the `click` event listener is attached to `document`.
+For that purpose, similar to `carbon-web-components`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener.
 
 Here's an example seen in `<bx-modal>` code:
 
@@ -96,6 +100,66 @@ class BXModal extends HostListenerMixin(LitElement) {
 }
 ```
 
+> 💡 `@HostListener()` supports syntaxes like below to use alternate event target:
+>
+> | `@HostListener()` syntax            | Target element                                                                                   |
+> | ----------------------------------- | ------------------------------------------------------------------------------------------------ |
+> | `@HostListener('document:click')`   | The `document` that owns the host element                                                        |
+> | `@HostListener('window:click')`     | The `window` that owns the host element                                                          |
+> | `@HostListener('parentRoot:click')` | The shadow root of the host element if it's in a shadow DOM. Otherwise, same as `document:click` |
+> | `@HostListener('shadowRoot:click')` | The shadow root attached to the host element                                                     |
+
+### Raw API from `carbon-components` for lifecycle management
+
+Sometimes we want to attach an event listener on a target that is not supported by `@HostListener()`. In such case, we can use [`on()` API from `carbon-components`](https://github.com/carbon-design-system/carbon/blob/v10.17.0/packages/components/src/globals/js/misc/on.js), like:
+
+```typescript
+import on from 'carbon-components/es/globals/js/misc/on';
+import Handle from '../../globals/internal/handle';
+
+...
+
+@customElement(`${ddsPrefix}-some-component`)
+class SomeComponent extends LitElement {
+  ...
+
+  private _hChangeMediaQuery: Handle | null = null;
+
+  ...
+
+  private _handleChangeMediaQuery(event: MediaQueryListEvent) {
+    // Do something upon a change in match of media query
+  }
+
+  ...
+
+
+  connectedCallback() {
+    super.connectedCallback();
+    const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
+    // `.matchMedia()` returns an event target
+    const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
+    this._hChangeMediaQuery = on(mediaQueryList, 'change', this._handleChangeMediaQuery);
+  }
+
+  disconnectedCallback() {
+    if (this._hChangeMediaQuery) {
+      // `.release()` here detaches the event listener,
+      // in a way where you don't have to keep around the reference to the event listener function
+      this._hChangeMediaQuery = this._hChangeMediaQuery.release();
+    }
+  }
+
+  ...
+
+  static get mediaStickExpanded() {
+    return '(min-width: 42rem)';
+  }
+
+  ...
+}
+```
+
 ## Component styles for different component states/variants
 
 Carbon core CSS uses BEM modifier like `bx--btn--danger` to style different states/variants of a component.
@@ -106,6 +170,69 @@ If such states/variants should affect the style of custom element (shadow host),
 
 - Taking a cue from native elements with user agent shadow DOM (e.g. UA stylesheet for `<input type="hidden">`)
 - [Adding CSS classes on our custom elements by ourselves may conflict with CSS classes set by consumers](https://developers.google.com/web/fundamentals/web-components/best-practices#do-not-self-apply-classes)
+
+## Enum component attributes/properties
+
+Sometimes a component attribute/property chooses one in the choices. For example, we pick one from `primary`/`secondary`/`danger`/`ghost` for `type` attribute in `<bx-btn>`.
+
+Instead of using `primary`/`secondary`, etc. directly like this:
+
+```typescript
+class BXBtn extends LitElement {
+  ...
+
+  /**
+   * Button kind.
+   */
+  @property({ reflect: true })
+  kind = 'primary'; // ❗️ Don't do this
+
+  ...
+}
+```
+
+We define a [TypeScript enum](https://www.typescriptlang.org/docs/handbook/enums.html) for `primary`/`secondary`, etc. and use it, like:
+
+```typescript
+/**
+ * Button kinds.
+ */
+export enum BUTTON_KIND {
+  /**
+   * Primary button.
+   */
+  PRIMARY = 'primary',
+
+  /**
+   * Secondary button.
+   */
+  SECONDARY = 'secondary',
+
+  /**
+   * Danger button.
+   */
+  DANGER = 'danger',
+
+  /**
+   * Ghost button.
+   */
+  GHOST = 'ghost',
+}
+
+...
+
+class BXBtn extends LitElement {
+  ...
+
+  /**
+   * Button kind.
+   */
+  @property({ reflect: true })
+  kind = BUTTON_KIND.PRIMARY;
+
+  ...
+}
+```
 
 ## Customizing components
 
@@ -238,17 +365,10 @@ Above code fires `dds-masthead-menu-button-toggled` custom event so that other c
 `left-nav.ts`:
 
 ```typescript
-connectedCallback() {
-  super.connectedCallback();
-  this._hAfterButtonToggle = on(
-    // If `<dds-left-nav>` is placed in a shadow DOM, `.getRootNode()` finds such shadow DOM.
-    // Otherwise it finds the owning `document.
-    this.getRootNode() as Document,
-    (this.constructor as typeof DDSLeftNav).eventButtonToggle,
-    (event: CustomEvent) => {
-      this.active = event.detail.active;
-    }
-  );
+@HostListener('parentRoot:eventButtonToggle')
+// @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+private _handleToggleMenuButton(event: CustomEvent) {
+  this.active = event.detail.active;
 }
 
 static get eventButtonToggle() {
@@ -258,9 +378,9 @@ static get eventButtonToggle() {
 
 > 💡 Some components fire another event, which is [cancelable](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable), right before it changes the state. For example, [`<bx-modal>` fires `bx-modal-beingclosed` custom event before it updates its state from `open` to `closed`](https://github.com/carbon-design-system/carbon-web-components/blob/v1.0.0/src/components/modal/modal.ts#L166). If `.preventDefault()` is called on such event, the modal won't be closed.
 
-> 💡 We define custom event names as static properties so derived classes can customize them.
+> 💡 We define custom event names as static properties so derived classes can customize them. More information can be found at ["Areas to make them configurable as component options" section](#areas-to-make-them-configurable-as-component-options).
 
-> 💡 [`on()` API](https://github.com/carbon-design-system/carbon/blob/v10.16.0/packages/components/src/globals/js/misc/on.js) is used for a component lifecycle management, so `this._hAfterButtonToggle.release()` will clean-up the event listener. For native DOM events like `click`, we have better API called [`@HostListener`](<(#lifecycle-management)>).
+> 💡 See ["Lifecycle management" section](#lifecycle-management) for the details of `@HostListener()`.
 
 ### Data flow (Summary)
 
@@ -308,6 +428,12 @@ If you get TypeScript "may be null" errors, think twice to see if there is such 
 
 `lit-element` observes for changes in declared properties for updating the view. `@carbon/ibmdotcom-web-components` codebase doesn't use this feature simply to get properties observed. Specifically, `@carbon/ibmdotcom-web-components` doesn't set `private`/`protected` properties as declared. Whenever change in `private`/`protected` should cause update in the view, we take manual approach (`.requestUpdate()`).
 
+> 💡 [`2.3.0` version of `lit-element` introduced `@internalProperty()` decorator](https://github.com/Polymer/lit-element/blob/v2.4.0/CHANGELOG.md#added-1) that takes care of `.requestUpdate()` automatically. Migration to this approach will happen soon.
+
+## Avoiding global `document`/`window` reference
+
+Global `document`/`window` can be different from the ones associated with custom element instance, when the custom element is transported to a different frame e.g. with `document.importNode()`. Though such cases are rare, the codebase avoids global `document`/`window` reference to keep ourselves in a good DOM citizen. We use [`element.ownerDocument`](https://developer.mozilla.org/en-US/docs/Web/API/Node/ownerDocument)/[`.element.ownerDocument.defaultView`](https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView), respectively, instead.
+
 ## Custom element registration
 
 This library registers custom elements to global `window` automatically upon importing the corresponding modules.
@@ -315,6 +441,73 @@ It may not be desirable in two scenarios:
 
 - One is when consumer wants to customize our custom element's behavior before it's registered. In such case, consumer can create a derived class and register it with a different custom element name.
 - Another, though the use case is rare, is using our custom element in a different realm. In such case, consumer can re-register the custom element in the realm.
+
+## Custom element itself as an eleement
+
+In Custom Elements world, the custom element itself (the host of shadow DOM) itself is an element.
+
+When we create a custom element that represents `<li class="bx--footer-nav-group__item">`, it's tempting to render the following in shadow DOM:
+
+```typescript
+@customElement(`${ddsPreifx}-footer-nav-item`)
+class DDSFooterNavItem extends LitElement {
+  ...
+
+  render() {
+    const { href } = this;
+    // ❗️ Don't do this
+    return html`
+      <li class="bx--footer-nav-group__item">
+        <a class="bx--footer-nav-group__link bx--footer__link" href="${ifNonNull(href)}">
+      </li>
+    `;
+  }
+
+  ...
+}
+```
+
+But if we do this, we end up creating a DOM tree like below, which means, creating `<dds-footer-nav-item>` as an element in addition to the `<li>`:
+
+```html
+<dds-footer-nav-item>
+  #shadow-root
+    <li class="bx--footer-nav-group__item">
+      <a class="bx--footer-nav-group__link bx--footer__link" href="https://ibm.com/foo">
+    </li>
+</dds-footer-nav-item>
+```
+
+To solve such redundant DOM element, we do the following instead:
+
+```typescript
+@customElement(`${ddsPreifx}-footer-nav-item`)
+class DDSFooterNavItem extends LitElement {
+  ...
+
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      // Ensure the custom element has the same a11y role as `<li>`
+      this.setAttribute('role', 'listitem');
+    }
+    super.connectedCallback();
+  }
+
+  render() {
+    const { href } = this;
+    // Don't render `<li>` here
+    return html`
+      <a class="bx--footer-nav-group__link bx--footer__link" href="${ifNonNull(href)}">
+    `;
+  }
+
+  ...
+}
+```
+
+> 💡 Make sure `:host(#{$ddsPrefix}-footer-nav-item)` the same CSS rules as `#{$prefix}--footer-nav-group__item` in the Sass code.
+
+> 💡 `<button>` and `<a>` are exceptions to this rule because there is no way to implement the same feature of those tags with a custom element.
 
 ## Propagating misc attributes from shadow host to an element in shadow DOM
 
@@ -325,6 +518,8 @@ In such case, we let consumer create a derived class. For example, its `.attribu
 ## Private properties
 
 This codebase tends to make all component class/instance properties `private` unless they serve API purpose. This codebase makes some of them `protected` to support inherited components.
+
+`private`/`protected` properties should be prefixed with `_`.
 
 ## Limiting components that works with complex data
 
