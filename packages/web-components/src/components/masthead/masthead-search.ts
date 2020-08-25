@@ -141,6 +141,13 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
+   * Handles `input` event in the saarch input.
+   */
+  private _handleInput() {
+    this.open = true;
+  }
+
+  /**
    * Prevents form submission if there is a highlighted item.
    * In such case, `._handleUserInitiatedRedirect()` should have navigated the user to the search result page.
    *
@@ -179,7 +186,7 @@ class DDSMastheadSearch extends BXDropdown {
    * @returns The main content of the trigger button.
    */
   protected _renderTriggerContent() {
-    const { placeholder, _handleKeyInput: handleKeyInput, searchLabel } = this;
+    const { placeholder, searchLabel, _handleInput: handleInput, _handleKeyInput: handleKeyInput } = this;
     return html`
       <input
         type="text"
@@ -191,6 +198,7 @@ class DDSMastheadSearch extends BXDropdown {
         aria-controls="result-list"
         aria-autocomplete="list"
         aria-label="${ifNonNull(searchLabel)}"
+        @input="${handleInput}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}"
       />

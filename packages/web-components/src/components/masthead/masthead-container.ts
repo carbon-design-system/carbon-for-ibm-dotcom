@@ -142,10 +142,14 @@ export function mapStateToProps(
   const { translations } = translateAPI ?? {};
   const { status } = profileAPI ?? {};
   const { currentSearchQueryString, searchResults } = searchAPI ?? {};
+  let currentSearchResults;
+  for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
+    currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
+  }
   return cleanProps({
     navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
     userStatus: status?.user,
-    currentSearchResults: searchResults?.[currentSearchQueryString!]?.[language!],
+    currentSearchResults: currentSearchResults ?? [],
   });
 }
 
