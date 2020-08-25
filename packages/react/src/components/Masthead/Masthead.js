@@ -246,95 +246,104 @@ const Masthead = ({
 
   return (
     <HeaderContainer
-      render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-        <div
-          className={cx(`${prefix}--masthead ${mastheadSticky}`, {
-            [`${prefix}--masthead--hide-items`]: hideNavItems,
-          })}
-          ref={stickyRef}>
-          <div className={`${prefix}--masthead__l0`}>
-            <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
-              <SkipToContent />
+      render={({ isSideNavExpanded, onClickSideNavExpand }) => {
+        if (isSideNavExpanded) {
+          root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+        } else {
+          root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+        }
+        return (
+          <div
+            className={cx(`${prefix}--masthead ${mastheadSticky}`, {
+              [`${prefix}--masthead--hide-items`]: hideNavItems,
+            })}
+            ref={stickyRef}>
+            <div className={`${prefix}--masthead__l0`}>
+              <Header
+                aria-label="IBM"
+                data-autoid={`${stablePrefix}--masthead`}>
+                <SkipToContent />
 
-              {(mastheadL1Data || navigation) && (
-                <HeaderMenuButton
-                  aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
-                  data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
-                  onClick={onClickSideNavExpand}
-                  isActive={isSideNavExpanded}
+                {(mastheadL1Data || navigation) && (
+                  <HeaderMenuButton
+                    aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
+                    data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
+                    onClick={onClickSideNavExpand}
+                    isActive={isSideNavExpanded}
+                  />
+                )}
+
+                {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                  <MastheadLeftNav
+                    {...mastheadProps}
+                    backButtonText="Back"
+                    platform={platform}
+                    navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
+                    isSideNavExpanded={isSideNavExpanded}
+                    navType={navType}
+                  />
+                )}
+
+                <IbmLogo
+                  autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
-              )}
 
-              {(navigation || mastheadL1Data) && isSideNavExpanded && (
-                <MastheadLeftNav
-                  {...mastheadProps}
-                  backButtonText="Back"
-                  platform={platform}
-                  navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
-                  isSideNavExpanded={isSideNavExpanded}
+                <div className={`${prefix}--header__search ${hasPlatform}`}>
+                  {navigation && !mastheadL1Data && (
+                    <MastheadTopNav
+                      {...mastheadProps}
+                      platform={platform}
+                      navigation={mastheadData}
+                      navType={navType}
+                    />
+                  )}
+                  {hasSearch && (
+                    <MastheadSearch
+                      searchOpenOnload={searchOpenOnload}
+                      placeHolderText={placeHolderText}
+                      navType={navType}
+                    />
+                  )}
+                </div>
+
+                {hasProfile && (
+                  <HeaderGlobalBar>
+                    <MastheadProfile
+                      overflowMenuProps={{
+                        ariaLabel: 'User Profile',
+                        'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
+                        flipped: true,
+                        style: { width: '3rem' },
+                        onOpen: () => _setProfileListPosition(),
+                        renderIcon: () =>
+                          isAuthenticated ? <UserOnline20 /> : <User20 />,
+                      }}
+                      overflowMenuItemProps={{
+                        wrapperClassName: `${prefix}--masthead__profile-item`,
+                      }}
+                      profileMenu={
+                        isAuthenticated
+                          ? profileData.signedin
+                          : profileData.signedout
+                      }
+                      navType={navType}
+                    />
+                  </HeaderGlobalBar>
+                )}
+              </Header>
+            </div>
+            {mastheadL1Data && DDS_MASTHEAD_L1 && (
+              <div ref={mastheadL1Ref}>
+                <MastheadL1
+                  {...mastheadL1Data}
+                  isShort={isMastheadSticky}
                   navType={navType}
                 />
-              )}
-
-              <IbmLogo
-                autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
-              />
-
-              <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation && !mastheadL1Data && (
-                  <MastheadTopNav
-                    {...mastheadProps}
-                    platform={platform}
-                    navigation={mastheadData}
-                    navType={navType}
-                  />
-                )}
-                {hasSearch && (
-                  <MastheadSearch
-                    searchOpenOnload={searchOpenOnload}
-                    placeHolderText={placeHolderText}
-                    navType={navType}
-                  />
-                )}
               </div>
-
-              {hasProfile && (
-                <HeaderGlobalBar>
-                  <MastheadProfile
-                    overflowMenuProps={{
-                      ariaLabel: 'User Profile',
-                      'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
-                      flipped: true,
-                      style: { width: '3rem' },
-                      onOpen: () => _setProfileListPosition(),
-                      renderIcon: () =>
-                        isAuthenticated ? <UserOnline20 /> : <User20 />,
-                    }}
-                    overflowMenuItemProps={{
-                      wrapperClassName: `${prefix}--masthead__profile-item`,
-                    }}
-                    profileMenu={
-                      isAuthenticated
-                        ? profileData.signedin
-                        : profileData.signedout
-                    }
-                    navType={navType}
-                  />
-                </HeaderGlobalBar>
-              )}
-            </Header>
+            )}
           </div>
-          {mastheadL1Data && DDS_MASTHEAD_L1 && (
-            <div ref={mastheadL1Ref}>
-              <MastheadL1
-                {...mastheadL1Data}
-                isShort={isMastheadSticky}
-                navType={navType}
-              />
-            </div>
-          )}
-        </div>
-      )}
+        );
+      }}
     />
   );
 };

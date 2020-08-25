@@ -39,26 +39,19 @@ export default {
           ),
           copy: text('copy', '', groupId),
           inverse: boolean('inverse', false, groupId),
-          cta:
-            showPictogram && DDS_CARD_WITH_PICTOGRAM
-              ? null
-              : {
-                  href: text(
-                    'Cta href (cta.href)',
-                    'https://example.com',
-                    groupId
-                  ),
-                  copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
-                  icon: {
-                    src: ArrowRight20,
-                  },
-                  iconPlacement: select(
-                    'Cta icon placement (cta.iconPlacement)',
-                    ['left', 'right'],
-                    'right',
-                    groupId
-                  ),
-                },
+          cta: {
+            href: text('Cta href (cta.href)', 'https://example.com', groupId),
+            copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
+            icon: {
+              src: ArrowRight20,
+            },
+            iconPlacement: select(
+              'Cta icon placement (cta.iconPlacement)',
+              ['left', 'right'],
+              'right',
+              groupId
+            ),
+          },
           pictogram: showPictogram && DDS_CARD_WITH_PICTOGRAM ? <Bee /> : null,
         };
       },
