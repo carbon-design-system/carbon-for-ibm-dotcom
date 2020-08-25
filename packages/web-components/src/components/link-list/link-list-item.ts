@@ -34,10 +34,10 @@ export enum STYLE_SCHEME {
  */
 @customElement(`${ddsPrefix}-link-list-item`)
 class DDSLinkListItem extends LitElement {
-  // eslint-disable-next-line class-methods-use-this
+  // eslint-disable-nesxt-line class-methods-use-this
   protected render() {
     return html`
-      <slot @slotchange=${this._handleSlotChange} />
+      <slot style-scheme="${STYLE_SCHEME.LINK_LIST}" @slotchange=${this._handleSlotChange} />
     `;
   }
 
@@ -45,8 +45,9 @@ class DDSLinkListItem extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
     }
-    e.target?.assignedNodes?.forEach(node => {
-      node.styleScheme = STYLE_SCHEME.LINK_LIST;
+    const nodes = e.target.assignedNodes();
+    nodes?.forEach(item => {
+      item.styleScheme = STYLE_SCHEME.LINK_LIST;
     });
   }
 
