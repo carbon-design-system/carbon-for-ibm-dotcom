@@ -405,6 +405,11 @@ $search-transition-timing: 95ms;
   .#{$prefix}--masthead--hide-items .#{$prefix}--header__nav-container {
     display: none;
   }
+
+  .#{$prefix}--body__lock-scroll {
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 @include exports('masthead') {
