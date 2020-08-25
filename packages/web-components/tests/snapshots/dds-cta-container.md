@@ -7,7 +7,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     href="https://www.example.com"
   >
     copy-foo
@@ -21,7 +21,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     href="https://www.example.com"
     type="local"
   >
@@ -36,7 +36,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     download="IBM_Annual_Report_2019.pdf"
     href="https://www.example.com"
     type="download"
@@ -52,7 +52,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     href="#example"
     type="jump"
   >
@@ -67,7 +67,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     href="https://www.example.com"
     type="external"
   >
@@ -82,7 +82,7 @@
 ```
 <dds-cta-container cta-style="text">
   <dds-text-cta
-    data-auto-id="dds--link-with-icon"
+    data-autoid="dds--link-with-icon"
     href="0_uka1msg4"
     type="video"
   >
@@ -100,7 +100,7 @@
 <div>
   <dds-lightbox-video-player-container>
     <dds-modal
-      data-auto-id="dds--expressive-modal"
+      data-autoid="dds--expressive-modal"
       size="full-width"
       tabindex="0"
     >

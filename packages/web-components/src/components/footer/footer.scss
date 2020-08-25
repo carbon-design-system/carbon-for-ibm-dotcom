@@ -37,9 +37,9 @@
 }
 
 :host(#{$dds-prefix}-footer-nav-item),
-:host(#{$dds-prefix}-legal-nav-item) {
+:host(#{$dds-prefix}-legal-nav-item),
+:host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder) {
   display: list-item;
-
   outline: none;
 }
 

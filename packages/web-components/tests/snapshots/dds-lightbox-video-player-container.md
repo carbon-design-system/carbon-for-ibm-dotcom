@@ -5,7 +5,7 @@
 ```
 <dds-lightbox-video-player-container video-id="video-id-foo">
   <dds-modal
-    data-auto-id="dds--expressive-modal"
+    data-autoid="dds--expressive-modal"
     expressive-size="full-width"
     size=""
     tabindex="0"

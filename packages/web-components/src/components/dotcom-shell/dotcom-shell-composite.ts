@@ -71,6 +71,14 @@ class DDSDotcomShellComposite extends LitElement {
   collatorCountryName = new Intl.Collator();
 
   /**
+   * The search results to show in the UI. This goes to masthead.
+   * The data typically comes from our search service and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   */
+  @property({ attribute: false })
+  currentSearchResults: string[] = [];
+
+  /**
    * The throttle timeout to run query upon user input. This goes to masthead.
    */
   @property({ type: Number })
@@ -159,6 +167,14 @@ class DDSDotcomShellComposite extends LitElement {
   footerSize?: FOOTER_SIZE;
 
   /**
+   * `true` to open the search dropdown.. This goes to masthead.
+   * The data typically comes from our search service and thus you don't need to set this property by default,
+   * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'open-search-dropdown' })
+  openSearchDropdown = false;
+
+  /**
    * The profile items for unauthenticated state. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
@@ -192,6 +208,7 @@ class DDSDotcomShellComposite extends LitElement {
       authenticateProfileItems,
       brandName,
       collatorCountryName,
+      currentSearchResults,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
@@ -206,6 +223,7 @@ class DDSDotcomShellComposite extends LitElement {
       footerLinks,
       footerSize,
       openLocaleModal,
+      openSearchDropdown,
       navLinks,
       userStatus,
     } = this;
@@ -219,6 +237,7 @@ class DDSDotcomShellComposite extends LitElement {
       _loadTranslation,
       _setTranslation,
       _monitorUserStatus,
+      _loadSearchResults,
     } = this as any;
     Object.assign(
       this._mastheadRenderRoot,
@@ -227,6 +246,7 @@ class DDSDotcomShellComposite extends LitElement {
           activateSearch,
           authenticateProfileItems,
           brandName,
+          currentSearchResults,
           mastheadAssistiveText,
           menuBarAssistiveText,
           menuButtonAssistiveTextActive,
@@ -236,11 +256,13 @@ class DDSDotcomShellComposite extends LitElement {
           language,
           loginNonce,
           navLinks,
+          openSearchDropdown,
           userStatus,
           _loadLanguage,
           _setLanguage,
           _loadTranslation,
           _monitorUserStatus,
+          _loadSearchResults,
         },
         value => value !== undefined
       )

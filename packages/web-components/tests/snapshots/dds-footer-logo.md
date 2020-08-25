@@ -6,6 +6,7 @@
 
 ```
 <a
+  aria-label="IBM logo"
   class="bx--footer-logo__link"
   href="https://www.ibm.com/"
 >
@@ -19,6 +20,7 @@
 
 ```
 <a
+  aria-label="IBM logo"
   class="bx--footer-logo__link"
   href="https://cloud.ibm.com/"
 >

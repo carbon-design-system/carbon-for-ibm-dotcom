@@ -7,6 +7,7 @@
 
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
+import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
@@ -135,6 +136,31 @@ ShortFooter.story = {
           footerProps: {
             ...footerKnobs({ groupId: 'Footer' }),
             type: 'short',
+          },
+        };
+      },
+    },
+  },
+};
+
+export const MicroFooter = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+MicroFooter.story = {
+  name: 'With micro footer',
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerMicroStory.story.parameters.knobs;
+        return {
+          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+            type: 'micro',
           },
         };
       },
