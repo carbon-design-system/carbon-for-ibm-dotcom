@@ -13,6 +13,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20';
 import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
 import DDSModal from '../modal/modal';
+import '../modal/modal-header';
+import '../modal/modal-heading';
+import '../modal/modal-close-button';
 import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
