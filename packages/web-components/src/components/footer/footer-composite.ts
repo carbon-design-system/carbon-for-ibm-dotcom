@@ -21,8 +21,8 @@ import { FOOTER_SIZE } from './footer';
 import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal/locale-modal-composite';
-import './footer';
 /* eslint-enable import/no-duplicates */
+import './footer';
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
