@@ -12,13 +12,14 @@
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin card {
-  .#{$prefix}--card {
+  .#{$prefix}--card,
+  :host(#{$dds-prefix}-card) {
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
     flex-direction: column;
 
-    &__wrapper {
+    .#{$prefix}--card__wrapper {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -26,26 +27,26 @@
       min-height: carbon--mini-units(20);
     }
 
-    &__heading {
+    .#{$prefix}--card__heading {
       @include carbon--type-style('expressive-heading-03');
 
       margin-bottom: $carbon--layout-05;
     }
 
-    &__heading,
-    &__copy {
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy {
       @include content-width;
 
       color: $text-01;
     }
 
-    &__copy {
+    .#{$prefix}--card__copy {
       @include carbon--type-style('body-short-02');
 
       margin-bottom: $carbon--spacing-07;
     }
 
-    &__eyebrow {
+    .#{$prefix}--card__eyebrow {
       @include use-carbon-productive-tokens();
       @include carbon--type-style('body-short-01');
 
@@ -53,23 +54,24 @@
       color: $text-02;
     }
 
-    &__cta,
-    &__cta a,
-    &__cta a:visited {
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a,
+    .#{$prefix}--card__cta a:visited {
       color: $interactive-04;
     }
 
-    &__cta__copy {
+    .#{$prefix}--card__cta__copy {
       margin-right: $carbon--spacing-03;
       color: $interactive-04;
       @include carbon--type-style('body-short-02');
     }
 
-    &__footer {
+    .#{$prefix}--card__footer,
+    :host(#{$dds-prefix}-feature-card-footer) {
       display: flex;
       margin-top: auto;
 
-      &__copy {
+      .#{$prefix}--card__footer__copy {
         margin-bottom: -$carbon--spacing-01;
       }
 
@@ -81,7 +83,7 @@
       }
     }
 
-    &__footer__icon-left {
+    .#{$prefix}--card__footer__icon-left {
       justify-content: flex-end;
       flex-direction: row-reverse;
 
@@ -94,9 +96,9 @@
       }
     }
 
-    &:focus,
-    &:visited,
-    &:active {
+    .#{$prefix}--card:focus,
+    .#{$prefix}--card:visited,
+    .#{$prefix}--card:active {
       position: relative;
       z-index: 2;
 
@@ -106,17 +108,17 @@
       }
     }
 
-    &:visited,
-    &:active,
-    &:hover {
+    .#{$prefix}--card:visited,
+    .#{$prefix}--card:active,
+    .#{$prefix}--card:hover {
       color: currentColor;
     }
 
-    &__img {
+    .#{$prefix}--card__img {
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    &--link:hover {
+    .#{$prefix}--card--link:hover {
       background-color: $hover-ui;
 
       text-decoration: none;
@@ -126,15 +128,15 @@
       }
     }
 
-    &:focus {
+    .#{$prefix}--card:focus {
       outline-color: $focus;
     }
 
-    &.#{$prefix}--tile {
+    .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
 
-    &__video {
+    .#{$prefix}--card__video {
       .#{$prefix}--card__footer span {
         color: $text-02;
         @include use-carbon-productive-tokens();
@@ -143,7 +145,8 @@
     }
   }
 
-  .#{$prefix}--card--inverse {
+  .#{$prefix}--card--inverse,
+  :host(#{$dds-prefix}-card)[color-scheme='inverse'] {
     background-color: $inverse-02;
 
     .#{$prefix}--card__heading,
@@ -155,7 +158,7 @@
       color: $text-03;
     }
 
-    &:hover {
+    .#{$prefix}--card--inverse:hover {
       background-color: $inverse-hover-ui;
     }
 

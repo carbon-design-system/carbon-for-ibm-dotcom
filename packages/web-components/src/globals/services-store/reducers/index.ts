@@ -11,6 +11,7 @@ import { combineReducers } from 'redux';
 import localeAPIReducer from './localeAPI';
 import translateAPIReducer from './translateAPI';
 import profileAPIReducer from './profileAPI';
+import searchAPIReducer from './searchAPI';
 
 export { localeAPIReducer as localeAPI, translateAPIReducer as translateAPI, profileAPIReducer as profileAPI };
 
@@ -21,6 +22,7 @@ const reducers = combineReducers({
   localeAPI: localeAPIReducer,
   translateAPI: translateAPIReducer,
   profileAPI: profileAPIReducer,
+  searchAPI: searchAPIReducer,
 });
 
 export default reducers;

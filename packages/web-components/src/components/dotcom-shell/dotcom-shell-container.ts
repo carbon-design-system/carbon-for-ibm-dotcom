@@ -15,6 +15,7 @@ import store from '../../globals/services-store/store';
 import { LocaleAPIActions } from '../../globals/services-store/actions/localeAPI';
 import { TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
 import { ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
+import { SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
 import {
   FooterActions,
   FooterContainerState,
@@ -26,7 +27,6 @@ import {
   MastheadActions,
   MastheadContainerState,
   MastheadContainerStateProps,
-  DDSMastheadSearchContainerMixin,
   mapStateToProps as mapStateToPropsMasthead,
   mapDispatchToProps as mapDispatchToPropsMasthead,
 } from '../masthead/masthead-container';
@@ -70,13 +70,13 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
 @customElement(`${ddsPrefix}-dotcom-shell-container`)
 class DDSDotcomShellContainer extends ConnectMixin<
   MastheadContainerState | FooterContainerState,
-  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,
+  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,
   MastheadContainerStateProps | FooterContainerStateProps,
   ActionCreatorsMapObject<MastheadActions | FooterActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>,
+  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSMastheadSearchContainerMixin(DDSDotcomShellComposite)) {}
+)(DDSDotcomShellComposite) {}
 
 export default DDSDotcomShellContainer;
