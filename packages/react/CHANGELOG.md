@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.0-rc.0...@carbon/ibmdotcom-react@1.10.0-rc.1) (2020-08-25)
+
+### Bug Fixes
+
+- **expressivetheme:** enable css custom properties with the theme
+  ([#3699](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3699))
+  ([cdf12a3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cdf12a3)),
+  closes
+  [#3698](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3698)
+  [#3643](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3643)
+- **masthead:** locked focus while left menu active
+  ([#3705](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3705))
+  ([ff766f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ff766f7)),
+  closes
+  [#3663](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3663)
+- **masthead:** ssr fix for scroll check
+  ([#3704](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3704))
+  ([c087815](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c087815)),
+  closes
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+- **MegaMenu:** add tabindex attr for safari not detecting event
+  ([#3673](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3673))
+  ([b3c1c7e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b3c1c7e)),
+  closes
+  [#3641](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3641)
+- **MegaMenu:** disable body scroll when megamenu is open
+  ([#3676](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3676))
+  ([828bfa7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/828bfa7)),
+  closes
+  [#3633](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3633)
+- **MegaMenu:** disable scrolling for mobile nav
+  ([#3692](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3692))
+  ([44167d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44167d5)),
+  closes
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+- **MegaMenu:** pass href prop to the CategoryGroup so link can be accessed as
+  expected
+  ([#3668](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3668))
+  ([abfbb56](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abfbb56))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.9.0...@carbon/ibmdotcom-react@1.10.0-rc.0) (2020-08-19)
 
 ### Bug Fixes
