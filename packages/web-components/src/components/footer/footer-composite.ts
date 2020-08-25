@@ -25,8 +25,11 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
-import '../locale-modal/locale-modal-composite';
+/* eslint-disable import/no-duplicates */
 import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../locale-modal/locale-modal-composite';
+/* eslint-enable import/no-duplicates */
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
