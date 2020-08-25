@@ -46,6 +46,8 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    text-size-adjust: 100%;
+
     &__sidebar {
       position: sticky;
       top: 0;
