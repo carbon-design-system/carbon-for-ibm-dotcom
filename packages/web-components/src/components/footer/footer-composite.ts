@@ -16,7 +16,14 @@ import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
 import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-store/types/translateAPI';
 import Handle from '../../globals/internal/handle';
+/* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
+// Above import is interface-only ref and thus code won't be brought into the build
+import './footer';
+import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../locale-modal/locale-modal-composite';
+/* eslint-enable import/no-duplicates */
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
@@ -25,7 +32,6 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
-import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
