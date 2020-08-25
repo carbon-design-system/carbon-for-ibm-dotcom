@@ -139,6 +139,7 @@
     &[aria-expanded='true'] {
       + .#{$prefix}--side-nav__menu[role='menu'] {
         position: absolute;
+        overflow-y: auto;
         padding-bottom: $layout-05;
         top: 0;
         background: $ui-background;
