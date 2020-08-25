@@ -174,6 +174,15 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
             navType={navType}
             key={j}>
             {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
+            <button
+              className={`${prefix}--masthead__focus`}
+              onFocus={e => {
+                preventOutFocus(
+                  e.target.parentElement.querySelector('a'),
+                  true
+                );
+              }}
+              aria-hidden={true}></button>
           </SideNavMenuWithBackFoward>
         );
       } else {
