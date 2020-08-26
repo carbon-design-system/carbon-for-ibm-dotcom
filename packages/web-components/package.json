@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "0.3.0-rc.2",
+  "version": "0.3.0",
   "description": "IBM.com Library Web Components",
   "license": "Apache-2.0",
   "main": "es/index.js",
@@ -57,9 +57,9 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.10.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.10.0-rc.2",
-    "@carbon/ibmdotcom-utilities": "1.10.0-rc.0",
+    "@carbon/ibmdotcom-services": "1.10.0",
+    "@carbon/ibmdotcom-styles": "1.10.0",
+    "@carbon/ibmdotcom-utilities": "1.10.0",
     "carbon-components": "10.17.0",
     "carbon-web-components": "1.4.0",
     "lodash-es": "^4.17.0",
