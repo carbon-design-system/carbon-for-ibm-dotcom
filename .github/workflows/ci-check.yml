@@ -79,8 +79,14 @@ jobs:
         run: yarn build
       - name: Run build integration test (React)
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
+        env:
+          DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT: 60000
+          DDS_BUILD_INTEGRATION_TEST_TIMEOUT: 60000
       - name: Run build integration test (Web Components)
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:build
+        env:
+          DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT: 60000
+          DDS_BUILD_INTEGRATION_TEST_TIMEOUT: 60000
       - name: Run bundle integration test (React)
         run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:bundle
   integration-ui:

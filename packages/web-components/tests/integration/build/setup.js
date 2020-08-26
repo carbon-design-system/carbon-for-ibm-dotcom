@@ -50,8 +50,8 @@ module.exports = async config => {
   if (!process.env.LAUNCH_TIMEOUT) {
     process.env.LAUNCH_TIMEOUT = 600000;
   }
-  if (!process.env.NAVIGATION_TIMEOUT) {
-    process.env.NAVIGATION_TIMEOUT = 30000;
+  if (!process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT) {
+    process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT = 30000;
   }
   const tmpDir = await promisify(mkdir)('dds-');
   process.env.DDS_EXAMPLE_TMPDIR = tmpDir;

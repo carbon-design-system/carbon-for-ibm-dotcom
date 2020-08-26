@@ -44,7 +44,7 @@ describe('<dds-footer> example', () => {
         port: PORT,
       });
     }
-    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
@@ -53,22 +53,28 @@ describe('<dds-footer> example', () => {
       const elem = document.querySelector('dds-locale-button');
       return elem.textContent && elem.textContent.trim();
     });
-  }, Number(process.env.NAVIGATION_TIMEOUT));
+  });
 
   it('should launch and close the locale modal', async () => {
-    const localeButton
-      = await page.evaluateHandle(() => document.querySelector('dds-locale-button').shadowRoot.querySelector('.bx--locale-btn'));
+    const localeButton = await page.evaluateHandle(() =>
+      document.querySelector('dds-locale-button').shadowRoot.querySelector('.bx--locale-btn')
+    );
     await localeButton.click();
-    await page.waitForSelector('dds-locale-modal', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: true });
+    await page.waitForSelector('dds-locale-modal', {
+      timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT),
+      visible: true,
+    });
     const modalCloseButton = await page.evaluateHandle(() =>
       document
         .querySelector('dds-locale-modal')
-        .shadowRoot
-        .querySelector('dds-modal-close-button')
-        .shadowRoot
-        .querySelector('.bx--modal-close'));
+        .shadowRoot.querySelector('dds-modal-close-button')
+        .shadowRoot.querySelector('.bx--modal-close')
+    );
     await modalCloseButton.click();
-    await page.waitForSelector('dds-locale-modal', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: false });
+    await page.waitForSelector('dds-locale-modal', {
+      timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT),
+      visible: false,
+    });
   });
 
   afterAll(async () => {

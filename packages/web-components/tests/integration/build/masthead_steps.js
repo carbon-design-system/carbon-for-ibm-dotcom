@@ -44,20 +44,20 @@ describe('<dds-masthead> example', () => {
         port: PORT,
       });
     }
-    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
     const search = await page.waitForSelector('dds-masthead-search', {
-      timeout: Number(process.env.NAVIGATION_TIMEOUT),
+      timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT),
       visible: true,
     });
     const height = await page.evaluate(elem => {
-      return elem.offsetHeight
+      return elem.offsetHeight;
     }, search);
     expect(height).toBe(48);
-  }, Number(process.env.NAVIGATION_TIMEOUT));
+  });
 
   afterAll(async () => {
     await teardownDevServer();
