@@ -47,31 +47,6 @@ const _endpoint = `${_host}/common/v18/js/data/jsononly`;
 const _sessionTranslationKey = 'dds-translation';
 
 /**
- * Tracking of the translation fetch
- *
- * @type {{}}
- * @private
- */
-const _translationFetch = {};
-
-/**
- * Number of times to retry the fetch before failing
- *
- * @type {number}
- * @private
- */
-
-const _timeoutRetries = 50;
-
-/**
- * Tracks the number of attempts for the fetch
- *
- * @type {number}
- * @private
- */
-let _attempt = 0;
-
-/**
  * The cache for in-flight or resolved requests for the i18n data, keyed by the initiating locale.
  *
  * @type {object<string, Translation>}
@@ -127,14 +102,9 @@ class TranslationAPI {
       country = locale.cc;
     }
 
-    const key = `${lang}-${country}`;
-    const cachedRequest = _requestsTranslation[key];
-    if (cachedRequest) {
-      return cachedRequest;
-    }
-    return (_requestsTranslation[key] = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.fetchTranslation(lang, country, resolve, reject);
-    }));
+    });
   }
 
   /**
@@ -152,46 +122,34 @@ class TranslationAPI {
 
     if (sessionTranslation) {
       resolve(sessionTranslation);
-    } else if (_translationFetch[`${country}-${lang}`]) {
-      _attempt++;
-
-      if (_attempt < _timeoutRetries) {
-        setTimeout(() => {
-          this.fetchTranslation(lang, country, resolve, reject);
-        }, 100);
-      } else {
-        reject();
-      }
     } else {
-      let proxy = '';
-      if (root.location) {
-        const currenthost = `${root.location.protocol}//${root.location.host}`;
-        proxy = currenthost !== _host ? _proxy : '';
-      }
-      const url = `${proxy}${_endpoint}/${country}${lang}.json`;
-      _attempt = 0;
-      _translationFetch[`${country}-${lang}`] = true;
-      axios
-        .get(url, {
-          headers: {
-            'Content-Type': 'text/plain',
-            origin: _host,
-          },
-        })
-        .then(response => {
-          const data = this.transformData(response.data);
+      const key = `${lang}-${country}`;
+      if (!_requestsTranslation[key]) {
+        let proxy = '';
+        if (root.location) {
+          const currenthost = `${root.location.protocol}//${root.location.host}`;
+          proxy = currenthost !== _host ? _proxy : '';
+        }
+        const url = `${proxy}${_endpoint}/${country}${lang}.json`;
 
-          sessionStorage.setItem(
-            `${_sessionTranslationKey}-${country}-${lang}`,
-            JSON.stringify(data)
-          );
-          _translationFetch[`${country}-${lang}`] = false;
-          resolve(data);
-        })
-        .catch(error => {
-          _translationFetch[`${country}-${lang}`] = false;
-          reject(error);
-        });
+        _requestsTranslation[key] = axios
+          .get(url, {
+            headers: {
+              'Content-Type': 'text/plain',
+              origin: _host,
+            },
+          })
+          .then(response => this.transformData(response.data))
+          .then(data => {
+            sessionStorage.setItem(
+              `${_sessionTranslationKey}-${country}-${lang}`,
+              JSON.stringify(data)
+            );
+            return data;
+          });
+      }
+
+      _requestsTranslation[key].then(resolve, reject);
     }
   }
 

@@ -14,10 +14,10 @@ const { setup } = require('jest-environment-puppeteer');
 const { mkdir, track } = require('temp');
 
 const packs = {
-  react: path.resolve(__dirname, '../../..'),
   services: path.resolve(__dirname, '../../../../services'),
   styles: path.resolve(__dirname, '../../../../styles'),
   utilities: path.resolve(__dirname, '../../../../utilities'),
+  'web-components': path.resolve(__dirname, '../../..'),
 };
 
 const projectRoot = path.resolve(__dirname, '../../../../..');
@@ -29,19 +29,20 @@ const projectRoot = path.resolve(__dirname, '../../../../..');
  * @param {string} tmpDir The temporary directory.
  */
 async function setupPackages(tmpDir) {
-  const commands = Object.keys(packs).reduce((commands, pack) => {
-    commands.push(
+  const commands = Object.keys(packs).reduce((acc, pack) => {
+    acc.push(
       `cd ${packs[pack]} && yarn pack --filename ${tmpDir}/carbon-ibmdotcom-${pack}.tar.gz`,
       `tar xzf ${tmpDir}/carbon-ibmdotcom-${pack}.tar.gz --directory ${tmpDir}`,
       `mv ${tmpDir}/package ${tmpDir}/ibmdotcom-${pack}`,
-      `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/ibmdotcom-${pack}/package.json`,
+      `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/ibmdotcom-${pack}/package.json`
     );
-    return commands;
+    return acc;
   }, []);
+  // eslint-disable-next-line no-restricted-syntax
   for (const command of commands) {
-    const { stdout, stderr } = await exec(command);
-    console.log(stdout);
-    console.error(stderr);
+    const { stdout, stderr } = await exec(command); // eslint-disable-line no-await-in-loop
+    console.log(stdout); // eslint-disable-line no-console
+    console.error(stderr); // eslint-disable-line no-console
   }
 }
 
