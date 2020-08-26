@@ -34,15 +34,15 @@ describe('Footer example', () => {
       launchTimeout: Number(process.env.LAUNCH_TIMEOUT),
       port: PORT,
     });
-    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const button = await page.waitForSelector('.bx--locale-btn', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: true });
+    const button = await page.waitForSelector('.bx--locale-btn', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
     const height = await page.evaluate(button => button.offsetHeight, button);
     expect(height).toBe(48);
-  }, Number(process.env.NAVIGATION_TIMEOUT));
+  });
 
   afterAll(async () => {
     await teardownDevServer();

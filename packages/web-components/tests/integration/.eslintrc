@@ -16,5 +16,22 @@
     "no-new": 0,
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/mock-entrypoint.js"],
+      "parserOptions" : {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+      },
+      "env": {
+        "browser": true,
+        "es6": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved": 0
+      }
+    }
+  ]
 }

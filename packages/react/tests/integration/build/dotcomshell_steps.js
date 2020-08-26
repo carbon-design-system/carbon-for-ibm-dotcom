@@ -34,15 +34,15 @@ describe('Dotcomshell example', () => {
       launchTimeout: Number(process.env.LAUNCH_TIMEOUT),
       port: PORT,
     });
-    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const input = await page.waitForSelector('.bx--masthead__search .bx--header__search--actions', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: true });
+    const input = await page.waitForSelector('.bx--masthead__search .bx--header__search--actions', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
     const height = await page.evaluate(input => input.offsetHeight, input);
     expect(height).toBe(48);
-  }, Number(process.env.NAVIGATION_TIMEOUT));
+  });
 
   afterAll(async () => {
     await teardownDevServer();

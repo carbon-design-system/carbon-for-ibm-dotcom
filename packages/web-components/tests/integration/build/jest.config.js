@@ -12,7 +12,7 @@ process.env.JEST_PUPPETEER_CONFIG = `${__dirname}/jest-puppeteer.config.js`;
 module.exports = {
   globalSetup: './setup',
   globalTeardown: 'jest-environment-puppeteer/teardown',
-  setupFilesAfterEnv: ['expect-puppeteer', '<rootDir>/percy-reporter.js', '<rootDir>/setup-env'],
+  setupFilesAfterEnv: ['expect-puppeteer', '<rootDir>/setup-env'],
   testEnvironment: 'jest-environment-puppeteer',
   testRegex: '.*_steps\\.js$',
 };
