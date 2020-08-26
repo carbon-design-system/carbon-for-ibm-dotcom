@@ -81,6 +81,7 @@ class HeaderMenu extends React.Component {
       selectedIndex: null,
     };
     this.items = [];
+    this.menuLinkRef = React.createRef();
   }
 
   /**
@@ -192,6 +193,14 @@ class HeaderMenu extends React.Component {
     }
   };
 
+  /**
+   * This forces focus on the menu link when clicked on
+   */
+  handleFocus = event => {
+    event.preventDefault();
+    this.menuLinkRef.current.focus();
+  };
+
   render() {
     const {
       'aria-label': ariaLabel,
@@ -227,11 +236,12 @@ class HeaderMenu extends React.Component {
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
           href="#"
-          onClick={event => event.preventDefault()}
+          onClick={this.handleFocus}
           onKeyDown={this.handleOnKeyDown}
           ref={this.handleMenuButtonRef}
           role="menuitem"
           tabIndex={0}
+          ref={this.menuLinkRef}
           {...accessibilityLabel}>
           {menuLinkName}
           <MenuContent />
