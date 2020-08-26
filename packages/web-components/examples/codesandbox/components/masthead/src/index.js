@@ -11,6 +11,18 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 import links from './links';
 import './index.scss';
 
+window.digitalData = {
+  page: {
+    pageInfo: {
+      language: 'en-US',
+      ibm: {
+        siteID: 'IBMTESTWWW',
+      },
+    },
+    isDataLayerReady: true,
+  },
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   if (!process.env.CORS_PROXY) {
     document.getElementById('masthead-container').navLinks = links;
