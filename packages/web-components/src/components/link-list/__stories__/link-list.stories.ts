@@ -43,6 +43,12 @@ export const Default = () => {
                 ${ArrowRight20({ slot: 'footer' })}
               </dds-card-link>
             </dds-link-list-item>
+            <dds-link-list-item>
+              <dds-card-link href="https://example.com">
+                <p>Learn more</p>
+                ${ArrowRight20({ slot: 'footer' })}
+              </dds-card-link>
+            </dds-link-list-item>
           </dds-link-list>
         </div>
       </div>
@@ -156,6 +162,53 @@ export const EndOfSection = () => {
         <div class="bx--col-sm-4 bx--col-lg-6 bx--offset-lg-4">
           <dds-link-list type="end">
             <span slot="heading">Tutorial</span>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Learn more ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
+          </dds-link-list>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+export const EndOfSectionSplit = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-lg-9">
+          <dds-link-list type="end">
+            <span slot="heading">Lorem ipsum dolor sit amet</span>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Learn more ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
+            <dds-link-list-item>
+              <dds-link-with-icon>
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-link-list-item>
             <dds-link-list-item>
               <dds-link-with-icon>
                 Learn more ${ArrowRight20({ slot: 'icon' })}

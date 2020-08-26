@@ -37,14 +37,19 @@ class DDSLinkListItem extends LitElement {
   // eslint-disable-nesxt-line class-methods-use-this
   protected render() {
     return html`
-      <slot style-scheme="${STYLE_SCHEME.LINK_LIST}" @slotchange=${this._handleSlotChange} />
+      <slot @slotchange=${this._handleSlotChange} />
     `;
   }
 
-  private _handleSlotChange(e) {
+  connectedCallback() {
+    super.connectedCallback();
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
     }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  private _handleSlotChange(e) {
     const nodes = e.target.assignedNodes();
     nodes?.forEach(item => {
       item.styleScheme = STYLE_SCHEME.LINK_LIST;

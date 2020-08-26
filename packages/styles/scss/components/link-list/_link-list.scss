@@ -146,6 +146,33 @@
 :host(#{$dds-prefix}-link-list) {
   padding-bottom: 0;
 
+  &.#{$prefix}--link-list__split {
+    @include carbon--breakpoint('md') {
+      @include carbon--breakpoint('lg') {
+        display: flex;
+        ul {
+          padding-left: $layout-01;
+        }
+      }
+
+      ul {
+        display: block;
+        columns: 2;
+        column-gap: $layout-03;
+        flex: 1;
+      }
+
+      .#{$prefix}--link-list__heading {
+        width: 33.3%;
+        padding-right: 10%;
+      }
+
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        display: block;
+      }
+    }
+  }
+
   .#{$prefix}--link-list__list--horizontal {
     display: flex;
 
@@ -174,6 +201,7 @@
     flex-direction: column;
 
     ::slotted(#{$dds-prefix}-link-list-item) {
+      break-inside: avoid;
       padding: $carbon--layout-01;
       border-top: 1px solid $ui-03;
       border-bottom: 1px solid $ui-03;
