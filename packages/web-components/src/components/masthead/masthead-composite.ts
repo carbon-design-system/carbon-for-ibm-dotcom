@@ -135,11 +135,6 @@ class DDSMastheadComposite extends LitElement {
   private _searchNode?: HTMLElement;
 
   /**
-   * The placeholder for `loadLanguage()` Redux action that will be mixed in.
-   */
-  protected _loadLanguage!: () => Promise<string>;
-
-  /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
    */
   private _setLanguage!: (string) => void;
@@ -155,36 +150,30 @@ class DDSMastheadComposite extends LitElement {
   private _monitorUserStatus!: () => void;
 
   /**
-   * The placeholder for `_handleInputImpl()`, throttled version of `_handleInput()`, that should be overriden.
+   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
    */
-  protected _handleInputImpl() {} // eslint-disable-line class-methods-use-this
+  private _loadSearchResults!: (searchQueryString: string) => Promise<string[]>;
 
   /**
-   * `true` to open the search dropdown.
+   * Handles `input` event on the search form.
+   * This method should be called in a throtlled manner. The non-throttled entry point is `._handleInputSearch()`.
    */
-  protected _openSearchDropdown = false;
-
-  /**
-   * The search results to show in the UI.
-   */
-  protected _currentSearchResults: string[] = [];
-
-  /**
-   * The query results.
-   */
-  protected _searchResults: Map<string, string[]> = new Map();
+  private _handleInputSearchImpl() {
+    const { _searchQueryString: searchQueryString } = this;
+    this._loadSearchResults(searchQueryString).catch(() => {}); // The error is logged in the Redux store
+  }
 
   /**
    * The query string in the search box.
    */
-  protected get _searchQueryString() {
+  private get _searchQueryString() {
     return (this._searchNode as any) /* DDSMastheadSearch */?.searchQueryString ?? '';
   }
 
   /**
-   * The handle for the throttled listener of `mousemove` event.
+   * The handle for the throttled listener of `input` event.
    */
-  private _throttledHandleInputImpl: (((event: InputEvent) => void) & Cancelable) | null = null;
+  private _throttledHandleInputSearchImpl: (((event: InputEvent) => void) & Cancelable) | null = null;
 
   /**
    * Handles `input` event on the search form.
@@ -192,7 +181,7 @@ class DDSMastheadComposite extends LitElement {
    * @param event The event.
    */
   private async _handleInputSearch(event: InputEvent) {
-    this._throttledHandleInputImpl?.(event);
+    this._throttledHandleInputSearchImpl?.(event);
   }
 
   /**
@@ -280,6 +269,12 @@ class DDSMastheadComposite extends LitElement {
   brandName!: string;
 
   /**
+   * The search results to show in the UI.
+   */
+  @property({ attribute: false })
+  currentSearchResults: string[] = [];
+
+  /**
    * The `aria-label` attribute for the top-level container.
    */
   @property({ attribute: 'masthead-assistive-text' })
@@ -334,6 +329,12 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * `true` to open the search dropdown.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'open-search-dropdown' })
+  openSearchDropdown = false;
+
+  /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
@@ -349,9 +350,9 @@ class DDSMastheadComposite extends LitElement {
   }
 
   disconnectedCallback() {
-    if (this._throttledHandleInputImpl) {
-      this._throttledHandleInputImpl.cancel();
-      this._throttledHandleInputImpl = null;
+    if (this._throttledHandleInputSearchImpl) {
+      this._throttledHandleInputSearchImpl.cancel();
+      this._throttledHandleInputSearchImpl = null;
     }
     super.disconnectedCallback();
   }
@@ -369,11 +370,11 @@ class DDSMastheadComposite extends LitElement {
 
   updated(changedProperties) {
     if (changedProperties.has('inputTimeout')) {
-      if (this._throttledHandleInputImpl) {
-        this._throttledHandleInputImpl.cancel();
-        this._throttledHandleInputImpl = null;
+      if (this._throttledHandleInputSearchImpl) {
+        this._throttledHandleInputSearchImpl.cancel();
+        this._throttledHandleInputSearchImpl = null;
       }
-      this._throttledHandleInputImpl = throttle(this._handleInputImpl, this.inputTimeout);
+      this._throttledHandleInputSearchImpl = throttle(this._handleInputSearchImpl, this.inputTimeout);
     }
     if (changedProperties.has('language')) {
       const { language } = this;
@@ -387,17 +388,17 @@ class DDSMastheadComposite extends LitElement {
     const {
       activateSearch,
       authenticateProfileItems,
+      currentSearchResults,
       brandName,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
       loginNonce,
+      openSearchDropdown,
       unauthenticatedProfileItems,
       userStatus,
-      _currentSearchResults: currentSearchResults,
       _handleInputSearch: handleInputSearch,
-      _openSearchDropdown: openSearchDropdown,
     } = this;
     const searchParams = new URLSearchParams();
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;

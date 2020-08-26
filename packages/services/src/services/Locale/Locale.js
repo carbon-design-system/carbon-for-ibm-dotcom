@@ -60,30 +60,6 @@ const _localeNameDefault = 'United States — English';
 const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
- * Tracking of the country list fetch
- *
- * @type {{}}
- * @private
- */
-const _listFetch = {};
-
-/**
- * Number of times to retry the fetch before failing
- *
- * @type {number}
- * @private
- */
-
-const _timeoutRetries = 50;
-/**
- * Tracks the number of attempts for the fetch
- *
- * @type {number}
- * @private
- */
-let _attempt = 0;
-
-/**
  * Configuration for axios
  *
  * @type {{headers: {'Content-Type': string}}}
@@ -140,7 +116,7 @@ const _requestsList = {};
 async function _getLocaleFromDDO() {
   const ddoLocal = await DDOAPI.getAll();
 
-  if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+  if (ddoLocal?.page?.pageInfo?.ibm) {
     let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
 
     // Set proper LC for us to use.
@@ -150,23 +126,21 @@ async function _getLocaleFromDDO() {
         .toLowerCase();
     }
 
-    if (pageInfoIBM) {
-      // Set proper CC for us to use.
-      if (pageInfoIBM.country) {
-        pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
+    // Set proper CC for us to use.
+    if (pageInfoIBM.country) {
+      pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
 
-        // If there are multiple countries use just the first one for the CC value
-        if (pageInfoIBM.cc.indexOf(',') > -1)
-          pageInfoIBM.cc = pageInfoIBM.cc
-            .substring(0, pageInfoIBM.cc.indexOf(','))
-            .trim();
+      // If there are multiple countries use just the first one for the CC value
+      if (pageInfoIBM.cc.indexOf(',') > -1)
+        pageInfoIBM.cc = pageInfoIBM.cc
+          .substring(0, pageInfoIBM.cc.indexOf(','))
+          .trim();
 
-        // Gb will be uk elsewhere
-        if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
+      // Gb will be uk elsewhere
+      if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
 
-        // Map worldwide (ZZ) pages to US
-        if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
-      }
+      // Map worldwide (ZZ) pages to US
+      if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
     }
 
     if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
@@ -326,14 +300,9 @@ class LocaleAPI {
    * }
    */
   static async getList({ cc, lc }) {
-    const key = `${lc}-${cc}`;
-    const cachedRequest = _requestsList[key];
-    if (cachedRequest) {
-      return cachedRequest;
-    }
-    return (_requestsList[key] = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.fetchList(cc, lc, resolve, reject);
-    }));
+    });
   }
 
   /**
@@ -351,43 +320,27 @@ class LocaleAPI {
 
     if (sessionList) {
       resolve(sessionList);
-    } else if (_listFetch[`${cc}-${lc}`]) {
-      _attempt++;
-
-      if (_attempt < _timeoutRetries) {
-        setTimeout(() => {
-          this.fetchList(cc, lc, resolve, reject);
-        }, 100);
-      } else {
-        reject();
-      }
     } else {
-      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
-      _attempt = 0;
-      _listFetch[`${cc}-${lc}`] = true;
-      axios
-        .get(url, _axiosConfig)
-        .then(response => {
+      const key = `${lc}-${cc}`;
+      if (!_requestsList[key]) {
+        const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+        _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
+          const { data } = response;
           sessionStorage.setItem(
             `${_sessionListKey}-${cc}-${lc}`,
-            JSON.stringify(response.data)
+            JSON.stringify(data)
           );
-          _listFetch[`${cc}-${lc}`] = false;
-          resolve(response.data);
-        })
-        .catch(() => {
-          if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
-            _listFetch[`${cc}-${lc}`] = false;
-            reject();
-          } else {
-            this.fetchList(
-              _localeDefault.cc,
-              _localeDefault.lc,
-              resolve,
-              reject
-            );
-          }
+          return data;
         });
+      }
+
+      _requestsList[key].then(resolve, error => {
+        if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
+          reject(error);
+        } else {
+          this.fetchList(_localeDefault.cc, _localeDefault.lc, resolve, reject);
+        }
+      });
     }
   }
 

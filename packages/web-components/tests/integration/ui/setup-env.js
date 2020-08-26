@@ -9,5 +9,5 @@
 
 'use strict';
 
-const testTimeout = Number(process.env.TEST_TIMEOUT);
+const testTimeout = Number(process.env.DDS_UI_INTEGRATION_TEST_TIMEOUT);
 jest.setTimeout(isNaN(testTimeout) ? 30000 : testTimeout);

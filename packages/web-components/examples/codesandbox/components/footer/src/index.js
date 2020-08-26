@@ -8,3 +8,15 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
+
+window.digitalData = {
+  page: {
+    pageInfo: {
+      language: 'en-US',
+      ibm: {
+        siteID: 'IBMTESTWWW',
+      },
+    },
+    isDataLayerReady: true,
+  },
+};

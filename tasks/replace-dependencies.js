@@ -23,6 +23,7 @@ const packs = [
   '@carbon/ibmdotcom-utilities',
   '@carbon/ibmdotcom-vanilla',
   '@carbon/ibmdotcom-react',
+  '@carbon/ibmdotcom-web-components',
 ];
 
 /**

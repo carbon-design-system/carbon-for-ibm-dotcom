@@ -11,7 +11,7 @@ import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20';
-import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
+import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16';
 import DDSModal from '../modal/modal';
 import '../modal/modal-header';
 import '../modal/modal-heading';
@@ -63,7 +63,7 @@ class DDSLocaleModal extends DDSModal {
       ${langDisplay &&
         html`
           <p class="${prefix}--modal-header__label ${prefix}--type-delta">
-            ${langDisplay}${EarthFilled20({ class: `${prefix}--locale-modal__label-globe` })}
+            ${langDisplay}${EarthFilled16({ class: `${prefix}--locale-modal__label-globe` })}
           </p>
         `}
       ${langDisplay &&
