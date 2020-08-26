@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
       <img slot="image" src=${defaultSrc} alt=${alt} />
-      <h3 slot="heading">${heading}</h3>
+      <slot slot="heading">${heading}</slot>
       ${ArrowRight20({ slot: 'footer' })}
     </dds-feature-card>
   `;
