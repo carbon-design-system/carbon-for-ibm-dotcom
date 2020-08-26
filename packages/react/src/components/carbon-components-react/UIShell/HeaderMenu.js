@@ -126,6 +126,7 @@ class HeaderMenu extends React.Component {
       `${prefix}--masthead__megamenu__category-headline`,
       `${prefix}--masthead__megamenu__category-group`,
       `${prefix}--masthead__megamenu__view-all-cta`,
+      `${prefix}--masthead__megamenu__l0-nav`,
     ];
 
     return megamenuItems.filter(item =>
