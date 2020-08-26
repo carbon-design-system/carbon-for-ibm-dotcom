@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.3.0-rc.1...@carbon/ibmdotcom-web-components@0.3.0-rc.2) (2020-08-26)
+
+### Bug Fixes
+
+- **footer:** adding locale modal import to the footer ([#3724](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3724)) ([faf1047](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/commit/faf1047))
+- **locale-modal:** add missing import ([#3727](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3727)) ([91bc399](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/commit/91bc399))
+
+# [0.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.3.0-rc.0...@carbon/ibmdotcom-web-components@0.3.0-rc.1) (2020-08-25)
+
+### Features
+
+- **footer:** introduce cookie preference placeholder ([#3656](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3656)) ([a5ce796](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/commit/a5ce796)), closes [#3583](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3583) [#3624](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3624)
+
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.2.0...@carbon/ibmdotcom-web-components@0.3.0-rc.0) (2020-08-19)
 
 ### Bug Fixes

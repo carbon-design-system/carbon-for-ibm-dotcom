@@ -17,8 +17,10 @@ import store from '../../globals/services-store/store';
 import { loadLanguage, setLanguage, LocaleAPIActions } from '../../globals/services-store/actions/localeAPI';
 import { loadTranslation, TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
 import { monitorUserStatus, ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
+import { loadSearchResults, SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSMastheadComposite from './masthead-composite';
+import { SearchAPIState } from '../../globals/services-store/types/searchAPI';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -68,6 +70,13 @@ export interface MastheadContainerState {
 }
 
 /**
+ * The Redux state used for the search container.
+ */
+export interface SearchContainerState {
+  searchAPI?: SearchAPIState;
+}
+
+/**
  * The properties for `<dds-masthead-container>` from Redux state.
  */
 export interface MastheadContainerStateProps {
@@ -82,11 +91,27 @@ export interface MastheadContainerStateProps {
   userStatus?: USER_AUTHENTICATION_STATUS;
 }
 
+/**
+ * The properties for search container from Redux state.
+ */
+export interface SearchContainerStateProps {
+  /**
+   * The current search results;
+   */
+  currentSearchResults?: string[];
+
+  /**
+   * `true` to open the search dropdown.
+   */
+  openSearchDropdown?: boolean;
+}
+
 export type MastheadActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
-  | ReturnType<typeof monitorUserStatus>;
+  | ReturnType<typeof monitorUserStatus>
+  | ReturnType<typeof loadSearchResults>;
 
 /**
  * @param props A key/value pair.
@@ -109,14 +134,22 @@ function cleanProps(props: { [key: string]: unknown }) {
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
-export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
-  const { localeAPI, translateAPI, profileAPI } = state;
+export function mapStateToProps(
+  state: MastheadContainerState & SearchContainerState
+): MastheadContainerStateProps & SearchContainerStateProps {
+  const { localeAPI, translateAPI, profileAPI, searchAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   const { status } = profileAPI ?? {};
+  const { currentSearchQueryString, searchResults } = searchAPI ?? {};
+  let currentSearchResults;
+  for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
+    currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
+  }
   return cleanProps({
     navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
     userStatus: status?.user,
+    currentSearchResults: currentSearchResults ?? [],
   });
 }
 
@@ -131,118 +164,11 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
       _monitorUserStatus: monitorUserStatus,
+      _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`
   );
 }
-
-/**
- * A mixin for search container, TEMPORARY PURPOSE until we move this portion to Redux store.
- */
-export const DDSMastheadSearchContainerMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
-  class DDSMastheadSearchContainerMixinImpl extends Base {
-    /**
-     * The search results to show in the UI.
-     */
-    _currentSearchResults!: string[];
-
-    /**
-     * `true` to open the search dropdown.
-     */
-    _openSearchDropdown!: boolean;
-
-    /**
-     * The query string in the search box.
-     */
-    _searchQueryString!: string;
-
-    /**
-     * The placeholder for `loadLanguage()` Redux action that will be mixed in.
-     */
-    _loadLanguage!: () => Promise<string>;
-
-    /**
-     * The query results.
-     */
-    _searchResults!: Map<string, string[]>;
-
-    /**
-     * `true` to stop further fetch operations. Should be set when this is detached from render tree.
-     */
-    _shouldPreventFetch = false;
-
-    /**
-     * @returns The endpoint to process the search query.
-     */
-    async _getSearchEndpoint() {
-      const { _searchQueryString: searchQueryString } = this;
-      const language = await this._loadLanguage();
-      const [primary, country] = language!.split('-');
-      return `https://www-api.ibm.com/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
-    }
-
-    /**
-     * Fetches results for the current search query string.
-     */
-    async _fetchResults() {
-      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-      const endpoint = await this._getSearchEndpoint();
-      if (this._shouldPreventFetch) {
-        return;
-      }
-      const items = (await (await fetch(endpoint)).json()).response.map(([result]) => result);
-      searchResults.set(searchQueryString, items);
-      this._setCurrentSearchResults();
-    }
-
-    /**
-     * Updates the search results to show in the UI.
-     */
-    _setCurrentSearchResults() {
-      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-      for (let { length } = searchQueryString; length > 0; --length) {
-        const items = searchResults.get(searchQueryString.slice(0, length));
-        if (items) {
-          this._currentSearchResults = items;
-          this._openSearchDropdown = true;
-          // TODO: Figure out how to make this mix-in type-defined as `LitElement` inheritance
-          (this as any).requestUpdate();
-          return;
-        }
-      }
-    }
-
-    /**
-     * Throttled version of `_handleInput()`.
-     */
-    async _handleInputImpl() {
-      const { _searchQueryString: searchQueryString, _searchResults: searchResults } = this;
-      const cachedSearchResults = searchResults.get(searchQueryString);
-      if (!cachedSearchResults) {
-        this._fetchResults().catch(() => {}); // The error is logged in the Redux store
-      }
-      // While we fetch the search results, we see if there is a cached search results for partial search query string.
-      // If so, updates the UI with the cached search results.
-      this._setCurrentSearchResults();
-    }
-
-    connectedCallback() {
-      this._shouldPreventFetch = false;
-      // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
-      // @ts-ignore
-      super.connectedCallback();
-    }
-
-    disconnectedCallback() {
-      this._shouldPreventFetch = true;
-      // TS seems to miss `HTMLElement.prototype.connectedCallback()` definition
-      // @ts-ignore
-      super.disconnectedCallback();
-    }
-  }
-
-  return DDSMastheadSearchContainerMixinImpl;
-};
 
 /**
  * Container component for masthead.
@@ -252,13 +178,13 @@ export const DDSMastheadSearchContainerMixin = <T extends Constructor<HTMLElemen
 @customElement(`${ddsPrefix}-masthead-container`)
 class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerState,
-  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,
+  LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,
   MastheadContainerStateProps,
   ActionCreatorsMapObject<MastheadActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>,
+  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSMastheadSearchContainerMixin(DDSMastheadComposite)) {}
+)(DDSMastheadComposite) {}
 
 export default DDSMastheadContainer;

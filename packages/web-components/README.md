@@ -75,6 +75,13 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 > [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
+### Expressive Theme
+
+While styles are included as part of the web components, the expressive theme
+for Carbon requires the `CSS Custom Properties` flag in Carbon to be enabled.
+
+[Learn how to activate CSS Custom Properties here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/README.md).
+
 ## Browser support
 
 Based on [ibm.com browser support](https://www.ibm.com/standards/web/browser-support/):

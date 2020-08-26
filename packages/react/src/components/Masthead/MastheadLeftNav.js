@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
@@ -29,6 +29,8 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
+  const sideNavRef = useRef();
+
   /**
    * Left side navigation
    *
@@ -37,6 +39,36 @@ const MastheadLeftNav = ({
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
+      if (navigation.length === i + 1) {
+        return (
+          <>
+            <SideNavMenuWithBackFoward
+              title={link.title}
+              backButtonText={backButtonText}
+              key={i}
+              autoid={autoid}
+              navType={rest.navType}>
+              {renderNavSections(
+                link.menuSections,
+                backButtonText,
+                autoid,
+                rest.navType
+              )}
+            </SideNavMenuWithBackFoward>
+            <button
+              className={`${prefix}--masthead__focus`}
+              onFocus={() => {
+                preventOutFocus(
+                  sideNavRef.current?.parentNode.querySelector(
+                    `.${prefix}--header__menu-toggle`
+                  ),
+                  isSideNavExpanded
+                );
+              }}
+              aria-hidden={true}></button>
+          </>
+        );
+      }
       return (
         <SideNavMenuWithBackFoward
           title={link.title}
@@ -53,6 +85,29 @@ const MastheadLeftNav = ({
         </SideNavMenuWithBackFoward>
       );
     } else {
+      if (navigation.length === i + 1) {
+        return (
+          <>
+            <SideNavLink
+              href={link.url}
+              data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
+              key={i}>
+              {link.title}
+            </SideNavLink>
+            <button
+              className={`${prefix}--masthead__focus`}
+              onFocus={() => {
+                preventOutFocus(
+                  sideNavRef.current?.parentNode.querySelector(
+                    `.${prefix}--header__menu-toggle`
+                  ),
+                  isSideNavExpanded
+                );
+              }}
+              aria-hidden={true}></button>
+          </>
+        );
+      }
       return (
         <SideNavLink
           href={link.url}
@@ -68,7 +123,8 @@ const MastheadLeftNav = ({
     <SideNav
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
-      isPersistent={false}>
+      isPersistent={false}
+      ref={sideNavRef}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
         {platform && (
@@ -86,6 +142,12 @@ const MastheadLeftNav = ({
       </nav>
     </SideNav>
   );
+};
+
+const preventOutFocus = (target, isSideNavExpanded) => {
+  if (isSideNavExpanded) {
+    target.focus();
+  }
 };
 
 /**
@@ -112,6 +174,15 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
             navType={navType}
             key={j}>
             {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
+            <button
+              className={`${prefix}--masthead__focus`}
+              onFocus={e => {
+                preventOutFocus(
+                  e.target.parentElement.querySelector('a'),
+                  true
+                );
+              }}
+              aria-hidden={true}></button>
           </SideNavMenuWithBackFoward>
         );
       } else {
@@ -122,6 +193,17 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
             key={item.title}>
             {item.title}
           </SideNavMenuItem>
+        );
+      }
+
+      if (j === section.menuItems.length - 1) {
+        sectionItems.push(
+          <button
+            className={`${prefix}--masthead__focus`}
+            onFocus={e => {
+              preventOutFocus(e.target.parentElement.querySelector('a'), true);
+            }}
+            aria-hidden={true}></button>
         );
       }
     });

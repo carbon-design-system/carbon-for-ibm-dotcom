@@ -8,13 +8,13 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import Handle from '../../globals/internal/handle';
 import '../modal/modal';
 import '../modal/modal-header';
 import '../lightbox-media-viewer/lightbox-media-viewer-body';
@@ -68,12 +68,7 @@ export type TEXT_CTA_ITEM = TYPED_CTA_ITEM;
  * @element dds-cta-container
  */
 @customElement(`${ddsPrefix}-cta-container`)
-class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
-  /**
-   * The handle for the listener of `${ddsPrefix}-cta-run-action` event.
-   */
-  private _hRunAction: Handle | null = null;
-
+class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))) {
   /**
    * `true` to show the video player.
    */
@@ -95,6 +90,8 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
    *
    * @param event The event.
    */
+  @HostListener('eventRunAction')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRunAction(event: CustomEvent) {
     const { href, type } = event.detail;
     if (type === CTA_TYPE.VIDEO) {
@@ -128,20 +125,6 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
    */
   @property({ type: Object })
   item?: TEXT_CTA_ITEM;
-
-  connectedCallback() {
-    super.connectedCallback();
-    const { eventRunAction } = this.constructor as typeof DDSCTAContainer;
-    // Manually hooks the event listeners on the host element to make the event names configurable
-    this._hRunAction = on(this, eventRunAction, this._handleRunAction as EventListener);
-  }
-
-  disconnectedCallback() {
-    if (this._hRunAction) {
-      this._hRunAction = this._hRunAction.release();
-    }
-    super.disconnectedCallback();
-  }
 
   /**
    * @returns The media viewer lightbox for `type="video"`.

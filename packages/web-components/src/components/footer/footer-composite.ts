@@ -9,14 +9,21 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
 import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-store/types/translateAPI';
-import Handle from '../../globals/internal/handle';
+/* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
+// Above import is interface-only ref and thus code won't be brought into the build
+import './footer';
+import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../locale-modal/locale-modal-composite';
+/* eslint-enable import/no-duplicates */
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
@@ -24,7 +31,7 @@ import './footer-nav-item';
 import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
-import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
+import './legal-nav-cookie-preferences-placeholder';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -34,12 +41,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-footer-composite
  */
 @customElement(`${ddsPrefix}-footer-composite`)
-class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement)) {
-  /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
-   */
-  private _hCloseModal: Handle | null = null;
-
+class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))) {
   /**
    * The placeholder for `setLanguage()` Redux action that may be mixed in.
    */
@@ -80,6 +82,8 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
   /**
    * Handles `dds-modal-closed` event on the locale modal.
    */
+  @HostListener('document:eventCloseModal')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleCloseModal = (event: CustomEvent) => {
     if ((this.modalRenderRoot as Element).contains(event.target as Node)) {
       this.openLocaleModal = false;
@@ -133,23 +137,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
    */
   @property({ reflect: true })
   size?: FOOTER_SIZE;
-
-  connectedCallback() {
-    super.connectedCallback();
-    // Manually hooks the event listeners on the host element to make the event names configurable
-    this._hCloseModal = on(
-      this.ownerDocument,
-      (this.constructor as typeof DDSFooterComposite).eventCloseModal,
-      this._handleCloseModal as EventListener
-    );
-  }
-
-  disconnectedCallback() {
-    if (this._hCloseModal) {
-      this._hCloseModal = this._hCloseModal.release();
-    }
-    super.disconnectedCallback();
-  }
 
   firstUpdated() {
     const { language } = this;
@@ -211,6 +198,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(LitElement))
               <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
+          <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
         </dds-legal-nav>
       </dds-footer>
     `;
