@@ -36,7 +36,7 @@ describe('dds-image', function() {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-feature-card>`
+      await Promise.resolve(); // Update cycle for `<dds-image>`
       expect(document.body.querySelector('dds-image')).toMatchSnapshot({ mode: 'shadow' });
     });
   });

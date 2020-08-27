@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-// import Add16 from 'carbon-custom-elements/es/icons/add/16';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image';
