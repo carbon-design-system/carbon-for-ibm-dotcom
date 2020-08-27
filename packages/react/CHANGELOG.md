@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.0...@carbon/ibmdotcom-react@1.10.1-rc.0) (2020-08-27)
+
+### Bug Fixes
+
+- **MegaMenu:** account for focus within the megamenu component
+  ([#3763](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3763))
+  ([2f43ee5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2f43ee5)),
+  closes
+  [#3758](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3758)
+- **MegaMenu:** explicity set focus to HeaderMenu L0 item when clicked
+  ([#3751](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3751))
+  ([#3762](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3762))
+  ([5c95e0a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5c95e0a)),
+  closes
+  [#3617](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3617)
+  [#3731](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3731)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.10.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.0-rc.2...@carbon/ibmdotcom-react@1.10.0) (2020-08-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
