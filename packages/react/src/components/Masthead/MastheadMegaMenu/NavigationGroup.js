@@ -18,6 +18,7 @@ const { prefix } = settings;
  */
 const NavigationGroup = ({ hasHighlights, children, ...rest }) => (
   <section
+    tabIndex={-1}
     className={classnames(`${prefix}--masthead__megamenu`, {
       [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
     })}
