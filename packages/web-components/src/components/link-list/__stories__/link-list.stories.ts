@@ -170,23 +170,7 @@ const VerticalWithCards = () => {
   `;
 };
 
-VerticalWithCards.story = {
-  decorators: [
-    story =>
-      html`
-        <style>
-          ${styles}
-        </style>
-        <div class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-              ${story()}
-            </div>
-          </div>
-        </div>
-      `,
-  ],
-};
+VerticalWithCards.story = Vertical.story;
 
 const EndOfSection = () => {
   return html`
