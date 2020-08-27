@@ -48,6 +48,12 @@ class DDSLinkListItem extends LitElement {
     }
   }
 
+  /**
+   * handler, toggles link list style scheme on child components.
+   *
+   * @param e onSlotChange Event
+   * @private
+   */
   // eslint-disable-next-line class-methods-use-this
   private _handleSlotChange(e) {
     const nodes = e.target.assignedNodes();

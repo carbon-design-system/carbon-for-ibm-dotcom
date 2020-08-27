@@ -78,6 +78,11 @@ class DDSLinkList extends LitElement {
     `;
   }
 
+  /**
+   * Returns a class-name based on the parameter type
+   *
+   * @protected
+   */
   protected ulClasses() {
     switch (this.type) {
       case LINK_LIST_TYPE.HORIZONTAL:
@@ -91,6 +96,11 @@ class DDSLinkList extends LitElement {
     }
   }
 
+  /**
+   * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
+   *
+   * @private
+   */
   private _handleSlotChange() {
     const childItems = this.shadowRoot
       ?.querySelector('ul slot')
