@@ -21,6 +21,9 @@
 
   .#{$prefix}--masthead__focus {
     opacity: 0;
+    padding: 0;
+    height: 0;
+    width: 0;
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
@@ -139,6 +142,7 @@
     &[aria-expanded='true'] {
       + .#{$prefix}--side-nav__menu[role='menu'] {
         position: absolute;
+        overflow-y: auto;
         padding-bottom: $layout-05;
         top: 0;
         background: $ui-background;

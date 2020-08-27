@@ -49,14 +49,14 @@ describe('Footer example', () => {
       launchTimeout: Number(process.env.LAUNCH_TIMEOUT),
       port: PORT,
     });
-    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const backgroundColorValue = await page.evaluate(footer => footer.ownerDocument.defaultView.getComputedStyle(footer).getPropertyValue('background-color'), await expect(page).toMatchElement('.bx--footer', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: true }));
+    const backgroundColorValue = await page.evaluate(footer => footer.ownerDocument.defaultView.getComputedStyle(footer).getPropertyValue('background-color'), await expect(page).toMatchElement('.bx--footer', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true }));
     expect(backgroundColorValue).toEqual(expect.stringMatching(/rgb\(\s*38,\s*38,\s*38\s*\)/));
-  }, Number(process.env.NAVIGATION_TIMEOUT));
+  }, Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT));
 
   afterAll(async () => {
     await teardownDevServer();

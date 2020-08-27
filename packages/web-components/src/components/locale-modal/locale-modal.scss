@@ -88,6 +88,10 @@
     @extend .#{$prefix}--tile;
     @extend .#{$prefix}--tile--clickable;
     @extend .#{$prefix}--card;
+
+    .#{$prefix}--card__wrapper .bx--card__footer svg {
+      color: $ui-05;
+    }
   }
 
   &[disabled] .#{$prefix}--link {
