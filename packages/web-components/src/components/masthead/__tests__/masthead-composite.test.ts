@@ -78,56 +78,29 @@ describe('dds-masthead-composite', function() {
 
   describe('Determining the nav/search language', function() {
     it('should use the given language', async function() {
-      (DDSMastheadComposite.prototype as any)._setLanguage = jasmine.createSpy();
+      DDSMastheadComposite.prototype._setLanguage = jasmine.createSpy();
       render(template({ language: 'ko-KR' }), document.body);
       await Promise.resolve();
-      expect((DDSMastheadComposite.prototype as any)._setLanguage).toHaveBeenCalled();
+      expect(DDSMastheadComposite.prototype._setLanguage).toHaveBeenCalled();
     });
 
     afterEach(function() {
-      (DDSMastheadComposite.prototype as any)._setLanguage = undefined;
+      DDSMastheadComposite.prototype._setLanguage = undefined;
     });
   });
 
   describe('Handling nav links', function() {
     it('should use the given nav links', async function() {
-      (DDSMastheadComposite.prototype as any)._loadTranslation = jasmine.createSpy();
+      DDSMastheadComposite.prototype._loadTranslation = jasmine.createSpy();
       render(template({ language: 'en-US', navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
-      expect((DDSMastheadComposite.prototype as any)._loadTranslation).not.toHaveBeenCalled();
+      expect(DDSMastheadComposite.prototype._loadTranslation).not.toHaveBeenCalled();
     });
 
     afterEach(function() {
-      (DDSMastheadComposite.prototype as any)._loadTranslation = undefined;
+      DDSMastheadComposite.prototype._loadTranslation = undefined;
     });
   });
-
-  describe('Providing data for search', function() {
-    it('should trigger search API call', async function() {
-      (DDSMastheadComposite.prototype as any)._setLanguage = jasmine.createSpy().and.returnValue(Promise.resolve());
-      (DDSMastheadComposite.prototype as any)._loadTranslation = jasmine.createSpy().and.returnValue(Promise.resolve());
-      (DDSMastheadComposite.prototype as any)._monitorUserStatus = jasmine.createSpy();
-      (DDSMastheadComposite.prototype as any)._loadSearchResults = jasmine.createSpy().and.returnValue(Promise.resolve());
-      render(template({ language: 'en-US' }), document.body);
-      await Promise.resolve(); // Update cycle of `<dds-masthead-composite>`
-      await Promise.resolve(); // Update cycle of `<dds-masthead-search>`
-      const search = document.querySelector('dds-masthead-search');
-      (search!.shadowRoot!.querySelector('.bx--header__search--search') as HTMLElement).click();
-      await Promise.resolve();
-      const searchInputNode = search!.shadowRoot!.querySelector('.bx--header__search--input') as HTMLInputElement;
-      searchInputNode.value = 'search-query-foo';
-      searchInputNode.dispatchEvent(new CustomEvent('input', { bubbles: true, composed: true }));
-      expect((DDSMastheadComposite.prototype as any)._loadSearchResults).toHaveBeenCalledWith('search-query-foo');
-    });
-
-    afterEach(function() {
-      (DDSMastheadComposite.prototype as any)._loadSearchResults = undefined;
-      (DDSMastheadComposite.prototype as any)._monitorUserStatus = undefined;
-      (DDSMastheadComposite.prototype as any)._loadTranslation = undefined;
-      (DDSMastheadComposite.prototype as any)._setLanguage = undefined;
-    });
-  });
-
   afterEach(async function() {
     await render(undefined!, document.body);
     events.reset();

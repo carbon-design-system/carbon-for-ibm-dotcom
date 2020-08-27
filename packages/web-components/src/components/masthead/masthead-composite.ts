@@ -7,18 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import throttle from 'lodash-es/throttle';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
-import store from '../../globals/services-store/store';
 import './masthead';
 import './masthead-logo';
 import './masthead-menu-button';
-import './masthead-search';
-import './masthead-search-item';
 import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
@@ -33,16 +29,10 @@ import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-overlay';
+import './masthead-search-composite';
 import styles from './masthead.scss';
 
-export { default as reducers } from '../../globals/services-store/reducers';
-export { store };
-
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-interface Cancelable {
-  cancel(): void;
-}
 
 /**
  * Rendering target for masthead navigation items.
@@ -129,62 +119,6 @@ const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
   /**
-   * The DOM element of the search UI.
-   */
-  @query(`${ddsPrefix}-masthead-search`)
-  private _searchNode?: HTMLElement;
-
-  /**
-   * The placeholder for `setLanguage()` Redux action that will be mixed in.
-   */
-  private _setLanguage!: (string) => void;
-
-  /**
-   * The placeholder for `loadTranslation()` Redux action that will be mixed in.
-   */
-  private _loadTranslation!: () => Promise<Translation>;
-
-  /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
-   */
-  private _monitorUserStatus!: () => void;
-
-  /**
-   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
-   */
-  private _loadSearchResults!: (searchQueryString: string) => Promise<string[]>;
-
-  /**
-   * Handles `input` event on the search form.
-   * This method should be called in a throtlled manner. The non-throttled entry point is `._handleInputSearch()`.
-   */
-  private _handleInputSearchImpl() {
-    const { _searchQueryString: searchQueryString } = this;
-    this._loadSearchResults(searchQueryString).catch(() => {}); // The error is logged in the Redux store
-  }
-
-  /**
-   * The query string in the search box.
-   */
-  private get _searchQueryString() {
-    return (this._searchNode as any) /* DDSMastheadSearch */?.searchQueryString ?? '';
-  }
-
-  /**
-   * The handle for the throttled listener of `input` event.
-   */
-  private _throttledHandleInputSearchImpl: (((event: InputEvent) => void) & Cancelable) | null = null;
-
-  /**
-   * Handles `input` event on the search form.
-   *
-   * @param event The event.
-   */
-  private async _handleInputSearch(event: InputEvent) {
-    this._throttledHandleInputSearchImpl?.(event);
-  }
-
-  /**
    * @param options The options.
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
@@ -251,6 +185,34 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
+   * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadSearchResults?: (searchQueryString: string) => Promise<string[]>;
+
+  /**
+   * The placeholder for `loadTranslation()` Redux action that will be mixed in.
+   *
+   * @internal
+   */
+  _loadTranslation?: () => Promise<Translation>;
+
+  /**
+   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
+   *
+   * @internal
+   */
+  _monitorUserStatus?: () => void;
+
+  /**
+   * The placeholder for `setLanguage()` Redux action that will be mixed in.
+   *
+   * @internal
+   */
+  _setLanguage?: (string) => void;
+
+  /**
    * `true` to activate the search box.
    */
   @property({ attribute: 'activate-search' })
@@ -307,7 +269,7 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The throttle timeout to run query upon user input.
    */
-  @property({ type: Number })
+  @property({ type: Number, attribute: 'input-timeout' })
   inputTimeout = 200;
 
   /**
@@ -345,41 +307,22 @@ class DDSMastheadComposite extends LitElement {
     return this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
-  disconnectedCallback() {
-    if (this._throttledHandleInputSearchImpl) {
-      this._throttledHandleInputSearchImpl.cancel();
-      this._throttledHandleInputSearchImpl = null;
-    }
-    super.disconnectedCallback();
-  }
-
   firstUpdated() {
     const { language, navLinks } = this;
     if (language) {
-      this._setLanguage(language);
+      this._setLanguage?.(language);
     }
     if (!navLinks) {
-      this._loadTranslation().catch(() => {}); // The error is logged in the Redux store
+      this._loadTranslation?.().catch(() => {}); // The error is logged in the Redux store
     }
     this._monitorUserStatus?.();
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('inputTimeout')) {
-      if (this._throttledHandleInputSearchImpl) {
-        this._throttledHandleInputSearchImpl.cancel();
-        this._throttledHandleInputSearchImpl = null;
-      }
-      this._throttledHandleInputSearchImpl = throttle(this._handleInputSearchImpl, this.inputTimeout);
-    }
     if (changedProperties.has('language')) {
       const { language } = this;
       if (language) {
-        this._setLanguage(language);
+        this._setLanguage?.(language);
       }
     }
   }
@@ -390,15 +333,17 @@ class DDSMastheadComposite extends LitElement {
       authenticateProfileItems,
       currentSearchResults,
       brandName,
+      inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
+      language,
       loginNonce,
       openSearchDropdown,
       unauthenticatedProfileItems,
       userStatus,
-      _handleInputSearch: handleInputSearch,
+      _loadSearchResults: loadSearchResults,
     } = this;
     const searchParams = new URLSearchParams();
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
@@ -430,14 +375,14 @@ class DDSMastheadComposite extends LitElement {
         <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
-        <dds-masthead-search ?active="${activateSearch}" ?open="${openSearchDropdown}" @input="${handleInputSearch}">
-          ${currentSearchResults.map(
-            item =>
-              html`
-                <dds-masthead-search-item text="${item}"></dds-masthead-search-item>
-              `
-          )}
-        </dds-masthead-search>
+        <dds-masthead-search-composite
+          ?active="${activateSearch}"
+          input-timeout="${inputTimeout}"
+          language="${ifNonNull(language)}"
+          ?open="${openSearchDropdown}"
+          .currentSearchResults="${ifNonNull(currentSearchResults)}"
+          ._loadSearchResults="${ifNonNull(loadSearchResults)}"
+        ></dds-masthead-search-composite>
         <dds-masthead-global-bar>
           <dds-masthead-profile ?authenticated="${authenticated}">
             ${profileItems.map(({ isLoginItem, key, title, url }) => {

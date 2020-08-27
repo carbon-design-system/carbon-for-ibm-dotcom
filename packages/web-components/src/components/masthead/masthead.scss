@@ -247,3 +247,8 @@
     }
   }
 }
+
+:host(#{$dds-prefix}-masthead-search-composite),
+:host(#{$dds-prefix}-masthead-search-container) {
+  display: contents;
+}
