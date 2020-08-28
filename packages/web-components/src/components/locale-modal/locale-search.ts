@@ -11,7 +11,7 @@ import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input';
-import { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search';
+import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSLocaleItem from './locale-item';
@@ -40,17 +40,34 @@ function search(target?: (string | void)[], searchText?: string) {
  */
 @customElement(`${ddsPrefix}-locale-search`)
 class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
+  /**
+   * The container for the locale list.
+   */
   @query(`.${prefix}--locale-modal__list`)
   private _listNode?: HTMLElement;
 
-  _handleThrottledInput(event: Event) {
+  /**
+   * The search box.
+   */
+  @query(`${prefix}-search`)
+  private _searchNode?: BXSearch;
+
+  /**
+   * Updates the search results.
+   *
+   * @param searchText The search text.
+   */
+  private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
     const { region: currentRegion } = this;
-    const { value: searchText } = (event as CustomEvent).detail;
     forEach(this.querySelectorAll(selectorItem), item => {
       const { country, language, region } = item as DDSLocaleItem;
       (item as HTMLElement).hidden = region !== currentRegion || !search([country, language], searchText);
     });
+  }
+
+  _handleThrottledInput(event: Event) {
+    this._updateSearchResults((event as CustomEvent).detail.value);
   }
 
   /**
@@ -96,11 +113,16 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   slot = 'locales-selector';
 
   /**
-   * Resets the scroll position.
+   * Resets the search box and the scroll position.
    */
-  resetScrollPosition() {
-    if (this._listNode) {
-      this._listNode.scrollTop = 0;
+  reset() {
+    const { _listNode: listNode, _searchNode: searchNode } = this;
+    if (listNode) {
+      listNode.scrollTop = 0;
+    }
+    if (searchNode) {
+      searchNode.value = '';
+      this._updateSearchResults('');
     }
   }
 
