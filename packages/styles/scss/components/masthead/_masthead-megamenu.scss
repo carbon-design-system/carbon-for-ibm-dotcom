@@ -41,6 +41,10 @@
     overflow-y: scroll;
     background-color: $ui-background;
 
+    &:focus {
+      outline: none;
+    }
+
     @include box-shadow;
   }
 
@@ -208,7 +212,7 @@
   }
 
   .#{$prefix}--masthead__megamenu__highlight-section {
-    height: 100%;
+    min-height: 100%;
     padding-top: $spacing-06;
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);

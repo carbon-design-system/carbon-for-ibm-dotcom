@@ -13,6 +13,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20';
 import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16';
 import DDSModal from '../modal/modal';
+import '../modal/modal-header';
+import '../modal/modal-heading';
+import '../modal/modal-close-button';
 import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
@@ -154,7 +157,7 @@ class DDSLocaleModal extends DDSModal {
       const localeSaarch = this.querySelector(selectorLocaleSearch);
       if (localeSaarch) {
         (localeSaarch as DDSLocaleSearch).region = this._currentRegion ?? '';
-        (localeSaarch as DDSLocaleSearch).resetScrollPosition();
+        (localeSaarch as DDSLocaleSearch).reset();
       }
     }
   }

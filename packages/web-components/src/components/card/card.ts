@@ -35,7 +35,7 @@ class DDSCard extends DDSLink {
   /**
    * `true` if there is eyebrow content.
    */
-  private _hasEyeblow;
+  private _hasEyebrow;
 
   /**
    * `true` if there is heading content.
@@ -63,18 +63,18 @@ class DDSCard extends DDSLink {
    * @returns The inner content.
    */
   _renderInner() {
-    const { _hasEyeblow: hasEyeblow, _hasHeading: hasHeading, _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
+    const { _hasEyebrow: hasEyebrow, _hasHeading: hasHeading, _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
     return html`
       <slot name="image"></slot>
       <div class="${prefix}--card__wrapper">
-        <p ?hidden="${!hasEyeblow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
+        <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
+          <slot name="eyebrow" @slotchange="${handleSlotChange}" />
         </p>
         <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
-          <slot name="heading" @slotchange="${handleSlotChange}"></slot>
+          <slot name="heading" @slotchange="${handleSlotChange}" />
         </h3>
         <div ?hidden="${!hasCopy}" class="${prefix}--card__copy"><slot @slotchange="${handleSlotChange}"></slot></div>
-        <slot name="footer"></slot>
+        <slot name="footer" />
       </div>
     `;
   }

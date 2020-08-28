@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.0...@carbon/ibmdotcom-styles@1.10.1-rc.0) (2020-08-27)
+
+### Bug Fixes
+
+- **MegaMenu:** account for focus within the megamenu component
+  ([#3763](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3763))
+  ([2f43ee5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2f43ee5)),
+  closes
+  [#3758](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3758)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.0-rc.2...@carbon/ibmdotcom-styles@1.10.0) (2020-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.0-rc.1...@carbon/ibmdotcom-styles@1.10.0-rc.2) (2020-08-26)
+
+### Bug Fixes
+
+- **MegaMenu:** add scroll for submenu
+  ([#3720](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3720))
+  ([11b5c72](https://github.com/carbon-design-system/ibm-dotcom-library/commit/11b5c72)),
+  closes
+  [#3718](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3718)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.0-rc.0...@carbon/ibmdotcom-styles@1.10.0-rc.1) (2020-08-25)
+
+### Bug Fixes
+
+- **expressivetheme:** enable css custom properties with the theme
+  ([#3699](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3699))
+  ([cdf12a3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cdf12a3)),
+  closes
+  [#3698](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3698)
+  [#3643](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3643)
+- **Footer:** fixes footer theme styles
+  ([#3677](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3677))
+  ([aa55335](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aa55335)),
+  closes
+  [#3642](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3642)
+- **masthead:** locked focus while left menu active
+  ([#3705](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3705))
+  ([ff766f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ff766f7)),
+  closes
+  [#3663](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3663)
+- **MegaMenu:** disable scrolling for mobile nav
+  ([#3692](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3692))
+  ([44167d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44167d5)),
+  closes
+  [#3661](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3661)
+- **MegaMenu:** pass href prop to the CategoryGroup so link can be accessed as
+  expected
+  ([#3668](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3668))
+  ([abfbb56](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abfbb56))
+- **MegaMenu:** prevent shift of IBM logo when opening mobile nav
+  ([#3679](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3679))
+  ([48e431c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/48e431c))
+
+### Features
+
+- **footer:** introduce cookie preference placeholder
+  ([#3656](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3656))
+  ([a5ce796](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a5ce796)),
+  closes
+  [#3583](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3583)
+  [#3624](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3624)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.9.0...@carbon/ibmdotcom-styles@1.10.0-rc.0) (2020-08-19)
 
 ### Bug Fixes

@@ -120,11 +120,6 @@
         }
       }
 
-      @include carbon--breakpoint-down(md) {
-        width: 100vw;
-        right: 0;
-      }
-
       .#{$prefix}--header__search--input {
         display: flex;
         flex: 1;
@@ -163,6 +158,20 @@
         transition-property: width;
         transition-delay: 380ms;
         transition-duration: 112ms;
+      }
+    }
+
+    &.#{$prefix}--masthead__search--active {
+      @include carbon--breakpoint-down(md) {
+        width: 100vw;
+        right: (-$carbon--spacing-09);
+      }
+    }
+
+    &[active] {
+      @include carbon--breakpoint-down(md) {
+        width: 100vw;
+        right: 0;
       }
     }
   }

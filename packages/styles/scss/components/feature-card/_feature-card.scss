@@ -12,10 +12,8 @@
 @import '../../globals/utils/hang';
 
 @mixin feature-card {
-  .#{$prefix}--feature-card {
-    color: $text-01;
-    background: $ui-background;
-
+  .#{$prefix}--feature-card,
+  :host(#{$dds-prefix}-feature-card) {
     padding-top: aspect-ratio(1, 1);
     position: relative;
     @include carbon--breakpoint('md') {
@@ -28,7 +26,8 @@
     }
 
     @include carbon--breakpoint-down('md') {
-      &__card {
+      .#{$prefix}--card,
+      .#{$prefix}--feature-card__card {
         @include carbon--make-row;
       }
     }
@@ -39,12 +38,19 @@
       color: $inverse-link;
     }
 
-    &__card .#{$prefix}--card__footer {
+    .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
+    }
+
+    ::slotted(svg[slot='footer']) {
+      margin-top: auto;
+      margin-left: auto;
+      color: $inverse-link;
     }
 
     .#{$prefix}--card {
       position: absolute;
+      padding-top: 0;
       top: 0;
       left: 0;
       right: 0;
@@ -58,19 +64,20 @@
         margin-bottom: $layout-03;
       }
 
-      &__wrapper,
-      .#{$prefix}--image {
-        width: 100%;
-        height: aspect-ratio(2, 1);
-        @include carbon--breakpoint('md') {
-          width: 50%;
-          height: aspect-ratio(1, 1);
-        }
-      }
-
       &:focus {
         outline-offset: 1px;
         outline-width: 3px;
+      }
+    }
+
+    ::slotted([slot='image']),
+    .#{$prefix}--card__wrapper,
+    .#{$prefix}--image {
+      width: 100%;
+      height: aspect-ratio(2, 1);
+      @include carbon--breakpoint('md') {
+        width: 50%;
+        height: aspect-ratio(1, 1);
       }
     }
   }
