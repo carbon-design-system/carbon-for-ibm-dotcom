@@ -81,12 +81,15 @@ class HeaderMenu extends React.Component {
       selectedIndex: null,
     };
     this.items = [];
+    this.menuLinkRef = React.createRef();
   }
 
   /**
    * Toggle the expanded state of the menu on click.
    */
-  handleOnClick = index => {
+  handleOnClick = event => {
+    this.menuLinkRef.current.focus();
+
     this.setState(prevState => {
       if (prevState.expanded) {
         this.props.setOverlay(false);
@@ -125,6 +128,8 @@ class HeaderMenu extends React.Component {
       `${prefix}--masthead__megamenu__category-headline`,
       `${prefix}--masthead__megamenu__category-group`,
       `${prefix}--masthead__megamenu__view-all-cta`,
+      `${prefix}--masthead__megamenu__l0-nav`,
+      `${prefix}--header__menu`,
     ];
 
     return megamenuItems.filter(item =>
@@ -220,18 +225,18 @@ class HeaderMenu extends React.Component {
         className={className}
         data-autoid={autoId}
         onKeyDown={this.handleMenuClose}
-        onClick={this.handleOnClick}
         onBlur={this.handleOnBlur}>
         <a // eslint-disable-line jsx-a11y/role-supports-aria-props,jsx-a11y/anchor-is-valid
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
           href="#"
-          onClick={event => event.preventDefault()}
+          onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}
           ref={this.handleMenuButtonRef}
           role="menuitem"
           tabIndex={0}
+          ref={this.menuLinkRef}
           {...accessibilityLabel}>
           {menuLinkName}
           <MenuContent />

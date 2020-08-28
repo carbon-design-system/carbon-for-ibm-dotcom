@@ -32,22 +32,22 @@ release_alpha () {
 
 # RC.0 patch release
 release_rc0_patch () {
-  ./node_modules/.bin/lerna publish prepatch --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish prepatch --conventional-prerelease --preid rc --pre-dist-tag next
 }
 
 # RC.0 minor release
 release_rc0_minor () {
-  ./node_modules/.bin/lerna publish preminor --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish preminor --conventional-prerelease --preid rc --pre-dist-tag next
 }
 
 # RC.0 major release
 release_rc0_major () {
-  ./node_modules/.bin/lerna publish premajor --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish premajor --conventional-prerelease --preid rc --pre-dist-tag next
 }
 
 # RC.1+ release
 release_rc1plus () {
-  ./node_modules/.bin/lerna publish --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish --conventional-prerelease --preid rc --pre-dist-tag next
 }
 
 # Full patch release

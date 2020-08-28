@@ -41,6 +41,10 @@
     overflow-y: scroll;
     background-color: $ui-background;
 
+    &:focus {
+      outline: none;
+    }
+
     @include box-shadow;
   }
 
