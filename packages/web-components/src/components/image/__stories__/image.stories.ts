@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image';
+import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
   const { alt, defaultSrc } = parameters?.props?.['dds-image'] ?? {};
@@ -38,6 +39,7 @@ export default {
       `,
   ],
   parameters: {
+    ...readme.parameters,
     knobs: {
       'dds-image': ({ groupId }) => ({
         alt: textNullable('Alt text', 'Image alt text', groupId),
