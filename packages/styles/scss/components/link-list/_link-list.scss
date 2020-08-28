@@ -21,6 +21,8 @@
       color: $text-01;
     }
     &__list {
+      padding-bottom: $carbon--layout-02;
+
       &__CTA {
         .#{$prefix}--link-list__list--horizontal & {
           float: left;
