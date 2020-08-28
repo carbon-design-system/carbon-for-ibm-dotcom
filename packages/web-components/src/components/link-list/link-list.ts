@@ -86,6 +86,11 @@ class DDSLinkList extends LitElement {
     window.removeEventListener('resize', this._handleResize);
   }
 
+  /**
+   * Method called on resize, triggers the sameHeight utility
+   *
+   * @private
+   */
   private _handleResize() {
     if (this.childItems) window.requestAnimationFrame(() => sameHeight(this.childItems, 'md'));
   }
