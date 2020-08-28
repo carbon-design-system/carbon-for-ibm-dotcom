@@ -117,21 +117,25 @@ jobs:
         env:
           DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
           DDS_UI_INTEGRATION_TEST_TIMEOUT: 60000
+          LAUNCH_TIMEOUT: 600000
       - name: Run checks with xvfb (Web Components)
         if: matrix.os == 'ubuntu-latest'
         run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:ui
         env:
           DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
           DDS_UI_INTEGRATION_TEST_TIMEOUT: 60000
+          LAUNCH_TIMEOUT: 600000
       - name: Run checks without xvfb (React)
         if: matrix.os != 'ubuntu-latest'
         run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:ui
         env:
           DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
           DDS_UI_INTEGRATION_TEST_TIMEOUT: 60000
+          LAUNCH_TIMEOUT: 600000
       - name: Run checks without xvfb (Web Components)
         if: matrix.os != 'ubuntu-latest'
         run: yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components test:integration:ui
         env:
           DDS_UI_INTEGRATION_TEST_BROWSER: ${{ matrix.browser }}
           DDS_UI_INTEGRATION_TEST_TIMEOUT: 60000
+          LAUNCH_TIMEOUT: 600000
