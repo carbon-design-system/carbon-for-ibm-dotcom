@@ -1,4 +1,4 @@
-name: Deploy storybook environments to IBM Cloud (Canary)
+name: deploy-canary (Deploy storybook environments to IBM Cloud)
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/react
       - name: Deploying @carbon/ibmdotcom-react storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -64,7 +64,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/react
       - name: Deploying @carbon/ibmdotcom-react (experimental) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -98,7 +98,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/react
       - name: Deploying @carbon/ibmdotcom-react (RTL) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -131,7 +131,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/web-components
       - name: Deploying @carbon/ibmdotcom-web-components storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -164,7 +164,7 @@ jobs:
         run: yarn jsdoc
         working-directory: packages/services
       - name: Deploying @carbon/ibmdotcom-services JSDocs to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -197,7 +197,7 @@ jobs:
         run: yarn jsdoc
         working-directory: packages/utilities
       - name: Deploying @carbon/ibmdotcom-utilities JSDocs to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -230,7 +230,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/styles
       - name: Deploying Carbon expressive storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -263,7 +263,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/vanilla
       - name: Deploying @carbon/ibmdotcom-vanilla storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.1.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
