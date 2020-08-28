@@ -7,122 +7,142 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import { EventTarget } from 'event-target-shim';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
-import EventManager from '../../../../tests/utils/event-manager';
-import DDSVideoPlayer from '../video-player';
-import '../video-player-container';
-
-const template = (props?) => {
-  const { formatCaption, hideCaption, videoId } = props ?? {};
-  return html`
-    <dds-video-player-container ?hide-caption="${hideCaption}" video-id="${ifNonNull(videoId)}" .formatCaption="${formatCaption}">
-    </dds-video-player-container>
-  `;
-};
+import convertValue from '../../../../tests/utils/convert-value';
+import { DDSVideoPlayerContainerMixin } from '../video-player-container';
 
 describe('dds-video-player-container', function() {
-  const events = new EventManager();
+  let videoPlayerContainer;
+  let videoPlayer;
 
-  it('should send props to video player', async function() {
-    spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
-    const formatCaption = () => {};
-    render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
-    await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
-    const videoPlayer = document.querySelector('dds-video-player') as DDSVideoPlayer;
-    expect(videoPlayer.formatCaption).toBe(formatCaption);
-    expect(videoPlayer.hideCaption).toBe(true);
+  beforeEach(function() {
+    videoPlayer = document.body.appendChild(document.createElement('div'));
+    const VideoPlayerContainer = DDSVideoPlayerContainerMixin(
+      class {
+        _videoPlayer = videoPlayer;
+
+        ownerDocument = videoPlayer.ownerDocument;
+      } as any
+    );
+    videoPlayerContainer = new VideoPlayerContainer();
   });
 
-  it('should render the video player', async function() {
-    spyOn(VideoPlayerAPI, 'api').and.returnValue(
-      Promise.resolve({
-        name: 'video-name-foo',
-        msDuration: 60000,
-      })
-    );
-    spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async (videoId: string, playerId: string, autoplay: boolean) => {
-      const playerElem = document.getElementById(playerId);
-      // Causes to remder `<div data-autoplay="${String(Boolean(autoplay))}" data-video-id="${videoId}">`
-      const replaceElem = document.createElement('div');
-      replaceElem.dataset.videoId = videoId;
-      replaceElem.dataset.autoplay = String(Boolean(autoplay));
-      playerElem!.parentNode!.replaceChild(replaceElem, playerElem!);
-      return { kWidget() {} };
+  describe('Making API calls', function() {
+    beforeEach(function() {
+      spyOn(videoPlayerContainer, '_setRequestEmbedVideoInProgress');
+      spyOn(videoPlayerContainer, '_setErrorRequestEmbedVideo');
+      spyOn(videoPlayerContainer, '_setEmbeddedVideo');
     });
-    render(template({ videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    await Promise.resolve(); // Let `VideoPlayerAPI.api()` be resolved
-    await Promise.resolve(); // Let `VideoPlayerAPI.embedVideo()` be resolved
-    await Promise.resolve(); // Let `loadVideoPromise` be resolved, that updates the instance with video name, etc.
-    await Promise.resolve(); // Let `_loadVideo()` be resolved
-    await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
-    expect(document.querySelector('dds-video-player-container')).toMatchSnapshot();
+
+    it('should make an API call to embed video', async function() {
+      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => ({
+        async kWidget() {
+          return 'kwidget-foo';
+        },
+      }));
+      await videoPlayerContainer._embedVideo('video-id-foo');
+      const setRequestEmbedVideoInProgressArgs = convertValue(
+        videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
+      );
+      const setErrorRequestEmbedVideoArgs = convertValue(videoPlayerContainer._setErrorRequestEmbedVideo.calls.argsFor(0));
+      const setEmbeddedVideoArgs = convertValue(videoPlayerContainer._setEmbeddedVideo.calls.argsFor(0));
+      expect(setRequestEmbedVideoInProgressArgs).toEqual(['video-id-foo', 'PROMISE']);
+      expect(setErrorRequestEmbedVideoArgs).toEqual([]);
+      expect(setEmbeddedVideoArgs).toEqual(['video-id-foo', 'kwidget-foo']);
+    });
+
+    it('caches the embedded video', async () => {
+      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => ({
+        async kWidget() {
+          return 'kwidget-foo';
+        },
+      }));
+      videoPlayerContainer._requestsEmbedVideo = {
+        'video-id-foo': Promise.resolve('kwidget-foo'),
+      };
+      await videoPlayerContainer._embedVideo('video-id-foo');
+      const setRequestEmbedVideoInProgressArgs = convertValue(
+        videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
+      );
+      const setErrorRequestEmbedVideoArgs = convertValue(videoPlayerContainer._setErrorRequestEmbedVideo.calls.argsFor(0));
+      const setEmbeddedVideoArgs = convertValue(videoPlayerContainer._setEmbeddedVideo.calls.argsFor(0));
+      expect(setRequestEmbedVideoInProgressArgs).toEqual([]);
+      expect(setErrorRequestEmbedVideoArgs).toEqual([]);
+      expect(setEmbeddedVideoArgs).toEqual([]);
+    });
+
+    it('should track the error in embeddeding video', async function() {
+      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => {
+        throw new Error('error-embedvideo');
+      });
+      let caught;
+      try {
+        await videoPlayerContainer._embedVideo('video-id-foo');
+      } catch (error) {
+        caught = error;
+      }
+      expect(caught?.message).toBe('error-embedvideo');
+      const setRequestEmbedVideoInProgressArgs = convertValue(
+        videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
+      );
+      const setErrorRequestEmbedVideoArgs = convertValue(videoPlayerContainer._setErrorRequestEmbedVideo.calls.argsFor(0));
+      const setEmbeddedVideoArgs = convertValue(videoPlayerContainer._setEmbeddedVideo.calls.argsFor(0));
+      expect(setRequestEmbedVideoInProgressArgs).toEqual(['video-id-foo', 'PROMISE']);
+      expect(setErrorRequestEmbedVideoArgs).toEqual(['video-id-foo', 'error-embedvideo']);
+      expect(setEmbeddedVideoArgs).toEqual([]);
+    });
+
+    it('caches the error in embeddeding video', async function() {
+      spyOn(VideoPlayerAPI, 'embedVideo').and.callFake(async () => {
+        throw new Error('error-embedvideo');
+      });
+      videoPlayerContainer._requestsEmbedVideo = {
+        'video-id-foo': Promise.reject(new Error('error-embedvideo')),
+      };
+      let caught;
+      try {
+        await videoPlayerContainer._embedVideo('video-id-foo');
+      } catch (error) {
+        caught = error;
+      }
+      expect(caught?.message).toBe('error-embedvideo');
+      const setRequestEmbedVideoInProgressArgs = convertValue(
+        videoPlayerContainer._setRequestEmbedVideoInProgress.calls.argsFor(0)
+      );
+      const setErrorRequestEmbedVideoArgs = convertValue(videoPlayerContainer._setErrorRequestEmbedVideo.calls.argsFor(0));
+      const setEmbeddedVideoArgs = convertValue(videoPlayerContainer._setEmbeddedVideo.calls.argsFor(0));
+      expect(setRequestEmbedVideoInProgressArgs).toEqual([]);
+      expect(setErrorRequestEmbedVideoArgs).toEqual([]);
+      expect(setEmbeddedVideoArgs).toEqual([]);
+    });
   });
 
-  it('should avoid race condition in switching video', async function() {
-    const eventTarget = new EventTarget();
-    spyOn(VideoPlayerAPI, 'api').and.callFake(
-      (videoId: string) =>
-        new Promise(resolve => {
-          events.on(eventTarget, `drain-promise-${videoId}`, () => {
-            resolve({
-              name: `video-name-${videoId}`,
-            });
-          });
-        })
-    );
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
-    render(template({ videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    render(template({ videoId: 'video-id-bar' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    eventTarget.dispatchEvent(new CustomEvent('drain-promise-video-id-bar'));
-    await Promise.resolve(); // Let `VideoPlayerAPI.api()` be resolved
-    await Promise.resolve(); // Let `loadVideoPromise` be resolved, that updates the instance with video name, etc.
-    eventTarget.dispatchEvent(new CustomEvent('drain-promise-video-id-foo'));
-    await Promise.resolve(); // Let `VideoPlayerAPI.api()` be resolved
-    // Let `loadVideoPromise` be resolved, that attempts to updatethe instance with video name, etc.,
-    // but it shouldn't happen given `video-id-foo` is stale
-    await Promise.resolve();
-    await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
-    const videoPlayer = document.querySelector('dds-video-player') as DDSVideoPlayer;
-    expect(videoPlayer.name).toBe('video-name-video-id-bar');
-  });
+  describe('Handling API call results', function() {
+    it('should support starting the spinner for embedding video data', function() {
+      videoPlayerContainer._setRequestEmbedVideoInProgress('video-id-foo', Promise.resolve('kwidget-foo'));
+      expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
+        'video-id-foo': 'PROMISE',
+      });
+    });
 
-  it('should cache the API call result for video data', async function() {
-    spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
-    render(template({ videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    render(template({ videoId: 'video-id-bar' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    render(template({ videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    expect(VideoPlayerAPI.api).toHaveBeenCalledTimes(2);
-    expect(VideoPlayerAPI.embedVideo).toHaveBeenCalledTimes(2);
-  });
+    it('should support setting the error in embedding video data', function() {
+      videoPlayerContainer._setErrorRequestEmbedVideo('video-id-foo', new Error('error-embedvideo'));
+      expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
+        'video-id-foo': 'PROMISE',
+      });
+    });
 
-  it('should send props to video player', async function() {
-    spyOn(VideoPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
-    spyOn(VideoPlayerAPI, 'embedVideo').and.returnValue(Promise.resolve({ kWidget() {} }));
-    const formatCaption = () => {};
-    render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
-    await Promise.resolve(); // Update cycle to trigger `._loadVideo()`
-    await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
-    await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
-    const videoPlayer = document.querySelector('dds-video-player') as DDSVideoPlayer;
-    expect(videoPlayer.formatCaption).toBe(formatCaption);
-    expect(videoPlayer.hideCaption).toBe(true);
+    it('should support setting the embedded video', function() {
+      videoPlayerContainer._setEmbeddedVideo('video-id-foo', 'kwidget-foo');
+      expect(convertValue(videoPlayerContainer.embeddedVideos)).toEqual({
+        'video-id-foo': 'kwidget-foo',
+      });
+    });
   });
 
   afterEach(function() {
-    render(undefined!, document.body);
-    events.reset();
+    if (videoPlayer) {
+      videoPlayer.remove();
+    }
   });
 });
