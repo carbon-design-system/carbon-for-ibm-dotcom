@@ -33,7 +33,7 @@ describe('dds-masthead-search-composite', function() {
     await Promise.resolve();
     const searchInputNode = search!.shadowRoot!.querySelector('.bx--header__search--input') as HTMLInputElement;
     searchInputNode.value = 'search-query-foo';
-    searchInputNode.dispatchEvent(new CustomEvent('input', { bubbles: true, composed: true }));
+    searchInputNode.dispatchEvent(new CustomEvent('bx-search-input', { bubbles: true, composed: true }));
     expect(DDSMastheadSearchComposite.prototype._loadSearchResults).toHaveBeenCalledWith('search-query-foo');
   });
 
