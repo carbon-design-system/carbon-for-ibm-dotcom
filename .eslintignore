@@ -15,11 +15,6 @@ packages/react/src/internal/vendor
 packages/storybook-addon-theme/es
 packages/storybook-addon-theme/node_modules
 
-# local carbon-components-react
-packages/react/src/components/carbon-components-react
-packages/react/src/internal/keyboard
-packages/react/src/prop-types
-
 # services
 packages/services/coverage
 packages/services/docs

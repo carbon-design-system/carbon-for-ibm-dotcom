@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* istanbul ignore file */
 
 /**
@@ -8,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import classnames from 'classnames';
 import ChevronDown20 from '@carbon/icons-react/es/chevron--down/20';
 import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
@@ -87,7 +85,7 @@ class HeaderMenu extends React.Component {
   /**
    * Toggle the expanded state of the menu on click.
    */
-  handleOnClick = event => {
+  handleOnClick = () => {
     this.menuLinkRef.current.focus();
 
     this.setState(prevState => {
