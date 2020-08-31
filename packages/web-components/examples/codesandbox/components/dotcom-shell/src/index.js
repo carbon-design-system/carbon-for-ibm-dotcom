@@ -11,8 +11,20 @@ import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell
 import links from './links';
 import './index.scss';
 
+window.digitalData = {
+  page: {
+    pageInfo: {
+      language: 'en-US',
+      ibm: {
+        siteID: 'IBMTESTWWW',
+      },
+    },
+    isDataLayerReady: true,
+  },
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   if (!process.env.CORS_PROXY) {
-    document.getElementsByTagName('masthead-container').navLinks = links;
+    document.getElementsByTagName('dds-masthead-composite').navLinks = links;
   }
 });

@@ -158,7 +158,7 @@
       color: $text-03;
     }
 
-    .#{$prefix}--card--inverse:hover {
+    &:hover {
       background-color: $inverse-hover-ui;
     }
 

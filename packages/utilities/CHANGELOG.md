@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.10.1-rc.0...@carbon/ibmdotcom-utilities@1.10.1) (2020-08-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.10.0...@carbon/ibmdotcom-utilities@1.10.1-rc.0) (2020-08-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.10.0-rc.0...@carbon/ibmdotcom-utilities@1.10.0) (2020-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.9.0...@carbon/ibmdotcom-utilities@1.10.0-rc.0) (2020-08-19)
 
 ### Bug Fixes
