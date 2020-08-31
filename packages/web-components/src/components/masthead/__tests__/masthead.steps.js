@@ -8,16 +8,13 @@
  */
 
 describe('dds-masthead-*', () => {
-  let navigated;
-
   describe('With wide screen', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
       await page.setViewportSize({ width: 1280, height: 720 });
       await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
 
     it('should support clicking the logo', async () => {
-      navigated = true;
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-masthead-logo');
       await promiseNavigation;
@@ -26,7 +23,6 @@ describe('dds-masthead-*', () => {
 
     it('should support navigating in profile menu', async () => {
       await page.click('dds-masthead-profile');
-      navigated = true;
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-masthead-profile-item[key="login"]');
       await promiseNavigation;
@@ -35,7 +31,6 @@ describe('dds-masthead-*', () => {
 
     it('should support navigating in top nav menu', async () => {
       await page.click('dds-top-nav-menu[menu-label="Products"]');
-      navigated = true;
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-top-nav-menu-item[title="Products"]');
       await promiseNavigation;
@@ -55,7 +50,7 @@ describe('dds-masthead-*', () => {
   });
 
   describe('With narrow screen', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
       await page.setViewportSize({ width: 672, height: 720 });
       await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
@@ -63,18 +58,10 @@ describe('dds-masthead-*', () => {
     it('should support navigating in top nav menu', async () => {
       await page.click('dds-masthead-menu-button');
       await page.click('dds-left-nav-menu[title="Products"]');
-      navigated = true;
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-left-nav-menu-item[title="Products"]');
       await promiseNavigation;
       expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com/products');
     });
-  });
-
-  afterEach(async () => {
-    if (navigated) {
-      await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
-      navigated = false;
-    }
   });
 });

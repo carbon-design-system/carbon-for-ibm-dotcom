@@ -9,5 +9,7 @@
 
 'use strict';
 
-const testTimeout = Number(process.env.DDS_BUILD_INTEGRATION_TEST_TIMEOUT);
-jest.setTimeout(isNaN(testTimeout) ? 30000 : testTimeout);
+const testTimeoutEnv = Number(process.env.DDS_BUILD_INTEGRATION_TEST_TIMEOUT);
+const testTimeout = isNaN(testTimeoutEnv) ? 30000 : testTimeoutEnv;
+jest.setTimeout(testTimeout);
+page.setDefaultNavigationTimeout(testTimeout);
