@@ -12,7 +12,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import SideNavLink from '../../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
 import SideNavMenu from './SideNavMenu';
 import SideNavMenuItem from '../../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
-import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useCallback, useRef } from 'react';
 
@@ -32,11 +31,11 @@ const SideNavMenuWithBackForward = ({
   ...rest
 }) => {
   const refSideNavMenu = useRef(null);
-  const handleToggle = useCallback((event, detail) => {
+  const handleToggle = useCallback(() => {
     const { current: sideNavMenuNode } = refSideNavMenu;
     const sideNav = sideNavMenuNode.closest('.bx--side-nav');
     if (sideNav) {
-      const list = Array.prototype.forEach.call(
+      Array.prototype.forEach.call(
         sideNav.querySelectorAll('.bx--side-nav__menu'),
         elem => {
           const hasExpandedSubmenu = elem.querySelector(

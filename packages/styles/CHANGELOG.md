@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.1-rc.0...@carbon/ibmdotcom-styles@1.10.1) (2020-08-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.0...@carbon/ibmdotcom-styles@1.10.1-rc.0) (2020-08-27)
 
 ### Bug Fixes
