@@ -14,6 +14,7 @@ window.digitalData = {
     pageInfo: {
       language: 'en-US',
       ibm: {
+        country: 'US',
         siteID: 'IBMTESTWWW',
       },
     },
