@@ -6,7 +6,6 @@
  */
 
 import axios from 'axios';
-import DDOAPI from '../DDO/DDO';
 import geolocation from '@carbon/ibmdotcom-utilities/es/utilities/geolocation/geolocation';
 import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import root from 'window-or-global';
@@ -110,7 +109,7 @@ const _sessionListKey = 'dds-countrylist';
  * @private
  */
 const _getLocaleByLangAttr = () => {
-  if (root.document.documentElement.lang) {
+  if (root.document?.documentElement?.lang) {
     const lang = root.document.documentElement.lang.toLowerCase();
     if (lang.indexOf('-') === -1) {
       return _localeDefault;
@@ -137,44 +136,35 @@ const _requestsList = {};
  * @type {(object | boolean)}
  * @private
  */
-async function _getLocaleFromDDO() {
-  const ddoLocal = await DDOAPI.getAll();
+function _getLocaleFromDDO() {
+  const ddoLocal = Object.assign({}, root.digitalData || {});
 
-  if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
-    let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+  if (
+    ddoLocal.page?.pageInfo?.language &&
+    ddoLocal.page?.pageInfo?.ibm?.country
+  ) {
+    const lang = {};
 
     // Set proper LC for us to use.
-    if (ddoLocal.page.pageInfo.language) {
-      pageInfoIBM.lc = ddoLocal.page.pageInfo.language
-        .substring(0, 2)
-        .toLowerCase();
+    lang.lc = ddoLocal.page.pageInfo.language.substring(0, 2).toLowerCase();
+
+    lang.cc = ddoLocal.page.pageInfo.ibm.country.toLowerCase().trim();
+
+    // If there are multiple countries use just the first one for the CC value
+    if (lang.cc.indexOf(',') > -1)
+      lang.cc = lang.cc.substring(0, lang.cc.indexOf(',')).trim();
+
+    // Gb will be uk elsewhere
+    if (lang.cc === 'gb') {
+      lang.cc = 'uk';
     }
 
-    if (pageInfoIBM) {
-      // Set proper CC for us to use.
-      if (pageInfoIBM.country) {
-        pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
-
-        // If there are multiple countries use just the first one for the CC value
-        if (pageInfoIBM.cc.indexOf(',') > -1)
-          pageInfoIBM.cc = pageInfoIBM.cc
-            .substring(0, pageInfoIBM.cc.indexOf(','))
-            .trim();
-
-        // Gb will be uk elsewhere
-        if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
-
-        // Map worldwide (ZZ) pages to US
-        if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
-      }
+    // Map worldwide (ZZ) pages to US
+    if (lang.cc === 'zz') {
+      lang.cc = 'us';
     }
 
-    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
-
-    return {
-      cc: pageInfoIBM.cc,
-      lc: pageInfoIBM.lc,
-    };
+    return lang;
   }
   return false;
 }
@@ -261,12 +251,16 @@ class LocaleAPI {
    *    const locale = await LocaleAPI.getLang();
    * }
    */
-  static async getLang() {
-    const getLocaleFromDDO = await _getLocaleFromDDO();
+  static getLang() {
+    return new Promise(resolve => {
+      const getLocaleFromDDO = _getLocaleFromDDO();
 
-    if (getLocaleFromDDO) {
-      return getLocaleFromDDO;
-    } else return _getLocaleByLangAttr();
+      if (getLocaleFromDDO) {
+        resolve(getLocaleFromDDO);
+      } else {
+        resolve(_getLocaleByLangAttr());
+      }
+    });
   }
 
   /**
