@@ -8,13 +8,14 @@ import {
   ClickableTile,
   Tile,
 } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
+import React, { useCallback, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
+import on from 'carbon-components/es/globals/js/misc/on';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -32,9 +33,35 @@ export const Card = ({
   copy,
   cta,
   pictogram,
+  onClick,
   ...props
 }) => {
+  const refWrapper = useRef(null);
   const TileType = props.disabled ? Tile : ClickableTile;
+
+  const handleClick = useCallback(
+    e => {
+      if (!onClick || onClick(e) !== false) {
+        cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+      }
+    },
+    [cta, onClick]
+  );
+
+  useEffect(() => {
+    let hClick;
+    const { current: wrapperNode } = refWrapper;
+    const tileNode = wrapperNode.closest('.bx--tile');
+    if (tileNode) {
+      // Manually attach an event listener given `onClick()` of Carbon `<Tile>` runs after `<Tile>` changes its state
+      hClick = on(tileNode, 'click', handleClick);
+    }
+    return () => {
+      if (hClick) {
+        hClick = hClick.release();
+      }
+    };
+  }, [handleClick]);
 
   return (
     <TileType
@@ -49,12 +76,9 @@ export const Card = ({
       )}
       href={cta?.href}
       target={CTALogic.external(cta?.type)}
-      onClick={e => {
-        cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
-      }}
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
-      <div className={`${prefix}--card__wrapper`}>
+      <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
@@ -182,6 +206,11 @@ export const cardPropTypes = {
    * Classname to be assigned to the Card component.
    */
   customClassName: PropTypes.string,
+
+  /**
+   * A handler for `click` event on the card.
+   */
+  onClick: PropTypes.func,
 };
 
 Card.propTypes = cardPropTypes;
