@@ -18,13 +18,15 @@
         color: $disabled-02;
       }
     }
-    .#{$prefix}--card__footer {
+    .#{$prefix}--card__footer,
+    .#{$prefix}--card__wrapper {
       .#{$prefix}--link-with-icon {
         svg {
           margin-left: 0;
           color: $disabled-02;
         }
       }
+      ::slotted(svg[slot='footer']),
       svg {
         fill: $disabled-02;
       }
