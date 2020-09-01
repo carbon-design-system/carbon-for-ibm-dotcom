@@ -15,7 +15,7 @@
  *
  */
 const settings = {
-  version: 'dds.v1.10.2',
+  version: 'Carbon:IBM.com Library v1.10.2',
   stablePrefix: 'dds',
 };
 
