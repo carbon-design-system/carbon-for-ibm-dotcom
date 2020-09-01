@@ -75,7 +75,14 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(LitElement) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatCaption?: ({ duration, name }: { duration: number; name: string }) => string;
+  formatCaption?: ({ duration, name }: { duration?: string; name?: string }) => string;
+
+  /**
+   * The formatter for the video duration.
+   * Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  formatDuration?: ({ duration }: { duration?: number }) => string;
 
   /**
    * `true` to hide the caption.
@@ -108,7 +115,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(LitElement) {
   }
 
   renderLightDOM() {
-    const { formatCaption, hideCaption, videoData = {}, videoId } = this;
+    const { formatCaption, formatDuration, hideCaption, videoData = {}, videoId } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
     return html`
@@ -117,6 +124,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(LitElement) {
         ?hide-caption=${hideCaption}
         name="${ifNonNull(name)}"
         .formatCaption="${ifNonNull(formatCaption)}"
+        .formatDuration="${ifNonNull(formatDuration)}"
       >
       </dds-video-player>
     `;

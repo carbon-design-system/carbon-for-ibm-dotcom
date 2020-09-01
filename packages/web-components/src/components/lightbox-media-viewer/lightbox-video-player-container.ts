@@ -31,7 +31,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-lightbox-video-player-container
  */
 @customElement(`${ddsPrefix}-lightbox-video-player-container`)
-class DDSLightboxMediaViewerContainer extends ConnectMixin<
+class DDSLightboxVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   VideoPlayerAPIActions,
   VideoPlayerContainerStateProps,
@@ -42,4 +42,4 @@ class DDSLightboxMediaViewerContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSLightboxVideoPlayerComposite)) {}
 
-export default DDSLightboxMediaViewerContainer;
+export default DDSLightboxVideoPlayerContainer;

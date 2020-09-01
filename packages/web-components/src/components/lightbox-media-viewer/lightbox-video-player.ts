@@ -30,7 +30,7 @@ class DDSLightboxVideoPlayer extends DDSVideoPlayer {
   description = '';
 
   render() {
-    const { description, duration, formatCaption, name, hideCaption } = this;
+    const { description, duration, formatCaption, formatDuration, name, hideCaption } = this;
     return html`
       <div class="${prefix}--lightbox-media-viewer__row">
         <div class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
@@ -50,7 +50,7 @@ class DDSLightboxVideoPlayer extends DDSVideoPlayer {
                     class="${prefix}--lightbox-media-viewer__content__title"
                     data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title"
                   >
-                    <slot name="name">${formatCaption({ duration, name })}</slot>
+                    <slot name="name">${formatCaption({ duration: formatDuration({ duration }), name })}</slot>
                   </div>
                   <div
                     part="description"

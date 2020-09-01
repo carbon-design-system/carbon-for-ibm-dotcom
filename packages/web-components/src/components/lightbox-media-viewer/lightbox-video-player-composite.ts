@@ -79,7 +79,7 @@ class DDSLightboxMediaViewerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   }
 
   renderModal() {
-    const { formatCaption, hideCaption, open, videoData = {}, videoId } = this;
+    const { formatCaption, formatDuration, hideCaption, open, videoData = {}, videoId } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { description, duration, name } = currentVideoData;
     return html`
@@ -92,6 +92,7 @@ class DDSLightboxMediaViewerComposite extends ModalRenderMixin(DDSVideoPlayerCom
             name="${ifNonNull(name)}"
             ?hide-caption="${hideCaption}"
             .formatCaption="${ifNonNull(formatCaption)}"
+            .formatDuration="${ifNonNull(formatDuration)}"
           >
           </dds-lightbox-video-player>
         </dds-lightbox-media-viewer-body>

@@ -12,13 +12,14 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import '../video-player';
 
 const template = (props?) => {
-  const { duration, formatCaption, hideCaption, name } = props ?? {};
+  const { duration, formatCaption, formatDuration, hideCaption, name } = props ?? {};
   return html`
     <dds-video-player
       duration="${ifNonNull(duration)}"
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
     >
     </dds-video-player>
   `;
@@ -66,19 +67,22 @@ describe('dds-video-player', function() {
     expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo (1:05)');
   });
 
-  it('should support custom duration formatter for localization', async function() {
+  it('should support custom caption/duration formatter for localization', async function() {
     render(
       template({
         duration: 60,
         name: 'video-name-foo',
-        formatCaption({ duration, name }: { duration?: number; name: string }) {
+        formatCaption({ duration, name }: { duration?: string; name: string }) {
           return `${name}-${duration}`;
+        },
+        formatDuration({ duration }: { duration?: number }) {
+          return `${duration! / 60}`;
         },
       }),
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-60');
+    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-1');
   });
 
   afterEach(function() {

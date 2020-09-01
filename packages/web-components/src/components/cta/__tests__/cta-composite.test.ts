@@ -15,20 +15,21 @@ import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import DDSModal from '../../modal/modal';
-import DDSLightboxVideoPlayerContainer from '../../lightbox-media-viewer/lightbox-video-player-container';
-import { CTA_STYLE, CTA_TYPE } from '../cta-container';
-import { Default } from '../__stories__/cta.stories';
+import DDSLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
+/* eslint-disable import/no-duplicates */
+import { CTA_STYLE, CTA_TYPE } from '../cta-composite';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../cta-composite';
+/* eslint-enable import/no-duplicates */
 
-const template = (props?) =>
-  Default({
-    parameters: {
-      props: {
-        CTAContainer: props,
-      },
-    },
-  });
+const template = (props?) => {
+  const { ctaStyle, item } = props ?? {};
+  return html`
+    <dds-cta-composite cta-style="${ctaStyle}" .item="${item}"></dds-cta-composite>
+  `;
+};
 
-describe('dds-cta-container', function() {
+describe('dds-cta-composite', function() {
   describe('Text CTA', function() {
     it('should render default type', async function() {
       render(
@@ -42,9 +43,9 @@ describe('dds-cta-container', function() {
         document.body
       );
       await Promise.resolve();
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
-      expect(ctaContainer!.querySelector('svg')).toBeNull();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
+      expect(ctaComposite!.querySelector('svg')).toBeNull();
     });
 
     it('should render local type', async function() {
@@ -61,10 +62,10 @@ describe('dds-cta-container', function() {
         `,
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-text-cta>`
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
       const icon = document.querySelector('dds-text-cta')!.shadowRoot!.querySelector('svg.dds-ce--cta__icon');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(iconRef!.querySelector('path')!.getAttribute('d'));
@@ -85,10 +86,10 @@ describe('dds-cta-container', function() {
         `,
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-text-cta>`
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
       const icon = document.querySelector('dds-text-cta')!.shadowRoot!.querySelector('svg.dds-ce--cta__icon');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(iconRef!.querySelector('path')!.getAttribute('d'));
@@ -108,10 +109,10 @@ describe('dds-cta-container', function() {
         `,
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-text-cta>`
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
       const icon = document.querySelector('dds-text-cta')!.shadowRoot!.querySelector('svg.dds-ce--cta__icon');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(iconRef!.querySelector('path')!.getAttribute('d'));
@@ -131,10 +132,10 @@ describe('dds-cta-container', function() {
         `,
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-text-cta>`
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
       const icon = document.querySelector('dds-text-cta')!.shadowRoot!.querySelector('svg.dds-ce--cta__icon');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(iconRef!.querySelector('path')!.getAttribute('d'));
@@ -154,10 +155,10 @@ describe('dds-cta-container', function() {
         `,
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-text-cta>`
-      const ctaContainer = document.querySelector('dds-cta-container');
-      expect(ctaContainer).toMatchSnapshot();
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      expect(ctaComposite).toMatchSnapshot();
       const icon = document.querySelector('dds-text-cta')!.shadowRoot!.querySelector('svg.dds-ce--cta__icon');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(iconRef!.querySelector('path')!.getAttribute('d'));
@@ -185,7 +186,7 @@ describe('dds-cta-container', function() {
         document.body
       );
       await Promise.resolve();
-      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
+      const { modalRenderRoot } = document.querySelector('dds-cta-composite') as any;
       expect(modalRenderRoot).toMatchSnapshot();
     });
 
@@ -204,23 +205,23 @@ describe('dds-cta-container', function() {
         document.body
       );
       await Promise.resolve();
-      const ctaContainer = document.querySelector('dds-cta-container');
-      ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4', type: 'video' } }));
-      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
-      await Promise.resolve(); // Update cycle for `<dds-lightbox-video-player-container>`
-      const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
-      const lightboxVideoPlayerContainer = modalRenderRoot!.querySelector(
-        'dds-lightbox-video-player-container'
-      ) as DDSLightboxVideoPlayerContainer;
-      const lightboxRenderRoot = lightboxVideoPlayerContainer.modalRenderRoot as Element;
+      const ctaComposite = document.querySelector('dds-cta-composite');
+      ctaComposite!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4', type: 'video' } }));
+      await Promise.resolve(); // Update cycle for `<dds-cta-composite>`
+      await Promise.resolve(); // Update cycle for `<dds-lightbox-video-player-composite>`
+      const { modalRenderRoot } = document.querySelector('dds-cta-composite') as any;
+      const lightboxVideoPlayerComposite = modalRenderRoot!.querySelector(
+        'dds-lightbox-video-player-composite'
+      ) as DDSLightboxVideoPlayerComposite;
+      const lightboxRenderRoot = lightboxVideoPlayerComposite.modalRenderRoot as Element;
       expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(true);
-      const { videoId: videoIdInVideoPlayerContainerOpen } = lightboxVideoPlayerContainer;
-      expect(videoIdInVideoPlayerContainerOpen).toBe('0_uka1msg4');
+      const { videoId: videoIdInVideoPlayerCompositeOpen } = lightboxVideoPlayerComposite;
+      expect(videoIdInVideoPlayerCompositeOpen).toBe('0_uka1msg4');
       (lightboxRenderRoot.querySelector('dds-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
       expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(false);
-      const { videoId: videoIdInVideoPlayerContainerClosed } = lightboxVideoPlayerContainer;
-      expect(videoIdInVideoPlayerContainerClosed).toBeFalsy();
+      const { videoId: videoIdInVideoPlayerCompositeClosed } = lightboxVideoPlayerComposite;
+      expect(videoIdInVideoPlayerCompositeClosed).toBeFalsy();
     });
   });
 

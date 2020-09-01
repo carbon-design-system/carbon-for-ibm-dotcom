@@ -6,10 +6,7 @@
 //
 
 @import '../link-with-icon/link-with-icon';
-
-:host(#{$dds-prefix}-text-cta) {
-  @extend :host(#{$dds-prefix}-link-with-icon);
-}
+@import '../feature-card/feature-card'; /* Covers regular card style, too */
 
 .#{$dds-prefix}-ce--cta__icon {
   flex-shrink: 0;
