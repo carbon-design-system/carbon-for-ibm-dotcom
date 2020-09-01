@@ -55,7 +55,7 @@ for your page:
             language: '', // e.g. en-US
             publishDate: '', // e.g. 2014-11-19
             publisher: '', // e.g. IBM Corporation
-            version: 'IBM.com Library',
+            version: 'Carbon:IBM.com Library',
             ibm: {
                 contentDelivery: '', // e.g. ECM/Filegen
                 contentProducer: '', // e.g. ECM/IConS Adopter 34 - GS83J2343G3H3ERG - 11/19/2014 05:14:02 PM
