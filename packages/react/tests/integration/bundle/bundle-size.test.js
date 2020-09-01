@@ -35,8 +35,11 @@ const ignore = [
   'prop-types/**',
   // Ignore stories
   '**/*.stories.js',
+  '**/*-story.js',
   '**/__stories__/**',
+  '**/stories/**',
   // Ignore tests
+  '**/*-test.js',
   '**/test-helpers.js',
   '**/test-utils/**',
   '**/__tests__/**',

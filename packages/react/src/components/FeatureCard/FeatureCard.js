@@ -31,7 +31,7 @@ const FeatureCard = ({ card, onClick }) => {
         <Card
           customClassName={`${prefix}--feature-card__card`}
           inverse={true}
-          handleClick={onClick}
+          onClick={onClick}
           {...card}
         />
       </div>
