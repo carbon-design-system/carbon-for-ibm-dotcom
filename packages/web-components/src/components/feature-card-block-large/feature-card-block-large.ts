@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSCard from '../card/card';
@@ -23,6 +23,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-feature-card-block-large`)
 class DDSFeatureCardBlockLarge extends DDSCard {
+  render() {
+    return html`
+      <div class="${prefix}--feature-card-block-large__container">
+        ${super.render()}
+      </div>
+    `;
+  }
+
   updated(changedProperties) {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
