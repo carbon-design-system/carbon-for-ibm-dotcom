@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { pickBy } from 'lodash-es';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -25,7 +26,10 @@ import DDSLocaleModalComposite from './locale-modal-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-type LocaleModalActions =
+/**
+ * The Redux actions used for `<dds-locale-modal-container>`.
+ */
+export type LocaleModalContainerActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadLangDisplay>
@@ -45,7 +49,7 @@ export interface LocaleModalContainerState {
 /**
  * The properties for `<dds-locale-modal-container>` from Redux state.
  */
-interface LocaleModalContainerStateProps {
+export interface LocaleModalContainerStateProps {
   /**
    * The display language.
    */
@@ -64,10 +68,13 @@ interface LocaleModalContainerStateProps {
 export function mapStateToProps(state: LocaleModalContainerState): LocaleModalContainerStateProps {
   const { localeAPI } = state;
   const { langDisplay, language, localeLists } = localeAPI ?? {};
-  return {
-    langDisplay,
-    localeList: !language ? undefined : localeLists?.[language],
-  };
+  return pickBy(
+    {
+      langDisplay,
+      localeList: !language ? undefined : localeLists?.[language],
+    },
+    value => value !== undefined
+  );
 }
 
 /**
@@ -75,7 +82,7 @@ export function mapStateToProps(state: LocaleModalContainerState): LocaleModalCo
  * @returns The methods in `<dds-locale-modal-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
-  return bindActionCreators<LocaleModalActions, ActionCreatorsMapObject<LocaleModalActions>>(
+  return bindActionCreators<LocaleModalContainerActions, ActionCreatorsMapObject<LocaleModalContainerActions>>(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
@@ -97,7 +104,7 @@ class DDSLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
   LocaleAPIActions,
   LocaleModalContainerStateProps,
-  ActionCreatorsMapObject<LocaleModalActions>
+  ActionCreatorsMapObject<LocaleModalContainerActions>
 >(
   store as Store<LocaleModalContainerState, LocaleAPIActions>,
   mapStateToProps,
