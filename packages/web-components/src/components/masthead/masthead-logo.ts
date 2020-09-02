@@ -7,15 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import { html, internalProperty, property, customElement } from 'lit-element';
 import { breakpoints } from '@carbon/layout/es';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import on from 'carbon-components/es/globals/js/misc/on';
-import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import DDSIcon from '../icon/icon';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
 
@@ -27,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(LitElement)) {
+class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
   /**
    * Media query listener handler.
    */
@@ -99,12 +98,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(LitElement)) {
   }
 
   render() {
-    const { href } = this;
-    return this._openedSearch && this._responsiveLg
-      ? html``
-      : html`
-          <a href="${ifDefined(href)}">${IBM8BarLogoH23()}<slot></slot></a>
-        `;
+    return this._openedSearch && this._responsiveLg ? html`` : super.render();
   }
 
   /**
