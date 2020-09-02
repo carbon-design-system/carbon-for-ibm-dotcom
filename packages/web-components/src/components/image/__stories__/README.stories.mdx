@@ -1,0 +1,55 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import Image from '../Image';
+
+# Image
+
+> The image component is used to embed images within content and can display a
+> specific responsive image depending on viewport size.
+> Image items are used to change how the image behaves at different screen sizes.
+> Below you'll find an example with and without media query behaviors.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/image)
+> example implementation.
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/image)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
+</script>
+```
+
+### HTML
+
+```html
+// Example without media queries
+<dds-image alt="Image alt text">
+  <dds-image-item href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+</dds-image>
+
+// Example with media queries
+<dds-image alt="Image alt text">
+  <dds-image-item media="(min-wiidth:672px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+  <dds-image-item media="(min-wiidth:400px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+  <dds-image-item media="(min-wiidth:320px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+</dds-image>
+```
+
+## Props
+
+<Props of="dds-image" />
+
+<Description markdown={contributing} />

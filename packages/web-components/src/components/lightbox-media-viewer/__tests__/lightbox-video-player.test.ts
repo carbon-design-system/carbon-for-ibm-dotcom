@@ -36,7 +36,7 @@ describe('dds-lightbox-video-player', function() {
     render(
       template({
         description: 'video-description-foo',
-        duration: 30000,
+        duration: 30,
         name: 'video-name-foo',
       }),
       document.body

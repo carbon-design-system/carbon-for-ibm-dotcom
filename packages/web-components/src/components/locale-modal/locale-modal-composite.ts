@@ -197,6 +197,13 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     const { localeModal: localeModalI18N, regionList } = localeList ?? {};
     const { searchPlaceholder } = localeModalI18N ?? {};
     const pageLangs: { [locale: string]: string } = altlangs();
+    if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
+      const messages = [
+        'Detected that `<link rel="alternate">` is likely missing.',
+        'The locale search UI will yeild to an empty result.',
+      ];
+      console.warn(messages.join(' ')); // eslint-disable-line no-console
+    }
     const massagedCountryList = regionList?.reduce((acc, { countryList, name: region }) => {
       this._sortCountries(countryList).forEach(({ name: country, locale: localeItems }) => {
         localeItems.forEach(([locale, language]) => {

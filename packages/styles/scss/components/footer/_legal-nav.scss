@@ -41,6 +41,7 @@
       padding-bottom: 0;
       padding-left: 0;
       flex-direction: column-reverse;
+      margin-right: 0;
 
       @include carbon--breakpoint('md') {
         padding-left: 0;
@@ -93,10 +94,22 @@
           border-left: 1px solid $ui-03;
         }
 
+        @include carbon--breakpoint('lg') {
+          margin: 0 (-$carbon--spacing-05) 0 0;
+        }
+
         .#{$prefix}--btn--secondary,
         .#{$prefix}--list-box {
           background-color: $ui-background;
           max-width: 100%;
+
+          &:hover {
+            background-color: $hover-ui;
+          }
+
+          &:active {
+            background-color: $active-ui;
+          }
         }
 
         .#{$prefix}--text-input,

@@ -665,7 +665,6 @@ exports[`Storyshots Components|CTA Card 1`] = `
                           "type": "video",
                         }
                       }
-                      onClick={[Function]}
                       target={null}
                     >
                       <a
@@ -978,7 +977,6 @@ exports[`Storyshots Components|CTA Feature Card 1`] = `
                             handleKeyDown={[Function]}
                             href="https://www.example.com"
                             light={false}
-                            onClick={[Function]}
                             target={null}
                             type="link"
                           >
@@ -2527,7 +2525,6 @@ exports[`Storyshots Components|Card Default 1`] = `
                 handleKeyDown={[Function]}
                 href="https://example.com"
                 light={false}
-                onClick={[Function]}
                 target={null}
               >
                 <a
@@ -2802,7 +2799,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -3006,7 +3002,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -3210,7 +3205,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -3414,7 +3408,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -3618,7 +3611,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -3906,7 +3898,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -4110,7 +4101,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -4314,7 +4304,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -4518,7 +4507,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -4722,7 +4710,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -4836,7 +4823,6 @@ exports[`Storyshots Components|CardGroup With CTA 1`] = `
                     handleKeyDown={[Function]}
                     href="https://www.example.com"
                     light={false}
-                    onClick={[Function]}
                     target={null}
                   >
                     <a
@@ -5147,7 +5133,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -5390,7 +5375,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -5633,7 +5617,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -5876,7 +5859,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -6119,7 +6101,6 @@ exports[`Storyshots Components|CardGroup With Images 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -6466,7 +6447,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -6709,7 +6689,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -6952,7 +6931,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -7195,7 +7173,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -7438,7 +7415,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                             href="https://www.example.com"
                             light={false}
                             media={null}
-                            onClick={[Function]}
                             target={null}
                           >
                             <a
@@ -7567,7 +7543,6 @@ exports[`Storyshots Components|CardGroup With Images And CTA 1`] = `
                     handleKeyDown={[Function]}
                     href="https://www.example.com"
                     light={false}
-                    onClick={[Function]}
                     target={null}
                   >
                     <a
@@ -7716,7 +7691,6 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 handleKeyDown={[Function]}
                 href="https://www.example.com"
                 light={false}
-                onClick={[Function]}
                 target={null}
               >
                 <a
@@ -8110,7 +8084,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -8353,7 +8326,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -8596,7 +8568,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -8839,7 +8810,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -9082,7 +9052,6 @@ exports[`Storyshots Components|CardSectionImages Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -9453,7 +9422,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -9659,7 +9627,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -9865,7 +9832,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -10071,7 +10037,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -10277,7 +10242,6 @@ exports[`Storyshots Components|CardSectionSimple Default 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -10649,7 +10613,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -10855,7 +10818,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -11061,7 +11023,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -11267,7 +11228,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -11473,7 +11433,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                                   href="https://www.example.com"
                                   light={false}
                                   media={null}
-                                  onClick={[Function]}
                                   target={null}
                                 >
                                   <a
@@ -11587,7 +11546,6 @@ exports[`Storyshots Components|CardSectionSimple With CTA 1`] = `
                           handleKeyDown={[Function]}
                           href="https://www.example.com"
                           light={false}
-                          onClick={[Function]}
                           target={null}
                         >
                           <a
@@ -11958,7 +11916,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -12164,7 +12121,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -12370,7 +12326,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -12576,7 +12531,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -12782,7 +12736,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -12968,7 +12921,6 @@ exports[`Storyshots Components|ContentBlockCards Default 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -13398,7 +13350,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -13641,7 +13592,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -13884,7 +13834,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -14127,7 +14076,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -14370,7 +14318,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -14571,7 +14518,6 @@ exports[`Storyshots Components|ContentBlockCards With Images 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -14991,7 +14937,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                             "type": "video",
                                           }
                                         }
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -15230,7 +15175,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                             "type": "video",
                                           }
                                         }
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -15469,7 +15413,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                             "type": "video",
                                           }
                                         }
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -15708,7 +15651,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                             "type": "video",
                                           }
                                         }
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -15947,7 +15889,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                             "type": "video",
                                           }
                                         }
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -16134,7 +16075,6 @@ exports[`Storyshots Components|ContentBlockCards With Videos 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -16834,7 +16774,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           href="https://www.example.com"
                                           light={false}
                                           media={null}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -17294,7 +17233,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           href="https://www.example.com"
                                           light={false}
                                           media={null}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -17538,7 +17476,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
-                                    onClick={[Function]}
                                     target={null}
                                     type="link"
                                   >
@@ -18354,7 +18291,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   href="https://www.example.com"
                                                   light={false}
                                                   media={null}
-                                                  onClick={[Function]}
                                                   target={null}
                                                 >
                                                   <a
@@ -18814,7 +18750,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   href="https://www.example.com"
                                                   light={false}
                                                   media={null}
-                                                  onClick={[Function]}
                                                   target={null}
                                                 >
                                                   <a
@@ -19058,7 +18993,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             handleKeyDown={[Function]}
                                             href="https://www.example.com"
                                             light={false}
-                                            onClick={[Function]}
                                             target={null}
                                             type="link"
                                           >
@@ -19291,7 +19225,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target={null}
                                             >
                                               <a
@@ -19467,7 +19400,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target="_blank"
                                             >
                                               <a
@@ -19896,7 +19828,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -20012,7 +19943,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -20128,7 +20058,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -20244,7 +20173,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -21381,7 +21309,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -21898,7 +21825,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.example.com"
                                                 light={false}
-                                                onClick={[Function]}
                                                 target={null}
                                               >
                                                 <a
@@ -22014,7 +21940,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.example.com"
                                                 light={false}
-                                                onClick={[Function]}
                                                 target={null}
                                               >
                                                 <a
@@ -22130,7 +22055,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.example.com"
                                                 light={false}
-                                                onClick={[Function]}
                                                 target={null}
                                               >
                                                 <a
@@ -22246,7 +22170,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.example.com"
                                                 light={false}
-                                                onClick={[Function]}
                                                 target={null}
                                               >
                                                 <a
@@ -23383,7 +23306,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                         href="https://www.ibm.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -23598,7 +23520,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target={null}
                                             >
                                               <a
@@ -23774,7 +23695,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target="_blank"
                                             >
                                               <a
@@ -24587,7 +24507,6 @@ exports[`Storyshots Components|ContentBlockSegmented Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -25337,7 +25256,6 @@ exports[`Storyshots Components|ContentBlockSegmented With Video 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -26039,7 +25957,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                         href="https://www.example.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -26254,7 +26171,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target={null}
                                             >
                                               <a
@@ -26430,7 +26346,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target="_blank"
                                             >
                                               <a
@@ -26747,7 +26662,6 @@ exports[`Storyshots Components|ContentBlockSimple Default 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -27168,7 +27082,6 @@ exports[`Storyshots Components|ContentBlockSimple With Image 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -27536,7 +27449,6 @@ exports[`Storyshots Components|ContentBlockSimple With Video 1`] = `
                                 href="https://www.ibm.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -28055,7 +27967,6 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                         href="https://www.ibm.com"
                                         light={false}
                                         media={null}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -28270,7 +28181,6 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target={null}
                                             >
                                               <a
@@ -28446,7 +28356,6 @@ exports[`Storyshots Components|ContentBlockSimple With aside elements 1`] = `
                                               href="https://ibm.com"
                                               light={false}
                                               media={null}
-                                              onClick={[Function]}
                                               target="_blank"
                                             >
                                               <a
@@ -28677,7 +28586,6 @@ exports[`Storyshots Components|ContentGroupCards Default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -28793,7 +28701,6 @@ exports[`Storyshots Components|ContentGroupCards Default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -28909,7 +28816,6 @@ exports[`Storyshots Components|ContentGroupCards Default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -29025,7 +28931,6 @@ exports[`Storyshots Components|ContentGroupCards Default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -30766,7 +30671,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 href="https://www.example.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -31264,7 +31168,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 href="https://www.example.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -31709,7 +31612,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                 href="https://www.example.com"
                                 light={false}
                                 media={null}
-                                onClick={[Function]}
                                 target={null}
                               >
                                 <a
@@ -33928,7 +33830,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://example.com"
                                         light={false}
-                                        onClick={[Function]}
                                         target={null}
                                       >
                                         <a
@@ -34631,7 +34532,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         "type": "video",
                                                       }
                                                     }
-                                                    onClick={[Function]}
                                                     target={null}
                                                   >
                                                     <a
@@ -35899,7 +35799,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         href="https://www.example.com"
                                                         light={false}
                                                         media={null}
-                                                        onClick={[Function]}
                                                         target={null}
                                                       >
                                                         <a
@@ -36242,7 +36141,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             href="https://www.example.com"
                                                             light={false}
                                                             media={null}
-                                                            onClick={[Function]}
                                                             target={null}
                                                           >
                                                             <a
@@ -36485,7 +36383,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             href="https://www.example.com"
                                                             light={false}
                                                             media={null}
-                                                            onClick={[Function]}
                                                             target={null}
                                                           >
                                                             <a
@@ -36728,7 +36625,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             href="https://www.example.com"
                                                             light={false}
                                                             media={null}
-                                                            onClick={[Function]}
                                                             target={null}
                                                           >
                                                             <a
@@ -39668,7 +39564,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://example.com"
                                           light={false}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -40371,7 +40266,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                           "type": "video",
                                                         }
                                                       }
-                                                      onClick={[Function]}
                                                       target={null}
                                                     >
                                                       <a
@@ -41639,7 +41533,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                           href="https://www.example.com"
                                                           light={false}
                                                           media={null}
-                                                          onClick={[Function]}
                                                           target={null}
                                                         >
                                                           <a
@@ -41982,7 +41875,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -42225,7 +42117,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -42468,7 +42359,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -45233,7 +45123,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://example.com"
                                           light={false}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -45936,7 +45825,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                           "type": "video",
                                                         }
                                                       }
-                                                      onClick={[Function]}
                                                       target={null}
                                                     >
                                                       <a
@@ -47204,7 +47092,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                           href="https://www.example.com"
                                                           light={false}
                                                           media={null}
-                                                          onClick={[Function]}
                                                           target={null}
                                                         >
                                                           <a
@@ -47547,7 +47434,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -47790,7 +47676,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -48033,7 +47918,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -50736,7 +50620,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://example.com"
                                           light={false}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -51439,7 +51322,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                           "type": "video",
                                                         }
                                                       }
-                                                      onClick={[Function]}
                                                       target={null}
                                                     >
                                                       <a
@@ -52707,7 +52589,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                           href="https://www.example.com"
                                                           light={false}
                                                           media={null}
-                                                          onClick={[Function]}
                                                           target={null}
                                                         >
                                                           <a
@@ -53050,7 +52931,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -53293,7 +53173,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -53536,7 +53415,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -56307,7 +56185,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://example.com"
                                           light={false}
-                                          onClick={[Function]}
                                           target={null}
                                         >
                                           <a
@@ -57010,7 +56887,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                           "type": "video",
                                                         }
                                                       }
-                                                      onClick={[Function]}
                                                       target={null}
                                                     >
                                                       <a
@@ -58278,7 +58154,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                           href="https://www.example.com"
                                                           light={false}
                                                           media={null}
-                                                          onClick={[Function]}
                                                           target={null}
                                                         >
                                                           <a
@@ -58621,7 +58496,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -58864,7 +58738,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -59107,7 +58980,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                               href="https://www.example.com"
                                                               light={false}
                                                               media={null}
-                                                              onClick={[Function]}
                                                               target={null}
                                                             >
                                                               <a
@@ -60571,7 +60443,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   handleKeyDown={[Function]}
                   href="https://www.example.com"
                   light={false}
-                  onClick={[Function]}
                   target={null}
                 >
                   <a
@@ -60799,7 +60670,6 @@ exports[`Storyshots Components|FeatureCardBlockLarge Default 1`] = `
                     handleKeyDown={[Function]}
                     href="https://www.example.com"
                     light={false}
-                    onClick={[Function]}
                     target={null}
                   >
                     <a
@@ -61069,7 +60939,6 @@ exports[`Storyshots Components|FeatureCardBlockMedium Default 1`] = `
                       handleKeyDown={[Function]}
                       href="https://www.example.com"
                       light={false}
-                      onClick={[Function]}
                       target={null}
                     >
                       <a
@@ -65838,7 +65707,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -66014,7 +65882,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -66193,7 +66060,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target="_blank"
                             >
                               <a
@@ -66391,7 +66257,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                   "type": "video",
                                 }
                               }
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -68398,7 +68263,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -68574,7 +68438,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -68753,7 +68616,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               href="https://ibm.com"
                               light={false}
                               media={null}
-                              onClick={[Function]}
                               target="_blank"
                             >
                               <a
@@ -68951,7 +68813,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   "type": "video",
                                 }
                               }
-                              onClick={[Function]}
                               target={null}
                             >
                               <a
@@ -70010,7 +69871,6 @@ exports[`Storyshots Components|LogoGrid Default 1`] = `
                                     href="http://local.url.com/"
                                     light={false}
                                     media={null}
-                                    onClick={[Function]}
                                     target={null}
                                   >
                                     <a
