@@ -34,7 +34,7 @@ describe('dds-video-player', function() {
   it('should render with various attributes', async function() {
     render(
       template({
-        duration: 30000,
+        duration: 30,
         name: 'video-name-foo',
       }),
       document.body
@@ -57,7 +57,7 @@ describe('dds-video-player', function() {
   it('should support zero-fill in formatting caption', async function() {
     render(
       template({
-        duration: 65000,
+        duration: 65,
         name: 'video-name-foo',
       }),
       document.body
@@ -69,7 +69,7 @@ describe('dds-video-player', function() {
   it('should support custom duration formatter for localization', async function() {
     render(
       template({
-        duration: 60000,
+        duration: 60,
         name: 'video-name-foo',
         formatCaption({ duration, name }: { duration?: number; name: string }) {
           return `${name}-${duration}`;
@@ -78,7 +78,7 @@ describe('dds-video-player', function() {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-60000');
+    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-60');
   });
 
   afterEach(function() {

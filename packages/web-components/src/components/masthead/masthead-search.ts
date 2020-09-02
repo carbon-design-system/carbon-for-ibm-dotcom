@@ -143,8 +143,10 @@ class DDSMastheadSearch extends BXDropdown {
   /**
    * Handles `input` event in the saarch input.
    */
-  private _handleInput() {
-    this.open = true;
+  private _handleInput(event: InputEvent) {
+    if ((event.target as HTMLInputElement).value) {
+      this.open = true;
+    }
   }
 
   /**

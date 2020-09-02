@@ -34,8 +34,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
    */
   @property({ attribute: false })
   formatCaption = ({ duration, name }: { duration?: number; name: string }) => {
-    const minutes = Math.floor((duration ?? 0) / 60000);
-    const seconds = Math.floor((duration ?? 0) / 1000) % 60;
+    const minutes = Math.floor((duration ?? 0) / 60);
+    const seconds = Math.floor((duration ?? 0) % 60);
     const fillSeconds = Array.from({ length: 2 - String(seconds).length + 1 }).join('0');
     return !name || typeof duration === 'undefined' ? name : `${name} (${minutes}:${fillSeconds}${seconds})`;
   };

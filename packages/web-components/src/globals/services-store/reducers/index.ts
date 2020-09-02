@@ -12,6 +12,7 @@ import localeAPIReducer from './localeAPI';
 import translateAPIReducer from './translateAPI';
 import profileAPIReducer from './profileAPI';
 import searchAPIReducer from './searchAPI';
+import videoPlayerAPIReducer from './videoPlayerAPI';
 
 export { localeAPIReducer as localeAPI, translateAPIReducer as translateAPI, profileAPIReducer as profileAPI };
 
@@ -23,6 +24,7 @@ const reducers = combineReducers({
   translateAPI: translateAPIReducer,
   profileAPI: profileAPIReducer,
   searchAPI: searchAPIReducer,
+  videoPlayerAPI: videoPlayerAPIReducer,
 });
 
 export default reducers;

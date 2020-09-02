@@ -98,32 +98,40 @@ export interface LocaleModalLocaleList {
 @customElement(`${ddsPrefix}-locale-modal-composite`)
 class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
-   * The placeholder for `setLanguage()` Redux action that may be mixed in.
-   */
-  private _setLanguage?: (string) => void;
-
-  /**
-   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
-   */
-  private _setLangDisplay?: (string) => void;
-
-  /**
-   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
-   */
-  private _loadLangDisplay?: () => Promise<string>;
-
-  /**
-   * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
-   */
-  private _loadLocaleList?: () => Promise<LocaleList>;
-
-  /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
    */
   private _sortCountries(countries: LocaleModalCountry[]) {
     return countries.sort((lhs, rhs) => this.collatorCountryName.compare(lhs.name, rhs.name));
   }
+
+  /**
+   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadLangDisplay?: () => Promise<string>;
+
+  /**
+   * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadLocaleList?: () => Promise<LocaleList>;
+
+  /**
+   * The placeholder for `setLanguage()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _setLanguage?: (string) => void;
+
+  /**
+   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _setLangDisplay?: (string) => void;
 
   /**
    * The g11n collator to use for sorting contry names.
@@ -189,6 +197,13 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     const { localeModal: localeModalI18N, regionList } = localeList ?? {};
     const { searchPlaceholder } = localeModalI18N ?? {};
     const pageLangs: { [locale: string]: string } = altlangs();
+    if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
+      const messages = [
+        'Detected that `<link rel="alternate">` is likely missing.',
+        'The locale search UI will yeild to an empty result.',
+      ];
+      console.warn(messages.join(' ')); // eslint-disable-line no-console
+    }
     const massagedCountryList = regionList?.reduce((acc, { countryList, name: region }) => {
       this._sortCountries(countryList).forEach(({ name: country, locale: localeItems }) => {
         localeItems.forEach(([locale, language]) => {

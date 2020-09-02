@@ -5,8 +5,6 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/scss/vars';
-
-:host(#{$dds-prefix}-lightbox-video-player-container) {
-  display: contents;
+.dds-ce-demo-devenv--container {
+  padding: 0;
 }
