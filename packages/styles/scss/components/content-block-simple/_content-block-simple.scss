@@ -9,6 +9,14 @@
   .#{$prefix}--content-block {
     // empty for now
   }
+
+  .#{$prefix}--content-block-simple__content {
+    .#{$prefix}--content-item {
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 @include exports('content-block-simple') {
