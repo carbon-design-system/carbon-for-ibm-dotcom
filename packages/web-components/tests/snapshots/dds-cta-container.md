@@ -99,19 +99,6 @@
 ```
 <div>
   <dds-lightbox-video-player-container>
-    <dds-modal
-      data-autoid="dds--expressive-modal"
-      size="full-width"
-      tabindex="0"
-    >
-      <bx-modal-close-button
-        role="button"
-        tabindex="0"
-      >
-      </bx-modal-close-button>
-      <dds-lightbox-media-viewer-body>
-      </dds-lightbox-media-viewer-body>
-    </dds-modal>
   </dds-lightbox-video-player-container>
 </div>
 
