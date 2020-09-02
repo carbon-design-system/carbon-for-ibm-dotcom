@@ -16,6 +16,29 @@ import { render, TemplateResult } from 'lit-html';
 const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class ModalRenderMixinImpl extends Base {
     /**
+     * `true` if this component is disconnected from render tree after creation.
+     *
+     * @private
+     */
+    _disconnectedAfterCreation = false; // Not using TypeScript `private` due to: microsoft/TypeScript#17744
+
+    /**
+     * Creates and renders the modal
+     *
+     * @private
+     */
+    // Not using TypeScript `private` due to: microsoft/TypeScript#17744
+    _createAndRenderModal() {
+      if (!this.modalRenderRoot) {
+        this.modalRenderRoot = this.createModalRenderRoot();
+      }
+      const { modalRenderRoot } = this;
+      if (modalRenderRoot) {
+        render(this.renderModal(), modalRenderRoot);
+      }
+    }
+
+    /**
      * @returns The template of the modal.
      */
     abstract renderModal(): TemplateResult | void;
@@ -35,6 +58,16 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       return div;
     }
 
+    connectedCallback() {
+      // TODO: Figure out how to inherit `LitElement` for this mix-in class
+      // @ts-ignore
+      super.connectedCallback();
+      if (this._disconnectedAfterCreation) {
+        this._disconnectedAfterCreation = false;
+        this._createAndRenderModal();
+      }
+    }
+
     disconnectedCallback() {
       if (this.modalRenderRoot) {
         this.modalRenderRoot.remove();
@@ -43,18 +76,15 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // TODO: Figure out how to inherit `LitElement` for this mix-in class
       // @ts-ignore
       super.disconnectedCallback();
+      this._disconnectedAfterCreation = true;
     }
 
     update(changedProperties) {
       // TODO: Figure out how to inherit `LitElement` for this mix-in class
       // @ts-ignore
       super.update(changedProperties);
-      if (!this.modalRenderRoot) {
-        this.modalRenderRoot = this.createModalRenderRoot();
-      }
-      const { modalRenderRoot } = this;
-      if (modalRenderRoot) {
-        render(this.renderModal(), modalRenderRoot);
+      if (!this._disconnectedAfterCreation) {
+        this._createAndRenderModal();
       }
     }
   }
