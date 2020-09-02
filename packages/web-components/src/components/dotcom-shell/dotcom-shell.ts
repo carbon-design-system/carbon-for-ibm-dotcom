@@ -10,8 +10,8 @@
 import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import styles from '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import styles from './dotcom-shell.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

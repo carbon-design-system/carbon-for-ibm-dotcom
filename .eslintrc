@@ -51,6 +51,18 @@
       }
     },
     {
+      "files": [
+        "packages/react/src/components/carbon-components-react/**/*.js",
+        "packages/react/src/internal/keyboard/**/*.js",
+        "packages/react/src/prop-types/**/*.js"
+      ],
+      "rules": {
+        "sort-imports": 0,
+        "jsdoc/require-param-description": 0,
+        "react/prop-types": 0
+      }
+    },
+    {
       "files": ["packages/react/tests/**/*.js"],
       "globals": {
         "describe": true,
