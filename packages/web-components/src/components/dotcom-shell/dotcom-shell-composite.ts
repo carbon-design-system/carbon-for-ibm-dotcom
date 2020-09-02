@@ -10,7 +10,8 @@
 import { pickBy } from 'lodash-es';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { BasicLink, BasicLinkSet, MastheadLink } from '../../globals/services-store/types/translateAPI';
+import { LocaleList } from '../../globals/services-store/types/localeAPI';
+import { BasicLink, BasicLinkSet, MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
@@ -28,21 +29,89 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-dotcom-shell-composite`)
 class DDSDotcomShellComposite extends LitElement {
+  /**
+   * The render target of the footer contents.
+   */
   private _footerRenderRoot: Element | null = null;
 
+  /**
+   * The render target of the masthead contents.
+   */
   private _mastheadRenderRoot: Element | null = null;
 
+  /**
+   * @returns The render root of the footer contents.
+   */
   private _createFooterRenderRoot() {
     const footer = this.ownerDocument.createElement(`${ddsPrefix}-footer-composite`);
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
   }
 
+  /**
+   * @returns The render root of the masthead contents.
+   */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
   }
+
+  /**
+   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in. This goes to footer.
+   *
+   * @internal
+   */
+  _loadLangDisplay?: () => Promise<string>;
+
+  /**
+   * The placeholder for `loadLocaleList()` Redux action that may be mixed in. This goes to footer.
+   *
+   * @internal
+   */
+  _loadLocaleList?: () => Promise<LocaleList>;
+
+  /**
+   * The placeholder for `loadSearchResults()` Redux action that may be mixed in. This goes to masthead.
+   *
+   * @internal
+   */
+  _loadSearchResults?: (searchQueryString: string) => Promise<string[]>;
+
+  /**
+   * The placeholder for `loadTranslation()` Redux action that will be mixed in. This goes to masthead and footer.
+   *
+   * @internal
+   */
+  _loadTranslation?: () => Promise<Translation>;
+
+  /**
+   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in. This goes to masthead.
+   *
+   * @internal
+   */
+  _monitorUserStatus?: () => void;
+
+  /**
+   * The placeholder for `setLangDisplay()` Redux action that may be mixed in. This goes to footer.
+   *
+   * @internal
+   */
+  _setLangDisplay?: (string) => void;
+
+  /**
+   * The placeholder for `setLanguage()` Redux action that will be mixed in. This goes to masthead.
+   *
+   * @internal
+   */
+  _setLanguage?: (string) => void;
+
+  /**
+   * The placeholder for `setLocaleList()` Redux action that may be mixed in. This goes to footer.
+   *
+   * @internal
+   */
+  _setLocaleList?: (string, LocaleList) => void;
 
   /**
    * `true` to activate the search box. This goes to masthead.
@@ -226,19 +295,15 @@ class DDSDotcomShellComposite extends LitElement {
       openSearchDropdown,
       navLinks,
       userStatus,
-    } = this;
-    const {
       _loadLangDisplay,
       _setLangDisplay,
-      _loadLanguage,
       _setLanguage,
       _loadLocaleList,
       _setLocaleList,
       _loadTranslation,
-      _setTranslation,
       _monitorUserStatus,
       _loadSearchResults,
-    } = this as any;
+    } = this;
     Object.assign(
       this._mastheadRenderRoot,
       pickBy(
@@ -258,11 +323,10 @@ class DDSDotcomShellComposite extends LitElement {
           navLinks,
           openSearchDropdown,
           userStatus,
-          _loadLanguage,
-          _setLanguage,
+          _loadSearchResults,
           _loadTranslation,
           _monitorUserStatus,
-          _loadSearchResults,
+          _setLanguage,
         },
         value => value !== undefined
       )
@@ -282,14 +346,12 @@ class DDSDotcomShellComposite extends LitElement {
           localeList,
           openLocaleModal,
           size: footerSize,
-          _loadLanguage,
-          _setLanguage,
           _loadLangDisplay,
-          _setLangDisplay,
           _loadLocaleList,
-          _setLocaleList,
           _loadTranslation,
-          _setTranslation,
+          _setLangDisplay,
+          _setLanguage,
+          _setLocaleList,
         },
         value => value !== undefined
       )

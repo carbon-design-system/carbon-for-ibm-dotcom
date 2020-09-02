@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
@@ -15,10 +16,15 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
+import Handle from '../../globals/internal/handle';
 import '../modal/modal';
 import '../modal/modal-header';
 import '../lightbox-media-viewer/lightbox-media-viewer-body';
+/* eslint-disable import/no-duplicates */
+import DDSLightboxVideoPlayerContainer from '../lightbox-media-viewer/lightbox-video-player-container';
+// Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-container';
+/* eslint-enable import/no-duplicates */
 import './text-cta';
 import { CTA_STYLE, CTA_TYPE } from './shared-enums';
 import styles from './cta-container.scss';
@@ -75,10 +81,12 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
   private _currentVideoId?: string;
 
   /**
+   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   */
+  private _hCloseModal: Handle | null = null;
+
+  /**
    * Handles the user gesture of closing video player modal.
-   * NOTE:
-   *   Given `.renderLightboxMediaViewer()` runs outside of `lit-element` rendering scope,
-   *   `lit-element`'s automatic `this` binding won't work here (and thus we are using an arrow function).
    */
   private _handleCloseVideoPlayer = () => {
     this._currentVideoId = undefined;
@@ -126,17 +134,36 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
   @property({ type: Object })
   item?: TEXT_CTA_ITEM;
 
+  disconnectedCallback() {
+    if (this._hCloseModal) {
+      this._hCloseModal = this._hCloseModal.release();
+    }
+    super.disconnectedCallback();
+  }
+
+  updated(changedProperties) {
+    super.updated(changedProperties);
+    if (!this._hCloseModal) {
+      const { selectorLightboxVideoPlayerContainer } = this.constructor as typeof DDSCTAContainer;
+      const videoPlayerContainer = (this.modalRenderRoot as Element).querySelector(
+        selectorLightboxVideoPlayerContainer
+      ) as DDSLightboxVideoPlayerContainer;
+      // Manually hooks the event listeners on the modal render root to make the event names configurable
+      this._hCloseModal = on(
+        videoPlayerContainer.modalRenderRoot,
+        (this.constructor as typeof DDSCTAContainer).eventCloseLightbox,
+        this._handleCloseVideoPlayer as EventListener
+      );
+    }
+  }
+
   /**
    * @returns The media viewer lightbox for `type="video"`.
    */
   renderModal() {
-    const { _currentVideoId: currentVideoId, _handleCloseVideoPlayer: handleCloseVideoPlayer } = this;
+    const { _currentVideoId: currentVideoId } = this;
     return html`
-      <dds-lightbox-video-player-container video-id="${ifNonNull(currentVideoId)}">
-        <dds-modal ?open="${Boolean(currentVideoId)}" size="full-width" @dds-modal-closed="${handleCloseVideoPlayer}">
-          <bx-modal-close-button></bx-modal-close-button>
-          <dds-lightbox-media-viewer-body></dds-lightbox-media-viewer-body>
-        </dds-modal>
+      <dds-lightbox-video-player-container ?open="${Boolean(currentVideoId)}" video-id="${ifNonNull(currentVideoId)}">
       </dds-lightbox-video-player-container>
     `;
   }
@@ -155,6 +182,20 @@ class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
     return html`
       <slot></slot>
     `;
+  }
+
+  /**
+   * A selector selecting the video player container component.
+   */
+  static get selectorLightboxVideoPlayerContainer() {
+    return `${ddsPrefix}-lightbox-video-player-container`;
+  }
+
+  /**
+   * The name of the custom event fired after the lightbox is closed upon a user gesture.
+   */
+  static get eventCloseLightbox() {
+    return `${ddsPrefix}-modal-closed`;
   }
 
   /**

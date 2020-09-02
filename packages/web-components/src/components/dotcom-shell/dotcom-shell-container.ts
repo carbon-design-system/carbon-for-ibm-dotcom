@@ -17,14 +17,14 @@ import { TranslateAPIActions } from '../../globals/services-store/actions/transl
 import { ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
 import { SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
 import {
-  FooterActions,
+  FooterContainerActions,
   FooterContainerState,
   FooterContainerStateProps,
   mapStateToProps as mapStateToPropsFooter,
   mapDispatchToProps as mapDispatchToPropsFooter,
 } from '../footer/footer-container';
 import {
-  MastheadActions,
+  MastheadContainerActions,
   MastheadContainerState,
   MastheadContainerStateProps,
   mapStateToProps as mapStateToPropsMasthead,
@@ -33,6 +33,21 @@ import {
 import DDSDotcomShellComposite from './dotcom-shell-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/**
+ * The Redux state used for `<dds-dotcom-shell-container>`.
+ */
+export interface DotcomShellContainerState extends MastheadContainerState, FooterContainerState {}
+
+/**
+ * The properties for `<dds-dotcom-shell-container>` from Redux state.
+ */
+export interface DotcomShellContainerStateProps extends MastheadContainerStateProps, FooterContainerStateProps {}
+
+/**
+ * The Redux actions used for `<dds-dotcom-shell-container>`.
+ */
+export type DotcomShellContainerActions = MastheadContainerActions | FooterContainerActions;
 
 /**
  * @param state The Redux state for dotcom shell.
@@ -69,10 +84,10 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
  */
 @customElement(`${ddsPrefix}-dotcom-shell-container`)
 class DDSDotcomShellContainer extends ConnectMixin<
-  MastheadContainerState | FooterContainerState,
+  DotcomShellContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,
-  MastheadContainerStateProps | FooterContainerStateProps,
-  ActionCreatorsMapObject<MastheadActions | FooterActions>
+  DotcomShellContainerStateProps,
+  ActionCreatorsMapObject<DotcomShellContainerActions>
 >(
   store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
   mapStateToProps,

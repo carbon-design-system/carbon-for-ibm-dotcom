@@ -22,7 +22,6 @@
       @include button;
       @include button-expressive;
       @include carbon--make-col-ready;
-      @include carbon--make-col(4, 4);
 
       margin-top: carbon--mini-units(2);
       padding-left: 0;

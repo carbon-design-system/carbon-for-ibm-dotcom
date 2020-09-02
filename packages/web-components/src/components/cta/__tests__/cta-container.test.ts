@@ -206,19 +206,20 @@ describe('dds-cta-container', function() {
       await Promise.resolve();
       const ctaContainer = document.querySelector('dds-cta-container');
       ctaContainer!.dispatchEvent(new CustomEvent('dds-cta-run-action', { detail: { href: '0_uka1msg4', type: 'video' } }));
-      await Promise.resolve();
+      await Promise.resolve(); // Update cycle for `<dds-cta-container>`
+      await Promise.resolve(); // Update cycle for `<dds-lightbox-video-player-container>`
       const { modalRenderRoot } = document.querySelector('dds-cta-container') as any;
-      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(true);
-      const { videoId: videoIdInVideoPlayerContainerOpen } = modalRenderRoot!.querySelector(
+      const lightboxVideoPlayerContainer = modalRenderRoot!.querySelector(
         'dds-lightbox-video-player-container'
       ) as DDSLightboxVideoPlayerContainer;
+      const lightboxRenderRoot = lightboxVideoPlayerContainer.modalRenderRoot as Element;
+      expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(true);
+      const { videoId: videoIdInVideoPlayerContainerOpen } = lightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerOpen).toBe('0_uka1msg4');
-      modalRenderRoot!.querySelector('bx-modal-close-button').click();
+      (lightboxRenderRoot.querySelector('dds-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
-      expect((modalRenderRoot!.querySelector('dds-modal') as DDSModal).open).toBe(false);
-      const { videoId: videoIdInVideoPlayerContainerClosed } = modalRenderRoot!.querySelector(
-        'dds-lightbox-video-player-container'
-      ) as DDSLightboxVideoPlayerContainer;
+      expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(false);
+      const { videoId: videoIdInVideoPlayerContainerClosed } = lightboxVideoPlayerContainer;
       expect(videoIdInVideoPlayerContainerClosed).toBeFalsy();
     });
   });

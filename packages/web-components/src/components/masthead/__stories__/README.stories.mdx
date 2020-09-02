@@ -106,7 +106,82 @@ customElements.define(
 );
 ```
 
-## Under the hood
+## Advanced: Rendering masthead content by your own
+
+You can also render the masthead content by your own, e.g. for server-side rendering, like:
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-menu-button.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-logo.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-menu.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-menu-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-menu.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-menu-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-overlay.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-global-bar.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-profile.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-profile-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-search-container.js';
+```
+
+##### HTML
+
+```html
+<dds-masthead>
+  <dds-masthead-menu-button></dds-masthead-menu-button>
+  <dds-masthead-logo></dds-masthead-logo>
+  <dds-top-nav menu-bar-label="IBM [Platform]">
+    <dds-top-nav-menu menu-label="Products" trigger-content="Products">
+      <dds-top-nav-menu-item href="https://www.ibm.com/products">Products</dds-top-nav-menu-item>
+      <dds-top-nav-menu-item href="https://www.ibm.com/analytics">Analytics</dds-top-nav-menu-item>
+      <dds-top-nav-menu-item href="https://www.ibm.com/blockchain">Blockchain</dds-top-nav-menu-item>
+    </dds-top-nav-menu>
+    <dds-top-nav-menu menu-label="Services" trigger-content="Services">
+      <dds-top-nav-menu-item href="https://www-935.ibm.com/services/index.html">Services</dds-top-nav-menu-item>
+      <dds-top-nav-menu-item href="https://www.ibm.com/financing">Financing</dds-top-nav-menu-item>
+      <dds-top-nav-menu-item href="https://www.ibm.com/trailing">Training and skills</dds-top-nav-menu-item>
+    </dds-top-nav-menu>
+    <dds-top-nav-item href="https://www.ibm.com/industries">Industries</dds-top-nav-item>
+  </dds-top-nav>
+  <dds-masthead-search-container></dds-masthead-search-container>
+  <dds-masthead-global-bar>
+    <dds-masthead-profile authenticated>
+      <dds-masthead-profile-item href="https://myibm.ibm.com/">My IBM</dds-masthead-profile-item>
+      <dds-masthead-profile-item href="https://myibm.ibm.com/profile">Profile</dds-masthead-profile-item>
+      <dds-masthead-profile-item href="https://myibm.ibm.com/pkmslogout?filename=accountRedir.html">
+        Log out
+      </dds-masthead-profile-item>
+    </dds-masthead-profile>
+  </dds-masthead-global-bar>
+  <dds-left-nav-overlay></dds-left-nav-overlay>
+  <dds-left-nav menu-bar-label="IBM [Platform]">
+    <dds-left-nav-menu title="Products">
+      <dds-left-nav-menu-item href="https://www.ibm.com/products">Products</dds-left-nav-menu-item>
+      <dds-left-nav-menu-item href="https://www.ibm.com/analytics">Analytics</dds-left-nav-menu-item>
+      <dds-left-nav-menu-item href="https://www.ibm.com/blockchain">Blockchain</dds-left-nav-menu-item>
+    </dds-left-nav-menu>
+    <dds-left-nav-menu title="Services">
+      <dds-left-nav-menu-item href="https://www-935.ibm.com/services/index.html">Services</dds-left-nav-menu-item>
+      <dds-left-nav-menu-item href="https://www.ibm.com/financing">Financing</dds-left-nav-menu-item>
+      <dds-left-nav-menu-item href="https://www.ibm.com/trailing">Training and skills</dds-left-nav-menu-item>
+    </dds-left-nav-menu>
+    <dds-left-nav-item href="https://www.ibm.com/industries">Industries</dds-left-nav-item>
+  </dds-left-nav>
+</dds-masthead>
+```
 
 ### `<dds-masthead>`
 
@@ -135,6 +210,12 @@ customElements.define(
 `<dds-masthead-profile-item>` works as a menu item in the profile menu in masthead.
 
 <Props of="dds-masthead-profile-item" />
+
+### `<dds-masthead-search-container>`
+
+`<dds-masthead-search-container>` works as the search box in masthead, with default search API integration.
+
+> 💡 For manually handling the search query, please refer to `<dds-masthead-search>`/`<dds-masthead-search-item>` below.
 
 ### `<dds-masthead-search>`/`<dds-masthead-search-item>`
 
@@ -181,7 +262,7 @@ function handleInput(searchQueryString) {
 
 const throttledHandleInput = throttle(handleInput);
 
-document.querySelector('dds-masthead-search').addEventListener('input', event => {
+document.querySelector('dds-masthead-search').addEventListener('bx-search-input', event => {
   throttledHandleInput(event.target.searchQueryString);
 });
 ```

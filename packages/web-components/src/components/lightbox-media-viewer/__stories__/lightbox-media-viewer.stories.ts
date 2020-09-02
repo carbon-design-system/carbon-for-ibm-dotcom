@@ -12,8 +12,6 @@ import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../modal/modal';
-import '../lightbox-media-viewer-body';
 import '../lightbox-video-player-container';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
@@ -31,16 +29,13 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-lightbox-video-player-container ?hide-caption="${hideCaption}" video-id="${videoId}">
-      <dds-modal
-        ?open="${open}"
-        expressive-size="full-width"
-        @dds-modal-beingclosed="${handleBeforeClose}"
-        @dds-modal-closed="${onClose}"
-      >
-        <bx-modal-close-button></bx-modal-close-button>
-        <dds-lightbox-media-viewer-body></dds-lightbox-media-viewer-body>
-      </dds-modal>
+    <dds-lightbox-video-player-container
+      ?hide-caption="${hideCaption}"
+      ?open="${open}"
+      video-id="${videoId}"
+      @dds-modal-beingclosed="${handleBeforeClose}"
+      @dds-modal-closed="${onClose}"
+    >
     </dds-lightbox-video-player-container>
   `;
 };
