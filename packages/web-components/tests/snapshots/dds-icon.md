@@ -1,4 +1,4 @@
-# `dds-masthead-logo`
+# `dds-icon`
 
 ## `Misc attributes`
 
