@@ -50,7 +50,8 @@ export default {
     story => html`
       <div class="bx--grid bx--grid--condensed">
         <div class="bx--row">
-          <div class="bx--col-lg-9">
+          <div class="bx--col-lg-12">
+            <h2>Horizontal Rule</h2>
             ${story()}
           </div>
         </div>
