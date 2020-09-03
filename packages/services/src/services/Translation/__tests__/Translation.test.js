@@ -59,6 +59,29 @@ describe('TranslationAPI', () => {
     expect(response).toEqual(responseSuccess);
   });
 
+  it('should replace the signout url "state" param with current location', async () => {
+    Object.defineProperty(global, 'location', {
+      value: {
+        href: 'https://www.loremipsum.com',
+      },
+      writable: true,
+    });
+
+    // reinitializing import
+    const TranslationAPI = (await import('../Translation')).default;
+
+    const response = await TranslationAPI.getTranslation({
+      lc: 'en',
+      cc: 'us',
+    });
+
+    expect(
+      response.profileMenu.signedout[1].url.indexOf(
+        'https%3A%2F%2Fwww.loremipsum.com'
+      )
+    ).toBeGreaterThan(-1);
+  });
+
   xit('should fetch using REACT_APP_CORS_PROXY', async () => {
     // setting up individual test environment variables
     process.env.REACT_APP_CORS_PROXY = 'https://cra-myproxy.net/';
