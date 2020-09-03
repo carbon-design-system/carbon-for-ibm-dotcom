@@ -65,8 +65,11 @@
     }
     @include carbon--breakpoint('lg') {
       .#{$prefix}--link-list {
-        padding-top: 0;
         margin-right: -$carbon--spacing-05;
+
+        &:first-of-type {
+          padding-top: 0;
+        }
       }
     }
     .#{$prefix}--hr {

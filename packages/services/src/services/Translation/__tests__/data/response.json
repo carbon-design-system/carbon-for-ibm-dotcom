@@ -1311,7 +1311,7 @@
       {
         "id": "signin",
         "title": "Log in",
-        "url": "https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&client_id=v18loginprod&state={{window.location}}&redirect_uri=https://myibm.ibm.com/OIDCHandler.html&scope=openid&nonce=8675309"
+        "url": "https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&client_id=v18loginprod&state=https%3A%2F%2Fwww.ibm.com&redirect_uri=https://myibm.ibm.com/OIDCHandler.html&scope=openid&nonce=8675309"
       }
     ],
     "signedin": [
