@@ -15,13 +15,13 @@ import { html } from 'lit-element';
 import '../horizontal-rule';
 
 export const Default = ({ parameters }) => {
-  const { style, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
+  const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
   return html`
-    <dds-hr style=${style} size=${size} contrast=${contrast} weight=${weight} />
+    <dds-hr type=${type} size=${size} contrast=${contrast} weight=${weight} />
   `;
 };
 
-const styles = {
+const types = {
   solid: undefined,
   dashed: 'dashed',
 };
@@ -61,7 +61,7 @@ export default {
     // ...readme.parameters,
     knobs: {
       HorizontalRule: ({ groupId }) => ({
-        style: select('Style (style):', styles, styles.solid, groupId),
+        type: select('Type (type):', types, types.solid, groupId),
         size: select('Size (size):', sizes, sizes.fluid, groupId),
         contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast'], groupId),
         weight: select('Weight (weight):', weights, weights.thin, groupId),

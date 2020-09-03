@@ -26,8 +26,8 @@ class DDSHorizontalRule extends LitElement {
   /**
    * Style of the HR (solid (default) | dashed)
    */
-  @property({ attribute: 'style' })
-  style = 'solid';
+  @property({ attribute: 'type' })
+  type = 'solid';
 
   /**
    * Length of the HR
@@ -51,10 +51,10 @@ class DDSHorizontalRule extends LitElement {
   weight = 'thin';
 
   render() {
-    const { style, size, contrast, weight } = this;
+    const { type, size, contrast, weight } = this;
     return html`
       <hr
-        class="${prefix}--hr ${prefix}--hr--${style} ${prefix}--hr--${size} ${prefix}--hr--${contrast} ${prefix}--hr--${weight}"
+        class="${prefix}--hr ${prefix}--hr--${type} ${prefix}--hr--${size} ${prefix}--hr--${contrast} ${prefix}--hr--${weight}"
       />
     `;
   }
