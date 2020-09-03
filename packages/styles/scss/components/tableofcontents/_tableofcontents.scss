@@ -82,6 +82,7 @@
         @include focus-outline('reset');
 
         max-width: 100%;
+        min-width: 100%;
         text-overflow: ellipsis;
         padding-right: $carbon--spacing-06;
         display: block;
