@@ -5,9 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/horizontalrule';
 @import '../../globals/scss/vars';
-
-:host(#{$dds-prefix}-hr) {
-  @extend .#{$prefix}--hr;
-}
+@import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/horizontalrule';
