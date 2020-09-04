@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';

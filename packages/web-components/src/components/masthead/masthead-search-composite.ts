@@ -9,7 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import './masthead-search';

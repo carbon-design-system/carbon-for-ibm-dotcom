@@ -10,12 +10,12 @@
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import User20 from 'carbon-web-components/es/icons/user/20';
-import UserOnline20 from 'carbon-web-components/es/icons/user--online/20';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import User20 from 'carbon-web-components/es/icons/user/20.js';
+import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import styles from './masthead.scss';
 
 const { prefix } = settings;

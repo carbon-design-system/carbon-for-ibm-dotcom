@@ -8,8 +8,8 @@
  */
 
 import { html, query } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import BXLink from 'carbon-web-components/es/components/link/link';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import BXLink from 'carbon-web-components/es/components/link/link.js';
 
 /**
  * Link.

@@ -9,8 +9,8 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import 'carbon-web-components/es/components/search/search';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import 'carbon-web-components/es/components/search/search.js';
 import styles from './locale-modal.scss';
 
 const { prefix } = settings;

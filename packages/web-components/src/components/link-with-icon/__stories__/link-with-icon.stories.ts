@@ -10,8 +10,8 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../link-with-icon';
 import readme from './README.stories.mdx';
