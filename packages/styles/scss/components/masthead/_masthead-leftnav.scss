@@ -80,12 +80,6 @@
       height: 100%;
     }
 
-    &--ux {
-      .#{$prefix}--side-nav__item {
-        border-bottom: 1px solid $ui-03;
-      }
-    }
-
     &__overlay {
       top: 0;
       @include carbon--breakpoint-down(md) {
@@ -106,12 +100,20 @@
       @include carbon--breakpoint-down(md) {
         max-width: 100vw;
         width: 100vw;
+        border-top: 1px solid $ui-03;
       }
     }
 
     .#{$prefix}--header__logo {
       height: 3rem;
       padding-left: $carbon--spacing-09;
+    }
+  }
+
+  .#{$prefix}--masthead .#{$prefix}--side-nav--ux {
+    .#{$prefix}--side-nav__item,
+    .#{$prefix}--side-nav__menu-item:not(.#{$prefix}--masthead__side-nav--submemu-back) {
+      border-bottom: 1px solid $ui-03;
     }
   }
 
@@ -158,7 +160,6 @@
 
           padding-left: $carbon--spacing-05;
           height: carbon--mini-units(6);
-          border-bottom: 1px solid $ui-03;
 
           &:hover {
             text-decoration: none;
@@ -216,12 +217,6 @@
           }
         }
       }
-
-      .#{$prefix}--side-nav__submenu-chevron {
-        svg {
-          transform: rotate(-90deg);
-        }
-      }
     }
 
     .#{$prefix}--side-nav__submenu-title {
@@ -233,18 +228,18 @@
     &[aria-haspopup='true'] {
       height: carbon--mini-units(6);
       &.bx--side-nav__submenu-platform {
-        border-bottom: 1px solid $ui-03;
+        border-bottom: 1px solid $ui-04;
         text-decoration: none;
         color: $text-01;
 
         @include carbon--type-style(expressive-heading-02);
       }
     }
-
-    &-chevron {
-      svg {
-        transform: rotate(-90deg);
-      }
+  }
+  .#{$prefix}--side-nav__submenu-chevron {
+    svg {
+      transform: rotate(-90deg);
+      fill: $text-01;
     }
   }
 }

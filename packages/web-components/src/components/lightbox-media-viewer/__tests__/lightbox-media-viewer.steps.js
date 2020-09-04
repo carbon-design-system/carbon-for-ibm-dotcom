@@ -15,7 +15,7 @@ describe('dds-lightbox-media-viewer-*', () => {
   });
 
   it('should have modal closable', async () => {
-    await page.click('bx-modal-close-button button');
+    await page.click('dds-modal-close-button button');
     await expect(page).toHaveSelector('dds-modal .bx--modal-container', { state: 'hidden' });
   });
 });
