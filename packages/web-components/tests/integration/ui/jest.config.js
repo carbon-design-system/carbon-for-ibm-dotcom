@@ -9,6 +9,9 @@
 
 'use strict';
 
+if (!process.env.DEBUG) {
+  process.env.DEBUG = 'pw:browser*';
+}
 process.env.JEST_PLAYWRIGHT_CONFIG = `${__dirname}/jest-playwright.config.js`;
 
 module.exports = {
