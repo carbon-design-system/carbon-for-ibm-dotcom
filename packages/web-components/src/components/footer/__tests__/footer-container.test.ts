@@ -8,8 +8,8 @@
  */
 
 import { render } from 'lit-html';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation.js';
 import { LocaleList } from '../../../globals/services-store/types/localeAPI';
 import localeData from '../../locale-modal/__stories__/locale-data.json';
 import { Default } from '../__stories__/footer.stories';

@@ -9,7 +9,7 @@
 
 import { ActionCreatorsMapObject, Dispatch, Store } from 'redux';
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../globals/services-store/store';
 import { LocaleAPIActions } from '../../globals/services-store/actions/localeAPI';

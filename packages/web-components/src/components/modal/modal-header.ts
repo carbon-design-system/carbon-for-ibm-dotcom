@@ -8,8 +8,8 @@
  */
 
 import { property, customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXModalHeader from 'carbon-web-components/es/components/modal/modal-header';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import BXModalHeader from 'carbon-web-components/es/components/modal/modal-header.js';
 import styles from './modal.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

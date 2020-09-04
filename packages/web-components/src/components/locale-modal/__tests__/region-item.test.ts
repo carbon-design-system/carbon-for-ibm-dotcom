@@ -8,9 +8,9 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import Error20 from 'carbon-web-components/es/icons/error/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import Error20 from 'carbon-web-components/es/icons/error/20.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import '../region-item';
 
 const template = (props?) => {

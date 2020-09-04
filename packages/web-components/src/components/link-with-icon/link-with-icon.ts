@@ -9,7 +9,7 @@
 
 import { html, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
 import styles from './link-with-icon.scss';

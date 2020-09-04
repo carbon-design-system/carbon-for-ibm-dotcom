@@ -9,8 +9,8 @@
 
 import { html, property, customElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';

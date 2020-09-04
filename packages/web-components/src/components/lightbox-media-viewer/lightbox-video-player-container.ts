@@ -9,7 +9,7 @@
 
 import { ActionCreatorsMapObject, Store } from 'redux';
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import store from '../../globals/services-store/store';
 import { VideoPlayerAPIActions } from '../../globals/services-store/actions/videoPlayerAPI';
 import ConnectMixin from '../../globals/mixins/connect';

@@ -8,8 +8,8 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
 import './masthead';

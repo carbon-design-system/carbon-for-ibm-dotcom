@@ -10,9 +10,9 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import 'carbon-web-components/es/components/button/button';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import 'carbon-web-components/es/components/button/button.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button/button';
 import { DDS_MODAL_SIZE } from '../modal';

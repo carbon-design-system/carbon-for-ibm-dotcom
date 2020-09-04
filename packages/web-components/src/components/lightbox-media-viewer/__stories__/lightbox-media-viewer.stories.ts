@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
-import 'carbon-web-components/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../lightbox-video-player-container';
 import styles from './lightbox-media-viewer.stories.scss';

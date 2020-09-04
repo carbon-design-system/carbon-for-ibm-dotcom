@@ -8,11 +8,11 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import ArrowLeft16 from 'carbon-web-components/es/icons/arrow--left/16';
-import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import ArrowLeft16 from 'carbon-web-components/es/icons/arrow--left/16.js';
+import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 

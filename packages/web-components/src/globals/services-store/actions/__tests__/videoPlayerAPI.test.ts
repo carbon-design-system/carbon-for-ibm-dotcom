@@ -10,7 +10,7 @@
 import configureMockStore from 'redux-mock-store';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import { VIDEO_PLAYER_API_ACTION, VideoData, VideoPlayerAPIState } from '../../types/videoPlayerAPI';
 import { setVideoData, loadVideoData } from '../videoPlayerAPI';
 import convertValue from '../../../../../tests/utils/convert-value';

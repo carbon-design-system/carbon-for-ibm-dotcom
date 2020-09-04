@@ -8,8 +8,8 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import styles from './feature-card-block-large.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
