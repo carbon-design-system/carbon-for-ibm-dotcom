@@ -12,11 +12,9 @@
     "@carbon/ibmdotcom-web-components": "canary",
     "carbon-components": "~10.17.0",
     "lit-element": "~2.3.0",
-    "lit-html": "^1.2.0",
-    "lodash-es": "^4.17.0"
+    "lit-html": "^1.2.0"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.0",
     "snowpack": "^2.7.0",
     "snowpack-plugin-sass": "^1.0.0"
   }
