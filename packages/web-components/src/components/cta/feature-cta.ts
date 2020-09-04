@@ -12,7 +12,10 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import { formatCaption, formatDuration } from '../video-player/video-player';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from './mixins/cta';
 import DDSFeatureCTAFooter from './feature-cta-footer';
@@ -34,12 +37,15 @@ class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
       videoDuration,
       videoName,
       _hasCopy: hasCopy,
-      formatCaption: formatCaptionInEffect,
-      formatDuration: formatDurationInEffect,
+      formatVideoCaption: formatCaptionInEffect,
+      formatVideoDuration: formatDurationInEffect,
     } = this;
     const caption = hasCopy
       ? undefined
-      : formatCaptionInEffect({ duration: formatDurationInEffect({ duration: videoDuration }), name: videoName });
+      : formatCaptionInEffect({
+          duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+          name: videoName,
+        });
     return html`
       <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>${caption}
@@ -67,14 +73,14 @@ class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatCaption = formatCaption;
+  formatVideoCaption = formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatDuration = formatDuration;
+  formatVideoDuration = formatVideoDuration;
 
   /**
    * The CTA type.

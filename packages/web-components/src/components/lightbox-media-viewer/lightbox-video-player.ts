@@ -50,7 +50,12 @@ class DDSLightboxVideoPlayer extends DDSVideoPlayer {
                     class="${prefix}--lightbox-media-viewer__content__title"
                     data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title"
                   >
-                    <slot name="name">${formatCaption({ duration: formatDuration({ duration }), name })}</slot>
+                    <slot name="name"
+                      >${formatCaption({
+                        duration: formatDuration({ duration: !duration ? duration : duration * 1000 }),
+                        name,
+                      })}</slot
+                    >
                   </div>
                   <div
                     part="description"

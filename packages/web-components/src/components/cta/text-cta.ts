@@ -9,8 +9,11 @@
 
 import { html, property, internalProperty, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
-import { formatCaption, formatDuration } from '../video-player/video-player';
 import CTAMixin from './mixins/cta';
 import { CTA_TYPE } from './shared-enums';
 import styles from './cta.scss';
@@ -44,10 +47,18 @@ class DDSTextCTA extends CTAMixin(DDSLinkWithIcon) {
     if (type !== CTA_TYPE.VIDEO) {
       return super._renderContent();
     }
-    const { videoDuration, videoName, formatVideoCaption, formatVideoDuration } = this;
+    const {
+      videoDuration,
+      videoName,
+      formatVideoCaption: formatVideoCaptionInEffect,
+      formatVideoDuration: formatVideoDurationInEffect,
+    } = this;
     const caption = hasContent
       ? undefined
-      : formatVideoCaption({ duration: formatVideoDuration({ duration: videoDuration }), name: videoName });
+      : formatVideoCaptionInEffect({
+          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+          name: videoName,
+        });
     return html`
       <span><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
     `;
@@ -58,14 +69,14 @@ class DDSTextCTA extends CTAMixin(DDSLinkWithIcon) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoCaption = formatCaption;
+  formatVideoCaption = formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoDuration = formatDuration;
+  formatVideoDuration = formatVideoDuration;
 
   /**
    * The CTA type.

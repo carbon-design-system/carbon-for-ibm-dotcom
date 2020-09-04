@@ -55,18 +55,6 @@ describe('dds-video-player', function() {
     expect(document.querySelector('dds-video-player')!.shadowRoot!.querySelector('.bx--video-player__video-caption')).toBeNull();
   });
 
-  it('should support zero-fill in formatting caption', async function() {
-    render(
-      template({
-        duration: 65,
-        name: 'video-name-foo',
-      }),
-      document.body
-    );
-    await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo (1:05)');
-  });
-
   it('should support custom caption/duration formatter for localization', async function() {
     render(
       template({
@@ -76,7 +64,7 @@ describe('dds-video-player', function() {
           return `${name}-${duration}`;
         },
         formatDuration({ duration }: { duration?: number }) {
-          return `${duration! / 60}`;
+          return `${duration! / 60000}`;
         },
       }),
       document.body

@@ -10,29 +10,14 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * @param options The options, with a video name and a formatted video duration.
- * @returns The formatted video caption.
- */
-export function formatCaption({ duration, name }: { duration?: string; name?: string }) {
-  return !name || typeof duration === 'undefined' ? name || duration || '' : `${name} (${duration})`;
-}
-
-/**
- * @param options The options, with a video duration.
- * @returns The formatted video duration.
- */
-export function formatDuration({ duration }: { duration?: number }) {
-  const minutes = Math.floor((duration ?? 0) / 60);
-  const seconds = Math.floor((duration ?? 0) % 60);
-  const fillSeconds = Array.from({ length: 2 - String(seconds).length + 1 }).join('0');
-  return typeof duration === 'undefined' ? undefined : `${minutes}:${fillSeconds}${seconds}`;
-}
 
 /**
  * Video player.
@@ -52,14 +37,14 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatCaption = formatCaption;
+  formatCaption = formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatDuration = formatDuration;
+  formatDuration = formatVideoDuration;
 
   /**
    * `true` to hide the caption.
@@ -78,7 +63,7 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { duration, formatCaption: formatCaptionInEffect, formatDuration: formatDurationInEffect, hideCaption, name } = this;
+    const { duration, formatCaption, formatDuration, hideCaption, name } = this;
     return html`
       <div class="${prefix}--video-player__video-container">
         <slot></slot>
@@ -87,7 +72,7 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
         ? undefined
         : html`
             <div class="${prefix}--video-player__video-caption">
-              ${formatCaptionInEffect({ duration: formatDurationInEffect({ duration }), name })}
+              ${formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name })}
             </div>
           `}
     `;
@@ -95,8 +80,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
 
   updated(changedProperties) {
     if (changedProperties.has('duration') || changedProperties.has('formatCaption') || changedProperties.has('name')) {
-      const { duration, formatCaption: formatCaptionInEffect, formatDuration: formatDurationInEffect, name } = this;
-      const caption = formatCaptionInEffect({ duration: formatDurationInEffect({ duration }), name });
+      const { duration, formatCaption, formatDuration, name } = this;
+      const caption = formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name });
       if (caption) {
         this.setAttribute('aria-label', caption);
       }

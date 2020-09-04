@@ -10,7 +10,10 @@
 import { html, property, internalProperty, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { formatCaption, formatDuration } from '../video-player/video-player';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import DDSCardFooter from '../card/card-footer';
 import CTAMixin from './mixins/cta';
 import { CTA_TYPE } from './shared-enums';
@@ -46,8 +49,16 @@ class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
     if (type !== CTA_TYPE.VIDEO) {
       return super._renderContent();
     }
-    const { videoDuration, formatVideoCaption, formatVideoDuration } = this;
-    const caption = hasContent ? undefined : formatVideoCaption({ duration: formatVideoDuration({ duration: videoDuration }) });
+    const {
+      videoDuration,
+      formatVideoCaption: formatVideoCaptionInEffect,
+      formatVideoDuration: formatVideoDurationInEffect,
+    } = this;
+    const caption = hasContent
+      ? undefined
+      : formatVideoCaptionInEffect({
+          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+        });
     return html`
       <span class="${prefix}--card__cta__copy"><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
     `;
@@ -58,14 +69,14 @@ class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoCaption = formatCaption;
+  formatVideoCaption = formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoDuration = formatDuration;
+  formatVideoDuration = formatVideoDuration;
 
   /**
    * The CTA type.

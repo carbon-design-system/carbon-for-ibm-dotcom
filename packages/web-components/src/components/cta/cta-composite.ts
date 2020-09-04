@@ -15,6 +15,10 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';
@@ -28,7 +32,6 @@ import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-v
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 /* eslint-enable import/no-duplicates */
-import { formatCaption, formatDuration } from '../video-player/video-player';
 import './text-cta';
 import './card-cta';
 import './card-cta-markdown';
@@ -246,7 +249,11 @@ class DDSCTAComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
    * @returns The rendered version of the given data.
    */
   private _renderCard(card: CARD_CTA_ITEM) {
-    const { formatVideoCaption, formatVideoDuration, videoData = {} } = this;
+    const {
+      formatVideoCaption: formatVideoCaptionInEffect,
+      formatVideoDuration: formatVideoDurationInEffect,
+      videoData = {},
+    } = this;
     const { copy, download, footer, href, image, type } = card;
     const { [href]: currentVideoData = {} as VideoData } = videoData;
     const { duration: videoDuration, name: videoName } = currentVideoData;
@@ -268,8 +275,8 @@ class DDSCTAComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
         video-duration="${ifNonNull(videoDuration)}"
         video-name="${ifNonNull(videoName)}"
         video-thumbnail-url="${ifNonNull(videoThumbnailUrl)}"
-        .formatVideoCaption="${ifNonNull(formatVideoCaption)}"
-        .formatVideoDuration="${ifNonNull(formatVideoDuration)}"
+        .formatVideoCaption="${ifNonNull(formatVideoCaptionInEffect)}"
+        .formatVideoDuration="${ifNonNull(formatVideoDurationInEffect)}"
       >
         ${!copy
           ? undefined
@@ -293,7 +300,11 @@ class DDSCTAComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
    * @returns The rendered version of the given data.
    */
   private _renderFeature(feature: FEATURE_CTA_ITEM) {
-    const { formatVideoCaption, formatVideoDuration, videoData = {} } = this;
+    const {
+      formatVideoCaption: formatVideoCaptionInEffect,
+      formatVideoDuration: formatVideoDurationInEffect,
+      videoData = {},
+    } = this;
     const { copy, download, footer, href, image, type } = feature;
     const { [href]: currentVideoData = {} as VideoData } = videoData;
     const { duration: videoDuration, name: videoName } = currentVideoData;
@@ -313,8 +324,8 @@ class DDSCTAComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
         video-duration="${ifNonNull(videoDuration)}"
         video-name="${ifNonNull(videoName)}"
         video-thumbnail-url="${ifNonNull(videoThumbnailUrl)}"
-        .formatVideoCaption="${ifNonNull(formatVideoCaption)}"
-        .formatVideoDuration="${ifNonNull(formatVideoDuration)}"
+        .formatVideoCaption="${ifNonNull(formatVideoCaptionInEffect)}"
+        .formatVideoDuration="${ifNonNull(formatVideoDurationInEffect)}"
       >
         ${!copy
           ? undefined
@@ -361,14 +372,14 @@ class DDSCTAComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMix
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoCaption?: typeof formatCaption;
+  formatVideoCaption?: typeof formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoDuration?: typeof formatDuration;
+  formatVideoDuration?: typeof formatVideoDuration;
 
   /**
    * The video data, keyed by the video ID.

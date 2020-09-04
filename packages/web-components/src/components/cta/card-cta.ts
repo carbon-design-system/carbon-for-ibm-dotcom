@@ -12,8 +12,11 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import {
+  formatVideoCaption,
+  formatVideoDuration,
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
 import DDSCard from '../card/card';
-import { formatCaption, formatDuration } from '../video-player/video-player';
 import CTAMixin from './mixins/cta';
 import DDSCardCTAFooter from './card-cta-footer';
 import { CTA_TYPE } from './shared-enums';
@@ -30,8 +33,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-cta`)
 class DDSCardCTA extends CTAMixin(DDSCard) {
   protected _renderCopy() {
-    const { videoName, _hasCopy: hasCopy, formatVideoCaption } = this;
-    const caption = hasCopy ? undefined : formatVideoCaption({ name: videoName });
+    const { videoName, _hasCopy: hasCopy, formatVideoCaption: formatVideoCaptionInEffect } = this;
+    const caption = hasCopy ? undefined : formatVideoCaptionInEffect({ name: videoName });
     return html`
       <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>${caption}
@@ -59,14 +62,14 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoCaption = formatCaption;
+  formatVideoCaption = formatVideoCaption;
 
   /**
    * The formatter for the video duration.
    * Should be changed upon the locale the UI is rendered with.
    */
   @property({ attribute: false })
-  formatVideoDuration?: typeof formatDuration;
+  formatVideoDuration?: typeof formatVideoDuration;
 
   /**
    * The CTA type.
@@ -101,16 +104,21 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
       changedProperties.has('formatDuration') ||
       changedProperties.has('videoDuration')
     ) {
-      const { type, videoDuration, formatVideoCaption, formatVideoDuration } = this;
+      const {
+        type,
+        videoDuration,
+        formatVideoCaption: formatVideoCaptionInEffect,
+        formatVideoDuration: formatVideoDurationInEffect,
+      } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
         (footer as DDSCardCTAFooter).type = type;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
-        if (formatVideoCaption) {
-          (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaption;
+        if (formatVideoCaptionInEffect) {
+          (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;
         }
-        if (formatVideoDuration) {
-          (footer as DDSCardCTAFooter).formatVideoDuration = formatVideoDuration;
+        if (formatVideoDurationInEffect) {
+          (footer as DDSCardCTAFooter).formatVideoDuration = formatVideoDurationInEffect;
         }
       }
     }

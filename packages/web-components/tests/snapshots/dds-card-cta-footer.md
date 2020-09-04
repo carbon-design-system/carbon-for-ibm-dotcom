@@ -33,7 +33,7 @@
   <span class="bx--card__cta__copy">
     <slot>
     </slot>
-    undefined-180
+    undefined-180000
   </span>
   <slot name="icon">
   </slot>
