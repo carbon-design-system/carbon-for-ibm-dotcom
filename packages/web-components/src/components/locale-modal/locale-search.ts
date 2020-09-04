@@ -9,9 +9,9 @@
 
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input';
-import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
+import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search.js';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSLocaleItem from './locale-item';

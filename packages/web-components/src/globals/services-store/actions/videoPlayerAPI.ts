@@ -8,7 +8,7 @@
  */
 
 import { ThunkAction } from 'redux-thunk';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import { VideoData, VIDEO_PLAYER_API_ACTION, VideoPlayerAPIState } from '../types/videoPlayerAPI';
 
 /**

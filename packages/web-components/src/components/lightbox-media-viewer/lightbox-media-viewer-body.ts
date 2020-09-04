@@ -8,8 +8,8 @@
  */
 
 import { html, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import styles from './lightbox-media-viewer.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -9,9 +9,9 @@
 
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
 import styles from './masthead.scss';
 
 const { prefix } = settings;

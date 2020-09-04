@@ -8,10 +8,10 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';

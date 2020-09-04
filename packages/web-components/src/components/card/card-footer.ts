@@ -8,7 +8,7 @@
  */
 
 import { html, property, query, customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
 import styles from './card.scss';

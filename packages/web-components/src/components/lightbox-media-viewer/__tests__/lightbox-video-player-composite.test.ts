@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import DDSLightboxVideoPlayer from '../lightbox-video-player';
 /* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerComposite from '../lightbox-video-player-composite';

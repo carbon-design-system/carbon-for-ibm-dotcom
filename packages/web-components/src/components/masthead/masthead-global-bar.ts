@@ -9,11 +9,11 @@
 
 import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
 import { breakpoints } from '@carbon/layout/es';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import on from 'carbon-components/es/globals/js/misc/on';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
 
