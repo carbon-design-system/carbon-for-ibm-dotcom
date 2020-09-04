@@ -14,6 +14,81 @@ import styles from './horizontal-rule.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Type of the HR
+ */
+export enum TYPE {
+  /**
+   * solid type of hr
+   */
+  SOLID = 'solid',
+
+  /**
+   * dashed/dotted type of hr
+   */
+  DASHED = 'dashed',
+}
+
+/**
+ * Length of the HR
+ */
+export enum SIZE {
+  /**
+   * fluid length of hr, takes full width of the grid
+   */
+  FLUID = 'fluid',
+
+  /**
+   * Small length of hr
+   */
+  SMALL = 'small',
+
+  /**
+   * Medium length of hr
+   */
+  MEDIUM = 'medium',
+
+  /**
+   * Large length of hr
+   */
+  LARGE = 'large',
+}
+
+/**
+ * Contrast of the HR
+ */
+export enum CONTRAST {
+  /**
+   * medium-contrast of hr
+   */
+  MEDIUM_CONTRAST = 'medium-contrast',
+
+  /**
+   * low-contrast of hr
+   */
+  LOW_CONTRAST = 'low-contrast',
+
+  /**
+   * high-contrast of hr
+   */
+  HIGH_CONTRAST = 'high-contrast',
+}
+
+/**
+ * Weight of the HR
+ */
+export enum WEIGHT {
+  /**
+   * thin weight of hr
+   */
+  THIN = 'thin',
+
+  /**
+   * thick weight of hr
+   */
+  THICK = 'thick',
+}
+
+/**
  * Horizontal Rule
  *
  * @element dds-hr
@@ -24,28 +99,28 @@ class DDSHorizontalRule extends LitElement {
    * Style of the HR (solid (default) | dashed)
    */
   @property({ attribute: 'type', reflect: true })
-  type = 'solid';
+  type = TYPE.SOLID;
 
   /**
    * Length of the HR
    * (fluid (default) | small | medium | large)
    */
   @property({ attribute: 'size', reflect: true })
-  size = 'fluid';
+  size = SIZE.FLUID;
 
   /**
    * Contrast of the HR
    * (medium-contrast (default) | low-contrast | high-contrast)
    */
   @property({ attribute: 'contrast', reflect: true })
-  contrast = 'medium-contrast';
+  contrast = CONTRAST.MEDIUM_CONTRAST;
 
   /**
    * Weight of the HR
    * (thin (default) | thick)
    */
   @property({ attribute: 'weight', reflect: true })
-  weight = 'thin';
+  weight = WEIGHT.THIN;
 
   render() {
     return super.render();

@@ -9,9 +9,7 @@
 
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-// import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-// import readme from './README.stories.mdx';
-// import textNullable from '../../../../.storybook/knob-text-nullable';
+import readme from './README.stories.mdx';
 import '../horizontal-rule';
 
 export const Default = ({ parameters }) => {
@@ -59,7 +57,7 @@ export default {
     `,
   ],
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     knobs: {
       HorizontalRule: ({ groupId }) => ({
         type: select('Type (type):', types, types.solid, groupId),
