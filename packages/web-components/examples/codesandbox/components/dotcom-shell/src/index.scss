@@ -11,7 +11,7 @@
 @import 'carbon-components/scss/components/ui-shell/content';
 
 body {
-  padding: calc(#{$spacing-09} + #{mini-units(6)} + 1px) $spacing-09 $spacing-09 $spacing-09;
+  visibility: inherit;
 }
 
 @media (min-width: 66rem) {
