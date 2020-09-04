@@ -9,7 +9,7 @@
 
 import { pickBy } from 'lodash-es';
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
 import { BasicLink, BasicLinkSet, MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';

@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 /* eslint-disable import/no-duplicates */
 import DDSFooterNavGroup from '../footer-nav-group';

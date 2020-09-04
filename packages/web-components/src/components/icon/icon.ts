@@ -10,8 +10,8 @@
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, customElement, LitElement } from 'lit-element';
 import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

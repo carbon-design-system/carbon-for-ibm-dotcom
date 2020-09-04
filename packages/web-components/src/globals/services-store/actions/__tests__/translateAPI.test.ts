@@ -10,8 +10,8 @@
 import configureMockStore from 'redux-mock-store';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
-import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation.js';
 import { LOCALE_API_ACTION } from '../../types/localeAPI';
 import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
 import { setTranslation, loadTranslation } from '../translateAPI';

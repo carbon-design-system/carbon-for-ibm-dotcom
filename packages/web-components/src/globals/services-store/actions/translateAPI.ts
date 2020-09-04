@@ -8,7 +8,7 @@
  */
 
 import { ThunkAction } from 'redux-thunk';
-import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation.js';
 import { loadLanguage } from './localeAPI';
 import { Translation, TRANSLATE_API_ACTION, TranslateAPIState } from '../types/translateAPI';
 

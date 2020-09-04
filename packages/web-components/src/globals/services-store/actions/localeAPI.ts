@@ -8,7 +8,7 @@
  */
 
 import { ThunkAction } from 'redux-thunk';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../types/localeAPI';
 
 /**

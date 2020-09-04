@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import '../lightbox-video-player';
 
 const template = (props?) => {

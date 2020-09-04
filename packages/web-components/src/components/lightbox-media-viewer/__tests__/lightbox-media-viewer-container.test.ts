@@ -8,7 +8,7 @@
  */
 
 import { render } from 'lit-html';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import { EmbeddedVideoPlayer } from '../__stories__/lightbox-media-viewer.stories';
 
 const videoPlayerTemplate = (props?) =>
