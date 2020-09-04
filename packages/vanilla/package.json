@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-vanilla",
   "description": "IBM.com Library Vanilla Components",
-  "version": "0.10.2-rc.1",
+  "version": "0.10.2-rc.2",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.10.2-rc.1",
+    "@carbon/ibmdotcom-services": "1.10.2-rc.2",
     "@carbon/ibmdotcom-styles": "1.10.1",
     "@carbon/ibmdotcom-utilities": "1.10.2-rc.1",
     "@carbon/icon-helpers": "10.9.0",
@@ -95,7 +95,7 @@
     "jest-environment-puppeteer": "^4.4.0",
     "lcov2badge": "^0.1.0",
     "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "4.13.0",
+    "node-sass": "4.14.1",
     "object-assign": "^4.1.1",
     "postcss-loader": "^3.0.0",
     "promise": "^8.0.1",

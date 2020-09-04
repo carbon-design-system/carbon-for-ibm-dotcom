@@ -26,6 +26,7 @@
       flex-direction: column;
       padding: $carbon--spacing-05;
       min-height: carbon--mini-units(20);
+      justify-content: space-between;
     }
 
     .#{$prefix}--card__heading {
@@ -107,6 +108,7 @@
   .#{$prefix}--card .#{$prefix}--card__cta,
   .#{$prefix}--card .#{$prefix}--card__cta a,
   .#{$prefix}--card .#{$prefix}--card__cta a:visited,
+  .#{$prefix}--card ::slotted(svg[slot='footer']),
   :host(#{$dds-prefix}-card-footer)
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
