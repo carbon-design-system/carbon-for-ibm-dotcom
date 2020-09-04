@@ -25,6 +25,7 @@
       flex-direction: column;
       padding: $carbon--spacing-05;
       min-height: carbon--mini-units(20);
+      justify-content: space-between;
     }
 
     .#{$prefix}--card__heading {
@@ -53,7 +54,7 @@
       margin-bottom: $carbon--spacing-03;
       color: $text-02;
     }
-
+    ::slotted(svg[slot='footer']),
     .#{$prefix}--card__cta,
     .#{$prefix}--card__cta a,
     .#{$prefix}--card__cta a:visited {

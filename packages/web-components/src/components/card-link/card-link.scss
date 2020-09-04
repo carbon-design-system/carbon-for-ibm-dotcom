@@ -10,19 +10,3 @@
 @import '../../globals/scss/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/card/index';
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
-
-:host(#{$dds-prefix}-card-link) {
-  @extend .#{$prefix}--card__CTA;
-  .#{$prefix}--card__wrapper {
-    .#{$prefix}--card__copy {
-      flex: 1;
-    }
-    ::slotted(svg[slot='footer']) {
-      fill: $link-01;
-    }
-  }
-
-  .#{$prefix}--card__CTA--disabled .#{$prefix}--card__wrapper ::slotted(svg[slot='footer']) {
-    fill: $disabled-02;
-  }
-}
