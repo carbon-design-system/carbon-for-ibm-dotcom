@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import convertValue from '../../../../tests/utils/convert-value';
 import { DDSVideoPlayerContainerMixin } from '../video-player-container';
 

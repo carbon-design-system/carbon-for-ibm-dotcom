@@ -10,7 +10,7 @@
 import configureMockStore from 'redux-mock-store';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import { LocaleList, LOCALE_API_ACTION, LocaleAPIState } from '../../types/localeAPI';
 import { setLanguage, loadLanguage, setLangDisplay, loadLangDisplay, setLocaleList, loadLocaleList } from '../localeAPI';
 import convertValue from '../../../../../tests/utils/convert-value';

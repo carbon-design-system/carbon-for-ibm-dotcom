@@ -13,8 +13,8 @@ import { boolean, select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Add20 from 'carbon-web-components/es/icons/add/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import Add20 from 'carbon-web-components/es/icons/add/20.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { BUTTON_KIND, BUTTON_SIZE } from '../button';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';

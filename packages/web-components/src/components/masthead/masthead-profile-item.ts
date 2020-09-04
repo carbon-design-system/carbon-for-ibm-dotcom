@@ -8,8 +8,8 @@
  */
 
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import BXHeaderMenuItem from 'carbon-web-components/es/components/ui-shell/header-menu-item';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import BXHeaderMenuItem from 'carbon-web-components/es/components/ui-shell/header-menu-item.js';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

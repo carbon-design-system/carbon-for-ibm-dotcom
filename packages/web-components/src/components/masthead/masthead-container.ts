@@ -10,7 +10,7 @@
 import { pickBy } from 'lodash-es';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
 import { MastheadLink, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS, ProfileAPIState } from '../../globals/services-store/types/profileAPI';

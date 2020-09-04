@@ -11,7 +11,7 @@ import configureMockStore from 'redux-mock-store';
 import fetchMock from 'jest-fetch-mock';
 import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import { LOCALE_API_ACTION } from '../../types/localeAPI';
 import { SEARCH_API_ACTION, SearchAPIState } from '../../types/searchAPI';
 import { setCurrentSearchQueryString, loadSearchResults } from '../searchAPI';

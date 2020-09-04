@@ -8,8 +8,8 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import BXSearch from 'carbon-web-components/es/components/search/search';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import BXSearch from 'carbon-web-components/es/components/search/search.js';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
 

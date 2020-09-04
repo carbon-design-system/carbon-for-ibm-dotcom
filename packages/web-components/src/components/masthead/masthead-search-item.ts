@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSMastheadSearch from './masthead-search';
 import styles from './masthead.scss';
 

@@ -9,9 +9,9 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
-import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 
