@@ -21,7 +21,9 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
+      <dds-card-footer>
+        ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
     </dds-card-link>
   `;
 };
