@@ -24,6 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const slotExistencePropertyNames = {
   eyebrow: '_hasEyebrow',
   heading: '_hasHeading',
+  image: '_hasImage',
 };
 
 /**
@@ -42,6 +43,11 @@ class DDSCard extends DDSLink {
    * `true` if there is heading content.
    */
   protected _hasHeading;
+
+  /**
+   * `true` if there is image content.
+   */
+  protected _hasImage;
 
   /**
    * `true` if there is copy content.
@@ -77,8 +83,11 @@ class DDSCard extends DDSLink {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderImage(): TemplateResult | string | void {
+    const { _hasImage: hasImage } = this;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+      <div ?hidden="${!hasImage}" class="${prefix}--card__image">
+        <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
