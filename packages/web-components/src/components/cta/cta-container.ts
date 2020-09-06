@@ -17,9 +17,6 @@ import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
-import '../modal/modal';
-import '../modal/modal-header';
-import '../lightbox-media-viewer/lightbox-media-viewer-body';
 /* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerContainer from '../lightbox-media-viewer/lightbox-video-player-container';
 // Above import is interface-only ref and thus code won't be brought into the build

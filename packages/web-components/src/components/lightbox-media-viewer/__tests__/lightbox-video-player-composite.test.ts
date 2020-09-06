@@ -33,7 +33,7 @@ const template = (props?) => {
 describe('dds-lightbox-video-player-composite', function() {
   it('should send props to video player', async function() {
     const formatCaption = () => {};
-    render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
+    render(template({ formatCaption, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
     await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
     const videoPlayerComposite = document.querySelector('dds-lightbox-video-player-composite') as DDSLightboxVideoPlayerComposite;
@@ -41,7 +41,6 @@ describe('dds-lightbox-video-player-composite', function() {
       'dds-lightbox-video-player'
     ) as DDSLightboxVideoPlayer;
     expect(videoPlayer.formatCaption).toBe(formatCaption);
-    expect(videoPlayer.hideCaption).toBe(true);
   });
 
   it('should render the video player', async function() {

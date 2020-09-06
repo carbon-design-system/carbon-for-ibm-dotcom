@@ -23,9 +23,7 @@ document.addEventListener('dds-cta-run-action', async event => {
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
       <bx-modal-close-button></bx-modal-close-button>
-      <dds-lightbox-media-viewer-body>
-        <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
-      </dds-lightbox-media-viewer-body>
+      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');

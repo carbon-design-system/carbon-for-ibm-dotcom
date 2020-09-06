@@ -17,7 +17,6 @@ import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
 import '../modal/modal';
 import '../modal/modal-close-button';
-import './lightbox-media-viewer-body';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
 
@@ -85,16 +84,14 @@ class DDSLightboxMediaViewerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     return html`
       <dds-modal ?open="${open}" expressive-size="full-width">
         <dds-modal-close-button></dds-modal-close-button>
-        <dds-lightbox-media-viewer-body>
-          <dds-lightbox-video-player
-            description="${ifNonNull(description)}"
-            duration="${ifNonNull(duration)}"
-            name="${ifNonNull(name)}"
-            ?hide-caption="${hideCaption}"
-            .formatCaption="${ifNonNull(formatCaption)}"
-          >
-          </dds-lightbox-video-player>
-        </dds-lightbox-media-viewer-body>
+        <dds-lightbox-video-player
+          description="${ifNonNull(description)}"
+          duration="${ifNonNull(duration)}"
+          name="${ifNonNull(name)}"
+          ?hide-caption="${hideCaption}"
+          .formatCaption="${ifNonNull(formatCaption)}"
+        >
+        </dds-lightbox-video-player>
       </dds-modal>
     `;
   }

@@ -72,7 +72,6 @@ import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
 import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer-body';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 ...
@@ -86,9 +85,7 @@ document.addEventListener('dds-cta-run-action', async event => {
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
       <bx-modal-close-button></bx-modal-close-button>
-      <dds-lightbox-media-viewer-body>
-        <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
-      </dds-lightbox-media-viewer-body>
+      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
