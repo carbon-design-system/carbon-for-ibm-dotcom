@@ -54,6 +54,15 @@ class DDSLightboxMediaViewerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     return (this.modalRenderRoot as Element)?.querySelector?.(selectorVideoPlayer);
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  get autoPlay() {
+    return true; // Lock `autoPlay` to be `true`
+  }
+
+  // @ts-ignore
+  // eslint-disable-next-line class-methods-use-this, no-empty-function
+  set autoPlay(value) {} // Lock `autoPlay` to be `true`
+
   /**
    * `true` if the modal should be open.
    */

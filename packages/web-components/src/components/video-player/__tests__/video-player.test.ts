@@ -9,15 +9,21 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+/* eslint-disable import/no-duplicates */
+import { VIDEO_PLAYER_CONTENT_STATE } from '../video-player';
+// Above import is interface-only ref and thus code won't be brought into the build
 import '../video-player';
+/* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { duration, formatCaption, hideCaption, name } = props ?? {};
+  const { contentState, duration, formatCaption, hideCaption, name, videoId } = props ?? {};
   return html`
     <dds-video-player
+      content-state="${ifNonNull(contentState)}"
       duration="${ifNonNull(duration)}"
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
+      video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
     >
     </dds-video-player>
@@ -34,8 +40,10 @@ describe('dds-video-player', function() {
   it('should render with various attributes', async function() {
     render(
       template({
+        contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
         duration: 30,
         name: 'video-name-foo',
+        videoId: 'video-id-foo',
       }),
       document.body
     );
