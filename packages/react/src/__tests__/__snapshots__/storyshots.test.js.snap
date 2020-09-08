@@ -57,8 +57,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   kind="tertiary"
                   size="default"
                   tabIndex={0}
-                  tooltipAlignment="center"
-                  tooltipPosition="top"
                   type="button"
                 >
                   <a
@@ -83,8 +81,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   kind="primary"
                   size="default"
                   tabIndex={0}
-                  tooltipAlignment="center"
-                  tooltipPosition="top"
                   type="button"
                 >
                   <a
@@ -143,8 +139,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               kind="tertiary"
               size="default"
               tabIndex={0}
-              tooltipAlignment="center"
-              tooltipPosition="top"
               type="button"
             >
               <a
@@ -169,8 +163,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               kind="primary"
               size="default"
               tabIndex={0}
-              tooltipAlignment="center"
-              tooltipPosition="top"
               type="button"
             >
               <a
@@ -389,8 +381,6 @@ exports[`Storyshots Components|CTA Button 1`] = `
                         size="default"
                         tabIndex={0}
                         target={null}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -473,8 +463,6 @@ exports[`Storyshots Components|CTA Button 1`] = `
                         size="default"
                         tabIndex={0}
                         target={null}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -1437,8 +1425,6 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             size="default"
                             tabIndex={0}
                             target={null}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <a
@@ -1469,8 +1455,6 @@ exports[`Storyshots Components|CTASection Default 1`] = `
                             size="default"
                             tabIndex={0}
                             target={null}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <a
@@ -1726,8 +1710,6 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             size="default"
                             tabIndex={0}
                             target={null}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <a
@@ -1758,8 +1740,6 @@ exports[`Storyshots Components|CTASection With Content Items 1`] = `
                             size="default"
                             tabIndex={0}
                             target={null}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <a
@@ -33275,8 +33255,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               size="default"
                                                               tabIndex={0}
                                                               target={null}
-                                                              tooltipAlignment="center"
-                                                              tooltipPosition="top"
                                                               type="button"
                                                             >
                                                               <a
@@ -37124,8 +37102,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         size="default"
                                         tabIndex={0}
                                         target={null}
-                                        tooltipAlignment="center"
-                                        tooltipPosition="top"
                                         type="button"
                                       >
                                         <a
@@ -37521,8 +37497,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     }
                     size="default"
                     tabIndex={0}
-                    tooltipAlignment="center"
-                    tooltipPosition="top"
                     type="button"
                   >
                     <button
@@ -39015,8 +38989,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                                                 size="default"
                                                                 tabIndex={0}
                                                                 target={null}
-                                                                tooltipAlignment="center"
-                                                                tooltipPosition="top"
                                                                 type="button"
                                                               >
                                                                 <a
@@ -42864,8 +42836,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                                           size="default"
                                           tabIndex={0}
                                           target={null}
-                                          tooltipAlignment="center"
-                                          tooltipPosition="top"
                                           type="button"
                                         >
                                           <a
@@ -43261,8 +43231,6 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                       }
                       size="default"
                       tabIndex={0}
-                      tooltipAlignment="center"
-                      tooltipPosition="top"
                       type="button"
                     >
                       <button
@@ -44580,8 +44548,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                                                 size="default"
                                                                 tabIndex={0}
                                                                 target={null}
-                                                                tooltipAlignment="center"
-                                                                tooltipPosition="top"
                                                                 type="button"
                                                               >
                                                                 <a
@@ -48429,8 +48395,6 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                                           size="default"
                                           tabIndex={0}
                                           target={null}
-                                          tooltipAlignment="center"
-                                          tooltipPosition="top"
                                           type="button"
                                         >
                                           <a
@@ -50081,8 +50045,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                                                 size="default"
                                                                 tabIndex={0}
                                                                 target={null}
-                                                                tooltipAlignment="center"
-                                                                tooltipPosition="top"
                                                                 type="button"
                                                               >
                                                                 <a
@@ -53930,8 +53892,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                                           size="default"
                                           tabIndex={0}
                                           target={null}
-                                          tooltipAlignment="center"
-                                          tooltipPosition="top"
                                           type="button"
                                         >
                                           <a
@@ -54327,8 +54287,6 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                       }
                       size="default"
                       tabIndex={0}
-                      tooltipAlignment="center"
-                      tooltipPosition="top"
                       type="button"
                     >
                       <button
@@ -55652,8 +55610,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                                                 size="default"
                                                                 tabIndex={0}
                                                                 target={null}
-                                                                tooltipAlignment="center"
-                                                                tooltipPosition="top"
                                                                 type="button"
                                                               >
                                                                 <a
@@ -59501,8 +59457,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                                           size="default"
                                           tabIndex={0}
                                           target={null}
-                                          tooltipAlignment="center"
-                                          tooltipPosition="top"
                                           type="button"
                                         >
                                           <a
@@ -59896,8 +59850,6 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                       }
                       size="default"
                       tabIndex={0}
-                      tooltipAlignment="center"
-                      tooltipPosition="top"
                       type="button"
                     >
                       <button
@@ -60120,8 +60072,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                             }
                             size="default"
                             tabIndex={0}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <button
@@ -60346,8 +60296,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                             }
                             size="default"
                             tabIndex={0}
-                            tooltipAlignment="center"
-                            tooltipPosition="top"
                             type="button"
                           >
                             <button
@@ -61187,8 +61135,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                   }
                   size="default"
                   tabIndex={0}
-                  tooltipAlignment="center"
-                  tooltipPosition="top"
                   type="button"
                 >
                   <button
@@ -61458,8 +61404,6 @@ exports[`Storyshots Components|Footer Short 1`] = `
                     }
                     size="default"
                     tabIndex={0}
-                    tooltipAlignment="center"
-                    tooltipPosition="top"
                     type="button"
                   >
                     <button
@@ -62240,8 +62184,6 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -62303,8 +62245,6 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -62501,8 +62441,6 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -62564,8 +62502,6 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -62770,8 +62706,6 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -62833,8 +62767,6 @@ exports[`Storyshots Components|LeadSpace Default with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -63091,8 +63023,6 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                           }
                           size="default"
                           tabIndex={0}
-                          tooltipAlignment="center"
-                          tooltipPosition="top"
                           type="button"
                         >
                           <a
@@ -63154,8 +63084,6 @@ exports[`Storyshots Components|LeadSpace Default with no image 1`] = `
                           }
                           size="default"
                           tabIndex={0}
-                          tooltipAlignment="center"
-                          tooltipPosition="top"
                           type="button"
                         >
                           <a
@@ -63331,8 +63259,6 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -63394,8 +63320,6 @@ exports[`Storyshots Components|LeadSpace Small 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -63592,8 +63516,6 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -63655,8 +63577,6 @@ exports[`Storyshots Components|LeadSpace Small with image 1`] = `
                         }
                         size="default"
                         tabIndex={0}
-                        tooltipAlignment="center"
-                        tooltipPosition="top"
                         type="button"
                       >
                         <a
@@ -64442,8 +64362,6 @@ exports[`Storyshots Components|LeadSpaceBlock Default 1`] = `
                                   size="default"
                                   tabIndex={0}
                                   target={null}
-                                  tooltipAlignment="center"
-                                  tooltipPosition="top"
                                   type="button"
                                 >
                                   <a
@@ -65154,8 +65072,6 @@ exports[`Storyshots Components|LeadSpaceBlock With Video 1`] = `
                                   size="default"
                                   tabIndex={0}
                                   target={null}
-                                  tooltipAlignment="center"
-                                  tooltipPosition="top"
                                   type="button"
                                 >
                                   <a
