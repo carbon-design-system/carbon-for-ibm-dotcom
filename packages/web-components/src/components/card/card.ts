@@ -83,11 +83,8 @@ class DDSCard extends DDSLink {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderImage(): TemplateResult | string | void {
-    const { _hasImage: hasImage } = this;
     return html`
-      <div ?hidden="${!hasImage}" class="${prefix}--card__image">
-        <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 

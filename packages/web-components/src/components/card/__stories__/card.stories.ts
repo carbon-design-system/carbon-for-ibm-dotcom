@@ -33,7 +33,7 @@ export const Default = ({ parameters }) => {
         ? html`
             <p>${copy}</p>
           `
-        : html``}
+        : ``}
       <dds-card-footer slot="footer">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
