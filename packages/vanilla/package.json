@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-vanilla",
   "description": "IBM.com Library Vanilla Components",
-  "version": "0.10.2-rc.2",
+  "version": "0.10.2",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -39,9 +39,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.10.2-rc.2",
+    "@carbon/ibmdotcom-services": "1.10.2",
     "@carbon/ibmdotcom-styles": "1.10.1",
-    "@carbon/ibmdotcom-utilities": "1.10.2-rc.1",
+    "@carbon/ibmdotcom-utilities": "1.10.2",
     "@carbon/icon-helpers": "10.9.0",
     "@carbon/icons": "10.15.0",
     "@tarekraafat/autocomplete.js": "^7.2.0",
