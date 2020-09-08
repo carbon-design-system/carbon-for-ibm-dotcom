@@ -10,8 +10,8 @@
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
 import '../horizontal-rule';
+import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
   const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};

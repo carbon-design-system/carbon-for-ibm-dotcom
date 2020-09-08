@@ -23,7 +23,7 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-icon', function() {
+describe('dds-hr', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
@@ -33,6 +33,12 @@ describe('dds-icon', function() {
 
     it('should render with various attributes', async function() {
       render(template({ size: 'small', type: 'solid', weight: 'thin' }), document.body);
+      await Promise.resolve(); // Update cycle for `<dds-hr>`
+      expect(document.body.querySelector('dds-hr')).toMatchSnapshot({ mode: 'shadow' });
+    });
+
+    it('should render with other various attributes', async function() {
+      render(template({ size: 'fluid', type: 'dashed', contrast: 'medium-contrast' }), document.body);
       await Promise.resolve(); // Update cycle for `<dds-hr>`
       expect(document.body.querySelector('dds-hr')).toMatchSnapshot({ mode: 'shadow' });
     });
