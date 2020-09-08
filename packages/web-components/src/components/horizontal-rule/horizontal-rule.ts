@@ -16,7 +16,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Type of the HR
  */
-export enum TYPE {
+export enum HR_TYPE {
   /**
    * solid type of hr
    */
@@ -31,7 +31,7 @@ export enum TYPE {
 /**
  * Length of the HR
  */
-export enum SIZE {
+export enum HR_SIZE {
   /**
    * fluid length of hr, takes full width of the grid
    */
@@ -56,7 +56,7 @@ export enum SIZE {
 /**
  * Contrast of the HR
  */
-export enum CONTRAST {
+export enum HR_CONTRAST {
   /**
    * medium-contrast of hr
    */
@@ -76,7 +76,7 @@ export enum CONTRAST {
 /**
  * Weight of the HR
  */
-export enum WEIGHT {
+export enum HR_WEIGHT {
   /**
    * thin weight of hr
    */
@@ -99,28 +99,28 @@ class DDSHorizontalRule extends LitElement {
    * Style of the HR (solid (default) | dashed)
    */
   @property({ attribute: 'type', reflect: true })
-  type = TYPE.SOLID;
+  type = HR_TYPE.SOLID;
 
   /**
    * Length of the HR
    * (fluid (default) | small | medium | large)
    */
   @property({ attribute: 'size', reflect: true })
-  size = SIZE.FLUID;
+  size = HR_SIZE.FLUID;
 
   /**
    * Contrast of the HR
    * (medium-contrast (default) | low-contrast | high-contrast)
    */
   @property({ attribute: 'contrast', reflect: true })
-  contrast = CONTRAST.MEDIUM_CONTRAST;
+  contrast = HR_CONTRAST.MEDIUM_CONTRAST;
 
   /**
    * Weight of the HR
    * (thin (default) | thick)
    */
   @property({ attribute: 'weight', reflect: true })
-  weight = WEIGHT.THIN;
+  weight = HR_WEIGHT.THIN;
 
   render() {
     return super.render();

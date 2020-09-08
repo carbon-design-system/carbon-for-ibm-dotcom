@@ -9,13 +9,14 @@
 
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../horizontal-rule';
 
 export const Default = ({ parameters }) => {
   const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
   return html`
-    <dds-hr type=${type} size=${size} contrast=${contrast} weight=${weight} />
+    <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}" />
   `;
 };
 
