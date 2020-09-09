@@ -1,94 +1,106 @@
-# `dds-cta-container`
+# `dds-cta-composite`
 
 ## `Text CTA`
 
 ####   `should render default type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     href="https://www.example.com"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
 ####   `should render local type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     href="https://www.example.com"
     type="local"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
 ####   `should render download type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     download="IBM_Annual_Report_2019.pdf"
     href="https://www.example.com"
     type="download"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
 ####   `should render jump type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     href="#example"
     type="jump"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
 ####   `should render external type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     href="https://www.example.com"
     type="external"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
 ####   `should render video type`
 
 ```
-<dds-cta-container cta-style="text">
+<dds-cta-composite cta-style="text">
   <dds-text-cta
     data-autoid="dds--link-with-icon"
     href="0_uka1msg4"
     type="video"
   >
-    copy-foo
+    <span>
+      copy-foo
+    </span>
   </dds-text-cta>
-</dds-cta-container>
+</dds-cta-composite>
 
 ```
 
@@ -98,8 +110,8 @@
 
 ```
 <div>
-  <dds-lightbox-video-player-container>
-  </dds-lightbox-video-player-container>
+  <dds-lightbox-video-player-composite>
+  </dds-lightbox-video-player-composite>
 </div>
 
 ```

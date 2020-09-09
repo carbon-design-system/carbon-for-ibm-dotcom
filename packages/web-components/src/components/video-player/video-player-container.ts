@@ -36,11 +36,6 @@ export interface VideoPlayerContainerState {
  */
 export interface VideoPlayerContainerStateProps {
   /**
-   * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
-   */
-  embeddedVideos?: { [videoId: string]: any };
-
-  /**
    * The video data, keyed by the video ID.
    */
   videoData?: { [videoId: string]: VideoData };
