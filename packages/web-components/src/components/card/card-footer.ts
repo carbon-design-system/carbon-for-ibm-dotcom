@@ -43,6 +43,9 @@ class DDSCardFooter extends DDSLinkWithIcon {
     return Boolean(parentHref) && (!href || parentHref === href);
   }
 
+  /**
+   * Handles `slotchange` event on the default `<slot>`.
+   */
   protected _handleSlotChange({ target }: Event) {
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
