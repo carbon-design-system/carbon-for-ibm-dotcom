@@ -82,6 +82,7 @@
 
     &__overlay {
       top: 0;
+      z-index: 1000;
       @include carbon--breakpoint-down(md) {
         background-color: $ui-background;
       }
