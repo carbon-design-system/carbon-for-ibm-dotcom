@@ -1,4 +1,4 @@
-# `dds-lightbox-video-player`
+# `dds-lightbox-image-viewer`
 
 #### `should render with minimum attributes`
 
@@ -6,12 +6,11 @@
 <div class="bx--lightbox-media-viewer__container">
   <div class="bx--lightbox-media-viewer__row">
     <div class="bx--lightbox-media-viewer__media bx--no-gutter">
-      <div class="bx--video-player">
-        <div class="bx--video-player__video-container">
-          <slot>
-          </slot>
-        </div>
-      </div>
+      <img
+        alt=""
+        class="bx--image__img"
+        src=""
+      >
     </div>
     <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
       <div class="bx--lightbox-media-viewer__content">
@@ -44,12 +43,11 @@
 <div class="bx--lightbox-media-viewer__container">
   <div class="bx--lightbox-media-viewer__row">
     <div class="bx--lightbox-media-viewer__media bx--no-gutter">
-      <div class="bx--video-player">
-        <div class="bx--video-player__video-container">
-          <slot>
-          </slot>
-        </div>
-      </div>
+      <img
+        alt="image-alt-foo"
+        class="bx--image__img"
+        src="https://example.com/image"
+      >
     </div>
     <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
       <div class="bx--lightbox-media-viewer__content">
@@ -59,7 +57,7 @@
           part="title"
         >
           <slot name="title">
-            video-name-foo (0:30)
+            image-title-foo
           </slot>
         </div>
         <div
@@ -68,7 +66,7 @@
           part="description"
         >
           <slot name="description">
-            video-description-foo
+            image-description-foo
           </slot>
         </div>
       </div>

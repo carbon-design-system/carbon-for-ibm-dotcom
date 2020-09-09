@@ -11,7 +11,6 @@ import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/button/button';
 import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer-body';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 document.addEventListener('click', async event => {
