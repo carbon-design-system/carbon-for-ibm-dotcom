@@ -32101,6 +32101,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           "navigation": "default",
           "placeHolderText": "Search all of IBM",
           "platform": null,
+          "selectedMenuItem": "Services &amp; Consulting",
         }
       }
     >
@@ -32112,6 +32113,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
         placeHolderText="Search all of IBM"
         platform={null}
         searchOpenOnload={false}
+        selectedMenuItem="Services &amp; Consulting"
       >
         <HeaderContainer
           isSideNavExpanded={false}
@@ -32229,6 +32231,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         navType="default"
                         navigation={Array []}
                         platform={null}
+                        selectedMenuItem="Services &amp; Consulting"
                       >
                         <div
                           className="bx--header__nav-container"
@@ -37640,6 +37643,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
                 "searchOpenOnload": true,
+                "selectedMenuItem": "Services &amp; Consulting",
               },
             },
           },
@@ -37671,6 +37675,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
             "placeHolderText": "Search all of IBM",
             "platform": null,
             "searchOpenOnload": true,
+            "selectedMenuItem": "Services &amp; Consulting",
           }
         }
       >
@@ -37682,6 +37687,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
           placeHolderText="Search all of IBM"
           platform={null}
           searchOpenOnload={true}
+          selectedMenuItem="Services &amp; Consulting"
         >
           <HeaderContainer
             isSideNavExpanded={false}
@@ -37799,6 +37805,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
                           navType="default"
                           navigation={Array []}
                           platform={null}
+                          selectedMenuItem="Services &amp; Consulting"
                         >
                           <div
                             className="bx--header__nav-container"
@@ -43378,6 +43385,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
+                "selectedMenuItem": "Services &amp; Consulting",
               },
             },
           },
@@ -43406,6 +43414,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": null,
+            "selectedMenuItem": "Services &amp; Consulting",
           }
         }
       >
@@ -43417,6 +43426,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
           placeHolderText="Search all of IBM"
           platform={null}
           searchOpenOnload={false}
+          selectedMenuItem="Services &amp; Consulting"
         >
           <HeaderContainer
             isSideNavExpanded={false}
@@ -43534,6 +43544,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
                           navType="default"
                           navigation={Array []}
                           platform={null}
+                          selectedMenuItem="Services &amp; Consulting"
                         >
                           <div
                             className="bx--header__nav-container"
@@ -48844,6 +48855,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                   "name": "IBM Cloud",
                   "url": "https://www.ibm.com/cloud",
                 },
+                "selectedMenuItem": "Services &amp; Consulting",
               },
             },
           },
@@ -48877,6 +48889,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
               "name": "IBM Cloud",
               "url": "https://www.ibm.com/cloud",
             },
+            "selectedMenuItem": "Services &amp; Consulting",
           }
         }
       >
@@ -48893,6 +48906,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
             }
           }
           searchOpenOnload={false}
+          selectedMenuItem="Services &amp; Consulting"
         >
           <HeaderContainer
             isSideNavExpanded={false}
@@ -49015,6 +49029,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
                               "url": "https://www.ibm.com/cloud",
                             }
                           }
+                          selectedMenuItem="Services &amp; Consulting"
                         >
                           <div
                             className="bx--header__nav-container"
@@ -54447,6 +54462,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
+                "selectedMenuItem": "Services &amp; Consulting",
               },
             },
           },
@@ -54478,6 +54494,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": null,
+            "selectedMenuItem": "Services &amp; Consulting",
           }
         }
       >
@@ -54489,6 +54506,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
           placeHolderText="Search all of IBM"
           platform={null}
           searchOpenOnload={false}
+          selectedMenuItem="Services &amp; Consulting"
         >
           <HeaderContainer
             isSideNavExpanded={false}
@@ -54606,6 +54624,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
                           navType="default"
                           navigation={Array []}
                           platform={null}
+                          selectedMenuItem="Services &amp; Consulting"
                         >
                           <div
                             className="bx--header__nav-container"
@@ -70071,6 +70090,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
       placeHolderText="Search all of IBM"
       platform={null}
       searchOpenOnload={false}
+      selectedMenuItem="Services &amp; Consulting"
     >
       <HeaderContainer
         isSideNavExpanded={false}
@@ -70188,6 +70208,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                       navType="default"
                       navigation={Array []}
                       platform={null}
+                      selectedMenuItem="Services &amp; Consulting"
                     >
                       <div
                         className="bx--header__nav-container"
@@ -70468,6 +70489,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
       placeHolderText="Search all of IBM"
       platform={null}
       searchOpenOnload={true}
+      selectedMenuItem="Services & Consulting"
     >
       <HeaderContainer
         isSideNavExpanded={false}
@@ -70585,6 +70607,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                       navType="default"
                       navigation={Array []}
                       platform={null}
+                      selectedMenuItem="Services & Consulting"
                     >
                       <div
                         className="bx--header__nav-container"
@@ -71040,6 +71063,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           "framework": "react",
           "knobs": Object {
             "Masthead": [Function],
+            "escapeHTML": false,
           },
           "options": Object {
             "name": "IBM.com Library React",
@@ -71056,6 +71080,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                 "name": "IBM Cloud",
                 "url": "https://www.ibm.com/cloud",
               },
+              "selectedMenuItem": "Services & Consulting",
             },
           },
           "subcomponents": undefined,
@@ -71075,6 +71100,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           }
         }
         searchOpenOnload={false}
+        selectedMenuItem="Services & Consulting"
       >
         <HeaderContainer
           isSideNavExpanded={false}
@@ -71197,6 +71223,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                             "url": "https://www.ibm.com/cloud",
                           }
                         }
+                        selectedMenuItem="Services & Consulting"
                       >
                         <div
                           className="bx--header__nav-container"
