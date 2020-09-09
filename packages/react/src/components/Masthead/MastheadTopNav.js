@@ -31,6 +31,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    */
   const mastheadLinks = navigation.map((link, i) => {
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
+    const selected = link.titleEnglish === topNavProps.selectedMenuItem;
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
@@ -39,7 +40,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           className={classnames({
             [`${prefix}--masthead__megamenu__l0-nav`]: link.hasMegapanel,
           })}
-          selected={link.titleEnglish === topNavProps.selectedMenuItem}
+          selected={selected}
           autoId={autoid}
           key={i}
           setOverlay={setOverlay}>
@@ -49,7 +50,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     } else {
       return (
         <HeaderMenuItem
-          className={`${prefix}--masthead__l0-nav--selected`}
+          className={selected && `${prefix}--masthead__l0-nav--selected`}
           href={link.url}
           data-autoid={autoid}
           key={i}>
