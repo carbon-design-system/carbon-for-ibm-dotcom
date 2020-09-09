@@ -27,6 +27,7 @@ class DDSFeatureCard extends DDSCard {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
     if (linkNode) {
+      linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.add(`${prefix}--card--inverse`);
       linkNode.classList.add(`${prefix}--feature-card`);
     }

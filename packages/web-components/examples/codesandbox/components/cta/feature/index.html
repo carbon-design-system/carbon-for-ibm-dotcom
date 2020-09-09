@@ -1,0 +1,31 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta.js';
+      import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
+    </script>
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <dds-feature-cta href="https://www.ibm.com/" type="local">
+      Copy text
+      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&text=1x1">
+      </dds-image>
+    </dds-feature-cta>
+  </body>
+</html>
