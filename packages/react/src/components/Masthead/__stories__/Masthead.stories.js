@@ -93,7 +93,7 @@ Default.story = {
           ),
           mastheadL1Data,
           selectedMenuItem: text(
-            'select menu item (selectedMenuItem)',
+            'selected menu item (selectedMenuItem)',
             'Services & Consulting',
             groupId
           ),
@@ -154,7 +154,7 @@ WithPlatform.story = {
             groupId
           ),
           selectedMenuItem: text(
-            'select menu item (selectedMenuItem)',
+            'selected menu item (selectedMenuItem)',
             'Services & Consulting',
             groupId
           ),
