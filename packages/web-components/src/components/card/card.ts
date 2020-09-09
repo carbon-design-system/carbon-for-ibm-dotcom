@@ -72,12 +72,14 @@ class DDSCard extends DDSLink {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy"><slot @slotchange="${this._handleSlotChange}"></slot></div>
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
   /**
-   * @returns The copy content.
+   * @returns The image content.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderImage(): TemplateResult | string | void {

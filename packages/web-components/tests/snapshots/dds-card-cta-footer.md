@@ -11,7 +11,10 @@
   id="link"
   type=""
 >
-  <span class="bx--card__cta__copy">
+  <span
+    class="bx--card__cta__copy"
+    hidden=""
+  >
     <slot>
     </slot>
   </span>
