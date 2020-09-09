@@ -7,16 +7,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { html, property, query, customElement, TemplateResult } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
 import styles from './card.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Card footer.
+ *
  * @element dds-card-footer
  */
 @customElement(`${ddsPrefix}-card-footer`)
@@ -28,11 +31,37 @@ class DDSCardFooter extends DDSLinkWithIcon {
   private _staticNode?: HTMLSpanElement;
 
   /**
+   * `true` if there is copy content.
+   */
+  protected _hasCopy;
+
+  /**
    * `true` if the link of parent `<dds-card>` should be used.
    */
-  get _shouldUseParentLink() {
+  protected get _shouldUseParentLink() {
     const { href, parentHref } = this;
     return Boolean(parentHref) && (!href || parentHref === href);
+  }
+
+  protected _handleSlotChange({ target }: Event) {
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this._hasCopy = hasContent;
+    this.requestUpdate();
+  }
+
+  /**
+   * @returns The main content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderContent(): TemplateResult | string | void {
+    const { _hasCopy: hasCopy } = this;
+    return html`
+      <span ?hidden="${!hasCopy}" class="${prefix}--card__cta__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </span>
+    `;
   }
 
   /**
@@ -69,6 +98,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
     super.updated();
     const { _staticNode: staticNode, _linkNode: linkNode, _shouldUseParentLink: shouldUseParentLink } = this;
     const targetNode = linkNode ?? staticNode;
+    targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
     targetNode!.classList.toggle(`${ddsPrefix}-ce--card__footer--with-link-used`, !shouldUseParentLink);
   }
@@ -77,7 +107,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
     const { _shouldUseParentLink: shouldUseParentLink } = this;
     return shouldUseParentLink
       ? html`
-          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderInner()}</span>
+          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderContent()}${this._renderInner()}</span>
         `
       : super.render();
   }

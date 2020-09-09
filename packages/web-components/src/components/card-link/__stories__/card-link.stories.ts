@@ -13,6 +13,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Error20 from 'carbon-web-components/es/icons/error/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
+import styles from './card-link.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card-link';
 
@@ -20,8 +21,10 @@ export const Default = ({ parameters }) => {
   const { disabled, href } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      ${disabled ? Error20({ slot: 'footer' }) : ArrowRight20({ slot: 'footer' })}
+      <p>Explore AI use cases in all industries</p>
+      <dds-card-footer ?disabled=${disabled}>
+        ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
     </dds-card-link>
   `;
 };
@@ -30,9 +33,12 @@ export default {
   title: 'Components/Card Link',
   decorators: [
     story => html`
-      <div class="bx--grid bx--grid--condensed">
+      <style>
+        ${styles}
+      </style>
+      <div class="bx--grid bx--grid--condensed" style="width: 100%">
         <div class="bx--row">
-          <div class="bx--col-lg-9">
+          <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 bx--offset-lg-4">
             ${story()}
           </div>
         </div>

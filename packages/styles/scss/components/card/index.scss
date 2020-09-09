@@ -13,7 +13,8 @@
 
 @mixin card {
   .#{$prefix}--card,
-  :host(#{$dds-prefix}-card) {
+  :host(#{$dds-prefix}-card),
+  :host(#{$dds-prefix}-card-cta) {
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
@@ -53,48 +54,6 @@
 
       margin-bottom: $carbon--spacing-03;
       color: $text-02;
-    }
-    ::slotted(svg[slot='footer']),
-    .#{$prefix}--card__cta,
-    .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited {
-      color: $interactive-04;
-    }
-
-    .#{$prefix}--card__cta__copy {
-      margin-right: $carbon--spacing-03;
-      color: $interactive-04;
-      @include carbon--type-style('body-short-02');
-    }
-
-    .#{$prefix}--card__footer,
-    :host(#{$dds-prefix}-feature-card-footer) {
-      display: flex;
-      margin-top: auto;
-
-      .#{$prefix}--card__footer__copy {
-        margin-bottom: -$carbon--spacing-01;
-      }
-
-      svg {
-        fill: currentColor;
-        display: block;
-        align-self: center;
-        min-width: 20px;
-      }
-    }
-
-    .#{$prefix}--card__footer__icon-left {
-      justify-content: flex-end;
-      flex-direction: row-reverse;
-
-      .#{$prefix}--card__cta {
-        margin-right: $carbon--spacing-03;
-      }
-
-      .#{$prefix}--card__cta__copy {
-        margin-right: 0;
-      }
     }
 
     .#{$prefix}--card:focus,
@@ -146,6 +105,73 @@
     }
   }
 
+  .#{$prefix}--card .#{$prefix}--card__cta,
+  .#{$prefix}--card .#{$prefix}--card__cta a,
+  .#{$prefix}--card .#{$prefix}--card__cta a:visited,
+  :host(#{$dds-prefix}-card-footer)
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$dds-prefix}-card-cta-footer)
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
+    color: $interactive-04;
+  }
+
+  :host(#{$dds-prefix}-card-footer[disabled])
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
+    color: $disabled-02;
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer,
+  :host(#{$dds-prefix}-card-footer),
+  :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-feature-card-footer),
+  :host(#{$dds-prefix}-feature-cta-footer) {
+    margin-top: auto; /* Moves the footer down to the bottom in the card */
+
+    .#{$prefix}--card__cta__copy {
+      margin-right: $carbon--spacing-03;
+      color: $interactive-04;
+      @include carbon--type-style('body-short-02');
+    }
+
+    .#{$prefix}--card__footer__copy {
+      margin-bottom: -$carbon--spacing-01;
+    }
+
+    svg,
+    ::slotted(svg[slot='icon']) {
+      display: block;
+      min-width: 20px;
+    }
+
+    .#{$prefix}--card__footer__icon-left {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+
+      svg.#{$prefix}--card__cta,
+      ::slotted(svg[slot='icon']) {
+        margin-right: $carbon--spacing-03;
+      }
+
+      .#{$prefix}--card__cta__copy {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer,
+  .#{$dds-prefix}-ce--card__footer {
+    display: flex;
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer svg,
+  .#{$dds-prefix}-ce--card__footer ::slotted(svg[slot='icon']) {
+    fill: currentColor;
+    align-self: center;
+  }
+
   .#{$prefix}--card--inverse,
   :host(#{$dds-prefix}-card)[color-scheme='inverse'] {
     background-color: $inverse-02;
@@ -162,13 +188,26 @@
     &:hover {
       background-color: $inverse-hover-ui;
     }
+  }
 
-    .#{$prefix}--card__cta,
-    .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited,
-    .#{$prefix}--card__cta__copy {
-      color: $inverse-link;
-    }
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta,
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta a,
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta a:visited,
+  .#{$prefix}--card--inverse
+    .#{$prefix}--card__footer
+    .#{$prefix}--card__cta__copy,
+  :host(#{$dds-prefix}-card-footer[color-scheme='inverse'])
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$dds-prefix}-card-footer[color-scheme='inverse'])
+    .#{$prefix}--card__cta__copy,
+  :host(#{$dds-prefix}-feature-card-footer)
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$dds-prefix}-feature-cta-footer)
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
+    color: $inverse-link;
   }
 }
 
