@@ -8,6 +8,7 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
 @import 'carbon-components/scss/globals/scss/vars';
+@import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/link/link';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
@@ -34,6 +35,10 @@
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
   display: block;
+}
+
+:host(#{$dds-prefix}-footer-nav-group[open]) {
+  @extend .#{$prefix}--accordion__item--active;
 }
 
 :host(#{$dds-prefix}-footer-nav-item),

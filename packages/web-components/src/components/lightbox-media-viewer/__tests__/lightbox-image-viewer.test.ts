@@ -9,41 +9,40 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import '../lightbox-video-player';
+import '../lightbox-image-viewer';
 
 const template = (props?) => {
-  const { description, duration, formatCaption, formatDuration, hideCaption, name } = props ?? {};
+  const { alt, defaultSrc, description, title } = props ?? {};
   return html`
-    <dds-lightbox-video-player
+    <dds-lightbox-image-viewer
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
       description="${ifNonNull(description)}"
-      duration="${ifNonNull(duration)}"
-      ?hide-caption="${hideCaption}"
-      name="${ifNonNull(name)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
+      title="${ifNonNull(title)}"
     >
-    </dds-lightbox-video-player>
+    </dds-lightbox-image-viewer>
   `;
 };
 
-describe('dds-lightbox-video-player', function() {
+describe('dds-lightbox-image-viewer', function() {
   it('should render with minimum attributes', async function() {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
   });
 
   it('should render with various attributes', async function() {
     render(
       template({
-        description: 'video-description-foo',
-        duration: 30,
-        name: 'video-name-foo',
+        alt: 'image-alt-foo',
+        defaultSrc: 'https://example.com/image',
+        description: 'image-description-foo',
+        title: 'image-title-foo',
       }),
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot({ mode: 'shadow' });
+    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot({ mode: 'shadow' });
   });
 
   afterEach(function() {
