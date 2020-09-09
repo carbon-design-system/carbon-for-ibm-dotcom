@@ -29,7 +29,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-cta-footer`)
 class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
-
   protected _renderContent() {
     const { type, _hasCopy: hasCopy } = this;
     if (type !== CTA_TYPE.VIDEO) {
