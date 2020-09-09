@@ -15,6 +15,16 @@ export enum CTA_STYLE {
    * Text CTA that uses `<dds-link-with-icon>`.
    */
   TEXT = 'text',
+
+  /**
+   * Card CTA that uses `<dds-card-link>`.
+   */
+  CARD = 'card',
+
+  /**
+   * Feature CTA that uses `<dds-feature-card>`.
+   */
+  FEATURE = 'feature',
 }
 
 /**
