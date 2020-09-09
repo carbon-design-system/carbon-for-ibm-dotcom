@@ -6,5 +6,15 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/card/index';
-@import '@carbon/ibmdotcom-styles/scss/components/feature-card/feature-card';
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
+
+:host(#{$dds-prefix}-card-footer),
+:host(#{$dds-prefix}-card-cta-footer) {
+  .#{$dds-prefix}-ce--card__footer--static {
+    color: $link-01;
+  }
+
+  &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
+    color: $inverse-link;
+  }
+}

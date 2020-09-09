@@ -17,13 +17,14 @@ import '../lightbox-video-player-composite';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { embeddedVideos, formatCaption, hideCaption, videoId, videoData } = props ?? {};
+  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData } = props ?? {};
   return html`
     <dds-lightbox-video-player-composite
       ?hide-caption="${hideCaption}"
       video-id="${ifNonNull(videoId)}"
       .embeddedVideos="${ifNonNull(embeddedVideos)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
       .videoData="${ifNonNull(videoData)}"
     >
     </dds-lightbox-video-player-composite>
@@ -33,7 +34,8 @@ const template = (props?) => {
 describe('dds-lightbox-video-player-composite', function() {
   it('should send props to video player', async function() {
     const formatCaption = () => {};
-    render(template({ formatCaption, hideCaption: true, videoId: 'video-id-foo' }), document.body);
+    const formatDuration = () => {};
+    render(template({ formatCaption, formatDuration, hideCaption: true, videoId: 'video-id-foo' }), document.body);
     await Promise.resolve(); // Micro-task cycle for `VideoPlayer`
     await Promise.resolve(); // Update cycle to render with `VideoPlayer` results
     const videoPlayerComposite = document.querySelector('dds-lightbox-video-player-composite') as DDSLightboxVideoPlayerComposite;
@@ -41,6 +43,7 @@ describe('dds-lightbox-video-player-composite', function() {
       'dds-lightbox-video-player'
     ) as DDSLightboxVideoPlayer;
     expect(videoPlayer.formatCaption).toBe(formatCaption);
+    expect(videoPlayer.formatDuration).toBe(formatDuration);
     expect(videoPlayer.hideCaption).toBe(true);
   });
 
