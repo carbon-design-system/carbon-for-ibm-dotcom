@@ -54,11 +54,11 @@
           padding-right: $carbon--spacing-05;
         }
 
-        &__locales-hidden {
-          display: none;
-        }
-
         @include carbon--type-style(body-short-02, true);
+      }
+
+      .#{$prefix}--locale-modal__locales-hidden {
+        display: none;
       }
 
       button.#{$prefix}--modal-header__label,
@@ -66,7 +66,6 @@
         padding: 0;
         border: none;
         background-color: transparent;
-        outline: none;
 
         &:hover {
           cursor: pointer;
@@ -102,26 +101,30 @@
       .#{$prefix}--modal-header {
         padding-left: $carbon--spacing-07;
         padding-top: $carbon--spacing-05;
+      }
 
-        &__label {
-          margin-bottom: $carbon--spacing-04;
-          color: $text-01;
-          display: flex;
-          align-items: center;
+      .#{$prefix}--modal-header__label {
+        margin-bottom: $carbon--spacing-04;
+        color: $text-01;
+        display: flex;
+        align-items: center;
 
-          .#{$prefix}--locale-modal__label-globe {
-            margin-left: $spacing-02;
-          }
-          .#{$prefix}--locale-modal__label-arrow {
-            margin-right: $carbon--spacing-03;
-          }
-
-          @include use-carbon-productive-tokens();
-          @include carbon--type-style(body-short-01, true);
+        .#{$prefix}--locale-modal__label-globe {
+          margin-left: $spacing-02;
+        }
+        .#{$prefix}--locale-modal__label-arrow {
+          margin-right: $carbon--spacing-03;
         }
 
-        &__heading {
-          @include carbon--type-style(expressive-heading-04, true);
+        @include use-carbon-productive-tokens();
+        @include carbon--type-style(body-short-01, true);
+      }
+
+      .#{$prefix}--modal-header__heading {
+        @include carbon--type-style(expressive-heading-04, true);
+
+        &:focus {
+          outline: none;
         }
       }
     }
@@ -224,7 +227,6 @@
     visibility: hidden;
     z-index: -1;
     opacity: 0;
-    // height: 0;
     display: none;
     transition: 240ms cubic-bezier(0, 0, 0.3, 1);
   }

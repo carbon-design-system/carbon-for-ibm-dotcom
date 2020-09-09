@@ -7,6 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { html } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -15,12 +17,13 @@ import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import { CTA_TYPE } from '../shared-enums';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Icons to use, keyed by CTA style.
  */
-const icons = {
+export const icons = {
   [CTA_TYPE.LOCAL]: ArrowRight20,
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
@@ -100,7 +103,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     _renderIcon() {
       const { type } = this;
-      return icons[type]?.({ class: `${ddsPrefix}-ce--cta__icon` });
+      return html`
+        <slot name="icon">${icons[type]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}</slot>
+      `;
     }
 
     /**
@@ -115,10 +120,18 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         // eslint-disable-next-line no-console
         console.warn(`\`download\` property used with a CTA data item besides \`type: download\` (\`type: ${type}\`).`);
       }
-      // If this CTA is of video, uses the link as the action button
-      linkNode!.href = type !== CTA_TYPE.VIDEO ? href! : '#';
-      // If this CTA is of an external link, defaults the target to `_blank`
-      linkNode!.target = type !== CTA_TYPE.EXTERNAL ? target : target || '_blank';
+      // TODO: See why `linkNode` can possibly be `null`
+      if (linkNode) {
+        // If this CTA is of video, uses the link as the action button
+        linkNode.href = type !== CTA_TYPE.VIDEO ? href! : '#';
+        // If this CTA is of an external link, defaults the target to `_blank`
+        const targetInEffect = target || type !== CTA_TYPE.EXTERNAL ? undefined : '_blank';
+        if (!targetInEffect) {
+          linkNode.removeAttribute('target');
+        } else {
+          linkNode.setAttribute('target', targetInEffect);
+        }
+      }
     }
 
     /**
