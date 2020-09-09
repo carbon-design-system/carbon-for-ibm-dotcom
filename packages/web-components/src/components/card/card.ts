@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
@@ -24,10 +24,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const slotExistencePropertyNames = {
   eyebrow: '_hasEyebrow',
   heading: '_hasHeading',
+  image: '_hasImage',
 };
 
 /**
  * Card.
+ *
  * @element dds-card
  */
 @customElement(`${ddsPrefix}-card`)
@@ -35,22 +37,27 @@ class DDSCard extends DDSLink {
   /**
    * `true` if there is eyebrow content.
    */
-  private _hasEyebrow;
+  protected _hasEyebrow;
 
   /**
    * `true` if there is heading content.
    */
-  private _hasHeading;
+  protected _hasHeading;
+
+  /**
+   * `true` if there is image content.
+   */
+  protected _hasImage;
 
   /**
    * `true` if there is copy content.
    */
-  private _hasCopy;
+  protected _hasCopy;
 
   /**
    * Handles `slotchange` event.
    */
-  private _handleSlotChange({ target }: Event) {
+  protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
@@ -60,12 +67,32 @@ class DDSCard extends DDSLink {
   }
 
   /**
+   * @returns The copy content.
+   */
+  protected _renderCopy(): TemplateResult | string | void {
+    const { _hasCopy: hasCopy } = this;
+    return html`
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy"><slot @slotchange="${this._handleSlotChange}"></slot></div>
+    `;
+  }
+
+  /**
+   * @returns The copy content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderImage(): TemplateResult | string | void {
+    return html`
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+    `;
+  }
+
+  /**
    * @returns The inner content.
    */
-  _renderInner() {
-    const { _hasEyebrow: hasEyebrow, _hasHeading: hasHeading, _hasCopy: hasCopy, _handleSlotChange: handleSlotChange } = this;
+  protected _renderInner() {
+    const { _hasEyebrow: hasEyebrow, _hasHeading: hasHeading, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <slot name="image"></slot>
+      ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
         <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
           <slot name="eyebrow" @slotchange="${handleSlotChange}" />
@@ -73,7 +100,7 @@ class DDSCard extends DDSLink {
         <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
           <slot name="heading" @slotchange="${handleSlotChange}" />
         </h3>
-        <div ?hidden="${!hasCopy}" class="${prefix}--card__copy"><slot @slotchange="${handleSlotChange}"></slot></div>
+        ${this._renderCopy()}
         <slot name="footer" />
       </div>
     `;
