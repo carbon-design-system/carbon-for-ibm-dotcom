@@ -83,24 +83,13 @@ class DDSCardFooter extends DDSLinkWithIcon {
   @property({ reflect: true })
   slot = 'footer';
 
-  protected _renderInner() {
-    const { _shouldUseParentLink: shouldUseParentLink } = this;
-    return !shouldUseParentLink
-      ? html`
-          <span><slot></slot></span><slot name="icon"></slot>
-        `
-      : html`
-          <slot name="icon"></slot><span><slot></slot></span>
-        `;
-  }
-
   updated() {
     super.updated();
     const { _staticNode: staticNode, _linkNode: linkNode, _shouldUseParentLink: shouldUseParentLink } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
-    targetNode!.classList.toggle(`${ddsPrefix}-ce--card__footer--with-link-used`, !shouldUseParentLink);
+    targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, shouldUseParentLink);
   }
 
   render() {
