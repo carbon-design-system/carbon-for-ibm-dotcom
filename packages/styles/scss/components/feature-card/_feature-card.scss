@@ -13,7 +13,8 @@
 
 @mixin feature-card {
   .#{$prefix}--feature-card,
-  :host(#{$dds-prefix}-feature-card) {
+  :host(#{$dds-prefix}-feature-card),
+  :host(#{$dds-prefix}-feature-cta) {
     padding-top: aspect-ratio(1, 1);
     position: relative;
     @include carbon--breakpoint('md') {

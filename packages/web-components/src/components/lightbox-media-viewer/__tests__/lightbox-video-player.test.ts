@@ -12,7 +12,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import '../lightbox-video-player';
 
 const template = (props?) => {
-  const { description, duration, formatCaption, hideCaption, name } = props ?? {};
+  const { description, duration, formatCaption, formatDuration, hideCaption, name } = props ?? {};
   return html`
     <dds-lightbox-video-player
       description="${ifNonNull(description)}"
@@ -20,6 +20,7 @@ const template = (props?) => {
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
     >
     </dds-lightbox-video-player>
   `;
