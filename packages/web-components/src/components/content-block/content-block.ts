@@ -41,8 +41,11 @@ export enum CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME {
   WITH_BORDER = 'with-border',
 }
 
+// TODO: Figure out how to define a mixin type supporting abstract class
 /**
  * Content block.
+ *
+ * @abstract
  */
 class DDSContentBlock extends LitElement {
   /**
