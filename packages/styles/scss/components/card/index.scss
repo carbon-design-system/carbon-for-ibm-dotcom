@@ -108,6 +108,7 @@
   .#{$prefix}--card .#{$prefix}--card__cta,
   .#{$prefix}--card .#{$prefix}--card__cta a,
   .#{$prefix}--card .#{$prefix}--card__cta a:visited,
+
   :host(#{$dds-prefix}-card-footer)
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
