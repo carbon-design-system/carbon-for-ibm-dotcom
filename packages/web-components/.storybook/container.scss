@@ -46,3 +46,17 @@ body {
   align-items: center;
   position: relative;
 }
+
+.dds-ce-demo-devenv--container--has-grid {
+  align-items: stretch;
+}
+
+.dds-ce-demo-devenv--grid--card {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.dds-ce-demo-devenv--grid-row {
+  flex-direction: column;
+  align-items: center;
+}

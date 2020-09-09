@@ -39,7 +39,7 @@
 
 ```
 <a
-  class="bx--card bx--card--inverse bx--card--link bx--feature-card bx--link bx--tile bx--tile--clickable"
+  class="bx--card bx--card--inverse bx--card--link bx--feature-card bx--tile bx--tile--clickable"
   href="https://example.com"
   id="link"
 >

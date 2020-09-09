@@ -10,6 +10,7 @@ export * from './calculateTotalWidth';
 export * from './decodeString';
 export * from './escaperegexp';
 export * from './featureflag';
+export * from './formatVideoCaption';
 export * from './geolocation';
 export * from './ipcinfoCookie';
 export * from './markdownToHtml';

@@ -12,7 +12,8 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon,
-  :host(#{$dds-prefix}-link-with-icon) {
+  :host(#{$dds-prefix}-link-with-icon),
+  :host(#{$dds-prefix}-text-cta) {
     display: flex;
 
     span {
