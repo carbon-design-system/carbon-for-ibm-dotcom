@@ -26,7 +26,7 @@ export const Default = ({ parameters }) => {
         ? html`
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
-        : html``}
+        : ``}
       <slot slot="eyebrow">${eyebrow}</slot>
       <slot slot="heading">${heading}</slot>
       ${copy
