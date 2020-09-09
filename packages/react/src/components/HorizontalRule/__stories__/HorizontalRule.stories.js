@@ -10,7 +10,7 @@ import HorizontalRule from '../HorizontalRule';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-const styles = {
+const types = {
   solid: undefined,
   dashed: 'dashed',
 };
@@ -40,15 +40,15 @@ export default {
     ...readme.parameters,
     knobs: {
       HorizontalRule: ({ groupId }) => ({
-        style: select('style', styles, styles.solid, groupId),
-        size: select('size', sizes, sizes.fluid, groupId),
+        type: select('type (type)', types, types.solid, groupId),
+        size: select('size (size)', sizes, sizes.fluid, groupId),
         contrast: select(
-          'contrast',
+          'contrast (contrast)',
           contrasts,
           contrasts['medium-contrast'],
           groupId
         ),
-        weight: select('weight', weights, weights.thin),
+        weight: select('weight (weight)', weights, weights.thin, groupId),
       }),
       Other: ({ groupId }) => ({
         words: text(
@@ -62,42 +62,44 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { style, size, contrast, weight } =
+  const { type, size, contrast, weight } =
     parameters?.props?.HorizontalRule ?? {};
   const { words } = parameters?.props?.Other ?? {};
 
   return (
     <div>
-      <h1>
-        <b>Grid with no Gutter</b>
-      </h1>
-      <div className="bx--grid" style={{ marginBottom: '50px' }}>
-        <div className="bx--row bx--no-gutter">
+      <h3>
+        <b>Horizontal Rule in Grid with no Gutter</b>
+      </h3>
+      <div className="bx--grid bx--no-gutter" style={{ marginBottom: '50px' }}>
+        <div className="bx--row">
           <div className="bx--col">
+            {words}
             <HorizontalRule
-              style={style}
+              type={type}
               size={size}
               contrast={contrast}
               weight={weight}
             />
+            {words}
           </div>
         </div>
       </div>
 
-      <h1>
-        <b>Grid with Gutter</b>
-      </h1>
-      <div className="bx--grid bx--grid--full-width">
+      <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col">
-            <h4>{words}</h4>
+            <h3>
+              <b>Horizontal Rule in Grid with Gutter</b>
+            </h3>
+            {words}
             <HorizontalRule
-              style={style}
+              type={type}
               size={size}
               contrast={contrast}
               weight={weight}
             />
-            <h4>{words}</h4>
+            {words}
           </div>
         </div>
       </div>
