@@ -52,6 +52,7 @@ const SideNavMenuWithBackForward = ({
   return (
     <SideNavMenu
       autoid={rest.autoid}
+      selected={rest.selected}
       title={title}
       onToggle={handleToggle}
       ref={refSideNavMenu}>

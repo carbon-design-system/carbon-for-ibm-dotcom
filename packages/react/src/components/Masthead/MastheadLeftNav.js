@@ -47,6 +47,7 @@ const MastheadLeftNav = ({
               backButtonText={backButtonText}
               key={i}
               autoid={autoid}
+              selected={rest.selectedMenuItem === link.titleEnglish}
               navType={rest.navType}>
               {renderNavSections(
                 link.menuSections,
@@ -75,6 +76,7 @@ const MastheadLeftNav = ({
           backButtonText={backButtonText}
           key={i}
           autoid={autoid}
+          selected={rest.selectedMenuItem === link.titleEnglish}
           navType={rest.navType}>
           {renderNavSections(
             link.menuSections,
@@ -90,6 +92,10 @@ const MastheadLeftNav = ({
           <>
             <SideNavLink
               href={link.url}
+              className={
+                rest.selected &&
+                `${prefix}--masthead__side-nav--submemu--selected`
+              }
               data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
               key={i}>
               {link.title}
@@ -111,6 +117,9 @@ const MastheadLeftNav = ({
       return (
         <SideNavLink
           href={link.url}
+          className={
+            rest.selected && `${prefix}--masthead__side-nav--submemu--selected`
+          }
           data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
           key={i}>
           {link.title}
