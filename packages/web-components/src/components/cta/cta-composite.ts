@@ -18,7 +18,7 @@ import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/V
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';

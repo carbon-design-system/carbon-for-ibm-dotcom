@@ -15,7 +15,7 @@ import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
-} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption';
+} from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSFeatureCard from '../feature-card/feature-card';
 import CTAMixin from './mixins/cta';
 import DDSFeatureCTAFooter from './feature-cta-footer';

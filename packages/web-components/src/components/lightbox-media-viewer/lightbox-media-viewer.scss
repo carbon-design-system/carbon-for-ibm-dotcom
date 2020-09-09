@@ -9,13 +9,10 @@
 @import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
 @import '../modal/modal';
 
-:host(#{$dds-prefix}-lightbox-media-viewer-body) {
+:host(#{$dds-prefix}-lightbox-image-viewer),
+:host(#{$dds-prefix}-lightbox-video-player) {
   @extend :host(#{$dds-prefix}-modal-body);
   @extend .#{$prefix}--lightbox-media-viewer;
-}
-
-:host(#{$dds-prefix}-lightbox-video-player) {
-  @extend .#{$prefix}--lightbox-media-viewer__container;
 }
 
 :host(#{$dds-prefix}-lightbox-video-player) .#{$prefix}--video-player {

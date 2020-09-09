@@ -8,7 +8,7 @@
  */
 
 import { html, internalProperty, property, query, customElement } from 'lit-element';
-import { breakpoints } from '@carbon/layout/es';
+import { breakpoints } from '@carbon/layout/es/index.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import on from 'carbon-components/es/globals/js/misc/on';
