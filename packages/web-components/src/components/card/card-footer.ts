@@ -33,7 +33,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * `true` if there is copy content.
    */
-  protected _hasCopy;
+  protected _hasCopy = false;
 
   /**
    * `true` if the link of parent `<dds-card>` should be used.
