@@ -16,13 +16,14 @@ import '../video-player';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, videoId } = props ?? {};
+  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId } = props ?? {};
   return html`
     <dds-video-player
       content-state="${ifNonNull(contentState)}"
       duration="${ifNonNull(duration)}"
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
+      thumbnail-url="${ifNonNull(thumbnailUrl)}"
       video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
@@ -33,7 +34,12 @@ const template = (props?) => {
 
 describe('dds-video-player', function() {
   it('should render with minimum attributes', async function() {
-    render(template(), document.body);
+    render(
+      template({
+        thumbnailUrl: 'about:blank',
+      }),
+      document.body
+    );
     await Promise.resolve();
     expect(document.querySelector('dds-video-player')).toMatchSnapshot({ mode: 'shadow' });
   });

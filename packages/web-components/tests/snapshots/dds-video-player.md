@@ -8,7 +8,7 @@
     <button class="bx--video-player__image-overlay">
       <dds-image
         alt=""
-        default-src="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E"
+        default-src="about:blank"
       >
       </dds-image>
     </button>
