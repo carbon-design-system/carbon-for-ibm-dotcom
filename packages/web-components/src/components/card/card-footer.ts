@@ -68,16 +68,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
   }
 
   /**
-   * @returns The main content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
-    return html`
-      <span class="${prefix}--card__cta__copy"><slot></slot></span>
-    `;
-  }
-
-  /**
    * The color scheme.
    */
   @property({ attribute: 'color-scheme', reflect: true })
