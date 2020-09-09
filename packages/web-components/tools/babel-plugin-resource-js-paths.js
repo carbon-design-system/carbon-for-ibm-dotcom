@@ -9,7 +9,7 @@
 
 'use strict';
 
-const { dirname, relative, resolve } = require('path');
+const { dirname, extname, relative, resolve } = require('path');
 const replaceExtension = require('replace-ext');
 
 module.exports = function resourceJSPaths(babel) {
@@ -29,6 +29,10 @@ module.exports = function resourceJSPaths(babel) {
           const iconsDir = relative(dirname(filenameES), resolve(__dirname, '../es/icons'));
           const declaration = t.cloneNode(node);
           declaration.source.value = replaceExtension(source.replace(/^@carbon\/ibmdotcom-styles\/icons\/svg/i, iconsDir), '');
+          path.replaceWith(declaration);
+        } else if (/^\./.test(source) && !extname(source)) {
+          const declaration = t.cloneNode(node);
+          declaration.source.value = `${source}.js`;
           path.replaceWith(declaration);
         }
       },

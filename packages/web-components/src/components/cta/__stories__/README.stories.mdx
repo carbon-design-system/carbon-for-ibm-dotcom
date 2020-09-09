@@ -1,6 +1,8 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import '../text-cta';
+import '../card-cta';
+import '../feature-cta';
 
 # CTA
 
@@ -13,6 +15,12 @@ import '../text-cta';
 ## `<dds-text-cta>`
 
 `<dds-text-cta>` is the most basic version of CTA, presented as a simple link.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/text)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/text)
 
 ### JS
 
@@ -40,9 +48,85 @@ or with [JSPM](https://jspm.org)
 
 <Props of="dds-text-cta" />
 
+## `<dds-card-cta>`
+
+`<dds-card-cta>` is a version of CTA presented as a card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/card)
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/cta/card-cta.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-card-cta href="https://www.ibm.com/" type="local">
+  Copy text
+</dds-card-cta>
+```
+
+### Props
+
+<Props of="dds-card-cta" />
+
+## `<dds-feature-cta>`
+
+`<dds-feature-cta>` is a version of CTA presented as a feature card.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/feature)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/feature)
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/feature-cta';
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/cta/feature-cta.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-feature-cta href="https://www.ibm.com/" type="local">
+  Copy text
+  <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&text=1x1">
+  </dds-image>
+</dds-feature-cta>
+```
+
+### Props
+
+<Props of="dds-feature-cta" />
+
 ## `<dds-cta-container>` and loading a video player
 
-The `<dds-cta-container>` component lets you integrate `<dds-text-cta>` with video player quickly. `<dds-cta-container>` automatically renders `<dds-text-cta>`:
+The `<dds-cta-container>` component lets you integrate `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>` with video player quickly. `<dds-cta-container>` automatically renders `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/cta/cta-container';
@@ -72,7 +156,6 @@ import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
 import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer-body';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 ...
@@ -86,9 +169,7 @@ document.addEventListener('dds-cta-run-action', async event => {
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
       <bx-modal-close-button></bx-modal-close-button>
-      <dds-lightbox-media-viewer-body>
-        <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
-      </dds-lightbox-media-viewer-body>
+      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');

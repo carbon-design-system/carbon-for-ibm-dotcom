@@ -1,0 +1,35 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
+    </script>
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      body > * {
+        width: 37.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <dds-card-cta href="https://www.ibm.com/" type="local">
+      Copy text
+    </dds-card-cta>
+  </body>
+</html>

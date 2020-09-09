@@ -16,7 +16,7 @@ import '../video-player';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { contentState, duration, formatCaption, hideCaption, name, videoId } = props ?? {};
+  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, videoId } = props ?? {};
   return html`
     <dds-video-player
       content-state="${ifNonNull(contentState)}"
@@ -25,6 +25,7 @@ const template = (props?) => {
       name="${ifNonNull(name)}"
       video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
     >
     </dds-video-player>
   `;
@@ -62,31 +63,22 @@ describe('dds-video-player', function() {
     expect(document.querySelector('dds-video-player')!.shadowRoot!.querySelector('.bx--video-player__video-caption')).toBeNull();
   });
 
-  it('should support zero-fill in formatting caption', async function() {
-    render(
-      template({
-        duration: 65,
-        name: 'video-name-foo',
-      }),
-      document.body
-    );
-    await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo (1:05)');
-  });
-
-  it('should support custom duration formatter for localization', async function() {
+  it('should support custom caption/duration formatter for localization', async function() {
     render(
       template({
         duration: 60,
         name: 'video-name-foo',
-        formatCaption({ duration, name }: { duration?: number; name: string }) {
+        formatCaption({ duration, name }: { duration?: string; name: string }) {
           return `${name}-${duration}`;
+        },
+        formatDuration({ duration }: { duration?: number }) {
+          return `${duration! / 60000}`;
         },
       }),
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-60');
+    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-1');
   });
 
   afterEach(function() {
