@@ -47,11 +47,13 @@ class DDSCardFooter extends DDSLinkWithIcon {
    * Handles `slotchange` event on the default `<slot>`.
    */
   protected _handleSlotChange({ target }: Event) {
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this._hasCopy = hasContent;
-    this.requestUpdate();
+    if (!(target as HTMLSlotElement).name) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this._hasCopy = hasContent;
+      this.requestUpdate();
+    }
   }
 
   /**
