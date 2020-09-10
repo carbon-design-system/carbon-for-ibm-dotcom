@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import {
@@ -29,23 +29,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-cta-footer`)
 class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
-  /**
-   * `true` if there is a non-empty default slot content.
-   */
-  @internalProperty()
-  protected _hasContent = false;
-
-  /**
-   * Handles `slotchange` event on the default `<slot>`.
-   */
-  protected _handleSlotChange({ target }: { target: HTMLSlotElement }) {
-    this._hasContent = target
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.COMMENT_NODE && (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim()));
-  }
-
   protected _renderContent() {
-    const { type, _hasContent: hasContent } = this;
+    const { type, _hasCopy: hasCopy } = this;
     if (type !== CTA_TYPE.VIDEO) {
       return super._renderContent();
     }
@@ -54,7 +39,7 @@ class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
       formatVideoCaption: formatVideoCaptionInEffect,
       formatVideoDuration: formatVideoDurationInEffect,
     } = this;
-    const caption = hasContent
+    const caption = hasCopy
       ? undefined
       : formatVideoCaptionInEffect({
           duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),

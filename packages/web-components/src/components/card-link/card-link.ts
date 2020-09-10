@@ -34,7 +34,6 @@ class DDSCardLink extends DDSCard {
     const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--card__CTA`);
-      linkNode.classList.add(`${prefix}--card-link`);
       if (changedProperties.has('disabled')) {
         const { disabled } = this;
         linkNode.classList.toggle(`${prefix}--card__CTA--disabled`, disabled);
