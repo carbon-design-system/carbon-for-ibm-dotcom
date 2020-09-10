@@ -8,7 +8,7 @@
  */
 
 import { html, customElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
@@ -30,6 +30,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     return html`
+      <slot name="icon-left"></slot>
       <span><slot></slot></span>
     `;
   }
