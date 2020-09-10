@@ -14,6 +14,7 @@
 @mixin card {
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
+  :host(#{$dds-prefix}-link-list-item-card),
   :host(#{$dds-prefix}-card-cta) {
     background-color: $ui-01;
     text-decoration: none;

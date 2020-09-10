@@ -1,0 +1,46 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
+@import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
+@import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
+
+:host(#{$dds-prefix}-link-list-item) {
+  display: block;
+
+  .#{$prefix}--link {
+    cursor: pointer;
+
+    > span {
+      flex: 1;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-link-list):last-of-type {
+  padding-bottom: $carbon--layout-05;
+}
+
+:host(#{$dds-prefix}-link-list) {
+  padding-bottom: 0;
+
+  .#{$dds-prefix}-ce--link-list__list--end {
+    display: flex;
+    flex-direction: column;
+
+    ::slotted(#{$dds-prefix}-link-list-item) {
+      padding: $carbon--layout-01;
+      border-top: 1px solid $ui-03;
+      border-bottom: 1px solid $ui-03;
+      margin-top: -1px;
+      margin-left: -$carbon--layout-01;
+    }
+  }
+}
