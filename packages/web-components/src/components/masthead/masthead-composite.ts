@@ -196,7 +196,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _loadTranslation?: () => Promise<Translation>;
+  _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
@@ -210,7 +210,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _setLanguage?: (string) => void;
+  _setLanguage?: (language: string) => void;
 
   /**
    * `true` to activate the search box.
@@ -308,13 +308,11 @@ class DDSMastheadComposite extends LitElement {
   }
 
   firstUpdated() {
-    const { language, navLinks } = this;
+    const { language } = this;
     if (language) {
       this._setLanguage?.(language);
     }
-    if (!navLinks) {
-      this._loadTranslation?.().catch(() => {}); // The error is logged in the Redux store
-    }
+    this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
     this._monitorUserStatus?.();
   }
 
@@ -323,6 +321,7 @@ class DDSMastheadComposite extends LitElement {
       const { language } = this;
       if (language) {
         this._setLanguage?.(language);
+        this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
   }

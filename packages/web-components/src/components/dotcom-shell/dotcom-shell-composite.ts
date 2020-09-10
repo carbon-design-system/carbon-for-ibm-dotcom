@@ -16,7 +16,6 @@ import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/p
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import { MastheadProfileItem } from '../masthead/masthead-composite';
-import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-container.scss';
 
@@ -62,14 +61,14 @@ class DDSDotcomShellComposite extends LitElement {
    *
    * @internal
    */
-  _loadLangDisplay?: () => Promise<string>;
+  _loadLangDisplay?: (language?: string) => Promise<string>;
 
   /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in. This goes to footer.
    *
    * @internal
    */
-  _loadLocaleList?: () => Promise<LocaleList>;
+  _loadLocaleList?: (language?: string) => Promise<LocaleList>;
 
   /**
    * The placeholder for `loadSearchResults()` Redux action that may be mixed in. This goes to masthead.
@@ -83,7 +82,7 @@ class DDSDotcomShellComposite extends LitElement {
    *
    * @internal
    */
-  _loadTranslation?: () => Promise<Translation>;
+  _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `monitorUserStatus()` Redux action that will be mixed in. This goes to masthead.
@@ -93,25 +92,11 @@ class DDSDotcomShellComposite extends LitElement {
   _monitorUserStatus?: () => void;
 
   /**
-   * The placeholder for `setLangDisplay()` Redux action that may be mixed in. This goes to footer.
-   *
-   * @internal
-   */
-  _setLangDisplay?: (string) => void;
-
-  /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in. This goes to masthead.
    *
    * @internal
    */
-  _setLanguage?: (string) => void;
-
-  /**
-   * The placeholder for `setLocaleList()` Redux action that may be mixed in. This goes to footer.
-   *
-   * @internal
-   */
-  _setLocaleList?: (string, LocaleList) => void;
+  _setLanguage?: (language: string) => void;
 
   /**
    * `true` to activate the search box. This goes to masthead.
@@ -191,7 +176,7 @@ class DDSDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
-  localeList?: LocaleModalLocaleList;
+  localeList?: LocaleList;
 
   /**
    * The nonce used for logging in. This goes to masthead.
@@ -296,10 +281,8 @@ class DDSDotcomShellComposite extends LitElement {
       navLinks,
       userStatus,
       _loadLangDisplay,
-      _setLangDisplay,
       _setLanguage,
       _loadLocaleList,
-      _setLocaleList,
       _loadTranslation,
       _monitorUserStatus,
       _loadSearchResults,
@@ -349,9 +332,7 @@ class DDSDotcomShellComposite extends LitElement {
           _loadLangDisplay,
           _loadLocaleList,
           _loadTranslation,
-          _setLangDisplay,
           _setLanguage,
-          _setLocaleList,
         },
         value => value !== undefined
       )

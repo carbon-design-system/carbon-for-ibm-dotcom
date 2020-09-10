@@ -150,24 +150,24 @@ export interface LocaleAPIState {
   errorRequestLanguage?: Error;
 
   /**
-   * The display language data.
+   * The display language data, keyed by the language.
    */
-  langDisplay?: string;
+  langDisplays?: { [language: string]: string };
 
   /**
-   * The request for the display language data.
+   * The request for the display language data, keyed by the language.
    */
-  requestLangDisplay?: Promise<string>;
+  requestsLangDisplay?: { [language: string]: Promise<string> };
 
   /**
-   * `true` if the request for the display language data is in progress.
+   * `true` if the request for the display language data is in progress, keyed by the language.
    */
-  requestLangDisplayInProgress?: boolean;
+  requestsLangDisplayInProgress?: { [language: string]: boolean };
 
   /**
-   * The error from the request for the display language data.
+   * The error from the request for the display language data, keyed by the language.
    */
-  errorRequestLangDisplay?: Error;
+  errorsRequestLangDisplay?: { [language: string]: Error };
 
   /**
    * The locale list data, keyed by the language.

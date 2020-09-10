@@ -87,11 +87,11 @@ export interface FooterContainerStateProps extends LocaleModalContainerStateProp
  */
 export function mapStateToProps(state: FooterContainerState): FooterContainerStateProps {
   const { localeAPI, translateAPI } = state;
-  const { langDisplay, language, localeLists } = localeAPI ?? {};
+  const { langDisplays, language, localeLists } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
   return pickBy(
     {
-      langDisplay,
+      langDisplay: !language ? undefined : langDisplays?.[language],
       localeList: !language ? undefined : localeLists?.[language],
       links: !language ? undefined : translations?.[language]?.footerMenu,
       legalLinks: !language ? undefined : translations?.[language]?.footerThin,

@@ -47,36 +47,42 @@ export function setLanguage(language: string) {
 }
 
 /**
+ * @param language A language.
  * @param request The promise of the REST call for display language data that is in progress.
  * @returns A Redux action to set the state that the REST call for display language data is in progress.
  * @private
  */
-export function setRequestLangDisplayInProgress(request: Promise<string>) {
+export function setRequestLangDisplayInProgress(language: string, request: Promise<string>) {
   return {
     type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
+    language,
     request,
   };
 }
 
 /**
+ * @param language A language.
  * @param error An error from the REST call for display language data.
  * @returns A Redux action to set the state that the REST call for display language data failed.
  * @private
  */
-export function setErrorRequestLangDisplay(error: Error) {
+export function setErrorRequestLangDisplay(language: string, error: Error) {
   return {
     type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
+    language,
     error,
   };
 }
 
 /**
+ * @param language A language.
  * @param langDisplay The display language data from the REST call.
  * @returns A Redux action to set the given display language data.
  */
-export function setLangDisplay(langDisplay: string) {
+export function setLangDisplay(language: string, langDisplay: string) {
   return {
     type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
+    language,
     langDisplay,
   };
 }
@@ -158,20 +164,29 @@ export function loadLanguage(): ThunkAction<Promise<string>, { localeAPI: Locale
 }
 
 /**
+ * @param language The language. If not given, the default language from DDO is used.
  * @returns A Redux action that sends a REST call for display language data.
  */
-export function loadLangDisplay(): ThunkAction<Promise<string>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
+export function loadLangDisplay(
+  language?: string
+): ThunkAction<Promise<string>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
   return async (dispatch, getState) => {
-    const { requestLangDisplay } = getState().localeAPI ?? {};
+    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage()));
+    const { requestsLangDisplay = {} } = getState().localeAPI ?? {};
+    const { [effectiveLanguage]: requestLangDisplay } = requestsLangDisplay;
     if (requestLangDisplay) {
       return requestLangDisplay;
     }
-    const promiseLangDisplay: Promise<string> = LocaleAPI.getLangDisplay();
-    dispatch(setRequestLangDisplayInProgress(promiseLangDisplay));
+    const [primary, country] = effectiveLanguage.split('-');
+    const promiseLangDisplay: Promise<string> = LocaleAPI.getLangDisplay({
+      cc: country.toLowerCase(),
+      lc: primary.toLowerCase(),
+    });
+    dispatch(setRequestLangDisplayInProgress(effectiveLanguage, promiseLangDisplay));
     try {
-      dispatch(setLangDisplay(await promiseLangDisplay));
+      dispatch(setLangDisplay(effectiveLanguage, await promiseLangDisplay));
     } catch (error) {
-      dispatch(setErrorRequestLangDisplay(error));
+      dispatch(setErrorRequestLangDisplay(effectiveLanguage, error));
       throw error;
     }
     return promiseLangDisplay;
@@ -179,27 +194,29 @@ export function loadLangDisplay(): ThunkAction<Promise<string>, { localeAPI: Loc
 }
 
 /**
+ * @param language The language. If not given, the default language from DDO is used.
  * @returns A Redux action that sends a REST call for locale list data.
  */
-export function loadLocaleList(): ThunkAction<Promise<LocaleList>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
+export function loadLocaleList(
+  language?: string
+): ThunkAction<Promise<LocaleList>, { localeAPI: LocaleAPIState }, void, LocaleAPIActions> {
   return async (dispatch, getState) => {
-    // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
-    const language: string = await dispatch(loadLanguage() as any);
+    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage()));
     const { requestsLocaleList = {} } = getState().localeAPI ?? {};
-    const { [language]: requestLocaleList } = requestsLocaleList;
+    const { [effectiveLanguage]: requestLocaleList } = requestsLocaleList;
     if (requestLocaleList) {
       return requestLocaleList;
     }
-    const [primary, country] = language.split('-');
+    const [primary, country] = effectiveLanguage.split('-');
     const promiseLocaleList: Promise<LocaleList> = LocaleAPI.getList({
       cc: country.toLowerCase(),
       lc: primary.toLowerCase(),
     });
-    dispatch(setRequestLocaleListInProgress(language, promiseLocaleList));
+    dispatch(setRequestLocaleListInProgress(effectiveLanguage, promiseLocaleList));
     try {
-      dispatch(setLocaleList(language, await promiseLocaleList));
+      dispatch(setLocaleList(effectiveLanguage, await promiseLocaleList));
     } catch (error) {
-      dispatch(setErrorRequestLocaleList(language, error));
+      dispatch(setErrorRequestLocaleList(effectiveLanguage, error));
     }
     return promiseLocaleList;
   };

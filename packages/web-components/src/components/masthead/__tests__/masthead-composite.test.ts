@@ -89,18 +89,6 @@ describe('dds-masthead-composite', function() {
     });
   });
 
-  describe('Handling nav links', function() {
-    it('should use the given nav links', async function() {
-      DDSMastheadComposite.prototype._loadTranslation = jasmine.createSpy();
-      render(template({ language: 'en-US', navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(DDSMastheadComposite.prototype._loadTranslation).not.toHaveBeenCalled();
-    });
-
-    afterEach(function() {
-      DDSMastheadComposite.prototype._loadTranslation = undefined;
-    });
-  });
   afterEach(async function() {
     await render(undefined!, document.body);
     events.reset();
