@@ -34,6 +34,7 @@ export const Default = ({ parameters }) => (
 Default.story = {
   parameters: {
     knobs: {
+      escapeHTML: false,
       Masthead: ({ groupId }) => {
         const useMockData = boolean('Use mock data', inPercy());
 
@@ -91,6 +92,11 @@ Default.story = {
             groupId
           ),
           mastheadL1Data,
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
         };
         return {
           ...standardProps,
@@ -107,7 +113,7 @@ export const SearchOpenByDefault = ({ parameters }) => (
 SearchOpenByDefault.story = {
   name: 'Search open by default',
   parameters: {
-    knobs: Default.story.parameters.knobs,
+    knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
 };
 
@@ -118,6 +124,7 @@ export const WithPlatform = ({ parameters }) => (
 WithPlatform.story = {
   parameters: {
     knobs: {
+      escapeHTML: false,
       Masthead: ({ groupId }) => {
         const useMockData = boolean('Use mock data', inPercy());
 
@@ -144,6 +151,11 @@ WithPlatform.story = {
           placeHolderText: text(
             'search placeholder (placeHolderText)',
             'Search all of IBM',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
             groupId
           ),
         };
