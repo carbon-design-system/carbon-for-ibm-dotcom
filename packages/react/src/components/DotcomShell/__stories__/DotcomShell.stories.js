@@ -26,6 +26,7 @@ export default {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
     knobs: {
+      escapeHTML: false,
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
@@ -69,6 +70,7 @@ SearchOpenByDefault.story = {
   name: 'Search open',
   parameters: {
     knobs: {
+      escapeHTML: false,
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
@@ -96,6 +98,7 @@ WithPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
+      escapeHTML: false,
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
@@ -126,6 +129,7 @@ ShortFooter.story = {
   name: 'With short footer',
   parameters: {
     knobs: {
+      escapeHTML: false,
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
@@ -151,6 +155,7 @@ MicroFooter.story = {
   name: 'With micro footer',
   parameters: {
     knobs: {
+      escapeHTML: false,
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,

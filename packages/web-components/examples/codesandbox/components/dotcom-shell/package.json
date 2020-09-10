@@ -15,7 +15,7 @@
     "lit-html": "^1.2.0"
   },
   "devDependencies": {
-    "snowpack": "^2.7.0",
+    "snowpack": "2.10.1",
     "snowpack-plugin-sass": "^1.0.0"
   }
 }

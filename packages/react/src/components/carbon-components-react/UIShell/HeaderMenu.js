@@ -62,6 +62,11 @@ class HeaderMenu extends React.Component {
      * function to toogle overlay that appears when opening menu
      */
     setOverlay: PropTypes.func,
+
+    /**
+     * sets the selected styles
+     */
+    selected: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -85,7 +90,8 @@ class HeaderMenu extends React.Component {
   /**
    * Toggle the expanded state of the menu on click.
    */
-  handleOnClick = () => {
+  handleOnClick = event => {
+    event.preventDefault();
     this.menuLinkRef.current.focus();
 
     this.setState(prevState => {
@@ -111,7 +117,7 @@ class HeaderMenu extends React.Component {
       event.stopPropagation();
       event.preventDefault();
 
-      this.handleOnClick();
+      this.handleOnClick(event);
 
       return;
     }
@@ -204,6 +210,7 @@ class HeaderMenu extends React.Component {
       renderMenuContent: MenuContent,
       menuLinkName,
       autoId,
+      selected,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -220,7 +227,10 @@ class HeaderMenu extends React.Component {
     // - href can be set to javascript:void(0), ideally this will be a button
     return (
       <li // eslint-disable-line jsx-a11y/mouse-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
-        className={className}
+        className={cx(className, {
+          [`${prefix}--masthead__l0-nav--selected`]:
+            selected && !this.state.expanded,
+        })}
         data-autoid={autoId}
         onKeyDown={this.handleMenuClose}
         onBlur={this.handleOnBlur}>
