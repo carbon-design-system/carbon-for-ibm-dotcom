@@ -22,7 +22,7 @@ const App = () => (
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-8">
         <h4>Dashed</h4>
-        <HorizontalRule style="dashed" />
+        <HorizontalRule type="dashed" />
       </div>
     </div>
   </div>

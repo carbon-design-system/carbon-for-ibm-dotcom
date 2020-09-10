@@ -181,7 +181,9 @@ export class SideNavMenu extends React.Component {
         <button
           aria-haspopup="true"
           aria-expanded={isExpanded}
-          className={`${prefix}--side-nav__submenu`}
+          className={cx(`${prefix}--side-nav__submenu`, {
+            [`${prefix}--masthead__side-nav--submemu--selected`]: rest.selected,
+          })}
           onClick={this.handleToggleExpand}
           ref={buttonRef}
           type="button">

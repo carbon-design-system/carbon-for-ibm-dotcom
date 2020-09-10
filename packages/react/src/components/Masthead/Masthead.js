@@ -47,6 +47,7 @@ const { prefix } = settings;
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
+ * @param {string} props.selectedMenuItem L0 menu item to render with selected state
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -57,6 +58,7 @@ const Masthead = ({
   placeHolderText,
   platform,
   mastheadL1Data,
+  selectedMenuItem,
   ...mastheadProps
 }) => {
   /**
@@ -281,6 +283,7 @@ const Masthead = ({
                     navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
+                    selectedMenuItem={selectedMenuItem}
                   />
                 )}
 
@@ -295,6 +298,7 @@ const Masthead = ({
                       platform={platform}
                       navigation={mastheadData}
                       navType={navType}
+                      selectedMenuItem={selectedMenuItem}
                     />
                   )}
                   {hasSearch && (
@@ -409,6 +413,11 @@ Masthead.propTypes = {
   }),
 
   /**
+   * L0 menu item to render with selected state. Needs to match `titleEnglish` field from nav data.
+   */
+  selectedMenuItem: PropTypes.string,
+
+  /**
    * Placeholder value for search input.
    */
   placeHolderText: PropTypes.string,
@@ -474,6 +483,7 @@ Masthead.defaultProps = {
   hasProfile: true,
   hasSearch: true,
   searchOpenOnload: false,
+  selectedMenuItem: '',
   platform: null,
   placeHolderText: 'Search all of IBM',
   mastheadL1Data: null,

@@ -16,11 +16,11 @@ const { prefix } = settings;
 /**
  * Horizontal Rule component.
  */
-const HorizontalRule = ({ style, size, contrast, weight }) => (
+const HorizontalRule = ({ type, size, contrast, weight }) => (
   <hr
     data-autoid={`${stablePrefix}--hr`}
     className={classnames(`${prefix}--hr`, {
-      [`${prefix}--hr--${style}`]: style,
+      [`${prefix}--hr--${type}`]: type,
       [`${prefix}--hr--${contrast}`]: contrast,
       [`${prefix}--hr--${size}`]: size,
       [`${prefix}--hr--${weight}`]: weight,
@@ -30,14 +30,14 @@ const HorizontalRule = ({ style, size, contrast, weight }) => (
 
 HorizontalRule.propTypes = {
   /**
-   * Style of the HR. Choose from:
+   * Type of HR. Choose from:
    *
    * | Name     | Description                                                                    |
    * | -------- | ------------------------------------------------------------------------------ |
-   * | `solid`  | Default style variant of the horizontal rule                                   |
-   * | `dashed` | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
+   * | `solid`  | Default type variant of the horizontal rule                                   |
+   * | `dashed` | Dashed/dotted type variant (type is applied in conjuction with `fluid` size) |
    */
-  style: PropTypes.oneOf(['solid', 'dashed']),
+  type: PropTypes.oneOf(['solid', 'dashed']),
 
   /**
    * Length of the HR. Choose from:
