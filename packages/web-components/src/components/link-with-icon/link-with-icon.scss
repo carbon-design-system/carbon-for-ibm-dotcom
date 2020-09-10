@@ -11,6 +11,7 @@
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-with-icon),
+:host(#{$dds-prefix}-link-list-item),
 :host(#{$dds-prefix}-text-cta) {
   // Enables expressive version of type/size/component tokens in this component
   @include use-carbon-expressive-tokens();
@@ -20,21 +21,5 @@
   }
   ::slotted(svg[slot='icon-left']) {
     margin-right: $carbon--spacing-03;
-  }
-}
-
-:host(#{$dds-prefix}-link-with-icon[style-scheme='link-list']) {
-  .#{$prefix}--link {
-    display: flex;
-    width: 100%;
-    cursor: pointer;
-    span {
-      padding-right: $carbon--spacing-03;
-    }
-
-    ::slotted(svg[slot='icon']) {
-      margin-right: 0;
-      margin-left: auto;
-    }
   }
 }

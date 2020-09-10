@@ -107,7 +107,7 @@ class DDSLinkList extends LitElement {
       case LINK_LIST_TYPE.VERTICAL:
         return `${prefix}--link-list__list--vertical`;
       case LINK_LIST_TYPE.END:
-        return `${prefix}--link-list__list--end`;
+        return `${ddsPrefix}-ce--link-list__list--end`;
       default:
         return `${prefix}--link-list__list--card`;
     }

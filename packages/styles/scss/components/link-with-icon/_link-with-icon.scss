@@ -13,6 +13,7 @@
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon,
   :host(#{$dds-prefix}-link-with-icon),
+  :host(#{$dds-prefix}-link-list-item),
   :host(#{$dds-prefix}-text-cta) {
     display: flex;
 
@@ -40,10 +41,6 @@
       }
     }
 
-    &:not(:first-of-type) {
-      margin-left: $carbon--spacing-07;
-    }
-
     &.#{$prefix}--link-with-icon__icon-left {
       justify-content: flex-end;
       flex-direction: row-reverse;
@@ -55,6 +52,14 @@
         margin-left: 0;
         margin-right: $carbon--spacing-03;
       }
+    }
+  }
+
+  .#{$prefix}--link-with-icon,
+  :host(#{$dds-prefix}-link-with-icon),
+  :host(#{$dds-prefix}-text-cta) {
+    &:not(:first-of-type) {
+      margin-left: $carbon--spacing-07;
     }
   }
 

@@ -11,26 +11,51 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list.js';
+      import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item-card.js';
+    </script>
     <style type="text/css">
       body {
         font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-      }
-
-      #app {
-        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem;
       }
     </style>
-    <script src="src/index.js"></script>
   </head>
   <body>
-    <h1>Hello World! 👋</h1>
-    <div id="app">
-      <dds-link-list heading="This is a link list">
-        <dds-card-link href="https://example.com">
-          <p>Copy text</p>
-          <svg slot="footer" />
-        </dds-card-link>
-      </dds-link-list>
-    </div>
+    <dds-link-list type="default">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Learn more</p>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-list-item-card>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Containerization A Complete Guide</p>
+        <svg
+          slot="footer"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20">
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-list-item-card>
+    </dds-link-list>
   </body>
 </html>

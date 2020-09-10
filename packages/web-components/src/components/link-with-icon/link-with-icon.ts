@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { html, customElement, TemplateResult } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
@@ -18,30 +18,15 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Style schemes
- */
-export enum STYLE_SCHEME {
-  /**
-   * Default style
-   */
-  DEFAULT = '',
-
-  /**
-   * Link List variant
-   */
-  LINK_LIST = 'link-list',
-}
-
-/**
  * Link with icon.
  *
  * @element dds-link-with-icon
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
-  @property({ reflect: true, attribute: 'style-scheme' })
-  styleScheme = STYLE_SCHEME.DEFAULT;
-
+  /**
+   * @returns The main content.
+   */
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     return html`
