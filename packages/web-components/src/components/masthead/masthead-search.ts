@@ -52,13 +52,26 @@ class DDSMastheadSearch extends BXDropdown {
    */
   private async _handleClickCloseButton() {
     const { _searchInputNode: searchInputNode } = this;
+    const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
+    if (searchInputNode.value) {
+      this.dispatchEvent(
+        new CustomEvent(eventInput, {
+          bubbles: true,
+          composed: true,
+          cancelable: false,
+          detail: {
+            value: '',
+          },
+        })
+      );
+    }
     searchInputNode.value = '';
     this.active = false;
     await this.updateComplete;
     const { _searchButtonNode: searchButtonNode } = this;
     searchButtonNode?.focus();
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
+      new CustomEvent(eventToggle, {
         bubbles: true,
         cancelable: true,
         composed: true,
@@ -141,10 +154,23 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
-   * Handles `input` event in the saarch input.
+   * Handles `input` event in the search input.
    */
   private _handleInput(event: InputEvent) {
-    if ((event.target as HTMLInputElement).value) {
+    const { target } = event;
+    const { value } = target as HTMLInputElement;
+    this.dispatchEvent(
+      new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventInput, {
+        bubbles: true,
+        composed: true,
+        cancelable: false,
+        detail: {
+          value,
+        },
+      })
+    );
+    this.value = value;
+    if (value) {
       this.open = true;
     }
   }
@@ -373,6 +399,13 @@ class DDSMastheadSearch extends BXDropdown {
    */
   static get eventBeforeRedirect() {
     return `${ddsPrefix}-masthead-search-beingredirected`;
+  }
+
+  /**
+   * The name of the custom event fired after the search content is changed upon a user gesture.
+   */
+  static get eventInput() {
+    return `${ddsPrefix}-masthead-search-input`;
   }
 
   /**

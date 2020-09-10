@@ -7,6 +7,14 @@
   "module": "es/index.js",
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "exports": {
+    "./es": "./es/index.js",
+    "./es/": "./es/",
+    "./lib": "./lib/index.js",
+    "./lib/": "./lib/",
+    "./umd/": "./umd/",
+    "./package.json": "./package.json"
+  },
   "files": [
     "lib/**/*",
     "es/**/*",
