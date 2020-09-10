@@ -8,11 +8,11 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import '../lightbox-video-player';
 
 const template = (props?) => {
-  const { description, duration, formatCaption, hideCaption, name } = props ?? {};
+  const { description, duration, formatCaption, formatDuration, hideCaption, name } = props ?? {};
   return html`
     <dds-lightbox-video-player
       description="${ifNonNull(description)}"
@@ -20,6 +20,7 @@ const template = (props?) => {
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
     >
     </dds-lightbox-video-player>
   `;
@@ -36,26 +37,13 @@ describe('dds-lightbox-video-player', function() {
     render(
       template({
         description: 'video-description-foo',
-        duration: 30000,
+        duration: 30,
         name: 'video-name-foo',
       }),
       document.body
     );
     await Promise.resolve();
     expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot({ mode: 'shadow' });
-  });
-
-  it('should support hiding the caption', async function() {
-    render(
-      template({
-        hideCaption: true,
-      }),
-      document.body
-    );
-    await Promise.resolve();
-    const { shadowRoot } = document.querySelector('dds-lightbox-video-player')!;
-    expect(shadowRoot!.querySelector('.bx--lightbox-media-viewer__content__title')).toBeNull();
-    expect(shadowRoot!.querySelector('.bx--lightbox-media-viewer__content__desc')).toBeNull();
   });
 
   afterEach(function() {

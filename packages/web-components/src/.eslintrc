@@ -10,10 +10,14 @@
     "browser": true,
     "es6": true
   },
+  "plugins": [
+    "@carbon/eslint-plugin-ibmdotcom-import-rules"
+  ],
   "rules": {
     "class-methods-use-this": [2, { "exceptMethods": ["render"] }],
     "no-underscore-dangle": 0,
-    "jsdoc/check-tag-names": [2, {"definedTags": ["element", "slot", "csspart"]}]
+    "jsdoc/check-tag-names": [2, {"definedTags": ["element", "slot", "csspart", "internal"]}],
+    "@carbon/ibmdotcom-import-rules/no-shorthand-index": 2
   },
   "overrides": [
     {

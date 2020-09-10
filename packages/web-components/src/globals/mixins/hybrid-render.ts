@@ -41,7 +41,7 @@ const HybridRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       }
       const { lightRenderRoot } = this;
       if (lightRenderRoot) {
-        render(this.renderLightDOM(), lightRenderRoot);
+        render(this.renderLightDOM(), lightRenderRoot, { eventContext: this });
       }
     }
   }

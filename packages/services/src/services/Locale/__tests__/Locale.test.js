@@ -27,19 +27,19 @@ jest.mock(
 );
 
 describe('LocaleAPI', () => {
+  const handles = [];
+
   beforeEach(function() {
-    mockAxios.get.mockImplementation(() =>
-      Promise.resolve({
-        data: response,
-      })
-    );
+    mockAxios.get.mockImplementation(async () => ({
+      data: response,
+    }));
 
     root.digitalData = mockDigitalDataResponse;
 
     LocaleAPI.clearCache();
   });
 
-  it('should fetch the lang from the html attribute', async function() {
+  it('should fetch the lang from the html attribute', async () => {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'fr-ca',
       configurable: true,
@@ -53,7 +53,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us from the html attribute if cc and lc are not defined', async function() {
+  it('should default to en-us from the html attribute if cc and lc are not defined', async () => {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'it',
       configurable: true,
@@ -67,7 +67,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us if lang is not defined', async function() {
+  it('should default to en-us if lang is not defined', async () => {
     const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
@@ -76,7 +76,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when ddo is undefined', async function() {
+  it('should default when ddo is undefined', async () => {
     root.digitalData = undefined;
     const lang = await LocaleAPI.getLang();
 
@@ -86,7 +86,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when no ddo.page', async function() {
+  it('should default when no ddo.page', async () => {
     root.digitalData.page = false;
     const lang = await LocaleAPI.getLang();
 
@@ -96,7 +96,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when no ddo.page.pageInfo', async function() {
+  it('should default when no ddo.page.pageInfo', async () => {
     root.digitalData = {
       page: {
         pageInfo: false,
@@ -110,7 +110,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when no ddo.page.pageInfo.ibm', async function() {
+  it('should default when no ddo.page.pageInfo.ibm', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -126,7 +126,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when no ddo.page.pageInfo.ibm.country', async function() {
+  it('should default when no ddo.page.pageInfo.ibm.country', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -144,7 +144,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default when no ddo.page.pageInfo.language', async function() {
+  it('should default when no ddo.page.pageInfo.language', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -163,7 +163,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should get from DDO', async function() {
+  it('should get from DDO', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -182,7 +182,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should handle multiple countries', async function() {
+  it('should handle multiple countries', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -201,7 +201,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should handle map gb to uk', async function() {
+  it('should handle map gb to uk', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -220,7 +220,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should handle map zz to us', async function() {
+  it('should handle map zz to us', async () => {
     root.digitalData = {
       page: {
         pageInfo: {
@@ -239,7 +239,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should get countries list', async function() {
+  it('should get countries list', async () => {
     const countries = await LocaleAPI.getList({
       cc: 'testCC',
       lc: 'testLC',
@@ -256,8 +256,7 @@ describe('LocaleAPI', () => {
     expect(countries).toEqual(response);
   });
 
-  it('should get countries list from session cache', async function() {
-    sessionStorage.clear();
+  it('should get countries list from session cache', async () => {
     mockAxios.get.mockClear();
     const countries1 = await LocaleAPI.getList({
       cc: 'testCC',
@@ -273,38 +272,11 @@ describe('LocaleAPI', () => {
     expect(countries2).toEqual(response);
   });
 
-  it('should exhaust countries list retries', function(done) {
-    let resolvePromise;
-    sessionStorage.clear();
-    mockAxios.get.mockImplementation(
-      () =>
-        new Promise(resolve => {
-          resolvePromise = resolve;
-        })
-    );
-
-    LocaleAPI.getList({ cc: 'testCC', lc: 'testLC' });
-    LocaleAPI.clearCache();
-    const listPromise = LocaleAPI.getList({
-      cc: 'testCC',
-      lc: 'testLC',
-    });
-
-    jest.advanceTimersByTime(100 * 51);
-
-    return listPromise.catch(() => {
-      resolvePromise({ data: response });
-      done();
-    });
-  }, 6000);
-
-  it('should get default countries list on inital reject', async function() {
-    sessionStorage.clear();
+  it('should get default countries list on inital reject', async () => {
     mockAxios.get.mockClear();
-    mockAxios.get.mockReturnValueOnce(
-      Promise.reject(),
-      Promise.resolve({ data: response })
-    );
+    mockAxios.get
+      .mockReturnValueOnce(Promise.reject())
+      .mockReturnValueOnce(Promise.resolve({ data: response }));
 
     const countries = await LocaleAPI.getList({
       cc: 'testCC',
@@ -328,14 +300,19 @@ describe('LocaleAPI', () => {
     expect(countries).toEqual(response);
   });
 
-  it('should reject countries list', function(done) {
-    sessionStorage.clear();
+  it('should reject countries list', async () => {
     mockAxios.get.mockImplementation(() => Promise.reject());
 
-    LocaleAPI.getList({ cc: 'us', lc: 'en' }).catch(done);
+    let caught;
+    try {
+      await LocaleAPI.getList({ cc: 'us', lc: 'en' });
+    } catch (error) {
+      caught = true;
+    }
+    expect(caught).not.toBeNull();
   });
 
-  it('should verify locale', function() {
+  it('should verify locale', () => {
     const locale = LocaleAPI.verifyLocale('us', 'en', {
       regionList: [
         {
@@ -357,7 +334,7 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should verify priority locale', function() {
+  it('should verify priority locale', () => {
     const locale = LocaleAPI.verifyLocale('us', 'fr', {
       regionList: [
         {
@@ -379,13 +356,13 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should verify undefined', function() {
+  it('should verify undefined', () => {
     const locale = LocaleAPI.verifyLocale('us', 'en', false);
 
     expect(locale).toBeUndefined();
   });
 
-  it('should get lang display', async function() {
+  it('should get lang display', async () => {
     jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(
       Promise.resolve({
         cc: 'testCC',
@@ -421,13 +398,13 @@ describe('LocaleAPI', () => {
     expect(display).toEqual('testName — testDisplay');
   });
 
-  it('should get lang for display', async function() {
+  it('should get lang for display', async () => {
     const display = await LocaleAPI.getLangDisplay(false);
 
     expect(display).toEqual('testName — testDisplay');
   });
 
-  it('should get default lang display', async function() {
+  it('should get default lang display', async () => {
     const display = await LocaleAPI.getLangDisplay({
       cc: 'missingCC',
       lc: 'missingLC',
@@ -436,7 +413,7 @@ describe('LocaleAPI', () => {
     expect(display).toEqual('United States — English');
   });
 
-  it('should get locale from getLang', async function() {
+  it('should get locale from getLang', async () => {
     jest
       .spyOn(LocaleAPI, 'getLang')
       .mockReturnValue(Promise.resolve('testLang'));
@@ -449,7 +426,7 @@ describe('LocaleAPI', () => {
     expect(locale).toEqual('testLang');
   });
 
-  it('should get locale from cookies', async function() {
+  it('should get locale from cookies', async () => {
     jest.spyOn(LocaleAPI, 'getLang').mockReturnValue(Promise.resolve(false));
 
     const locale = await LocaleAPI.getLocale();
@@ -457,7 +434,7 @@ describe('LocaleAPI', () => {
     expect(locale).toEqual({ cc: 'us', lc: 'en' });
   });
 
-  it('should get locale from geolocation on missing cookie', async function() {
+  it('should get locale from geolocation on missing cookie', async () => {
     ipcinfoCookie.get.mockImplementation(() => false);
 
     await LocaleAPI.getLocale();
@@ -465,7 +442,7 @@ describe('LocaleAPI', () => {
     expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from geolocation on missing cookie lc', async function() {
+  it('should get locale from geolocation on missing cookie lc', async () => {
     geolocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ cc: 'testCC' }));
 
@@ -474,7 +451,7 @@ describe('LocaleAPI', () => {
     expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from geolocation on missing cookie cc', async function() {
+  it('should get locale from geolocation on missing cookie cc', async () => {
     geolocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ lc: 'testLC' }));
 
@@ -483,7 +460,7 @@ describe('LocaleAPI', () => {
     expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from geolocation', async function() {
+  it('should get locale from geolocation', async () => {
     ipcinfoCookie.set.mockClear();
     ipcinfoCookie.get.mockImplementation(() => false);
 
@@ -494,7 +471,7 @@ describe('LocaleAPI', () => {
     expect(ipcinfoCookie.set).toHaveBeenCalledWith('testVerified');
   });
 
-  it('should get undefined locale on no cc', async function() {
+  it('should get undefined locale on no cc', async () => {
     geolocation.mockImplementation(() => Promise.resolve(false));
 
     const locale = await LocaleAPI.getLocale();
@@ -509,5 +486,11 @@ describe('LocaleAPI', () => {
     await LocaleAPI.getList({ cc: 'kr', lc: 'ko' });
 
     expect(mockAxios.get).toHaveBeenCalledTimes(2);
+  });
+
+  afterEach(() => {
+    for (let handle = handles.pop(); handle; handle = handles.pop()) {
+      handle.release();
+    }
   });
 });

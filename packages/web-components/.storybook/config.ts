@@ -8,6 +8,7 @@
  */
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
+import { classMap } from 'lit-html/directives/class-map';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import { withKnobs } from '@storybook/addon-knobs';
 import customElements from '../custom-elements.json';
@@ -46,19 +47,19 @@ addParameters({
 // The TS configuration for `@storybook/web-components` does not seem to allow returning `TemplateResult` in decorators,
 // using `TemplateResult` in decorators seems to work with `@storybook/web-components` actually
 // @ts-ignore
-addDecorator(story => {
+addDecorator((story, { parameters }) => {
   const result = story();
   const { hasMainTag } = result as any;
+  const { hasGrid } = parameters;
+  const classes = classMap({
+    'dds-ce-demo-devenv--container': true,
+    'dds-ce-demo-devenv--container--has-grid': hasGrid,
+  });
   return html`
     <style>
       ${containerStyles}
     </style>
-    <div
-      name="main-content"
-      data-floating-menu-container
-      role="${hasMainTag ? 'none' : 'main'}"
-      class="dds-ce-demo-devenv--container"
-    >
+    <div name="main-content" data-floating-menu-container role="${hasMainTag ? 'none' : 'main'}" class="${classes}">
       ${result}
     </div>
   `;

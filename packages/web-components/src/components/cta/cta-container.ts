@@ -7,164 +7,58 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
-import 'carbon-web-components/es/components/modal/modal-close-button';
-import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import ModalRenderMixin from '../../globals/mixins/modal-render';
-import '../modal/modal';
-import '../modal/modal-header';
-import '../lightbox-media-viewer/lightbox-media-viewer-body';
-import '../lightbox-media-viewer/lightbox-video-player-container';
-import './text-cta';
-import { CTA_STYLE, CTA_TYPE } from './shared-enums';
-import styles from './cta-container.scss';
-
-export { CTA_STYLE, CTA_TYPE };
+import { ActionCreatorsMapObject, Store } from 'redux';
+import { customElement } from 'lit-element';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { VideoData, VideoPlayerAPIState } from '../../globals/services-store/types/videoPlayerAPI';
+import store from '../../globals/services-store/store';
+import { loadVideoData, VideoPlayerAPIActions } from '../../globals/services-store/actions/videoPlayerAPI';
+import { DDSVideoPlayerContainerMixin, mapStateToProps, mapDispatchToProps } from '../video-player/video-player-container';
+import ConnectMixin from '../../globals/mixins/connect';
+import DDSCTAComposite from './cta-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Base CTA data item.
+ * The Redux state used for `<dds-cta-container>`.
  */
-export interface BASE_CTA_ITEM {
+export interface CTAContainerState {
   /**
-   * The copy text.
+   * The Redux state for `VideoPlayerAPI`.
    */
-  copy: string;
+  videoPlayerAPI?: VideoPlayerAPIState;
 }
 
 /**
- * Base CTA data item with `type`.
+ * The properties for `<dds-cta-container>` from Redux state.
  */
-interface TYPED_CTA_ITEM extends BASE_CTA_ITEM {
+export interface CTAContainerStateProps {
   /**
-   * The default file name for downloading, should be used only with `CTA_TYPE.DOWNLOAD`.
+   * The video data, keyed by the video ID.
    */
-  download: string;
-
-  /**
-   * The href. For video CTA type, the video ID should be given.
-   */
-  href: string;
-
-  /**
-   * The CTA type.
-   */
-  type: CTA_TYPE;
+  videoData?: { [videoId: string]: VideoData };
 }
 
 /**
- * CTA data item for text CTA style.
+ * The Redux actions used for `<dds-cta-container>.
  */
-export type TEXT_CTA_ITEM = TYPED_CTA_ITEM;
+export type CTAContainerActions = ReturnType<typeof loadVideoData>;
 
 /**
- * CTA container.
+ * Container component for CTA.
  *
  * @element dds-cta-container
  */
 @customElement(`${ddsPrefix}-cta-container`)
-class DDSCTAContainer extends ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))) {
-  /**
-   * `true` to show the video player.
-   */
-  private _currentVideoId?: string;
-
-  /**
-   * Handles the user gesture of closing video player modal.
-   * NOTE:
-   *   Given `.renderLightboxMediaViewer()` runs outside of `lit-element` rendering scope,
-   *   `lit-element`'s automatic `this` binding won't work here (and thus we are using an arrow function).
-   */
-  private _handleCloseVideoPlayer = () => {
-    this._currentVideoId = undefined;
-    this.requestUpdate();
-  };
-
-  /**
-   * Handles `${ddsPrefix}-cta-run-action` event.
-   *
-   * @param event The event.
-   */
-  @HostListener('eventRunAction')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleRunAction(event: CustomEvent) {
-    const { href, type } = event.detail;
-    if (type === CTA_TYPE.VIDEO) {
-      this._currentVideoId = href;
-      this.requestUpdate();
-    }
-  }
-
-  /**
-   * @param text The text data to render.
-   * @returns The rendered version of the given data.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  private _renderText(text: TEXT_CTA_ITEM) {
-    const { copy, download, href, type } = text;
-    return html`
-      <dds-text-cta download="${ifNonNull(download)}" href="${ifNonNull(href)}" type="${ifNonNull(type)}">
-        ${copy}
-      </dds-text-cta>
-    `;
-  }
-
-  /**
-   * CTA style.
-   */
-  @property({ attribute: 'cta-style' })
-  ctaStyle = CTA_STYLE.TEXT;
-
-  /**
-   * CTA item.
-   */
-  @property({ type: Object })
-  item?: TEXT_CTA_ITEM;
-
-  /**
-   * @returns The media viewer lightbox for `type="video"`.
-   */
-  renderModal() {
-    const { _currentVideoId: currentVideoId, _handleCloseVideoPlayer: handleCloseVideoPlayer } = this;
-    return html`
-      <dds-lightbox-video-player-container video-id="${ifNonNull(currentVideoId)}">
-        <dds-modal ?open="${Boolean(currentVideoId)}" size="full-width" @dds-modal-closed="${handleCloseVideoPlayer}">
-          <bx-modal-close-button></bx-modal-close-button>
-          <dds-lightbox-media-viewer-body></dds-lightbox-media-viewer-body>
-        </dds-modal>
-      </dds-lightbox-video-player-container>
-    `;
-  }
-
-  renderLightDOM() {
-    const { ctaStyle, item } = this;
-    switch (ctaStyle) {
-      case CTA_STYLE.TEXT:
-        return this._renderText(item as TEXT_CTA_ITEM);
-      default:
-        return undefined;
-    }
-  }
-
-  render() {
-    return html`
-      <slot></slot>
-    `;
-  }
-
-  /**
-   * The name of the custom event fired when there is a user gesture to run the action.
-   */
-  static get eventRunAction() {
-    return `${ddsPrefix}-cta-run-action`;
-  }
-
-  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
-}
+class DDSCTAContainer extends ConnectMixin<
+  CTAContainerState,
+  VideoPlayerAPIActions,
+  CTAContainerStateProps,
+  ActionCreatorsMapObject<CTAContainerActions>
+>(
+  store as Store<CTAContainerState, VideoPlayerAPIActions>,
+  mapStateToProps,
+  mapDispatchToProps
+)(DDSVideoPlayerContainerMixin(DDSCTAComposite)) {}
 
 export default DDSCTAContainer;

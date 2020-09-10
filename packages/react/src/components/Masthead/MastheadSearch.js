@@ -434,7 +434,7 @@ MastheadSearch.propTypes = {
   /**
    * navigation type for autoids
    */
-  navType: PropTypes.oneOf(['default, alt, eco']),
+  navType: PropTypes.oneOf(['default', 'alt', 'eco']),
 };
 
 MastheadSearch.defaultProps = {

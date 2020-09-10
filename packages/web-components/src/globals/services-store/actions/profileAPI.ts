@@ -8,7 +8,7 @@
  */
 
 import { ThunkAction } from 'redux-thunk';
-import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile';
+import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile.js';
 import { UserStatus, PROFILE_API_ACTION, ProfileAPIState } from '../types/profileAPI';
 
 /**

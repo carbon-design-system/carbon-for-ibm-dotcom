@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, property } from 'lit-element';
+import { html, property, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
 import styles from './link-with-icon.scss';
@@ -43,11 +43,27 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   styleScheme = STYLE_SCHEME.DEFAULT;
 
   // eslint-disable-next-line class-methods-use-this
-  protected _renderInner() {
+  protected _renderContent(): TemplateResult | string | void {
     return html`
       <slot name="icon-left"></slot>
       <span><slot></slot></span>
+    `;
+  }
+
+  /**
+   * @returns The icon content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderIcon(): TemplateResult | string | void {
+    return html`
       <slot name="icon"></slot>
+    `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderInner() {
+    return html`
+      ${this._renderContent()}${this._renderIcon()}
     `;
   }
 

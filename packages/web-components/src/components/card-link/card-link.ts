@@ -9,7 +9,7 @@
 
 import { customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCard from '../card/card';
 import styles from './card-link.scss';
 
@@ -52,7 +52,6 @@ class DDSCardLink extends DDSCard {
     const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--card__CTA`);
-      linkNode.classList.add(`${prefix}--card-link`);
       if (changedProperties.has('disabled')) {
         const { disabled } = this;
         linkNode.classList.toggle(`${prefix}--card__CTA--disabled`, disabled);

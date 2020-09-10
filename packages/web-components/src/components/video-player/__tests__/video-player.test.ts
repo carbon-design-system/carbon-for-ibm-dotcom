@@ -8,17 +8,18 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import '../video-player';
 
 const template = (props?) => {
-  const { duration, formatCaption, hideCaption, name } = props ?? {};
+  const { duration, formatCaption, formatDuration, hideCaption, name } = props ?? {};
   return html`
     <dds-video-player
       duration="${ifNonNull(duration)}"
       ?hide-caption="${hideCaption}"
       name="${ifNonNull(name)}"
       .formatCaption="${ifNonNull(formatCaption)}"
+      .formatDuration="${ifNonNull(formatDuration)}"
     >
     </dds-video-player>
   `;
@@ -34,7 +35,7 @@ describe('dds-video-player', function() {
   it('should render with various attributes', async function() {
     render(
       template({
-        duration: 30000,
+        duration: 30,
         name: 'video-name-foo',
       }),
       document.body
@@ -54,31 +55,22 @@ describe('dds-video-player', function() {
     expect(document.querySelector('dds-video-player')!.shadowRoot!.querySelector('.bx--video-player__video-caption')).toBeNull();
   });
 
-  it('should support zero-fill in formatting caption', async function() {
+  it('should support custom caption/duration formatter for localization', async function() {
     render(
       template({
-        duration: 65000,
+        duration: 60,
         name: 'video-name-foo',
-      }),
-      document.body
-    );
-    await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo (1:05)');
-  });
-
-  it('should support custom duration formatter for localization', async function() {
-    render(
-      template({
-        duration: 60000,
-        name: 'video-name-foo',
-        formatCaption({ duration, name }: { duration?: number; name: string }) {
+        formatCaption({ duration, name }: { duration?: string; name: string }) {
           return `${name}-${duration}`;
+        },
+        formatDuration({ duration }: { duration?: number }) {
+          return `${duration! / 60000}`;
         },
       }),
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-60000');
+    expect(document.querySelector('dds-video-player')!.getAttribute('aria-label')).toBe('video-name-foo-1');
   });
 
   afterEach(function() {

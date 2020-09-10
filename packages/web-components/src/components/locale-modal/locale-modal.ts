@@ -9,9 +9,9 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20';
-import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
 import DDSModal from '../modal/modal';
 import '../modal/modal-header';
 import '../modal/modal-heading';
@@ -157,7 +157,7 @@ class DDSLocaleModal extends DDSModal {
       const localeSaarch = this.querySelector(selectorLocaleSearch);
       if (localeSaarch) {
         (localeSaarch as DDSLocaleSearch).region = this._currentRegion ?? '';
-        (localeSaarch as DDSLocaleSearch).resetScrollPosition();
+        (localeSaarch as DDSLocaleSearch).reset();
       }
     }
   }

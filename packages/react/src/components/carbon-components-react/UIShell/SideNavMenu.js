@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* istanbul ignore file */
 
 /**
@@ -9,14 +8,12 @@
  */
 
 import ChevronDown20 from '@carbon/icons-react/es/chevron--down/20';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SideNavIcon from './SideNavIcon';
 
-const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 export class SideNavMenu extends React.Component {
@@ -148,7 +145,7 @@ export class SideNavMenu extends React.Component {
       isActive,
       title,
       large,
-      isbackbutton,
+      isbackbutton: _isbackbutton,
       ...rest
     } = this.props;
     const { isExpanded } = this.state;
@@ -209,7 +206,7 @@ export class SideNavMenu extends React.Component {
     );
   }
 
-  _renderSideNavItem = (item, index) => {
+  _renderSideNavItem = item => {
     if (item) {
       return React.cloneElement(item, {
         onClick:

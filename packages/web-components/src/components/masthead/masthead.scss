@@ -152,18 +152,24 @@
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
+    visibility: hidden;
     width: 0;
+    transition: visibility 0.11s step-end 0s, width 0.11s cubic-bezier(0.2, 0, 1, 0.9) 0s;
   }
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     @include carbon--breakpoint-down('lg') {
+      visibility: inherit;
       width: mini-units(32);
+      transition: visibility 0.11s step-start 0s, width 0.11s cubic-bezier(0.2, 0, 1, 0.9) 0s;
     }
 
     @include carbon--breakpoint-down('md') {
+      visibility: inherit;
       max-width: 100vw;
       width: 100vw;
+      transition: visibility 0.11s step-start 0s, width 0.11s cubic-bezier(0.2, 0, 1, 0.9) 0s;
     }
   }
 }
@@ -246,4 +252,9 @@
       background-color: $ui-background;
     }
   }
+}
+
+:host(#{$dds-prefix}-masthead-search-composite),
+:host(#{$dds-prefix}-masthead-search-container) {
+  display: contents;
 }

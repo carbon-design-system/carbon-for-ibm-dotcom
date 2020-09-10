@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* istanbul ignore file */
 
 /**

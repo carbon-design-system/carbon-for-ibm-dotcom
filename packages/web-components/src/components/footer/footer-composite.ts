@@ -8,10 +8,10 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
@@ -43,36 +43,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-footer-composite`)
 class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))) {
   /**
-   * The placeholder for `setLanguage()` Redux action that may be mixed in.
-   */
-  private _setLanguage!: (string) => void;
-
-  /**
-   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
-   */
-  private _setLangDisplay!: (string) => void;
-
-  /**
-   * The placeholder for `setLocaleList()` Redux action that may be mixed in.
-   */
-  private _setLocaleList!: (string, LocaleList) => void;
-
-  /**
-   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
-   */
-  private _loadLangDisplay!: () => Promise<string>;
-
-  /**
-   * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
-   */
-  private _loadLocaleList!: () => Promise<LocaleList>;
-
-  /**
-   * The placeholder for `loadTranslation()` Redux action that may be mixed in.
-   */
-  private _loadTranslation!: () => Promise<Translation>;
-
-  /**
    * Handles `click` event on the locale button.
    */
   private _handleClickLocaleButton = () => {
@@ -89,6 +59,48 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       this.openLocaleModal = false;
     }
   };
+
+  /**
+   * The placeholder for `loadLangDisplay()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadLangDisplay?: () => Promise<string>;
+
+  /**
+   * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadLocaleList?: () => Promise<LocaleList>;
+
+  /**
+   * The placeholder for `loadTranslation()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _loadTranslation?: () => Promise<Translation>;
+
+  /**
+   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _setLangDisplay?: (string) => void;
+
+  /**
+   * The placeholder for `setLanguage()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _setLanguage?: (string) => void;
+
+  /**
+   * The placeholder for `setLocaleList()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _setLocaleList?: (string, LocaleList) => void;
 
   /**
    * The g11n collator to use for sorting contry names.
@@ -152,7 +164,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
     if (language && localeList) {
       this._setLocaleList?.(language, localeList);
     }
-    this._loadLocaleList?.();
     this._loadTranslation?.();
   }
 
@@ -160,7 +171,15 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * @returns The locale modal.
    */
   renderModal() {
-    const { collatorCountryName, langDisplay, language, localeList, openLocaleModal } = this;
+    const {
+      collatorCountryName,
+      langDisplay,
+      language,
+      localeList,
+      openLocaleModal,
+      _loadLangDisplay: loadLangDisplay,
+      _loadLocaleList: loadLocaleList,
+    } = this;
     return html`
       <dds-locale-modal-composite
         lang-display="${ifNonNull(langDisplay)}"
@@ -168,6 +187,8 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         ?open="${openLocaleModal}"
         .collatorCountryName="${ifNonNull(collatorCountryName)}"
         .localeList="${ifNonNull(localeList)}"
+        ._loadLangDisplay="${ifNonNull(loadLangDisplay)}"
+        ._loadLocaleList="${ifNonNull(loadLocaleList)}"
       >
       </dds-locale-modal-composite>
     `;

@@ -8,11 +8,11 @@
  */
 
 import { customElement } from 'lit-element';
-import BXBtn from 'carbon-web-components/es/components/button/button';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import BXBtn from 'carbon-web-components/es/components/button/button.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button.scss';
 
-export { BUTTON_KIND, BUTTON_SIZE } from 'carbon-web-components/es/components/button/button';
+export { BUTTON_KIND, BUTTON_SIZE } from 'carbon-web-components/es/components/button/button.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

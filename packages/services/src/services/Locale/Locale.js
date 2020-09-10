@@ -6,7 +6,6 @@
  */
 
 import axios from 'axios';
-import DDOAPI from '../DDO/DDO';
 import geolocation from '@carbon/ibmdotcom-utilities/es/utilities/geolocation/geolocation';
 import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import root from 'window-or-global';
@@ -60,30 +59,6 @@ const _localeNameDefault = 'United States — English';
 const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
- * Tracking of the country list fetch
- *
- * @type {{}}
- * @private
- */
-const _listFetch = {};
-
-/**
- * Number of times to retry the fetch before failing
- *
- * @type {number}
- * @private
- */
-
-const _timeoutRetries = 50;
-/**
- * Tracks the number of attempts for the fetch
- *
- * @type {number}
- * @private
- */
-let _attempt = 0;
-
-/**
  * Configuration for axios
  *
  * @type {{headers: {'Content-Type': string}}}
@@ -110,7 +85,7 @@ const _sessionListKey = 'dds-countrylist';
  * @private
  */
 const _getLocaleByLangAttr = () => {
-  if (root.document.documentElement.lang) {
+  if (root.document?.documentElement?.lang) {
     const lang = root.document.documentElement.lang.toLowerCase();
     if (lang.indexOf('-') === -1) {
       return _localeDefault;
@@ -137,42 +112,35 @@ const _requestsList = {};
  * @type {(object | boolean)}
  * @private
  */
-async function _getLocaleFromDDO() {
-  const ddoLocal = await DDOAPI.getAll();
+function _getLocaleFromDDO() {
+  const ddoLocal = Object.assign({}, root.digitalData || {});
 
-  if (ddoLocal?.page?.pageInfo?.ibm) {
-    let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+  if (
+    ddoLocal.page?.pageInfo?.language &&
+    ddoLocal.page?.pageInfo?.ibm?.country
+  ) {
+    const lang = {};
 
     // Set proper LC for us to use.
-    if (ddoLocal.page.pageInfo.language) {
-      pageInfoIBM.lc = ddoLocal.page.pageInfo.language
-        .substring(0, 2)
-        .toLowerCase();
+    lang.lc = ddoLocal.page.pageInfo.language.substring(0, 2).toLowerCase();
+
+    lang.cc = ddoLocal.page.pageInfo.ibm.country.toLowerCase().trim();
+
+    // If there are multiple countries use just the first one for the CC value
+    if (lang.cc.indexOf(',') > -1)
+      lang.cc = lang.cc.substring(0, lang.cc.indexOf(',')).trim();
+
+    // Gb will be uk elsewhere
+    if (lang.cc === 'gb') {
+      lang.cc = 'uk';
     }
 
-    // Set proper CC for us to use.
-    if (pageInfoIBM.country) {
-      pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
-
-      // If there are multiple countries use just the first one for the CC value
-      if (pageInfoIBM.cc.indexOf(',') > -1)
-        pageInfoIBM.cc = pageInfoIBM.cc
-          .substring(0, pageInfoIBM.cc.indexOf(','))
-          .trim();
-
-      // Gb will be uk elsewhere
-      if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
-
-      // Map worldwide (ZZ) pages to US
-      if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
+    // Map worldwide (ZZ) pages to US
+    if (lang.cc === 'zz') {
+      lang.cc = 'us';
     }
 
-    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
-
-    return {
-      cc: pageInfoIBM.cc,
-      lc: pageInfoIBM.lc,
-    };
+    return lang;
   }
   return false;
 }
@@ -259,12 +227,16 @@ class LocaleAPI {
    *    const locale = await LocaleAPI.getLang();
    * }
    */
-  static async getLang() {
-    const getLocaleFromDDO = await _getLocaleFromDDO();
+  static getLang() {
+    return new Promise(resolve => {
+      const getLocaleFromDDO = _getLocaleFromDDO();
 
-    if (getLocaleFromDDO) {
-      return getLocaleFromDDO;
-    } else return _getLocaleByLangAttr();
+      if (getLocaleFromDDO) {
+        resolve(getLocaleFromDDO);
+      } else {
+        resolve(_getLocaleByLangAttr());
+      }
+    });
   }
 
   /**
@@ -324,14 +296,9 @@ class LocaleAPI {
    * }
    */
   static async getList({ cc, lc }) {
-    const key = `${lc}-${cc}`;
-    const cachedRequest = _requestsList[key];
-    if (cachedRequest) {
-      return cachedRequest;
-    }
-    return (_requestsList[key] = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.fetchList(cc, lc, resolve, reject);
-    }));
+    });
   }
 
   /**
@@ -349,43 +316,27 @@ class LocaleAPI {
 
     if (sessionList) {
       resolve(sessionList);
-    } else if (_listFetch[`${cc}-${lc}`]) {
-      _attempt++;
-
-      if (_attempt < _timeoutRetries) {
-        setTimeout(() => {
-          this.fetchList(cc, lc, resolve, reject);
-        }, 100);
-      } else {
-        reject();
-      }
     } else {
-      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
-      _attempt = 0;
-      _listFetch[`${cc}-${lc}`] = true;
-      axios
-        .get(url, _axiosConfig)
-        .then(response => {
+      const key = `${lc}-${cc}`;
+      if (!_requestsList[key]) {
+        const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+        _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
+          const { data } = response;
           sessionStorage.setItem(
             `${_sessionListKey}-${cc}-${lc}`,
-            JSON.stringify(response.data)
+            JSON.stringify(data)
           );
-          _listFetch[`${cc}-${lc}`] = false;
-          resolve(response.data);
-        })
-        .catch(() => {
-          if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
-            _listFetch[`${cc}-${lc}`] = false;
-            reject();
-          } else {
-            this.fetchList(
-              _localeDefault.cc,
-              _localeDefault.lc,
-              resolve,
-              reject
-            );
-          }
+          return data;
         });
+      }
+
+      _requestsList[key].then(resolve, error => {
+        if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
+          reject(error);
+        } else {
+          this.fetchList(_localeDefault.cc, _localeDefault.lc, resolve, reject);
+        }
+      });
     }
   }
 

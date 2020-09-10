@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.2...@carbon/ibmdotcom-services@1.10.2) (2020-09-08)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.2-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.1...@carbon/ibmdotcom-services@1.10.2-rc.2) (2020-09-03)
+
+### Bug Fixes
+
+- **translation:** adding string/replace of login url state param
+  ([#3852](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3852))
+  ([435500c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/435500c)),
+  closes
+  [#3851](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3851)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.2-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.0...@carbon/ibmdotcom-services@1.10.2-rc.1) (2020-09-02)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.1...@carbon/ibmdotcom-services@1.10.2-rc.0) (2020-09-01)
+
+### Bug Fixes
+
+- **lang:** get immediate lang value rather than waiting for DDO
+  ([#3822](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3822))
+  ([49e1308](https://github.com/carbon-design-system/ibm-dotcom-library/commit/49e1308)),
+  closes
+  [#3824](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3824)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.1-rc.0...@carbon/ibmdotcom-services@1.10.1) (2020-08-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.0...@carbon/ibmdotcom-services@1.10.1-rc.0) (2020-08-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.10.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.0-rc.0...@carbon/ibmdotcom-services@1.10.0) (2020-08-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0...@carbon/ibmdotcom-services@1.10.0-rc.0) (2020-08-19)
 
 ### Bug Fixes

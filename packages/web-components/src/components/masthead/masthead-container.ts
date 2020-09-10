@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { pickBy } from 'lodash-es';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
 import { MastheadLink, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS, ProfileAPIState } from '../../globals/services-store/types/profileAPI';
@@ -19,8 +20,12 @@ import { loadTranslation, TranslateAPIActions } from '../../globals/services-sto
 import { monitorUserStatus, ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
 import { loadSearchResults, SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
 import ConnectMixin from '../../globals/mixins/connect';
+import {
+  MastheadSearchContainerState,
+  MastheadSearchContainerStateProps,
+  MastheadSearchContainerActions,
+} from './masthead-search-container';
 import DDSMastheadComposite from './masthead-composite';
-import { SearchAPIState } from '../../globals/services-store/types/searchAPI';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -52,7 +57,7 @@ export interface MastheadProfileItem {
 /**
  * The Redux state used for `<dds-masthead-container>`.
  */
-export interface MastheadContainerState {
+export interface MastheadContainerState extends MastheadSearchContainerState {
   /**
    * The Redux state for `LocaleAPI`.
    */
@@ -70,16 +75,9 @@ export interface MastheadContainerState {
 }
 
 /**
- * The Redux state used for the search container.
- */
-export interface SearchContainerState {
-  searchAPI?: SearchAPIState;
-}
-
-/**
  * The properties for `<dds-masthead-container>` from Redux state.
  */
-export interface MastheadContainerStateProps {
+export interface MastheadContainerStateProps extends MastheadSearchContainerStateProps {
   /**
    * The nav links.
    */
@@ -92,51 +90,20 @@ export interface MastheadContainerStateProps {
 }
 
 /**
- * The properties for search container from Redux state.
+ * The Redux actions used for `<dds-masthead-container>.
  */
-export interface SearchContainerStateProps {
-  /**
-   * The current search results;
-   */
-  currentSearchResults?: string[];
-
-  /**
-   * `true` to open the search dropdown.
-   */
-  openSearchDropdown?: boolean;
-}
-
-export type MastheadActions =
+export type MastheadContainerActions =
+  | MastheadSearchContainerActions
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
-  | ReturnType<typeof monitorUserStatus>
-  | ReturnType<typeof loadSearchResults>;
-
-/**
- * @param props A key/value pair.
- * @returns The modified version of the given `props` with all properties with `undefined` value removed.
- */
-function cleanProps(props: { [key: string]: unknown }) {
-  return Object.keys(props).reduce(
-    (acc, prop) =>
-      typeof props[prop] === 'undefined'
-        ? acc
-        : {
-            ...acc,
-            [prop]: props[prop],
-          },
-    {}
-  );
-}
+  | ReturnType<typeof monitorUserStatus>;
 
 /**
  * @param state The Redux state for masthead.
  * @returns The converted version of the given state, tailored for `<dds-masthead-container>`.
  */
-export function mapStateToProps(
-  state: MastheadContainerState & SearchContainerState
-): MastheadContainerStateProps & SearchContainerStateProps {
+export function mapStateToProps(state: MastheadContainerState): MastheadContainerStateProps {
   const { localeAPI, translateAPI, profileAPI, searchAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
@@ -146,11 +113,14 @@ export function mapStateToProps(
   for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
     currentSearchResults = searchResults?.[currentSearchQueryString!.substr(0, length)]?.[language!];
   }
-  return cleanProps({
-    navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
-    userStatus: status?.user,
-    currentSearchResults: currentSearchResults ?? [],
-  });
+  return pickBy(
+    {
+      navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+      userStatus: status?.user,
+      currentSearchResults: currentSearchResults ?? [],
+    },
+    value => value !== undefined
+  );
 }
 
 /**
@@ -158,7 +128,7 @@ export function mapStateToProps(
  * @returns The methods in `<dds-masthead-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>) {
-  return bindActionCreators<MastheadActions, ActionCreatorsMapObject<MastheadActions>>(
+  return bindActionCreators<MastheadContainerActions, ActionCreatorsMapObject<MastheadContainerActions>>(
     {
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
@@ -180,7 +150,7 @@ class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,
   MastheadContainerStateProps,
-  ActionCreatorsMapObject<MastheadActions>
+  ActionCreatorsMapObject<MastheadContainerActions>
 >(
   store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
   mapStateToProps,

@@ -18,7 +18,8 @@
   }
 
   &[expressive-size='full-width'] {
-    ::slotted(#{$dds-prefix}-lightbox-media-viewer-body) {
+    ::slotted(#{$dds-prefix}-lightbox-image-viewer-body),
+    ::slotted(#{$dds-prefix}-lightbox-video-player-body) {
       height: 100%;
       overflow: auto;
     }

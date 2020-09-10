@@ -1,0 +1,46 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ExpressiveModal from './ExpressiveModal';
+
+# Feature Card
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/feature-card-block-large';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/feature-card-block-large/feature-card-block-large.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-feature-card-block-large href="https://example.com">
+  <img />
+  <h3>Copy text</h3>
+  ${ArrowRight20({ slot: 'footer' })}
+</dds-feature-card-block-large>
+```
+
+## Props
+
+<Props of="dds-feature-card-block-large" />
+
+<Description markdown={contributing} />

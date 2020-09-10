@@ -8,8 +8,8 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import BXSearch from 'carbon-web-components/es/components/search/search';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import BXSearch from 'carbon-web-components/es/components/search/search.js';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
 
@@ -97,8 +97,9 @@ describe('dds-locale-search', function() {
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
       const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
-      searchInputNode.value = 'COUNTRY-B'; // Test case insensitive, partial search
-      searchInputNode.dispatchEvent(new CustomEvent('input', { bubbles: true, composed: true }));
+      searchInputNode.dispatchEvent(
+        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'COUNTRY-B' } })
+      );
       expect((localeSearch!.querySelector('dds-locale-item[country="country-foo"]') as HTMLElement).hidden).toBe(true);
       expect((localeSearch!.querySelector('dds-locale-item[country="country-bar"]') as HTMLElement).hidden).toBe(false);
       expect((localeSearch!.querySelector('dds-locale-item[country="country-baz"]') as HTMLElement).hidden).toBe(false);
@@ -125,9 +126,42 @@ describe('dds-locale-search', function() {
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
       const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
-      searchInputNode.value = 'LANGUAGE-B'; // Test case insensitive, partial search
-      searchInputNode.dispatchEvent(new CustomEvent('input', { bubbles: true, composed: true }));
+      searchInputNode.dispatchEvent(
+        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
+      );
       expect((localeSearch!.querySelector('dds-locale-item[language="language-foo"]') as HTMLElement).hidden).toBe(true);
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-bar"]') as HTMLElement).hidden).toBe(false);
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-baz"]') as HTMLElement).hidden).toBe(false);
+    });
+
+    it('should support clearing the filter', async function() {
+      // Let `input` event be handled synchronously
+      spyOn(Object.getPrototypeOf(DDSLocaleSearch).prototype, '_invokeHandleThrottledInput').and.callFake(function(event) {
+        // TODO: See if there is a way to fix TS2683
+        // @ts-ignore
+        this._handleThrottledInput(event);
+      });
+      render(
+        template({
+          region: 'region-foo',
+          children: html`
+            <dds-locale-item language="language-foo" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-bar" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-baz" region="region-foo"></dds-locale-item>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<bx-search>`
+      const localeSearch = document.body.querySelector('dds-locale-search');
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
+      searchInputNode.dispatchEvent(
+        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
+      );
+      searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
+      (searchInputNode!.shadowRoot!.querySelector('.bx--search-close') as HTMLElement).click();
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-foo"]') as HTMLElement).hidden).toBe(false);
       expect((localeSearch!.querySelector('dds-locale-item[language="language-bar"]') as HTMLElement).hidden).toBe(false);
       expect((localeSearch!.querySelector('dds-locale-item[language="language-baz"]') as HTMLElement).hidden).toBe(false);
     });

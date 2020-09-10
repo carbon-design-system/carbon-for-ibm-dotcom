@@ -65,12 +65,10 @@ class ipcinfoCookie {
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
 
-    Cookies.set(
-      _cookieName,
-      encodeURIComponent(info),
-      { expires: 365 },
-      { secure: true }
-    );
+    Cookies.set(_cookieName, encodeURIComponent(info), {
+      expires: 365,
+      domain: '.ibm.com',
+    });
   }
 }
 

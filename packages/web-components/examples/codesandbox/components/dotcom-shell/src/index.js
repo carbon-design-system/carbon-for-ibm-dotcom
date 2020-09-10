@@ -7,12 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container';
+import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container.js';
 import links from './links';
 import './index.scss';
 
+window.digitalData = {
+  page: {
+    pageInfo: {
+      language: 'en-US',
+      ibm: {
+        country: 'US',
+        siteID: 'IBMTESTWWW',
+      },
+    },
+    isDataLayerReady: true,
+  },
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  if (!process.env.CORS_PROXY) {
-    document.getElementsByTagName('masthead-container').navLinks = links;
+  // `import.meta.env` is a modern alternative to `process.env` used in Snowpack
+  if (!import.meta.env.CORS_PROXY) {
+    document.getElementsByTagName('dds-masthead-composite').navLinks = links;
   }
 });

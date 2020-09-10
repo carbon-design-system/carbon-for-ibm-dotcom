@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "snowpack-plugin-sass"
+  ],
+  "installOptions": {
+    "env": {
+      "CORS_PROXY": true
+    }
+  }
+}

@@ -7,23 +7,61 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus';
+import { html, LitElement, TemplateResult } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import styles from './lightbox-media-viewer.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Media viewer modal body.
- *
- * @element dds-lightbox-media-viewer-body
  */
-@customElement(`${ddsPrefix}-lightbox-media-viewer-body`)
-class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
+abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
+  /**
+   * @returns The description content.
+   */
+  abstract _renderDescription(): TemplateResult | string | void;
+
+  /**
+   * @returns The media content.
+   */
+  abstract _renderMedia(): TemplateResult | string | void;
+
+  /**
+   * @returns The title content.
+   */
+  abstract _renderTitle(): TemplateResult | string | void;
+
   render() {
     return html`
-      <slot></slot>
+      <div class="${prefix}--lightbox-media-viewer__container">
+        <div class="${prefix}--lightbox-media-viewer__row">
+          <div class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
+            ${this._renderMedia()}
+          </div>
+          <div class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
+            <div class="${prefix}--lightbox-media-viewer__content">
+              <div
+                part="title"
+                class="${prefix}--lightbox-media-viewer__content__title"
+                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title"
+              >
+                ${this._renderTitle()}
+              </div>
+              <div
+                part="description"
+                class="${prefix}--lightbox-media-viewer__content__desc"
+                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc"
+              >
+                ${this._renderDescription()}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
   }
 

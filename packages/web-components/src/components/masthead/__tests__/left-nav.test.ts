@@ -8,8 +8,8 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav.js';
 import '../left-nav';
 import DDSLeftNavOverlay from '../left-nav-overlay';
 

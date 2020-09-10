@@ -13,33 +13,56 @@
   $high-contrast: $ui-05;
   $thin-weight: carbon--rem(1px);
 
+  :host(#{$dds-prefix}-hr)[size='small'] {
+    @extend .#{$prefix}--hr--small;
+  }
+  :host(#{$dds-prefix}-hr)[size='medium'] {
+    @extend .#{$prefix}--hr--medium;
+  }
+  :host(#{$dds-prefix}-hr)[size='large'] {
+    @extend .#{$prefix}--hr--large;
+  }
+  :host(#{$dds-prefix}-hr)[weight='thick'] {
+    @extend .#{$prefix}--hr--thick;
+  }
+  :host(#{$dds-prefix}-hr)[type='dashed'] {
+    @extend .#{$prefix}--hr--dashed;
+  }
+  :host(#{$dds-prefix}-hr)[contrast='low-contrast'] {
+    @extend .#{$prefix}--hr--low-contrast;
+  }
+  :host(#{$dds-prefix}-hr)[contrast='high-contrast'] {
+    @extend .#{$prefix}--hr--high-contrast;
+  }
+
+  :host(#{$dds-prefix}-hr),
   .#{$prefix}--hr {
     margin: $carbon--spacing-05 0;
     border: none;
     height: $thin-weight;
     background: $medium-contrast;
 
-    &--small {
+    &.#{$prefix}--hr--small {
       max-width: carbon--mini-units(4);
     }
 
-    &--medium {
+    &.#{$prefix}--hr--medium {
       max-width: carbon--mini-units(6);
     }
 
-    &--large {
+    &.#{$prefix}--hr--large {
       max-width: carbon--mini-units(8);
     }
 
-    &--thick {
+    &.#{$prefix}--hr--thick {
       height: carbon--rem(2px);
     }
 
-    &--low-contrast {
+    &.#{$prefix}--hr--low-contrast {
       background: $low-contrast;
     }
 
-    &--high-contrast {
+    &.#{$prefix}--hr--high-contrast {
       background: $high-contrast;
     }
   }
