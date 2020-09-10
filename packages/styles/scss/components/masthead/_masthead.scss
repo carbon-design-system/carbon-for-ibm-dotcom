@@ -173,6 +173,18 @@ $search-transition-timing: 95ms;
     }
   }
 
+  .#{$prefix}--masthead__l0-nav--selected a:first-of-type::after {
+    position: absolute;
+    display: block;
+    content: '';
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    right: 0;
+    background-color: $interactive-01;
+  }
+
   .#{$prefix}--header,
   .#{$prefix}--masthead__l0 #{$prefix}-header {
     transition-timing-function: $search-transition;
