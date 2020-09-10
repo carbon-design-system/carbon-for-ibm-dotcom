@@ -61561,13 +61561,13 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
     role="main"
   >
     <div>
-      <h1>
+      <h3>
         <b>
-          Grid with no Gutter
+          Horizontal Rule in Grid with no Gutter
         </b>
-      </h1>
+      </h3>
       <div
-        className="bx--grid"
+        className="bx--grid bx--no-gutter"
         style={
           Object {
             "marginBottom": "50px",
@@ -61575,27 +61575,24 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
         }
       >
         <div
-          className="bx--row bx--no-gutter"
+          className="bx--row"
         >
           <div
             className="bx--col"
           >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             <HorizontalRule>
               <hr
                 className="bx--hr"
                 data-autoid="dds--hr"
               />
             </HorizontalRule>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
       </div>
-      <h1>
-        <b>
-          Grid with Gutter
-        </b>
-      </h1>
       <div
-        className="bx--grid bx--grid--full-width"
+        className="bx--grid"
       >
         <div
           className="bx--row"
@@ -61603,18 +61600,19 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
           <div
             className="bx--col"
           >
-            <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </h4>
+            <h3>
+              <b>
+                Horizontal Rule in Grid with Gutter
+              </b>
+            </h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             <HorizontalRule>
               <hr
                 className="bx--hr"
                 data-autoid="dds--hr"
               />
             </HorizontalRule>
-            <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </div>
       </div>
