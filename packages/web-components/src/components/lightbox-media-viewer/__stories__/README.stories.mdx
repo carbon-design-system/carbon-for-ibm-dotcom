@@ -7,7 +7,48 @@ import '../lightbox-video-player';
 > This launches a modal containing a video, and a description
 > detailing the media content.
 
-## Getting started
+## Getting started - Image viewer
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-image-viewer';
+
+// Opens the lightbox image viewer
+document.getElementById('my-lightbox').open = true;
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-close-button.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/lightbox-media-viewer/lightbox-image-viewer.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-modal
+  id="my-lightbox"
+  expressive-size="full-width"
+>
+  <dds-modal-close-button></dds-modal-close-button>
+  <dds-lightbox-image-viewer
+    alt="Image alt text"
+    default-src="https://dummyimage.com/1280x720/ee5396/161616&text=16:9"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit."
+    title="Curabitur malesuada varius mi eu posuere"
+  >
+  </dds-lightbox-image-viewer>
+</dds-modal>
+```
+
+## Getting started - Video player
 
 ### JS
 
@@ -65,7 +106,6 @@ import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/button/button';
 import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-media-viewer-body';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 ...
@@ -97,9 +137,7 @@ document.addEventListener('click', async event => {
 <dds-btn id="open-modal-btn">Open modal</dds-btn>
 <dds-modal id="lightbox" size="full-width">
   <bx-modal-close-button></bx-modal-close-button>
-  <dds-lightbox-media-viewer-body>
-    <dds-lightbox-video-player id="video-player"> </dds-lightbox-video-player>
-  </dds-lightbox-media-viewer-body>
+  <dds-lightbox-video-player id="video-player"> </dds-lightbox-video-player>
 </dds-modal>
 ```
 

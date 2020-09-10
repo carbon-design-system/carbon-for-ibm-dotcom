@@ -8,8 +8,8 @@
  */
 
 import { html, property, query, customElement, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
 import styles from './card.scss';
@@ -31,6 +31,11 @@ class DDSCardFooter extends DDSLinkWithIcon {
   private _staticNode?: HTMLSpanElement;
 
   /**
+   * `true` if there is copy content.
+   */
+  protected _hasCopy = false;
+
+  /**
    * `true` if the link of parent `<dds-card>` should be used.
    */
   protected get _shouldUseParentLink() {
@@ -39,12 +44,28 @@ class DDSCardFooter extends DDSLinkWithIcon {
   }
 
   /**
+   * Handles `slotchange` event on the default `<slot>`.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    if (!(target as HTMLSlotElement).name) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this._hasCopy = hasContent;
+      this.requestUpdate();
+    }
+  }
+
+  /**
    * @returns The main content.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
+    const { _hasCopy: hasCopy } = this;
     return html`
-      <span class="${prefix}--card__cta__copy"><slot></slot></span>
+      <span ?hidden="${!hasCopy}" class="${prefix}--card__cta__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </span>
     `;
   }
 
@@ -80,7 +101,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
     const { _shouldUseParentLink: shouldUseParentLink } = this;
     return shouldUseParentLink
       ? html`
-          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderInner()}</span>
+          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderContent()}${this._renderInner()}</span>
         `
       : super.render();
   }
