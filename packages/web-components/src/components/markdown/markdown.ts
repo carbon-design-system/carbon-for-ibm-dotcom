@@ -9,8 +9,8 @@
 
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { html, property, customElement, LitElement } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import styles from './markdown.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,12 +22,21 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-markdown`)
 class DDSMarkdown extends LitElement {
+  /**
+   * The markdown content.
+   */
   @property()
   content = '';
 
+  /**
+   * `true` to avoid using bold style.
+   */
   @property({ type: Boolean, attribute: 'no-bold' })
   noBold = false;
 
+  /**
+   * `true` to avoid using creating paragraphs.
+   */
   @property({ type: Boolean, attribute: 'no-create-paragraphs' })
   noCreateParagraphs = true;
 

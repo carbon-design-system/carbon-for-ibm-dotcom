@@ -11,6 +11,8 @@
 :host(#{$dds-prefix}-image) {
   @extend .#{$prefix}--image;
 
+  display: block;
+
   ::slotted(svg[slot='icon']) {
     @extend .#{$prefix}--image__icon;
   }

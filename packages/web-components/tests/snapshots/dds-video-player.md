@@ -4,8 +4,15 @@
 
 ```
 <div class="bx--video-player__video-container">
-  <slot>
-  </slot>
+  <div class="bx--video-player__video">
+    <button class="bx--video-player__image-overlay">
+      <dds-image
+        alt=""
+        default-src="about:blank"
+      >
+      </dds-image>
+    </button>
+  </div>
 </div>
 <div class="bx--video-player__video-caption">
 </div>

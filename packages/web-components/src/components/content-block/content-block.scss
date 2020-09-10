@@ -1,0 +1,27 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+
+:host(#{$dds-prefix}-content-block),
+:host(#{$dds-prefix}-content-block-heading),
+:host(#{$dds-prefix}-content-block-complementary) {
+  display: block;
+}
+
+:host(#{$dds-prefix}-content-block-complementary) {
+  @include dds--make-col(1, 3);
+}
+
+// TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version
+.#{$dds-prefix}-ce--content-block__col {
+  @include dds--make-col(2, 3);
+}
