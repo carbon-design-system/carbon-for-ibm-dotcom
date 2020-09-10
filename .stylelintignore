@@ -8,3 +8,4 @@
 **/carbon-stories/**
 **/carbon-tools/**
 packages/vanilla/src/overview/markdown.css
+packages/web-components/scss/**/*.scss

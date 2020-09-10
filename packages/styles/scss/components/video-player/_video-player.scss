@@ -11,58 +11,66 @@
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
+  :host(#{$dds-prefix}-video-player),
   .#{$prefix}--video-player {
-    &__video-container {
-      width: 100%;
-      position: relative;
-      display: inline-block;
-      margin-top: $spacing-05;
-
-      .#{$prefix}--video-player__video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      @include ratio-base(16, 9, true);
-
-      @each $aspect-ratio in $aspect-ratios {
-        $width: nth($aspect-ratio, 1);
-        $height: nth($aspect-ratio, 2);
-
-        &.#{$prefix}--video-player__aspect-ratio {
-          &--#{$width}x#{$height} {
-            @include ratio-base($width, $height, true);
-          }
-        }
-      }
-    }
-
-    &__video-caption {
-      @include use-carbon-productive-tokens();
-      @include carbon--type-style(body-long-01, true);
-
-      padding-top: $spacing-05;
-      color: $text-05;
-      max-width: 90%;
-    }
-
-    &__image-overlay {
-      border: none;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    &__image-overlay,
-    .#{$prefix}--image,
     .#{$prefix}--image__img {
       width: 100%;
       height: 100%;
     }
+  }
 
-    &__image-overlay:focus {
+  :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
+  .#{$prefix}--video-player .#{$prefix}--image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .#{$prefix}--video-player__video-container {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    margin-top: $spacing-05;
+
+    ::slotted(.#{$prefix}--video-player__video),
+    .#{$prefix}--video-player__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    @include ratio-base(16, 9, true);
+
+    @each $aspect-ratio in $aspect-ratios {
+      $width: nth($aspect-ratio, 1);
+      $height: nth($aspect-ratio, 2);
+
+      &.#{$prefix}--video-player__aspect-ratio {
+        &--#{$width}x#{$height} {
+          @include ratio-base($width, $height, true);
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--video-player__video-caption {
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-long-01, true);
+
+    padding-top: $spacing-05;
+    color: $text-05;
+    max-width: 90%;
+  }
+
+  .#{$prefix}--video-player__image-overlay {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+    &:focus {
       outline: 3px solid $focus;
       outline-offset: 1px;
     }

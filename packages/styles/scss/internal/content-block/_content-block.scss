@@ -11,58 +11,26 @@
 @import '../../components/feature-card-block-medium/feature-card-block-medium';
 
 @mixin content-block {
+  :host(#{$dds-prefix}-content-block),
+  :host(#{$dds-prefix}-content-block-simple),
   .#{$prefix}--content-block {
     padding-top: $carbon--layout-03;
     padding-bottom: $carbon--layout-05;
+
     @include carbon--breakpoint('md') {
       padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-06;
     }
+
     @include carbon--breakpoint('max') {
       padding-bottom: $carbon--layout-07;
     }
-    &__heading,
-    &__copy {
-      @include content-width;
-    }
-    &__heading {
-      @include carbon--type-style('expressive-heading-05', true);
 
-      color: $text-01;
-      margin-bottom: $carbon--spacing-07;
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $carbon--spacing-09;
-      }
-    }
-    &__copy {
-      p {
-        @include carbon--type-style('expressive-heading-03', true);
-
-        color: $text-01;
-        margin-bottom: $carbon--spacing-07;
-      }
-    }
-    &__cta {
-      margin-top: $carbon--layout-04;
-      @include carbon--breakpoint('md') {
-        margin-top: $carbon--layout-05;
-      }
-      &-row {
-        @include carbon--make-row;
-        // allows for margin collapsing
-        display: block;
-      }
-      &-col {
-        @include carbon--make-col-ready;
-        @include carbon--breakpoint('md') {
-          @include carbon--make-col(4, 8);
-        }
-      }
-    }
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
       @include hang;
     }
+
     @include carbon--breakpoint('lg') {
       .#{$prefix}--link-list {
         margin-right: -$carbon--spacing-05;
@@ -72,10 +40,57 @@
         }
       }
     }
+
     .#{$prefix}--hr {
       margin-top: 0;
       margin-right: -1rem;
       margin-left: -1rem;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-block-heading),
+  .#{$prefix}--content-block__heading,
+  .#{$prefix}--content-block__copy {
+    @include content-width;
+  }
+
+  :host(#{$dds-prefix}-content-block-heading),
+  .#{$prefix}--content-block__heading {
+    @include carbon--type-style('expressive-heading-05', true);
+
+    color: $text-01;
+    margin-bottom: $carbon--spacing-07;
+    @include carbon--breakpoint('lg') {
+      margin-bottom: $carbon--spacing-09;
+    }
+  }
+
+  .#{$prefix}--content-block__copy {
+    p {
+      @include carbon--type-style('expressive-heading-03', true);
+
+      color: $text-01;
+      margin-bottom: $carbon--spacing-07;
+    }
+  }
+
+  .#{$prefix}--content-block__cta {
+    margin-top: $carbon--layout-04;
+    @include carbon--breakpoint('md') {
+      margin-top: $carbon--layout-05;
+    }
+  }
+
+  .#{$prefix}--content-block__cta-row {
+    @include carbon--make-row;
+    // allows for margin collapsing
+    display: block;
+  }
+
+  .#{$prefix}--content-block__cta-col {
+    @include carbon--make-col-ready;
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(4, 8);
     }
   }
 }
