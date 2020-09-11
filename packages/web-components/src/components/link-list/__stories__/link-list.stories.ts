@@ -120,6 +120,36 @@ EndOfSection.story = {
   },
 };
 
+export const SplitDesktop = () => html`
+  <dds-link-list type="end">
+    <span slot="heading">Tutorial</span>
+    <dds-link-list-item>
+      Learn more ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+    <dds-link-list-item>
+      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+    <dds-link-list-item>
+      Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+    <dds-link-list-item>
+      Learn more ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+    <dds-link-list-item>
+      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+    <dds-link-list-item>
+      Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-list-item>
+  </dds-link-list>
+`;
+
+SplitDesktop.story = {
+  parameters: {
+    colLgClass: 'bx--col-lg-6',
+  },
+};
+
 export default {
   title: 'Components/Link List',
   parameters: {
