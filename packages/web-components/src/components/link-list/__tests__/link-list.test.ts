@@ -42,13 +42,6 @@ describe('dds-link-list', function() {
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });
 
-  it('Renders End of section with split', async function() {
-    render(EndOfSection(), document.body);
-    await Promise.resolve();
-    expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
-    expect(document.body.querySelector('dds-link-list')?.classList.contains('.bx--link-list__split')).toBe(true);
-  });
-
   it('Tests the get methods', function() {
     expect((DDSLinkList as typeof DDSLinkList).stableSelector).toBe('dds--link-list');
     expect((DDSLinkList as typeof DDSLinkList).splitLayoutClass).toBe('.bx--link-list__split');
