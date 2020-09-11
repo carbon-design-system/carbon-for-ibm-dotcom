@@ -110,7 +110,7 @@ export class SideNavMenu extends React.Component {
 
   scrollToTop = () => {
     const navItemsElem = root.document.getElementsByClassName(
-      'bx--side-nav__items'
+      `${prefix}--side-nav__items`
     );
     if (navItemsElem) {
       const nav = Array.prototype.slice.call(navItemsElem);
