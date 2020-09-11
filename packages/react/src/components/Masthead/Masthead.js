@@ -306,6 +306,12 @@ const Masthead = ({
                       searchOpenOnload={searchOpenOnload}
                       placeHolderText={placeHolderText}
                       navType={navType}
+                      {...(mastheadProps.customTypeaheadApi
+                        ? {
+                            customTypeaheadApi:
+                              mastheadProps.customTypeaheadApi,
+                          }
+                        : {})}
                     />
                   )}
                 </div>
@@ -477,6 +483,11 @@ Masthead.propTypes = {
       ),
     ]),
   }),
+
+  /**
+   * Custom typeahead API function
+   */
+  customTypeaheadApi: PropTypes.func,
 };
 
 Masthead.defaultProps = {
