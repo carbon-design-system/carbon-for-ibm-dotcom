@@ -13,7 +13,7 @@ import { LocaleAPI } from '../Locale';
  * @private
  */
 const _host =
-  (process && process.env.SEARCH_TYPEAHEAD_HOST) || 'https://www-api.ibm.com';
+  (process && process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com';
 
 /**
  * @constant {string | string} API version

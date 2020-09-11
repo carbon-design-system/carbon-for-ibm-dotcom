@@ -13,7 +13,6 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SideNavIcon from './SideNavIcon';
-
 const { prefix } = settings;
 
 export class SideNavMenu extends React.Component {
@@ -110,6 +109,7 @@ export class SideNavMenu extends React.Component {
 
   handleToggleExpand = event => {
     const { onToggle } = this.props;
+
     event.persist();
     this.setState(
       state => ({ isExpanded: !state.isExpanded }),
@@ -124,6 +124,7 @@ export class SideNavMenu extends React.Component {
   handleKeyToggleExpand = event => {
     if (event.charCode === 13 || event.charCode === ' ') {
       const { onToggle } = this.props;
+
       event.persist();
       this.setState(
         state => ({ isExpanded: !state.isExpanded }),
