@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.10.2...@carbon/ibmdotcom-utilities@1.11.0-rc.0) (2020-09-11)
+
+### Features
+
+- **cta:** introduce card CTA
+  ([#3855](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3855))
+  ([e3a53c6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e3a53c6)),
+  closes
+  [#3556](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3556)
+
+## 1.10.2 (2020-09-08)
+
+# 1.11.0-beta.4847 (2020-08-28)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.10.2-rc.1...@carbon/ibmdotcom-utilities@1.10.2) (2020-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

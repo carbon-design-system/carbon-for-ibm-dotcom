@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.10.2...@carbon/ibmdotcom-vanilla@0.11.0-rc.0) (2020-09-11)
+
+### Features
+
+- **search:** add redirect and typeahead hooks
+  ([#3918](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3918))
+  ([84c0481](https://github.com/carbon-design-system/ibm-dotcom-library/commit/84c0481)),
+  closes
+  [#3766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3766)
+
+## 1.10.2 (2020-09-08)
+
+# 1.11.0-beta.4847 (2020-08-28)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.10.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.10.2-rc.2...@carbon/ibmdotcom-vanilla@0.10.2) (2020-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla
