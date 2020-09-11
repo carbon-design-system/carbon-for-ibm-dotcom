@@ -18,6 +18,21 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Icon Placement
+ */
+export enum ICON_PLACEMENT {
+  /**
+   * left of footer copy
+   */
+  LEFT = 'left',
+
+  /**
+   * right of footer copy
+   */
+  RIGHT = 'right',
+}
+
+/**
  * Card footer.
  *
  * @element dds-card-footer
@@ -88,13 +103,19 @@ class DDSCardFooter extends DDSLinkWithIcon {
   @property({ reflect: true })
   slot = 'footer';
 
+  /**
+   * Icon placement(right (default) | left)
+   */
+  @property({ attribute: 'icon-placement', reflect: true })
+  iconPlacement = ICON_PLACEMENT.RIGHT;
+
   updated() {
     super.updated();
-    const { _staticNode: staticNode, _linkNode: linkNode, _shouldUseParentLink: shouldUseParentLink } = this;
+    const { iconPlacement, _staticNode: staticNode, _linkNode: linkNode } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
-    targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, shouldUseParentLink);
+    targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, iconPlacement === ICON_PLACEMENT.LEFT);
   }
 
   render() {
