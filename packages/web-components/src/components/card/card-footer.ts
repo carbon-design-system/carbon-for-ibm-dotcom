@@ -101,7 +101,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
     const { _shouldUseParentLink: shouldUseParentLink } = this;
     return shouldUseParentLink
       ? html`
-          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderContent()}${this._renderInner()}</span>
+          <span class="${ddsPrefix}-ce--card__footer--static">${this._renderInner()}</span>
         `
       : super.render();
   }
