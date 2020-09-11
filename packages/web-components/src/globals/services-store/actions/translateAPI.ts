@@ -62,32 +62,30 @@ export type TranslateAPIActions =
   | ReturnType<typeof setTranslation>;
 
 /**
+ * @param language The language. If not given, the default language from DDO is used.
  * @returns A Redux action that sends a REST call for translation data.
  */
-export function loadTranslation(): ThunkAction<
-  Promise<Translation>,
-  { translateAPI: TranslateAPIState },
-  void,
-  TranslateAPIActions
-> {
+export function loadTranslation(
+  language?: string
+): ThunkAction<Promise<Translation>, { translateAPI: TranslateAPIState }, void, TranslateAPIActions> {
   return async (dispatch, getState) => {
     // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
-    const language: string = await dispatch(loadLanguage() as any);
+    const effectiveLanguage: string = language ?? (await dispatch(loadLanguage() as any));
     const { requestsTranslation = {} } = getState().translateAPI ?? {};
-    const { [language]: requestTranslation } = requestsTranslation;
+    const { [effectiveLanguage]: requestTranslation } = requestsTranslation;
     if (requestTranslation) {
       return requestTranslation;
     }
-    const [primary, country] = language.split('-');
+    const [primary, country] = effectiveLanguage.split('-');
     const promiseTranslation: Promise<Translation> = TranslateAPI.getTranslation({
       cc: country.toLowerCase(),
       lc: primary.toLowerCase(),
     });
-    dispatch(setRequestTranslationInProgress(language, promiseTranslation));
+    dispatch(setRequestTranslationInProgress(effectiveLanguage, promiseTranslation));
     try {
-      dispatch(setTranslation(language, await promiseTranslation));
+      dispatch(setTranslation(effectiveLanguage, await promiseTranslation));
     } catch (error) {
-      dispatch(setErrorRequestTranslation(language, error));
+      dispatch(setErrorRequestTranslation(effectiveLanguage, error));
     }
     return promiseTranslation;
   };

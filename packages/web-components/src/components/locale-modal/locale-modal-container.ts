@@ -67,10 +67,10 @@ export interface LocaleModalContainerStateProps {
  */
 export function mapStateToProps(state: LocaleModalContainerState): LocaleModalContainerStateProps {
   const { localeAPI } = state;
-  const { langDisplay, language, localeLists } = localeAPI ?? {};
+  const { langDisplays, language, localeLists } = localeAPI ?? {};
   return pickBy(
     {
-      langDisplay,
+      langDisplay: !language ? undefined : langDisplays?.[language],
       localeList: !language ? undefined : localeLists?.[language],
     },
     value => value !== undefined

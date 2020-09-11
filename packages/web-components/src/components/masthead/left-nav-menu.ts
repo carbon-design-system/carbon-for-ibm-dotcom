@@ -70,6 +70,12 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   expanded = false;
 
+  /**
+   * The title text.
+   */
+  @property()
+  title = '';
+
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const { selectorItem } = this.constructor as typeof DDSLeftNavMenu;

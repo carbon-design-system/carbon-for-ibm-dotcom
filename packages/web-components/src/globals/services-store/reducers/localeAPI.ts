@@ -55,29 +55,50 @@ export default function reducer(state: LocaleAPIState = {}, action: LocaleAPIAct
       };
     }
     case LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS: {
-      const { request: requestLangDisplay } = action as ReturnType<typeof setRequestLangDisplayInProgress>;
+      const { language, request } = action as ReturnType<typeof setRequestLangDisplayInProgress>;
       return {
         ...state,
-        requestLangDisplayInProgress: true,
-        requestLangDisplay,
+        requestsLangDisplayInProgress: {
+          ...(state.requestsLangDisplayInProgress || {}),
+          [language]: true,
+        },
+        requestsLangDisplay: {
+          ...(state.requestsLangDisplay || {}),
+          [language]: request,
+        },
       };
     }
     case LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY: {
-      const { error: errorRequestLangDisplay } = action as ReturnType<typeof setErrorRequestLangDisplay>;
+      const { language, error } = action as ReturnType<typeof setErrorRequestLangDisplay>;
       return {
         ...state,
-        requestLangDisplayInProgress: false,
-        errorRequestLangDisplay,
+        requestsLangDisplayInProgress: {
+          ...(state.requestsLangDisplayInProgress || {}),
+          [language]: false,
+        },
+        errorsRequestLangDisplay: {
+          ...(state.errorsRequestLangDisplay || {}),
+          [language]: error,
+        },
       };
     }
     case LOCALE_API_ACTION.SET_LANG_DISPLAY: {
-      const { langDisplay } = action as ReturnType<typeof setLangDisplay>;
+      const { language, langDisplay } = action as ReturnType<typeof setLangDisplay>;
       return {
         ...state,
-        // If application sets display language without making a REST call, mark the request as resolved already
-        requestLangDisplay: Promise.resolve(langDisplay),
-        requestLangDisplayInProgress: false,
-        langDisplay,
+        // If application sets language data without making a REST call, mark the request as resolved already
+        requestsLangDisplayInProgress: {
+          ...(state.requestsLangDisplayInProgress || {}),
+          [language]: false,
+        },
+        requestsLangDisplay: {
+          ...(state.requestsLangDisplay || {}),
+          [language]: Promise.resolve(langDisplay),
+        },
+        langDisplays: {
+          ...(state.langDisplays || {}),
+          [language]: langDisplay,
+        },
       };
     }
     case LOCALE_API_ACTION.SET_REQUEST_LOCALE_LIST_IN_PROGRESS: {

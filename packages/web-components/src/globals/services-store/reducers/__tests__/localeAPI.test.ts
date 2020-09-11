@@ -109,11 +109,16 @@ describe('Redux reducers for `LocaleAPI`', () => {
     expect(
       reducer({} as LocaleAPIState, {
         type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
+        language: 'lang-foo',
         request,
       })
     ).toEqual({
-      requestLangDisplayInProgress: true,
-      requestLangDisplay: request,
+      requestsLangDisplayInProgress: {
+        'lang-foo': true,
+      },
+      requestsLangDisplay: {
+        'lang-foo': request,
+      },
     });
   });
 
@@ -122,12 +127,17 @@ describe('Redux reducers for `LocaleAPI`', () => {
       convertValue(
         reducer({} as LocaleAPIState, {
           type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
+          language: 'lang-foo',
           error: new Error('error-langdisplay'),
         })
       )
     ).toEqual({
-      requestLangDisplayInProgress: false,
-      errorRequestLangDisplay: 'error-langdisplay',
+      requestsLangDisplayInProgress: {
+        'lang-foo': false,
+      },
+      errorsRequestLangDisplay: {
+        'lang-foo': 'error-langdisplay',
+      },
     });
   });
 
@@ -136,13 +146,20 @@ describe('Redux reducers for `LocaleAPI`', () => {
       convertValue(
         reducer({} as LocaleAPIState, {
           type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
+          language: 'lang-foo',
           langDisplay: 'lang-display-foo',
         })
       )
     ).toEqual({
-      requestLangDisplayInProgress: false,
-      requestLangDisplay: 'PROMISE',
-      langDisplay: 'lang-display-foo',
+      requestsLangDisplayInProgress: {
+        'lang-foo': false,
+      },
+      requestsLangDisplay: {
+        'lang-foo': 'PROMISE',
+      },
+      langDisplays: {
+        'lang-foo': 'lang-display-foo',
+      },
     });
   });
 

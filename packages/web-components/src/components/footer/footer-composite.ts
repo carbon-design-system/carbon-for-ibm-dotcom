@@ -20,7 +20,6 @@ import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-sto
 import { FOOTER_SIZE } from './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './footer';
-import { LocaleModalLocaleList } from '../locale-modal/locale-modal-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal/locale-modal-composite';
 /* eslint-enable import/no-duplicates */
@@ -65,42 +64,28 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    *
    * @internal
    */
-  _loadLangDisplay?: () => Promise<string>;
+  _loadLangDisplay?: (language?: string) => Promise<string>;
 
   /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
    *
    * @internal
    */
-  _loadLocaleList?: () => Promise<LocaleList>;
+  _loadLocaleList?: (language?: string) => Promise<LocaleList>;
 
   /**
    * The placeholder for `loadTranslation()` Redux action that may be mixed in.
    *
    * @internal
    */
-  _loadTranslation?: () => Promise<Translation>;
-
-  /**
-   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _setLangDisplay?: (string) => void;
+  _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `setLanguage()` Redux action that may be mixed in.
    *
    * @internal
    */
-  _setLanguage?: (string) => void;
-
-  /**
-   * The placeholder for `setLocaleList()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _setLocaleList?: (string, LocaleList) => void;
+  _setLanguage?: (language: string) => void;
 
   /**
    * The g11n collator to use for sorting contry names.
@@ -136,7 +121,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * The locale list.
    */
   @property({ attribute: false })
-  localeList?: LocaleModalLocaleList;
+  localeList?: LocaleList;
 
   /**
    * `true` to open the locale modal.
@@ -155,16 +140,19 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
     if (language) {
       this._setLanguage?.(language);
     }
-    const { langDisplay } = this;
-    if (langDisplay) {
-      this._setLangDisplay?.(langDisplay);
+    this._loadLangDisplay?.(language);
+    this._loadTranslation?.(language);
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('language')) {
+      const { language } = this;
+      if (language) {
+        this._setLanguage?.(language);
+        this._loadLangDisplay?.(language).catch(() => {}); // The error is logged in the Redux store
+        this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+      }
     }
-    this._loadLangDisplay?.();
-    const { localeList } = this;
-    if (language && localeList) {
-      this._setLocaleList?.(language, localeList);
-    }
-    this._loadTranslation?.();
   }
 
   /**

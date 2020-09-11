@@ -12,7 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { LocaleList } from '../../globals/services-store/types/localeAPI';
+import { Country, LocaleList } from '../../globals/services-store/types/localeAPI';
 import './locale-modal';
 import './regions';
 import './region-item';
@@ -21,74 +21,6 @@ import './locale-item';
 import styles from './locale-modal-composite.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * The translation data for locale modal.
- */
-export interface LocaleModalI18N {
-  availabilityText: string;
-  headerTitle: string;
-  modalClose: string;
-  searchClearText: string;
-  searchLabel: string;
-  searchPlaceholder: string;
-  unavailabilityText: string;
-}
-
-/**
- * The locale item data in locale modal, which is a tuple of the locale and the language.
- */
-export type LocaleModalLocale = [string, string];
-
-/**
- * The country item data in locale modal.
- */
-export interface LocaleModalCountry {
-  /**
-   * The country name.
-   */
-  name: string;
-
-  /**
-   * The list of locale items.
-   */
-  locale: LocaleModalLocale[];
-}
-
-/**
- * The region item data in locale modal.
- */
-export interface LocaleModalRegion {
-  /**
-   * The abbreviated region name.
-   */
-  key: string;
-
-  /**
-   * The region name.
-   */
-  name: string;
-
-  /**
-   * The list of country items.
-   */
-  countryList: LocaleModalCountry[];
-}
-
-/**
- * The data available from `LocaleAPI.getList()`.
- */
-export interface LocaleModalLocaleList {
-  /**
-   * The translation data for locale modal.
-   */
-  localeModal: LocaleModalI18N;
-
-  /**
-   * The list of region items.
-   */
-  regionList: LocaleModalRegion[];
-}
 
 /**
  * Container component for locale modal.
@@ -101,7 +33,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    * @param countries A country list.
    * @returns Sorted version of the given country list.
    */
-  private _sortCountries(countries: LocaleModalCountry[]) {
+  private _sortCountries(countries: Country[]) {
     return countries.sort((lhs, rhs) => this.collatorCountryName.compare(lhs.name, rhs.name));
   }
 
@@ -110,28 +42,21 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    *
    * @internal
    */
-  _loadLangDisplay?: () => Promise<string>;
+  _loadLangDisplay?: (language?: string) => Promise<string>;
 
   /**
    * The placeholder for `loadLocaleList()` Redux action that may be mixed in.
    *
    * @internal
    */
-  _loadLocaleList?: () => Promise<LocaleList>;
+  _loadLocaleList?: (language?: string) => Promise<LocaleList>;
 
   /**
    * The placeholder for `setLanguage()` Redux action that may be mixed in.
    *
    * @internal
    */
-  _setLanguage?: (string) => void;
-
-  /**
-   * The placeholder for `setLangDisplay()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _setLangDisplay?: (string) => void;
+  _setLanguage?: (language: string) => void;
 
   /**
    * The g11n collator to use for sorting contry names.
@@ -155,7 +80,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    * The locale list.
    */
   @property({ attribute: false })
-  localeList?: LocaleModalLocaleList;
+  localeList?: LocaleList;
 
   /**
    * `true` to open the modal.
@@ -168,34 +93,24 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     if (language) {
       this._setLanguage?.(language);
     }
-    const { langDisplay } = this;
-    if (langDisplay) {
-      this._setLangDisplay?.(langDisplay);
-    }
-    this._loadLangDisplay?.();
-    this._loadLocaleList?.();
+    this._loadLangDisplay?.(language);
+    this._loadLocaleList?.(language);
   }
 
   updated(changedProperties) {
+    const { language } = this;
     if (changedProperties.has('language')) {
-      const { language } = this;
       if (language) {
         this._setLanguage?.(language);
+        this._loadLocaleList?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
-    if (changedProperties.has('langDisplay')) {
-      const { langDisplay } = this;
-      if (langDisplay) {
-        this._setLangDisplay?.(langDisplay);
-      }
-    }
-    return true;
   }
 
   renderLightDOM() {
     const { langDisplay, localeList, open } = this;
-    const { localeModal: localeModalI18N, regionList } = localeList ?? {};
-    const { searchPlaceholder } = localeModalI18N ?? {};
+    const { localeModal, regionList } = localeList ?? {};
+    const { searchPlaceholder } = localeModal ?? {};
     const pageLangs: { [locale: string]: string } = altlangs();
     if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
       const messages = [

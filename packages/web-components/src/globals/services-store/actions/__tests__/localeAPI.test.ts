@@ -144,42 +144,68 @@ describe('Redux actions for `LocaleAPI`', () => {
 
   it('dispatches the action to set display language', () => {
     const store = mockStore();
-    store.dispatch(setLangDisplay('lang-display-foo'));
+    store.dispatch(setLangDisplay('lang-foo', 'lang-display-foo'));
     expect(store.getActions()).toEqual([
       {
         type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
+        language: 'lang-foo',
         langDisplay: 'lang-display-foo',
       },
     ]);
   });
 
   it('dispatches the action to load display language', async () => {
+    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
     const store = mockStore();
     expect(await store.dispatch(loadLangDisplay())).toBe('lang-display-foo');
     expect(convertValue(store.getActions())).toEqual([
       {
+        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
+        request: 'PROMISE',
+      },
+      {
+        type: LOCALE_API_ACTION.SET_LANGUAGE,
+        language: 'ko-KR',
+      },
+      {
         type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
+        language: 'ko-KR',
         request: 'PROMISE',
       },
       {
         type: LOCALE_API_ACTION.SET_LANG_DISPLAY,
+        language: 'ko-KR',
         langDisplay: 'lang-display-foo',
       },
     ]);
   });
 
-  it('caches the loaded display language', async () => {
+  it('caches the loaded locale list data', async () => {
+    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
     const store = mockStore({
       localeAPI: {
-        requestLangDisplay: Promise.resolve('lang-display-foo'),
+        requestsLangDisplay: {
+          'ko-KR': Promise.resolve('lang-display-foo'),
+        },
       },
     });
-    expect(await store.dispatch(loadLangDisplay())).toBe('lang-display-foo');
-    expect(convertValue(store.getActions())).toEqual([]);
+    expect(await store.dispatch(loadLangDisplay())).toEqual('lang-display-foo');
+    expect(convertValue(store.getActions())).toEqual([
+      {
+        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
+        request: 'PROMISE',
+      },
+      {
+        type: LOCALE_API_ACTION.SET_LANGUAGE,
+        language: 'ko-KR',
+      },
+    ]);
   });
 
   it('dispatches the action of error in loading display language', async () => {
+    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getLangDisplay.mockRejectedValue(new Error('error-getlangdisplay'));
     const store = mockStore();
     let caught;
@@ -191,20 +217,33 @@ describe('Redux actions for `LocaleAPI`', () => {
     expect(caught?.message).toBe('error-getlangdisplay');
     expect(convertValue(store.getActions())).toEqual([
       {
+        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
+        request: 'PROMISE',
+      },
+      {
+        type: LOCALE_API_ACTION.SET_LANGUAGE,
+        language: 'ko-KR',
+      },
+      {
         type: LOCALE_API_ACTION.SET_REQUEST_LANG_DISPLAY_IN_PROGRESS,
+        language: 'ko-KR',
         request: 'PROMISE',
       },
       {
         type: LOCALE_API_ACTION.SET_ERROR_REQUEST_LANG_DISPLAY,
+        language: 'ko-KR',
         error: 'error-getlangdisplay',
       },
     ]);
   });
 
   it('caches the error in loading display language', async () => {
+    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     const store = mockStore({
       localeAPI: {
-        requestLangDisplay: Promise.reject(new Error('error-getlangdisplay')),
+        requestsLangDisplay: {
+          'ko-KR': Promise.reject(new Error('error-getlangdisplay')),
+        },
       },
     });
     let caught;
@@ -214,7 +253,16 @@ describe('Redux actions for `LocaleAPI`', () => {
       caught = error;
     }
     expect(caught?.message).toBe('error-getlangdisplay');
-    expect(convertValue(store.getActions())).toEqual([]);
+    expect(convertValue(store.getActions())).toEqual([
+      {
+        type: LOCALE_API_ACTION.SET_REQUEST_LANGUAGE_IN_PROGRESS,
+        request: 'PROMISE',
+      },
+      {
+        type: LOCALE_API_ACTION.SET_LANGUAGE,
+        language: 'ko-KR',
+      },
+    ]);
   });
 
   it('dispatches the action to set locale list data', () => {
