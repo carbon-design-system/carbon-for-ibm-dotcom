@@ -100,6 +100,7 @@ const MastheadSearch = ({
   renderValue,
   searchOpenOnload,
   navType,
+  customTypeaheadApi,
 }) => {
   const { ref } = useSearchVisible(false);
 
@@ -318,7 +319,9 @@ const MastheadSearch = ({
 
     if (request.reason === 'input-changed') {
       // if the search input has changed
-      let response = await SearchTypeaheadAPI.getResults(searchValue);
+      let response = customTypeaheadApi
+        ? customTypeaheadApi(searchValue)
+        : await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
         dispatch({
@@ -435,6 +438,11 @@ MastheadSearch.propTypes = {
    * navigation type for autoids
    */
   navType: PropTypes.oneOf(['default', 'alt', 'eco']),
+
+  /**
+   * Custom typeahead API function
+   */
+  customTypeaheadApi: PropTypes.func,
 };
 
 MastheadSearch.defaultProps = {
