@@ -12,8 +12,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import root from 'window-or-global';
 import SideNavIcon from './SideNavIcon';
-
 const { prefix } = settings;
 
 export class SideNavMenu extends React.Component {
@@ -108,9 +108,21 @@ export class SideNavMenu extends React.Component {
     };
   }
 
+  scrollToTop = () => {
+    const navItemsElem = root.document.getElementsByClassName(
+      'bx--side-nav__items'
+    );
+    if (navItemsElem) {
+      const nav = Array.prototype.slice.call(navItemsElem);
+      nav.forEach(item => (item.scrollTop = 0));
+    }
+  };
+
   handleToggleExpand = event => {
     const { onToggle } = this.props;
+
     event.persist();
+    this.scrollToTop();
     this.setState(
       state => ({ isExpanded: !state.isExpanded }),
       () => {
@@ -124,7 +136,9 @@ export class SideNavMenu extends React.Component {
   handleKeyToggleExpand = event => {
     if (event.charCode === 13 || event.charCode === ' ') {
       const { onToggle } = this.props;
+
       event.persist();
+      this.scrollToTop();
       this.setState(
         state => ({ isExpanded: !state.isExpanded }),
         () => {
