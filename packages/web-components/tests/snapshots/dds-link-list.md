@@ -62,7 +62,6 @@
   <slot>
   </slot>
 </ul>
-
 ```
 
 #### `Renders End of section`
@@ -79,23 +78,5 @@
   <slot>
   </slot>
 </ul>
-
-```
-
-#### `Renders End of section with split`
-
-```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
-<ul
-  class="bx--link-list__list dds-ce--link-list__list--end"
-  name="list"
->
-  <slot>
-  </slot>
-</ul>
-
 ```
 

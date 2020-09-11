@@ -44,7 +44,7 @@ describe('dds-link-list', function() {
 
   it('Tests the get methods', function() {
     expect((DDSLinkList as typeof DDSLinkList).stableSelector).toBe('dds--link-list');
-    expect((DDSLinkList as typeof DDSLinkList).splitLayoutClass).toBe('.bx--link-list__split');
+    expect((DDSLinkList as typeof DDSLinkList).splitLayoutClass).toBe('bx--link-list__split');
     expect((DDSLinkList as typeof DDSLinkList).linkListItemSelector).toBe('dds-link-list-item');
   });
 
