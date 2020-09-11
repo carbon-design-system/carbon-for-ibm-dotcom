@@ -76,6 +76,60 @@ DDS_MASTHEAD_L1=true
 
 <Props of={Masthead} />
 
+## customTypeaheadApi
+
+The masthead search supports a user-defined redirect host URL and typeahead
+endpoint API.
+
+**Custom redirect URL endpoint**
+
+Changing the redirect host is as simple as adding an environment variable to
+your application.
+
+```
+SEARCH_REDIRECT_ENDPOINT=https://www.custom-redirect-endpoint.com
+```
+
+This will replace the default endpoint when creating redirect URLs.
+
+```javascript
+${SEARCH_REDIRECT_ENDPOINT}&q=${encodeURIComponent(value)}&lang=${state.lc}&cc=${state.cc}
+```
+
+**Custom typeahead API**
+
+To use a custom typeahead API, set the endpoint by adding an environment
+variable.
+
+```
+SEARCH_TYPEAHEAD_API=https://www.custom-typeahead-api.com
+```
+
+Then use the `customTypeaheadApi` prop to pass a promise-based method to fetch
+the results of the search value.
+
+```javascript
+let customTypeaheadApi = async searchVal => await response.json();
+
+<Masthead customTypeaheadApi={customTypeaheadApi} />;
+```
+
+In order for the typehead presentation layer to correctly display the results,
+here is how the response object should look:
+
+```javascript
+[
+  ['cloud', '0'],
+  ['cloud pak for data', '1'],
+  ['cloud pak', '2'],
+  ['cloud pak for integration', '3'],
+  ['cloud pak for automation', '4'],
+  ['cloud object storage', '5'],
+];
+```
+
+> 💡 A maximum of 10 results will be displayed.
+
 ## platform
 
 Includes platform name (only available with `default` and `custom navigation`).
