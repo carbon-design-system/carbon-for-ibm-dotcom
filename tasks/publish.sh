@@ -65,6 +65,11 @@ release_full_major () {
   ./node_modules/.bin/lerna publish major --conventional-graduate
 }
 
+# Post-release success message
+success_message () {
+  echo -e "${GREEN}Publish complete, run 'node ./tasks/tag-release.js' to tag and create the Github release.${NC}"
+}
+
 # Start in tasks/ even if run from root directory
 cd "$(dirname "$0")"
 
@@ -167,7 +172,7 @@ do
           echo -e "${GREEN}Creating patch rc.0 release...${NC}"
           set -x
           release_rc0_patch
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "rc.0 minor (first release candidate)")
@@ -175,7 +180,7 @@ do
           echo -e "${GREEN}Creating minor rc.0 release...${NC}"
           set -x
           release_rc0_minor
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "rc.0 major (first release candidate)")
@@ -183,7 +188,7 @@ do
           echo -e "${GREEN}Creating major rc.0 release...${NC}"
           set -x
           release_rc0_major
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "rc.1+ (subsequent release candidates)")
@@ -191,7 +196,7 @@ do
           echo -e "${GREEN}Creating rc.1+ release...${NC}"
           set -x
           release_rc1plus
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "full release (patch)")
@@ -199,7 +204,7 @@ do
           echo -e "${GREEN}Creating full patch release...${NC}"
           set -x
           release_full_patch
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "full release (minor)")
@@ -207,7 +212,7 @@ do
           echo -e "${GREEN}Creating full minor release...${NC}"
           set -x
           release_full_minor
-          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "full release (major)")
@@ -215,7 +220,7 @@ do
           echo -e "${GREEN}Creating full major release...${NC}"
           set -x
           release_full_major
-          echo -e "${GREEN}Publish complete, run 'node ./tasks/tag-release.js' to tag and create the Github release.${NC}"
+          success_message
           exit 0
           ;;
         "cancel")
