@@ -28,7 +28,7 @@ describe('SearchTypeaheadAPI', () => {
 
   it('should search for ibm.com results', async () => {
     const query = 'red hat';
-    const endpoint = `${process.env.SEARCH_TYPEAHEAD_HOST}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
+    const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
     const fetchUrl = `${endpoint}?lang=${_lc}&cc=${_cc}&query=${encodeURIComponent(
       query
     )}`;
