@@ -48,6 +48,10 @@ const SideNavMenuWithBackForward = ({
         }
       );
     }
+
+    // return scroll to top when menu toggles
+    const sideNavItems = sideNavMenuNode.closest('.bx--side-nav__items');
+    sideNavItems.scrollTop = 0;
   }, []);
   return (
     <SideNavMenu
