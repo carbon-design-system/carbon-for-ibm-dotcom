@@ -8,11 +8,13 @@
 import { ArrowRight20 } from '@carbon/icons-react';
 import PromoBanner from '../PromoBanner';
 import React from 'react';
+import Readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|PromoBanner',
   parameters: {
+    ...Readme.parameters,
     knobs: {
       PromoBanner: ({ groupId }) => ({
         copy: text(

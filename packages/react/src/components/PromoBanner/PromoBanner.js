@@ -54,7 +54,7 @@ PromoBanner.propTypes = {
     href: PropTypes.string,
     copy: PropTypes.string,
     icon: PropTypes.node,
-  }),
+  }).isRequired,
 };
 
 export default PromoBanner;
