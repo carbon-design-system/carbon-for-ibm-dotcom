@@ -14,6 +14,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../dotcom-shell-container';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import footerStyles from '../../footer/__stories__/footer.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
@@ -97,10 +98,12 @@ export const Default = ({ parameters }) => {
             lang-display="${ifNonNull(langDisplay)}"
             footer-size="${ifNonNull(footerSize)}"
             user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>

@@ -17,6 +17,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/type
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -87,7 +88,9 @@ export const Default = ({ parameters }) => {
           <dds-masthead-composite
             brand-name="${ifNonNull(brandName)}"
             user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
       : html`
