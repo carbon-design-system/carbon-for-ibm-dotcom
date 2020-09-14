@@ -1,0 +1,51 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin contact-module {
+  .#{$prefix}--contact-module {
+    @include carbon--theme($carbon--theme--g100, true) {
+      background-color: $ui-background;
+      padding-bottom: $layout-05;
+      @include carbon--breakpoint('lg') {
+        padding-top: $layout-03;
+        padding-bottom: $layout-06;
+      }
+      @include carbon--make-container;
+      &__row {
+        @include carbon--make-row;
+      }
+      &__left-column {
+        border: 1px solid #f90000;
+        margin-bottom: $layout-03;
+        @include carbon--make-col(4, 4);
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(3, 16);
+        }
+      }
+      &__heading {
+        color: $text-01;
+        margin-top: $spacing-05;
+        @include type-style('expressive-heading-02');
+      }
+      &__cards {
+        border: 1px solid #aaaaaa;
+        @include carbon--make-col(4, 4);
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(8, 8);
+        }
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col-offset(1, 16);
+          @include carbon--make-col(12, 16);
+        }
+      }
+    }
+  }
+}
+
+@include exports('contact-module') {
+  @include contact-module;
+}

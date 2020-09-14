@@ -16,7 +16,12 @@ const ContactModule = () => (
   <section
     data-autoid={`${stablePrefix}--contact-module`}
     className={`${prefix}--contact-module`}>
-    contact module
+    <div className={`${prefix}--contact-module__row`}>
+      <div className={`${prefix}--contact-module__left-column`}>
+        <h2 className={`${prefix}--contact-module__heading`}>heading</h2>
+      </div>
+      <div className={`${prefix}--contact-module__cards`}>content</div>
+    </div>
   </section>
 );
 
