@@ -3,10 +3,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Submission Guidelines](#submission-guidelines)
-  - [Submitting an Issue](#submitting-an-issue)
-  - [Submitting a Contribution](#submitting-a-contribution)
-  - [When a Pull Request is opened](#when-a-pull-request-is-opened)
+- [Submitting an Issue](#submitting-an-issue)
+- [Submitting a Contribution](#submitting-a-contribution)
+- [When a Pull Request is opened](#when-a-pull-request-is-opened)
+- [Graduating from behind a feature flag](#graduating-from-behind-a-feature-flag)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
