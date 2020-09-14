@@ -13,6 +13,7 @@ import { configure, addDecorator, addParameters, setCustomElements } from '@stor
 import { withKnobs } from '@storybook/addon-knobs';
 import customElements from '../custom-elements.json';
 import theme from './theme';
+import './skip-to-content';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
@@ -59,7 +60,14 @@ addDecorator((story, { parameters }) => {
     <style>
       ${containerStyles}
     </style>
-    <div name="main-content" data-floating-menu-container role="${hasMainTag ? 'none' : 'main'}" class="${classes}">
+    <bx-ce-demo-skip-to-content href="#main-content">Skip to main content</bx-ce-demo-skip-to-content>
+    <div
+      id="main-content"
+      name="main-content"
+      data-floating-menu-container
+      role="${hasMainTag ? 'none' : 'main'}"
+      class="${classes}"
+    >
       ${result}
     </div>
   `;
