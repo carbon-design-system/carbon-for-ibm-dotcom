@@ -50,9 +50,13 @@ This includes the creation of:
 - Visual specifications
 - Functional specifications
 - Finalization of code/documentation per above specifications
+- Updates to the [IBM.com Library website](https://www.ibm/com/standards/web/ibm-dotcom-library)
+
+The feature will also go through quality assurance with our design team as well
+as functional QA team per [browser support scope](https://www.ibm.com/standards/web/browser-support):
+
 - Visual QA
 - Production / a11y QA
-- Updates to the [IBM.com Library website](https://www.ibm/com/standards/web/ibm-dotcom-library)
 
 Our team will work with you [and your team] on any or all of the above steps in
 order to have a successful transition to a production-ready feature. 
