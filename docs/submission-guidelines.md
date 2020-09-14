@@ -34,4 +34,25 @@ previews. If introducing a new component behind a feature flag, the label
 `feature flag` will need to be added to the pull request to also generate the 
 `React (experimental)` features that are behind a feature flag.
 
-## 
+## Graduating from behind a feature flag
+
+After a pull request is submitted and becomes part of the code base, our team
+would like to give the proper amount of time for testing the feature. This
+includes user testing in addition to browser/device/functional testing. During
+this testing phase, additional modifications or adjustments can be made with
+additional pull requests.
+
+Once the team evaluates and wishes to move the feature to the next step, 
+additional documentation will be necessary in order to graduate the feature.
+
+This includes the creation of:
+
+- Visual specifications
+- Functional specifications
+- Finalization of code/documentation per above specifications
+- Visual QA
+- Production / a11y QA
+- Updates to the [IBM.com Library website](https://www.ibm/com/standards/web/ibm-dotcom-library)
+
+Our team will work with you [and your team] on any or all of the above steps in
+order to have a successful transition to a production-ready feature. 
