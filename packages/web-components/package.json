@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.11.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.10.1",
+    "@carbon/ibmdotcom-styles": "1.11.0-rc.0",
     "@carbon/ibmdotcom-utilities": "1.11.0-rc.0",
     "@carbon/layout": "10.13.0",
     "carbon-components": "10.19.0",
