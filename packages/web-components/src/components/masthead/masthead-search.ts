@@ -100,7 +100,7 @@ class DDSMastheadSearch extends BXDropdown {
     }
     this.active = active;
     await this.updateComplete;
-    if (active && moveFocus) {
+    if (moveFocus) {
       // Does not reuse destructed `searchInputNode` given it's `null` before expanded
       (active ? this._searchInputNode : this._searchButtonNode).focus();
     }
