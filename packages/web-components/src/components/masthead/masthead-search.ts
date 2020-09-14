@@ -117,7 +117,7 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
-   * Handles `focusin` event on the search button.
+   * Handles `focusin` event on this component.
    */
   @HostListener('focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -129,6 +129,33 @@ class DDSMastheadSearch extends BXDropdown {
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
     this._handleUserInitiatedToggleActiveState(false, false);
+  }
+
+  /**
+   * Handles `click` event on the search button.
+   */
+  private async _handleClickSearchButton() {
+    const { active } = this;
+    if (active) {
+      if (this._searchInputNode.value) {
+        this._handleUserInitiatedRedirect();
+      }
+    } else {
+      this.active = true;
+      await this.updateComplete;
+      const { _searchInputNode: searchInputNode } = this;
+      searchInputNode?.focus();
+      this.dispatchEvent(
+        new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.active,
+          },
+        })
+      );
+    }
   }
 
   /**

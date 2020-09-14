@@ -9,10 +9,12 @@
 
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
+import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import footerStyles from '../../footer/__stories__/footer.stories.scss';
@@ -125,6 +127,19 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Dotcom shell',
+  decorators: [
+    story => {
+      if (!(window as any)._hPageShow) {
+        (window as any)._hPageShow = on(window, 'pageshow', () => {
+          const leftNav = document.querySelector('dds-left-nav');
+          if (leftNav) {
+            (leftNav as DDSLeftNav).expanded = false;
+          }
+        });
+      }
+      return story();
+    },
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
