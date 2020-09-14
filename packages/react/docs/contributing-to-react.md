@@ -170,13 +170,4 @@ yarn test:unit:updateSnapshot
 <li>Export any new components from the main `index.js`</li>
 </ul>
 
-
-## Pull Requests
-
-When it's time to open up a Pull Request, be sure to target the `master` branch
-from your forked branch. When the pull request is opened, a number of CI checks, 
-integration build checks, deploy previews, and automated visual regression will 
-kick in. By default, `React` and `Web Components` will be built as deploy 
-previews. If introducing a new component, the label `feature flag` will also be 
-necessary in order to also generate the `React (experimental)` features that 
-are behind a feature flag.
+Read more about our [submission guidelines](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/submission-guidelines.md).
