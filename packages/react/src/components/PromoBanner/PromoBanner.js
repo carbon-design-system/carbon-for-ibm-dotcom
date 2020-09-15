@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { DDS_PROMO_BANNER } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import LinkWithIcon from '../LinkWithIcon/LinkWithIcon';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
@@ -16,27 +18,30 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 const PromoBanner = ({ banner, copy, cta }) =>
-  banner && copy && cta ? (
-    <section
-      data-autoid={`${stablePrefix}--promo-banner`}
-      className={`${prefix}--promo-banner`}>
-      <div className={`${prefix}--promo-banner__row`}>
-        <div className={`${prefix}--promo-banner__left-column`}>{banner}</div>
-        <div className={`${prefix}--promo-banner__content`}>
-          <div
-            className={`${prefix}--promo-banner__copy`}
-            dangerouslySetInnerHTML={{
-              __html: markdownToHtml(copy, { bold: false }),
-            }}
-          />
-          <LinkWithIcon href={cta.href}>
-            <span>{cta.copy}</span>
-            {cta.icon}
-          </LinkWithIcon>
+  featureFlag(
+    DDS_PROMO_BANNER,
+    banner && copy && cta ? (
+      <section
+        data-autoid={`${stablePrefix}--promo-banner`}
+        className={`${prefix}--promo-banner`}>
+        <div className={`${prefix}--promo-banner__row`}>
+          <div className={`${prefix}--promo-banner__left-column`}>{banner}</div>
+          <div className={`${prefix}--promo-banner__content`}>
+            <div
+              className={`${prefix}--promo-banner__copy`}
+              dangerouslySetInnerHTML={{
+                __html: markdownToHtml(copy, { bold: false }),
+              }}
+            />
+            <LinkWithIcon href={cta.href}>
+              <span>{cta.copy}</span>
+              {cta.icon}
+            </LinkWithIcon>
+          </div>
         </div>
-      </div>
-    </section>
-  ) : null;
+      </section>
+    ) : null
+  );
 
 PromoBanner.propTypes = {
   /**
@@ -44,7 +49,7 @@ PromoBanner.propTypes = {
    */
   banner: PropTypes.node.isRequired,
   /**
-   * The promo-band description. Enabled for markdown to HTML utility. It is required, otherwise, the section will not render.
+   * The promo-banner description. Enabled for markdown to HTML utility. It is required, otherwise, the section will not render.
    */
   copy: PropTypes.string.isRequired,
   /**
