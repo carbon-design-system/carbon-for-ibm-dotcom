@@ -1,10 +1,10 @@
-import {Props, Description } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../docs/contributing-license.md';
 import PromoBanner from './PromoBanner';
 
 # Promo Banner
 
-> Use this section to highlight some content in a horizontal orientation.
+> Use this section to highlight some content in a horizontal orientation. ⚠️ This component is behind a feature flag ⚠️
 
 ## Getting started
 
@@ -23,7 +23,7 @@ Here's a quick example to get you started.
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the
-> content-item-horizontal styles from
+> promo-banner styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ##### JS
@@ -60,7 +60,7 @@ function App() {
   };
 
   return (
-    <ContentItemHorizontal
+    <PromoBanner
       banner={banner}
       copy={copy}
       cta={cta}
@@ -69,6 +69,15 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+## Feature Flag
+
+This pattern is currently behind a feature flag, in order to use it you'll need
+to add the following into your `.env` file.
+
+```
+  DDS_PROMO_BANNER=true
 ```
 
 Add the following line in your `.env` file at the root of your project.
