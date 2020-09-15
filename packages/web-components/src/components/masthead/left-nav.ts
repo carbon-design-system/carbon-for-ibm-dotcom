@@ -138,6 +138,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   }
 
   /**
+   * A selector that will return side nav focusable items.
+   */
+  static get selectorNavItems() {
+    return `${ddsPrefix}-left-nav-item,${ddsPrefix}-left-nav-menu,${ddsPrefix}-left-nav-menu-item`;
+  }
+
+  /**
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
