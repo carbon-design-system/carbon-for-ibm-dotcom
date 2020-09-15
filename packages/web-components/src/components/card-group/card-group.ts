@@ -9,7 +9,6 @@
 
 import { html, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import styles from './card-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,45 +19,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends LitElement {
-
-  private childItems;
-
   render() {
     return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
+      <slot></slot>
     `;
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this._handleResize);
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('resize', this._handleResize);
-  }
-
-  /**
-   * Method called on resize, triggers the sameHeight utility
-   *
-   * @private
-   */
-  private _handleResize() {
-    if (this.childItems) window.requestAnimationFrame(() => sameHeight(this.childItems, 'md'));
-  }
-
-  /**
-   * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
-   *
-   * @private
-   */
-  private _handleSlotChange(event: Event) {
-    this.childItems = (event.target as HTMLSlotElement)
-      .assignedNodes({ flatten: true })
-      .filter(elem => (elem as HTMLElement).localName === (this.constructor as typeof DDSCardGroup).cardGroupItemSelector);
-
-    sameHeight(this.childItems, 'lg');
   }
 
   /**

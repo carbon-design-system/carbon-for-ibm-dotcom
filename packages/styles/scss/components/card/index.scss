@@ -15,11 +15,13 @@
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-cta) {
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     .#{$prefix}--card__wrapper {
       height: 100%;
@@ -80,8 +82,6 @@
     }
 
     .#{$prefix}--card--link:hover {
-      background-color: $hover-ui;
-
       text-decoration: none;
 
       .#{$prefix}--card__img {
@@ -115,6 +115,7 @@
   :host(#{$dds-prefix}-card-cta-footer)
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
+    margin-left: 0;
     color: $interactive-04;
   }
 
@@ -174,7 +175,8 @@
   }
 
   .#{$prefix}--card--inverse,
-  :host(#{$dds-prefix}-card)[color-scheme='inverse'] {
+  :host(#{$dds-prefix}-card)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
     background-color: $inverse-02;
 
     .#{$prefix}--card__heading,

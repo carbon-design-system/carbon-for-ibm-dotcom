@@ -1,4 +1,3 @@
-
 /**
  * @license
  *
@@ -9,12 +8,10 @@
  */
 
 import { customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSCardCTA from '../cta/card-cta';
 import styles from './card-group.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -24,14 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    const { _linkNode: linkNode } = this;
-    if (linkNode) {
-      linkNode.classList.add(`${prefix}--card-group__card`);
-    }
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--card-group-item`;
   }

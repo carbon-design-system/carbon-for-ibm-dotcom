@@ -27,7 +27,7 @@ export const withCTA = ({ parameters }) => {
   return html`
     <dds-card-group>
       ${cards}
-      <dds-card-group-item href='https://example.com' color-scheme='inverse'>
+      <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <slot slot="heading">Top level card link</slot>
         <dds-card-footer slot="footer">
           ${ArrowRight20({ slot: 'icon' })}
@@ -49,7 +49,7 @@ export const withImagesAndCTA = ({ parameters }) => {
   return html`
     <dds-card-group>
       ${cards}
-      <dds-card-group-item href='https://example.com' color-scheme='inverse'>
+      <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <slot slot="heading">Top level card link</slot>
         <dds-card-footer slot="footer">
           ${ArrowRight20({ slot: 'icon' })}
@@ -59,34 +59,30 @@ export const withImagesAndCTA = ({ parameters }) => {
   `;
 };
 
-const defaultCardGroupItem =
-  html`
-       <dds-card-group-item href='https://example.com'>
-        <slot slot="heading">Nunc convallis lobortis</slot>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-          hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-        </p>
-        <dds-card-footer slot="footer">
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-footer>
-  `;
+const defaultCardGroupItem = html`
+  <dds-card-group-item href="https://example.com">
+    <slot slot="heading">Nunc convallis lobortis</slot>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
 
-const cardGroupItemWithImages =
-  html`
-      <dds-card-group-item href='https://example.com'>
-        <dds-image
-         slot="image"
-         alt='Image alt text'
-         default-src='https://dummyimage.com/1056x792/ee5396/161616&text=4:3'>
-        </dds-image>
-        <slot slot="eyebrow">Topic</slot>
-        <slot slot="heading">Natural Language Processing.</slot>
-        <dds-card-footer slot="footer">
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-footer>
-      </dds-card-group-item>
-  `;
+const cardGroupItemWithImages = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3">
+    </dds-image>
+    <slot slot="eyebrow">Topic</slot>
+    <slot slot="heading">Natural Language Processing.</slot>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
 
 export default {
   title: 'Components/Card Group',
@@ -110,7 +106,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(_ => defaultCardGroupItem),
+        }).map(() => defaultCardGroupItem),
       }),
     },
   },
@@ -123,7 +119,7 @@ withImages.story = {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(_ => cardGroupItemWithImages),
+        }).map(() => cardGroupItemWithImages),
       }),
     },
   },
@@ -136,7 +132,7 @@ withImagesAndCTA.story = {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(_ => cardGroupItemWithImages),
+        }).map(() => cardGroupItemWithImages),
       }),
     },
   },

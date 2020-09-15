@@ -55,7 +55,7 @@
 
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__card {
-    height: 100%;
+    height: auto;
     .#{$prefix}--image {
       &__img {
         height: carbon--mini-units(30);
@@ -85,6 +85,8 @@
     @include carbon--breakpoint('lg') {
       @include carbon--make-col(12, 16);
     }
+
+    padding: 0;
   }
 
   :host(#{$dds-prefix}-card-group),
