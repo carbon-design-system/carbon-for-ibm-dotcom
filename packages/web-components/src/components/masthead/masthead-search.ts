@@ -132,33 +132,6 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
-   * Handles `click` event on the search button.
-   */
-  private async _handleClickSearchButton() {
-    const { active } = this;
-    if (active) {
-      if (this._searchInputNode.value) {
-        this._handleUserInitiatedRedirect();
-      }
-    } else {
-      this.active = true;
-      await this.updateComplete;
-      const { _searchInputNode: searchInputNode } = this;
-      searchInputNode?.focus();
-      this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-          detail: {
-            active: this.active,
-          },
-        })
-      );
-    }
-  }
-
-  /**
    * Prevents key types in the `<input>` causing other keyboard shortcuts in application UI.
    *
    * @param event The event.
