@@ -29,7 +29,7 @@ export const withCTA = ({ parameters }) => {
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <slot slot="heading">Top level card link</slot>
-        <dds-card-footer slot="footer">
+        <dds-card-footer slot="footer" color-scheme="inverse">
           ${ArrowRight20({ slot: 'icon' })}
         </dds-card-footer>
       </dds-card-group-item>
@@ -51,7 +51,7 @@ export const withImagesAndCTA = ({ parameters }) => {
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <slot slot="heading">Top level card link</slot>
-        <dds-card-footer slot="footer">
+        <dds-card-footer slot="footer" color-scheme="inverse">
           ${ArrowRight20({ slot: 'icon' })}
         </dds-card-footer>
       </dds-card-group-item>
