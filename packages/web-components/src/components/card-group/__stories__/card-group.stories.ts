@@ -59,18 +59,20 @@ export const withImagesAndCTA = ({ parameters }) => {
   `;
 };
 
-const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
-    <dds-card-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-card-group-item>
-`;
+export const defaultCardGroupItem = () => {
+  return html`
+    <dds-card-group-item href="https://example.com">
+      <div slot="heading">Nunc convallis lobortis</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+      <dds-card-footer slot="footer">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-card-group-item>
+  `;
+};
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
@@ -106,7 +108,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => defaultCardGroupItem),
+        }).map(() => defaultCardGroupItem()),
       }),
     },
   },

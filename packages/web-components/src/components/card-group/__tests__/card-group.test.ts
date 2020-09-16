@@ -8,14 +8,15 @@
  */
 
 import { render } from 'lit-html';
-import '../card-group';
-import { Default, withCTA, withImages, withImagesAndCTA } from '../__stories__/card-group.stories';
+import { number } from '@storybook/addon-knobs';
+import DDSCardGroup from '../card-group';
+import { Default, withCTA, withImages, withImagesAndCTA, defaultCardGroupItem } from '../__stories__/card-group.stories';
 
 const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-card-group': props,
+        CardGroup: props,
       },
     },
   });
@@ -24,7 +25,7 @@ const templateWithCTA = (props?) =>
   withCTA({
     parameters: {
       props: {
-        'dds-card-group': props,
+        CardGroup: props,
       },
     },
   });
@@ -33,7 +34,7 @@ const templateWithImages = (props?) =>
   withImages({
     parameters: {
       props: {
-        'dds-card-group': props,
+        CardGroup: props,
       },
     },
   });
@@ -42,14 +43,21 @@ const templateWithImagesAndCTA = (props?) =>
   withImagesAndCTA({
     parameters: {
       props: {
-        'dds-card-group': props,
+        CardGroup: props,
       },
     },
   });
 
 describe('dds-card-group', function() {
   it('Renders Default', async function() {
-    render(template(), document.body);
+    render(
+      template({
+        cards: Array.from({
+          length: number('Number of cards', 5),
+        }).map(() => defaultCardGroupItem()),
+      }),
+      document.body
+    );
     await Promise.resolve();
     expect(document.body.querySelector('dds-card-group')).toMatchSnapshot({ mode: 'shadow' });
   });
@@ -72,11 +80,9 @@ describe('dds-card-group', function() {
     expect(document.body.querySelector('dds-card-group')).toMatchSnapshot({ mode: 'shadow' });
   });
 
-  // it('Tests the get methods', function() {
-  //   expect((DDS as typeof DDSLinkList).stableSelector).toBe('dds--link-list');
-  //   expect((DDSLinkList as typeof DDSLinkList).splitLayoutClass).toBe('bx--link-list__split');
-  //   expect((DDSLinkList as typeof DDSLinkList).linkListItemSelector).toBe('dds-link-list-item');
-  // });
+  it('Tests the get methods', function() {
+    expect((DDSCardGroup as typeof DDSCardGroup).cardGroupItemSelector).toBe('dds-card-group-item');
+  });
 
   afterEach(async function() {
     await render(undefined!, document.body);

@@ -21,10 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group-item`)
 class DDSCardGroupItem extends DDSCardCTA {
-  static get stableSelector() {
-    return `${ddsPrefix}--card-group-item`;
-  }
-
   static styles = styles;
 }
 
