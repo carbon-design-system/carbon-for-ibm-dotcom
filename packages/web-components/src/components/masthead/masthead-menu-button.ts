@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit-html/directives/class-map';
 import { html, internalProperty, property, query, customElement } from 'lit-element';
-import { breakpoints } from '@carbon/layout/es/index.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import on from 'carbon-components/es/globals/js/misc/on';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXHeaderMenuButton from 'carbon-web-components/es/components/ui-shell/header-menu-button.js';
@@ -35,21 +34,10 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   private _hFocusWrap: Handle | null = null;
 
   /**
-   * Media query listener handler.
-   */
-  private _mqHandler: Handle | null = null;
-
-  /**
    * Search bar opened flag.
    */
   @internalProperty()
-  private _openedSearch = false;
-
-  /**
-   * Medium breakpoint flag.
-   */
-  @internalProperty()
-  private _responsiveMd = false;
+  private _hasSearchActive = false;
 
   /**
    * Handles toggle event from the search component.
@@ -59,17 +47,8 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._openedSearch = (event as CustomEvent).detail.active;
+    this._hasSearchActive = (event as CustomEvent).detail.active;
   };
-
-  /**
-   * Handles media query event.
-   *
-   * @param event The event.
-   */
-  private _handleMediaQuery(event: Event) {
-    this._responsiveMd = (event as MediaQueryListEvent).matches;
-  }
 
   /**
    * Node to track focus going outside of modal content.
@@ -95,23 +74,6 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   @property({ reflect: true })
   slot = 'brand';
 
-  connectedCallback() {
-    super.connectedCallback();
-
-    const mqMedium = this.ownerDocument?.defaultView?.matchMedia(`(max-width: ${breakpoints.md.width})`);
-    this._responsiveMd = mqMedium ? mqMedium.matches : false;
-
-    this._mqHandler = on(mqMedium, 'change', this._handleMediaQuery.bind(this));
-  }
-
-  disconnectedCallback() {
-    if (this._mqHandler) {
-      this._mqHandler = this._mqHandler.release();
-    }
-
-    super.disconnectedCallback();
-  }
-
   focus() {
     const { _buttonNode: buttonNode } = this;
     if (buttonNode) {
@@ -131,13 +93,18 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   }
 
   render() {
-    return this._openedSearch && this._responsiveMd
-      ? html``
-      : html`
-          <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-          ${super.render()}
-          <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"></a>
-        `;
+    const { _hasSearchActive: hasSearchActive } = this;
+    const classes = classMap({
+      [`${ddsPrefix}-ce--header__menu-trigger__container`]: true,
+      [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]: hasSearchActive,
+    });
+    return html`
+      <div class="${classes}">
+        <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"> </a>
+        ${super.render()}
+        <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"> </a>
+      </div>
+    `;
   }
 
   /**
