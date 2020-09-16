@@ -66,3 +66,14 @@ body {
 #teconsent {
   visibility: hidden;
 }
+
+// Fixes the README docs styles
+#docs-root {
+  ul {
+    list-style: disc;
+
+    ul {
+      list-style: circle;
+    }
+  }
+}

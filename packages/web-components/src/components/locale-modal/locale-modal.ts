@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import DDSModal from '../modal/modal';
 import '../modal/modal-header';
 import '../modal/modal-heading';
@@ -29,6 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-locale-modal
  */
 @customElement(`${ddsPrefix}-locale-modal`)
+// `BXModal` extends `HostListenerMixin`
 class DDSLocaleModal extends DDSModal {
   /**
    * The current region.
@@ -52,6 +54,12 @@ class DDSLocaleModal extends DDSModal {
     const { _currentRegion: currentRegion } = this;
     this._currentRegion = (event.target as DDSRegionItem).name;
     this.requestUpdate('_currentRegion', currentRegion);
+  }
+
+  @HostListener('eventClose')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleAfterClose() {
+    this._currentRegion = undefined;
   }
 
   /**

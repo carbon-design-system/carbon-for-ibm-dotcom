@@ -60,11 +60,11 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.11.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.10.1",
+    "@carbon/ibmdotcom-styles": "1.11.0-rc.0",
     "@carbon/ibmdotcom-utilities": "1.11.0-rc.0",
     "@carbon/layout": "10.13.0",
     "carbon-components": "10.19.0",
-    "carbon-web-components": "1.5.0",
+    "carbon-web-components": "1.6.1",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
@@ -163,8 +163,8 @@
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^4.0.0",
     "lint-staged": "^8.1.0",
-    "lit-element": "^2.2.0",
-    "lit-html": "^1.1.0",
+    "lit-element": "^2.3.0",
+    "lit-html": "^1.2.0",
     "marked": "^1.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "mkdirp": "^0.5.0",
@@ -196,8 +196,8 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "lit-element": "^2.2.0",
-    "lit-html": "^1.1.0"
+    "lit-element": "^2.3.0",
+    "lit-html": "^1.2.0"
   },
   "prettier": {
     "jsxBracketSameLine": true,

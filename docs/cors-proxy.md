@@ -1,15 +1,17 @@
+## CORS Proxy
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [CORS Proxy](#cors-proxy)
-  - [How It Works](#how-it-works)
-  - [Available CORS Proxy server for local development](#available-cors-proxy-server-for-local-development)
-  - [Alternative approach](#alternative-approach)
+- [Overview](#overview)
+- [How It Works](#how-it-works)
+- [Available CORS Proxy server for local development](#available-cors-proxy-server-for-local-development)
+- [Alternative approach](#alternative-approach)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## CORS Proxy
+### Overview 
 
 Various components make cross-origin requests to `www.ibm.com`, which will 
 require a cors proxy to be configured to make successful calls from a lower 

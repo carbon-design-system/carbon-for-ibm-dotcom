@@ -63,3 +63,11 @@ export const DDS_CALLOUT_DATA =
  */
 export const DDS_CONTENTBLOCK_HEADLINES =
   process.env.DDS_CONTENTBLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if Promo Banner will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_PROMO_BANNER =
+  process.env.DDS_PROMO_BANNER === 'true' || DDS_FLAGS_ALL || false;

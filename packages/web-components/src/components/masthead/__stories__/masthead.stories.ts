@@ -9,11 +9,13 @@
 
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
+import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
+import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
@@ -103,6 +105,19 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Masthead',
+  decorators: [
+    story => {
+      if (!(window as any)._hPageShow) {
+        (window as any)._hPageShow = on(window, 'pageshow', () => {
+          const leftNav = document.querySelector('dds-left-nav');
+          if (leftNav) {
+            (leftNav as DDSLeftNav).expanded = false;
+          }
+        });
+      }
+      return story();
+    },
+  ],
   parameters: {
     ...readme.parameters,
     knobs: {
