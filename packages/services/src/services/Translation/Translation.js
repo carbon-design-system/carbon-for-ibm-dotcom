@@ -161,15 +161,17 @@ class TranslationAPI {
    */
   static transformData(data) {
     const signedout = data.profileMenu?.signedout;
-    const strReplace = 'state=https%3A%2F%2Fwww.ibm.com';
-    const loginIdx = signedout.findIndex(
-      elem => elem.url?.indexOf(strReplace) !== -1
-    );
-    if (loginIdx !== -1 && root.location) {
-      const location = encodeURIComponent(root.location.href);
-      data.profileMenu.signedout[loginIdx].url = signedout[
-        loginIdx
-      ].url.replace(strReplace, `state=${location}`);
+    if (signedout) {
+      const strReplace = 'state=https%3A%2F%2Fwww.ibm.com';
+      const loginIdx = signedout.findIndex(
+        elem => elem.url?.indexOf(strReplace) !== -1
+      );
+      if (loginIdx !== -1 && root.location) {
+        const location = encodeURIComponent(root.location.href);
+        data.profileMenu.signedout[loginIdx].url = signedout[
+          loginIdx
+        ].url.replace(strReplace, `state=${location}`);
+      }
     }
 
     data.footerMenu.push(data.socialFollow);
