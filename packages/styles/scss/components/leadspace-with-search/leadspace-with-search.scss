@@ -7,7 +7,42 @@
 
 @mixin leadspace-with-search {
   .#{$prefix}--leadspace-with-search {
-    border: 1px solid #f90000;
+    padding-top: $layout-03;
+    padding-bottom: $layout-05;
+    @include carbon--make-container;
+
+    &__row {
+      @include carbon--make-row;
+    }
+
+    &__content {
+      @include carbon--make-col(4, 4);
+      @include carbon--make-col-ready;
+    }
+
+    &__heading {
+      color: $text-01;
+      margin-bottom: $spacing-07;
+      @include type-style('expressive-heading-06');
+    }
+
+    &__search {
+      margin-bottom: $spacing-07;
+      input {
+        background-color: transparent;
+      }
+    }
+
+    &__button-group {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-05;
+    }
+
+    &__button {
+      max-width: none;
+      width: 100%;
+    }
   }
 }
 
