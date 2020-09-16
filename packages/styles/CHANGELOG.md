@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.1...@carbon/ibmdotcom-styles@1.11.0-rc.0) (2020-09-14)
+
+### Bug Fixes
+
+- **HorizontalRule:** change style prop name to type
+  ([#3892](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3892))
+  ([3317f57](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3317f57))
+- **Masthead:** indicate the active navigation item in Masthead navigation links
+  ([#3890](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3890))
+  ([42b1599](https://github.com/carbon-design-system/ibm-dotcom-library/commit/42b1599)),
+  closes
+  [#3826](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3826)
+- **MastheadLeftNav:** when user goes through menu levels, set scrollTop to 0
+  ([#3921](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3921))
+  ([0ecc2a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ecc2a5)),
+  closes
+  [#3730](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3730)
+
+### Features
+
+- **search:** add redirect and typeahead hooks
+  ([#3918](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3918))
+  ([84c0481](https://github.com/carbon-design-system/ibm-dotcom-library/commit/84c0481)),
+  closes
+  [#3766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3766)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.10.1-rc.0...@carbon/ibmdotcom-styles@1.10.1) (2020-08-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
