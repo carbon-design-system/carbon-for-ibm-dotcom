@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { Dropdown, DropdownSkeleton } from 'carbon-components-react';
@@ -55,10 +54,7 @@ const props = () => ({
   titleText: text('Title (titleText)', 'This is not a dropdown title.'),
   helperText: text('Helper text (helperText)', 'This is not some helper text.'),
   invalid: boolean('Show form validation UI (invalid)', false),
-  invalidText: text(
-    'Form validation UI content (invalidText)',
-    'A valid value is required'
-  ),
+  invalidText: text('Form validation UI content (invalidText)', 'A valid value is required'),
 });
 
 const itemToElement = item => {
@@ -71,86 +67,94 @@ const itemToElement = item => {
   );
 };
 
-storiesOf('Dropdown', module)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => (
+export default {
+  title: 'Dropdown',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <div style={{ width: 300 }}>
+    <Dropdown
+      {...props()}
+      items={items}
+      itemToString={item => (item ? item.text : '')}
+      onChange={action('onChange')}
+    />
+  </div>
+);
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    info: {
+      text: 'Dropdown',
+    },
+  },
+};
+
+export const ItemsAsStrings = () => (
+  <div style={{ width: 300 }}>
+    <Dropdown {...props()} items={stringItems} onChange={action('onChange')} />
+  </div>
+);
+
+ItemsAsStrings.story = {
+  name: 'items as strings',
+
+  parameters: {
+    info: {
+      text: 'Rendering an array of strings as `items`',
+    },
+  },
+};
+
+export const ItemsAsComponents = () => (
+  <div style={{ width: 300 }}>
+    <Dropdown
+      {...props()}
+      items={items}
+      itemToString={item => (item ? item.text : '')}
+      itemToElement={itemToElement}
+      onChange={action('onChange')}
+    />
+  </div>
+);
+
+ItemsAsComponents.story = {
+  name: 'items as components',
+
+  parameters: {
+    info: {
+      text: `Rendering items as custom components`,
+    },
+  },
+};
+
+export const FullyControlled = () => (
+  <WithState initialState={{ selectedItem: items[0] }}>
+    {({ state, setState }) => (
       <div style={{ width: 300 }}>
         <Dropdown
           {...props()}
           items={items}
           itemToString={item => (item ? item.text : '')}
-          onChange={action('onChange')}
+          onChange={({ selectedItem }) => setTimeout(() => setState({ selectedItem }), 1000)}
+          selectedItem={state.selectedItem}
         />
       </div>
-    ),
-    {
-      info: {
-        text: 'Dropdown',
-      },
-    }
-  )
-  .add(
-    'items as strings',
-    () => (
-      <div style={{ width: 300 }}>
-        <Dropdown
-          {...props()}
-          items={stringItems}
-          onChange={action('onChange')}
-        />
-      </div>
-    ),
-    {
-      info: {
-        text: 'Rendering an array of strings as `items`',
-      },
-    }
-  )
-  .add(
-    'items as components',
-    () => (
-      <div style={{ width: 300 }}>
-        <Dropdown
-          {...props()}
-          items={items}
-          itemToString={item => (item ? item.text : '')}
-          itemToElement={itemToElement}
-          onChange={action('onChange')}
-        />
-      </div>
-    ),
-    {
-      info: {
-        text: `Rendering items as custom components`,
-      },
-    }
-  )
-  .add(
-    'fully controlled',
-    () => (
-      <WithState initialState={{ selectedItem: items[0] }}>
-        {({ state, setState }) => (
-          <div style={{ width: 300 }}>
-            <Dropdown
-              {...props()}
-              items={items}
-              itemToString={item => (item ? item.text : '')}
-              onChange={({ selectedItem }) =>
-                setTimeout(() => setState({ selectedItem }), 1000)
-              }
-              selectedItem={state.selectedItem}
-            />
-          </div>
-        )}
-      </WithState>
-    ),
-    {
-      info: {
-        text: `
-            Sometimes you want to control everything.
-          `,
-      },
-    }
-  );
+    )}
+  </WithState>
+);
+
+FullyControlled.story = {
+  name: 'fully controlled',
+
+  parameters: {
+    info: {
+      text: `
+          Sometimes you want to control everything.
+        `,
+    },
+  },
+};
