@@ -7,73 +7,69 @@
 
 @mixin callout-data {
   .#{$prefix}--callout-data {
-    .#{$prefix}--callout {
-      &-data {
-        &__data {
-          @include carbon--type-style('display-03', true);
+    .#{$prefix}--callout-data__data {
+      @include carbon--type-style('display-03', true);
 
-          color: $inverse-01;
-          padding-top: $layout-01;
-          padding-bottom: $layout-05;
-        }
+      color: $inverse-01;
+      padding-top: $layout-01;
+      padding-bottom: $layout-05;
+    }
 
-        &__copy {
-          @include carbon--type-style('expressive-heading-03', true);
+    .#{$prefix}--callout-data__copy {
+      @include carbon--type-style('expressive-heading-03', true);
 
-          color: $inverse-01;
-          margin-top: auto;
-          padding-bottom: $layout-01;
-        }
+      color: $inverse-01;
+      margin-top: auto;
+      padding-bottom: $layout-01;
+    }
 
-        &__source {
-          @include carbon--type-style('body-short-01', true);
+    .#{$prefix}--callout-data__source {
+      @include carbon--type-style('body-short-01', true);
 
-          width: 90%;
-          max-width: carbon--mini-units(80);
-          padding-bottom: $layout-03;
+      width: 90%;
+      max-width: carbon--mini-units(80);
+      padding-bottom: $layout-03;
 
-          @include carbon--breakpoint('md') {
-            padding-bottom: $layout-05;
-          }
-
-          @include carbon--breakpoint('lg') {
-            padding-bottom: $layout-06;
-          }
-
-          padding-top: $spacing-03;
-          color: $text-05;
-        }
+      @include carbon--breakpoint('md') {
+        padding-bottom: $layout-05;
       }
 
-      &__column {
-        height: auto;
-
-        @include carbon--breakpoint('md') {
-          min-height: carbon--mini-units(40);
-        }
-
-        @include carbon--breakpoint('lg') {
-          min-height: carbon--mini-units(50);
-        }
-
-        @include carbon--breakpoint('xlg') {
-          min-height: carbon--mini-units(60);
-        }
-
-        @include carbon--breakpoint('max') {
-          min-height: carbon--mini-units(70);
-        }
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $layout-06;
       }
 
-      &__content {
-        padding-left: 0;
-        margin-left: 0;
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        width: 90%;
-        max-width: 640px;
+      padding-top: $spacing-03;
+      color: $text-05;
+    }
+
+    .#{$prefix}--callout__column {
+      height: auto;
+
+      @include carbon--breakpoint('md') {
+        min-height: carbon--mini-units(40);
       }
+
+      @include carbon--breakpoint('lg') {
+        min-height: carbon--mini-units(50);
+      }
+
+      @include carbon--breakpoint('xlg') {
+        min-height: carbon--mini-units(60);
+      }
+
+      @include carbon--breakpoint('max') {
+        min-height: carbon--mini-units(70);
+      }
+    }
+
+    .#{$prefix}--callout__content {
+      padding-left: 0;
+      margin-left: 0;
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      width: 90%;
+      max-width: 640px;
     }
   }
 }
