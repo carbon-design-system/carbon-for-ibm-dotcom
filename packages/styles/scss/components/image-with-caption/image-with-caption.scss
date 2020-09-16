@@ -20,44 +20,19 @@
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
     }
+  }
 
-    &__image {
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      position: relative;
-      pointer-events: none;
-      border: none;
-    }
+  .#{$prefix}--image-with-caption__image {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    pointer-events: none;
+    border: none;
 
-    &__zoom-button {
-      display: none;
-    }
-
-    // only have lightbox functionality on bigger breakpoints
-    @include carbon--breakpoint(md) {
-      &__image,
-      &__zoom-button {
-        transition: $duration--moderate-01 motion(standard, productive);
-        pointer-events: auto;
-      }
-
-      &__zoom-button {
-        width: $carbon--spacing-09;
-        height: $carbon--spacing-09;
-        display: flex;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-
-        svg {
-          margin: auto;
-          fill: $icon-03;
-        }
-      }
-
-      &__image:hover {
+    &:hover {
+      // only have lightbox functionality on bigger breakpoints
+      @include carbon--breakpoint(md) {
         cursor: pointer;
 
         .#{$prefix}--image__img {
@@ -68,11 +43,43 @@
           background-color: rgba(0, 0, 0, 1);
         }
       }
+    }
 
-      &__image:hover,
-      &__image:focus {
+    &:hover,
+    &:focus {
+      // only have lightbox functionality on bigger breakpoints
+      @include carbon--breakpoint(md) {
         outline: 2px solid $focus;
       }
+    }
+  }
+
+  .#{$prefix}--image-with-caption__zoom-button {
+    display: none;
+
+    // only have lightbox functionality on bigger breakpoints
+    @include carbon--breakpoint(md) {
+      width: $carbon--spacing-09;
+      height: $carbon--spacing-09;
+      display: flex;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+
+      svg {
+        margin: auto;
+        fill: $icon-03;
+      }
+    }
+  }
+
+  .#{$prefix}--image-with-caption__image,
+  .#{$prefix}--image-with-caption__zoom-button {
+    // only have lightbox functionality on bigger breakpoints
+    @include carbon--breakpoint(md) {
+      transition: $duration--moderate-01 motion(standard, productive);
+      pointer-events: auto;
     }
   }
 
