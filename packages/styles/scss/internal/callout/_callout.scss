@@ -6,46 +6,46 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 
 @mixin callout {
-  .#{$prefix}--callout {
-    &__container {
-      @include carbon--make-row;
+  .#{$prefix}--callout__container,
+  :host(#{$dds-prefix}-callout) {
+    @include carbon--make-row;
 
+    background-color: $inverse-02;
+    .#{$prefix}--quote__inverse {
       background-color: $inverse-02;
-      .#{$prefix}--quote__inverse {
-        background-color: $inverse-02;
-      }
     }
-    &__column {
-      @include carbon--make-col-ready;
+  }
+  .#{$prefix}--callout__column {
+    @include carbon--make-col-ready;
+  }
+  .#{$prefix}--callout__content {
+    @include carbon--breakpoint(sm) {
+      padding-top: $layout-03;
     }
-    &__content {
-      @include carbon--breakpoint(sm) {
-        padding-top: $layout-03;
-      }
-      @include carbon--breakpoint(md) {
-        @include carbon--make-col-offset(1, 8);
-        @include carbon--make-col(6, 8);
+    @include carbon--breakpoint(md) {
+      @include carbon--make-col-offset(1, 8);
+      @include carbon--make-col(6, 8);
 
-        padding-left: $spacing-02;
-        padding-right: $spacing-02;
-        padding-top: $layout-05;
-      }
-      @include carbon--breakpoint(lg) {
-        padding-left: $spacing-01;
-        padding-right: $spacing-01;
-        @include carbon--make-col-offset(1, 12);
-        @include carbon--make-col(10, 12);
-      }
+      padding-left: $spacing-02;
+      padding-right: $spacing-02;
+      padding-top: $layout-05;
+    }
+    @include carbon--breakpoint(lg) {
+      padding-left: $spacing-01;
+      padding-right: $spacing-01;
+      @include carbon--make-col-offset(1, 12);
+      @include carbon--make-col(10, 12);
+    }
 
-      .#{$prefix}--quote__copy,
-      .#{$prefix}--quote__source-heading,
-      .#{$prefix}--quote__source-body,
-      .#{$prefix}--quote__source-optional-copy,
-      .#{$prefix}--quote__mark {
-        color: $inverse-01;
-      }
+    .#{$prefix}--quote__copy,
+    .#{$prefix}--quote__source-heading,
+    .#{$prefix}--quote__source-body,
+    .#{$prefix}--quote__source-optional-copy,
+    .#{$prefix}--quote__mark {
+      color: $inverse-01;
     }
   }
 }
