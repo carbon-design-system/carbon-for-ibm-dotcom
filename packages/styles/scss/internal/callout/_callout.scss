@@ -6,6 +6,7 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 
 @mixin callout {
   .#{$prefix}--callout,
