@@ -10,20 +10,18 @@
   color: $text-01;
   background: $ui-background;
 
-  .#{$prefix}--content-item {
-    &__heading {
+  .#{$prefix}--content-item__heading {
+    color: $text-01;
+  }
+
+  .#{$prefix}--content-item__copy {
+    p {
       color: $text-01;
     }
+  }
 
-    &__copy {
-      p {
-        color: $text-01;
-      }
-    }
-
-    &__cta {
-      color: $link-01;
-    }
+  .#{$prefix}--content-item__cta {
+    color: $link-01;
   }
 }
 
@@ -55,34 +53,34 @@
       padding-top: $carbon--layout-03;
       padding-bottom: 0;
 
-      &__heading,
-      &__copy {
-        width: 90%;
-        max-width: 640px;
-
-        @include carbon--breakpoint('sm') {
-          width: 100%;
-        }
-      }
-
-      &__heading {
-        @include carbon--type-style('expressive-heading-05', true);
-      }
-
-      &__copy {
-        p {
-          margin-bottom: 0;
-          @include carbon--type-style('expressive-heading-03', true);
-        }
-      }
-
-      &__cta-col {
-        margin-top: 0;
-      }
-
       @include carbon--breakpoint('lg') {
         padding-top: $carbon--layout-05;
       }
+    }
+
+    .#{$prefix}--content-block__heading,
+    .#{$prefix}--content-block__copy {
+      width: 90%;
+      max-width: 640px;
+
+      @include carbon--breakpoint('sm') {
+        width: 100%;
+      }
+    }
+
+    .#{$prefix}--content-block__heading {
+      @include carbon--type-style('expressive-heading-05', true);
+    }
+
+    .#{$prefix}--content-block__copy {
+      p {
+        margin-bottom: 0;
+        @include carbon--type-style('expressive-heading-03', true);
+      }
+    }
+
+    .#{$prefix}--content-block__cta-col {
+      margin-top: 0;
     }
 
     .#{$prefix}--helper-wrapper {
@@ -99,32 +97,8 @@
 
           @include carbon--make-col-ready;
 
-          &__heading {
-            width: 100%;
-
-            @include carbon--type-style('expressive-heading-02', true);
-          }
-
-          &__copy {
-            width: 100%;
-            p {
-              width: 100%;
-              margin-bottom: $carbon--spacing-05;
-
-              @include carbon--type-style('body-long-02', true);
-            }
-          }
-
           @include carbon--breakpoint('md') {
             @include carbon--make-col(4, 8);
-
-            &__heading {
-              width: 90%;
-            }
-
-            &__copy {
-              width: 90%;
-            }
           }
 
           &:last-of-type {
@@ -133,6 +107,31 @@
             @include carbon--breakpoint('md') {
               margin-top: $carbon--spacing-07;
             }
+          }
+        }
+
+        .#{$prefix}--content-item__heading {
+          width: 100%;
+
+          @include carbon--type-style('expressive-heading-02', true);
+
+          @include carbon--breakpoint('md') {
+            width: 90%;
+          }
+        }
+
+        .#{$prefix}--content-item__copy {
+          width: 100%;
+
+          @include carbon--breakpoint('md') {
+            width: 90%;
+          }
+
+          p {
+            width: 100%;
+            margin-bottom: $carbon--spacing-05;
+
+            @include carbon--type-style('body-long-02', true);
           }
         }
       }
@@ -145,17 +144,15 @@
         padding-bottom: carbon--mini-units(10);
       }
 
-      .#{$prefix}--cta-section {
-        &__cta {
-          padding-bottom: $carbon--spacing-07;
+      .#{$prefix}--cta-section__cta {
+        padding-bottom: $carbon--spacing-07;
 
-          @include carbon--breakpoint('md') {
-            padding-bottom: $carbon--layout-05;
-          }
+        @include carbon--breakpoint('md') {
+          padding-bottom: $carbon--layout-05;
+        }
 
-          @include carbon--breakpoint('lg') {
-            padding-bottom: $carbon--layout-06;
-          }
+        @include carbon--breakpoint('lg') {
+          padding-bottom: $carbon--layout-06;
         }
       }
 
