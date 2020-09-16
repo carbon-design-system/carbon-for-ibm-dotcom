@@ -50,7 +50,7 @@ export const withImagesAndCTA = ({ parameters }) => {
     <dds-card-group>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
-        <slot slot="heading">Top level card link</slot>
+        <div slot="heading">Top level card link</div>
         <dds-card-footer slot="footer" color-scheme="inverse">
           ${ArrowRight20({ slot: 'icon' })}
         </dds-card-footer>
