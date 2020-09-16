@@ -15,7 +15,7 @@
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-card-group-item),
+  :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$dds-prefix}-card-cta) {
     background-color: $ui-01;
     text-decoration: none;
@@ -71,10 +71,8 @@
       }
     }
 
-    .#{$prefix}--card:visited,
-    .#{$prefix}--card:active,
-    .#{$prefix}--card:hover {
-      color: currentColor;
+    &:hover {
+      background-color: $hover-ui;
     }
 
     .#{$prefix}--card__img {
@@ -176,7 +174,8 @@
 
   .#{$prefix}--card--inverse,
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
-  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse']
+    .#{$prefix}--card {
     background-color: $inverse-02;
 
     .#{$prefix}--card__heading,
