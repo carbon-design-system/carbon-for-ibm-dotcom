@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.4.0-rc.0...@carbon/ibmdotcom-web-components@0.4.0-rc.1) (2020-09-16)
+
+### Bug Fixes
+
+- **left-nav:** set the list of nav items ([#3956](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3956)) ([1b3e2bc](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/commit/1b3e2bc)), closes [#3940](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/issues/3940)
+
 # [0.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.3.2...@carbon/ibmdotcom-web-components@0.4.0-rc.0) (2020-09-11)
 
 ### Bug Fixes

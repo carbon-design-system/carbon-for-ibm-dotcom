@@ -13,79 +13,80 @@
   .#{$prefix}--quote {
     background: $ui-background;
     padding-bottom: $layout-05;
-    &__container {
-      @include carbon--make-row;
-    }
-
-    &__wrapper {
-      position: relative;
-    }
-
-    &__copy {
-      @include carbon--make-col-ready;
-      @include carbon--type-style('quotation-01', true);
-      @include carbon--font-family('serif');
-
-      word-break: break-word;
-      padding: 0 2rem $carbon--layout-03 2rem;
-
-      @include carbon--breakpoint('md') {
-        padding-bottom: $carbon--layout-04;
-        @include carbon--type-style('quotation-02', true);
-      }
-    }
-
-    &__mark {
-      @include carbon--type-style('quotation-01', true);
-      @include carbon--font-family('serif');
-      @include carbon--breakpoint-down('md') {
-        // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
-        left: 1.4rem;
-      }
-      @include carbon--breakpoint('md') {
-        @include carbon--type-style('quotation-02', true);
-      }
-
-      position: absolute;
-      // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
-      left: 0.6rem;
-      color: $text-01;
-    }
-
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
       max-width: 80%;
     }
+  }
 
-    &__source {
-      @include carbon--make-col-ready;
+  .#{$prefix}--quote__container {
+    @include carbon--make-row;
+  }
 
-      @include carbon--breakpoint-down('md') {
-        padding-bottom: $spacing-05;
-      }
+  .#{$prefix}--quote__wrapper {
+    position: relative;
+  }
 
-      max-width: 80%;
+  .#{$prefix}--quote__copy {
+    @include carbon--make-col-ready;
+    @include carbon--type-style('quotation-01', true);
+    @include carbon--font-family('serif');
+
+    word-break: break-word;
+    padding: 0 2rem $carbon--layout-03 2rem;
+
+    @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-04;
+      @include carbon--type-style('quotation-02', true);
+    }
+  }
 
-      &-heading {
-        padding-left: 1rem;
-        @include carbon--type-style(expressive-heading-02, true);
-      }
-      &-body {
-        padding-left: 1rem;
-        @include carbon--type-style(body-long-02, true);
-      }
-
-      &-optional-copy {
-        padding-left: 1rem;
-        @include carbon--type-style(body-long-02, true);
-      }
+  .#{$prefix}--quote__mark {
+    @include carbon--type-style('quotation-01', true);
+    @include carbon--font-family('serif');
+    @include carbon--breakpoint-down('md') {
+      // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
+      left: 1.4rem;
+    }
+    @include carbon--breakpoint('md') {
+      @include carbon--type-style('quotation-02', true);
     }
 
-    &__inverse {
-      .#{$prefix}--link-with-icon__container .#{$prefix}--link {
-        color: $inverse-link;
-      }
+    position: absolute;
+    // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
+    left: 0.6rem;
+    color: $text-01;
+  }
+
+  .#{$prefix}--quote__source {
+    @include carbon--make-col-ready;
+
+    @include carbon--breakpoint-down('md') {
+      padding-bottom: $spacing-05;
+    }
+
+    max-width: 80%;
+    padding-bottom: $carbon--layout-04;
+  }
+
+  .#{$prefix}--quote__source-heading {
+    padding-left: 1rem;
+    @include carbon--type-style(expressive-heading-02, true);
+  }
+
+  .#{$prefix}--quote__source-body {
+    padding-left: 1rem;
+    @include carbon--type-style(body-long-02, true);
+  }
+
+  .#{$prefix}--quote__source-optional-copy {
+    padding-left: 1rem;
+    @include carbon--type-style(body-long-02, true);
+  }
+
+  .#{$prefix}--quote__inverse {
+    .#{$prefix}--link-with-icon__container .#{$prefix}--link {
+      color: $inverse-link;
     }
   }
 }
