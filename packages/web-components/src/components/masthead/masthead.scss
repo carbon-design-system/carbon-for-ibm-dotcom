@@ -21,6 +21,16 @@
   position: relative;
   width: mini-units(6);
   height: mini-units(6);
+
+  .#{$dds-prefix}-ce--header__menu-trigger__container {
+    display: contents;
+  }
+
+  .#{$dds-prefix}-ce--header__menu-trigger__container--has-search-active {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-masthead-logo) {
@@ -33,6 +43,12 @@
   a {
     @include carbon--breakpoint-between('md', 'lg') {
       padding: 0 $carbon--spacing-05;
+    }
+  }
+
+  .#{$dds-prefix}-ce--header__logo--has-search-active {
+    @include carbon--breakpoint-down('lg') {
+      display: none;
     }
   }
 }
@@ -66,6 +82,16 @@
 
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
+
+  .#{$dds-prefix}-ce--header__global__container {
+    display: contents;
+  }
+
+  .#{$dds-prefix}-ce--header__global__container--has-search-active {
+    @include carbon--breakpoint-down('md') {
+      display: none;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-masthead-profile) {
