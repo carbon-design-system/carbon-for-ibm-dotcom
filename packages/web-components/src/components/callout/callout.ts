@@ -15,9 +15,9 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Link list.
+ * Callout.
  *
- * @element dds-link-list
+ * @element dds-callout
  */
 @customElement(`${ddsPrefix}-callout`)
 class DDSCallout extends LitElement {
