@@ -109,10 +109,10 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
     const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._shouldStickExpanded = mediaQueryList.matches;
     const { _handleChangeMediaQuery: handleChangeMediaQuery } = this;
-    mediaQueryList.addEventListener('change', handleChangeMediaQuery);
+    mediaQueryList.addListener(handleChangeMediaQuery);
     this._hChangeMediaQuery = {
       release() {
-        mediaQueryList.removeEventListener('change', handleChangeMediaQuery);
+        mediaQueryList.removeListener(handleChangeMediaQuery);
       },
     } as Handle;
   }
