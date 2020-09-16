@@ -11,38 +11,44 @@
 
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {
-    &__content {
-      .#{$prefix}--card__CTA {
-        max-width: none;
-        margin: 0;
-      }
-    }
     .#{$prefix}--content-block {
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
+
       @include carbon--breakpoint('md') {
         padding-top: $carbon--layout-03;
         padding-bottom: $carbon--layout-06;
       }
+
       @include carbon--breakpoint('lg') {
         padding-top: $carbon--layout-05;
         padding-bottom: $carbon--layout-07;
       }
+    }
 
-      &__heading {
-        margin-bottom: $carbon--layout-03;
-        @include carbon--breakpoint('md') {
-          margin-bottom: $carbon--layout-04;
-        }
-        @include carbon--breakpoint('lg') {
-          margin-bottom: $carbon--layout-05;
-        }
+    .#{$prefix}--content-block__heading {
+      margin-bottom: $carbon--layout-03;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $carbon--layout-04;
       }
-      &__cta {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(4, 12);
-        }
+
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $carbon--layout-05;
       }
+    }
+
+    .#{$prefix}--content-block__cta {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 12);
+      }
+    }
+  }
+
+  .#{$prefix}--content-block-cards__content {
+    .#{$prefix}--card__CTA {
+      max-width: none;
+      margin: 0;
     }
   }
 }
