@@ -1,0 +1,43 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@mixin promo-banner {
+  .#{$prefix}--promo-banner {
+    padding-top: $layout-03;
+    padding-bottom: $layout-05;
+    @include carbon--make-container;
+    &__row {
+      @include carbon--make-row;
+    }
+    &__left-column {
+      margin-bottom: $layout-02;
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(3, 16);
+      }
+    }
+    &__content {
+      @include carbon--make-col(4, 4);
+      @include carbon--make-col-ready;
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(8, 8);
+      }
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-offset(1, 16);
+        @include carbon--make-col(8, 16);
+      }
+    }
+    &__copy {
+      margin-bottom: $layout-02;
+    }
+  }
+}
+
+@include exports('promo-banner') {
+  @include promo-banner;
+}
