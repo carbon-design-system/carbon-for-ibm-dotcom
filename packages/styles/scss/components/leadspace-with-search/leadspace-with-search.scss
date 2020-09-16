@@ -10,6 +10,9 @@
     padding-top: $layout-03;
     padding-bottom: $layout-05;
     @include carbon--make-container;
+    @include carbon--breakpoint('md') {
+      padding-top: $layout-04;
+    }
 
     &__row {
       @include carbon--make-row;
@@ -28,6 +31,10 @@
 
     &__search {
       margin-bottom: $spacing-07;
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(6, 8);
+      }
+
       input {
         background-color: transparent;
       }
@@ -37,6 +44,15 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-05;
+
+      @include carbon--breakpoint('md') {
+        flex-direction: row;
+        gap: $spacing-07;
+
+        li {
+          width: 50%;
+        }
+      }
     }
 
     &__button {
