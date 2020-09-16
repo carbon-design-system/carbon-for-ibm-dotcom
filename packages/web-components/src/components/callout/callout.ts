@@ -28,13 +28,11 @@ class DDSCallout extends LitElement {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  protected render() {
+  render() {
     return html`
-      <div class="${prefix}--callout__container">
-        <div class="${prefix}--callout__column">
-          <div class="${prefix}--callout__content">
-            <slot />
-          </div>
+      <div class="${prefix}--callout__column">
+        <div class="${prefix}--callout__content">
+          <slot />
         </div>
       </div>
     `;
