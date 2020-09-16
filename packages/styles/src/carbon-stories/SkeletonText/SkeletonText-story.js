@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,6 @@
 /* eslint-disable no-console */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 import { SkeletonText } from 'carbon-components-react';
@@ -29,20 +28,23 @@ const props = () => ({
   ),
 });
 
-storiesOf('SkeletonText', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => (
-      <div style={{ width: '300px' }}>
-        <SkeletonText {...props()} />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Skeleton states are used as a progressive loading state while the user waits for content to load.
-          `,
-      },
-    }
-  );
+export default {
+  title: 'SkeletonText',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <div style={{ width: '300px' }}>
+    <SkeletonText {...props()} />
+  </div>
+);
+
+Default.story = {
+  parameters: {
+    info: {
+      text: `
+          Skeleton states are used as a progressive loading state while the user waits for content to load.
+        `,
+    },
+  },
+};
