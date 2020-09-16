@@ -8875,10 +8875,10 @@ carbon-icons@7.0.7:
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
 
-carbon-web-components@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.5.0.tgz#6614749968929e0c9dff99dcdfef3497bc5f93b6"
-  integrity sha512-nmicV4EzaNnU23MXg9T8OeSlP9fQf7tO0CopV3b3pmfQgw14OncSjRqMWQ499HAlqlr43Nc+59YSl5XMDj9Mlg==
+carbon-web-components@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.6.1.tgz#048eca9fc4664df5ea1b0b8d32f234daf83d9694"
+  integrity sha512-XNlSXbiBEIfMLAGRbIMXXg7FliKQfVUvgQgOQffEIi+jnqSfFrbizdyvqDC6EonUoFz2y6O1R/AyEGd8rmkATw==
   dependencies:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"
@@ -18145,7 +18145,7 @@ node-fetch-npm@^2.0.2:
     json-parse-better-errors "^1.0.0"
     safe-buffer "^5.1.1"
 
-node-fetch@2.6.0, node-fetch@^2.3.0, node-fetch@^2.5.0, node-fetch@^2.6.0:
+node-fetch@2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
@@ -18157,6 +18157,11 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.3.0, node-fetch@^2.5.0, node-fetch@^2.6.0:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-gyp@^3.8.0:
   version "3.8.0"
