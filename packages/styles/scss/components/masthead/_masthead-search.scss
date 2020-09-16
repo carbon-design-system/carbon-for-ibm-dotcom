@@ -65,12 +65,6 @@
       }
     }
 
-    &--actions {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
     .#{$prefix}--header__nav {
       &::before {
         content: '';
@@ -88,6 +82,12 @@
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
     }
+  }
+
+  .#{$prefix}--header__search--actions {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   // search container
@@ -176,56 +176,54 @@
     }
   }
 
-  .react-autosuggest {
-    &__container {
+  .react-autosuggest__container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: $carbon--spacing-09;
+  }
+
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    top: $carbon--spacing-09;
+    left: 0;
+    width: 100%;
+  }
+
+  .react-autosuggest__suggestions-list {
+    background-color: $ui-background;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .react-autosuggest__suggestion {
+    height: $carbon--spacing-09;
+    display: flex;
+    span {
+      font-weight: 600;
+    }
+
+    .#{$prefix}--container-class {
       display: flex;
-      justify-content: flex-end;
-      position: relative;
-      height: $carbon--spacing-09;
+      border-bottom: 1px solid $ui-01;
+      flex: 1;
+      padding: 0 $carbon--spacing-05;
+      align-items: center;
+
+      &:focus {
+        outline: none;
+      }
     }
 
-    &__suggestions-container {
-      position: absolute;
-      top: $carbon--spacing-09;
-      left: 0;
-      width: 100%;
+    &:hover {
+      cursor: pointer;
+      background-color: $ui-01;
+      transition: $search-transition-timing;
     }
 
-    &__suggestions-list {
-      background-color: $ui-background;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    }
-
-    &__suggestion {
-      height: $carbon--spacing-09;
-      display: flex;
-      span {
-        font-weight: 600;
-      }
-
-      .#{$prefix}--container-class {
-        display: flex;
-        border-bottom: 1px solid $ui-01;
-        flex: 1;
-        padding: 0 $carbon--spacing-05;
-        align-items: center;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-        background-color: $ui-01;
-        transition: $search-transition-timing;
-      }
-
-      .#{$prefix}--container-highlight-class:not(:hover),
-      &:focus,
-      &:active {
-        outline: 2px solid $focus;
-      }
+    .#{$prefix}--container-highlight-class:not(:hover),
+    &:focus,
+    &:active {
+      outline: 2px solid $focus;
     }
   }
 
