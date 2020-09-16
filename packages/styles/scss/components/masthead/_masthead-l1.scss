@@ -23,30 +23,30 @@ $search-transition-timing: 95ms;
     background-color: $ui-01;
     transition-timing-function: $search-transition;
 
-    &--short {
-      height: carbon--mini-units(6);
-
-      .#{$prefix}--masthead__l1-name {
-        min-width: rem(208px);
-        padding-left: 0;
-
-        .#{$prefix}--masthead__l1-name-eyebrow {
-          display: none;
-        }
-
-        .#{$prefix}--masthead__l1-name-title {
-          &::after {
-            bottom: 0;
-          }
-
-          line-height: inherit;
-          padding-bottom: $carbon--spacing-05;
-        }
-      }
-    }
-
     @include carbon--breakpoint-down(lg) {
       height: carbon--mini-units(6);
+    }
+  }
+
+  .#{$prefix}--masthead__l1--short {
+    height: carbon--mini-units(6);
+
+    .#{$prefix}--masthead__l1-name {
+      min-width: rem(208px);
+      padding-left: 0;
+
+      .#{$prefix}--masthead__l1-name-eyebrow {
+        display: none;
+      }
+
+      .#{$prefix}--masthead__l1-name-title {
+        &::after {
+          bottom: 0;
+        }
+
+        line-height: inherit;
+        padding-bottom: $carbon--spacing-05;
+      }
     }
   }
 
