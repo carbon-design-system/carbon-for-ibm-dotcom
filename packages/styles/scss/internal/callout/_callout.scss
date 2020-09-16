@@ -8,8 +8,9 @@
 @import '../../globals/imports';
 
 @mixin callout {
-  .#{$prefix}--callout {
-    &__container {
+  .#{$prefix}--callout,
+  :host(#{$dds-prefix}-callout) {
+    .#{$prefix}--callout__container {
       @include carbon--make-row;
 
       background-color: $inverse-02;
@@ -17,10 +18,10 @@
         background-color: $inverse-02;
       }
     }
-    &__column {
+    .#{$prefix}--callout__column {
       @include carbon--make-col-ready;
     }
-    &__content {
+    .#{$prefix}--callout__content {
       @include carbon--breakpoint(sm) {
         padding-top: $layout-03;
       }
