@@ -10,7 +10,6 @@
 import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import 'carbon-web-components/es/components/ui-shell/header.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 
@@ -30,7 +29,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--masthead__l0">
-        <bx-header>
+        <header class="${prefix}--header">
           <slot name="brand"></slot>
           <div class="${prefix}--header__search">
             <div class="${prefix}--header__nav-container">
@@ -39,7 +38,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
             <slot name="search"></slot>
           </div>
           <slot name="profile"></slot>
-        </bx-header>
+        </header>
       </div>
     `;
   }

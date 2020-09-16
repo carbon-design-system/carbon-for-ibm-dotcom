@@ -11,9 +11,9 @@ import { html, property, internalProperty, query, customElement, LitElement } fr
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
-import BXSearch, { SEARCH_COLOR_SCHEME } from 'carbon-web-components/es/components/search/search.js';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSSearch, { SEARCH_COLOR_SCHEME } from '../search/search';
 import DDSLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 
@@ -56,7 +56,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
    * The search box.
    */
   @query(`${prefix}-search`)
-  private _searchNode?: BXSearch;
+  private _searchNode?: DDSSearch;
 
   /**
    * Updates the search results.
@@ -173,7 +173,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
     return html`
       <div class="${prefix}--locale-modal__filter">
         <div class="${prefix}--locale-modal__search">
-          <bx-search
+          <dds-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
             color-scheme="${SEARCH_COLOR_SCHEME.LIGHT}"
@@ -182,7 +182,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
             size="${INPUT_SIZE.EXTRA_LARGE}"
             data-autoid="${ddsPrefix}--locale-modal__filter"
           >
-          </bx-search>
+          </dds-search>
           <p class="${prefix}--locale-modal__search-text">
             ${hasAvailableItem ? availabilityLabelText : unavailabilityLabelText}
           </p>
