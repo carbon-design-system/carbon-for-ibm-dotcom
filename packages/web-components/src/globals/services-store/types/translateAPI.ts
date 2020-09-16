@@ -75,6 +75,21 @@ export interface MastheadLink {
 }
 
 /**
+ * An profile item in masthead.
+ */
+export interface MastheadProfileItem {
+  /**
+   * The title text.
+   */
+  title: string;
+
+  /**
+   * The link URL.
+   */
+  url?: string;
+}
+
+/**
  * The translation data for ibm.com sites
  */
 export interface Translation {
@@ -94,6 +109,21 @@ export interface Translation {
    * The compact version of the links for footer menu.
    */
   footerThin: BasicLink[];
+
+  /**
+   * The profile menus.
+   */
+  profileMenu: {
+    /**
+     * The profile menu for logged in state.
+     */
+    signedin: MastheadProfileItem[];
+
+    /**
+     * The profile menu for logged out state.
+     */
+    signedout: MastheadProfileItem[];
+  };
 }
 
 /**
