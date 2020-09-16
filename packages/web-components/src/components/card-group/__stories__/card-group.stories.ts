@@ -76,8 +76,8 @@ const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3">
     </dds-image>
-    <slot slot="eyebrow">Topic</slot>
-    <slot slot="heading">Natural Language Processing.</slot>
+    <div slot="eyebrow">Topic</div>
+    <div slot="heading">Natural Language Processing.</div>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
