@@ -10,4 +10,3 @@
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
-
