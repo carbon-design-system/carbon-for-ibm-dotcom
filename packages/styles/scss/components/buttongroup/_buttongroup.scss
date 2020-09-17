@@ -6,13 +6,15 @@
 */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 @import 'carbon-components/scss/components/button/button';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin buttongroup {
   @include button;
 
-  .#{$prefix}--buttongroup {
+  .#{$prefix}--buttongroup,
+  :host(#{$dds-prefix}-button-group) ol {
     display: flex;
     flex-direction: column;
 
@@ -28,7 +30,7 @@
       word-break: break-word;
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,
         height 0s;
-      &__icon {
+      .#{$prefix}--btn__icon {
         width: auto;
         height: auto;
       }
@@ -39,13 +41,30 @@
     }
   }
 
-  .#{$prefix}--buttongroup-item {
+  .#{$prefix}--buttongroup-item,
+  :host(#{$dds-prefix}-button-group-item) {
     margin-top: $carbon--layout-01;
     max-width: carbon--mini-units(40);
     min-width: 0;
 
     @include carbon--breakpoint(md) {
       padding-right: $carbon--layout-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-button-group-item) {
+    .#{$prefix}--btn {
+      font-size: 1rem;
+      position: relative;
+      width: auto;
+      height: 100%;
+      word-break: break-word;
+      transition: all $duration--fast-01 motion(entrance, productive), width 0s,
+      height 0s;
+      .#{$prefix}--btn__icon {
+        width: auto;
+        height: auto;
+      }
     }
   }
 
