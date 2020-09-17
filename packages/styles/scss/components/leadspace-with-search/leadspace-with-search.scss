@@ -13,6 +13,10 @@
     @include carbon--breakpoint('md') {
       padding-top: $layout-04;
     }
+    @include carbon--breakpoint('lg') {
+      padding-top: $layout-05;
+      padding-bottom: $layout-06;
+    }
 
     &__row {
       @include carbon--make-row;
@@ -21,12 +25,19 @@
     &__content {
       @include carbon--make-col(4, 4);
       @include carbon--make-col-ready;
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
     }
 
     &__heading {
       color: $text-01;
       margin-bottom: $spacing-07;
-      @include type-style('expressive-heading-06');
+      @include type-style('expressive-heading-06', true);
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $spacing-09;
+      }
     }
 
     &__search {
@@ -34,17 +45,26 @@
       @include carbon--breakpoint('md') {
         @include carbon--make-col(6, 8);
       }
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $spacing-09;
+      }
 
       input {
         background-color: transparent;
       }
     }
 
+    &__button-group-container {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(8, 12);
+      }
+    }
+
     &__button-group {
       display: flex;
+      width: 100%;
       flex-direction: column;
       gap: $spacing-05;
-
       @include carbon--breakpoint('md') {
         flex-direction: row;
         gap: $spacing-07;

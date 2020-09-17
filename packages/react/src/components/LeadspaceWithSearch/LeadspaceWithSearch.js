@@ -29,23 +29,26 @@ const LeadspaceWithSearch = () => (
           className={`${prefix}--leadspace-with-search__search`}
           placeHolderText="Search keywords"
         />
-        <ul className={`${prefix}--leadspace-with-search__button-group`}>
-          <li>
-            <Button
-              kind="tertiary"
-              renderIcon={View}
-              className={`${prefix}--leadspace-with-search__button`}>
-              <span>View your cases</span>
-            </Button>
-          </li>
-          <li>
-            <Button
-              renderIcon={FolderAdd}
-              className={`${prefix}--leadspace-with-search__button`}>
-              <span>Open a case</span>
-            </Button>
-          </li>
-        </ul>
+        <div
+          className={`${prefix}--leadspace-with-search__button-group-container`}>
+          <ul className={`${prefix}--leadspace-with-search__button-group`}>
+            <li>
+              <Button
+                kind="tertiary"
+                renderIcon={View}
+                className={`${prefix}--leadspace-with-search__button`}>
+                <span>View your cases</span>
+              </Button>
+            </li>
+            <li>
+              <Button
+                renderIcon={FolderAdd}
+                className={`${prefix}--leadspace-with-search__button`}>
+                <span>Open a case</span>
+              </Button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
