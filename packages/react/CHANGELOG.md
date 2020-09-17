@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.11.0-rc.0...@carbon/ibmdotcom-react@1.11.0-rc.1) (2020-09-16)
+
+### Bug Fixes
+
+- **masthead:** remove hide L0 logic
+  ([#3960](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3960))
+  ([fe2ae3f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe2ae3f)),
+  closes
+  [#3958](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3958)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.2...@carbon/ibmdotcom-react@1.11.0-rc.0) (2020-09-11)
 
 # 1.11.0-beta.4917 (2020-09-11)
