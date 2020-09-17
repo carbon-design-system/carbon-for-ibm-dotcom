@@ -50,16 +50,22 @@
   }
 
   .#{$prefix}--layout--border {
+    @include carbon--breakpoint('sm') {
+      padding-bottom: 4rem;
+    }
+
     @include carbon--breakpoint('md') {
       margin-left: -2rem;
       margin-right: -2rem;
       padding-left: 1rem;
       padding-right: 1rem;
+      padding-bottom: 6rem;
     }
 
     @include carbon--breakpoint('lg') {
       padding-left: 0;
       margin-left: -1rem;
+      padding-bottom: 10rem;
     }
 
     @include carbon--breakpoint('max') {
