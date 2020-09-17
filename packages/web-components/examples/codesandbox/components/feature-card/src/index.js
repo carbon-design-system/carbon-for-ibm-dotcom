@@ -8,3 +8,4 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/feature-card/feature-card';
+import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
