@@ -278,6 +278,15 @@ class DDSMastheadComposite extends LitElement {
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     return html`
+      <dds-left-nav-overlay></dds-left-nav-overlay>
+      <dds-left-nav>
+        ${!brandName
+          ? undefined
+          : html`
+              <dds-left-nav-name>${brandName}</dds-left-nav-name>
+            `}
+        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+      </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
@@ -312,15 +321,6 @@ class DDSMastheadComposite extends LitElement {
           </dds-masthead-profile>
         </dds-masthead-global-bar>
       </dds-masthead>
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
-        ${!brandName
-          ? undefined
-          : html`
-              <dds-left-nav-name>${brandName}</dds-left-nav-name>
-            `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-      </dds-left-nav>
     `;
   }
 
