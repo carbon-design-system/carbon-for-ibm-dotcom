@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { ComboBox, Button } from 'carbon-components-react';
@@ -32,8 +31,7 @@ const items = [
   },
   {
     id: 'option-4',
-    text:
-      'An example option that is really long to show what should be done to handle long text',
+    text: 'An example option that is really long to show what should be done to handle long text',
   },
 ];
 
@@ -80,81 +78,88 @@ const ControlledComboBoxApp = props => {
             text: `Option ${uid}`,
           });
           setSelectedItem(items[items.length - 1]);
-        }}>
+        }}
+      >
         Add new item
       </Button>
     </>
   );
 };
 
-storiesOf('ComboBox', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => (
+export default {
+  title: 'ComboBox',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <div style={{ width: 300 }}>
+    <ComboBox items={items} itemToString={item => (item ? item.text : '')} {...props()} />
+  </div>
+);
+
+Default.story = {
+  parameters: {
+    info: {
+      text: 'ComboBox',
+    },
+  },
+};
+
+export const ItemsAsComponents = () => (
+  <div style={{ width: 300 }}>
+    <ComboBox
+      items={items}
+      itemToString={item => (item ? item.text : '')}
+      itemToElement={itemToElement}
+      {...props()}
+    />
+  </div>
+);
+
+ItemsAsComponents.story = {
+  name: 'items as components',
+
+  parameters: {
+    info: {
+      text: 'ComboBox',
+    },
+  },
+};
+
+export const CustomTextInputHandling = () => (
+  <WithState initialState={{ inputText: '' }}>
+    {({ state, setState }) => (
       <div style={{ width: 300 }}>
         <ComboBox
           items={items}
-          itemToString={item => (item ? item.text : '')}
+          itemToString={item => (item ? `${item.text} queried with ${state.inputText}` : '')}
+          shouldFilterItem={() => true}
+          onInputChange={text => setState({ inputText: text })}
           {...props()}
         />
       </div>
-    ),
-    {
-      info: {
-        text: 'ComboBox',
-      },
-    }
-  )
-  .add(
-    'items as components',
-    () => (
-      <div style={{ width: 300 }}>
-        <ComboBox
-          items={items}
-          itemToString={item => (item ? item.text : '')}
-          itemToElement={itemToElement}
-          {...props()}
-        />
-      </div>
-    ),
-    {
-      info: {
-        text: 'ComboBox',
-      },
-    }
-  )
-  .add(
-    'custom text input handling',
-    () => (
-      <WithState initialState={{ inputText: '' }}>
-        {({ state, setState }) => (
-          <div style={{ width: 300 }}>
-            <ComboBox
-              items={items}
-              itemToString={item =>
-                item ? `${item.text} queried with ${state.inputText}` : ''
-              }
-              shouldFilterItem={() => true}
-              onInputChange={text => setState({ inputText: text })}
-              {...props()}
-            />
-          </div>
-        )}
-      </WithState>
-    ),
-    {
-      info: {
-        text: `Sometimes you want to perform an async action to trigger a backend call on input change.`,
-      },
-    }
-  )
-  .add(
-    'application-level control for selection',
-    () => <ControlledComboBoxApp {...props()} />,
-    {
-      info: {
-        text: `Controlled ComboBox example application`,
-      },
-    }
-  );
+    )}
+  </WithState>
+);
+
+CustomTextInputHandling.story = {
+  name: 'custom text input handling',
+
+  parameters: {
+    info: {
+      text: `Sometimes you want to perform an async action to trigger a backend call on input change.`,
+    },
+  },
+};
+
+export const ApplicationLevelControlForSelection = () => <ControlledComboBoxApp {...props()} />;
+
+ApplicationLevelControlForSelection.story = {
+  name: 'application-level control for selection',
+
+  parameters: {
+    info: {
+      text: `Controlled ComboBox example application`,
+    },
+  },
+};

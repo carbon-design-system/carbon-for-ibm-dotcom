@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import '../card-footer';
@@ -19,7 +19,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
 
 export const Default = ({ parameters }) => {
-  const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer } = parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
   return html`
     <dds-card color-scheme=${inverse ? 'inverse' : ''} href=${ifNonNull(href || undefined)}>
       ${image
@@ -34,11 +34,16 @@ export const Default = ({ parameters }) => {
             <p>${copy}</p>
           `
         : ``}
-      <dds-card-footer slot="footer">
+      <dds-card-footer slot="footer" icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
     </dds-card>
   `;
+};
+
+const iconPlacement = {
+  left: 'left',
+  right: 'right',
 };
 
 export default {
@@ -69,7 +74,8 @@ export default {
         copy: textNullable('Card Copy (copy):', '', groupId),
         inverse: boolean('inverse', false, groupId),
         href: textNullable('Card Href (href):', 'https://example.com', groupId),
-        footer: textNullable('Card Footer (footer)', 'Card cta text', groupId),
+        footer: textNullable('Footer copy text (footer.copy)', 'Card cta text', groupId),
+        iconPlacement: select('Footer icon placement (footer.iconPlacement)', iconPlacement, iconPlacement.right, groupId),
       }),
     },
   },

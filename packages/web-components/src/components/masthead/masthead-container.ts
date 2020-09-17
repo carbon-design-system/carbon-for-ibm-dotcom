@@ -115,7 +115,9 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   }
   return pickBy(
     {
+      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
       userStatus: status?.user,
       currentSearchResults: currentSearchResults ?? [],
     },

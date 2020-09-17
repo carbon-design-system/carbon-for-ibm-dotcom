@@ -3,6 +3,107 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.11.0-rc.0...@carbon/ibmdotcom-react@1.11.0-rc.1) (2020-09-16)
+
+### Bug Fixes
+
+- **masthead:** remove hide L0 logic
+  ([#3960](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3960))
+  ([fe2ae3f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe2ae3f)),
+  closes
+  [#3958](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3958)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.2...@carbon/ibmdotcom-react@1.11.0-rc.0) (2020-09-11)
+
+# 1.11.0-beta.4917 (2020-09-11)
+
+### Bug Fixes
+
+- **HorizontalRule:** change style prop name to type
+  ([#3892](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3892))
+  ([3317f57](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3317f57))
+- **Masthead:** indicate the active navigation item in Masthead navigation links
+  ([#3890](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3890))
+  ([42b1599](https://github.com/carbon-design-system/ibm-dotcom-library/commit/42b1599)),
+  closes
+  [#3826](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3826)
+- **MastheadLeftNav:** when user goes through menu levels, set scrollTop to 0
+  ([#3921](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3921))
+  ([0ecc2a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ecc2a5)),
+  closes
+  [#3730](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3730)
+
+### Features
+
+- **search:** add redirect and typeahead hooks
+  ([#3918](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3918))
+  ([84c0481](https://github.com/carbon-design-system/ibm-dotcom-library/commit/84c0481)),
+  closes
+  [#3766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3766)
+
+## 1.10.2 (2020-09-08)
+
+### Bug Fixes
+
+- **styles:** dedupe Carbon grid in the bundle
+  ([#3811](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3811))
+  ([4119a43](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4119a43)),
+  closes
+  [#3809](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3809)
+
+### Features
+
+- **Card:** supports onClick
+  ([#3812](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3812))
+  ([9245135](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9245135)),
+  closes
+  [#3756](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3756)
+
+# 1.11.0-beta.4847 (2020-08-28)
+
+### Bug Fixes
+
+- **CardGroup:** passing pictogram prop to card from CardGroup
+  ([#3689](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3689))
+  ([fa2b2ef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fa2b2ef)),
+  closes
+  [#3654](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3654)
+- **leadspace:** fixes codesandbox leadspace example
+  ([#3581](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3581))
+  ([59414e1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/59414e1))
+- **Masthead:** keep focus in sub menus
+  ([#3723](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3723))
+  ([af1ce57](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af1ce57)),
+  closes
+  [#3663](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3663)
+- **MegaMenu:** explicity set focus to HeaderMenu L0 item when clicked
+  ([#3751](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3751))
+  ([626d40f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/626d40f)),
+  closes
+  [#3617](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3617)
+  [#3731](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3731)
+
+### Features
+
+- **card-with-pictogram:** adding new card variation
+  ([#3654](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3654))
+  ([3bdc14e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3bdc14e))
+- **Footer:** add micro variation
+  ([#3645](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3645))
+  ([14acb43](https://github.com/carbon-design-system/ibm-dotcom-library/commit/14acb43)),
+  closes
+  [#3431](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3431)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.10.2-rc.2...@carbon/ibmdotcom-react@1.10.2) (2020-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
