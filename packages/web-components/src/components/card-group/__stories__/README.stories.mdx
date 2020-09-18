@@ -1,0 +1,65 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ExpressiveModal from './ExpressiveModal';
+
+# Card Group
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/card-group)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/card-group)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group';
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/card-group/card-group.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-card-group>
+  <dds-card-group-item href="https://example.com">
+    <div slot="heading">Nunc convallis lobortis</div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+  <dds-card-group-item href="https://example.com" color-scheme="inverse">
+    <div slot="heading">Top level card link</div>
+    <dds-card-footer slot="footer" color-scheme="inverse">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+</dds-card-group>
+```
+
+## Props
+
+<Props of="dds-card-group" />
+
+### `<dds-card-group-item>`
+
+<Props of="dds-card-group-item" />
+
+<Description markdown={contributing} />
