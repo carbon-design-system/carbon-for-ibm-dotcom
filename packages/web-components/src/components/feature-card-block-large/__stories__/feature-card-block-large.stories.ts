@@ -14,7 +14,6 @@ import readme from './README.stories.mdx';
 import styles from './feature-card-block-large.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card-block-large';
-import '../../image/image';
 
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-large'] ?? {};
