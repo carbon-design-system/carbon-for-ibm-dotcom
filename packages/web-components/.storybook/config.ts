@@ -9,11 +9,11 @@
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
+import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import { withKnobs } from '@storybook/addon-knobs';
 import customElements from '../custom-elements.json';
 import theme from './theme';
-import '../src/components/skip-to-content/skip-to-content';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
@@ -60,7 +60,7 @@ addDecorator((story, { parameters }) => {
     <style>
       ${containerStyles}
     </style>
-    <dds-skip-to-content href="#main-content">Skip to main content</dds-skip-to-content>
+    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
     <div
       id="main-content"
       name="main-content"
