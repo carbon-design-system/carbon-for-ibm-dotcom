@@ -59,6 +59,11 @@ class HeaderMenu extends React.Component {
     renderMenuContent: PropTypes.func,
 
     /**
+     * Determines whether to disable body scroll
+     */
+    disableScroll: PropTypes.bool,
+
+    /**
      * function to toogle overlay that appears when opening menu
      */
     setOverlay: PropTypes.func,
@@ -95,12 +100,14 @@ class HeaderMenu extends React.Component {
     this.menuLinkRef.current.focus();
 
     this.setState(prevState => {
-      if (prevState.expanded) {
-        this.props.setOverlay(false);
-        root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
-      } else {
-        this.props.setOverlay(true);
-        root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+      if (this.props.disableScroll) {
+        if (prevState.expanded) {
+          this.props.setOverlay(false);
+          root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+        } else {
+          this.props.setOverlay(true);
+          root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+        }
       }
       return {
         expanded: !prevState.expanded,
@@ -149,7 +156,8 @@ class HeaderMenu extends React.Component {
   handleOnBlur = event => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
-      root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+      this.props.disableScroll &&
+        root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
     }
 
     if (!event.relatedTarget || !this.checkMenuItems(event).length) {
