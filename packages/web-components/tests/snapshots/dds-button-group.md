@@ -1,6 +1,16 @@
 # `dds-button-group`
 
-#### `renders properly`
+#### `renders dds-button-group properly`
+
+```
+<ol>
+  <slot>
+  </slot>
+</ol>
+
+```
+
+#### `renders dds-button-group-item properly`
 
 ```
 <a

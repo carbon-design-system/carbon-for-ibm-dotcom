@@ -57,7 +57,11 @@ class DDSButtonGroup extends LitElement {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).buttonGroupItemSelector));
+      .filter(elem =>
+        (elem as HTMLElement).matches !== undefined
+          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).buttonGroupItemSelector)
+          : false
+      );
 
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_TYPES.ALTERNATE : BUTTON_TYPES.DEFAULT);
