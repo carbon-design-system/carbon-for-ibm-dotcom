@@ -1,0 +1,46 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      #app {
+        width: 300px;
+      }
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <h1>Hello World! 👋</h1>
+    <div id="app">
+      <dds-card-group-item href="https://example.com">
+        <div slot="heading">Nunc convallis lobortis</div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        </p>
+        <dds-card-footer slot="footer">
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-footer>
+      </dds-card-group-item>
+      <dds-card-group-item href="https://example.com" color-scheme="inverse">
+        <div slot="heading">Top level card link</div>
+        <dds-card-footer slot="footer" color-scheme="inverse">
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-footer>
+      </dds-card-group-item>
+    </div>
+  </body>
+</html>
