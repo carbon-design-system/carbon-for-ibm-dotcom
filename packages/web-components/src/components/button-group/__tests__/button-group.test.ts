@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit-html';
+import { render, html } from 'lit-html';
 import '../button-group';
 import '../button-group-item';
 import { Default } from '../__stories__/button-group.stories';
@@ -32,11 +32,27 @@ const template = () =>
     },
   });
 
+const templateItem = () =>
+  html`
+    <dds-button-group-item href="https://example.com">
+      Testing
+    </dds-button-group-item>
+  `;
+
 describe('dds-button-group', function() {
-  it('renders properly', async function() {
+  it('renders dds-button-group properly', async function() {
     render(template(), document.body);
     await Promise.resolve(); // Update cycle for `<dds-button-group>`
     expect(document.body.querySelector('dds-button-group')).toMatchSnapshot({ mode: 'shadow' });
+  });
+
+  it('renders dds-button-group-item properly', async function() {
+    render(templateItem(), document.body);
+    await Promise.resolve();
     expect(document.body.querySelector('dds-button-group-item')).toMatchSnapshot({ mode: 'shadow' });
+  });
+
+  afterEach(async function() {
+    await render(undefined!, document.body);
   });
 });
