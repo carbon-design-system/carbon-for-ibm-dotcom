@@ -229,6 +229,12 @@ class DDSMastheadComposite extends LitElement {
   openSearchDropdown = false;
 
   /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  searchPlaceholder?: string;
+
+  /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
@@ -271,6 +277,7 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       language,
       openSearchDropdown,
+      searchPlaceholder,
       unauthenticatedProfileItems,
       userStatus,
       _loadSearchResults: loadSearchResults,
@@ -307,6 +314,7 @@ class DDSMastheadComposite extends LitElement {
           input-timeout="${inputTimeout}"
           language="${ifNonNull(language)}"
           ?open="${openSearchDropdown}"
+          placeholder="${ifNonNull(searchPlaceholder)}"
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
