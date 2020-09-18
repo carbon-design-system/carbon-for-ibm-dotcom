@@ -224,7 +224,7 @@ const MastheadSearch = ({
    *
    */
   function searchIconClick() {
-    if (state.isSearchOpen && state.val.length) {
+    if (state.isSearchOpen && state.val.length > 1) {
       root.parent.location.href = getRedirect(state.val);
     } else {
       dispatch({ type: 'setSearchOpen' });
