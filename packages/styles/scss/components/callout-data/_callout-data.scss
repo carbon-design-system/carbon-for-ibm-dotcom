@@ -6,7 +6,7 @@
  */
 
 @mixin callout-data {
-  .#{$prefix}--callout-data {
+  .#{$prefix}--callout-data, :host(#{$dds-prefix}-callout-data) {
     .#{$prefix}--callout-data__data {
       @include carbon--type-style('display-03', true);
 
@@ -42,7 +42,7 @@
       color: $text-05;
     }
 
-    .#{$prefix}--callout__column {
+    .#{$prefix}--callout__columnm, #{$dds-prefix}-callout {
       height: auto;
 
       @include carbon--breakpoint('md') {
@@ -71,6 +71,19 @@
       width: 90%;
       max-width: 640px;
     }
+  }
+
+  :host(#{$dds-prefix}-callout-data) .#{$prefix}--callout-data__data,
+  :host(#{$dds-prefix}-callout-data) .#{$prefix}--callout-data__copy {
+    margin-left: -($layout-02);
+    //@include carbon--breakpoint(md) {
+    //  margin-left: -$spacing-02;
+    //  margin-right: -$spacing-02;
+    //}
+    //@include carbon--breakpoint(lg) {
+    //  margin-left: -$spacing-01;
+    //  margin-right: -$spacing-01;
+    //}
   }
 }
 @include exports('callout-data') {
