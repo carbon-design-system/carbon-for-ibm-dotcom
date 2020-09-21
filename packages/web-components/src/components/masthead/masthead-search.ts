@@ -341,7 +341,7 @@ class DDSMastheadSearch extends BXDropdown {
    * Value to display when the input has an empty `value`.
    */
   @property({ reflect: true })
-  placeholder = '';
+  placeholder = 'Search all of IBM';
 
   /**
    * The redirect URL when a user selects a search suggestion.

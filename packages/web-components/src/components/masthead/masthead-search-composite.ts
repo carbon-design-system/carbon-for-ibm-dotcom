@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import './masthead-search';
@@ -82,6 +83,12 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   open = false;
 
   /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  placeholder?: string;
+
+  /**
    * The shadow slot this search UI should be in.
    */
   @property({ reflect: true })
@@ -104,9 +111,9 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   }
 
   renderLightDOM() {
-    const { active, currentSearchResults, open } = this;
+    const { active, currentSearchResults, open, placeholder } = this;
     return html`
-      <dds-masthead-search ?active="${active}" ?open="${open}">
+      <dds-masthead-search ?active="${active}" ?open="${open}" placeholder="${ifNonNull(placeholder)}">
         ${currentSearchResults.map(
           item =>
             html`
