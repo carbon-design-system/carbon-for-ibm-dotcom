@@ -5,8 +5,22 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../../globals/imports';
+@import '../../globals/vars';
+
 @mixin callout-with-media {
+  :host(#{$dds-prefix}-callout-with-media),
+  :host(#{$dds-prefix}-callout),
   .#{$prefix}--callout-with-media {
+    ::slotted(#{$dds-prefix}-content-block-heading) {
+      @include carbon--theme(
+        $carbon--theme--g90,
+        feature-flag-enabled('enable-css-custom-properties')
+      ) {
+        color: $text-04;
+      }
+    }
+
     .#{$prefix}--callout__content {
       padding-top: 0;
 
@@ -47,6 +61,9 @@
     .#{$prefix}--video-player__video-caption {
       padding-top: $spacing-03;
     }
+  }
+  .#{$prefix}--callout__content {
+    padding-bottom: $layout-05;
   }
 }
 @include exports('callout-with-media') {

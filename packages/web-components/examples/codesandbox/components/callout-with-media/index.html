@@ -1,0 +1,48 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <style type="text/css">
+    body {
+      font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    #app {
+      width: 300px;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<h1>Hello World! 👋</h1>
+<div id="app">
+  <h4>CalloutWithMedia - Image</h4>
+  <dds-callout-with-media copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:">
+    <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+    <dds-image slot="media" alt="Image alt text" default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9">
+      <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x378/ee5396/161616&text=16:9"> </dds-image-item>
+      <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/400x225/ee5396/161616&text=16:9"> </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x180/ee5396/161616&text=16:9"> </dds-image-item>
+    </dds-image>
+  </dds-callout-with-media>
+  <h4 style="padding-top: 2rem">CalloutWithMedia - Video</h4>
+  <dds-callout-with-media copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+  nulla quis, *consequat* libero. Here are
+  some common categories:">
+    <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+    <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
+  </dds-callout-with-media>
+</div>
+</body>
+</html>
