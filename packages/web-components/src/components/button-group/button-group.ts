@@ -43,10 +43,13 @@ class DDSButtonGroup extends LitElement {
   // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
-      <ol>
-        <slot @slotchange="${this._handleSlotChange}" />
-      </ol>
+      <slot @slotchange="${this._handleSlotChange}" />
     `;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute('role', 'list');
   }
 
   /**

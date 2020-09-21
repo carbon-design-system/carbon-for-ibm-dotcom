@@ -3,10 +3,8 @@
 #### `renders dds-button-group properly`
 
 ```
-<ol>
-  <slot>
-  </slot>
-</ol>
+<slot>
+</slot>
 
 ```
 
