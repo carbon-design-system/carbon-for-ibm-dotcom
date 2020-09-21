@@ -12,6 +12,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
@@ -32,8 +33,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-masthead-search-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
+ * @fires dds-masthead-search-input
+ *   The name of the custom event fired after the search content is changed upon a user gesture.
+ * @fires dds-masthead-search-toggled
+ *   The name of the custom event fired after this search box is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-masthead-search`)
+// `BXDropdown` extends `HostListenerMixin`
 class DDSMastheadSearch extends BXDropdown {
   /**
    * The `<button>` to open the search box.
@@ -51,35 +57,7 @@ class DDSMastheadSearch extends BXDropdown {
    * Handles `click` event on the close button.
    */
   private async _handleClickCloseButton() {
-    const { _searchInputNode: searchInputNode } = this;
-    const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
-    if (searchInputNode.value) {
-      this.dispatchEvent(
-        new CustomEvent(eventInput, {
-          bubbles: true,
-          composed: true,
-          cancelable: false,
-          detail: {
-            value: '',
-          },
-        })
-      );
-    }
-    searchInputNode.value = '';
-    this.active = false;
-    await this.updateComplete;
-    const { _searchButtonNode: searchButtonNode } = this;
-    searchButtonNode?.focus();
-    this.dispatchEvent(
-      new CustomEvent(eventToggle, {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-        detail: {
-          active: this.active,
-        },
-      })
-    );
+    this._handleUserInitiatedToggleActiveState(false);
   }
 
   /**
@@ -90,21 +68,67 @@ class DDSMastheadSearch extends BXDropdown {
     if (active) {
       this._handleUserInitiatedRedirect();
     } else {
-      this.active = true;
-      await this.updateComplete;
-      const { _searchInputNode: searchInputNode } = this;
-      searchInputNode?.focus();
+      this._handleUserInitiatedToggleActiveState(true);
+    }
+  }
+
+  /**
+   * Handles user-initiated toggling of activated state of the search box.
+   *
+   * @param active `true` to activate the search box.
+   * @param moveFocus
+   *   `true` to move focus upon toggling, to the input box when activated, to the trigger button when deactivated.
+   */
+  private async _handleUserInitiatedToggleActiveState(active = !this.active, moveFocus = true) {
+    if (active === this.active) {
+      return;
+    }
+    const { _searchInputNode: searchInputNode } = this;
+    const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
+    if (!active && searchInputNode.value) {
       this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof DDSMastheadSearch).eventToggle, {
+        new CustomEvent(eventInput, {
           bubbles: true,
-          cancelable: true,
           composed: true,
+          cancelable: false,
           detail: {
-            active: this.active,
+            value: '',
           },
         })
       );
+      searchInputNode.value = '';
     }
+    this.active = active;
+    await this.updateComplete;
+    if (moveFocus) {
+      // Does not reuse destructed `searchInputNode` given it's `null` before expanded
+      (active ? this._searchInputNode : this._searchButtonNode).focus();
+    }
+    this.dispatchEvent(
+      new CustomEvent(eventToggle, {
+        bubbles: true,
+        cancelable: true,
+        composed: true,
+        detail: {
+          active,
+        },
+      })
+    );
+  }
+
+  /**
+   * Handles `focusin` event on this component.
+   */
+  @HostListener('focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  // @ts-ignore
+  private _handleFocusIn() {
+    this._handleUserInitiatedToggleActiveState(true);
+  }
+
+  protected _handleFocusOut(event: FocusEvent) {
+    super._handleFocusOut(event);
+    this._handleUserInitiatedToggleActiveState(false, false);
   }
 
   /**
@@ -203,12 +227,6 @@ class DDSMastheadSearch extends BXDropdown {
   private _redirect(target) {
     this.ownerDocument!.defaultView!.location.assign(target);
   }
-
-  /**
-   * The `aria-label` attribute for the search input.
-   */
-  @property({ attribute: 'search-label' })
-  searchLabel = 'IBM search field';
 
   /**
    * @returns The main content of the trigger button.
@@ -323,13 +341,19 @@ class DDSMastheadSearch extends BXDropdown {
    * Value to display when the input has an empty `value`.
    */
   @property({ reflect: true })
-  placeholder = '';
+  placeholder = 'Search all of IBM';
 
   /**
    * The redirect URL when a user selects a search suggestion.
    */
   @property({ attribute: 'redirect-url' })
   redirectUrl = 'https://www.ibm.com/search?lnk=mhsrch';
+
+  /**
+   * The `aria-label` attribute for the search input.
+   */
+  @property({ attribute: 'search-label' })
+  searchLabel = 'IBM search field';
 
   /**
    * The shadow slot this search UI should be in.

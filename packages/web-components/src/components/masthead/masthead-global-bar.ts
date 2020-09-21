@@ -7,14 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit-html/directives/class-map';
 import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
-import { breakpoints } from '@carbon/layout/es/index.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,11 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-masthead-global-bar`)
 class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(LitElement)) {
   /**
-   * Media query listener handler.
-   */
-  private _mqHandler: Handle | null = null;
-
-  /**
    * The shadow slot this action bar should be in.
    */
   @property({ reflect: true })
@@ -41,13 +34,7 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(LitElement)) {
    * Search bar opened flag.
    */
   @internalProperty()
-  private _openedSearch = false;
-
-  /**
-   * Medium breakpoint flag.
-   */
-  @internalProperty()
-  private _responsiveMd = false;
+  private _hasSearchActive = false;
 
   /**
    * Handles toggle event from the search component.
@@ -57,41 +44,18 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(LitElement)) {
   @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._openedSearch = (event as CustomEvent).detail.active;
+    this._hasSearchActive = (event as CustomEvent).detail.active;
   };
 
-  /**
-   * Handles media query event.
-   *
-   * @param event The event.
-   */
-  private _handleMediaQuery(event: Event) {
-    this._responsiveMd = (event as MediaQueryListEvent).matches;
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-
-    const _mqMedium = this.ownerDocument?.defaultView?.matchMedia(`(max-width: ${breakpoints.md.width})`);
-    this._responsiveMd = _mqMedium ? _mqMedium.matches : false;
-
-    this._mqHandler = on(_mqMedium, 'change', this._handleMediaQuery.bind(this));
-  }
-
-  disconnectedCallback() {
-    if (this._mqHandler) {
-      this._mqHandler = this._mqHandler.release();
-    }
-
-    super.disconnectedCallback();
-  }
-
   render() {
-    return this._openedSearch && this._responsiveMd
-      ? html``
-      : html`
-          <slot></slot>
-        `;
+    const { _hasSearchActive: hasSearchActive } = this;
+    const classes = classMap({
+      [`${ddsPrefix}-ce--header__global__container`]: true,
+      [`${ddsPrefix}-ce--header__global__container--has-search-active`]: hasSearchActive,
+    });
+    return html`
+      <div class="${classes}"><slot></slot></div>
+    `;
   }
 
   /**

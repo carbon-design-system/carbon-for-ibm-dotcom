@@ -26,6 +26,7 @@ const SORT_ORDER = [
   'overview-building-for-ibm-dot-com--page',
   'overview-environment-variables--page',
   'overview-feature-flags--page',
+  'overview-contributing-to-the-react-package--page',
 ];
 
 addParameters({
