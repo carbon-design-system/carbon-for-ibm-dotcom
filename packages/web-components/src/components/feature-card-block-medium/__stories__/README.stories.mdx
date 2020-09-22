@@ -5,10 +5,10 @@ import ExpressiveModal from './ExpressiveModal';
 # Feature Card
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-medium)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-medium)
 
 ## Getting started
 
@@ -33,7 +33,7 @@ or with [JSPM](https://jspm.org)
 
 ```html
 <dds-feature-card-block-medium>
-  <span slot="heading">How is artificial intelligence used today in your industry?</span>
+  <dds-feature-card-block-medium-heading slot="heading">${blockHeading}</dds-feature-card-block-medium-heading>
   <dds-feature-card-block-medium-card href="${ifNonNull(href" || undefined)}>
     <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
     <slot slot="heading">${heading}</slot>

@@ -18,13 +18,11 @@ import '../feature-card-block-medium';
 import '../feature-card-block-medium-card';
 
 export const Default = ({ parameters }) => {
-  const { heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
+  const { blockHeading, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
   return html`
     <dds-feature-card-block-medium>
-      <dds-feature-card-block-medium-heading slot="heading"
-        >How is artificial intelligence used today in your industry?</dds-feature-card-block-medium-heading
-      >
-      <dds-feature-card-block-medium-card href=${ifNonNull(href || undefined)} slot>
+      <dds-feature-card-block-medium-heading slot="heading">${blockHeading}</dds-feature-card-block-medium-heading>
+      <dds-feature-card-block-medium-card href=${ifNonNull(href || undefined)}>
         <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
         <slot slot="heading">${heading}</slot>
         ${ArrowRight20({ slot: 'footer' })}
@@ -53,6 +51,10 @@ export default {
     ...readme.parameters,
     knobs: {
       'dds-feature-card-block-medium': () => ({
+        blockHeading: textNullable(
+          'Block Heading (blockHeading):',
+          'How is artificial intelligence used today in your industry?'
+        ),
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
         defaultSrc: textNullable('Image src (defaultSrc):', 'https://dummyimage.com/672x672/ee5396/161616&text=1x1'),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
