@@ -5,15 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
+import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
+import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -23,6 +28,50 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
+  const [
+    hideLeftCarat,
+    setHideLeftCarat,
+    hideRightCarat,
+    setHideRightCarat,
+  ] = useState(false);
+
+  const hideShowLeftCarat = mediaQuery => {
+    if (mediaQuery.matches) {
+      setHideLeftCarat(true);
+    } else {
+      setHideLeftCarat(false);
+    }
+  };
+
+  const hideShowRightCarat = mediaQuery => {
+    if (mediaQuery.matches) {
+      setHideRightCarat(true);
+    } else {
+      setHideRightCarat(false);
+    }
+  };
+
+  useEffect(() => {
+    onResize();
+    root.document.addEventListener('resize', onResize);
+
+    return () => {
+      root.document.removeEventListener('resize', onResize);
+    };
+  });
+  const onResize = () => {
+    const totalNavWidth = calculateTotalWidth(['bx--header__nav-container']);
+
+    const navItems = root.document.querySelectorAll('li').forEach(item => {
+      calculateTotalWidth([item]);
+    });
+
+    if (totalNavWidth > navItems) {
+      hideShowRightCarat(true);
+      hideShowLeftCarat(true);
+    }
+  };
+
   const [overlay, setOverlay] = useState(false);
   /**
    * Top masthead navigation
@@ -75,7 +124,13 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         <HeaderNavigation
           aria-label="IBM"
           data-autoid={`${stablePrefix}--masthead__l0-nav`}>
+          <HeaderGlobalAction className={{ hideLeftCarat }}>
+            <CaretLeft20 />
+          </HeaderGlobalAction>
           {mastheadLinks}
+          <HeaderGlobalAction className={{ hideRightCarat }}>
+            <CaretRight20 />
+          </HeaderGlobalAction>
         </HeaderNavigation>
       </div>
       <div
