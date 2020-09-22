@@ -160,6 +160,10 @@ $btn-min-width: 26;
       height: 100%;
       width: 100%;
     }
+
+    @include carbon--breakpoint(lg) {
+      overflow: hidden;
+    }
   }
 
   .#{$prefix}--leadspace__overlay {
