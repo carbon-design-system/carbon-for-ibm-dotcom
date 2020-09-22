@@ -15,8 +15,9 @@ import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
 
 const footerTypeOptions = {
-  tall: undefined,
+  tall: 'tall',
   short: 'short',
+  micro: 'micro',
 };
 
 export default {

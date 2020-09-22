@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.11.0-rc.1...@carbon/ibmdotcom-react@1.11.0) (2020-09-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.11.0-rc.0...@carbon/ibmdotcom-react@1.11.0-rc.1) (2020-09-16)
 
 ### Bug Fixes
