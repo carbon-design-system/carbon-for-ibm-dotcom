@@ -19,6 +19,7 @@ Here's a quick example to get you started.
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+import 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
 
 or with [JSPM](https://jspm.org)
@@ -27,6 +28,7 @@ or with [JSPM](https://jspm.org)
 <script type="module">
   import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
   import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
+  import 'https://jspm.dev/carbon-web-components/es/icons/arrow--right/20.js';
 </script>
 ```
 
@@ -34,8 +36,8 @@ or with [JSPM](https://jspm.org)
 
 ```html
 <dds-button-group>
-  <dds-button-group-item>Lorem ipsum</dds-button-group-item>
-  <dds-button-group-item>Dolor sit amet</dds-button-group-item>
+  <dds-button-group-item href="https://example.com">Lorem ipsum ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+  <dds-button-group-item href="https://example.com">Dolor sit amet ${ArrowRight20({ slot: 'icon' })} </dds-button-group-item>
 </dds-button-group>
 ```
 
