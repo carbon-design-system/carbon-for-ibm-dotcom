@@ -20,10 +20,15 @@ const { prefix } = settings;
  * CardSectionSimple pattern it is Cards without images.
  */
 const CardSectionSimple = ({ cards, cta, theme, ...otherProps }) => {
-  const cardsWithoutImages = cards.filter(
-    ({ image, heading, copy, cta: { href } }) =>
-      !image && heading && copy && href
-  );
+  const cardsWithoutImages = cards.filter(card => {
+    let {
+      image,
+      heading,
+      copy,
+      cta: { href },
+    } = React.isValidElement(card) ? card.props : card;
+    return !image && heading && copy && href;
+  });
 
   return (
     <ContentSection

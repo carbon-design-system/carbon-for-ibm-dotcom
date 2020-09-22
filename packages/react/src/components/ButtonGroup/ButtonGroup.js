@@ -131,32 +131,55 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
         return (
           <Fragment key={key}>
             <li className={`${prefix}--buttongroup-item`}>
-              <Button
-                data-autoid={`${stablePrefix}--button-group-${key}`}
-                {...button}
-                type="button"
-                kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>
-                {button.copy}
-              </Button>
+              {buttonItem(buttons, button, key)}
             </li>
             {!shouldUseResizeObserver ? (
               undefined
             ) : (
               <li
                 className={`${prefix}--buttongroup-item ${prefix}--buttongroup-item--pseudo`}>
-                <Button
-                  tabIndex={-1}
-                  {...button}
-                  type="button"
-                  kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>
-                  {button.copy}
-                </Button>
+                {psuedoButtonItem(buttons, button, key)}
               </li>
             )}
           </Fragment>
         );
       })}
     </ol>
+  );
+};
+
+const buttonItem = (buttons, button, index) => {
+  return React.isValidElement(button) ? (
+    React.cloneElement(button, {
+      'data-autoid': `${stablePrefix}--button-group-${index}`,
+      type: 'button',
+      kind: index === buttons.length - 1 ? 'primary' : 'tertiary',
+    })
+  ) : (
+    <Button
+      data-autoid={`${stablePrefix}--button-group-${index}`}
+      {...button}
+      type="button"
+      kind={index === buttons.length - 1 ? 'primary' : 'tertiary'}>
+      {button.copy}
+    </Button>
+  );
+};
+
+const psuedoButtonItem = (buttons, button, index) => {
+  return React.isValidElement(button) ? (
+    React.cloneElement(button, {
+      type: 'button',
+      kind: index === buttons.length - 1 ? 'primary' : 'tertiary',
+    })
+  ) : (
+    <Button
+      tabIndex={-1}
+      {...button}
+      type="button"
+      kind={index === buttons.length - 1 ? 'primary' : 'tertiary'}>
+      {button.copy}
+    </Button>
   );
 };
 

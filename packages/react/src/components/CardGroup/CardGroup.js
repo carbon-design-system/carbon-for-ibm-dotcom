@@ -75,50 +75,87 @@ const _renderCards = (cards, containerRef, cta) => (
     data-autoid={`${stablePrefix}--card-group`}
     className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
-    {cards.map((card, index) => {
-      return (
-        <div
-          key={index}
-          className={`${prefix}--card-group__cards__col`}
-          role="region"
-          aria-label={card.heading}>
-          <CTA
-            style="card"
-            key={index}
-            customClassName={`${prefix}--card-group__card`}
-            image={card.image}
-            media={card.media}
-            heading={card.heading}
-            eyebrow={card.eyebrow}
-            copy={card.copy}
-            pictogram={card.pictogram}
-            cta={{
-              ...card.cta,
-              icon: {
-                src: ArrowRight20,
-              },
-            }}
-            type={card.media ? 'video' : 'local'}
-          />
-        </div>
-      );
-    })}
-    {cta && (
-      <div className={`${prefix}--card-group__cards__col`}>
-        <Card
-          inverse={true}
-          heading={cta.heading}
-          cta={{
-            href: cta.cta.href,
-            icon: {
-              src: ArrowRight20,
-            },
-          }}
-        />
-      </div>
-    )}
+    {cardItems(cards)}
+    {cta && ctaItem(cta)}
   </div>
 );
+
+const cardItems = (cards, index) => {
+  return cards.map(card => {
+    const cardElement = React.isValidElement(card) ? (
+      React.cloneElement(card, {
+        style: 'card',
+        key: index,
+        customClassName: `${prefix}--card-group__card`,
+        cta: {
+          ...card.props.cta,
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+        type: card.props.media ? 'video' : 'local',
+      })
+    ) : (
+      <CTA
+        style="card"
+        key={index}
+        customClassName={`${prefix}--card-group__card`}
+        image={card.image}
+        media={card.media}
+        heading={card.heading}
+        eyebrow={card.eyebrow}
+        copy={card.copy}
+        pictogram={card.pictogram}
+        cta={{
+          ...card.cta,
+          icon: {
+            src: ArrowRight20,
+          },
+        }}
+        type={card.media ? 'video' : 'local'}
+      />
+    );
+
+    return (
+      <div
+        key={index}
+        className={`${prefix}--card-group__cards__col`}
+        role="region"
+        aria-label={card.heading}>
+        {cardElement}
+      </div>
+    );
+  });
+};
+
+const ctaItem = cta => {
+  const ctaElement = React.isValidElement(cta) ? (
+    React.cloneElement(cta, {
+      inverse: true,
+      cta: {
+        href: cta.props.cta.href,
+        icon: {
+          src: ArrowRight20,
+        },
+      },
+    })
+  ) : (
+    <Card
+      inverse={true}
+      heading={cta.heading}
+      cta={{
+        href: cta.cta.href,
+        icon: {
+          src: ArrowRight20,
+        },
+      }}
+    />
+  );
+
+  return (
+    <div className={`${prefix}--card-group__cards__col`}>{ctaElement}</div>
+  );
+};
 
 CardGroup.propTypes = {
   /**

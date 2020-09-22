@@ -8,6 +8,7 @@
 import { number, select, text } from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
 import ButtonGroup from '../ButtonGroup';
 import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
@@ -93,6 +94,35 @@ export const Default = ({ parameters }) => {
         according to the text size
       </div>
       <ButtonGroup buttons={buttons} />
+    </div>
+  );
+};
+
+export const SubComponents = ({ parameters }) => {
+  const { buttons } = parameters?.props?.ButtonGroup ?? {};
+  const buttonElements = buttons.map(button => {
+    return <Button href={button.href}>{button.copy}</Button>;
+  });
+  return (
+    <div
+      className="bx-grid"
+      style={{
+        padding: 2 + `rem`,
+      }}>
+      <div>
+        This button group is wrapped within the grid to let the buttons shrink
+        when the text gets smaller
+      </div>
+      <div className="bx--row">
+        <div className="bx--col-lg-16 bx--col-md-6 bx--col-sm-16">
+          <ButtonGroup buttons={buttonElements} />
+        </div>
+      </div>
+      <div style={{ paddingTop: '20px' }}>
+        This button group is not using the grid, so the buttons won't shrink
+        according to the text size
+      </div>
+      <ButtonGroup buttons={buttonElements} />
     </div>
   );
 };

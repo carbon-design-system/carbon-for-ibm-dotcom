@@ -8,6 +8,7 @@
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
 import LeadSpace from '../LeadSpace';
 import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
@@ -83,6 +84,70 @@ DefaultWithNoImage.story = {
             groupId
           ),
           buttons,
+        };
+      },
+    },
+  },
+};
+
+export const SubComponents = ({ parameters }) => {
+  const { title, copy, gradient, buttons, image } =
+    parameters?.props?.LeadSpace ?? {};
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+  return (
+    <LeadSpace
+      theme={theme}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={image}
+    />
+  );
+};
+
+SubComponents.story = {
+  name: 'SubComponents',
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push(
+            <Button
+              renderIcon={
+                iconMap[
+                  select(
+                    `Button Icon ${i + 1} (renderIcon)`,
+                    iconOptions,
+                    iconOptions.ArrowRight,
+                    groupId
+                  )
+                ]
+              }
+              href={text(
+                `Button link (href)`,
+                'https://www.example.com',
+                groupId
+              )}>
+              {text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId)}
+            </Button>
+          );
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          gradient: boolean('gradient overlay (gradient)', true, groupId),
+          image: images,
         };
       },
     },
