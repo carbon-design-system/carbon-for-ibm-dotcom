@@ -8,11 +8,9 @@
  */
 
 import { customElement, html, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './feature-card-block-medium.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -26,7 +24,7 @@ class DDSFeatureCardBlockMedium extends LitElement {
 
   protected render() {
     return html`
-      <div class="${prefix}--feature-card-block-medium__container"><slot name="heading"></slot><slot></slot></div>
+      <slot name="heading"></slot><slot></slot>
     `;
   }
 }

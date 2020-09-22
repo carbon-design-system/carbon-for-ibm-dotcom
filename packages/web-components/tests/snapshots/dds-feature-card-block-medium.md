@@ -5,24 +5,20 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--feature-card-block-medium__container">
-  <slot name="heading">
-  </slot>
-  <slot>
-  </slot>
-</div>
+<slot name="heading">
+</slot>
+<slot>
+</slot>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
-<div class="bx--feature-card-block-medium__container">
-  <slot name="heading">
-  </slot>
-  <slot>
-  </slot>
-</div>
+<slot name="heading">
+</slot>
+<slot>
+</slot>
 
 ```
 
