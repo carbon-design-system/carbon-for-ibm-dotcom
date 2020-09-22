@@ -61,12 +61,14 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   });
   const onResize = () => {
     const totalNavWidth = calculateTotalWidth(['bx--header__nav-container']);
-
-    const navItems = root.document.querySelectorAll('li').forEach(item => {
-      calculateTotalWidth([item]);
-    });
-
-    if (totalNavWidth > navItems) {
+    var totalSubMenuWidth = 0;
+    const navItems = root.document.getElementsByClassName(
+      'bx--header__submenu'
+    );
+    for (var i = 0; i < navItems.length; i++) {
+      totalSubMenuWidth += navItems[i].offsetWidth;
+    }
+    if (totalNavWidth < totalSubMenuWidth) {
       hideShowRightCarat(true);
       hideShowLeftCarat(true);
     }
