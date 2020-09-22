@@ -155,7 +155,6 @@ $btn-min-width: 26;
     position: relative;
 
     @include carbon--breakpoint(md) {
-      overflow: hidden;
       position: absolute;
       top: 0;
       height: 100%;
