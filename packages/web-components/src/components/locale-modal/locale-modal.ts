@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import DDSModal from '../modal/modal';
 import '../modal/modal-header';
 import '../modal/modal-heading';
@@ -133,6 +134,12 @@ class DDSLocaleModal extends DDSModal {
   }
 
   /**
+   * The assistive text for the close button.
+   */
+  @property({ attribute: 'close-button-assistive-text' })
+  closeButtonAssistiveText?: string;
+
+  /**
    * The header title.
    */
   @property({ attribute: 'header-title' })
@@ -145,9 +152,10 @@ class DDSLocaleModal extends DDSModal {
   langDisplay?: string;
 
   protected _renderHeader() {
+    const { closeButtonAssistiveText } = this;
     return html`
       <dds-modal-header>
-        <dds-modal-close-button></dds-modal-close-button>
+        <dds-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}"></dds-modal-close-button>
         <dds-modal-heading>${this._renderHeading()}</dds-modal-heading>
       </dds-modal-header>
     `;
