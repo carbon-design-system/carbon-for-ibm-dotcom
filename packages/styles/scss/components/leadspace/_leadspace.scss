@@ -119,11 +119,11 @@ $btn-min-width: 26;
       margin-right: auto;
       margin-left: auto;
       position: relative;
-      padding-top: aspect-ratio(672px, 400px);
+      padding-top: 100%;
       height: 0;
 
       .#{$prefix}--image {
-        height: auto;
+        height: aspect-ratio(672px, 400px);
       }
 
       .#{$prefix}--leadspace__title {
@@ -139,10 +139,13 @@ $btn-min-width: 26;
   }
 
   .#{$prefix}--leadspace--content__container {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include carbon--breakpoint(lg) {
+      height: 100%;
+    }
   }
 
   .#{$prefix}--leadspace__image {
@@ -155,6 +158,7 @@ $btn-min-width: 26;
     position: relative;
 
     @include carbon--breakpoint(md) {
+      overflow: hidden;
       position: absolute;
       top: 0;
       height: 100%;
