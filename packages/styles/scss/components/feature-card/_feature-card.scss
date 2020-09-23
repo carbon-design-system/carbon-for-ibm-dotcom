@@ -11,6 +11,28 @@
 @import '../../globals/utils/aspect-ratio';
 @import '../../globals/utils/hang';
 
+@mixin card {
+  position: absolute;
+  padding-top: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include carbon--breakpoint('md') {
+    flex-direction: row;
+    @include hang;
+  }
+
+  &:focus {
+    outline-offset: 1px;
+    outline-width: 3px;
+  }
+
+  .#{$prefix}--card__heading {
+    margin-bottom: $layout-03;
+  }
+}
+
 @mixin feature-card {
   .#{$prefix}--feature-card,
   :host(#{$dds-prefix}-feature-card),
@@ -50,25 +72,11 @@
     }
 
     .#{$prefix}--card {
-      position: absolute;
-      padding-top: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      @include carbon--breakpoint('md') {
-        flex-direction: row;
-        @include hang;
-      }
+      @include card;
+    }
 
-      &__heading {
-        margin-bottom: $layout-03;
-      }
-
-      &:focus {
-        outline-offset: 1px;
-        outline-width: 3px;
-      }
+    .#{$prefix}--card__heading {
+      margin-bottom: $layout-03;
     }
 
     ::slotted([slot='image']),
