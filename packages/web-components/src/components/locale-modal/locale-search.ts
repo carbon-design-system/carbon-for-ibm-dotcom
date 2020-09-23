@@ -176,7 +176,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
           <bx-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
-            color-scheme="${SEARCH_COLOR_SCHEME.LIGHT}"
+            color-scheme="${SEARCH_COLOR_SCHEME.REGULAR}"
             label-text="${labelText}"
             placeholder="${placeholder}"
             size="${INPUT_SIZE.EXTRA_LARGE}"
