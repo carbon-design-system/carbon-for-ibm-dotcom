@@ -20,12 +20,15 @@ LICENSE file in the root directory of this source tree.
         width: 300px;
       }
     </style>
-    <script src="src/index.js"></script>
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
+      import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
+    </script>
   </head>
   <body>
     <h1>Hello World! 👋</h1>
-    <dds-text-cta href="0_uka1msg4" type="video">
-      Copy text
-    </dds-text-cta>
+    <dds-video-cta-container>
+      <dds-text-cta cta-type="video" href="0_uka1msg4"></dds-text-cta>
+    </dds-video-cta-container>
   </body>
 </html>

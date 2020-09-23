@@ -15,14 +15,14 @@ import store from '../../globals/services-store/store';
 import { loadVideoData, VideoPlayerAPIActions } from '../../globals/services-store/actions/videoPlayerAPI';
 import { DDSVideoPlayerContainerMixin, mapStateToProps, mapDispatchToProps } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
-import DDSCTAComposite from './cta-composite';
+import DDSVideoCTAComposite from './video-cta-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * The Redux state used for `<dds-cta-container>`.
  */
-export interface CTAContainerState {
+export interface VideoCTAContainerState {
   /**
    * The Redux state for `VideoPlayerAPI`.
    */
@@ -32,7 +32,7 @@ export interface CTAContainerState {
 /**
  * The properties for `<dds-cta-container>` from Redux state.
  */
-export interface CTAContainerStateProps {
+export interface VideoCTAContainerStateProps {
   /**
    * The video data, keyed by the video ID.
    */
@@ -49,16 +49,16 @@ export type CTAContainerActions = ReturnType<typeof loadVideoData>;
  *
  * @element dds-cta-container
  */
-@customElement(`${ddsPrefix}-cta-container`)
-class DDSCTAContainer extends ConnectMixin<
-  CTAContainerState,
+@customElement(`${ddsPrefix}-video-cta-container`)
+class DDSVideoCTAContainer extends ConnectMixin<
+  VideoCTAContainerState,
   VideoPlayerAPIActions,
-  CTAContainerStateProps,
+  VideoCTAContainerStateProps,
   ActionCreatorsMapObject<CTAContainerActions>
 >(
-  store as Store<CTAContainerState, VideoPlayerAPIActions>,
+  store as Store<VideoCTAContainerState, VideoPlayerAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSVideoPlayerContainerMixin(DDSCTAComposite)) {}
+)(DDSVideoPlayerContainerMixin(DDSVideoCTAComposite)) {}
 
-export default DDSCTAContainer;
+export default DDSVideoCTAContainer;

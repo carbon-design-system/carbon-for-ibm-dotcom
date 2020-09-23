@@ -10,8 +10,6 @@
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -21,6 +19,8 @@ import CTAMixin from './mixins/cta';
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import { CTA_TYPE } from './shared-enums';
 import styles from './cta.scss';
+
+export { CTA_TYPE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,12 +34,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
   protected _renderCopy() {
     const {
+      ctaType,
       videoDuration,
       videoName,
-      _hasCopy: hasCopy,
       formatVideoCaption: formatCaptionInEffect,
       formatVideoDuration: formatDurationInEffect,
+      _hasCopy: hasCopy,
     } = this;
+    if (ctaType !== CTA_TYPE.VIDEO) {
+      return super._renderCopy();
+    }
     const caption = hasCopy
       ? undefined
       : formatCaptionInEffect({
@@ -53,20 +57,11 @@ class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
     `;
   }
 
-  protected _renderImage() {
-    const { type, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
-    const thumbnail =
-      hasImage || type !== CTA_TYPE.VIDEO
-        ? undefined
-        : html`
-            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
-              ${PlayVideo({ slot: 'icon' })}
-            </dds-image>
-          `;
-    return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
-    `;
-  }
+  /**
+   * The CTA type.
+   */
+  @property({ reflect: true, attribute: 'cta-type' })
+  ctaType = CTA_TYPE.REGULAR;
 
   /**
    * The formatter for the video caption, composed with the video name and the video duration.
@@ -83,12 +78,6 @@ class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
   formatVideoDuration = formatVideoDuration;
 
   /**
-   * The CTA type.
-   */
-  @property({ reflect: true })
-  type = CTA_TYPE.REGULAR;
-
-  /**
    * The video duration.
    */
   @property({ type: Number, attribute: 'video-duration' })
@@ -102,18 +91,18 @@ class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
 
   /**
    * The video thumbnail URL.
+   * Feature CTA does not support video thumbnail, and this property should never be set.
    */
-  @property({ attribute: 'video-thumbnail-url' })
-  videoThumbnailUrl?: string;
+  videoThumbnailUrl?: never;
 
   updated(changedProperties) {
     super.updated(changedProperties);
     const { selectorFooter } = this.constructor as typeof DDSFeatureCTA;
-    if (changedProperties.has('type')) {
-      const { type } = this;
+    if (changedProperties.has('ctaType')) {
+      const { ctaType } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
-        (footer as DDSFeatureCTAFooter).type = type;
+        (footer as DDSFeatureCTAFooter).ctaType = ctaType;
       }
     }
   }

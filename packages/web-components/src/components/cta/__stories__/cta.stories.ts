@@ -9,10 +9,14 @@
 
 import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CARD_CTA_IMAGE, CTA_STYLE, CTA_TYPE } from '../cta-composite';
-import '../cta-container';
+import { CTA_TYPE } from '../shared-enums';
+import '../video-cta-container';
+import '../card-cta';
+import '../feature-cta';
+import '../text-cta';
 import readme from './README.stories.mdx';
 
 const hrefsForType = {
@@ -25,27 +29,21 @@ const hrefsForType = {
 };
 
 const knobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (item.href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (item.href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (item.href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (item.href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (item.href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (item.href)',
+  [CTA_TYPE.REGULAR]: 'Content link href (href)',
+  [CTA_TYPE.LOCAL]: 'Content link href (href)',
+  [CTA_TYPE.JUMP]: 'Anchor href (href)',
+  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
+  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
+  [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
 const footerKnobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (item.href)',
-  [CTA_TYPE.LOCAL]: 'Content link href (item.href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (item.href)',
-  [CTA_TYPE.EXTERNAL]: 'Content link href (item.href)',
-  [CTA_TYPE.DOWNLOAD]: 'Download link href (item.href)',
-  [CTA_TYPE.VIDEO]: 'Video ID (item.href)',
-};
-
-const styles = {
-  [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
-  [`Card (${CTA_STYLE.CARD})`]: CTA_STYLE.CARD,
-  [`Feature (${CTA_STYLE.FEATURE})`]: CTA_STYLE.FEATURE,
+  [CTA_TYPE.REGULAR]: 'Content link href (href)',
+  [CTA_TYPE.LOCAL]: 'Content link href (href)',
+  [CTA_TYPE.JUMP]: 'Anchor href (href)',
+  [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
+  [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
+  [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
 const types = {
@@ -57,19 +55,112 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { ctaStyle, item } = parameters?.props?.CTAContainer ?? {};
+export const Text = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-cta-container cta-style="${ctaStyle}" .item="${item}"></dds-cta-container>
+    <dds-text-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+      ${copy}
+    </dds-text-cta>
   `;
+};
+
+Text.story = {
+  parameters: {
+    knobs: {
+      TextCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          copy,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+        };
+      },
+    },
+  },
+};
+
+export const Card = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.CardCTA ?? {};
+  const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
+  return html`
+    <dds-card-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+      ${copy}
+      <dds-card-cta-footer
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(footerDownload)}"
+        href="${ifNonNull(footerHref)}"
+      >
+        ${footerCopy}
+      </dds-card-cta-footer>
+    </dds-card-cta>
+  `;
+};
+
+Card.story = {
+  parameters: {
+    useGridForCard: true,
+    knobs: {
+      CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
+      CardCTAFooter: ({ groupId }) => {
+        const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId });
+        return {
+          copy: textNullable('Footer copy text', '', groupId),
+          href: textNullable(
+            footerKnobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR],
+            groupId
+          ),
+          download:
+            ctaType !== CTA_TYPE.DOWNLOAD
+              ? undefined
+              : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId),
+        };
+      },
+    },
+  },
+};
+
+export const Feature = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.FeatureCTA ?? {};
+  const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.FeatureCTAFooter ?? {};
+  return html`
+    <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
+      ${copy}
+      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&text=1x1">
+      </dds-image>
+      <dds-feature-cta-footer
+        cta-type="${ifNonNull(ctaType)}"
+        download="${ifNonNull(footerDownload)}"
+        href="${ifNonNull(footerHref)}"
+      >
+        ${footerCopy}
+      </dds-feature-cta-footer>
+    </dds-feature-cta>
+  `;
+};
+
+Feature.story = {
+  parameters: {
+    useGridForCard: true,
+    knobs: {
+      FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
+      FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
+    },
+  },
 };
 
 export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { ctaStyle } = parameters?.props?.CTAContainer ?? {};
-      const colExtraClasses = ctaStyle === CTA_STYLE.CARD ? 'bx--col-md-4 bx--col-lg-4' : 'bx--col-lg-8';
+      const { useGridForCard } = parameters ?? {};
+      const colExtraClasses = useGridForCard ? 'bx--col-md-4 bx--col-lg-4' : 'bx--col-lg-8';
       const classes = classMap({
         'bx--grid': true,
         // For cards, we want to ensure the card takes up the entire width of the grid column.
@@ -77,69 +168,21 @@ export default {
         // `margin-left: auto`/`margin-right: auto` in `.bx--grid`
         // (as well as `flex-direction: column; align-items: center` in `.dds-ce-demo-devenv--container`)
         // seems to be hostile to such styling strategy
-        'dds-ce-demo-devenv--grid--card': ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE,
+        'dds-ce-demo-devenv--grid--card': useGridForCard,
       });
       return html`
-        <div class="${classes}">
+        <dds-video-cta-container class="${classes}">
           <div class="bx--row dds-ce-demo-devenv--grid-row">
             <div class="bx--col-sm-4 ${colExtraClasses}">
               ${story()}
             </div>
           </div>
-        </div>
+        </dds-video-cta-container>
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
     hasGrid: true,
-    knobs: {
-      CTAContainer: ({ groupId }) => {
-        const ctaStyle = select('Style (cta-style)', styles, CTA_STYLE.TEXT, groupId);
-        const type = select('Type (item.type)', types, null, groupId);
-        const href = textNullable(knobNamesForType[type ?? CTA_TYPE.REGULAR], hrefsForType[type ?? CTA_TYPE.REGULAR], groupId);
-        const copy =
-          type === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text (item.copy)', 'Lorem ipsum dolor sit amet', groupId);
-        const download =
-          type !== CTA_TYPE.DOWNLOAD
-            ? undefined
-            : textNullable('Download target (item.download)', 'IBM_Annual_Report_2019.pdf', groupId);
-        const hasImage = ctaStyle === CTA_STYLE.FEATURE && type !== CTA_TYPE.VIDEO;
-        const image: CARD_CTA_IMAGE | undefined = !hasImage
-          ? undefined
-          : {
-              alt: 'Image alt text',
-              defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-            };
-        const hasFooter = ctaStyle === CTA_STYLE.CARD || ctaStyle === CTA_STYLE.FEATURE;
-        // Re-using choices list for more than one Storybook select knob seems to cause an error
-        const footer = !hasFooter
-          ? undefined
-          : {
-              href: textNullable(
-                footerKnobNamesForType[type ?? CTA_TYPE.REGULAR],
-                hrefsForType[type ?? CTA_TYPE.REGULAR],
-                groupId
-              ),
-              copy: textNullable('Footer copy text (item.footer.copy)', '', groupId),
-              download:
-                type !== CTA_TYPE.DOWNLOAD
-                  ? undefined
-                  : textNullable('Download target (item.footer.download)', 'IBM_Annual_Report_2019.pdf', groupId),
-            };
-        const item = {
-          copy,
-          download,
-          type,
-          href,
-          image,
-          footer,
-        };
-        return {
-          ctaStyle,
-          item,
-        };
-      },
-    },
   },
 };
