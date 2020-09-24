@@ -7,19 +7,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import '../quote';
-import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import { QUOTE_TYPES } from '../quote';
+import '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, inverse } = parameters?.props?.Quote ?? {};
   return html`
-    <dds-quote inverse="false" markType="${quoteMark}">
+    <dds-quote .inverse=${inverse} mark-type="${quoteMark}">
       <span slot="copy">
         ${copy}
       </span>
@@ -40,11 +40,11 @@ export const Default = ({ parameters }) => {
 };
 
 const types = {
-  singleCurved: 'singleCurved',
-  doubleCurved: 'doubleCurved',
-  doubleAngle: 'doubleAngle',
-  singleAngle: 'singleAngle',
-  lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
+  [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
+  [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
+  [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
+  [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
 };
 
 export default {
@@ -74,6 +74,7 @@ export default {
         sourceHeading: textNullable('Source Heading(sourceHeading)', 'Lorem ipsum dolor sit amet', groupId),
         sourceCopy: textNullable('Source Copy(sourceCopy)', 'consectetur adipiscing elit', groupId),
         sourceBottomCopy: textNullable('Source Copy(sourceBottomCopy)', 'IBM Cloud', groupId),
+        inverse: boolean('Inverse (inverse)', false, groupId),
       }),
     },
   },

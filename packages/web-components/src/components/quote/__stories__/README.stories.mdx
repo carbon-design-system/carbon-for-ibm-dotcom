@@ -19,7 +19,6 @@ Here's a quick example to get you started.
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/quote/quote';
 import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
-import 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
 
 or with [JSPM](https://jspm.org)
@@ -28,14 +27,13 @@ or with [JSPM](https://jspm.org)
 <script type="module">
   import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/quote/quote.js';
   import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-with-icon/link-with-icon.js';
-  import 'carbon-web-components/es/icons/arrow--right/20.js';
 </script>
 ```
 
 ### HTML
 
 ```html
-<dds-quote inverse="false" markType="${quoteMark}">
+<dds-quote inverse markType="${quoteMark}">
   <span slot="copy">
     This is the main quote
   </span>
@@ -49,7 +47,7 @@ or with [JSPM](https://jspm.org)
     This is the third line of source
   </span>
   <dds-link-with-icon slot="cta" href="https://example.com">
-    Link with Icon ${ArrowRight20({slot: 'icon'})}
+    Link with Icon <svg>
   </dds-link-with-icon>
 </dds-quote>
 ```
