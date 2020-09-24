@@ -11,7 +11,8 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
-  .#{$prefix}--image-with-caption {
+  .#{$prefix}--image-with-caption,
+  :host(#{$dds-prefix}-image-with-caption){
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
     max-width: carbon--mini-units(80);
@@ -22,9 +23,12 @@
     }
   }
 
+  :host(#{$dds-prefix}-image-with-caption) #{$dds-prefix}-modal {
+    left: 0;
+  }
+
   .#{$prefix}--image-with-caption__image {
     width: 100%;
-    height: 100%;
     padding: 0;
     position: relative;
     pointer-events: none;
@@ -35,7 +39,7 @@
       @include carbon--breakpoint(md) {
         cursor: pointer;
 
-        .#{$prefix}--image__img {
+        .#{$prefix}--image__img, #{$dds-prefix}-image {
           filter: brightness(80%);
         }
 

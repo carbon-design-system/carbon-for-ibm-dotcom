@@ -13,42 +13,70 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import '../modal/modal';
+import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
+import DDSModal from '../modal/modal';
 import 'carbon-web-components/es/components/modal/modal-close-button';
-// import ZoomIn20 from 'carbon-web-components/es/zoom--in/20';
 import styles from './image-with-caption.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-
 /**
  * Image With Caption
+ *
  * @element dds-image-with-caption
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
 class DDSImageWithCaption extends LitElement {
-
+  @property({ type: Boolean, reflect: true })
   lightbox = false;
 
-  _handleClick () {
-    this.lightbox = true;
-    this.querySelector('.modaltest').open = true;
-  }
-  render() {
+  @property({ reflect: true })
+  image = { alt: '', defaultSrc: '' };
 
+  @property({ type: String, reflect: true })
+  heading;
+
+  @property({ type: String, reflect: true })
+  copy;
+
+  _handleClick() {
+    const modal = this.shadowRoot?.querySelector('dds-modal');
+    (modal as DDSModal).open = true;
+  }
+
+  render() {
     return html`
-    <dds-modal class="modaltest"><bx-modal-close-button/><dds-lightbox-image-viewer id="test" alt="lorum ipsum" default-src="https://lorempixel.com/400/200" description="lorum ipsum" title="lorem ipsum"/></dds-modal>
-    <dds-image @click="${this._handleClick}" default-src="https://lorempixel.com/400/200"></dds-image>
-    <p class="${prefix}--image__caption">
-    <slot name="heading"></slot>
-    </p>
+      ${this.lightbox
+        ? html`
+            <button class="${prefix}--image-with-caption__image" @click="${this._handleClick}">
+              <dds-image alt="${this.image.alt}" default-src="${this.image.defaultSrc}" />
+              <div class="${prefix}--image-with-caption__zoom-button">
+                ${ZoomIn20()}
+              </div>
+            </button>
+            <dds-modal expressive-size="full-width">
+              <bx-modal-close-button></bx-modal-close-button>
+              <dds-lightbox-image-viewer
+                alt="${this.image.alt}"
+                default-src="${this.image.defaultSrc}"
+                description="${this.copy}"
+                title="${this.heading}"
+              >
+              </dds-lightbox-image-viewer>
+            </dds-modal>
+          `
+        : html`
+            <dds-image default-src="${this.image.defaultSrc}" />
+          `}
+      <p class="${prefix}--image__caption">
+        ${this.heading}
+      </p>
     `;
   }
+
   static styles = styles;
 }
 
-
 export default DDSImageWithCaption;
-
