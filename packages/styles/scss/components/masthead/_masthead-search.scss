@@ -54,6 +54,7 @@
     align-items: center;
     position: relative;
     height: 100%;
+    overflow-x: auto;
 
     &.#{$prefix}--masthead__platform {
       .#{$prefix}--header__nav {
@@ -85,6 +86,11 @@
   }
 
   .#{$prefix}--header__search--actions {
+    float: right;
+    //margin-left: 40px;
+  }
+
+  .#{$prefix}--masthead__search--active .bx--header__search--actions {
     position: absolute;
     top: 0;
     right: 0;

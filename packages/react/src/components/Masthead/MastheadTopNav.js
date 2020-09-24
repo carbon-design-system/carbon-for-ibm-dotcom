@@ -28,28 +28,9 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
-  const [
-    hideLeftCarat,
-    setHideLeftCarat,
-    hideRightCarat,
-    setHideRightCarat,
-  ] = useState(false);
-
-  const hideShowLeftCarat = mediaQuery => {
-    if (mediaQuery.matches) {
-      setHideLeftCarat(true);
-    } else {
-      setHideLeftCarat(false);
-    }
-  };
-
-  const hideShowRightCarat = mediaQuery => {
-    if (mediaQuery.matches) {
-      setHideRightCarat(true);
-    } else {
-      setHideRightCarat(false);
-    }
-  };
+  const [showRightCarat, setShowRightCarat] = useState(false);
+  const [overflow, setOverflow] = useState(false);
+  const [showLeftCarat, setShowLeftCarat] = useState(false);
 
   useEffect(() => {
     onResize();
@@ -60,19 +41,63 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     };
   });
   const onResize = () => {
-    const totalNavWidth = calculateTotalWidth(['bx--header__nav-container']);
-    var totalSubMenuWidth = 0;
-    const navItems = root.document.getElementsByClassName(
-      'bx--header__submenu'
-    );
-    for (var i = 0; i < navItems.length; i++) {
+    let totalNavWidth = calculateTotalWidth(['bx--header__search']);
+    const searchWidth = calculateTotalWidth(['bx--masthead__search']);
+    totalNavWidth -= searchWidth;
+    const navItems = root.document.querySelectorAll('.bx--header__menu-item');
+    let totalSubMenuWidth = 0;
+    for (let i = 0; i < navItems.length; i++) {
       totalSubMenuWidth += navItems[i].offsetWidth;
     }
     if (totalNavWidth < totalSubMenuWidth) {
-      hideShowRightCarat(true);
-      hideShowLeftCarat(true);
+      setOverflow(true);
+    }
+    let scrollPosition = document.getElementsByClassName(
+      'bx--header__nav-container'
+    )[0].scrollLeft;
+    let width =
+      calculateTotalWidth(['bx--header__nav']) -
+      calculateTotalWidth(['bx--header__nav-container']);
+    if (overflow && scrollPosition < width) {
+      setShowRightCarat(true);
+    }
+    if (overflow && scrollPosition > 0) {
+      setShowLeftCarat(true);
     }
   };
+
+  // /**
+  //  *
+  //  */
+  function paginateRight() {
+    document.getElementsByClassName(
+      'bx--header__nav-container'
+    )[0].scrollLeft += calculateTotalWidth(['bx--header__nav-container']);
+    var totalWidth = calculateTotalWidth(['bx--header__nav']);
+    var width =
+      document.getElementsByClassName('bx--header__nav-container')[0]
+        .scrollLeft + calculateTotalWidth(['bx--header__nav-container']);
+    if (width >= totalWidth) {
+      setShowRightCarat(false);
+    }
+    setShowLeftCarat(true);
+  }
+
+  // /**
+  //  *
+  //  */
+  function paginateLeft() {
+    document.getElementsByClassName(
+      'bx--header__nav-container'
+    )[0].scrollLeft -= calculateTotalWidth(['bx--header__nav-container']);
+    var scrollPosition = document.getElementsByClassName(
+      'bx--header__nav-container'
+    )[0].scrollLeft;
+    if (scrollPosition <= 0) {
+      setShowLeftCarat(false);
+    }
+    setShowRightCarat(true);
+  }
 
   const [overlay, setOverlay] = useState(false);
   /**
@@ -114,7 +139,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   return (
     <>
-      <div className={`${prefix}--header__nav-container`}>
+      <HeaderGlobalAction
+        className={`${prefix}--header__action-left-carat`}
+        hidden={!showLeftCarat}
+        onClick={paginateLeft}>
+        <CaretLeft20 />
+      </HeaderGlobalAction>
+      <div
+        className={classnames(`${prefix}--header__nav-container`, {
+          [`${prefix}--header__nav-container-overflow`]: overflow,
+        })}>
         {topNavProps.platform && (
           <HeaderName
             prefix=""
@@ -126,15 +160,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         <HeaderNavigation
           aria-label="IBM"
           data-autoid={`${stablePrefix}--masthead__l0-nav`}>
-          <HeaderGlobalAction className={{ hideLeftCarat }}>
-            <CaretLeft20 />
-          </HeaderGlobalAction>
           {mastheadLinks}
-          <HeaderGlobalAction className={{ hideRightCarat }}>
-            <CaretRight20 />
-          </HeaderGlobalAction>
         </HeaderNavigation>
       </div>
+      <HeaderGlobalAction
+        className={`${prefix}--header__action-right-carat`}
+        hidden={!showRightCarat}
+        onClick={paginateRight}>
+        <CaretRight20 />
+        <div className={`${prefix}--header__action-right-carat-gradient`} />
+      </HeaderGlobalAction>
       <div
         className={classnames(`${prefix}--masthead__overlay`, {
           [`${prefix}--masthead__overlay-show`]: overlay,
