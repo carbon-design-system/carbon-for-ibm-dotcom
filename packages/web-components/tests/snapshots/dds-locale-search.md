@@ -7,7 +7,7 @@
 ```
 <div class="bx--locale-modal__filter">
   <div class="bx--locale-modal__search">
-    <bx-search
+    <dds-search
       close-button-assistive-text=""
       color-scheme="light"
       data-autoid="dds--locale-modal__filter"
@@ -16,7 +16,7 @@
       placeholder=""
       size="xl"
     >
-    </bx-search>
+    </dds-search>
     <p class="bx--locale-modal__search-text">
       This page is available in the following locations and languages
     </p>
@@ -37,7 +37,7 @@
 ```
 <div class="bx--locale-modal__filter">
   <div class="bx--locale-modal__search">
-    <bx-search
+    <dds-search
       close-button-assistive-text="close-button-assistive-text-foo"
       color-scheme="light"
       data-autoid="dds--locale-modal__filter"
@@ -46,7 +46,7 @@
       placeholder="placeholder-foo"
       size="xl"
     >
-    </bx-search>
+    </dds-search>
     <p class="bx--locale-modal__search-text">
       availability-label-text-foo
     </p>
