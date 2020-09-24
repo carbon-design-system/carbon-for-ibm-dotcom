@@ -36,33 +36,6 @@ const className = (theme, type, image) => {
 };
 
 /**
- * @param {string} type returns centered or default
- * @param {string} element returns element name
- * @returns {string} classnames
- */
-function centeredClassname(type, element) {
-  if (type === 'centered') {
-    return `${prefix}--leadspace--centered__${element}`;
-  } else return `${prefix}--leadspace__${element}`;
-}
-
-/**
- *
- * @param {string} type returns centered or default
- * @param {string} gradient gradient
- * @returns {object} gradient
- */
-function newoverlayClassname(type, gradient) {
-  if (type === 'centered') {
-    return classnames(`${prefix}--leadspace--centered__overlay`, {
-      [`${prefix}--leadspace--centered__gradient`]: gradient,
-    });
-  } else
-    return classnames(`${prefix}--leadspace__overlay`, {
-      [`${prefix}--leadspace--gradient`]: gradient,
-    });
-}
-/**
  *
  * @param {string} type type
  * @param {object} image image
@@ -103,27 +76,23 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
       style={background}
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(theme, type, image)}>
-      <div className={centeredClassname(type, 'container')}>
-        <div className={newoverlayClassname(type, gradient)}>
-          <div
-            className={
-              type !== 'centered'
-                ? `${prefix}--leadspace--content__container`
-                : `${prefix}--leadspace--centered--content__container`
-            }>
-            <div className={centeredClassname(type, 'row')}>
-              <h1 className={centeredClassname(type, 'title')}>{title}</h1>
+      <div className={`${prefix}--leadspace__container`}>
+        <div
+          className={classnames(`${prefix}--leadspace__overlay`, {
+            [`${prefix}--leadspace--gradient`]: gradient,
+          })}>
+          <div className={`${prefix}--leadspace--content__container`}>
+            <div className={`${prefix}--leadspace__row`}>
+              <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
             </div>
             <div className={`${prefix}--leadspace__content`}>
               {copy && (
-                <div className={centeredClassname(type, 'row')}>
-                  {copy && (
-                    <p
-                      data-autoid={`${stablePrefix}--leadspace__desc`}
-                      className={centeredClassname(type, 'desc')}>
-                      {copy}
-                    </p>
-                  )}
+                <div className={`${prefix}--leadspace__row`}>
+                  <p
+                    data-autoid={`${stablePrefix}--leadspace__desc`}
+                    className={`${prefix}--leadspace__desc`}>
+                    {copy}
+                  </p>
                 </div>
               )}
               {buttons && buttons.length > 0 && (
