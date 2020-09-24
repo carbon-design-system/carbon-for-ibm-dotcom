@@ -99,6 +99,7 @@ $search-transition-timing: 95ms;
   @include carbon--type-style(body-short-02, true);
 
   color: $text-01;
+  white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
@@ -215,6 +216,9 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__nav-container {
     height: 100%;
+    &-overflow {
+      overflow-x: hidden;
+    }
     @include carbon--breakpoint(md) {
       display: flex;
     }
@@ -266,7 +270,9 @@ $search-transition-timing: 95ms;
       display: none;
     }
   }
-
+  .#{$prefix}--header__action[hidden] {
+    display: none;
+  }
   .#{$prefix}--header__action {
     border: 2px solid transparent;
     > {
@@ -290,6 +296,42 @@ $search-transition-timing: 95ms;
     &:active {
       border-color: $focus;
       background-color: $hover-ui;
+    }
+    &-left-carat,
+    &-right-carat {
+      min-width: 40px;
+      border: 8px;
+      display: none;
+      @media (min-width: 800px) {
+        display: block;
+      }
+    }
+    &-right-carat {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 48px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
+    }
+    &-left-carat {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
     }
 
     .#{$prefix}--overflow-menu {
