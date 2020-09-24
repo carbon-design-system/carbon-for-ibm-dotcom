@@ -112,6 +112,14 @@
 :host(#{$dds-prefix}-top-nav) {
   @extend :host(#{$prefix}-header-nav);
 
+  @include carbon--breakpoint-up(800px) {
+    display: none;
+  }
+
+  @include carbon--breakpoint('lg') {
+    display: block;
+  }
+
   .#{$prefix}-ce--header__divider {
     background-color: $ui-03;
   }
