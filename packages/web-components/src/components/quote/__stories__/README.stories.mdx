@@ -1,0 +1,57 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import '../quote';
+
+# Quote
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/quote)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/quote)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/quote/quote';
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
+import 'carbon-web-components/es/icons/arrow--right/20.js';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/quote/quote.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-with-icon/link-with-icon.js';
+  import 'carbon-web-components/es/icons/arrow--right/20.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-quote inverse="false" markType="${quoteMark}">
+  <span slot="copy">
+    This is the main quote
+  </span>
+  <span slot="sourceHeading">
+    This is the first line of source
+  </span>
+  <span slot="sourceCopy">
+    This is the second line of source
+  </span>
+  <span slot="sourceBottomCopy">
+    This is the third line of source
+  </span>
+  <dds-link-with-icon slot="cta" href="https://example.com">
+    Link with Icon ${ArrowRight20({slot: 'icon'})}
+  </dds-link-with-icon>
+</dds-quote>
+```
+
+<Description markdown={contributing} />

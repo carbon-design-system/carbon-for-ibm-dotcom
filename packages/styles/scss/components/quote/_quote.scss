@@ -6,11 +6,13 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 @import '../../components/horizontalrule/horizontalrule';
 @import '../../components/link-with-icon/link-with-icon';
 
 @mixin quote {
-  .#{$prefix}--quote {
+  .#{$prefix}--quote,
+  :host(#{$dds-prefix}-quote) {
     background: $ui-background;
     padding-bottom: $layout-05;
     .#{$prefix}--link-with-icon__container {
@@ -84,8 +86,18 @@
     @include carbon--type-style(body-long-02, true);
   }
 
+  .#{$prefix}--quote__footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    ::slotted(#{$dds-prefix}-link-with-icon) {
+      margin-left: 1rem;
+    }
+  }
+
   .#{$prefix}--quote__inverse {
-    .#{$prefix}--link-with-icon__container .#{$prefix}--link {
+    .#{$prefix}--link-with-icon__container .#{$prefix}--link,
+    ::slotted(#{$dds-prefix}-link-with-icon) {
       color: $inverse-link;
     }
   }

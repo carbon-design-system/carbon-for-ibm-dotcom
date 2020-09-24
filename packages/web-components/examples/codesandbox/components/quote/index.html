@@ -1,0 +1,44 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <h1>Hello World! 👋</h1>
+    <div id="app">
+      <dds-quote inverse="false" markType="${quoteMark}">
+        <span slot="copy">
+          This is the main quote
+        </span>
+              <span slot="sourceHeading">
+          This is the first line of source
+        </span>
+              <span slot="sourceCopy">
+          This is the second line of source
+        </span>
+              <span slot="sourceBottomCopy">
+          This is the third line of source
+        </span>
+        <dds-link-with-icon slot="cta" href="https://example.com">
+          Link with Icon ${ArrowRight20({slot: 'icon'})}
+        </dds-link-with-icon>
+      </dds-quote>
+    </div>
+  </body>
+</html>
