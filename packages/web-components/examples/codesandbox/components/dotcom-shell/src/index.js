@@ -8,8 +8,6 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/dotcom-shell/dotcom-shell-container.js';
-import links from './links';
-import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import './index.scss';
 
 window.digitalData = {
@@ -24,12 +22,3 @@ window.digitalData = {
     isDataLayerReady: true,
   },
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  // `import.meta.env` is a modern alternative to `process.env` used in Snowpack
-  if (!import.meta.env.CORS_PROXY) {
-    document.querySelector('dds-masthead-composite').authenticatedProfileItems = authenticatedProfileItems;
-    document.querySelector('dds-masthead-composite').navLinks = links;
-    document.querySelector('dds-masthead-composite').unauthenticatedProfileItems = unauthenticatedProfileItems;
-  }
-});
