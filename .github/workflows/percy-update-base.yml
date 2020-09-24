@@ -29,7 +29,6 @@ jobs:
         with:
           env-file: packages/react/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
@@ -58,7 +57,6 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_WEBCOMPONENTS }}
