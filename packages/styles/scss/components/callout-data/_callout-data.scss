@@ -42,7 +42,7 @@
       color: $text-05;
     }
 
-    .#{$prefix}--callout__columnm, #{$dds-prefix}-callout {
+    .#{$prefix}--callout__column, #{$dds-prefix}-callout {
       height: auto;
 
       @include carbon--breakpoint('md') {
@@ -73,17 +73,41 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-data) .#{$prefix}--callout-data__data,
-  :host(#{$dds-prefix}-callout-data) .#{$prefix}--callout-data__copy {
-    margin-left: -($layout-02);
-    //@include carbon--breakpoint(md) {
-    //  margin-left: -$spacing-02;
-    //  margin-right: -$spacing-02;
-    //}
-    //@include carbon--breakpoint(lg) {
-    //  margin-left: -$spacing-01;
-    //  margin-right: -$spacing-01;
-    //}
+  :host(#{$dds-prefix}-callout-data) .#{$prefix}--callout-data__source {
+    padding-left: $spacing-05;
+  }
+
+  :host(#{$dds-prefix}-callout-data-container) .#{$prefix}--callout__column {
+    background-color: $inverse-02;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include carbon--breakpoint('md') {
+      min-height: carbon--mini-units(40);
+    }
+
+    @include carbon--breakpoint('lg') {
+      min-height: carbon--mini-units(50);
+    }
+
+    @include carbon--breakpoint('xlg') {
+      min-height: carbon--mini-units(60);
+    }
+
+    @include carbon--breakpoint('max') {
+      min-height: carbon--mini-units(70);
+    }
+
+    .#{$prefix}--callout__content {
+      padding-left: 0;
+      margin-left: 0;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      width: 90%;
+      max-width: 640px;
+    }
   }
 }
 @include exports('callout-data') {

@@ -14,7 +14,7 @@ import '../callout-data';
 export const Default = () => html`
   <div class="bx--grid" style="width: 100%">
     <div class="bx--row">
-      <div class="bx--offset-lg-4">
+      <div class="bx--offset-lg-3">
         <dds-callout-data>
         <span slot="data">51%</span>
         <span slot="copy">
