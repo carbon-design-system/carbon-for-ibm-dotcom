@@ -52,7 +52,6 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       setOverflow(true);
       const offset = document.querySelector('.bx--header__nav-container')
         .scrollLeft;
-      console.log(offset + containerWidth, totalNavWidth);
       if (offset == 0 || offset + containerWidth <= totalNavWidth) {
         setShowRightCaret(true);
       }
