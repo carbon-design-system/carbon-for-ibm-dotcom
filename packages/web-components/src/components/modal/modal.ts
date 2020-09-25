@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, customElement, property, TemplateResult, SVGTemplateResult } from 'lit-element';
+import { html, customElement, property, internalProperty, TemplateResult, SVGTemplateResult } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXModal from 'carbon-web-components/es/components/modal/modal.js';
@@ -34,6 +34,14 @@ export enum DDS_MODAL_SIZE {
 }
 
 /**
+ * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ */
+const slotExistencePropertyNames = {
+  header: '_hasHeader',
+  footer: '_hasFooter',
+};
+
+/**
  * Expressive modal.
  *
  * @element dds-modal
@@ -49,16 +57,19 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   /**
    * `true` if there is a header content.
    */
+  @internalProperty()
   private _hasHeader = false;
 
   /**
    * `true` if there is a body content.
    */
+  @internalProperty()
   private _hasBody = false;
 
   /**
    * `true` if there is a footer content.
    */
+  @internalProperty()
   private _hasFooter = false;
 
   /**
@@ -80,18 +91,7 @@ class DDSModal extends StableSelectorMixin(BXModal) {
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    switch (name) {
-      case 'header':
-        this._hasHeader = hasContent;
-        break;
-      case 'footer':
-        this._hasFooter = hasContent;
-        break;
-      default:
-        this._hasBody = hasContent;
-        break;
-    }
-    this.requestUpdate();
+    this[slotExistencePropertyNames[name] || '_hasBody'] = hasContent;
   }
 
   /**
