@@ -45,7 +45,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const onResize = () => {
     containerWidth =
       calculateTotalWidth(['bx--header__search']) -
-      calculateTotalWidth(['bx--masthead__search']);
+      calculateTotalWidth(['bx--masthead__search']) -
+      calculateTotalWidth(['bx--header__name']);
     const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
     if (totalNavWidth > containerWidth) {
       setOverflow(true);
@@ -127,6 +128,14 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   return (
     <>
+      {topNavProps.platform && (
+        <HeaderName
+          prefix=""
+          href={topNavProps.platform.url}
+          data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
+          {topNavProps.platform.name}
+        </HeaderName>
+      )}
       <HeaderGlobalAction
         className={`${prefix}--header__action-left-caret`}
         aria-label="Masthead left caret"
@@ -138,14 +147,6 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         className={classnames(`${prefix}--header__nav-container`, {
           [`${prefix}--header__nav-container-overflow`]: overflow,
         })}>
-        {topNavProps.platform && (
-          <HeaderName
-            prefix=""
-            href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
-            {topNavProps.platform.name}
-          </HeaderName>
-        )}
         <HeaderNavigation
           aria-label="IBM"
           data-autoid={`${stablePrefix}--masthead__l0-nav`}>

@@ -306,17 +306,20 @@ $search-transition-timing: 95ms;
     &-right-caret {
       min-width: 40px;
       display: none;
+      position: relative;
       @media (min-width: 800px) {
         display: block;
       }
+      //svg{
+      //  transform: translateY(50%);
+      //}
     }
     &-left-caret {
       &::before {
         content: '';
         display: block;
         position: absolute;
-        right: 0;
-        left: 0;
+        left: -2px;
         top: 50%;
         transform: translateY(-50%);
         height: 1.5rem;
@@ -331,9 +334,9 @@ $search-transition-timing: 95ms;
         content: '';
         display: block;
         position: absolute;
-        left: 40px;
-        top: 0;
-        height: 100%;
+        right: -10px;
+        top: -2px;
+        height: 48px;
         width: 8px;
         background: linear-gradient(to right, $ui-background, transparent);
         z-index: 1;
@@ -344,7 +347,7 @@ $search-transition-timing: 95ms;
         content: '';
         display: block;
         position: absolute;
-        right: 48px;
+        right: -2px;
         top: 50%;
         transform: translateY(-50%);
         height: 1.5rem;
@@ -356,9 +359,9 @@ $search-transition-timing: 95ms;
         content: '';
         display: block;
         position: absolute;
-        right: 88px;
-        top: 0;
-        height: 100%;
+        left: -10px;
+        top: -2px;
+        height: 48px;
         width: 8px;
         background: linear-gradient(to left, $ui-background, transparent);
       }

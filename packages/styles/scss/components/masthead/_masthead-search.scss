@@ -16,6 +16,7 @@
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
+  white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
