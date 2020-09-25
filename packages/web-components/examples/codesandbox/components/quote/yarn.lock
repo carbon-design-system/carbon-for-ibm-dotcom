@@ -1574,6 +1574,14 @@ carbon-web-components@1.7.0:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"
 
+carbon-web-components@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.7.1.tgz#217048af0a41fc3104b0c01d044c7881d3990ac8"
+  integrity sha512-UCYWLTse5dR4fZJ9KdASadiN1NDkPybzFVbXozN8Ll0taptHwgYbT0gxyOuQe2ATqeeWDgJPF4EyDKVZx1e0Kw==
+  dependencies:
+    "@babel/runtime" "^7.8.0"
+    lodash-es "^4.17.0"
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
