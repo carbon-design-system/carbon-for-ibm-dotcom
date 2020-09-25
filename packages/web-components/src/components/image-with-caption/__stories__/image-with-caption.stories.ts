@@ -8,10 +8,10 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { boolean } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image-with-caption';
-import { boolean } from '@storybook/addon-knobs';
+import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
   const { image, heading, copy, lightbox } = parameters?.props?.['dds-image-with-caption'] ?? {};
@@ -23,7 +23,7 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/ImageWithCaption',
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     knobs: {
       'dds-image-with-caption': ({ groupId }) => ({
         image: {

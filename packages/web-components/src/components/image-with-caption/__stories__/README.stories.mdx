@@ -1,0 +1,43 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ImagewWithCaption from '../ImagewWithCaption';
+
+# Image
+
+> The Image With Caption component leverages the image component, the lightbox media viewer
+> and can also display a caption for the image
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/image)
+> example implementation.
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/image)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/imagewithcaption/imagewithcaption';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/imagewithcaption/imagewithcaption.js';
+</script>
+```
+
+### HTML
+
+```html
+    <dds-image-with-caption .image='https://dummyimage.com/672x336/ee5396/161616&text=2x1' heading="this is a heading" copy="lorum ipsum" ?lightbox={true} />
+```
+
+## Props
+
+<Props of="dds-image-with-caption" />
+
+<Description markdown={contributing} />
