@@ -297,6 +297,10 @@ $search-transition-timing: 95ms;
       border-color: $focus;
       background-color: $hover-ui;
       display: block;
+      &::before,
+      &::after {
+        display: none;
+      }
     }
     &-left-caret,
     &-right-caret {
@@ -318,6 +322,10 @@ $search-transition-timing: 95ms;
         height: 1.5rem;
         width: 0.0625rem;
         background-color: #dcdcdc;
+        &:focus,
+        &:active {
+          display: none;
+        }
       }
       &::after {
         content: '';
