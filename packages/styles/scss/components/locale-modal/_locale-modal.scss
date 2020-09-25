@@ -66,11 +66,18 @@
         padding: 0;
         border: none;
         background-color: transparent;
+        display: inline-flex;
 
         &:hover {
           cursor: pointer;
           color: $interactive-01;
           text-decoration: underline;
+        }
+
+        &:focus {
+          outline-width: 2px;
+          outline-offset: -2px;
+          outline-color: $interactive-01;
         }
 
         svg {
@@ -85,12 +92,6 @@
         transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
         display: none;
         top: 3rem;
-      }
-
-      .#{$prefix}--modal {
-        .#{$prefix}--search-input {
-          background-color: $ui-01;
-        }
       }
 
       .#{$prefix}--modal-close {
@@ -128,6 +129,13 @@
         }
       }
     }
+  }
+}
+
+:host(#{$prefix}-search) .#{$prefix}--search-input,
+.#{$prefix}--search--xl .#{$prefix}--search-input {
+  &::placeholder {
+    color: $text-02;
   }
 }
 
@@ -195,7 +203,7 @@
 .#{$prefix}--locale-modal-container {
   .#{$prefix}--locale-modal__locales__name {
     width: 50%;
-    color: $text-03;
+    color: $text-05;
     padding: $carbon--spacing-04 $carbon--spacing-05;
     @include type-style('body-short-02');
 
@@ -239,6 +247,10 @@
     top: 0;
     background-color: $ui-background;
     border-bottom: 1px solid $icon-02;
+
+    .#{$prefix}--search-input {
+      background-color: $field-01;
+    }
   }
 
   .#{$prefix}--locale-modal__search-text {
