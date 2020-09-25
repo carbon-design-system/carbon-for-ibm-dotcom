@@ -85,20 +85,6 @@ Footer.init(elem); // initializes the footer
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
 
-## CORS Proxy
-
-This component makes cross-origin requests to `www.ibm.com`, which will require
-a cors proxy to be configured to make successful calls from a lower environment.
-
-A cors proxy can be configured using the following
-[environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
-
-`CORS_PROXY=https://myproxy.com/`
-
-> NOTE: The `CORS_PROXY` is not necessary when publishing to production
-> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
-> unconfigured when pushing your application to production.
-
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,

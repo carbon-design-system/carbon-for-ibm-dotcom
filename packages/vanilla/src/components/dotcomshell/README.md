@@ -92,20 +92,6 @@ _loadDotcomShell();
 | `dds--dotcom-shell`          | Component   |
 | `dds--dotcom-shell__content` | Component   |
 
-## CORS Proxy
-
-This component makes cross-origin requests to `www.ibm.com`, which will require
-a cors proxy to be configured to make successful calls from a lower environment.
-
-A cors proxy can be configured using the following
-[environment variable](../../../docs/environment-variables.md):
-
-`CORS_PROXY=https://myproxy.com/`
-
-> NOTE: The `CORS_PROXY` is not necessary when publishing to production
-> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
-> unconfigured when pushing your application to production.
-
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
