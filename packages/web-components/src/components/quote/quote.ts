@@ -57,9 +57,15 @@ const slotExistencePropertyNames = {
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
+  /**
+   * Defines rendered quote mark style
+   */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
 
+  /**
+   * Defines if the inverse class is included
+   */
   @property({ reflect: true })
   inverse: boolean = false;
 
@@ -95,9 +101,11 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     this.requestUpdate();
   }
 
-  updated() {
-    const { inverse } = this;
-    this.classList.toggle(`${prefix}--quote__inverse`, inverse);
+  updated(changedProperties) {
+    if (changedProperties.has('inverse')) {
+      const { inverse } = this;
+      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
+    }
   }
 
   _renderQuote() {

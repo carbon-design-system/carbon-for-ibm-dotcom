@@ -19,7 +19,7 @@ import readme from './README.stories.mdx';
 export const Default = ({ parameters }) => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, inverse } = parameters?.props?.Quote ?? {};
   return html`
-    <dds-quote .inverse=${inverse} mark-type="${quoteMark}">
+    <dds-quote ?inverse="${inverse}" mark-type="${quoteMark}">
       <span slot="copy">
         ${copy}
       </span>
