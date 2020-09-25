@@ -152,7 +152,6 @@ module.exports = ({ config, mode }) => {
   config.plugins.push(
     new webpack.EnvironmentPlugin({
       TRANSLATION_HOST: '',
-      CORS_PROXY: '',
     })
   );
 

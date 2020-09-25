@@ -104,7 +104,9 @@ const Footer = ({
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           {type !== 'micro' && <FooterLogo />}
-          {type === undefined && <FooterNav groups={footerMenuData} />}
+          {(type === 'tall' || type === undefined) && (
+            <FooterNav groups={footerMenuData} />
+          )}
           {type !== 'micro' &&
             _loadLocaleLanguage(
               disableLocaleButton,
@@ -256,7 +258,7 @@ Footer.propTypes = {
  */
 Footer.defaultProps = {
   navigation: null,
-  type: 'full',
+  type: 'tall',
   langCode: null,
   disableLocaleButton: false,
   languageOnly: false,

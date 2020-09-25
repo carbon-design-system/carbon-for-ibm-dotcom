@@ -192,6 +192,9 @@ class VideoPlayerAPI {
           entry_id: videoId,
           flashvars: {
             autoPlay: autoPlay,
+            closedCaptions: {
+              plugin: true,
+            },
             titleLabel: {
               plugin: true,
               align: 'left',

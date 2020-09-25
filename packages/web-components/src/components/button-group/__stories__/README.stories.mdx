@@ -1,0 +1,44 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import ExpressiveModal from './ExpressiveModal';
+
+# Button Group
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/button-group)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/button-group)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+import 'carbon-web-components/es/icons/arrow--right/20.js';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
+  import 'https://jspm.dev/carbon-web-components/es/icons/arrow--right/20.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-button-group>
+  <dds-button-group-item href="https://example.com">Lorem ipsum ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+  <dds-button-group-item href="https://example.com">Dolor sit amet ${ArrowRight20({ slot: 'icon' })} </dds-button-group-item>
+</dds-button-group>
+```
+
+<Description markdown={contributing} />
