@@ -195,6 +195,31 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   }
 
   /**
+   * Focus on first focusable element in shadow DOM
+   */
+  focus() {
+    // @ts-ignore: Ultil `delegatesFocus` is added to `ShadowRoot` definition
+    if (this.shadowRoot!.delegatesFocus) {
+      super.focus();
+    } else {
+      const { selectorTabable } = this.constructor as typeof DDSLocaleSearch;
+      const delegateTarget = this.shadowRoot!.querySelector(selectorTabable);
+      if (delegateTarget) {
+        (delegateTarget as HTMLElement).focus();
+      } else {
+        super.focus();
+      }
+    }
+  }
+
+  /**
+   * A selector selecting the locale item,
+   */
+  static get selectorTabable() {
+    return `${prefix}-search`;
+  }
+
+  /**
    * A selector selecting the locale items.
    */
   static get selectorItem() {
