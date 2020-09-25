@@ -8,8 +8,6 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
-import links from './links';
-import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import './index.scss';
 
 window.digitalData = {
@@ -24,11 +22,3 @@ window.digitalData = {
     isDataLayerReady: true,
   },
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (!process.env.CORS_PROXY) {
-    document.getElementById('masthead-container').authenticatedProfileItems = authenticatedProfileItems;
-    document.getElementById('masthead-container').navLinks = links;
-    document.getElementById('masthead-container').unauthenticatedProfileItems = unauthenticatedProfileItems;
-  }
-});

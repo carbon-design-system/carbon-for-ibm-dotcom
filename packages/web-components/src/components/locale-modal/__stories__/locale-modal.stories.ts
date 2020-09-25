@@ -40,8 +40,8 @@ export default {
   parameters: {
     ...readme.parameters,
     ...(() => {
-      // Lets `<dds-footer-container>` load the locale list, etc. if `CORS_PROXY` is set
-      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      // Lets `<dds-footer-container>` load the locale list
+      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         knobs: {
           LocaleModalComposite: ({ groupId }) => ({
