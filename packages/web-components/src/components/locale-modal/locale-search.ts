@@ -176,7 +176,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
           <bx-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
-            color-scheme="${SEARCH_COLOR_SCHEME.LIGHT}"
+            color-scheme="${SEARCH_COLOR_SCHEME.REGULAR}"
             label-text="${labelText}"
             placeholder="${placeholder}"
             size="${INPUT_SIZE.EXTRA_LARGE}"
@@ -192,6 +192,31 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  /**
+   * Focus on first focusable element in shadow DOM
+   */
+  focus() {
+    // @ts-ignore: Ultil `delegatesFocus` is added to `ShadowRoot` definition
+    if (this.shadowRoot!.delegatesFocus) {
+      super.focus();
+    } else {
+      const { selectorTabable } = this.constructor as typeof DDSLocaleSearch;
+      const delegateTarget = this.shadowRoot!.querySelector(selectorTabable);
+      if (delegateTarget) {
+        (delegateTarget as HTMLElement).focus();
+      } else {
+        super.focus();
+      }
+    }
+  }
+
+  /**
+   * A selector selecting the locale item,
+   */
+  static get selectorTabable() {
+    return `${prefix}-search`;
   }
 
   /**
