@@ -163,7 +163,7 @@ const mastheadLinks = [
     menuSections: [],
   },
   {
-    title: 'Industries Industries Industries Industries Industries',
+    title: 'hello hello hello hello hello hello hello',
     url: 'https://www.ibm.com/industries?lnk=min',
     hasMenu: false,
     hasMegapanel: false,

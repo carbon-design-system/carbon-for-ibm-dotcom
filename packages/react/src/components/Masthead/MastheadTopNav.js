@@ -28,75 +28,63 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
-  const [showRightCarat, setShowRightCarat] = useState(false);
+  const [showRightCaret, setShowRightCaret] = useState(false);
   const [overflow, setOverflow] = useState(false);
-  const [showLeftCarat, setShowLeftCarat] = useState(false);
+  const [showLeftCaret, setShowLeftCaret] = useState(false);
 
   useEffect(() => {
     onResize();
-    root.document.addEventListener('resize', onResize);
-
+    root.addEventListener('resize', onResize);
     return () => {
-      root.document.removeEventListener('resize', onResize);
+      root.removeEventListener('resize', onResize);
     };
   });
+
+  let containerWidth = 0;
+
   const onResize = () => {
-    let totalNavWidth = calculateTotalWidth(['bx--header__search']);
-    const searchWidth = calculateTotalWidth(['bx--masthead__search']);
-    totalNavWidth -= searchWidth;
-    const navItems = root.document.querySelectorAll('.bx--header__menu-item');
-    let totalSubMenuWidth = 0;
-    for (let i = 0; i < navItems.length; i++) {
-      totalSubMenuWidth += navItems[i].offsetWidth;
-    }
-    if (totalNavWidth < totalSubMenuWidth) {
+    containerWidth =
+      calculateTotalWidth(['bx--header__search']) -
+      calculateTotalWidth(['bx--masthead__search']);
+    const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
+    if (totalNavWidth > containerWidth) {
       setOverflow(true);
-    }
-    let scrollPosition = document.getElementsByClassName(
-      'bx--header__nav-container'
-    )[0].scrollLeft;
-    let width =
-      calculateTotalWidth(['bx--header__nav']) -
-      calculateTotalWidth(['bx--header__nav-container']);
-    if (overflow && scrollPosition < width) {
-      setShowRightCarat(true);
-    }
-    if (overflow && scrollPosition > 0) {
-      setShowLeftCarat(true);
+      const offset = document.querySelector('.bx--header__nav-container')
+        .scrollLeft;
+      console.log(offset + containerWidth, totalNavWidth);
+      if (offset == 0 || offset + containerWidth <= totalNavWidth) {
+        setShowRightCaret(true);
+      }
+    } else {
+      setOverflow(false);
+      setShowLeftCaret(false);
+      setShowRightCaret(false);
     }
   };
 
-  // /**
-  //  *
-  //  */
-  function paginateRight() {
-    document.getElementsByClassName(
-      'bx--header__nav-container'
-    )[0].scrollLeft += calculateTotalWidth(['bx--header__nav-container']);
-    var totalWidth = calculateTotalWidth(['bx--header__nav']);
-    var width =
-      document.getElementsByClassName('bx--header__nav-container')[0]
-        .scrollLeft + calculateTotalWidth(['bx--header__nav-container']);
-    if (width >= totalWidth) {
-      setShowRightCarat(false);
+  function paginateLeft() {
+    document.querySelector(
+      '.bx--header__nav-container'
+    ).scrollLeft -= containerWidth;
+    setShowRightCaret(true);
+    const offset = document.querySelector('.bx--header__nav-container')
+      .scrollLeft;
+    if (offset <= 0) {
+      setShowLeftCaret(false);
     }
-    setShowLeftCarat(true);
   }
 
-  // /**
-  //  *
-  //  */
-  function paginateLeft() {
-    document.getElementsByClassName(
-      'bx--header__nav-container'
-    )[0].scrollLeft -= calculateTotalWidth(['bx--header__nav-container']);
-    var scrollPosition = document.getElementsByClassName(
-      'bx--header__nav-container'
-    )[0].scrollLeft;
-    if (scrollPosition <= 0) {
-      setShowLeftCarat(false);
+  function paginateRight() {
+    const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
+    document.querySelector(
+      '.bx--header__nav-container'
+    ).scrollLeft += containerWidth;
+    setShowLeftCaret(true);
+    const offset = document.querySelector('.bx--header__nav-container')
+      .scrollLeft;
+    if (offset + containerWidth >= totalNavWidth) {
+      setShowRightCaret(false);
     }
-    setShowRightCarat(true);
   }
 
   const [overlay, setOverlay] = useState(false);
@@ -140,8 +128,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   return (
     <>
       <HeaderGlobalAction
-        className={`${prefix}--header__action-left-carat`}
-        hidden={!showLeftCarat}
+        className={`${prefix}--header__action-left-caret`}
+        hidden={!showLeftCaret}
         onClick={paginateLeft}>
         <CaretLeft20 />
       </HeaderGlobalAction>
@@ -164,11 +152,10 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         </HeaderNavigation>
       </div>
       <HeaderGlobalAction
-        className={`${prefix}--header__action-right-carat`}
-        hidden={!showRightCarat}
+        className={`${prefix}--header__action-right-caret`}
+        hidden={!showRightCaret}
         onClick={paginateRight}>
         <CaretRight20 />
-        <div className={`${prefix}--header__action-right-carat-gradient`} />
       </HeaderGlobalAction>
       <div
         className={classnames(`${prefix}--masthead__overlay`, {

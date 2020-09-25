@@ -297,8 +297,8 @@ $search-transition-timing: 95ms;
       border-color: $focus;
       background-color: $hover-ui;
     }
-    &-left-carat,
-    &-right-carat {
+    &-left-caret,
+    &-right-caret {
       min-width: 40px;
       border: 8px;
       display: none;
@@ -306,20 +306,7 @@ $search-transition-timing: 95ms;
         display: block;
       }
     }
-    &-right-carat {
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 48px;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 1.5rem;
-        width: 0.0625rem;
-        background-color: #dcdcdc;
-      }
-    }
-    &-left-carat {
+    &-left-caret {
       &::before {
         content: '';
         display: block;
@@ -332,8 +319,42 @@ $search-transition-timing: 95ms;
         width: 0.0625rem;
         background-color: #dcdcdc;
       }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 40px;
+        top: 0;
+        height: 100%;
+        width: 8px;
+        background: linear-gradient(to right, $ui-background, transparent);
+        z-index: 1;
+      }
     }
+    &-right-caret {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 48px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
 
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 88px;
+        top: 0;
+        height: 100%;
+        width: 8px;
+        background: linear-gradient(to left, $ui-background, transparent);
+      }
+    }
     .#{$prefix}--overflow-menu {
       width: 100%;
       height: 100%;
