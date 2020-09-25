@@ -296,11 +296,11 @@ $search-transition-timing: 95ms;
     &:active {
       border-color: $focus;
       background-color: $hover-ui;
+      display: block;
     }
     &-left-caret,
     &-right-caret {
       min-width: 40px;
-      border: 8px;
       display: none;
       @media (min-width: 800px) {
         display: block;

@@ -129,6 +129,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     <>
       <HeaderGlobalAction
         className={`${prefix}--header__action-left-caret`}
+        aria-label="Masthead left caret"
         hidden={!showLeftCaret}
         onClick={paginateLeft}>
         <CaretLeft20 />
@@ -153,6 +154,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       </div>
       <HeaderGlobalAction
         className={`${prefix}--header__action-right-caret`}
+        aria-label="Masthead right caret"
         hidden={!showRightCaret}
         onClick={paginateRight}>
         <CaretRight20 />
