@@ -15,7 +15,9 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../shared-enums';
 import '../video-cta-container';
 import '../card-cta';
+import '../card-cta-footer';
 import '../feature-cta';
+import '../feature-cta-footer';
 import '../text-cta';
 import readme from './README.stories.mdx';
 
@@ -108,7 +110,7 @@ Card.story = {
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
       CardCTAFooter: ({ groupId }) => {
-        const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId });
+        const { ctaType } = Text.story.parameters.knobs.TextCTA({ groupId: groupId.replace(/Footer$/, '') });
         return {
           copy: textNullable('Footer copy text', '', groupId),
           href: textNullable(

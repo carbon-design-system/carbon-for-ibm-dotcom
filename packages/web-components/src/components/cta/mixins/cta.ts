@@ -39,6 +39,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class CTAMixinImpl extends Base {
     /**
      * The `<a>`.
+     *
+     * @internal
      */
     abstract _linkNode;
 
@@ -89,13 +91,13 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * The formatter for the video caption, composed with the video name and the video duration.
      * Should be changed upon the locale the UI is rendered with.
      */
-    formatVideoCaption?: never | (({ duration, name }: { duration?: string; name?: string }) => string);
+    abstract formatVideoCaption?: never | (({ duration, name }: { duration?: string; name?: string }) => string);
 
     /**
      * The formatter for the video duration.
      * Should be changed upon the locale the UI is rendered with.
      */
-    formatVideoDuration?: never | (({ duration }: { duration?: number }) => string);
+    abstract formatVideoDuration?: never | (({ duration }: { duration?: number }) => string);
 
     /**
      * Link `href`.
