@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property, internalProperty, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
@@ -36,6 +36,7 @@ class DDSLocaleModal extends DDSModal {
   /**
    * The current region.
    */
+  @internalProperty()
   private _currentRegion?: string;
 
   /**
@@ -43,7 +44,6 @@ class DDSLocaleModal extends DDSModal {
    */
   private _handleClickBackButton() {
     this._currentRegion = undefined;
-    this.requestUpdate();
   }
 
   /**
@@ -52,9 +52,7 @@ class DDSLocaleModal extends DDSModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    const { _currentRegion: currentRegion } = this;
     this._currentRegion = (event.target as DDSRegionItem).name;
-    this.requestUpdate('_currentRegion', currentRegion);
   }
 
   @HostListener('eventClose')
