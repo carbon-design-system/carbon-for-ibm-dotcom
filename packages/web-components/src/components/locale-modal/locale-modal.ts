@@ -168,10 +168,11 @@ class DDSLocaleModal extends DDSModal {
     super.updated(changedProperties);
     if (changedProperties.has('_currentRegion')) {
       const { selectorLocaleSearch } = this.constructor as typeof DDSLocaleModal;
-      const localeSaarch = this.querySelector(selectorLocaleSearch);
-      if (localeSaarch) {
-        (localeSaarch as DDSLocaleSearch).region = this._currentRegion ?? '';
-        (localeSaarch as DDSLocaleSearch).reset();
+      const localeSearch = this.querySelector(selectorLocaleSearch);
+      if (localeSearch) {
+        (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
+        (localeSearch as DDSLocaleSearch).reset();
+        (localeSearch as HTMLElement).focus();
       }
     }
   }

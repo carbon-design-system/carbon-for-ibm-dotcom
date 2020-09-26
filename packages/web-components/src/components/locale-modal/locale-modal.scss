@@ -46,7 +46,7 @@
     background-color: transparent;
     outline: none;
     text-align: start;
-    width: 100%;
+    display: inline-flex;
 
     &:hover {
       color: $interactive-01;
