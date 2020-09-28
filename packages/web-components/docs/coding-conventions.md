@@ -426,9 +426,7 @@ If you get TypeScript "may be null" errors, think twice to see if there is such 
 
 ## Updating view upon change in `private`/`protected` properties
 
-`lit-element` observes for changes in declared properties for updating the view. `@carbon/ibmdotcom-web-components` codebase doesn't use this feature simply to get properties observed. Specifically, `@carbon/ibmdotcom-web-components` doesn't set `private`/`protected` properties as declared. Whenever change in `private`/`protected` should cause update in the view, we take manual approach (`.requestUpdate()`).
-
-> 💡 [`2.3.0` version of `lit-element` introduced `@internalProperty()` decorator](https://github.com/Polymer/lit-element/blob/v2.4.0/CHANGELOG.md#added-1) that takes care of `.requestUpdate()` automatically. Migration to this approach will happen soon.
+To cause re-rendering upon change in `private`/`protected` properties, use `internalProperty()` decorator (instead of `@property()`). This is [a new feature in `2.3.0` version of `lit-element`](https://github.com/Polymer/lit-element/blob/v2.4.0/CHANGELOG.md#added-1).
 
 ## Avoiding global `document`/`window` reference
 
