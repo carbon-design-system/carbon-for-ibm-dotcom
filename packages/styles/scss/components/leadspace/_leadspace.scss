@@ -242,6 +242,9 @@ $btn-min-width: 26;
     margin-right: auto;
     margin-left: auto;
     max-width: 99rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 
     .#{$prefix}--buttongroup {
       padding-bottom: $carbon--layout-01;
@@ -296,12 +299,6 @@ $btn-min-width: 26;
         margin: auto;
         padding-left: 1.5rem;
         @include carbon--make-col(4, 8);
-      }
-
-      .#{$prefix}--leadspace--centered__image {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center top;
       }
 
       .#{$prefix}--leadspace__title,
