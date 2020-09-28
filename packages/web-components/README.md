@@ -37,14 +37,29 @@ yarn add @carbon/ibmdotcom-web-components lit-html lit-element
 
 ### Basic usage
 
-For quick start, you can use CDNs that support module mapping (e.g. [JSPM](https://jspm.org)). With it, you can use our components as easy as using HTML tags, just by importing our modules in `<script type="module">` like:
+For quick start, you can use our pre-built bundle that contains masthead, footer and dotcom shell. With it, you can use our components as easy as using HTML tags, just by loading the bundle like:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <script type="module">
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@latest/es/components/masthead/masthead-container.js';
+      // Copy from `dist` directory in the package and put it to the same directory as this file
+      import './ibmdotcom-web-components-dotcom-shell.min.js';
+
+      // The minimum prerequisite to use our service for translation data, etc.
+      window.digitalData = {
+        page: {
+          pageInfo: {
+            language: 'en-US',
+            ibm: {
+              country: 'US',
+              siteID: 'IBMTESTWWW',
+            },
+          },
+          isDataLayerReady: true,
+        },
+      };
     </script>
     <style type="text/css">
       body {

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { pickBy } from 'lodash-es';
+import pickBy from 'lodash-es/pickBy.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
