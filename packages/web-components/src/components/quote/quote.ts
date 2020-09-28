@@ -66,8 +66,8 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines if the inverse class is included
    */
-  @property({ reflect: true })
-  inverse: boolean = false;
+  @property({ reflect: true, type: Boolean })
+  inverse = false;
 
   /**
    * `true` if there is source heading.
