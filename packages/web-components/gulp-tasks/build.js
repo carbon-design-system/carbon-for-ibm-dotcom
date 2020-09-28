@@ -20,7 +20,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
-const cleanCSS = require('gulp-clean-css');
 const prettier = require('gulp-prettier');
 const typescript = require('gulp-typescript');
 const header = require('gulp-header');
@@ -28,11 +27,14 @@ const through2 = require('through2');
 const stripComments = require('strip-comments');
 const autoprefixer = require('autoprefixer');
 const rtlcss = require('rtlcss');
+const cssnano = require('cssnano');
 const replaceExtension = require('replace-ext');
+const { rollup } = require('rollup');
 const babelPluginResourceJSPaths = require('../tools/babel-plugin-resource-js-paths');
 const fixHostPseudo = require('../tools/postcss-fix-host-pseudo');
 const descriptorFromSVG = require('../tools/descriptor-from-svg');
 const createSVGResultFromIconDescriptor = require('../tools/svg-result-from-icon-descriptor');
+const getRollupConfig = require('../tools/get-rollup-config');
 
 const config = require('./config');
 
@@ -41,7 +43,7 @@ const promisifyStream = promisify(asyncDone);
 
 const cssStream = ({ banner, dir }) =>
   gulp
-    .src(`${config.srcDir}/**/*.scss`)
+    .src([`${config.srcDir}/**/*.scss`, `!${config.srcDir}/**/ibmdotcom-web-components-*.scss`])
     .pipe(
       header(`
         $feature-flags: (
@@ -58,13 +60,22 @@ const cssStream = ({ banner, dir }) =>
       postcss([
         fixHostPseudo(),
         autoprefixer({
-          // TODO: Optimize for modern browsers here
-          browsers: ['last 1 version', 'Firefox ESR', 'ie >= 11'],
+          browsers: [
+            'last 1 version',
+            'Firefox ESR',
+            'not opera > 0',
+            'not op_mini > 0',
+            'not op_mob > 0',
+            'not android > 0',
+            'not edge > 0',
+            'not ie > 0',
+            'not ie_mob > 0',
+          ],
         }),
         ...(dir === 'rtl' ? [rtlcss] : []),
+        cssnano(),
       ])
     )
-    .pipe(cleanCSS())
     .pipe(
       through2.obj((file, enc, done) => {
         file.contents = Buffer.from(`
@@ -80,6 +91,32 @@ const cssStream = ({ banner, dir }) =>
     .pipe(gulp.dest(path.resolve(config.jsDestDir)));
 
 module.exports = {
+  bundles: {
+    scripts: {
+      async dev() {
+        const bundle = await rollup(getRollupConfig());
+        await bundle.write({
+          format: 'es',
+          name: 'IBMDotcomWebComponentsDotcomShell',
+          file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell.js`,
+          // FIXME: Figure out how to handle `process.env` without build toolstack
+          banner: 'let process = { env: {} };',
+        });
+      },
+
+      async prod() {
+        const bundle = await rollup(getRollupConfig('production'));
+        await bundle.write({
+          format: 'es',
+          name: 'IBMDotcomWebComponentsDotcomShell',
+          file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell.min.js`,
+          // FIXME: Figure out how to handle `process.env` without build toolstack
+          banner: 'let process = { env: {} };',
+        });
+      },
+    },
+  },
+
   modules: {
     async css() {
       const banner = await readFileAsync(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
@@ -122,13 +159,17 @@ module.exports = {
             `!${config.srcDir}/**/__stories__/*.ts`,
             `!${config.srcDir}/**/__tests__/*.ts`,
             `!${config.srcDir}/**/*.d.ts`,
+            `!${config.srcDir}/**/ibmdotcom-web-components-*.ts`,
           ])
           .pipe(sourcemaps.init())
           .pipe(
             babel({
               presets: ['@babel/preset-modules'],
               // `version: '7.3.0'` ensures `@babel/plugin-transform-runtime` is applied to decorator helper
-              plugins: [babelPluginResourceJSPaths],
+              plugins: [
+                ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }],
+                babelPluginResourceJSPaths,
+              ],
             })
           )
           // Avoids generating `.js` from interface-only `.ts` files
