@@ -259,7 +259,7 @@ function handleInput(searchQueryString) {
 
 const throttledHandleInput = throttle(handleInput);
 
-document.querySelector('dds-masthead-search').addEventListener('bx-search-input', event => {
+document.querySelector('dds-masthead-search').addEventListener('dds-masthead-search-input', event => {
   throttledHandleInput(event.target.searchQueryString);
 });
 ```
