@@ -86,10 +86,13 @@ $btn-min-width: 26;
   :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--leadspace--content__container {
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @include carbon--breakpoint(lg) {
+        height: 100%;
+      }
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -166,30 +169,20 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      margin-right: auto;
-      margin-left: auto;
-      position: relative;
-      padding-top: aspect-ratio(672px, 400px);
-      height: 0;
-
       .#{$prefix}--leadspace__container {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
+        position: relative;
       }
 
       .#{$prefix}--leadspace__overlay {
         padding-top: $spacing-07;
         padding-bottom: $spacing-07;
-        position: absolute;
+        position: relative;
         top: 0;
         height: 100%;
       }
 
       .#{$prefix}--image {
-        height: auto;
+        height: 100%;
       }
 
       .#{$prefix}--leadspace__title {
@@ -206,7 +199,23 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
       padding-top: aspect-ratio(1056px, 480px);
+      height: 0;
+
+      .#{$prefix}--leadspace__container {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .#{$prefix}--image {
+        height: auto;
+      }
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);

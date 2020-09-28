@@ -11,11 +11,16 @@ import { pickBy } from 'lodash-es';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet, MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
+import {
+  BasicLink,
+  BasicLinkSet,
+  MastheadLink,
+  MastheadProfileItem,
+  Translation,
+} from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
-import { MastheadProfileItem } from '../masthead/masthead-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-container.scss';
 
@@ -110,7 +115,7 @@ class DDSDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
-  authenticateProfileItems?: MastheadProfileItem[];
+  authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
    * The brand name. This goes to masthead.
@@ -177,12 +182,6 @@ class DDSDotcomShellComposite extends LitElement {
    */
   @property({ attribute: false })
   localeList?: LocaleList;
-
-  /**
-   * The nonce used for logging in. This goes to masthead.
-   */
-  @property({ attribute: 'login-nonce' })
-  loginNonce?: string;
 
   /**
    * The `aria-label` attribute for the top-level container. This goes to masthead.
@@ -259,7 +258,7 @@ class DDSDotcomShellComposite extends LitElement {
     }
     const {
       activateSearch,
-      authenticateProfileItems,
+      authenticatedProfileItems,
       brandName,
       collatorCountryName,
       currentSearchResults,
@@ -273,7 +272,6 @@ class DDSDotcomShellComposite extends LitElement {
       langDisplay,
       legalLinks,
       localeList,
-      loginNonce,
       footerLinks,
       footerSize,
       openLocaleModal,
@@ -292,7 +290,7 @@ class DDSDotcomShellComposite extends LitElement {
       pickBy(
         {
           activateSearch,
-          authenticateProfileItems,
+          authenticatedProfileItems,
           brandName,
           currentSearchResults,
           mastheadAssistiveText,
@@ -302,7 +300,6 @@ class DDSDotcomShellComposite extends LitElement {
           unauthenticatedProfileItems,
           inputTimeout,
           language,
-          loginNonce,
           navLinks,
           openSearchDropdown,
           userStatus,

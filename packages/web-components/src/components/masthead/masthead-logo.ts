@@ -7,15 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit-html/directives/class-map';
 import { html, internalProperty, property, customElement } from 'lit-element';
-import { breakpoints } from '@carbon/layout/es/index.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import DDSIcon from '../icon/icon';
-import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,11 +27,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
 class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
-  /**
-   * Media query listener handler.
-   */
-  private _mqHandler: Handle | null = null;
-
   /**
    * Link `href`.
    */
@@ -48,13 +43,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
    * Search bar opened flag.
    */
   @internalProperty()
-  private _openedSearch = false;
-
-  /**
-   * Large breakpoint flag.
-   */
-  @internalProperty()
-  private _responsiveLg = false;
+  private _hasSearchActive = false;
 
   /**
    * Handles toggle event from the search component.
@@ -64,41 +53,24 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
   @HostListener('parentRoot:eventToggleSerch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._openedSearch = (event as CustomEvent).detail.active;
+    this._hasSearchActive = (event as CustomEvent).detail.active;
   };
 
-  /**
-   * Handles media query event.
-   *
-   * @param event The event.
-   */
-  private _handleMediaQuery(event: Event) {
-    this._responsiveLg = (event as MediaQueryListEvent).matches;
-  }
-
   createRenderRoot() {
-    return this.attachShadow({ mode: 'open', delegatesFocus: true });
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-
-    const mqLarge = this.ownerDocument?.defaultView?.matchMedia(`(max-width: ${breakpoints.lg.width})`);
-    this._responsiveLg = mqLarge ? mqLarge.matches : false;
-
-    this._mqHandler = on(mqLarge, 'change', this._handleMediaQuery.bind(this));
-  }
-
-  disconnectedCallback() {
-    if (this._mqHandler) {
-      this._mqHandler = this._mqHandler.release();
-    }
-
-    super.disconnectedCallback();
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
   }
 
   render() {
-    return this._openedSearch && this._responsiveLg ? html`` : super.render();
+    const { href, _hasSearchActive: hasSearchActive } = this;
+    const classes = classMap({
+      [`${ddsPrefix}-ce--header__logo--has-search-active`]: hasSearchActive,
+    });
+    return html`
+      <a aria-label="IBM logo" class="${classes}" href="${ifNonNull(href)}">${IBM8BarLogoH23()}</a>
+    `;
   }
 
   /**

@@ -9,6 +9,7 @@
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
+import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
 import { withKnobs } from '@storybook/addon-knobs';
 import customElements from '../custom-elements.json';
@@ -59,7 +60,14 @@ addDecorator((story, { parameters }) => {
     <style>
       ${containerStyles}
     </style>
-    <div name="main-content" data-floating-menu-container role="${hasMainTag ? 'none' : 'main'}" class="${classes}">
+    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
+    <div
+      id="main-content"
+      name="main-content"
+      data-floating-menu-container
+      role="${hasMainTag ? 'none' : 'main'}"
+      class="${classes}"
+    >
       ${result}
     </div>
   `;

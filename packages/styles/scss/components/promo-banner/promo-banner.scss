@@ -9,32 +9,39 @@
   .#{$prefix}--promo-banner {
     padding-top: $layout-03;
     padding-bottom: $layout-05;
+
     @include carbon--make-container;
-    &__row {
-      @include carbon--make-row;
+  }
+
+  .#{$prefix}--promo-banner__row {
+    @include carbon--make-row;
+  }
+
+  .#{$prefix}--promo-banner__left-column {
+    margin-bottom: $layout-02;
+    @include carbon--make-col-ready;
+    @include carbon--make-col(4, 4);
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(3, 16);
     }
-    &__left-column {
-      margin-bottom: $layout-02;
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 4);
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(3, 16);
-      }
+  }
+  .#{$prefix}--promo-banner__content {
+    @include carbon--make-col(4, 4);
+    @include carbon--make-col-ready;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(8, 8);
     }
-    &__content {
-      @include carbon--make-col(4, 4);
-      @include carbon--make-col-ready;
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(8, 8);
-      }
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col-offset(1, 16);
-        @include carbon--make-col(8, 16);
-      }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col-offset(1, 16);
+      @include carbon--make-col(8, 16);
     }
-    &__copy {
-      margin-bottom: $layout-02;
-    }
+  }
+
+  .#{$prefix}--promo-banner__copy {
+    margin-bottom: $layout-02;
   }
 }
 

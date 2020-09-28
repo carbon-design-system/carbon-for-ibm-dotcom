@@ -32090,7 +32090,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           },
           "languageOnly": false,
           "navigation": null,
-          "type": undefined,
+          "type": "tall",
         }
       }
       mastheadProps={
@@ -37458,6 +37458,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
         languageOnly={false}
         mastheadProps={null}
         navigation={null}
+        type="tall"
       >
         <footer
           className="bx--footer"
@@ -37581,6 +37582,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           <LegalNav
             button={null}
             links={Array []}
+            type="tall"
           />
         </footer>
       </Footer>

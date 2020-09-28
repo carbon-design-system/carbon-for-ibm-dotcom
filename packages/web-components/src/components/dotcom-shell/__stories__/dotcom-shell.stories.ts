@@ -16,6 +16,7 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import footerStyles from '../../footer/__stories__/footer.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
@@ -99,10 +100,12 @@ export const Default = ({ parameters }) => {
             lang-display="${ifNonNull(langDisplay)}"
             footer-size="${ifNonNull(footerSize)}"
             user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -153,8 +156,7 @@ export default {
     },
     props: (() => {
       // Lets `<dds-masthead-container>` load the nav links and lets `<dds-footer-container>` load the footer links
-      // if `CORS_PROXY` is set
-      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         MastheadComposite: {
           navLinks: !useMock ? undefined : mastheadLinks,

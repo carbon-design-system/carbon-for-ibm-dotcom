@@ -8,7 +8,6 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
-import links from './links';
 import './index.scss';
 
 window.digitalData = {
@@ -23,9 +22,3 @@ window.digitalData = {
     isDataLayerReady: true,
   },
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (!process.env.CORS_PROXY) {
-    document.getElementById('masthead-container').navLinks = links;
-  }
-});

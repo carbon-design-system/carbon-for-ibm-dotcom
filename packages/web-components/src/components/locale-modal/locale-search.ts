@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input.js';
@@ -47,6 +47,12 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   private _listNode?: HTMLElement;
 
   /**
+   * `true` if there is one or more search result.
+   */
+  @internalProperty()
+  private _hasAvailableItem = true;
+
+  /**
    * The search box.
    */
   @query(`${prefix}-search`)
@@ -60,10 +66,16 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
     const { region: currentRegion } = this;
+    let hasMatch = false;
     forEach(this.querySelectorAll(selectorItem), item => {
       const { country, language, region } = item as DDSLocaleItem;
-      (item as HTMLElement).hidden = region !== currentRegion || !search([country, language], searchText);
+      const matches = region === currentRegion && search([country, language], searchText);
+      if (matches) {
+        hasMatch = true;
+      }
+      (item as HTMLElement).hidden = !matches;
     });
+    this._hasAvailableItem = hasMatch;
   }
 
   _handleThrottledInput(event: Event) {
@@ -113,6 +125,12 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   slot = 'locales-selector';
 
   /**
+   * The text for the label for the UI showing no available locale.
+   */
+  @property({ attribute: 'unavailability-label-text' })
+  unavailabilityLabelText = 'This page is unavailable in your preferred location or language';
+
+  /**
    * Resets the search box and the scroll position.
    */
   reset() {
@@ -123,6 +141,13 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
     if (searchNode) {
       searchNode.value = '';
       this._updateSearchResults('');
+    }
+  }
+
+  firstUpdated() {
+    const { _searchNode: searchNode } = this;
+    if (searchNode) {
+      this._updateSearchResults(searchNode.value);
     }
   }
 
@@ -137,14 +162,21 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   }
 
   render() {
-    const { availabilityLabelText, closeButtonAssistiveText, labelText, placeholder } = this;
+    const {
+      availabilityLabelText,
+      closeButtonAssistiveText,
+      labelText,
+      placeholder,
+      unavailabilityLabelText,
+      _hasAvailableItem: hasAvailableItem,
+    } = this;
     return html`
       <div class="${prefix}--locale-modal__filter">
         <div class="${prefix}--locale-modal__search">
           <bx-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
-            color-scheme="${SEARCH_COLOR_SCHEME.LIGHT}"
+            color-scheme="${SEARCH_COLOR_SCHEME.REGULAR}"
             label-text="${labelText}"
             placeholder="${placeholder}"
             size="${INPUT_SIZE.EXTRA_LARGE}"
@@ -152,7 +184,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
           >
           </bx-search>
           <p class="${prefix}--locale-modal__search-text">
-            ${availabilityLabelText}
+            ${hasAvailableItem ? availabilityLabelText : unavailabilityLabelText}
           </p>
         </div>
         <div role="listbox" class="${prefix}--locale-modal__list">
@@ -160,6 +192,31 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  /**
+   * Focus on first focusable element in shadow DOM
+   */
+  focus() {
+    // @ts-ignore: Ultil `delegatesFocus` is added to `ShadowRoot` definition
+    if (this.shadowRoot!.delegatesFocus) {
+      super.focus();
+    } else {
+      const { selectorTabable } = this.constructor as typeof DDSLocaleSearch;
+      const delegateTarget = this.shadowRoot!.querySelector(selectorTabable);
+      if (delegateTarget) {
+        (delegateTarget as HTMLElement).focus();
+      } else {
+        super.focus();
+      }
+    }
+  }
+
+  /**
+   * A selector selecting the locale item,
+   */
+  static get selectorTabable() {
+    return `${prefix}-search`;
   }
 
   /**

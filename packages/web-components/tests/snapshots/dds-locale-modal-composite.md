@@ -6,12 +6,20 @@
 
 ```
 <dds-locale-modal
+  close-button-assistive-text="Close modal"
   data-autoid="dds--locale-modal"
+  header-title="Select geographic area"
   tabindex="0"
 >
   <dds-regions>
   </dds-regions>
-  <dds-locale-search placeholder="Search by location or language">
+  <dds-locale-search
+    availability-label-text="This page is available in the following locations and languages"
+    close-button-assistive-text="Clear search input"
+    label-text="Search by location or language"
+    placeholder="Search by location or language"
+    unavailability-label-text="This page is unavailable in your preferred location or language"
+  >
   </dds-locale-search>
 </dds-locale-modal>
 
@@ -21,7 +29,9 @@
 
 ```
 <dds-locale-modal
+  close-button-assistive-text="modal-close-foo"
   data-autoid="dds--locale-modal"
+  header-title="header-title-foo"
   lang-display="lang-display-foo"
   open=""
   tabindex="0"
@@ -32,7 +42,13 @@
     <dds-region-item name="region-name-bar">
     </dds-region-item>
   </dds-regions>
-  <dds-locale-search placeholder="search-placeholder-foo">
+  <dds-locale-search
+    availability-label-text="availability-text-foo"
+    close-button-assistive-text="search-clear-text-foo"
+    label-text="search-label-foo"
+    placeholder="search-placeholder-foo"
+    unavailability-label-text="unavailability-text-foo"
+  >
     <dds-locale-item
       country="country-name-foo"
       href="https://example.com/locale-id-foo"

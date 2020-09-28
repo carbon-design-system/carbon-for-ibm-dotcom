@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "IBM.com Library Styles",
-  "version": "1.11.0-rc.0",
+  "version": "1.11.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -40,8 +40,7 @@
     "@carbon/motion": "10.9.0",
     "@carbon/themes": "10.18.0",
     "@carbon/type": "10.15.0",
-    "carbon-components": "10.19.0",
-    "carbon-components-react": "7.19.0"
+    "carbon-components": "10.19.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -60,6 +59,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "carbon-components": "10.19.0",
+    "carbon-components-react": "7.19.0",
     "del": "^3.0.0",
     "fast-sass-loader": "^1.5.0",
     "gulp": "^4.0.2",

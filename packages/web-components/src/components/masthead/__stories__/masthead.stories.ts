@@ -19,6 +19,7 @@ import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import links from './links';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -89,7 +90,9 @@ export const Default = ({ parameters }) => {
           <dds-masthead-composite
             brand-name="${ifNonNull(brandName)}"
             user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
       : html`
@@ -128,8 +131,8 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links, etc. if `CORS_PROXY` is set
-      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      // Lets `<dds-masthead-container>` load the nav links
+      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         MastheadComposite: {
           navLinks: !useMock ? undefined : links,

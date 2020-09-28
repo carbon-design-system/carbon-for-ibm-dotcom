@@ -10,7 +10,7 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { MastheadLink, Translation } from '../../globals/services-store/types/translateAPI';
+import { MastheadLink, MastheadProfileItem, Translation } from '../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
 import './masthead';
 import './masthead-logo';
@@ -41,75 +41,13 @@ enum NAV_ITEMS_RENDER_TARGET {
   /**
    * For top navigation.
    */
-  TOP_NAV = 'tpo-nav',
+  TOP_NAV = 'top-nav',
 
   /**
    * For left navigation.
    */
   LEFT_NAV = 'left-nav',
 }
-
-/**
- * An profile item in masthead.
- */
-export interface MastheadProfileItem {
-  /**
-   * `true` if this profile item is for logging in.
-   */
-  isLoginItem?: boolean;
-
-  /**
-   * The key identifying this profile item within the menu.
-   */
-  key: string;
-
-  /**
-   * The title text.
-   */
-  title: string;
-
-  /**
-   * The link URL.
-   */
-  url?: string;
-}
-
-/**
- * The default nav items for authenticated state.
- */
-const defaultAuthenticateProfileItems: MastheadProfileItem[] = [
-  {
-    title: 'My IBM',
-    key: 'my-ibm',
-    url: 'https://myibm.ibm.com/?lnk=mmi',
-  },
-  {
-    title: 'Profile',
-    key: 'profile',
-    url: 'https://myibm.ibm.com/profile/?lnk=mmi',
-  },
-  {
-    title: 'Billing',
-    key: 'billing',
-    url: 'https://myibm.ibm.com/billing/?lnk=mmi',
-  },
-  {
-    title: 'Log out',
-    key: 'logout',
-    url: 'https://myibm.ibm.com/pkmslogout?filename=accountRedir.html',
-  },
-];
-
-/**
- * The default nav items for unauthenticated state.
- */
-const defaultUnauthenticateProfileItems: MastheadProfileItem[] = [
-  {
-    title: 'Log in',
-    key: 'login',
-    isLoginItem: true,
-  },
-];
 
 /**
  * Component that rendres masthead from links, etc. data.
@@ -222,7 +160,7 @@ class DDSMastheadComposite extends LitElement {
    * The profile items for authenticated state.
    */
   @property({ attribute: false })
-  authenticateProfileItems = defaultAuthenticateProfileItems;
+  authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
    * The brand name.
@@ -264,7 +202,7 @@ class DDSMastheadComposite extends LitElement {
    * The profile items for unauthenticated state.
    */
   @property({ attribute: false })
-  unauthenticatedProfileItems = defaultUnauthenticateProfileItems;
+  unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
    * The throttle timeout to run query upon user input.
@@ -279,12 +217,6 @@ class DDSMastheadComposite extends LitElement {
   language?: string;
 
   /**
-   * The nonce used for logging in.
-   */
-  @property({ attribute: 'login-nonce' })
-  loginNonce?: string;
-
-  /**
    * The navigation links.
    */
   @property({ attribute: false })
@@ -295,6 +227,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ type: Boolean, reflect: true, attribute: 'open-search-dropdown' })
   openSearchDropdown = false;
+
+  /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  searchPlaceholder?: string;
 
   /**
    * The user authentication status.
@@ -329,7 +267,7 @@ class DDSMastheadComposite extends LitElement {
   render() {
     const {
       activateSearch,
-      authenticateProfileItems,
+      authenticatedProfileItems,
       currentSearchResults,
       brandName,
       inputTimeout,
@@ -338,27 +276,24 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
       language,
-      loginNonce,
       openSearchDropdown,
+      searchPlaceholder,
       unauthenticatedProfileItems,
       userStatus,
       _loadSearchResults: loadSearchResults,
     } = this;
-    const searchParams = new URLSearchParams();
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
-    if (!authenticated) {
-      searchParams.append('response_type', 'token');
-      searchParams.append('client_id', 'v18loginprod');
-      searchParams.append('state', this.ownerDocument!.defaultView!.location.href);
-      searchParams.append('redirect_uri', 'https://myibm.ibm.com/OIDCHandler.html');
-      searchParams.append('scope', 'openid');
-      if (loginNonce) {
-        searchParams.append('nonce', loginNonce);
-      }
-    }
-    const loginUrl = `https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?${searchParams.toString()}`;
-    const profileItems = authenticated ? authenticateProfileItems : unauthenticatedProfileItems;
+    const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     return html`
+      <dds-left-nav-overlay></dds-left-nav-overlay>
+      <dds-left-nav>
+        ${!brandName
+          ? undefined
+          : html`
+              <dds-left-nav-name>${brandName}</dds-left-nav-name>
+            `}
+        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+      </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
@@ -379,29 +314,21 @@ class DDSMastheadComposite extends LitElement {
           input-timeout="${inputTimeout}"
           language="${ifNonNull(language)}"
           ?open="${openSearchDropdown}"
+          placeholder="${ifNonNull(searchPlaceholder)}"
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
         <dds-masthead-global-bar>
           <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems.map(({ isLoginItem, key, title, url }) => {
-              const href = !isLoginItem ? url : loginUrl;
-              return html`
-                <dds-masthead-profile-item href="${ifNonNull(href)}" key="${key}">${title}</dds-masthead-profile-item>
-              `;
-            })}
+            ${profileItems?.map(
+              ({ title, url }) =>
+                html`
+                  <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
+                `
+            )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
       </dds-masthead>
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
-        ${!brandName
-          ? undefined
-          : html`
-              <dds-left-nav-name>${brandName}</dds-left-nav-name>
-            `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-      </dds-left-nav>
     `;
   }
 
