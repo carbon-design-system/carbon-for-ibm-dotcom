@@ -53,8 +53,6 @@ Default.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
-        const languageOnly = false;
-
         /**
          * Language callback demo function
          *
@@ -68,14 +66,6 @@ Default.story = {
         };
 
         return {
-          languageOnly,
-          items: !languageOnly
-            ? undefined
-            : object(
-                'language dropdown items (languageItems)',
-                languageItems,
-                groupId
-              ),
           languageInitialItem: { id: 'en', text: 'English' },
           languageCallback,
           disableLocaleButton: boolean(
@@ -90,27 +80,16 @@ Default.story = {
 };
 
 export const DefaultLanguageOnly = ({ parameters }) => {
-  const {
-    type,
-    isCustom,
-    navigation,
-    languageOnly,
-    items,
-    languageInitialItem,
-    languageCallback,
-  } = parameters?.props?.Footer ?? {};
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+      },
+    },
+  };
 
-  return (
-    <Footer
-      navigation={isCustom ? navigation : null}
-      type={type}
-      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
-      languageOnly={languageOnly}
-      languageItems={languageOnly ? items : null}
-      languageInitialItem={languageInitialItem}
-      languageCallback={languageCallback}
-    />
-  );
+  return <Default parameters={massagedParameters} />;
 };
 
 DefaultLanguageOnly.story = {
