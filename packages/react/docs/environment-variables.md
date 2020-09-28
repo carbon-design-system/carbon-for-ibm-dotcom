@@ -30,7 +30,6 @@ Within `.env`, the values can then be set for the local environment:
 
 ```text
 REACT_STORYBOOK_SOURCEMAPS=true
-CORS_PROXY=https://myproxy.com/
 
 # Feature Flags
 FEATURE_NAME=true

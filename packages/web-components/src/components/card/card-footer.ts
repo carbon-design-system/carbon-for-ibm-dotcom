@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, TemplateResult } from 'lit-element';
+import { html, property, internalProperty, query, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
@@ -48,6 +48,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * `true` if there is copy content.
    */
+  @internalProperty()
   protected _hasCopy = false;
 
   /**
@@ -67,7 +68,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
         .assignedNodes()
         .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
       this._hasCopy = hasContent;
-      this.requestUpdate();
     }
   }
 
