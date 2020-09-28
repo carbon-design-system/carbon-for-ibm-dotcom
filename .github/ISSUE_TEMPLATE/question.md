@@ -2,7 +2,7 @@
 name: Question 🤔
 about: Usage question or discussion about the IBM.com Library.
 labels: question
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, asudoh, jacobottesen-dgc, ariellalgilmore
+assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, RaphaelAmadeu, JennySanchez, ariellalgilmore
 ---
 
 <!--
