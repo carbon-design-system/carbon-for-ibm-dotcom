@@ -8,7 +8,7 @@
 <dds-locale-modal
   close-button-assistive-text="Close modal"
   data-autoid="dds--locale-modal"
-  header-title="Select region"
+  header-title="Select geographic area"
   tabindex="0"
 >
   <dds-regions>

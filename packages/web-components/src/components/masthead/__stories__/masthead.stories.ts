@@ -131,8 +131,8 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links, etc. if `CORS_PROXY` is set
-      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      // Lets `<dds-masthead-container>` load the nav links
+      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         MastheadComposite: {
           navLinks: !useMock ? undefined : links,

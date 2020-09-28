@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './image.scss';
@@ -24,6 +24,7 @@ class DDSImage extends LitElement {
   /**
    * The image data, harvested from `<dds-image-item>`.
    */
+  @internalProperty()
   private _images: HTMLElement[] = [];
 
   /**
@@ -34,7 +35,6 @@ class DDSImage extends LitElement {
     this._images = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element).matches(selectorItem)) as HTMLElement[];
-    this.requestUpdate();
   }
 
   /**

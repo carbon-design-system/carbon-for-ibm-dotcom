@@ -75,8 +75,8 @@ export default {
   parameters: {
     ...readme.parameters,
     props: (() => {
-      // Lets `<dds-footer-container>` load the footer links if `CORS_PROXY` is set
-      const useMock = !process.env.CORS_PROXY || inPercy() || new URLSearchParams(window.location.search).has('mock');
+      // Lets `<dds-footer-container>` load the footer links
+      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',

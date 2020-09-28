@@ -23,7 +23,6 @@ jobs:
         with:
           env-file: packages/react/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-react storybook
@@ -56,7 +55,6 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-web-components (staging) storybook
@@ -89,7 +87,6 @@ jobs:
         with:
           env-file: packages/vanilla/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-vanilla storybook

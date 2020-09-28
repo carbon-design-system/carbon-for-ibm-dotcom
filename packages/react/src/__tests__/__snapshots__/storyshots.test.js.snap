@@ -62189,19 +62189,19 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
         data-autoid="dds--leadspace"
       >
         <div
-          className="bx--leadspace--centered__container"
+          className="bx--leadspace__container"
         >
           <div
-            className="bx--leadspace--centered__overlay"
+            className="bx--leadspace__overlay"
           >
             <div
-              className="bx--leadspace--centered--content__container"
+              className="bx--leadspace--content__container"
             >
               <div
-                className="bx--leadspace--centered__row"
+                className="bx--leadspace__row"
               >
                 <h1
-                  className="bx--leadspace--centered__title"
+                  className="bx--leadspace__title"
                 >
                   Leadspace Title
                 </h1>
@@ -62210,10 +62210,10 @@ exports[`Storyshots Components|LeadSpace Centered 1`] = `
                 className="bx--leadspace__content"
               >
                 <div
-                  className="bx--leadspace--centered__row"
+                  className="bx--leadspace__row"
                 >
                   <p
-                    className="bx--leadspace--centered__desc"
+                    className="bx--leadspace__desc"
                     data-autoid="dds--leadspace__desc"
                   >
                     Use this area for a short line of copy to support the title
@@ -62450,19 +62450,19 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
         }
       >
         <div
-          className="bx--leadspace--centered__container"
+          className="bx--leadspace__container"
         >
           <div
-            className="bx--leadspace--centered__overlay bx--leadspace--centered__gradient"
+            className="bx--leadspace__overlay bx--leadspace--gradient"
           >
             <div
-              className="bx--leadspace--centered--content__container"
+              className="bx--leadspace--content__container"
             >
               <div
-                className="bx--leadspace--centered__row"
+                className="bx--leadspace__row"
               >
                 <h1
-                  className="bx--leadspace--centered__title"
+                  className="bx--leadspace__title"
                 >
                   Leadspace Title
                 </h1>
@@ -62471,10 +62471,10 @@ exports[`Storyshots Components|LeadSpace Centered with image 1`] = `
                 className="bx--leadspace__content"
               >
                 <div
-                  className="bx--leadspace--centered__row"
+                  className="bx--leadspace__row"
                 >
                   <p
-                    className="bx--leadspace--centered__desc"
+                    className="bx--leadspace__desc"
                     data-autoid="dds--leadspace__desc"
                   >
                     Use this area for a short line of copy to support the title
