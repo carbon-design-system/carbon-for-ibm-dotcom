@@ -101,13 +101,6 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     this.requestUpdate();
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('inverse')) {
-      const { inverse } = this;
-      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
-    }
-  }
-
   protected _renderQuote() {
     switch (this.markType) {
       case QUOTE_TYPES.SINGLE_CURVED:
@@ -168,6 +161,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
         <slot name="cta" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('inverse')) {
+      const { inverse } = this;
+      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
