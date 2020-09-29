@@ -19,26 +19,22 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--gradient {
-      @include carbon--breakpoint(md) {
-        background-color: transparent;
-        background-image: linear-gradient(
-          to right,
-          rgba($color, 0.95),
-          transparent 75%
-        );
-      }
+      background-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        rgba($color, 0.95),
+        transparent 75%
+      );
     }
 
-    .#{$prefix}--leadspace--centered {
-      &__gradient {
-        background: linear-gradient(
-          to bottom,
-          $color,
-          rgba($color, 0.8),
-          rgba($color, 0.6),
-          transparent 80%
-        );
-      }
+    &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
+      background: linear-gradient(
+        to bottom,
+        $color,
+        rgba($color, 0.8),
+        rgba($color, 0.6),
+        transparent 80%
+      );
     }
   }
 }
@@ -53,17 +49,16 @@ $btn-min-width: 26;
 
   background-color: $ui-background;
 
-  .#{$prefix}--leadspace--centered__overlay {
+  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
     background-color: $ui-background;
   }
 
   .#{$prefix}--leadspace__title,
-  .#{$prefix}--leadspace__desc,
-  .#{$prefix}--leadspace--centered__title,
-  .#{$prefix}--leadspace--centered__desc {
+  .#{$prefix}--leadspace__desc {
     color: $text-01;
   }
-  .#{$prefix}--leadspace--centered__desc {
+
+  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
     width: 100%;
   }
   .#{$prefix}--buttongroup {
@@ -71,10 +66,8 @@ $btn-min-width: 26;
   }
 
   @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
-      &__overlay {
-        background-color: transparent;
-      }
+    &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
+      background-color: transparent;
     }
   }
 
@@ -89,8 +82,10 @@ $btn-min-width: 26;
   .#{$prefix}--buttongroup {
     padding-top: $carbon--layout-01;
   }
+
+  :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
-    &--content__container {
+    .#{$prefix}--leadspace--content__container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -100,24 +95,26 @@ $btn-min-width: 26;
       }
     }
 
+    ::slotted(#{$dds-prefix}-image),
     .#{$prefix}--image {
       position: absolute;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }
 
-    &__image {
+    .#{$prefix}--leadspace__image {
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
 
-    &__container {
+    .#{$prefix}--leadspace__container {
       position: relative;
     }
 
-    &__overlay {
+    .#{$prefix}--leadspace__overlay {
       @include carbon--make-container;
 
       position: relative;
@@ -134,28 +131,23 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__title {
       padding-top: 0;
       margin-bottom: $spacing-09;
+      padding-left: 1rem;
+      width: 95%;
       @include carbon--type-style(display-01, true);
     }
 
-    &__title {
-      padding-left: 1rem;
-      width: 95%;
-    }
-    &__desc {
+    .#{$prefix}--leadspace__desc {
       @include carbon--make-col-ready;
+      @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col(4, 4);
     }
 
-    &__row {
+    .#{$prefix}--leadspace__row {
       @include carbon--make-row;
     }
 
     .#{$prefix}--btn {
       min-width: carbon--mini-units($btn-min-width);
-    }
-
-    .#{$prefix}--leadspace__desc {
-      @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(4, 4);
     }
 
     @include themed-items;
@@ -177,11 +169,11 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      &__container {
+      .#{$prefix}--leadspace__container {
         position: relative;
       }
 
-      &__overlay {
+      .#{$prefix}--leadspace__overlay {
         padding-top: $spacing-07;
         padding-bottom: $spacing-07;
         position: relative;
@@ -213,7 +205,7 @@ $btn-min-width: 26;
       padding-top: aspect-ratio(1056px, 480px);
       height: 0;
 
-      &__container {
+      .#{$prefix}--leadspace__container {
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -254,24 +246,29 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace-centered {
+  :host(#{$dds-prefix}-leadspace-centered),
   .#{$prefix}--leadspace--centered {
     margin-right: auto;
     margin-left: auto;
     max-width: 99rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+
     .#{$prefix}--buttongroup {
       padding-bottom: $carbon--layout-01;
       padding-top: 0;
     }
 
-    &--content__container {
+    .#{$prefix}--leadspace--content__container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-left: $carbon--spacing-05;
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
     }
-    &--mobile__image {
+
+    .#{$prefix}--leadspace--centered--mobile__image {
       height: carbon--mini-units(20);
       width: 100%;
 
@@ -281,86 +278,70 @@ $btn-min-width: 26;
         width: 100%;
       }
     }
-    &__content {
-      @include carbon--make-row;
-    }
 
-    &__desc {
+    .#{$prefix}--leadspace__desc {
       width: 95%;
       @include carbon--type-style(expressive-heading-03, true);
     }
 
-    &__title {
+    .#{$prefix}--leadspace__title {
       @include carbon--type-style(expressive-heading-05, true);
     }
 
-    &__desc,
-    &__title {
+    .#{$prefix}--leadspace__desc,
+    .#{$prefix}--leadspace__title {
       padding-top: $carbon--layout-03;
     }
 
     @include themed-items;
-  }
 
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered {
+    @include carbon--breakpoint(md) {
       .#{$prefix}--buttongroup {
         padding-bottom: 0;
       }
 
-      &__overlay {
+      .#{$prefix}--leadspace__overlay {
         padding-bottom: carbon--mini-units(20);
       }
-      &--content__container {
+
+      .#{$prefix}--leadspace--content__container {
         margin: auto;
         padding-left: 1.5rem;
         @include carbon--make-col(4, 8);
       }
-      &__image {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center top;
-      }
 
-      &__title,
-      &__desc {
+      .#{$prefix}--leadspace__title,
+      .#{$prefix}--leadspace__desc {
         max-width: carbon--mini-units(80);
       }
 
-      &__desc {
+      .#{$prefix}--leadspace__desc {
         padding-top: $carbon--layout-04;
       }
 
-      &--mobile__image {
+      .#{$prefix}--leadspace--centered--mobile__image {
         display: none;
       }
+
+      &.#{$prefix}--leadspace--centered__image .#{$prefix}--leadspace__overlay {
+        padding-bottom: carbon--mini-units(32);
+      }
     }
 
-    .#{$prefix}--leadspace--centered__image
-      .#{$prefix}--leadspace--centered__overlay {
-      padding-bottom: carbon--mini-units(32);
-    }
-  }
-
-  @include carbon--breakpoint(lg) {
-    .#{$prefix}--leadspace--centered {
-      &__title {
+    @include carbon--breakpoint(lg) {
+      .#{$prefix}--leadspace__title {
         padding-top: $carbon--layout-05;
       }
-
-      &__content {
-        width: 50%;
-        margin: auto;
-      }
     }
-  }
-  .#{$prefix}--leadspace--centered--g100,
-  .#{$prefix}--leadspace--centered--g90 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items(dark);
+
+    &.#{$prefix}--leadspace--centered--g100,
+    &.#{$prefix}--leadspace--centered--g90 {
+      @include carbon--theme(
+        $carbon--theme--g100,
+        feature-flag-enabled('enable-css-custom-properties')
+      ) {
+        @include themed-items(dark);
+      }
     }
   }
 }
