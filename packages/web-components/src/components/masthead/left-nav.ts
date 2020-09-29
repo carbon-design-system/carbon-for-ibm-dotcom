@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import findLast from 'lodash-es/findLast';
+import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';

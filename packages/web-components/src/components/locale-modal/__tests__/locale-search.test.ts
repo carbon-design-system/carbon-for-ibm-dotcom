@@ -96,9 +96,9 @@ describe('dds-locale-search', function() {
       );
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
       searchInputNode.dispatchEvent(
-        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'COUNTRY-B' } })
+        new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'COUNTRY-B' } })
       );
       expect((localeSearch!.querySelector('dds-locale-item[country="country-foo"]') as HTMLElement).hidden).toBe(true);
       expect((localeSearch!.querySelector('dds-locale-item[country="country-bar"]') as HTMLElement).hidden).toBe(false);
@@ -125,9 +125,9 @@ describe('dds-locale-search', function() {
       );
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
       searchInputNode.dispatchEvent(
-        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
+        new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
       );
       expect((localeSearch!.querySelector('dds-locale-item[language="language-foo"]') as HTMLElement).hidden).toBe(true);
       expect((localeSearch!.querySelector('dds-locale-item[language="language-bar"]') as HTMLElement).hidden).toBe(false);
@@ -153,11 +153,11 @@ describe('dds-locale-search', function() {
         document.body
       );
       await Promise.resolve(); // The update cycle for `<bx-locale-search>`
-      await Promise.resolve(); // The update cycle for `<bx-search>`
+      await Promise.resolve(); // The update cycle for `<dds-search>`
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('bx-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
       searchInputNode.dispatchEvent(
-        new CustomEvent('bx-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
+        new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
       );
       searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
       (searchInputNode!.shadowRoot!.querySelector('.bx--search-close') as HTMLElement).click();
