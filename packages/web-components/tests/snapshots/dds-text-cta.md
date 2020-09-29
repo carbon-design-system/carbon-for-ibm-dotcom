@@ -1,4 +1,4 @@
-# `dds-card-cta-footer`
+# `dds-text-cta`
 
 ## `Misc attributes`
 
@@ -6,13 +6,12 @@
 
 ```
 <a
-  class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
+  class="bx--link bx--link-with-icon"
   id="link"
 >
-  <span
-    class="bx--card__cta__copy"
-    hidden=""
-  >
+  <slot name="icon-left">
+  </slot>
+  <span>
     <slot>
     </slot>
   </span>
@@ -26,14 +25,14 @@
 
 ```
 <a
-  class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
+  class="bx--link bx--link-with-icon"
   href="#"
   id="link"
 >
-  <span class="bx--card__cta__copy">
+  <span>
     <slot>
     </slot>
-    undefined-180000
+    video-name-foo-caption
   </span>
   <slot name="icon">
   </slot>
