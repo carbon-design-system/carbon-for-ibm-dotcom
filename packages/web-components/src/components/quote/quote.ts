@@ -108,7 +108,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     }
   }
 
-  _renderQuote() {
+  protected _renderQuote() {
     switch (this.markType) {
       case QUOTE_TYPES.SINGLE_CURVED:
         return html`
