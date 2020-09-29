@@ -32097,7 +32097,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
         Object {
           "hasProfile": true,
           "hasSearch": true,
-          "mastheadL1Data": false,
+          "mastheadL1Data": undefined,
           "navigation": "default",
           "placeHolderText": "Search all of IBM",
           "platform": null,
@@ -32108,7 +32108,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
       <Masthead
         hasProfile={true}
         hasSearch={true}
-        mastheadL1Data={false}
+        mastheadL1Data={null}
         navigation="default"
         placeHolderText="Search all of IBM"
         platform={null}
@@ -37641,7 +37641,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
               "mastheadProps": Object {
                 "hasProfile": true,
                 "hasSearch": true,
-                "mastheadL1Data": false,
+                "mastheadL1Data": undefined,
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
@@ -37673,7 +37673,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
           Object {
             "hasProfile": true,
             "hasSearch": true,
-            "mastheadL1Data": false,
+            "mastheadL1Data": undefined,
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": null,
@@ -37685,7 +37685,7 @@ exports[`Storyshots Components|Dotcom Shell Search open 1`] = `
         <Masthead
           hasProfile={true}
           hasSearch={true}
-          mastheadL1Data={false}
+          mastheadL1Data={null}
           navigation="default"
           placeHolderText="Search all of IBM"
           platform={null}
@@ -43385,7 +43385,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
               "mastheadProps": Object {
                 "hasProfile": true,
                 "hasSearch": true,
-                "mastheadL1Data": false,
+                "mastheadL1Data": undefined,
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
@@ -43414,7 +43414,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
           Object {
             "hasProfile": true,
             "hasSearch": true,
-            "mastheadL1Data": false,
+            "mastheadL1Data": undefined,
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": null,
@@ -43425,7 +43425,7 @@ exports[`Storyshots Components|Dotcom Shell With micro footer 1`] = `
         <Masthead
           hasProfile={true}
           hasSearch={true}
-          mastheadL1Data={false}
+          mastheadL1Data={null}
           navigation="default"
           placeHolderText="Search all of IBM"
           platform={null}
@@ -48853,7 +48853,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
               "mastheadProps": Object {
                 "hasProfile": true,
                 "hasSearch": true,
-                "mastheadL1Data": false,
+                "mastheadL1Data": undefined,
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": Object {
@@ -48887,7 +48887,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
           Object {
             "hasProfile": true,
             "hasSearch": true,
-            "mastheadL1Data": false,
+            "mastheadL1Data": undefined,
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": Object {
@@ -48901,7 +48901,7 @@ exports[`Storyshots Components|Dotcom Shell With platform 1`] = `
         <Masthead
           hasProfile={true}
           hasSearch={true}
-          mastheadL1Data={false}
+          mastheadL1Data={null}
           navigation="default"
           placeHolderText="Search all of IBM"
           platform={
@@ -54464,7 +54464,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
               "mastheadProps": Object {
                 "hasProfile": true,
                 "hasSearch": true,
-                "mastheadL1Data": false,
+                "mastheadL1Data": undefined,
                 "navigation": "default",
                 "placeHolderText": "Search all of IBM",
                 "platform": null,
@@ -54496,7 +54496,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
           Object {
             "hasProfile": true,
             "hasSearch": true,
-            "mastheadL1Data": false,
+            "mastheadL1Data": undefined,
             "navigation": "default",
             "placeHolderText": "Search all of IBM",
             "platform": null,
@@ -54507,7 +54507,7 @@ exports[`Storyshots Components|Dotcom Shell With short footer 1`] = `
         <Masthead
           hasProfile={true}
           hasSearch={true}
-          mastheadL1Data={false}
+          mastheadL1Data={null}
           navigation="default"
           placeHolderText="Search all of IBM"
           platform={null}
@@ -70089,7 +70089,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
     <Masthead
       hasProfile={true}
       hasSearch={true}
-      mastheadL1Data={false}
+      mastheadL1Data={null}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
@@ -70488,7 +70488,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
     <Masthead
       hasProfile={true}
       hasSearch={true}
-      mastheadL1Data={false}
+      mastheadL1Data={null}
       navigation="default"
       placeHolderText="Search all of IBM"
       platform={null}
@@ -71078,6 +71078,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
             "Masthead": Object {
               "hasProfile": true,
               "hasSearch": true,
+              "mastheadL1Data": undefined,
               "navigation": "default",
               "placeHolderText": "Search all of IBM",
               "platform": Object {
