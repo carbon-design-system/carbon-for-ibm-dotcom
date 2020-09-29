@@ -36,7 +36,6 @@ Default.story = {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
         const useMockData = boolean('Use mock data', inPercy());
-        const useL1 = boolean('Use L1');
 
         // For mocking in integration tests
         // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
@@ -46,18 +45,6 @@ Default.story = {
               new Promise(resolve => {
                 setTimeout(resolve, 300000);
               });
-
-        const mastheadL1Data = !useL1
-          ? undefined
-          : {
-              title: text('L1 title (title)', 'Stock Charts', groupId),
-              titleLink: text(
-                'L1 title link (titleLink)',
-                'https://example.com/',
-                groupId
-              ),
-              navigationL1: mastheadKnobs.navigation.custom,
-            };
 
         return {
           navigation: select(
@@ -94,7 +81,6 @@ Default.story = {
             'Services & Consulting',
             groupId
           ),
-          mastheadL1Data,
         };
       },
     },
@@ -122,19 +108,6 @@ WithPlatform.story = {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
         const useMockData = boolean('Use mock data', inPercy());
-        const useL1 = boolean('Use L1');
-
-        const mastheadL1Data = !useL1
-          ? undefined
-          : {
-              title: text('L1 title (title)', 'Stock Charts', groupId),
-              titleLink: text(
-                'L1 title link (titleLink)',
-                'https://example.com/',
-                groupId
-              ),
-              navigationL1: mastheadKnobs.navigation.custom,
-            };
 
         return {
           navigation: select(
@@ -166,9 +139,30 @@ WithPlatform.story = {
             'Services & Consulting',
             groupId
           ),
-          mastheadL1Data,
         };
       },
+    },
+  },
+};
+
+export const WithL1 = ({ parameters }) => <Default parameters={parameters} />;
+
+WithL1.story = {
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => ({
+        ...Default.story.parameters.knobs.Masthead({ groupId }),
+        mastheadL1Data: {
+          title: text('L1 title (title)', 'Stock Charts', groupId),
+          titleLink: text(
+            'L1 title link (titleLink)',
+            'https://example.com/',
+            groupId
+          ),
+          navigationL1: mastheadKnobs.navigation.custom,
+        },
+      }),
     },
   },
 };
