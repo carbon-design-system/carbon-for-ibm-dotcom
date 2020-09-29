@@ -6,7 +6,6 @@
  */
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { DDS_LANGUAGE_SELECTOR } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
@@ -162,7 +161,7 @@ function _loadLocaleLanguage(
   languageInitialItem,
   languageCallback
 ) {
-  if (DDS_LANGUAGE_SELECTOR && languageOnly) {
+  if (languageOnly) {
     return (
       <LanguageSelector
         items={languageItems}
@@ -226,18 +225,18 @@ Footer.propTypes = {
   disableLocaleButton: PropTypes.bool,
 
   /**
-   * `true` to switch the locale button with a language dropdown (experimental).
+   * `true` to switch the locale button with a language dropdown.
    */
   languageOnly: PropTypes.bool,
 
   /**
    * Array of items for the language dropdown,
-   * utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) (experimental).
+   * utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default).
    */
   languageItems: PropTypes.arrayOf(PropTypes.object),
 
   /**
-   * Sets the initial value when the component is loaded (experimental).
+   * Sets the initial language dropdown value when the component is loaded.
    * The default is the first item.
    */
   languageInitialItem: PropTypes.shape({
@@ -246,7 +245,7 @@ Footer.propTypes = {
   }),
 
   /**
-   * Callback function onChange of the language dropdown (experimental).
+   * Callback function onChange of the language dropdown.
    */
   languageCallback: PropTypes.func,
 };
