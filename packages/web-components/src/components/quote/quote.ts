@@ -138,7 +138,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     }
   }
 
-  _renderSource() {
+  protected _renderSource() {
     const {
       _hasSourceHeading: hasSourceHeading,
       _hasSourceCopy: hasSourceCopy,
