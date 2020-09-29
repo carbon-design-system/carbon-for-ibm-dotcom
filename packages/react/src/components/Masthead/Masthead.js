@@ -7,7 +7,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
@@ -275,7 +274,7 @@ const Masthead = ({
                 )}
               </Header>
             </div>
-            {mastheadL1Data && DDS_MASTHEAD_L1 && (
+            {mastheadL1Data && (
               <div ref={mastheadL1Ref}>
                 <MastheadL1
                   {...mastheadL1Data}

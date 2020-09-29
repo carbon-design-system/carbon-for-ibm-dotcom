@@ -6,7 +6,6 @@
  */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import inPercy from '@percy-io/in-percy';
 import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
@@ -47,21 +46,7 @@ Default.story = {
                 setTimeout(resolve, 300000);
               });
 
-        const mastheadL1Data = DDS_MASTHEAD_L1 && {
-          title: text(
-            'L1 title (title) (experimental)',
-            'Stock Charts',
-            groupId
-          ),
-          titleLink: text(
-            'L1 title link (titleLink) (experimental)',
-            'https://example.com/',
-            groupId
-          ),
-          navigationL1: mastheadKnobs.navigation.custom,
-        };
-
-        const standardProps = {
+        return {
           navigation: select(
             'navigation data (navigation)',
             mastheadKnobs.navigation,
@@ -91,15 +76,11 @@ Default.story = {
             'Search all of IBM',
             groupId
           ),
-          mastheadL1Data,
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
             'Services & Consulting',
             groupId
           ),
-        };
-        return {
-          ...standardProps,
         };
       },
     },
@@ -128,7 +109,7 @@ WithPlatform.story = {
       Masthead: ({ groupId }) => {
         const useMockData = boolean('Use mock data', inPercy());
 
-        const standardProps = {
+        return {
           navigation: select(
             'navigation data (navigation)',
             mastheadKnobs.navigation,
@@ -159,28 +140,29 @@ WithPlatform.story = {
             groupId
           ),
         };
-        const mastheadL1Props = DDS_MASTHEAD_L1 && {
-          title: text(
-            'L1 title (title) (experimental)',
-            'Stock Charts',
-            groupId
-          ),
-          eyebrowText: text(
-            'L1 eyebrow text (eyebrowText) (experimental)',
-            'Eyebrow',
-            groupId
-          ),
-          eyebrowLink: text(
-            'L1 eyebrow link (eyebrowLink) (experimental)',
-            '#',
-            groupId
-          ),
-        };
-        return {
-          ...standardProps,
-          ...mastheadL1Props,
-        };
       },
+    },
+  },
+};
+
+export const WithL1 = ({ parameters }) => <Default parameters={parameters} />;
+
+WithL1.story = {
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => ({
+        ...Default.story.parameters.knobs.Masthead({ groupId }),
+        mastheadL1Data: {
+          title: text('L1 title (title)', 'Stock Charts', groupId),
+          titleLink: text(
+            'L1 title link (titleLink)',
+            'https://example.com/',
+            groupId
+          ),
+          navigationL1: mastheadKnobs.navigation.custom,
+        },
+      }),
     },
   },
 };

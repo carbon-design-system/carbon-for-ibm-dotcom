@@ -56,20 +56,28 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
+## Using L1 nav
 
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
+To use L1 nav, set `mastheadL1Data` prop. `mastheadL1Data` prop should be an object that contains the navigation data of L1 nav:
 
+
+```javascipt
+const mastheadL1Data = {
+  title: 'Stock Charts',
+  titleLink: 'https://example.com/',
+  navigationL1: (The nav links),
+}
+
+...
+
+<Masthead mastheadL1Data={mastheadL1Data} />
 ```
-DDS_MASTHEAD_L1=true
-```
 
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
-> for more information
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/MastheadL1)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/MastheadL1)
 
 ## Props
 
