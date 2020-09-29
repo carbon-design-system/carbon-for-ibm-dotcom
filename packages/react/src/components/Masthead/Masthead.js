@@ -6,6 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -181,6 +182,45 @@ const Masthead = ({
     navType = 'eco';
   }
 
+  const headerContainer = useRef(null);
+  const [overflow, setOverflow] = useState(false);
+  const [showRightCaret, setShowRightCaret] = useState(false);
+  const [showLeftCaret, setShowLeftCaret] = useState(false);
+
+  const resizeObserver = new ResizeObserver(() => {
+    console.log(calculateTotalWidth(['bx--header__search']));
+    const containerWidth =
+      calculateTotalWidth(['bx--header__search']) -
+      calculateTotalWidth(['bx--masthead__search']) -
+      calculateTotalWidth(['bx--header__name']);
+    const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
+    if (totalNavWidth > containerWidth) {
+      setOverflow(true);
+      const offset = document.querySelector('.bx--header__nav-container')
+        .scrollLeft;
+      console.log(
+        'on resize',
+        'container: ',
+        containerWidth,
+        'totalNavWidth: ',
+        totalNavWidth,
+        'offset: ',
+        offset
+      );
+      if (offset == 0 || offset + containerWidth <= totalNavWidth) {
+        setShowRightCaret(true);
+      }
+    } else {
+      setOverflow(false);
+      setShowLeftCaret(false);
+      setShowRightCaret(false);
+    }
+  });
+
+  useEffect(() => {
+    resizeObserver.observe(headerContainer.current);
+  }, [headerContainer, resizeObserver]);
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
@@ -224,7 +264,9 @@ const Masthead = ({
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 
-                <div className={`${prefix}--header__search ${hasPlatform}`}>
+                <div
+                  className={`${prefix}--header__search ${hasPlatform}`}
+                  ref={headerContainer}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
@@ -232,6 +274,11 @@ const Masthead = ({
                       navigation={mastheadData}
                       navType={navType}
                       selectedMenuItem={selectedMenuItem}
+                      overflow={overflow}
+                      showRightCaret={showRightCaret}
+                      setShowRightCaret={setShowRightCaret}
+                      showLeftCaret={showLeftCaret}
+                      setShowLeftCaret={setShowLeftCaret}
                     />
                   )}
                   {hasSearch && (

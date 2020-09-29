@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
@@ -18,7 +18,6 @@ import HeaderName from '../../internal/vendor/carbon-components-react/components
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -28,62 +27,36 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
-  const [showRightCaret, setShowRightCaret] = useState(false);
-  const [overflow, setOverflow] = useState(false);
-  const [showLeftCaret, setShowLeftCaret] = useState(false);
-
-  useEffect(() => {
-    onResize();
-    root.addEventListener('resize', onResize);
-    return () => {
-      root.removeEventListener('resize', onResize);
-    };
-  });
-
-  let containerWidth = 0;
-
-  const onResize = () => {
-    containerWidth =
+  function paginateLeft() {
+    const containerWidth =
       calculateTotalWidth(['bx--header__search']) -
       calculateTotalWidth(['bx--masthead__search']) -
       calculateTotalWidth(['bx--header__name']);
-    const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
-    if (totalNavWidth > containerWidth) {
-      setOverflow(true);
-      const offset = document.querySelector('.bx--header__nav-container')
-        .scrollLeft;
-      if (offset == 0 || offset + containerWidth <= totalNavWidth) {
-        setShowRightCaret(true);
-      }
-    } else {
-      setOverflow(false);
-      setShowLeftCaret(false);
-      setShowRightCaret(false);
-    }
-  };
-
-  function paginateLeft() {
     document.querySelector(
       '.bx--header__nav-container'
     ).scrollLeft -= containerWidth;
-    setShowRightCaret(true);
+    topNavProps.setShowRightCaret(true);
     const offset = document.querySelector('.bx--header__nav-container')
-      .scrollLeft;
+      .offsetLeft;
     if (offset <= 0) {
-      setShowLeftCaret(false);
+      topNavProps.setShowLeftCaret(false);
     }
   }
 
   function paginateRight() {
+    const containerWidth =
+      calculateTotalWidth(['bx--header__search']) -
+      calculateTotalWidth(['bx--masthead__search']) -
+      calculateTotalWidth(['bx--header__name']);
     const totalNavWidth = calculateTotalWidth(['bx--header__nav']);
     document.querySelector(
       '.bx--header__nav-container'
     ).scrollLeft += containerWidth;
-    setShowLeftCaret(true);
+    topNavProps.setShowLeftCaret(true);
     const offset = document.querySelector('.bx--header__nav-container')
       .scrollLeft;
     if (offset + containerWidth >= totalNavWidth) {
-      setShowRightCaret(false);
+      topNavProps.setShowRightCaret(false);
     }
   }
 
@@ -138,13 +111,13 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       <HeaderGlobalAction
         className={`${prefix}--header__action-left-caret`}
         aria-label="Masthead left caret"
-        hidden={!showLeftCaret}
+        hidden={!topNavProps.showLeftCaret}
         onClick={paginateLeft}>
         <CaretLeft20 />
       </HeaderGlobalAction>
       <div
         className={classnames(`${prefix}--header__nav-container`, {
-          [`${prefix}--header__nav-container-overflow`]: overflow,
+          [`${prefix}--header__nav-container-overflow`]: topNavProps.overflow,
         })}>
         <HeaderNavigation
           aria-label="IBM"
@@ -155,7 +128,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       <HeaderGlobalAction
         className={`${prefix}--header__action-right-caret`}
         aria-label="Masthead right caret"
-        hidden={!showRightCaret}
+        hidden={!topNavProps.showRightCaret}
         onClick={paginateRight}>
         <CaretRight20 />
       </HeaderGlobalAction>
