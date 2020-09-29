@@ -160,7 +160,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  _renderCTA() {
+  protected _renderCTA() {
     const { _hasCTA: hasCTA, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasCTA}" class="${prefix}--quote__footer">
