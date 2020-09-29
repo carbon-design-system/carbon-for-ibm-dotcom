@@ -7,9 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement } from 'lit-element';
+import { customElement, html, internalProperty, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './pictogram-item.scss';
+import '../content-item/content-item';
+import '../content-item/content-item-heading';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,10 +22,29 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends LitElement {
+  @internalProperty()
+  copy = '';
+
+  protected _handleSlotChange({ target }: Event) {
+    const { name } = target as HTMLSlotElement;
+    if (name === 'copy') {
+      this.copy = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText
+        .replace(/[\n\r]+|[\s]{2,}/g, ' ')
+        .trim();
+      console.log(this.copy);
+    }
+  }
+
   render() {
     return html`
       <div>
-        Hey there Tim!
+        <dds-content-item copy="${this.copy}">
+          <dds-content-item-heading>
+            <slot name="heading"></slot>
+          </dds-content-item-heading>
+          <slot @slotchange="${this._handleSlotChange}" name="copy" slot="copy"></slot>
+          <slot name="cta" slot="cta"></slot>
+        </dds-content-item>
       </div>
     `;
   }

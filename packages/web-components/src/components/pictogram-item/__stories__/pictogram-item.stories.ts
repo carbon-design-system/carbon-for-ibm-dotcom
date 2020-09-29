@@ -20,11 +20,11 @@ export const Default = () => html`
       <div>
         <dds-pictogram-item>
           <span slot="heading">Lorem ipsum dolor sit</span>
-          <span slot="body">
+          <span slot="copy">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua. Ut enim ad minim veniam
           </span>
-          <dds-link-with-icon>
+          <dds-link-with-icon slot="cta">
             Lorem ipsum dolor ${ArrowRight20({ slot: 'icon' })}
           </dds-link-with-icon>
         </dds-pictogram-item>
