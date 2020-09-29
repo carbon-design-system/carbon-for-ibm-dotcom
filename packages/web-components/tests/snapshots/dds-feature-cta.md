@@ -40,11 +40,6 @@
 ```
 <slot name="image">
 </slot>
-<dds-image
-  alt="video-name-foo"
-  default-src="https://example.com/video-thumbnail-foo"
->
-</dds-image>
 <div class="bx--card__wrapper">
   <p
     class="bx--card__eyebrow"
