@@ -13,10 +13,10 @@ import { CTA_TYPE } from '../shared-enums';
 import '../card-cta-footer';
 
 const template = (props?) => {
-  const { type, videoDuration, formatVideoCaption, formatVideoDuration, children } = props ?? {};
+  const { ctaType, videoDuration, formatVideoCaption, formatVideoDuration, children } = props ?? {};
   return html`
     <dds-card-cta-footer
-      type="${ifDefined(type)}"
+      cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}"
@@ -37,7 +37,7 @@ describe('dds-card-cta-footer', function() {
     it('should render with various attributes', async function() {
       render(
         template({
-          type: CTA_TYPE.VIDEO,
+          ctaType: CTA_TYPE.VIDEO,
           videoDuration: 180,
           videoName: 'video-name-foo',
           // Should yeild to `undefined` in `name` part given card footer doesn't render the video name
@@ -55,7 +55,7 @@ describe('dds-card-cta-footer', function() {
     it('should not use the video caption if the content is given', async function() {
       render(
         template({
-          type: CTA_TYPE.VIDEO,
+          ctaType: CTA_TYPE.VIDEO,
           videoDuration: 180,
           videoName: 'video-name-foo',
           children: 'children-foo',

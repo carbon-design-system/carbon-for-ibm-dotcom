@@ -57,7 +57,7 @@
         @include carbon--type-style(body-short-02, true);
       }
 
-      .#{$prefix}--locale-modal__locales-hidden {
+      .#{$prefix}--locale-modal__locales.#{$prefix}--locale-modal__locales-hidden {
         display: none;
       }
 
