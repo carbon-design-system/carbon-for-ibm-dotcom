@@ -22,6 +22,8 @@ import DDSCardCTAFooter from './card-cta-footer';
 import { CTA_TYPE } from './shared-enums';
 import styles from './cta.scss';
 
+export { CTA_TYPE };
+
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -33,7 +35,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-card-cta`)
 class DDSCardCTA extends CTAMixin(DDSCard) {
   protected _renderCopy() {
-    const { videoName, _hasCopy: hasCopy, formatVideoCaption: formatVideoCaptionInEffect } = this;
+    const { ctaType, videoName, _hasCopy: hasCopy, formatVideoCaption: formatVideoCaptionInEffect } = this;
+    if (ctaType !== CTA_TYPE.VIDEO) {
+      return super._renderCopy();
+    }
     const caption = hasCopy ? undefined : formatVideoCaptionInEffect({ name: videoName });
     return html`
       <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
@@ -43,9 +48,9 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
   }
 
   protected _renderImage() {
-    const { type, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
+    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
     const thumbnail =
-      hasImage || type !== CTA_TYPE.VIDEO
+      hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
             <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
@@ -56,6 +61,12 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
     `;
   }
+
+  /**
+   * The CTA type.
+   */
+  @property({ reflect: true, attribute: 'cta-type' })
+  ctaType = CTA_TYPE.REGULAR;
 
   /**
    * The formatter for the video caption, composed with the video name and the video duration.
@@ -70,12 +81,6 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
    */
   @property({ attribute: false })
   formatVideoDuration?: typeof formatVideoDuration;
-
-  /**
-   * The CTA type.
-   */
-  @property({ reflect: true })
-  type = CTA_TYPE.REGULAR;
 
   /**
    * The video duration.
@@ -99,20 +104,20 @@ class DDSCardCTA extends CTAMixin(DDSCard) {
     super.updated(changedProperties);
     const { selectorFooter } = this.constructor as typeof DDSCardCTA;
     if (
-      changedProperties.has('type') ||
+      changedProperties.has('ctaType') ||
       changedProperties.has('formatCaption') ||
       changedProperties.has('formatDuration') ||
       changedProperties.has('videoDuration')
     ) {
       const {
-        type,
+        ctaType,
         videoDuration,
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
       const footer = this.querySelector(selectorFooter);
       if (footer) {
-        (footer as DDSCardCTAFooter).type = type;
+        (footer as DDSCardCTAFooter).ctaType = ctaType;
         (footer as DDSCardCTAFooter).videoDuration = videoDuration;
         if (formatVideoCaptionInEffect) {
           (footer as DDSCardCTAFooter).formatVideoCaption = formatVideoCaptionInEffect;

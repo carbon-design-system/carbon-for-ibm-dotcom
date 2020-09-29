@@ -13,10 +13,10 @@ import { CTA_TYPE } from '../shared-enums';
 import '../feature-cta';
 
 const template = (props?) => {
-  const { type, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } = props ?? {};
+  const { ctaType, videoDuration, videoName, videoThumbnailUrl, formatVideoCaption, formatVideoDuration, children } = props ?? {};
   return html`
     <dds-feature-cta
-      type="${ifDefined(type)}"
+      cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       video-name="${ifDefined(videoName)}"
       video-thumbnail-url="${ifDefined(videoThumbnailUrl)}"
@@ -39,7 +39,7 @@ describe('dds-feature-cta', function() {
     it('should render with various attributes', async function() {
       render(
         template({
-          type: CTA_TYPE.VIDEO,
+          ctaType: CTA_TYPE.VIDEO,
           videoDuration: 180,
           videoName: 'video-name-foo',
           videoThumbnailUrl: 'https://example.com/video-thumbnail-foo',
@@ -57,7 +57,7 @@ describe('dds-feature-cta', function() {
     it('should not use the video name if copy content is given', async function() {
       render(
         template({
-          type: CTA_TYPE.VIDEO,
+          ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
           children: 'video-name-bar',
         }),
@@ -77,7 +77,7 @@ describe('dds-feature-cta', function() {
     it('should not use the thumbnail image if image is given', async function() {
       render(
         template({
-          type: CTA_TYPE.VIDEO,
+          ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
           children: html`
             <dds-image slot="image" alt="image-alt-foo"></dds-image>
