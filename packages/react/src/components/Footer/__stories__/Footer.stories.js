@@ -53,21 +53,8 @@ Default.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
-        };
-
         return {
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
           disableLocaleButton: boolean(
             'hide the locale button (disableLocaleButton)',
             false,
@@ -98,18 +85,6 @@ DefaultLanguageOnly.story = {
       Footer: ({ groupId }) => {
         const languageOnly = true;
 
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
-        };
-
         return {
           languageOnly,
           items: !languageOnly
@@ -120,7 +95,6 @@ DefaultLanguageOnly.story = {
                 groupId
               ),
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
         };
       },
     },
@@ -258,18 +232,6 @@ Micro.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
-        };
-
         return {
           disableLocaleButton: boolean(
             'hide the locale button (disableLocaleButton)',
@@ -277,7 +239,6 @@ Micro.story = {
             groupId
           ),
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
         };
       },
     },
@@ -309,18 +270,6 @@ MicroLanguageOnly.story = {
       Footer: ({ groupId }) => {
         const languageOnly = true;
 
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
-        };
-
         return {
           languageOnly,
           items: !languageOnly
@@ -331,7 +280,6 @@ MicroLanguageOnly.story = {
                 groupId
               ),
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
         };
       },
     },
