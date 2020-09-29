@@ -59,6 +59,12 @@ const slotExistencePropertyNames = {
 class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines rendered quote mark style
+   * styles:
+   * `doubleCurved`: `“ ”`;
+   * `singleCurved`: `‘ ’`;
+   * `singleAngle`: `‹ ›`;
+   * `doubleAngle`: `« »`;
+   * `lowHighReversedDoubleCurved`: `„ “`;
    */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
