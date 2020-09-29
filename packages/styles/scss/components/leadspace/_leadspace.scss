@@ -61,6 +61,7 @@ $btn-min-width: 26;
   &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
     width: 100%;
   }
+
   .#{$prefix}--buttongroup {
     padding-left: 0;
   }
@@ -133,10 +134,12 @@ $btn-min-width: 26;
       margin-bottom: $spacing-09;
       padding-left: 1rem;
       width: 95%;
+      z-index: 1;
       @include carbon--type-style(display-01, true);
     }
 
     .#{$prefix}--leadspace__desc {
+      z-index: 1;
       @include carbon--make-col-ready;
       @include carbon--type-style(expressive-heading-03, true);
       @include carbon--make-col(4, 4);
@@ -168,6 +171,7 @@ $btn-min-width: 26;
   }
 
   @include carbon--breakpoint(md) {
+    :host(#{$dds-prefix}-leadspace),
     .#{$prefix}--leadspace {
       .#{$prefix}--leadspace__container {
         position: relative;
@@ -198,6 +202,7 @@ $btn-min-width: 26;
   }
 
   @include carbon--breakpoint(lg) {
+    :host(#{$dds-prefix}-leadspace),
     .#{$prefix}--leadspace {
       margin-right: auto;
       margin-left: auto;
@@ -233,12 +238,14 @@ $btn-min-width: 26;
   }
 
   @include carbon--breakpoint(xlg) {
+    :host(#{$dds-prefix}-leadspace),
     .#{$prefix}--leadspace {
       padding-top: aspect-ratio(1312px, 560px);
     }
   }
 
   @include carbon--breakpoint(max) {
+    :host(#{$dds-prefix}-leadspace),
     .#{$prefix}--leadspace {
       padding-top: aspect-ratio(1584px, 640px);
     }
