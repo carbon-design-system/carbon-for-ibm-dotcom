@@ -1,10 +1,12 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import '../leadspace';
+import '../leadspace-centered';
 
 # LeadSpace
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/link-list)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/leadspace)
 > example implementation.
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/leadspace)
@@ -13,39 +15,85 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
-### JS
+### JS - Small/Left LeadSpace
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace';
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
 ```
 
 or with [JSPM](https://jspm.org)
 
 ```html
 <script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-list/link-list.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-list/link-list-item.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/card-link/card-link.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/leadspace/leadspace.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
 </script>
 ```
 
 ### HTML
 
 ```html
-<dds-link-list>
-  <dds-link-list-item>
-    <dds-card-link href="https://example.com">
-      <p>Copy text</p>
-      <svg slot="footer" />
-    </dds-card-link>
-  </dds-link-list-item>
-</dds-link-list>
+<dds-leadspace alt="alt text" default-src="www.example.com">
+  <span slot="title">LeadSpace title</span>
+  <span slot="copy">LeadSpace copy</span>
+  <dds-button-group slot="buttons">
+    ${buttons.map( elem => html`
+    <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
+    ` )}
+  </dds-button-group>
+  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
+    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+  </dds-image>
+</dds-leadspace>
+```
+
+### JS - Centered LeadSpace
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace-centered';
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/leadspace/leadspace-centered.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-leadspace-centered alt="alt text" default-src="www.example.com">
+  <span slot="title">LeadSpace title</span>
+  <span slot="copy">LeadSpace copy</span>
+  <dds-button-group slot="buttons">
+    ${buttons.map( elem => html`
+    <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
+    ` )}
+  </dds-button-group>
+  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
+    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+  </dds-image>
+</dds-leadspace-centered>
 ```
 
 ## Props
 
-<Props of="dds-link-list" />
+<Props of="dds-leadspace" />
 <Description markdown={contributing} />
