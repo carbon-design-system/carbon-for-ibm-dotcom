@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLeadSpaceBody from './leadspace-body';
+import DDSLeadSpaceBase from './leadspace-body';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace
  */
 @customElement(`${ddsPrefix}-leadspace`)
-class DDSLeadSpace extends DDSLeadSpaceBody {
+class DDSLeadSpace extends DDSLeadSpaceBase {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace`;
   }
