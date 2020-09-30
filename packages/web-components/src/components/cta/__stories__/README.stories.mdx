@@ -124,24 +124,28 @@ or with [JSPM](https://jspm.org)
 
 <Props of="dds-feature-cta" />
 
-## `<dds-cta-container>` and loading a video player
+## Using a video player
 
-The `<dds-cta-container>` component lets you integrate `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>` with video player quickly. `<dds-cta-container>` automatically renders `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
+The `<dds-video-cta-container>` component lets you integrate `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>` with video player quickly.
+Only one `<dds-cta-container>` has to be put in application.
+Ensure that `<dds-cta-container>` contains all `<dds-text-cta>`/`<dds-card-cta>`/`<dds-feature-cta>`:
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/cta/cta-container';
+import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.js';
 ```
 
 ```html
-<dds-cta-container
-    cta-style="text"
-    item='{
-        "copy": "Copy text",
-        "href": "0_uka1msg4",
-        "type": "video"
-    }'
-></dds-cta-container>
+<dds-video-cta-container>
+  <dds-text-cta cta-type="video" href="0_uka1msg4"></dds-text-cta>
+</dds-video-cta-container>
 ```
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/text)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/cta/text)
 
 ### `dds-cta-run-action` customization
 

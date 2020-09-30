@@ -17,14 +17,6 @@
 export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
 
 /**
- * Feature flag to turn on the Masthead L1
- *
- * @type {boolean}
- */
-export const DDS_MASTHEAD_L1 =
-  process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * Feature flag to turn on the Card with Pictogram
  *
  * @type {boolean}
