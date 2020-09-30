@@ -21,18 +21,28 @@ const { prefix } = settings;
  *
  * @param {string} theme theme of the pattern
  * @param {string} type switches between centered or default
+ * @returns {string} classnames
+ */
+const className = (theme, type) => {
+  const mainClass = mainClassName(type);
+  return classnames({
+    [`${mainClass}--${theme}`]: theme,
+    [`${prefix}--leadspace--productive`]: type === 'small',
+  });
+};
+
+/**
+ * renders main class name
+ *
+ * @param {string} type switches between centered or default
  * @param {object} image object
  * @returns {string} classnames
  */
-const className = (theme, type, image) => {
-  const mainClassName = `${prefix}--leadspace${
-    type === 'centered' ? '--centered' : ''
-  }`;
-  return classnames(mainClassName, {
-    [`${mainClassName}--${theme}`]: theme,
-    [`${prefix}--leadspace--productive`]: type === 'small',
-    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
-  });
+const mainClassName = (type, image) => {
+  return classnames(
+    `${prefix}--leadspace${type === 'centered' ? '--centered' : ''}`,
+    { [`${prefix}--leadspace--centered__image`]: image && type === 'centered' }
+  );
 };
 
 /**
@@ -75,8 +85,12 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
     <section
       style={background}
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(theme, type, image)}>
-      <div className={`${prefix}--leadspace__container`}>
+      className={mainClassName(type, image)}>
+      <div
+        className={classnames(
+          `${prefix}--leadspace__container`,
+          className(theme, type)
+        )}>
         <div
           className={classnames(`${prefix}--leadspace__overlay`, {
             [`${prefix}--leadspace--gradient`]: gradient,

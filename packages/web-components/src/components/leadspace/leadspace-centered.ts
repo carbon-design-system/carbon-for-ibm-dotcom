@@ -18,11 +18,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace
  */
-@customElement(`${ddsPrefix}-leadspace`)
-class DDSLeadSpace extends DDSLeadSpaceBody {
+@customElement(`${ddsPrefix}-leadspace-centered`)
+class DDSLeadSpaceCentered extends DDSLeadSpaceBody {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace`;
   }
 }
 
-export default DDSLeadSpace;
+export default DDSLeadSpaceCentered;

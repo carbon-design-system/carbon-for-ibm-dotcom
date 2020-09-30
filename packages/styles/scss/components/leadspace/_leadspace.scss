@@ -138,6 +138,10 @@ $btn-min-width: 26;
       @include carbon--type-style(display-01, true);
     }
 
+    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+      @include carbon--type-style(expressive-heading-06, true);
+    }
+
     .#{$prefix}--leadspace__desc {
       z-index: 1;
       @include carbon--make-col-ready;
@@ -154,25 +158,18 @@ $btn-min-width: 26;
     }
 
     @include themed-items;
-  }
 
-  .#{$prefix}--leadspace--g100,
-  .#{$prefix}--leadspace--g90 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items(dark);
+    .#{$prefix}--leadspace--g100,
+    .#{$prefix}--leadspace--g90 {
+      @include carbon--theme(
+        $carbon--theme--g100,
+        feature-flag-enabled('enable-css-custom-properties')
+      ) {
+        @include themed-items(dark);
+      }
     }
-  }
 
-  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-    @include carbon--type-style(expressive-heading-06, true);
-  }
-
-  @include carbon--breakpoint(md) {
-    :host(#{$dds-prefix}-leadspace),
-    .#{$prefix}--leadspace {
+    @include carbon--breakpoint(md) {
       .#{$prefix}--leadspace__container {
         position: relative;
       }
@@ -199,11 +196,8 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 8);
       }
     }
-  }
 
-  @include carbon--breakpoint(lg) {
-    :host(#{$dds-prefix}-leadspace),
-    .#{$prefix}--leadspace {
+    @include carbon--breakpoint(lg) {
       margin-right: auto;
       margin-left: auto;
       position: relative;
@@ -230,23 +224,17 @@ $btn-min-width: 26;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
       }
+
+      .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+        @include carbon--make-col(7, 16);
+      }
     }
 
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-      @include carbon--make-col(7, 16);
-    }
-  }
-
-  @include carbon--breakpoint(xlg) {
-    :host(#{$dds-prefix}-leadspace),
-    .#{$prefix}--leadspace {
+    @include carbon--breakpoint(xlg) {
       padding-top: aspect-ratio(1312px, 560px);
     }
-  }
 
-  @include carbon--breakpoint(max) {
-    :host(#{$dds-prefix}-leadspace),
-    .#{$prefix}--leadspace {
+    @include carbon--breakpoint(max) {
       padding-top: aspect-ratio(1584px, 640px);
     }
   }
@@ -262,6 +250,7 @@ $btn-min-width: 26;
     background-size: cover;
     background-position: center top;
 
+    ::slotted(#{$dds-prefix}-button-group),
     .#{$prefix}--buttongroup {
       padding-bottom: $carbon--layout-01;
       padding-top: 0;

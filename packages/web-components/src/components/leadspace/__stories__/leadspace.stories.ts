@@ -15,6 +15,7 @@ import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import styles from './leadspace.stories.scss';
 import '../leadspace';
+import '../leadspace-centered';
 import '../../image/image';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
@@ -70,15 +71,9 @@ export const DefaultWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
-      theme="${ifNonNull(theme)}"
-      gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-      type="centered"
-    >
+    <dds-leadspace-centered theme="${ifNonNull(theme)}" gradient="${ifNonNull(gradient)}" type="centered">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -88,14 +83,14 @@ export const Centered = ({ parameters }) => {
           `
         )}
       </dds-button-group>
-    </dds-leadspace>
+    </dds-leadspace-centered>
   `;
 };
 
 export const CenteredWithImage = ({ parameters }) => {
   const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <dds-leadspace-centered
       theme="${ifNonNull(theme)}"
       gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
@@ -115,7 +110,7 @@ export const CenteredWithImage = ({ parameters }) => {
         <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
       </dds-image>
-    </dds-leadspace>
+    </dds-leadspace-centered>
   `;
 };
 
@@ -229,7 +224,7 @@ export default {
           },
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (defaultSrc):', 'https://dummyimage.com/672x336/ee5396/161616&text=2x1', groupId),
+        defaultSrc: text('Default image (defaultSrc):', 'https://dummyimage.com/1056x480/ee5396/ee5396', groupId),
       }),
     },
   },
