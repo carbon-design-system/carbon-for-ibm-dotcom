@@ -29,17 +29,35 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-image-with-caption`)
 class DDSImageWithCaption extends LitElement {
+  /**
+   * The lightbox.
+   */
   @property({ type: Boolean, reflect: true })
   lightbox = false;
 
+  /**
+   * The image source.
+   */
   @property({ reflect: true })
-  image = { alt: '', defaultSrc: '' };
+  defaultSrc: '';
 
-  @property({ type: String, reflect: true })
-  heading;
+  /**
+   * The alt source.
+   */
+  @property({ reflect: true })
+  alt: '';
 
-  @property({ type: String, reflect: true })
-  copy;
+  /**
+   * The heading.
+   */
+  @property({ reflect: true })
+  heading = '';
+
+  /**
+   * The description.
+   */
+  @property({ reflect: true })
+  copy = '';
 
   _handleClick() {
     const modal = this.shadowRoot?.querySelector('dds-modal');
@@ -51,7 +69,7 @@ class DDSImageWithCaption extends LitElement {
       ${this.lightbox
         ? html`
             <button class="${prefix}--image-with-caption__image" @click="${this._handleClick}">
-              <dds-image alt="${this.image.alt}" default-src="${this.image.defaultSrc}" />
+              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}" />
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
@@ -59,8 +77,8 @@ class DDSImageWithCaption extends LitElement {
             <dds-modal expressive-size="full-width">
               <bx-modal-close-button></bx-modal-close-button>
               <dds-lightbox-image-viewer
-                alt="${this.image.alt}"
-                default-src="${this.image.defaultSrc}"
+                alt="${this.alt}"
+                default-src="${this.defaultSrc}"
                 description="${this.copy}"
                 title="${this.heading}"
               >
@@ -68,7 +86,7 @@ class DDSImageWithCaption extends LitElement {
             </dds-modal>
           `
         : html`
-            <dds-image default-src="${this.image.defaultSrc}" />
+            <dds-image default-src="${this.defaultSrc}" />
           `}
       <p class="${prefix}--image__caption">
         ${this.heading}

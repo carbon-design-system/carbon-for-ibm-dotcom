@@ -14,22 +14,20 @@ import '../image-with-caption';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { image, heading, copy, lightbox } = parameters?.props?.['dds-image-with-caption'] ?? {};
+  const { alt, defaultSrc, heading, copy, lightbox } = parameters?.props?.['dds-image-with-caption'] ?? {};
   return html`
-    <dds-image-with-caption .image=${image} heading="${heading}" copy="${copy}" ?lightbox="${lightbox}" />
+    <dds-image-with-caption alt="${alt}" defaultSrc="${defaultSrc}" heading="${heading}" copy="${copy}" ?lightbox="${lightbox}" />
   `;
 };
 
 export default {
-  title: 'Components/ImageWithCaption',
+  title: 'Components/Image With Caption',
   parameters: {
     ...readme.parameters,
     knobs: {
       'dds-image-with-caption': ({ groupId }) => ({
-        image: {
-          alt: textNullable('Alt text', 'Image alt text', groupId),
-          defaultSrc: textNullable('Default image', 'https://dummyimage.com/672x336/ee5396/161616&text=2x1', groupId),
-        },
+        alt: textNullable('Alt text', 'Image alt text', groupId),
+        defaultSrc: textNullable('Default image', 'https://dummyimage.com/672x336/ee5396/161616&text=2x1', groupId),
         lightbox: boolean('Lightbox', true, groupId),
         copy: textNullable('Copy', 'Lorem ipsum dolor sit amet', groupId),
         heading: textNullable('Heading', 'This is a heading', groupId),
