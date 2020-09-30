@@ -217,6 +217,24 @@
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
   }
+
+  @include carbon--breakpoint-between(800px, 1055px) {
+    .#{$prefix}--masthead__megamenu__container--row {
+      flex-direction: column;
+    }
+
+    .#{$prefix}--masthead__megamenu__highlight-section {
+      border-right: none;
+      border-bottom: carbon--rem(1px) solid $ui-03;
+      column-count: 2;
+      @include carbon--make-col(8, 8);
+    }
+    .#{$prefix}--masthead__megamenu__container--hasHighlights
+      .#{$prefix}--masthead__megamenu__categories,
+    .#{$prefix}--masthead__megamenu__categories {
+      column-count: 2;
+    }
+  }
 }
 
 @include exports('masthead-megamenu') {

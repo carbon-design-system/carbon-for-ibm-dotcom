@@ -43,6 +43,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           selected={selected}
           autoId={autoid}
           key={i}
+          disableScroll={link.hasMegapanel}
           setOverlay={setOverlay}>
           {renderNav(link, autoid)}
         </HeaderMenu>

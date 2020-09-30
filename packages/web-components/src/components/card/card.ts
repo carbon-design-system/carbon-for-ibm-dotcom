@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, TemplateResult } from 'lit-element';
+import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
@@ -37,22 +37,26 @@ class DDSCard extends DDSLink {
   /**
    * `true` if there is eyebrow content.
    */
-  protected _hasEyebrow;
+  @internalProperty()
+  protected _hasEyebrow = false;
 
   /**
    * `true` if there is heading content.
    */
-  protected _hasHeading;
+  @internalProperty()
+  protected _hasHeading = false;
 
   /**
    * `true` if there is image content.
    */
-  protected _hasImage;
+  @internalProperty()
+  protected _hasImage = false;
 
   /**
    * `true` if there is copy content.
    */
-  protected _hasCopy;
+  @internalProperty()
+  protected _hasCopy = false;
 
   /**
    * Handles `slotchange` event.
@@ -63,7 +67,6 @@ class DDSCard extends DDSLink {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
-    this.requestUpdate();
   }
 
   /**
@@ -121,7 +124,10 @@ class DDSCard extends DDSLink {
   href = '';
 
   createRenderRoot() {
-    return this.attachShadow({ mode: 'open', delegatesFocus: true });
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
   }
 
   updated(changedProperties) {

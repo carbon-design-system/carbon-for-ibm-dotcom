@@ -23,7 +23,6 @@ jobs:
         with:
           env-file: packages/react/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-react storybook
@@ -56,7 +55,6 @@ jobs:
         with:
           env-file: packages/react/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           DDS_FLAGS_ALL: true
@@ -90,7 +88,6 @@ jobs:
         with:
           env-file: packages/react/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
           REACT_STORYBOOK_USE_RTL: true
@@ -124,7 +121,6 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-web-components storybook
@@ -157,7 +153,6 @@ jobs:
         with:
           env-file: packages/services/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-services JSDocs
@@ -190,7 +185,6 @@ jobs:
         with:
           env-file: packages/utilities/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-utilities JSDocs
@@ -223,7 +217,6 @@ jobs:
         with:
           env-file: packages/styles/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building Carbon expressive storybook
@@ -256,7 +249,6 @@ jobs:
         with:
           env-file: packages/vanilla/.env
         env:
-          CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
       - name: Building @carbon/ibmdotcom-vanilla storybook

@@ -28,7 +28,6 @@ describe('Footer example', () => {
       command: [
         `cp -r '${src}' ${tmpDir}`,
         `cd ${tmpDir}/footer`,
-        `echo 'CORS_PROXY=${process.env.CORS_PROXY}' > .env`,
         'yarn install',
         ...DEST_DIRS_SERVICES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-services/${dir}`),
         ...DEST_DIRS_SERVICES.map(dir => `cp -r '${servicesRoot}/${dir}' node_modules/@carbon/ibmdotcom-services`),

@@ -406,16 +406,14 @@ $search-transition-timing: 95ms;
     height: $spacing-09;
   }
 
-  .#{$prefix}--masthead--hide-items .#{$prefix}--header__menu-toggle__hidden,
-  .#{$prefix}--masthead--hide-items.bx--masthead
-    .#{$prefix}--side-nav__navigation,
-  .#{$prefix}--masthead--hide-items.bx--masthead
-    .#{$prefix}--side-nav__header-navigation {
-    display: block;
-  }
+  @include carbon--breakpoint-up(800px) {
+    .#{$prefix}--header__menu-toggle__hidden {
+      display: none;
+    }
 
-  .#{$prefix}--masthead--hide-items .#{$prefix}--header__nav-container {
-    display: none;
+    .#{$prefix}--header__nav {
+      display: block;
+    }
   }
 
   .#{$prefix}--body__lock-scroll {

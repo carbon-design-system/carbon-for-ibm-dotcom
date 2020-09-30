@@ -92,6 +92,20 @@
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__cards__row {
     @include carbon--make-row;
+
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px $ui-background;
+    }
   }
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
@@ -106,8 +120,13 @@
 
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
-    margin-top: $carbon--grid-gutter--condensed / 2;
-    margin-bottom: $carbon--grid-gutter--condensed / 2;
+
+    background: $ui-03;
+    padding-top: $carbon--grid-gutter--condensed;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
 
     .#{$prefix}--card--inverse {
       height: 100%;
