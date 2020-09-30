@@ -39,13 +39,13 @@ class DDSImageWithCaption extends LitElement {
    * The image source.
    */
   @property({ reflect: true })
-  defaultSrc: '';
+  defaultSrc = '';
 
   /**
-   * The alt source.
+   * The alt text.
    */
   @property({ reflect: true })
-  alt: '';
+  alt = '';
 
   /**
    * The heading.
