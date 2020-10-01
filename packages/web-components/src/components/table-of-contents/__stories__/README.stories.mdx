@@ -1,0 +1,72 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# `<dds-table-of-contents>`
+
+> Table of contents display pre-defined sections of the page and provide a
+> convenient way to navigate to those sections. It also sticks to the top of the
+> page when scrolling for easy access.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/table-of-contents)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/table-of-contents)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents';
+```
+
+### HTML
+
+```html
+<dds-table-of-contents>
+  <a name="1" data-title="Section - 1"></a>
+  <h3>Section - 1</h3>
+  <p>Section 1 content</p>
+  <a name="2" data-title="Section - 2"></a>
+  <h3>Section - 2</h3>
+  <p>Section 2 content</p>
+  <a name="3" data-title="Section - 3"></a>
+  <h3>Section - 3</h3>
+  <p>Section 3 content</p>
+</dds-table-of-contents>
+```
+
+## Harvesting the table of contents
+
+`<dds-table-of-contents>` automatically harvests the table of contents by looking for `<a>`s with their `name` attribute.
+The titles in the table of contents are harvested from the text content in `<a>` by default. 
+You can add `data-title` attribute to the `<a>`s to change the titles.
+
+## Adjusting the position of `<select>` box
+
+`<dds-table-of-contents>` uses `<select>` as the table if the browser viewport has narrow width.
+It sticks at the very top by default, but you can adjust the position via CSS.
+This is useful e.g. when you use `<dds-table-of-contents>` with ibm.com masthead.
+
+```css
+dds-table-of-contents::part(table) {
+  top: 3rem;
+}
+```
+
+## Slots
+
+<Props of="dds-table-of-contents" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector   | Compatibility selector               | Description |
+| ------------------------- | ------------------------------------ | ----------- |
+| `<dds-table-of-contents>` | `data-autoid="dds--tableofcontents"` | Component   |
+
+<Description markdown={contributing} />
