@@ -117,7 +117,11 @@ export const Short = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 Short.story = {
@@ -168,7 +172,11 @@ export const ShortLanguageOnly = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 ShortLanguageOnly.story = {
@@ -225,7 +233,11 @@ export const Micro = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 Micro.story = {
@@ -261,7 +273,11 @@ export const MicroLanguageOnly = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 MicroLanguageOnly.story = {
