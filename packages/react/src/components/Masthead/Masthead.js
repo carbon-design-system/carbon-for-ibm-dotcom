@@ -181,8 +181,6 @@ const Masthead = ({
     navType = 'eco';
   }
 
-  const topNavRef = useRef(null);
-
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
@@ -226,9 +224,7 @@ const Masthead = ({
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 
-                <div
-                  className={`${prefix}--header__search ${hasPlatform}`}
-                  ref={topNavRef}>
+                <div className={`${prefix}--header__search ${hasPlatform}`}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
@@ -236,7 +232,6 @@ const Masthead = ({
                       navigation={mastheadData}
                       navType={navType}
                       selectedMenuItem={selectedMenuItem}
-                      topNavRef={topNavRef}
                     />
                   )}
                   {hasSearch && (

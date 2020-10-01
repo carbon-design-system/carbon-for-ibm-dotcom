@@ -16,7 +16,6 @@
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
-  white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
@@ -87,10 +86,6 @@
   }
 
   .#{$prefix}--header__search--actions {
-    float: right;
-  }
-
-  .#{$prefix}--masthead__search--active .bx--header__search--actions {
     position: absolute;
     top: 0;
     right: 0;
@@ -99,8 +94,8 @@
   // search container
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
-    flex: 1;
     height: $carbon--spacing-09;
+    margin-left: 48px;
 
     &.#{$prefix}--masthead__search--active,
     &[active] {

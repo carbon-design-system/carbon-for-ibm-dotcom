@@ -216,12 +216,11 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__nav-container {
     height: 100%;
+    overflow-x: hidden;
     @include carbon--breakpoint(md) {
       display: flex;
+      flex: 1;
     }
-  }
-  .#{$prefix}--header__nav-container-overflow {
-    overflow-x: hidden;
   }
 
   .#{$prefix}--header__nav {
