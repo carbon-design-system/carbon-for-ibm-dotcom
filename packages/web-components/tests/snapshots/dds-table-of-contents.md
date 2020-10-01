@@ -6,7 +6,10 @@
 
 ```
 <div class="dds-ce--table-of-contents__container">
-  <div class="bx--tableofcontents__sidebar">
+  <div
+    class="bx--tableofcontents__sidebar"
+    part="table"
+  >
     <div
       class="bx--tableofcontents__desktop__children"
       hidden=""
@@ -45,7 +48,10 @@
 
 ```
 <div class="dds-ce--table-of-contents__container">
-  <div class="bx--tableofcontents__sidebar">
+  <div
+    class="bx--tableofcontents__sidebar"
+    part="table"
+  >
     <div class="bx--tableofcontents__desktop__children">
       <slot name="heading">
       </slot>
@@ -81,7 +87,10 @@
 
 ```
 <div class="dds-ce--table-of-contents__container">
-  <div class="bx--tableofcontents__sidebar">
+  <div
+    class="bx--tableofcontents__sidebar"
+    part="table"
+  >
     <div class="bx--tableofcontents__mobile-top">
     </div>
     <div class="dds-ce--table-of-contents__items-container">
