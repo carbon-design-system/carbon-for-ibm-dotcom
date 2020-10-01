@@ -9,10 +9,12 @@
 
 import { customElement, html, internalProperty, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from 'carbon-components/es/globals/js/settings';
 import styles from './pictogram-item.scss';
 import '../content-item/content-item';
 import '../content-item/content-item-heading';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -22,6 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends LitElement {
+  /**
+   * Internal Property for get copy from slot
+   */
   @internalProperty()
   copy = '';
 
@@ -31,20 +36,24 @@ class DDSPictogramItem extends LitElement {
       this.copy = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText
         .replace(/[\n\r]+|[\s]{2,}/g, ' ')
         .trim();
-      console.log(this.copy);
     }
   }
 
   render() {
     return html`
-      <div>
-        <dds-content-item copy="${this.copy}">
-          <dds-content-item-heading>
-            <slot name="heading"></slot>
-          </dds-content-item-heading>
-          <slot @slotchange="${this._handleSlotChange}" name="copy" slot="copy"></slot>
-          <slot name="cta" slot="cta"></slot>
-        </dds-content-item>
+      <div class="${prefix}--pictogram-item__row">
+        <div class="${prefix}--pictogram-item__wrapper">
+          <slot class="${prefix}--pictogram-item__pictogram" name="pictogram"></slot>
+        </div>
+        <div class="${prefix}--pictogram-item__content">
+          <dds-content-item copy="${this.copy}">
+            <dds-content-item-heading>
+              <slot name="heading"></slot>
+            </dds-content-item-heading>
+            <slot @slotchange="${this._handleSlotChange}" name="copy" slot="copy"></slot>
+            <slot name="cta" slot="cta"></slot>
+          </dds-content-item>
+        </div>
       </div>
     `;
   }

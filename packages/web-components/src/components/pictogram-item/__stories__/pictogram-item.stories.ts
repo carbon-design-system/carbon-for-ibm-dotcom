@@ -12,31 +12,59 @@ import '../pictogram-item';
 import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 
 export const Default = () => html`
-  <div>
-    <div>
-      <div>
-        <dds-pictogram-item>
-          <span slot="heading">Lorem ipsum dolor sit</span>
-          <span slot="copy">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam
-          </span>
-          <dds-link-with-icon slot="cta">
-            Lorem ipsum dolor ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-with-icon>
-        </dds-pictogram-item>
-      </div>
-    </div>
-  </div>
+  <dds-pictogram-item>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      data-autoid="dds--pictogram-item__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      role="img"
+      class="bx--pictogram-item__pictogram"
+    >
+      <path
+        fill="none"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width=".72"
+        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+      ></path>
+    </svg>
+    <span slot="heading">Lorem ipsum dolor sit</span>
+    <span slot="copy">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam
+    </span>
+    <dds-link-with-icon slot="cta">
+      Lorem ipsum dolor ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-with-icon>
+  </dds-pictogram-item>
 `;
 
 export default {
   title: 'Components/Pictogram Item',
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     hasGrid: true,
   },
+  decorators: [
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-6 bx--offset-lg-3">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
 };
