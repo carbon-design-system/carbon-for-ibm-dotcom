@@ -7,10 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import './callout-data-container';
 import styles from './callout-data.scss';
 
 const { prefix } = settings;
@@ -25,10 +24,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSCalloutData extends LitElement {
   render() {
     return html`
-      <dds-callout-data-container class="test">
-        <h4 class="${prefix}--callout-data__data"><slot name="data" /></h4>
-        <p class="${prefix}--callout-data__copy"><slot name="copy" /></p>
-      </dds-callout-data-container>
+      <div class="${prefix}--callout__container">
+        <div class="${prefix}--callout__column">
+          <div class="${prefix}--callout__content">
+            <h4 class="${prefix}--callout-data__data"><slot name="data" /></h4>
+            <p class="${prefix}--callout-data__copy"><slot name="copy" /></p>
+          </div>
+        </div>
+      </div>
       <p class="${prefix}--callout-data__source"><slot name="source" /></p>
     `;
   }
