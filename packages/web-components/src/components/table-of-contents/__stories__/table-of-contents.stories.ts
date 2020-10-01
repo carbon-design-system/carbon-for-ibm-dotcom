@@ -38,7 +38,7 @@ export const WithHeadingContent = ({ parameters }) => {
       ${!menuRule
         ? nothing
         : html`
-            <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
+            <dds-hr slot="menu-rule"></dds-hr>
           `}
       ${content()}
     </dds-table-of-contents>

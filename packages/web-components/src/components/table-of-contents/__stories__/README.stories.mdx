@@ -39,7 +39,25 @@ import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-o
 </dds-table-of-contents>
 ```
 
-## Props
+## Harvesting the table of contents
+
+`<dds-table-of-contents>` automatically harvests the table of contents by looking for `<a>`s with their `name` attribute.
+The titles in the table of contents are harvested from the text content in `<a>` by default. 
+You can add `data-title` attribute to the `<a>`s to change the titles.
+
+## Adjusting the position of `<select>` box
+
+`<dds-table-of-contents>` uses `<select>` as the table if the browser viewport has narrow width.
+It sticks at the very top by default, but you can adjust the position via CSS.
+This is useful e.g. when you use `<dds-table-of-contents>` with ibm.com masthead.
+
+```css
+dds-table-of-contents::part(table) {
+  top: 3rem;
+}
+```
+
+## Slots
 
 <Props of="dds-table-of-contents" />
 

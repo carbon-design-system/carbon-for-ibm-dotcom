@@ -24,6 +24,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Table of contents.
  *
  * @element dds-table-of-contents
+ * @csspart table - The table UI.
+ * @slot heading - The heading content.
+ * @slot menu-rule - The menu rule.
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends StableSelectorMixin(LitElement) {
@@ -266,7 +269,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     } = this;
     return html`
       <div class="${ddsPrefix}-ce--table-of-contents__container">
-        <div class="${prefix}--tableofcontents__sidebar">
+        <div part="table" class="${prefix}--tableofcontents__sidebar">
           ${hasMobileContainerVisible
             ? nothing
             : html`
