@@ -6,7 +6,6 @@
  */
 
 import { boolean, object } from '@storybook/addon-knobs';
-import { DDS_LANGUAGE_SELECTOR } from '../../../internal/FeatureFlags';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-thin.json';
@@ -54,30 +53,39 @@ Default.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
-        const languageOnly =
-          DDS_LANGUAGE_SELECTOR &&
-          boolean(
-            'switch to the language selector (languageOnly)',
+        return {
+          languageInitialItem: { id: 'en', text: 'English' },
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
             false,
             groupId
-          );
-
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
+          ),
         };
+      },
+    },
+  },
+};
 
-        const knobs = Short.story.parameters.knobs.Footer({ groupId });
+export const DefaultLanguageOnly = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+      },
+    },
+  };
+
+  return <Default parameters={massagedParameters} />;
+};
+
+DefaultLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const languageOnly = true;
 
         return {
-          ...knobs,
           languageOnly,
           items: !languageOnly
             ? undefined
@@ -87,7 +95,6 @@ Default.story = {
                 groupId
               ),
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
         };
       },
     },
@@ -110,7 +117,11 @@ export const Short = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 Short.story = {
@@ -146,6 +157,67 @@ Short.story = {
 };
 
 /**
+ * Footer (short language only)
+ *
+ * @returns {*} CSF story
+ */
+export const ShortLanguageOnly = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
+      },
+    },
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
+};
+
+ShortLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const isCustom = boolean(
+          'show custom navigation (not a prop)',
+          inPercy(),
+          groupId
+        );
+        const languageOnly = true;
+
+        return {
+          isCustom,
+          languageOnly,
+          items: !languageOnly
+            ? undefined
+            : object(
+                'language dropdown items (languageItems)',
+                languageItems,
+                groupId
+              ),
+          languageInitialItem: { id: 'en', text: 'English' },
+          navigation: isCustom
+            ? object(
+                'custom navigation data (navigation)',
+                {
+                  footerMenu,
+                  footerThin,
+                },
+                groupId
+              )
+            : null,
+        };
+      },
+    },
+  },
+};
+
+/**
  * Footer (micro)
  *
  * @returns {*} CSF story
@@ -161,32 +233,58 @@ export const Micro = ({ parameters }) => {
     },
   };
 
-  return <Default parameters={massagedParameters} />;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
 };
 
 Micro.story = {
   parameters: {
     knobs: {
       Footer: ({ groupId }) => {
-        const languageOnly =
-          DDS_LANGUAGE_SELECTOR &&
-          boolean(
-            'switch to the language selector (languageOnly)',
+        return {
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
             false,
             groupId
-          );
-
-        /**
-         * Language callback demo function
-         *
-         * @param {string} selectedItem Selected item
-         */
-        const languageCallback = selectedItem => {
-          console.log(
-            'footer (language selector) selected item:',
-            selectedItem
-          );
+          ),
+          languageInitialItem: { id: 'en', text: 'English' },
         };
+      },
+    },
+  },
+};
+
+/**
+ * Footer (micro language only)
+ *
+ * @returns {*} CSF story
+ */
+export const MicroLanguageOnly = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'micro',
+      },
+    },
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+      <Default parameters={massagedParameters} />
+    </div>
+  );
+};
+
+MicroLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const languageOnly = true;
 
         return {
           languageOnly,
@@ -198,7 +296,6 @@ Micro.story = {
                 groupId
               ),
           languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
         };
       },
     },

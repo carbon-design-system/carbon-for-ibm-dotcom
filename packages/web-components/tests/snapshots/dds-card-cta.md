@@ -78,7 +78,6 @@
   class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
   href="#"
   id="link"
-  type="video"
 >
   <span class="bx--card__cta__copy">
     <slot>
