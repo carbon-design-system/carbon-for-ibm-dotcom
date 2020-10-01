@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLeadSpaceBase from './leadspace-body';
+import DDSLeadSpaceBase from './leadspace-base';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
