@@ -45,7 +45,6 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
     return html`
       ${this._renderContent()}${this._renderIcon()}

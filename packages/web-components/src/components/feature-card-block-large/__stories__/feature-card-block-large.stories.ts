@@ -20,15 +20,15 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-feature-card-block-large href=${ifNonNull(href || undefined)}>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="https://dummyimage.com/672x672/ee5396/161616&text=1:1">
+        <dds-image-item media="(min-width: 1312px)" srcset="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1">
         </dds-image-item>
-        <dds-image-item media="(min-width: 1056px)" srcset="https://dummyimage.com/600x300/ee5396/161616&text=2:1">
+        <dds-image-item media="(min-width: 1056px)" srcset="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1">
         </dds-image-item>
-        <dds-image-item media="(min-width: 991px)" srcset="https://dummyimage.com/600x600/ee5396/161616&text=1:1">
+        <dds-image-item media="(min-width: 991px)" srcset="https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1">
         </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/400x200/ee5396/161616&text=2:1">
+        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1">
         </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x160/ee5396/161616&text=2:1">
+        <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1">
         </dds-image-item>
       </dds-image>
       <slot slot="eyebrow">${eyebrow}</slot>
