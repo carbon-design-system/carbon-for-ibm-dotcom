@@ -17,6 +17,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Feature Card Block Medium
  *
  * @element dds-feature-card-block-medium
+ * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
 class DDSFeatureCardBlockMedium extends LitElement {

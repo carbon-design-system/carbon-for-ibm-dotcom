@@ -10,7 +10,7 @@
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/shared-enums';
 import '../../image/image';
@@ -141,7 +141,7 @@ export default {
     `,
   ],
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     gridLargeColumnClass: 'bx--col-lg-8',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
