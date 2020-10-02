@@ -136,6 +136,39 @@ jobs:
           cf-app: ibmdotcom-web-components-canary
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/web-components
+  web-components-rtl:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL: true
+      - name: Building @carbon/ibmdotcom-web-components RTL storybook
+        run: yarn build-storybook
+        working-directory: packages/web-components
+      - name: Deploying @carbon/ibmdotcom-web-components RTL storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
+        with:
+          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
+          cf-app: ibmdotcom-web-components-rtl
+          cf-manifest: manifest-rtl.yml
+          deploy-dir: packages/web-components
   services:
     runs-on: ubuntu-16.04
     steps:

@@ -23,6 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Simple version of content block.
  *
  * @element dds-content-block-simple
+ * @slot media - The media content.
  */
 @customElement(`${ddsPrefix}-content-block-simple`)
 class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {

@@ -74,7 +74,7 @@ const defaultCardGroupItem = html`
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&text=4:3">
+    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
     </dds-image>
     <div slot="eyebrow">Topic</div>
     <div slot="heading">Natural Language Processing.</div>

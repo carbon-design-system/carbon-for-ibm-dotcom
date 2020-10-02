@@ -29,6 +29,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Locale modal.
  *
  * @element dds-locale-modal
+ * @slot regions-selector - The area for the regions selector.
+ * @slot locales-selector - The area for the locales selector.
  */
 @customElement(`${ddsPrefix}-locale-modal`)
 // `BXModal` extends `HostListenerMixin`
