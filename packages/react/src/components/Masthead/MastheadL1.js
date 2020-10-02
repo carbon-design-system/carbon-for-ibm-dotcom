@@ -38,7 +38,7 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
     if (window.ResizeObserver) {
       setResizeObserver(
         new ResizeObserver(() => {
-          setContainerWidth(calculateTotalWidth(['bx--masthead__l1']));
+          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
           setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
         })
       );
@@ -47,8 +47,19 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
 
   useEffect(() => {
     if (totalNavWidth > containerWidth) {
-      if (headerNavContainer.current.scrollLeft === 0) {
+      console.log(
+        totalNavWidth,
+        containerWidth,
+        headerNavContainer.current.scrollLeft
+      );
+      if (
+        headerNavContainer.current.scrollLeft === 0 ||
+        headerNavContainer.current.scrollLeft + containerWidth < totalNavWidth
+      ) {
         setShowRightCaret(true);
+      }
+      if (headerNavContainer.current.scrollLeft > 0) {
+        setShowLeftCaret(true);
       }
     } else {
       setShowLeftCaret(false);

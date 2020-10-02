@@ -49,7 +49,10 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   useEffect(() => {
     if (totalNavWidth > containerWidth) {
-      if (headerNavContainer.current.scrollLeft === 0) {
+      if (
+        headerNavContainer.current.scrollLeft === 0 ||
+        headerNavContainer.current.scrollLeft + containerWidth < totalNavWidth
+      ) {
         setShowRightCaret(true);
       }
     } else {
