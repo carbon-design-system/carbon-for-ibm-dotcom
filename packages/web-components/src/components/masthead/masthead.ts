@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead
  * @slot brand - The left hand area.
- * @slot nav - The nav area.
+ * @slot nav - The nav content.
  * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-masthead`)
