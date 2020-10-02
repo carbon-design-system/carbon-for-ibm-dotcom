@@ -133,7 +133,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    *
    * @param event The event.
    */
-  // eslint-disable-next-line class-methods-use-this
   private _handleChangeSelect(event: Event) {
     this._handleUserInitiatedJump((event.target as HTMLSelectElement).value);
   }

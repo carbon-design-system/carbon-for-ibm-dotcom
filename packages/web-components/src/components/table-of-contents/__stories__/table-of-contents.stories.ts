@@ -28,11 +28,11 @@ export const WithHeadingContent = ({ parameters }) => {
   return html`
     <dds-table-of-contents>
       <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672">
-        <dds-image-item media="(min-width: 1056px)" srcset="https://dummyimage.com/672x672&text=Example%20Children">
+        <dds-image-item media="(min-width: 1056px)" srcset="https://dummyimage.com/672x672&amp;text=Example%20Children">
         </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x200&text=Example%20Children">
+        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x200&amp;text=Example%20Children">
         </dds-image-item>
-        <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/672x200&text=Example%20Children">
+        <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/672x200&amp;text=Example%20Children">
         </dds-image-item>
       </dds-image>
       ${!menuRule

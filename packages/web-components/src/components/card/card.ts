@@ -88,7 +88,6 @@ class DDSCard extends DDSLink {
   /**
    * @returns The image content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderImage(): TemplateResult | string | void {
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
@@ -104,13 +103,13 @@ class DDSCard extends DDSLink {
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
         <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}" />
+          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
         </p>
         <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
-          <slot name="heading" @slotchange="${handleSlotChange}" />
+          <slot name="heading" @slotchange="${handleSlotChange}"></slot>
         </h3>
         ${this._renderCopy()}
-        <slot name="footer" />
+        <slot name="footer"></slot>
       </div>
     `;
   }
