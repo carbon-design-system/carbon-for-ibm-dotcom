@@ -12,7 +12,7 @@
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption,
-  :host(#{$dds-prefix}-image-with-caption){
+  :host(#{$dds-prefix}-image-with-caption) {
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
     max-width: carbon--mini-units(80);
@@ -21,10 +21,6 @@
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
     }
-  }
-
-  :host(#{$dds-prefix}-image-with-caption) #{$dds-prefix}-modal {
-    left: 0;
   }
 
   .#{$prefix}--image-with-caption__image {
@@ -39,7 +35,8 @@
       @include carbon--breakpoint(md) {
         cursor: pointer;
 
-        .#{$prefix}--image__img, #{$dds-prefix}-image {
+        .#{$prefix}--image__img,
+        #{$dds-prefix}-image {
           filter: brightness(80%);
         }
 

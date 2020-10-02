@@ -16,7 +16,13 @@ import readme from './README.stories.mdx';
 export const Default = ({ parameters }) => {
   const { alt, defaultSrc, heading, copy, lightbox } = parameters?.props?.['dds-image-with-caption'] ?? {};
   return html`
-    <dds-image-with-caption alt="${alt}" defaultSrc="${defaultSrc}" heading="${heading}" copy="${copy}" ?lightbox="${lightbox}" />
+    <dds-image-with-caption
+      alt="${alt}"
+      default-src="${defaultSrc}"
+      heading="${heading}"
+      copy="${copy}"
+      ?lightbox="${lightbox}"
+    />
   `;
 };
 

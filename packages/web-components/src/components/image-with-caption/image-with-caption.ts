@@ -10,13 +10,15 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import on from 'carbon-components/es/globals/js/misc/on';
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
-import DDSModal from '../modal/modal';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import styles from './image-with-caption.scss';
+import ModalRenderMixin from '../../globals/mixins/modal-render';
+import Handle from '../../globals/internal/handle';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
-class DDSImageWithCaption extends LitElement {
+class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   /**
    * The lightbox.
    */
@@ -38,7 +40,7 @@ class DDSImageWithCaption extends LitElement {
   /**
    * The image source.
    */
-  @property({ reflect: true })
+  @property({ reflect: true, attribute: 'default-src' })
   defaultSrc = '';
 
   /**
@@ -59,9 +61,45 @@ class DDSImageWithCaption extends LitElement {
   @property({ reflect: true })
   copy = '';
 
+  /**
+   * `true` if the modal should be open.
+   */
+  @property({ type: Boolean, reflect: true })
+  open = false;
+
   _handleClick() {
-    const modal = this.shadowRoot?.querySelector('dds-modal');
-    (modal as DDSModal).open = true;
+    this.open = true;
+  }
+
+  /**
+   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   */
+  private _hCloseModal: Handle | null = null;
+
+  /**
+   * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
+   */
+  private _handleCloseModal = () => {
+    console.log('open', this.open);
+    this.open = false;
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
+    // Manually hooks the event listeners on the modal render root to make the event names configurable
+    this._hCloseModal = on(
+      this.modalRenderRoot,
+      (this.constructor as typeof DDSImageWithCaption).eventCloseModal,
+      this._handleCloseModal as EventListener
+    );
+  }
+
+  disconnectedCallback() {
+    if (this._hCloseModal) {
+      this._hCloseModal = this._hCloseModal.release();
+    }
+    super.disconnectedCallback();
   }
 
   render() {
@@ -74,16 +112,6 @@ class DDSImageWithCaption extends LitElement {
                 ${ZoomIn20()}
               </div>
             </button>
-            <dds-modal expressive-size="full-width">
-              <bx-modal-close-button></bx-modal-close-button>
-              <dds-lightbox-image-viewer
-                alt="${this.alt}"
-                default-src="${this.defaultSrc}"
-                description="${this.copy}"
-                title="${this.heading}"
-              >
-              </dds-lightbox-image-viewer>
-            </dds-modal>
           `
         : html`
             <dds-image default-src="${this.defaultSrc}" />
@@ -94,7 +122,29 @@ class DDSImageWithCaption extends LitElement {
     `;
   }
 
+  /**
+   * The name of the custom event fired after the modal is closed upon a user gesture.
+   */
+  static get eventCloseModal() {
+    return `${ddsPrefix}-modal-closed`;
+  }
+
   static styles = styles;
+
+  renderModal() {
+    return html`
+      <dds-modal ?open=${this.open} expressive-size="full-width">
+        <bx-modal-close-button></bx-modal-close-button>
+        <dds-lightbox-image-viewer
+          alt="${this.alt}"
+          default-src="${this.defaultSrc}"
+          description="${this.copy}"
+          title="${this.heading}"
+        >
+        </dds-lightbox-image-viewer>
+      </dds-modal>
+    `;
+  }
 }
 
 export default DDSImageWithCaption;
