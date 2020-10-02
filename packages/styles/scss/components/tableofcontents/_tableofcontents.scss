@@ -46,6 +46,7 @@
 }
 
 @mixin tableofcontents {
+  :host(#{$dds-prefix}-table-of-contents),
   .#{$prefix}--tableofcontents {
     text-size-adjust: 100%;
 

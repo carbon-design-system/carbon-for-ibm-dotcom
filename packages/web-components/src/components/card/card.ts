@@ -31,6 +31,10 @@ const slotExistencePropertyNames = {
  * Card.
  *
  * @element dds-card
+ * @slot eyebrow - The eyebrow content.
+ * @slot heading - The heading content.
+ * @slot image - The image content.
+ * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
 class DDSCard extends DDSLink {
