@@ -13,25 +13,18 @@ import '../callout-data';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  console.log(parameters);
   const { data, copy, source } = parameters?.props?.CalloutData?.props ?? {};
 
   return html`
-    <div class="bx--grid" style="width: 100%">
-      <div class="bx--row">
-        <div class="bx--offset-lg-3 bx--col-lg-9">
-          <dds-callout-data>
-            <span slot="data">${data}</span>
-            <span slot="copy">
-              ${copy}
-            </span>
-            <span slot="source">
-              ${source}
-            </span>
-          </dds-callout-data>
-        </div>
-      </div>
-    </div>
+    <dds-callout-data>
+      <span slot="data">${data}</span>
+      <span slot="copy">
+        ${copy}
+      </span>
+      <span slot="source">
+        ${source}
+      </span>
+    </dds-callout-data>
   `;
 };
 
@@ -58,5 +51,16 @@ export default {
         },
       }),
     },
+    decorators: [
+      story => html`
+        <div class="bx--grid" style="width: 100%">
+          <div class="bx--row">
+            <div class="bx--offset-lg-3 bx--col-lg-9">
+              ${story()}
+            </div>
+          </div>
+        </div>
+      `,
+    ],
   },
 };
