@@ -47,11 +47,6 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
 
   useEffect(() => {
     if (totalNavWidth > containerWidth) {
-      console.log(
-        totalNavWidth,
-        containerWidth,
-        headerNavContainer.current.scrollLeft
-      );
       if (
         headerNavContainer.current.scrollLeft === 0 ||
         headerNavContainer.current.scrollLeft + containerWidth < totalNavWidth
