@@ -54,7 +54,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   function paginateLeft() {
     headerNavContainer.current.scrollLeft -= containerWidth;
     if (showLeftCaret) {
-      headerNavContainer.current.scrollLeft -= 48;
+      headerNavContainer.current.scrollLeft -= 40;
     }
     setShowRightCaret(true);
     if (headerNavContainer.current.scrollLeft <= 0) {

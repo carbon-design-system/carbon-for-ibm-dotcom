@@ -325,7 +325,7 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__action-left-caret,
   .#{$prefix}--header__action-right-caret {
-    min-width: 40px;
+    width: 40px;
     display: none;
     position: relative;
     @media (min-width: 800px) {

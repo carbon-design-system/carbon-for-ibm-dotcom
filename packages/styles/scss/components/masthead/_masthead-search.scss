@@ -54,7 +54,10 @@
     align-items: center;
     position: relative;
     height: 100%;
-    overflow-x: auto;
+
+    @include carbon--breakpoint(md) {
+      overflow-x: auto;
+    }
 
     &.#{$prefix}--masthead__platform {
       .#{$prefix}--header__nav {

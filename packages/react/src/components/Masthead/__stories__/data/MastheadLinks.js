@@ -13,7 +13,7 @@
 
 const mastheadLinks = [
   {
-    title: 'Link 1 Link 1 Link 1',
+    title: 'Lorem ipsum dolor sit amet',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -62,7 +62,7 @@ const mastheadLinks = [
     ],
   },
   {
-    title: 'Link 2 Link 2 Link 2 Link 2 Link 2 Link 2',
+    title: 'Consectetur adipiscing elit',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -156,21 +156,14 @@ const mastheadLinks = [
     ],
   },
   {
-    title: 'Industries Industries Industries Industries Industries',
+    title: 'Nulla quis sem at nibh elementum imperdiet',
     url: 'https://www.ibm.com/industries?lnk=min',
     hasMenu: false,
     hasMegapanel: false,
     menuSections: [],
   },
   {
-    title: 'hello hello hello hello hello hello hello',
-    url: 'https://www.ibm.com/industries?lnk=min',
-    hasMenu: false,
-    hasMegapanel: false,
-    menuSections: [],
-  },
-  {
-    title: 'Link 3 Link 3 Link 3 Link 3 Link 3',
+    title: 'Fusce nec tellus sed augue semper porta',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -347,7 +340,7 @@ const mastheadLinks = [
     ],
   },
   {
-    title: 'Support Support Support Support',
+    title: 'Sed cursus ante dapibus diam',
     url: 'https://www.ibm.com/support/home/?lnk=msu_usen',
     hasMenu: false,
     hasMegapanel: false,
