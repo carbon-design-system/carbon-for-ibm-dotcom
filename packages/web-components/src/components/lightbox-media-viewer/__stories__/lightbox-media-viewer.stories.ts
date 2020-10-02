@@ -110,7 +110,7 @@ EmbeddedVideoPlayer.story = {
     knobs: {
       LightboxVideoPlayerContainer: ({ groupId }) => ({
         hideCaption: boolean('hide caption (hide-caption)', false, groupId),
-        videoId: textNullable('Video ID (video-id)', '0_uka1msg4', groupId),
+        videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
       }),
     },
   },

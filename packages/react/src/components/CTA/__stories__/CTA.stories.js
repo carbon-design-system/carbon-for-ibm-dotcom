@@ -31,7 +31,7 @@ const miscCTAData = {
       href: urlBy[type],
       copy: copy[0],
       media: {
-        src: '0_uka1msg4',
+        src: '1_9h94wo6b',
         type: 'video',
       },
     };
@@ -43,7 +43,7 @@ const miscCTAData = {
         href: urlBy[type],
       },
       media: {
-        src: '0_uka1msg4',
+        src: '1_9h94wo6b',
         type: 'video',
       },
     };
@@ -60,7 +60,7 @@ const miscCTAData = {
             src: ArrowRight20,
           },
           media: {
-            src: '0_uka1msg4',
+            src: '1_9h94wo6b',
             type: 'video',
           },
         },
@@ -79,7 +79,7 @@ const miscCTAData = {
           href: urlBy[type[0]],
           copy: copy[0],
           media: {
-            src: '0_uka1msg4',
+            src: '1_9h94wo6b',
             type: 'video',
           },
         },

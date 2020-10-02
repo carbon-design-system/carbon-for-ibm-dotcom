@@ -19,7 +19,7 @@ jest.mock(
 
 describe('useVideoData hook', () => {
   const type = 'video';
-  const videoId = [{ src: '0_uka1msg4' }];
+  const videoId = [{ src: '1_9h94wo6b' }];
   /**
    * @param {object} otherProps otherprops
    * @param {string} style style of CTA
