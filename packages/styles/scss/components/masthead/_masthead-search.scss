@@ -55,6 +55,10 @@
     position: relative;
     height: 100%;
 
+    @include carbon--breakpoint(md) {
+      overflow-x: auto;
+    }
+
     &.#{$prefix}--masthead__platform {
       .#{$prefix}--header__nav {
         padding-left: 0;
@@ -93,14 +97,15 @@
   // search container
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
-    flex: 1;
     height: $carbon--spacing-09;
+    margin-left: 48px;
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
       position: absolute;
       z-index: 999;
       width: 100%;
+      margin-left: 0;
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;

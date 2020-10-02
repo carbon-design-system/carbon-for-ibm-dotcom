@@ -5,9 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
+import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
+import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
@@ -23,7 +27,70 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
+  const [resizeObserver, setResizeObserver] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  const [showRightCaret, setShowRightCaret] = useState(false);
+  const [showLeftCaret, setShowLeftCaret] = useState(false);
   const [overlay, setOverlay] = useState(false);
+
+  const headerNavContainer = useRef(null);
+
+  useEffect(() => {
+    if (window.ResizeObserver) {
+      setResizeObserver(
+        new ResizeObserver(() => {
+          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
+          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
+        })
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    if (totalNavWidth > containerWidth) {
+      if (headerNavContainer.current.scrollLeft === 0) {
+        setShowRightCaret(true);
+      }
+    } else {
+      setShowLeftCaret(false);
+      setShowRightCaret(false);
+    }
+  }, [totalNavWidth, containerWidth]);
+
+  useEffect(() => {
+    if (resizeObserver && headerNavContainer) {
+      resizeObserver.observe(headerNavContainer.current);
+    }
+  }, [headerNavContainer, resizeObserver]);
+
+  /**
+   * Scroll navigation left
+   */
+  function paginateLeft() {
+    headerNavContainer.current.scrollLeft -= containerWidth;
+    if (showLeftCaret) {
+      headerNavContainer.current.scrollLeft -= 40;
+    }
+    setShowRightCaret(true);
+    if (headerNavContainer.current.scrollLeft <= 0) {
+      setShowLeftCaret(false);
+    }
+  }
+  /**
+   * Scroll navigation right
+   */
+  function paginateRight() {
+    headerNavContainer.current.scrollLeft += containerWidth;
+    setShowLeftCaret(true);
+    if (
+      headerNavContainer.current.scrollLeft + containerWidth >=
+      totalNavWidth
+    ) {
+      setShowRightCaret(false);
+    }
+  }
+
   /**
    * Top masthead navigation
    *
@@ -63,15 +130,24 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   return (
     <>
-      <div className={`${prefix}--header__nav-container`}>
-        {topNavProps.platform && (
-          <HeaderName
-            prefix=""
-            href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
-            {topNavProps.platform.name}
-          </HeaderName>
-        )}
+      {topNavProps.platform && (
+        <HeaderName
+          prefix=""
+          href={topNavProps.platform.url}
+          data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
+          {topNavProps.platform.name}
+        </HeaderName>
+      )}
+      <HeaderGlobalAction
+        className={`${prefix}--header__action-left-caret`}
+        aria-label="Masthead left caret"
+        hidden={!showLeftCaret}
+        onClick={paginateLeft}>
+        <CaretLeft20 />
+      </HeaderGlobalAction>
+      <div
+        className={`${prefix}--header__nav-container`}
+        ref={headerNavContainer}>
         <HeaderNavigation
           aria-label="IBM"
           data-autoid={`${stablePrefix}--masthead__l0-nav`}>
@@ -82,6 +158,13 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         className={classnames(`${prefix}--masthead__overlay`, {
           [`${prefix}--masthead__overlay-show`]: overlay,
         })}></div>
+      <HeaderGlobalAction
+        className={`${prefix}--header__action-right-caret`}
+        aria-label="Masthead right caret"
+        hidden={!showRightCaret}
+        onClick={paginateRight}>
+        <CaretRight20 />
+      </HeaderGlobalAction>
     </>
   );
 };
