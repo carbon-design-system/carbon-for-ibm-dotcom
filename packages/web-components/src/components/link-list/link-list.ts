@@ -44,6 +44,7 @@ export enum LINK_LIST_TYPE {
  * Link list.
  *
  * @element dds-link-list
+ * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends LitElement {

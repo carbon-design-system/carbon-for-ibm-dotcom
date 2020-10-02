@@ -21,6 +21,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Link with icon.
  *
  * @element dds-link-with-icon
+ * @slot icon - The icon.
+ * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
