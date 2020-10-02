@@ -5,14 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useEffect, useRef, useState } from 'react';
+import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
+import CaretLeft20 from '@carbon/icons-react/lib/caret--left/20';
+import CaretRight20 from '@carbon/icons-react/lib/caret--right/20';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -22,6 +26,70 @@ const { prefix } = settings;
  * MastHead L1 component.
  */
 const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
+  const [resizeObserver, setResizeObserver] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  const [showRightCaret, setShowRightCaret] = useState(false);
+  const [showLeftCaret, setShowLeftCaret] = useState(false);
+
+  const headerNavContainer = useRef(null);
+
+  useEffect(() => {
+    if (window.ResizeObserver) {
+      setResizeObserver(
+        new ResizeObserver(() => {
+          setContainerWidth(calculateTotalWidth(['bx--masthead__l1']));
+          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
+        })
+      );
+    }
+  }, [containerWidth, totalNavWidth]);
+
+  useEffect(() => {
+    if (totalNavWidth > containerWidth) {
+      if (headerNavContainer.current.scrollLeft === 0) {
+        setShowRightCaret(true);
+      }
+    } else {
+      setShowLeftCaret(false);
+      setShowRightCaret(false);
+    }
+  }, [totalNavWidth, containerWidth]);
+
+  useEffect(() => {
+    if (resizeObserver && headerNavContainer) {
+      resizeObserver.observe(headerNavContainer.current);
+    }
+  }, [headerNavContainer, resizeObserver]);
+
+  /**
+   * Scroll navigation left
+   */
+  function paginateLeft() {
+    headerNavContainer.current.scrollLeft -= containerWidth;
+    if (showLeftCaret) {
+      headerNavContainer.current.scrollLeft -= 40;
+    }
+    setShowRightCaret(true);
+    if (headerNavContainer.current.scrollLeft <= 0) {
+      setShowLeftCaret(false);
+    }
+  }
+
+  /**
+   * Scroll navigation right
+   */
+  function paginateRight() {
+    headerNavContainer.current.scrollLeft += containerWidth;
+    setShowLeftCaret(true);
+    if (
+      headerNavContainer.current.scrollLeft + containerWidth >=
+      totalNavWidth
+    ) {
+      setShowRightCaret(false);
+    }
+  }
+
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
   });
@@ -51,16 +119,38 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
   });
 
   return (
-    <div className={className}>
-      <div className={`${prefix}--masthead__l1-name`}>
-        <span className={`${prefix}--masthead__l1-name-title`}>
-          <a href={titleLink}>{title}</a>
-        </span>
+    <>
+      <div className={className}>
+        <div className={`${prefix}--masthead__l1-name`}>
+          <span className={`${prefix}--masthead__l1-name-title`}>
+            <a href={titleLink}>{title}</a>
+          </span>
+        </div>
+        <HeaderGlobalAction
+          className={`${prefix}--header__action-left-caret`}
+          aria-label="Masthead left caret"
+          hidden={!showLeftCaret}
+          onClick={paginateLeft}>
+          <CaretLeft20 />
+        </HeaderGlobalAction>
+        <div
+          className={`${prefix}--header__nav-container`}
+          ref={headerNavContainer}>
+          <HeaderNavigation
+            className={`${prefix}--masthead__l1-nav`}
+            aria-label="">
+            {mastheadL1Links}
+          </HeaderNavigation>
+        </div>
+        <HeaderGlobalAction
+          className={`${prefix}--header__action-right-caret`}
+          aria-label="Masthead right caret"
+          hidden={!showRightCaret}
+          onClick={paginateRight}>
+          <CaretRight20 />
+        </HeaderGlobalAction>
       </div>
-      <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
-        {mastheadL1Links}
-      </HeaderNavigation>
-    </div>
+    </>
   );
 };
 

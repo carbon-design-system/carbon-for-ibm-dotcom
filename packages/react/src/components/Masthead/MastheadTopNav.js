@@ -27,11 +27,27 @@ const { prefix } = settings;
  * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
-  let containerWidth = 0,
-    totalNavWidth = 0;
-  const resizeObserver = new ResizeObserver(() => {
-    containerWidth = calculateTotalWidth(['bx--header__nav-container']);
-    totalNavWidth = calculateTotalWidth(['bx--header__nav']);
+  const [resizeObserver, setResizeObserver] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  const [showRightCaret, setShowRightCaret] = useState(false);
+  const [showLeftCaret, setShowLeftCaret] = useState(false);
+  const [overlay, setOverlay] = useState(false);
+
+  const headerNavContainer = useRef(null);
+
+  useEffect(() => {
+    if (window.ResizeObserver) {
+      setResizeObserver(
+        new ResizeObserver(() => {
+          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
+          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
+        })
+      );
+    }
+  }, []);
+
+  useEffect(() => {
     if (totalNavWidth > containerWidth) {
       if (headerNavContainer.current.scrollLeft === 0) {
         setShowRightCaret(true);
@@ -40,12 +56,12 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       setShowLeftCaret(false);
       setShowRightCaret(false);
     }
-  });
-
-  const headerNavContainer = useRef(null);
+  }, [totalNavWidth, containerWidth]);
 
   useEffect(() => {
-    resizeObserver.observe(headerNavContainer.current);
+    if (resizeObserver && headerNavContainer) {
+      resizeObserver.observe(headerNavContainer.current);
+    }
   }, [headerNavContainer, resizeObserver]);
 
   /**
@@ -75,9 +91,6 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     }
   }
 
-  const [overlay, setOverlay] = useState(false);
-  const [showRightCaret, setShowRightCaret] = useState(false);
-  const [showLeftCaret, setShowLeftCaret] = useState(false);
   /**
    * Top masthead navigation
    *
