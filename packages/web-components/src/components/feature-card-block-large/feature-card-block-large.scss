@@ -12,4 +12,8 @@
 
 :host(#{$dds-prefix}-feature-card-block-large) {
   display: block;
+
+  ::slotted(svg[slot='footer']) {
+    margin-left: auto;
+  }
 }

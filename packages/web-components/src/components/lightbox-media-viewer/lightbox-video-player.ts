@@ -23,6 +23,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The video content of lightbox media viewer.
  *
  * @element dds-lightbox-video-player
+ * @slot title - The title content.
+ * @slot description - The description content.
  */
 @customElement(`${ddsPrefix}-lightbox-video-player`)
 class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {

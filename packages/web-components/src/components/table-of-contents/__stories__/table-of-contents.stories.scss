@@ -1,0 +1,19 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/colors/colors';
+@import 'carbon-components/scss/globals/scss/typography';
+
+a[name] {
+  display: block;
+  color: $carbon--black-100;
+}
+
+h3 {
+  padding-top: rem(16px);
+  padding-bottom: rem(32px);
+}

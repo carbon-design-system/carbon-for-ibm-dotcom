@@ -70,7 +70,10 @@ describe('dds-modal', function() {
     it('should render with header and body only', async function() {
       render(
         html`
-          <dds-modal><dds-modal-header></dds-modal-header><dds-modal-body></dds-modal-body></dds-modal>
+          <dds-modal>
+            <dds-modal-header></dds-modal-header>
+            <dds-modal-body></dds-modal-body>
+          </dds-modal>
         `,
         document.body
       );
@@ -104,7 +107,8 @@ describe('dds-modal', function() {
       render(
         html`
           <dds-modal>
-            <input type="text" /><dds-modal-footer><bx-btn kind="primary"></bx-btn></dds-modal-footer>
+            <input type="text" />
+            <dds-modal-footer><bx-btn kind="primary"></bx-btn></dds-modal-footer>
           </dds-modal>
         `,
         document.body
@@ -126,7 +130,8 @@ describe('dds-modal', function() {
       render(
         html`
           <dds-modal>
-            <input type="text" /><dds-modal-footer><dds-btn kind="primary"></dds-btn></dds-modal-footer>
+            <input type="text" />
+            <dds-modal-footer><dds-btn kind="primary"></dds-btn></dds-modal-footer>
           </dds-modal>
         `,
         document.body
@@ -147,7 +152,10 @@ describe('dds-modal', function() {
     it('Should support specifying the primary focus element', async function() {
       render(
         html`
-          <dds-modal><input type="text"/><button data-modal-primary-focus></button></dds-modal>
+          <dds-modal>
+            <input type="text" />
+            <button data-modal-primary-focus></button>
+          </dds-modal>
         `,
         document.body
       );
