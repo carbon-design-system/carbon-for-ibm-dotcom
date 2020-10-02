@@ -134,7 +134,7 @@ export const Feature = ({ parameters }) => {
   return html`
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
       ${copy}
-      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&text=1x1">
+      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1">
       </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"

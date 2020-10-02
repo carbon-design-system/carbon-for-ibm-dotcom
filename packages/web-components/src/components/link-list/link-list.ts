@@ -67,12 +67,11 @@ class DDSLinkList extends LitElement {
     return `${ddsPrefix}--link-list`;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   protected render() {
     return html`
-      <h4 class="${prefix}--link-list__heading"><slot name="heading" /></h4>
+      <h4 class="${prefix}--link-list__heading"><slot name="heading"></h4>
       <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
-        <slot @slotchange="${this._handleSlotChange}" />
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
   }

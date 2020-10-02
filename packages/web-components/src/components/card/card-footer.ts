@@ -74,7 +74,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * @returns The main content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
