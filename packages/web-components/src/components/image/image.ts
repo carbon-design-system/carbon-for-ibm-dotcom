@@ -17,7 +17,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Image.
+ *
  * @element dds-image
+ * @slot long-description - The long description content.
+ * @slot icon - The icon content.
  */
 @customElement(`${ddsPrefix}-image`)
 class DDSImage extends LitElement {

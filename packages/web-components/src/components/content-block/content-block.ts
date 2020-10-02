@@ -45,6 +45,9 @@ export enum CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME {
 /**
  * Content block.
  *
+ * @slot heading - The heading content.
+ * @slot cta - The footer (CTA) content.
+ * @slot complementary - The complementary (aside) content.
  * @abstract
  */
 class DDSContentBlock extends LitElement {
