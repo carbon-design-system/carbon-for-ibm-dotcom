@@ -19,7 +19,12 @@ import { LINK_ICON_PLACEMENT_TYPES } from '../link-with-icon';
 export const Default = ({ parameters }) => {
   const { children, disabled, href, onClick, iconPlacement } = parameters?.props?.LinkWithIcon ?? {};
   return html`
-    <dds-link-with-icon icon-placement="${iconPlacement}" ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
+    <dds-link-with-icon
+      link-icon-placement="${iconPlacement}"
+      ?disabled="${disabled}"
+      href="${ifNonNull(href)}"
+      @click="${onClick}"
+    >
       ${children}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;

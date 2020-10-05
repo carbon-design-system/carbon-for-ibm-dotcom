@@ -79,13 +79,13 @@
   href="#"
   id="link"
 >
+  <slot name="icon">
+  </slot>
   <span class="bx--card__cta__copy">
     <slot>
     </slot>
     undefined-180000
   </span>
-  <slot name="icon">
-  </slot>
 </a>
 
 ```

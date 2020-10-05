@@ -38,7 +38,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
    * Defines the position of the icon
    * `left` or `right`
    */
-  @property({ reflect: true, attribute: 'icon-placement' })
+  @property({ reflect: true, attribute: 'link-icon-placement' })
   linkIconPlacement = LINK_ICON_PLACEMENT_TYPES.DEFAULT;
 
   /**

@@ -9,14 +9,12 @@
   class="bx--link bx--link-with-icon"
   id="link"
 >
-  <slot name="icon-left">
+  <slot name="icon">
   </slot>
   <span>
     <slot>
     </slot>
   </span>
-  <slot name="icon">
-  </slot>
 </a>
 
 ```
@@ -29,13 +27,13 @@
   href="#"
   id="link"
 >
+  <slot name="icon">
+  </slot>
   <span>
     <slot>
     </slot>
     video-name-foo-caption
   </span>
-  <slot name="icon">
-  </slot>
 </a>
 
 ```
