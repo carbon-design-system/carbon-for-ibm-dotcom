@@ -22,7 +22,7 @@ export const Default = ({ parameters }) => {
       heading="${heading}"
       copy="${copy}"
       ?lightbox="${lightbox}"
-    />
+    ></dds-image-with-caption>
   `;
 };
 
