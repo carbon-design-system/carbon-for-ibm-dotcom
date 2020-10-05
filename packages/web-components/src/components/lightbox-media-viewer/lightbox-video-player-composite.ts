@@ -106,7 +106,6 @@ class DDSLightboxMediaViewerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   renderLightDOM() {
     return html``;
   }

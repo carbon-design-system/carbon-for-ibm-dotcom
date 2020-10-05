@@ -27,7 +27,7 @@ const hrefsForType = {
   [CTA_TYPE.JUMP]: '#example',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '0_uka1msg4',
+  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
 const knobNamesForType = {
@@ -134,7 +134,7 @@ export const Feature = ({ parameters }) => {
   return html`
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
       ${copy}
-      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&text=1x1">
+      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1">
       </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
