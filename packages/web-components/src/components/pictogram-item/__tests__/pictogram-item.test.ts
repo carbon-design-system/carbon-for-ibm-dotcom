@@ -11,9 +11,18 @@ import { render } from 'lit-html';
 import '../pictogram-item';
 import { Default } from '../__stories__/pictogram-item.stories';
 
+const template = (props?) =>
+  Default({
+    parameters: {
+      props: {
+        PictogramItem: props,
+      },
+    },
+  });
+
 describe('dds-pictogram-item', function() {
   it('Renders as expected', async function() {
-    render(Default(), document.body);
+    render(template(), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-pictogram-item')).toMatchSnapshot({ mode: 'shadow' });
   });
