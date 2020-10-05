@@ -110,29 +110,20 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
       ${this.lightbox
         ? html`
             <button class="${prefix}--image-with-caption__image" @click="${this._handleClick}">
-              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}" />
+              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}"></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
         : html`
-            <dds-image default-src="${this.defaultSrc}" />
+            <dds-image default-src="${this.defaultSrc}"></dds-image>
           `}
       <p class="${prefix}--image__caption">
         ${this.heading}
       </p>
     `;
   }
-
-  /**
-   * The name of the custom event fired after the modal is closed upon a user gesture.
-   */
-  static get eventCloseModal() {
-    return `${ddsPrefix}-modal-closed`;
-  }
-
-  static styles = styles;
 
   renderModal() {
     return html`
@@ -148,6 +139,15 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
       </dds-modal>
     `;
   }
+
+  /**
+   * The name of the custom event fired after the modal is closed upon a user gesture.
+   */
+  static get eventCloseModal() {
+    return `${ddsPrefix}-modal-closed`;
+  }
+
+  static styles = styles;
 }
 
 export default DDSImageWithCaption;
