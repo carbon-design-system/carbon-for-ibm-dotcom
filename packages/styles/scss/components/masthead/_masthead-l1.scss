@@ -23,8 +23,8 @@ $search-transition-timing: 95ms;
     background-color: $ui-02;
     transition-timing-function: $search-transition;
 
-    @include carbon--breakpoint-down(lg) {
-      height: carbon--mini-units(6);
+    @include carbon--breakpoint-down(800px) {
+      display: none;
     }
 
     &::after {
@@ -125,12 +125,6 @@ $search-transition-timing: 95ms;
           }
         }
       }
-    }
-  }
-
-  @include carbon--breakpoint-down(lg) {
-    .#{$prefix}--masthead__l1 {
-      display: none;
     }
   }
 }
