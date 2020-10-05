@@ -33,9 +33,9 @@ class DDSPictogramItem extends LitElement {
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     if (name === 'copy') {
-      this.copy = ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).innerText
-        .replace(/[\n\r]+|[\s]{2,}/g, ' ')
-        .trim();
+      this.copy =
+        ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).textContent?.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() ??
+        ' ';
     }
   }
 
