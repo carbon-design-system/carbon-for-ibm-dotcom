@@ -98,7 +98,7 @@
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
     height: $carbon--spacing-09;
-    margin-left: 48px;
+    margin-left: 3rem;
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
