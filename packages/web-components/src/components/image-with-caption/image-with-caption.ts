@@ -32,6 +32,26 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-image-with-caption`)
 class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   /**
+   * `true` handles re-opening after model is closed
+   * @private
+   */
+  private _handleClick() {
+    this.open = true;
+  }
+
+  /**
+   * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
+   */
+  private _handleCloseModal = () => {
+    this.open = false;
+  };
+
+  /**
+   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   */
+  private _hCloseModal: Handle | null = null;
+
+  /**
    * The lightbox.
    */
   @property({ type: Boolean, reflect: true })
@@ -66,23 +86,6 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
    */
   @property({ type: Boolean, reflect: true })
   open = false;
-
-  _handleClick() {
-    this.open = true;
-  }
-
-  /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
-   */
-  private _hCloseModal: Handle | null = null;
-
-  /**
-   * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
-   */
-  private _handleCloseModal = () => {
-    console.log('open', this.open);
-    this.open = false;
-  };
 
   connectedCallback() {
     super.connectedCallback();
