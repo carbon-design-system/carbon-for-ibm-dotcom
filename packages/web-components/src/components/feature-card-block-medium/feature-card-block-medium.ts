@@ -10,6 +10,7 @@
 import { customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './feature-card-block-medium.scss';
+import './feature-card-block-medium-card';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

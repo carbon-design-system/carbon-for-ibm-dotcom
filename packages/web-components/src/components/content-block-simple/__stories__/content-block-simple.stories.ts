@@ -93,7 +93,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}" .copy="${ifNonNull(copy)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
+      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;

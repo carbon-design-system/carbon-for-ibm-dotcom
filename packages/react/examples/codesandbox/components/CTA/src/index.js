@@ -18,7 +18,7 @@ const ctaLocal = {
   copy: "Lorem ipsum dolor sit amet",
   media: {
     type: "video",
-    src: "0_uka1msg4",
+    src: "1_9h94wo6b",
   },
 };
 
@@ -30,7 +30,7 @@ const ctaButton = {
       copy: "Button 3",
       iconDescription: "video play icon",
       media: {
-        src: "0_uka1msg4",
+        src: "1_9h94wo6b",
         type: "video",
       },
     },
