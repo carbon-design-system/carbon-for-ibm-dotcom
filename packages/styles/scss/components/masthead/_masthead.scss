@@ -332,8 +332,8 @@ $search-transition-timing: 95ms;
       left: -2px;
       top: 50%;
       transform: translateY(-50%);
-      height: 1.5rem;
-      width: 0.0625rem;
+      height: rem(48px);
+      width: rem(8px);
       background-color: #dcdcdc;
       &:focus,
       &:active {
