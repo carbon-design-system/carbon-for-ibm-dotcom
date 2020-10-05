@@ -54,6 +54,8 @@ const slotExistencePropertyNames = {
  * Quote.
  *
  * @element dds-quote
+ * @slot copy - The copy content.
+ * @slot cta - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
@@ -147,13 +149,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     return html`
       <div ?hidden="${!hasSourceHeading || !hasSourceCopy}" class="${prefix}--quote__source">
         <p class="${prefix}--quote__source-heading">
-          <slot @slotchange="${handleSlotChange}" name="sourceHeading" />
+          <slot @slotchange="${handleSlotChange}" name="sourceHeading"></slot>
         </p>
         <p class="${prefix}--quote__source-body">
-          <slot @slotchange="${handleSlotChange}" name="sourceCopy" />
+          <slot @slotchange="${handleSlotChange}" name="sourceCopy"></slot>
         </p>
         <p ?hidden="${!hasSourceBottomCopy}" class="${prefix}--quote__source-optional-copy">
-          <slot @slotchange="${handleSlotChange}" name="sourceBottomCopy" />
+          <slot @slotchange="${handleSlotChange}" name="sourceBottomCopy"></slot>
         </p>
       </div>
     `;
@@ -176,7 +178,6 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
       <div class="${prefix}--quote__container">

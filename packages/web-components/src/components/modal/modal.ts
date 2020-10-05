@@ -120,7 +120,6 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   /**
    * @returns The header content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderHeader(): TemplateResult | SVGTemplateResult | void {
     const { _hasHeader: hasHeader, _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const headerClasses = classMap({
@@ -134,7 +133,6 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   /**
    * @returns The body content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderBody(): TemplateResult | SVGTemplateResult | void {
     const { _hasBody: hasBody, _hasFooter: hasFooter } = this;
     const bodyClasses = classMap({
