@@ -16,7 +16,8 @@ import readme from './README.stories.mdx';
 export const Default = ({ parameters }) => {
   const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
   return html`
-    <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}" />
+    <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}">
+    </dds-hr>
   `;
 };
 

@@ -134,6 +134,10 @@ $fcb-breakpoint-up--lg: map-get(
       @include carbon--type-style('productive-heading-05');
     }
 
+    .#{$prefix}--card__footer {
+      flex-direction: row-reverse;
+    }
+
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-block-large_no-copy-text {
       @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {

@@ -36,7 +36,7 @@ describe('dds-video-cta-composite', function() {
       await Promise.resolve();
       const videoCTAComposite = document.querySelector('dds-video-cta-composite');
       videoCTAComposite!.dispatchEvent(
-        new CustomEvent('dds-cta-run-action', { detail: { ctaType: 'video', href: '0_uka1msg4' } })
+        new CustomEvent('dds-cta-run-action', { detail: { ctaType: 'video', href: '1_9h94wo6b' } })
       );
       await Promise.resolve(); // Update cycle for `<dds-video-cta-composite>`
       await Promise.resolve(); // Update cycle for `<dds-lightbox-video-player-composite>`
@@ -47,7 +47,7 @@ describe('dds-video-cta-composite', function() {
       const lightboxRenderRoot = lightboxVideoPlayerComposite.modalRenderRoot as Element;
       expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(true);
       const { videoId: videoIdInVideoPlayerCompositeOpen } = lightboxVideoPlayerComposite;
-      expect(videoIdInVideoPlayerCompositeOpen).toBe('0_uka1msg4');
+      expect(videoIdInVideoPlayerCompositeOpen).toBe('1_9h94wo6b');
       (lightboxRenderRoot.querySelector('dds-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
       expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(false);

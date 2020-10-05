@@ -136,7 +136,6 @@ class DDSMastheadSearch extends BXDropdown {
    *
    * @param event The event.
    */
-  // eslint-disable-next-line class-methods-use-this
   private _handleKeyInput(event: KeyboardEvent) {
     if ((this.constructor as typeof DDSMastheadSearch).getAction(event.key) === DROPDOWN_KEYBOARD_ACTION.NONE) {
       event.stopPropagation();

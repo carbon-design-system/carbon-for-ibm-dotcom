@@ -19,7 +19,7 @@ function initVideoPlayerTrigger() {
     currentTime: 1,
     duration: 60,
     playerState: 1,
-    videoId: '0_uka1msg4',
+    videoId: '1_9h94wo6b',
   };
 
   AnalyticsAPI.videoPlayerStats(data);

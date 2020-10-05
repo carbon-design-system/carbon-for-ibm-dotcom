@@ -10,6 +10,7 @@
 import { customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './feature-card-block-medium.scss';
+import './feature-card-block-medium-card';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -17,6 +18,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Feature Card Block Medium
  *
  * @element dds-feature-card-block-medium
+ * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
 class DDSFeatureCardBlockMedium extends LitElement {

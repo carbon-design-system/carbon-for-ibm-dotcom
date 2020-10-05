@@ -40,10 +40,9 @@ class DDSButtonGroup extends LitElement {
     return `${ddsPrefix}-button-group-item`;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
-      <slot @slotchange="${this._handleSlotChange}" />
+      <slot @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 
