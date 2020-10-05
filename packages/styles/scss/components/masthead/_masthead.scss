@@ -371,8 +371,8 @@ $search-transition-timing: 95ms;
       position: absolute;
       left: -10px;
       top: -2px;
-      height: 48px;
-      width: 8px;
+      height: rem(48px);
+      width: rem(8px);
       background: linear-gradient(to left, $ui-background, transparent);
     }
   }
