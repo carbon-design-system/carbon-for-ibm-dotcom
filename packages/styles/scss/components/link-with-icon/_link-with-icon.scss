@@ -34,6 +34,7 @@
       &:not([href]),
       &:not([button]) {
         pointer-events: auto;
+        display: flex;
         &:hover {
           display: flex;
           text-decoration: none;
