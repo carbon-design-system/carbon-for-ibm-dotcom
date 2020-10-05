@@ -21,9 +21,9 @@
     alt="Image alt text"
     default-src="https://dummyimage.com/672x336/ee5396/161616&text=2x1"
   >
-    <div class="bx--image-with-caption__zoom-button">
-    </div>
   </dds-image>
+  <div class="bx--image-with-caption__zoom-button">
+  </div>
 </button>
 <p class="bx--image__caption">
   This is a heading
