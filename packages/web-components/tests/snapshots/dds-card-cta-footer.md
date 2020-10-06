@@ -9,8 +9,6 @@
   class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
   id="link"
 >
-  <slot name="icon">
-  </slot>
   <span
     class="bx--card__cta__copy"
     hidden=""
@@ -18,6 +16,8 @@
     <slot>
     </slot>
   </span>
+  <slot name="icon">
+  </slot>
 </a>
 
 ```
@@ -30,13 +30,13 @@
   href="#"
   id="link"
 >
-  <slot name="icon">
-  </slot>
   <span class="bx--card__cta__copy">
     <slot>
     </slot>
     undefined-180000
   </span>
+  <slot name="icon">
+  </slot>
 </a>
 
 ```
