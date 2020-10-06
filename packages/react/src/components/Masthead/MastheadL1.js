@@ -9,6 +9,7 @@ import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
+import HeaderNavContainer from './HeaderNavContainer';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
@@ -51,16 +52,22 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
   });
 
   return (
-    <div className={className}>
-      <div className={`${prefix}--masthead__l1-name`}>
-        <span className={`${prefix}--masthead__l1-name-title`}>
-          <a href={titleLink}>{title}</a>
-        </span>
+    <>
+      <div className={className}>
+        <div className={`${prefix}--masthead__l1-name`}>
+          <span className={`${prefix}--masthead__l1-name-title`}>
+            <a href={titleLink}>{title}</a>
+          </span>
+        </div>
+        <HeaderNavContainer>
+          <HeaderNavigation
+            className={`${prefix}--masthead__l1-nav`}
+            aria-label="">
+            {mastheadL1Links}
+          </HeaderNavigation>
+        </HeaderNavContainer>
       </div>
-      <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
-        {mastheadL1Links}
-      </HeaderNavigation>
-    </div>
+    </>
   );
 };
 
