@@ -28,18 +28,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-masthead-logo`)
 class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
   /**
-   * Link `href`.
-   */
-  @property()
-  href = 'https://www.ibm.com/';
-
-  /**
-   * The shadow slot this logo UI should be in.
-   */
-  @property({ reflect: true })
-  slot = 'brand';
-
-  /**
    * Search bar opened flag.
    */
   @internalProperty()
@@ -55,6 +43,18 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
   private _handleSearchToggle = (event: Event) => {
     this._hasSearchActive = (event as CustomEvent).detail.active;
   };
+
+  /**
+   * Link `href`.
+   */
+  @property()
+  href = 'https://www.ibm.com/';
+
+  /**
+   * The shadow slot this logo UI should be in.
+   */
+  @property({ reflect: true })
+  slot = 'brand';
 
   createRenderRoot() {
     return this.attachShadow({
