@@ -55,7 +55,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Link `href`.
+   * The copy text.
    */
   @property()
   copy = '';
