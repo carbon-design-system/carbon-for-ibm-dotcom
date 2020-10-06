@@ -13,7 +13,7 @@
   </div>
   <div class="bx--pictogram-item__content">
     <dds-content-item
-      copy=""
+      copy="undefined"
       data-autoid="dds--content-item"
     >
       <dds-content-item-heading
@@ -24,11 +24,6 @@
         <slot name="heading">
         </slot>
       </dds-content-item-heading>
-      <slot
-        name="copy"
-        slot="copy"
-      >
-      </slot>
       <slot
         name="cta"
         slot="cta"
