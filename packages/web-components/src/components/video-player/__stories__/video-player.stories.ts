@@ -31,5 +31,8 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    percy: {
+      skip: true,
+    },
   },
 };
