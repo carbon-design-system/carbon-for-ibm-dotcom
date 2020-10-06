@@ -1,4 +1,4 @@
-# Enable RTL
+# Enable Right-to-Left (RTL)
 <!-- prettier-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
