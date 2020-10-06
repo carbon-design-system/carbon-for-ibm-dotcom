@@ -16,10 +16,9 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  console.log(parameters);
   const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item>
+    <dds-pictogram-item copy="${copy}">
       <svg
         slot="pictogram"
         focusable="false"
@@ -44,9 +43,6 @@ export const Default = ({ parameters }) => {
         ></path>
       </svg>
       <span slot="heading">${heading}</span>
-      <span slot="copy">
-        ${copy}
-      </span>
       <dds-link-with-icon href="${href}" slot="cta">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>

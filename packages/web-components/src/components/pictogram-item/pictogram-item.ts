@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, LitElement } from 'lit-element';
+import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './pictogram-item.scss';
@@ -27,17 +27,8 @@ class DDSPictogramItem extends LitElement {
   /**
    * Internal Property for get copy from slot
    */
-  @internalProperty()
+  @property({ reflect: true })
   copy = '';
-
-  protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    if (name === 'copy') {
-      this.copy =
-        ((target as HTMLSlotElement).assignedNodes()[0] as HTMLElement).textContent?.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim() ??
-        ' ';
-    }
-  }
 
   render() {
     return html`
@@ -50,7 +41,6 @@ class DDSPictogramItem extends LitElement {
             <dds-content-item-heading>
               <slot name="heading"></slot>
             </dds-content-item-heading>
-            <slot @slotchange="${this._handleSlotChange}" name="copy" slot="copy"></slot>
             <slot name="cta" slot="cta"></slot>
           </dds-content-item>
         </div>
