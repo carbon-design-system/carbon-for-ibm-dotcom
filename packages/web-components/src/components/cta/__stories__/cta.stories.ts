@@ -165,11 +165,6 @@ export default {
       const colExtraClasses = useGridForCard ? 'bx--col-md-4 bx--col-lg-4' : 'bx--col-lg-8';
       const classes = classMap({
         'bx--grid': true,
-        // For cards, we want to ensure the card takes up the entire width of the grid column.
-        // Also, feature card has `position:absolute` in `<a>` that contains its contents.
-        // `margin-left: auto`/`margin-right: auto` in `.bx--grid`
-        // (as well as `flex-direction: column; align-items: center` in `.dds-ce-demo-devenv--container`)
-        // seems to be hostile to such styling strategy
         'dds-ce-demo-devenv--grid--card': useGridForCard,
       });
       return html`

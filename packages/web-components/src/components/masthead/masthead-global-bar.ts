@@ -25,12 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-masthead-global-bar`)
 class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(LitElement)) {
   /**
-   * The shadow slot this action bar should be in.
-   */
-  @property({ reflect: true })
-  slot = 'profile';
-
-  /**
    * Search bar opened flag.
    */
   @internalProperty()
@@ -46,6 +40,12 @@ class DDSMastheadGlobalBar extends FocusMixin(HostListenerMixin(LitElement)) {
   private _handleSearchToggle = (event: Event) => {
     this._hasSearchActive = (event as CustomEvent).detail.active;
   };
+
+  /**
+   * The shadow slot this action bar should be in.
+   */
+  @property({ reflect: true })
+  slot = 'profile';
 
   render() {
     const { _hasSearchActive: hasSearchActive } = this;
