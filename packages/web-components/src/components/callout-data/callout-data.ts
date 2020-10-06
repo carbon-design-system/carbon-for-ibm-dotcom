@@ -27,7 +27,7 @@ class DDSCalloutData extends LitElement {
       <div class="${prefix}--callout__container">
         <div class="${prefix}--callout__column">
           <div class="${prefix}--callout__content">
-            <h4 class="${prefix}--callout-data__data"><slot name="data" /></h4>
+            <h4 class="${prefix}--callout-data__data"><slot name="data"></slot></h4>
             <p class="${prefix}--callout-data__copy"><slot name="copy" /></p>
           </div>
         </div>
