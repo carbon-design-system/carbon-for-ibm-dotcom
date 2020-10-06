@@ -34,8 +34,11 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card {
       background: none;
       height: 100%;
-      outline-width: 3px;
-      outline-offset: 1px;
+
+      &:focus {
+        outline-width: 3px;
+        outline-offset: 1px;
+      }
 
       @include carbon--breakpoint-between(
         $fcb-large-custom-bp-copy,
