@@ -28,6 +28,7 @@ const HeaderNavContainer = ({ children }) => {
   const paginateLeft = useCallback(() => {
     headerNavContainerRef.current.scrollLeft -= containerWidth;
     setShowRightCaret(true);
+    // 40 accounts for caret size
     if (headerNavContainerRef.current.scrollLeft <= 40) {
       setShowLeftCaret(false);
       headerNavContainerRef.current.scrollLeft = 0;
@@ -37,6 +38,7 @@ const HeaderNavContainer = ({ children }) => {
   const paginateRight = useCallback(() => {
     headerNavContainerRef.current.scrollLeft += containerWidth;
     setShowLeftCaret(true);
+    // 80 accounts for caret sizes
     if (
       headerNavContainerRef.current.scrollLeft + containerWidth >=
       totalNavWidth - 80
@@ -59,6 +61,7 @@ const HeaderNavContainer = ({ children }) => {
 
   useEffect(() => {
     if (totalNavWidth > containerWidth) {
+      // 80 accounts for caret sizes
       if (
         headerNavContainerRef.current.scrollLeft === 0 ||
         headerNavContainerRef.current.scrollLeft + containerWidth <
