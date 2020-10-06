@@ -6,16 +6,18 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 @import '../../internal/content-item/content-item';
 @import '../link-with-icon/link-with-icon';
 
 @mixin pictogram-item {
-  .#{$prefix}--pictogram-item {
-    &__row {
+  .#{$prefix}--pictogram-item,
+  :host(#{$dds-prefix}-pictogram-item) {
+    .#{$prefix}--pictogram-item__row {
       @include carbon--make-row;
     }
 
-    &__wrapper {
+    .#{$prefix}--pictogram-item__wrapper {
       @include carbon--make-col-ready;
 
       @include carbon--make-col(4, 4);
@@ -25,7 +27,7 @@
       }
     }
 
-    &__content {
+    .#{$prefix}--pictogram-item__content {
       @include carbon--make-col-ready;
 
       @include carbon--make-col(4, 4);
@@ -35,10 +37,15 @@
       }
     }
 
-    &__pictogram {
+    .#{$prefix}--pictogram-item__pictogram,
+    ::slotted(svg) {
       margin-top: $carbon--spacing-07;
       height: 80px;
       width: 80px;
+    }
+
+    ::slotted(svg) {
+      margin-top: 0;
     }
   }
 }
