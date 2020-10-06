@@ -32,7 +32,7 @@ class DDSCalloutData extends LitElement {
           </div>
         </div>
       </div>
-      <p class="${prefix}--callout-data__source"><slot name="source" /></p>
+      <p class="${prefix}--callout-data__source"><slot name="source"></slot></p>
     `;
   }
 
