@@ -9,7 +9,7 @@
 
 import { render } from 'lit-html';
 import '../image-with-caption';
-import { Default } from '../__stories__/image-with-caption.stories.ts';
+import { Default } from '../__stories__/image-with-caption.stories';
 
 const template = (props?) =>
   Default({
