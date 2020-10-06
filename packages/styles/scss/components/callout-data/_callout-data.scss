@@ -6,7 +6,8 @@
  */
 
 @mixin callout-data {
-  .#{$prefix}--callout-data {
+  .#{$prefix}--callout-data,
+  :host(#{$dds-prefix}-callout-data) {
     .#{$prefix}--callout-data__data {
       @include carbon--type-style('display-03', true);
 
@@ -42,7 +43,8 @@
       color: $text-05;
     }
 
-    .#{$prefix}--callout__column {
+    .#{$prefix}--callout__column,
+    #{$dds-prefix}-callout {
       height: auto;
 
       @include carbon--breakpoint('md') {
@@ -67,6 +69,39 @@
       margin-left: 0;
       display: flex;
       height: 100%;
+      flex-direction: column;
+      width: 90%;
+      max-width: 640px;
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-data-container) .#{$prefix}--callout__column {
+    background-color: $inverse-02;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include carbon--breakpoint('md') {
+      min-height: carbon--mini-units(40);
+    }
+
+    @include carbon--breakpoint('lg') {
+      min-height: carbon--mini-units(50);
+    }
+
+    @include carbon--breakpoint('xlg') {
+      min-height: carbon--mini-units(60);
+    }
+
+    @include carbon--breakpoint('max') {
+      min-height: carbon--mini-units(70);
+    }
+
+    .#{$prefix}--callout__content {
+      padding-left: 0;
+      margin-left: 0;
+      display: flex;
+      flex: 1;
       flex-direction: column;
       width: 90%;
       max-width: 640px;
