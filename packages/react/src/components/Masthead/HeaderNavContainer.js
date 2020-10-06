@@ -9,7 +9,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
-import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -63,7 +62,7 @@ const HeaderNavContainer = ({ children }) => {
       if (
         headerNavContainerRef.current.scrollLeft === 0 ||
         headerNavContainerRef.current.scrollLeft + containerWidth <
-          totalNavWidth
+          totalNavWidth - 80
       ) {
         setShowRightCaret(true);
       }
@@ -91,25 +90,25 @@ const HeaderNavContainer = ({ children }) => {
 
   return (
     <>
-      <HeaderGlobalAction
-        className={`${prefix}--header__action-left-caret`}
+      <button
+        className={`${prefix}--header__nav-caret-left`}
         aria-label="Masthead left caret"
         hidden={!showLeftCaret}
         onClick={paginateLeft}>
         <CaretLeft20 />
-      </HeaderGlobalAction>
+      </button>
       <div
         className={`${prefix}--header__nav-container`}
         ref={headerNavContainerRef}>
         {children}
       </div>
-      <HeaderGlobalAction
-        className={`${prefix}--header__action-right-caret`}
+      <button
+        className={`${prefix}--header__nav-caret-right`}
         aria-label="Masthead right caret"
         hidden={!showRightCaret}
         onClick={paginateRight}>
         <CaretRight20 />
-      </HeaderGlobalAction>
+      </button>
     </>
   );
 };
