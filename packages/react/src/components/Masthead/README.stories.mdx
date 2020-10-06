@@ -58,8 +58,8 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Using L1 nav
 
-To use L1 nav, set `mastheadL1Data` prop. `mastheadL1Data` prop should be an object that contains the navigation data of L1 nav:
-
+To use L1 nav, set `mastheadL1Data` prop. `mastheadL1Data` prop should be an
+object that contains the navigation data of L1 nav:
 
 ```javascipt
 const mastheadL1Data = {
@@ -150,6 +150,32 @@ const platformData = {
 
 <Masthead platform={platformData} navigation="default" />;
 ```
+
+## customeProfileLogin
+
+This allows setting a user-defined login URL. This is currently an experimental
+feature. Please see the [feature flags](#feature-flags) section for usage
+information.
+
+In order to utilize this feature, the `profileMenu.signedout` login object must
+contain an `id: signin` entry in the corresponding translation data file. See
+[here](https://github.ibm.com/webstandards/ibm-dotcom-translations/blob/master/translations/masthead-footer/jsononly/usen.json#L1467)
+for an example.
+
+#### Feature Flags
+
+To utilize the following features, set the following variables to `true` within
+your `.env` file or your application build settings.
+
+```
+DDS_CUSTOM_PROFILE_LOGIN=true
+```
+
+> See
+> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
+> and
+> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
+> for more information
 
 ## Stable selectors
 
