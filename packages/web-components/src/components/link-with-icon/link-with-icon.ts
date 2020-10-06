@@ -18,10 +18,17 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Enum for the icon placement possibilities
+ * Icon Placement
  */
-export enum LINK_ICON_PLACEMENT_TYPES {
-  DEFAULT = 'left',
+export enum ICON_PLACEMENT {
+  /**
+   * left of footer copy
+   */
+  LEFT = 'left',
+
+  /**
+   * right of footer copy
+   */
   RIGHT = 'right',
 }
 
@@ -35,11 +42,10 @@ export enum LINK_ICON_PLACEMENT_TYPES {
 @customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   /**
-   * Defines the position of the icon
-   * `left` or `right`
+   * Icon placement(right (default) | left)
    */
-  @property({ reflect: true, attribute: 'link-icon-placement' })
-  linkIconPlacement = LINK_ICON_PLACEMENT_TYPES.DEFAULT;
+  @property({ attribute: 'icon-placement', reflect: true })
+  iconPlacement = ICON_PLACEMENT.RIGHT;
 
   /**
    * @returns The main content.
@@ -57,12 +63,12 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderIcon(): TemplateResult | string | void {
     return html`
-      <slot class="${prefix}--link-with-icon__icon-${this.linkIconPlacement}" name="icon"></slot>
+      <slot class="${prefix}--link-with-icon__icon-${this.iconPlacement}" name="icon"></slot>
     `;
   }
 
   protected _renderInner() {
-    return this.linkIconPlacement === LINK_ICON_PLACEMENT_TYPES.DEFAULT
+    return this.iconPlacement === ICON_PLACEMENT.LEFT
       ? html`
           ${this._renderIcon()}${this._renderContent()}
         `

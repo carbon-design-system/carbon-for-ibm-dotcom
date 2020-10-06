@@ -10,27 +10,12 @@
 import { html, property, internalProperty, query, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import DDSLinkWithIcon, { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
 import styles from './card.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Icon Placement
- */
-export enum ICON_PLACEMENT {
-  /**
-   * left of footer copy
-   */
-  LEFT = 'left',
-
-  /**
-   * right of footer copy
-   */
-  RIGHT = 'right',
-}
 
 /**
  * Card footer.
@@ -101,12 +86,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
    */
   @property({ reflect: true })
   slot = 'footer';
-
-  /**
-   * Icon placement(right (default) | left)
-   */
-  @property({ attribute: 'icon-placement', reflect: true })
-  iconPlacement = ICON_PLACEMENT.RIGHT;
 
   updated() {
     super.updated();
