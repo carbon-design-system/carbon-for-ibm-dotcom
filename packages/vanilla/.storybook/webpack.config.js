@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -126,7 +133,6 @@ module.exports = ({ config, mode }) => {
   config.plugins.push(
     new webpack.EnvironmentPlugin({
       TRANSLATION_HOST: '',
-      CORS_PROXY: '',
     })
   );
 

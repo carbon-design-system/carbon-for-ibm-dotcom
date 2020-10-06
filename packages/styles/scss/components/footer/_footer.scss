@@ -12,6 +12,8 @@
 @mixin footer {
   :host(#{$dds-prefix}-footer),
   .#{$prefix}--footer {
+    width: 100%;
+
     @include carbon--theme(
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')

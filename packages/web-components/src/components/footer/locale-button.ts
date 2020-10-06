@@ -32,7 +32,10 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   slot = 'locale-button';
 
   createRenderRoot() {
-    return this.attachShadow({ mode: 'open', delegatesFocus: true });
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
   }
 
   render() {

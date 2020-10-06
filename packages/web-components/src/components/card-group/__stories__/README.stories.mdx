@@ -20,7 +20,6 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 ```
 
 or with [JSPM](https://jspm.org)
@@ -42,13 +41,17 @@ or with [JSPM](https://jspm.org)
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
     <dds-card-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
+      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
     </dds-card-footer>
   </dds-card-group-item>
   <dds-card-group-item href="https://example.com" color-scheme="inverse">
     <div slot="heading">Top level card link</div>
     <dds-card-footer slot="footer" color-scheme="inverse">
-      ${ArrowRight20({ slot: 'icon' })}
+      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
     </dds-card-footer>
   </dds-card-group-item>
 </dds-card-group>

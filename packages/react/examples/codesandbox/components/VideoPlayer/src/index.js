@@ -15,7 +15,7 @@ const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-12">
-        <VideoPlayer inverse={false} videoId="0_uka1msg4" showCaption={true} />
+        <VideoPlayer inverse={false} videoId="1_9h94wo6b" showCaption={true} />
       </div>
     </div>
   </div>

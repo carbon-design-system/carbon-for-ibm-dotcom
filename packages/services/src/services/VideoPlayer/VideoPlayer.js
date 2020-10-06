@@ -150,7 +150,7 @@ class VideoPlayerAPI {
    *
    * function thumbnail() {
    *   const thumbnailData = {
-   *      videoId: '0_uka1msg4',
+   *      videoId: '1_9h94wo6b',
    *      height: '240',
    *      width: '320'
    *   }
@@ -192,6 +192,9 @@ class VideoPlayerAPI {
           entry_id: videoId,
           flashvars: {
             autoPlay: autoPlay,
+            closedCaptions: {
+              plugin: true,
+            },
             titleLabel: {
               plugin: true,
               align: 'left',

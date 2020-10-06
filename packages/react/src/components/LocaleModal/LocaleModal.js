@@ -62,18 +62,6 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       setLangDisplay(getLangDisplay);
       setList(list);
       setModalLabels(list.localeModal);
-
-      document
-        .querySelector(`.${prefix}--modal-header__heading`)
-        ?.setAttribute('tabindex', '0');
-
-      const localeModalContainer = document.querySelector(
-        `.${prefix}--locale-modal-container .${prefix}--modal-container`
-      );
-
-      localeModalContainer?.setAttribute('role', 'dialog');
-      localeModalContainer?.setAttribute('tabindex', '-1');
-      localeModalContainer?.setAttribute('aria-modal', 'true');
     })();
 
     // reset the country search results when clicking close icon or back to region button
@@ -93,6 +81,24 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       stale = true;
     };
   }, [clearResults, localeData, localeDisplay]);
+
+  useEffect(() => {
+    document
+      .querySelector(`.${prefix}--modal-header__heading`)
+      ?.setAttribute('tabindex', '0');
+
+    const localeModalContainer = document.querySelector(
+      `.${prefix}--locale-modal-container .${prefix}--modal-container`
+    );
+
+    localeModalContainer?.setAttribute('role', 'dialog');
+    localeModalContainer?.setAttribute(
+      'aria-labelledby',
+      modalLabels.headerTitle
+    );
+    localeModalContainer?.setAttribute('tabindex', '-1');
+    localeModalContainer?.setAttribute('aria-modal', 'true');
+  });
 
   return (
     <ComposedModal

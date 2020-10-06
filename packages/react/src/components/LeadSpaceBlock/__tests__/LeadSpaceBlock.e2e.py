@@ -86,7 +86,7 @@ for handle in handles:
     if handle not in parenthandle:
         driver.switch_to.window(handle)
 
-        Video = driver.find_element_by_xpath("//div[@id='bx--video-player__video-0_uka1msg4']")
+        Video = driver.find_element_by_xpath("//div[@id='bx--video-player__video-1_9h94wo6b']")
         if Video.is_displayed():
             print(" Video is present")
         else:

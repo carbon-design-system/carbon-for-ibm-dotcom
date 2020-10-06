@@ -8,9 +8,6 @@
 const _host = 'https://ibm.com';
 const _version = 'v1';
 
-process.env.CORS_PROXY = process.env.CORS_PROXY || 'https://myproxy.com/';
-process.env.REACT_APP_CORS_PROXY =
-  process.env.REACT_APP_CORS_PROXY || 'https://cra-myproxy.com/';
 process.env.SEARCH_TYPEAHEAD_API = process.env.SEARCH_TYPEAHEAD_API || _host;
 process.env.SEARCH_TYPEAHEAD_VERSION =
   process.env.SEARCH_TYPEAHEAD_VERSION || _version;

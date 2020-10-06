@@ -54,7 +54,7 @@ describe('CTA', () => {
               src: '',
             },
             media: {
-              src: '0_uka1msg4',
+              src: '1_9h94wo6b',
               type: 'video',
             },
           },
@@ -109,7 +109,7 @@ describe('CTA', () => {
             href: 'https://www.example.com',
             copy: 'Lorem Ipsum',
             media: {
-              src: '0_uka1msg4',
+              src: '1_9h94wo6b',
               type: 'video',
             },
           },
