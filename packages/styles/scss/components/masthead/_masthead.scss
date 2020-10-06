@@ -405,8 +405,8 @@ $search-transition-timing: 95ms;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: 1.5rem;
-      width: 0.0625rem;
+      height: rem(24px);
+      width: rem(1px);
       background-color: #dcdcdc;
     }
   }
