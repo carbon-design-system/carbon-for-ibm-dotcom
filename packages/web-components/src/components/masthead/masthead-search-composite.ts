@@ -62,7 +62,7 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   /**
    * `true` to activate the search box.
    */
-  @property()
+  @property({ type: Boolean })
   active = false;
 
   /**

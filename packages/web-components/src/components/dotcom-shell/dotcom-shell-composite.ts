@@ -106,7 +106,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` to activate the search box. This goes to masthead.
    */
-  @property({ attribute: 'activate-search' })
+  @property({ type: Boolean, attribute: 'activate-search' })
   activateSearch = false;
 
   /**
@@ -140,7 +140,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * The throttle timeout to run query upon user input. This goes to masthead.
    */
-  @property({ type: Number })
+  @property({ type: Number, attribute: 'input-timeout' })
   inputTimeout?: number;
 
   /**
