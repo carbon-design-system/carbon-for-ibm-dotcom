@@ -261,7 +261,6 @@ $search-transition-timing: 95ms;
       display: none;
     }
   }
-
   .#{$prefix}--header__action {
     border: 2px solid transparent;
     > {
@@ -285,11 +284,6 @@ $search-transition-timing: 95ms;
     &:active {
       border-color: $focus;
       background-color: $hover-ui;
-      display: block;
-      &::before,
-      &::after {
-        display: none;
-      }
     }
 
     .#{$prefix}--overflow-menu {
@@ -366,8 +360,8 @@ $search-transition-timing: 95ms;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: 1.5rem;
-      width: 0.0625rem;
+      height: rem(24px);
+      width: rem(1px);
       background-color: #dcdcdc;
       &:focus,
       &:active {
