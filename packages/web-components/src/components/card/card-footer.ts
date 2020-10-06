@@ -89,10 +89,11 @@ class DDSCardFooter extends DDSLinkWithIcon {
 
   updated() {
     super.updated();
-    const { _staticNode: staticNode, _linkNode: linkNode } = this;
+    const { iconPlacement, _staticNode: staticNode, _linkNode: linkNode } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${ddsPrefix}-ce--card__footer`);
+    targetNode!.classList.toggle(`${prefix}--card__footer__icon-left`, iconPlacement === ICON_PLACEMENT.LEFT);
   }
 
   render() {
