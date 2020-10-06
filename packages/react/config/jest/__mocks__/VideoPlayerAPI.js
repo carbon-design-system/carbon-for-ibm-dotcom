@@ -9,7 +9,7 @@ import apiResponse from '../../../../services/src/services/VideoPlayer/__tests__
 
 module.exports = {
   getThumbnailUrl: jest.fn(() => {
-    return 'https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320';
+    return 'https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/1_9h94wo6b/width/320';
   }),
   api: jest.fn(() => Promise.resolve(apiResponse)),
   getVideoDuration: jest.fn(() => {
