@@ -56,10 +56,10 @@ export const Vertical = () => html`
   <dds-link-list type="vertical">
     <span slot="heading">Tutorial</span>
     <dds-link-list-item>
-      Learn more ${ArrowRight20({ slot: 'icon-left' })}
+      Learn more ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
     <dds-link-list-item>
-      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon-left' })}
+      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
   </dds-link-list>
 `;

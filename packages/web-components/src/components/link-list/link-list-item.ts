@@ -9,7 +9,7 @@
 
 import { css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import DDSLinkWithIcon, { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,6 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-link-list-item`)
 class DDSLinkListItem extends DDSLinkWithIcon {
   connectedCallback() {
+    this.iconPlacement = ICON_PLACEMENT.LEFT;
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
     }
