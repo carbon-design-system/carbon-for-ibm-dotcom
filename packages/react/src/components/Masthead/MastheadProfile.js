@@ -20,6 +20,7 @@ const MastheadProfile = ({
   overflowMenuProps,
   overflowMenuItemProps,
   profileMenu,
+  customProfileLogin,
 }) => {
   /**
    * Masthead profile menu
@@ -27,14 +28,18 @@ const MastheadProfile = ({
    * @returns {*} Masthead profile menu
    */
   const profileNav = profileMenu.map((item, i) => {
+    const loginUrl =
+      customProfileLogin && item.id === 'signin'
+        ? customProfileLogin
+        : item.url;
+
     return (
       <OverflowMenuItem
         {...overflowMenuItemProps}
         itemText={item.title}
-        href={item.url}
+        href={loginUrl}
         hasDivider={i > 0}
         key={i}
-        primaryFocus
       />
     );
   });
@@ -68,6 +73,11 @@ MastheadProfile.propTypes = {
       url: PropTypes.string,
     })
   ),
+
+  /**
+   * Custom login url in masthead profile menu (experimental)
+   */
+  customProfileLogin: PropTypes.string,
 };
 
 export default MastheadProfile;

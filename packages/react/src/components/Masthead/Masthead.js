@@ -7,6 +7,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
@@ -268,6 +269,13 @@ const Masthead = ({
                           ? profileData.signedin
                           : profileData.signedout
                       }
+                      {...(mastheadProps.customProfileLogin &&
+                      DDS_CUSTOM_PROFILE_LOGIN
+                        ? {
+                            customProfileLogin:
+                              mastheadProps.customProfileLogin,
+                          }
+                        : {})}
                       navType={navType}
                     />
                   </HeaderGlobalBar>
@@ -328,6 +336,11 @@ Masthead.propTypes = {
    * `true` to render IBM Profile Menu component.
    */
   hasProfile: PropTypes.bool,
+
+  /**
+   * Custom login url in masthead profile menu (experimental)
+   */
+  customProfileLogin: PropTypes.string,
 
   /**
    * `true` to render SearchBar component.

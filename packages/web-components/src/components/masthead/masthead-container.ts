@@ -30,31 +30,6 @@ import DDSMastheadComposite from './masthead-composite';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * An profile item in masthead.
- */
-export interface MastheadProfileItem {
-  /**
-   * `true` if this profile item is for logging in.
-   */
-  isLoginItem?: boolean;
-
-  /**
-   * The key identifying this profile item within the menu.
-   */
-  key: string;
-
-  /**
-   * The title text.
-   */
-  title: string;
-
-  /**
-   * The link URL.
-   */
-  url?: string;
-}
-
-/**
  * The Redux state used for `<dds-masthead-container>`.
  */
 export interface MastheadContainerState extends MastheadSearchContainerState {
