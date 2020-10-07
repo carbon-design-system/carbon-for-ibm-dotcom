@@ -10,7 +10,8 @@
 
 @mixin callout {
   .#{$prefix}--callout__container,
-  :host(#{$dds-prefix}-callout) {
+  :host(#{$dds-prefix}-callout),
+  :host(#{$dds-prefix}-callout-with-media-container) {
     @include carbon--make-row;
 
     background-color: $inverse-02;
