@@ -39,6 +39,11 @@ class HeaderMenu extends React.Component {
     ...AriaLabelPropType,
 
     /**
+     * element ID
+     */
+    id: PropTypes.string,
+
+    /**
      * Provide a custom ref handler for the menu button
      */
     focusRef: PropTypes.func,
@@ -107,6 +112,12 @@ class HeaderMenu extends React.Component {
         } else {
           this.props.setOverlay(true);
           root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+
+          // Trigger analytics on megamenu open
+          if (typeof hj === 'function') {
+            // eslint-disable-next-line
+            hj('trigger', `MM_${this.props.id}`);
+          }
         }
       }
       return {
@@ -220,6 +231,7 @@ class HeaderMenu extends React.Component {
       menuLinkName,
       autoId,
       selected,
+      id,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -247,6 +259,7 @@ class HeaderMenu extends React.Component {
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
+          id={id}
           href="#"
           onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}
