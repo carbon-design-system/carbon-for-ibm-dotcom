@@ -6,6 +6,7 @@
  */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../internal/FeatureFlags';
 import inPercy from '@percy-io/in-percy';
 import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
@@ -46,6 +47,14 @@ Default.story = {
                 setTimeout(resolve, 300000);
               });
 
+        const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
+          ? text(
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
+          : null;
+
         return {
           navigation: select(
             'navigation data (navigation)',
@@ -66,6 +75,7 @@ Default.story = {
             true,
             groupId
           ),
+          customProfileLogin,
           hasSearch: boolean(
             'show the search functionality (hasSearch)',
             true,
