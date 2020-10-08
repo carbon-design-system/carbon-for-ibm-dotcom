@@ -133,6 +133,21 @@ class DDSLocaleModal extends DDSModal {
     `;
   }
 
+  protected _renderHeader() {
+    const { closeButtonAssistiveText } = this;
+    return html`
+      <dds-modal-header>
+        <dds-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}"></dds-modal-close-button>
+        <dds-modal-heading>${this._renderHeading()}</dds-modal-heading>
+      </dds-modal-header>
+    `;
+  }
+
+  protected _renderBody() {
+    const { _currentRegion: currentRegion } = this;
+    return !currentRegion ? this._renderRegionSelectorBody() : this._renderLocaleSelectorBody();
+  }
+
   /**
    * The assistive text for the close button.
    */
@@ -150,21 +165,6 @@ class DDSLocaleModal extends DDSModal {
    */
   @property({ attribute: 'lang-display' })
   langDisplay?: string;
-
-  protected _renderHeader() {
-    const { closeButtonAssistiveText } = this;
-    return html`
-      <dds-modal-header>
-        <dds-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}"></dds-modal-close-button>
-        <dds-modal-heading>${this._renderHeading()}</dds-modal-heading>
-      </dds-modal-header>
-    `;
-  }
-
-  protected _renderBody() {
-    const { _currentRegion: currentRegion } = this;
-    return !currentRegion ? this._renderRegionSelectorBody() : this._renderLocaleSelectorBody();
-  }
 
   async updated(changedProperties) {
     super.updated(changedProperties);
