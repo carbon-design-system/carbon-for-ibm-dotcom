@@ -75,7 +75,7 @@ body {
 // `margin-left: auto`/`margin-right: auto` in `.bx--grid`
 // (as well as `flex-direction: column; align-items: center` in `.dds-ce-demo-devenv--container`)
 // seems to be hostile to such styling strategy
-.dds-ce-demo-devenv--grid--card {
+.dds-ce-demo-devenv--grid--stretch {
   margin-left: 0;
   margin-right: 0;
 }

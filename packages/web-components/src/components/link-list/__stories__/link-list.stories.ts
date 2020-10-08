@@ -130,7 +130,7 @@ export default {
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return html`
-        <div class="bx--grid dds-ce-demo-devenv--grid--card">
+        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
           <div class="bx--row">
             <div class="bx--col-sm-4 ${colLgClass} bx--offset-lg-4">
               ${story()}
