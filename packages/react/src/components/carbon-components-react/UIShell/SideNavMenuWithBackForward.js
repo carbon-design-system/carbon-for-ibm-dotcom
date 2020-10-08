@@ -59,7 +59,8 @@ const SideNavMenuWithBackForward = ({
       selected={rest.selected}
       title={title}
       onToggle={handleToggle}
-      ref={refSideNavMenu}>
+      ref={refSideNavMenu}
+      id={rest.id}>
       <SideNavMenuItem
         onClick={event => event.preventDefault()}
         className={`${prefix}--masthead__side-nav--submemu-back`}

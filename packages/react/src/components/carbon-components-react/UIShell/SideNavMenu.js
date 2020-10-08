@@ -109,6 +109,14 @@ export class SideNavMenu extends React.Component {
 
   handleToggleExpand = event => {
     const { onToggle } = this.props;
+    let onMegaMenuOpen = new Event('megaMenuOpen', { bubbles: true });
+    let onMegaMenuClose = new Event('megaMenuClose', { bubbles: true });
+
+    if (!this.state.isExpanded) {
+      event.currentTarget.dispatchEvent(onMegaMenuOpen);
+    } else {
+      event.currentTarget.dispatchEvent(onMegaMenuClose);
+    }
 
     event.persist();
     this.setState(
@@ -122,7 +130,9 @@ export class SideNavMenu extends React.Component {
   };
 
   handleKeyToggleExpand = event => {
-    if (event.charCode === 13 || event.charCode === ' ') {
+    if (event.key === 'Enter' || event.charCode === ' ') {
+      event.stopPropagation();
+      event.preventDefault();
       const { onToggle } = this.props;
 
       event.persist();
@@ -185,6 +195,7 @@ export class SideNavMenu extends React.Component {
           className={cx(`${prefix}--side-nav__submenu`, {
             [`${prefix}--masthead__side-nav--submemu--selected`]: rest.selected,
           })}
+          id={rest.id}
           onClick={this.handleToggleExpand}
           ref={buttonRef}
           type="button">

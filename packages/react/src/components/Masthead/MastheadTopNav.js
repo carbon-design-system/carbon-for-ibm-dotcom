@@ -34,6 +34,10 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const mastheadLinks = navigation.map((link, i) => {
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected = link.titleEnglish === topNavProps.selectedMenuItem;
+    const linkId = link.titleEnglish
+      .replace(/[^-a-zA-Z0-9_ ]/g, '')
+      .replace(/ +/g, '-')
+      .toLowerCase();
 
     if (link.hasMenu || link.hasMegapanel) {
       return (
@@ -48,7 +52,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           key={i}
           disableScroll={link.hasMegapanel}
           setOverlay={setOverlay}
-          id={`MM_${convertAnalyticsId(link.titleEnglish)}`}>
+          id={linkId}>
           {renderNav(link, autoid)}
         </HeaderMenu>
       );
@@ -116,19 +120,6 @@ function renderNav(link, autoid) {
     });
   }
   return navItems;
-}
-
-/**
- * Parse megamenu link to analytics identifier.
- * Allowable characters [a-zA-Z0-9_-]
- *
- * @param {string} id The element ID
- */
-function convertAnalyticsId(id) {
-  return id
-    .replace(/[^-a-zA-Z0-9_ ]/g, '')
-    .replace(/ +/g, '-')
-    .toLowerCase();
 }
 
 MastheadTopNav.propTypes = {

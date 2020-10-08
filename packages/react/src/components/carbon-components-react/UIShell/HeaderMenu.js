@@ -101,6 +101,9 @@ class HeaderMenu extends React.Component {
    * Toggle the expanded state of the menu on click.
    */
   handleOnClick = event => {
+    let onMegaMenuOpen = new Event('megaMenuOpen', { bubbles: true });
+    let onMegaMenuClose = new Event('megaMenuClose', { bubbles: true });
+
     event.preventDefault();
     this.menuLinkRef.current.focus();
 
@@ -109,15 +112,11 @@ class HeaderMenu extends React.Component {
         if (prevState.expanded) {
           this.props.setOverlay(false);
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+          this.menuLinkRef.current.dispatchEvent(onMegaMenuClose);
         } else {
           this.props.setOverlay(true);
           root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
-
-          // Trigger analytics on megamenu open
-          if (typeof hj === 'function') {
-            // eslint-disable-next-line
-            hj('trigger', `MM_${this.props.id}`);
-          }
+          this.menuLinkRef.current.dispatchEvent(onMegaMenuOpen);
         }
       }
       return {
