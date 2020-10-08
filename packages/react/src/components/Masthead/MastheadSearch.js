@@ -122,6 +122,8 @@ const MastheadSearch = ({
 
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
+  const dir = document.querySelector('html').getAttribute('dir') == 'rtl';
+
   useEffect(() => {
     const abortController =
       typeof AbortController !== 'undefined'
@@ -191,6 +193,7 @@ const MastheadSearch = ({
   }
 
   const className = cx({
+    [`${prefix}--masthead__search--rtl`]: dir,
     [`${prefix}--masthead__search`]: true,
     [`${prefix}--masthead__search--active`]: state.isSearchOpen,
   });
@@ -368,6 +371,9 @@ const MastheadSearch = ({
     return value.trim().length >= renderValue;
   }
 
+  document.querySelector('html').dir = 'rtl';
+  console.log(dir);
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -395,7 +401,12 @@ const MastheadSearch = ({
           />
         </form>
       )}
-      <div className={`${prefix}--header__search--actions`}>
+      <div
+        className={
+          dir
+            ? `${prefix}--header__search--actions--rtl`
+            : `${prefix}--header__search--actions`
+        }>
         <HeaderGlobalAction
           onClick={searchIconClick}
           aria-label={

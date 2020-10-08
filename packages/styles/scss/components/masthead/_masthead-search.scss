@@ -94,6 +94,12 @@
     right: 0;
   }
 
+  .#{$prefix}--header__search--actions--rtl {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   // search container
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
@@ -109,6 +115,14 @@
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;
+      }
+
+      .#{$prefix}--header__search--actions--rtl {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10001;
+        right: auto;
       }
 
       .react-autosuggest__container {
@@ -179,6 +193,11 @@
         right: 0;
       }
     }
+  }
+
+  .#{$prefix}--masthead__search--rtl,
+  :host(#{$dds-prefix}-masthead-search) {
+    margin-left: 0;
   }
 
   .react-autosuggest__container {
