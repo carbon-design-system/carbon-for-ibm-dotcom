@@ -10,9 +10,8 @@
 import { html } from 'lit-element';
 import '../callout-quote';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import { boolean } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
   const { copy, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.CalloutQuote ?? {};
@@ -40,7 +39,7 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Callout Quote',
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     hasGrid: true,
     knobs: {
       CalloutQuote: ({ groupId }) => ({
@@ -53,7 +52,6 @@ export default {
         sourceHeading: textNullable('Source Heading(sourceHeading)', 'Lorem ipsum dolor sit amet', groupId),
         sourceCopy: textNullable('Source Copy(sourceCopy)', 'consectetur adipiscing elit', groupId),
         sourceBottomCopy: textNullable('Source Copy(sourceBottomCopy)', 'IBM Cloud', groupId),
-        inverse: boolean('Inverse (inverse)', false, groupId),
       }),
     },
     decorators: [
