@@ -35,9 +35,11 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected = link.titleEnglish === topNavProps.selectedMenuItem;
     const linkId = link.titleEnglish
-      .replace(/[^-a-zA-Z0-9_ ]/g, '')
-      .replace(/ +/g, '-')
-      .toLowerCase();
+      ? link.titleEnglish
+          .replace(/[^-a-zA-Z0-9_ ]/g, '')
+          .replace(/ +/g, '-')
+          .toLowerCase()
+      : null;
 
     if (link.hasMenu || link.hasMegapanel) {
       return (
