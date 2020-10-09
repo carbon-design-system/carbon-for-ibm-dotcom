@@ -20,9 +20,9 @@ describe('MastheadTopNav', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('renders all the itens based in the `navigation` prop', () => {
+  it('renders all the items based in the `navigation` prop', () => {
     const wrapper = mount(<MastheadTopNav navigation={mockData.links} />);
-    const menuItems = mockData.links.map((_itens, index) => {
+    const menuItems = mockData.links.map((_items, index) => {
       return wrapper.find(
         `a[data-autoid="${stablePrefix}--masthead-default__l1-nav${index}"]`
       );

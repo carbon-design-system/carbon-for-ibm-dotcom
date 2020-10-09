@@ -24,7 +24,7 @@
       height: 100%;
     }
 
-    @include carbon--breakpoint-up(lg) {
+    @include carbon--breakpoint-up(800px) {
       display: none;
     }
   }
@@ -90,6 +90,14 @@
       z-index: 1000;
       @include carbon--breakpoint-down(md) {
         background-color: $ui-background;
+      }
+    }
+
+    .#{$prefix}--side-nav__overlay-active {
+      display: none;
+      @include carbon--breakpoint-down(800px) {
+        display: block;
+        background-color: $overlay-01;
       }
     }
 
