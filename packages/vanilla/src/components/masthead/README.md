@@ -20,7 +20,7 @@ Here's a quick example to get you started.
 
 > 💡 Only import fonts once per usage. 💡 Don't forget to import the Masthead
 > styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
 ### Method 1: Fetch Navigation data and return Masthead markup (recommended)
 
@@ -97,10 +97,10 @@ Masthead.init(elem); // initializes the masthead
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/LICENSE).

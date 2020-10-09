@@ -37,8 +37,15 @@ const MastheadLeftNav = ({
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
-    if (link.hasMenu) {
+    if (link.hasMenu || link.hasMegaPanel) {
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
+      const dataTitle = link.titleEnglish
+        ? link.titleEnglish
+            .replace(/[^-a-zA-Z0-9_ ]/g, '')
+            .replace(/ +/g, '-')
+            .toLowerCase()
+        : null;
+
       if (navigation.length === i + 1) {
         return (
           <>
@@ -48,7 +55,8 @@ const MastheadLeftNav = ({
               key={i}
               autoid={autoid}
               selected={rest.selectedMenuItem === link.titleEnglish}
-              navType={rest.navType}>
+              navType={rest.navType}
+              dataTitle={dataTitle}>
               {renderNavSections(
                 link.menuSections,
                 backButtonText,
@@ -77,7 +85,8 @@ const MastheadLeftNav = ({
           key={i}
           autoid={autoid}
           selected={rest.selectedMenuItem === link.titleEnglish}
-          navType={rest.navType}>
+          navType={rest.navType}
+          dataTitle={dataTitle}>
           {renderNavSections(
             link.menuSections,
             backButtonText,

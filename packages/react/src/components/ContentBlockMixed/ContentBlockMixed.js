@@ -50,7 +50,7 @@ ContentBlockMixed.propTypes = {
 
   /**
    * Simple content item.
-   * Uses [`markdownToHtml`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities/src/utilities/markdownToHtml) utility.
+   * Uses [`markdownToHtml`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/utilities/src/utilities/markdownToHtml) utility.
    */
   copy: PropTypes.string,
 

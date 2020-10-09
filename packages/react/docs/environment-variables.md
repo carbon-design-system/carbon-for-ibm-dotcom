@@ -15,7 +15,7 @@
 
 Environment variables can be set for the React package in order to set various 
 behavior within the application. This includes 
-[feature flags](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md) 
+[feature flags](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/feature-flags.md) 
 and other settings.
 
 ## Local Environment Variables
