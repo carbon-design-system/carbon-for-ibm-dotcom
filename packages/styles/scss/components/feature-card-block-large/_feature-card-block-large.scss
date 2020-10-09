@@ -87,6 +87,10 @@ $fcb-breakpoint-up--lg: map-get(
       height: auto;
       padding: $spacing-07 $spacing-05;
 
+      &:hover {
+        background: $inverse-hover-ui;
+      }
+
       @include carbon--breakpoint('md') {
         padding: $layout-03;
       }
