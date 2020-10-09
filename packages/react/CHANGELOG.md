@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.34...@carbon/ibmdotcom-react@1.12.0-rc.0) (2020-10-09)
+
+### Bug Fixes
+
+- **masthead:** search options visible
+  ([#4205](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4205))
+  ([f1e48a6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f1e48a6)),
+  closes
+  [#4190](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4190)
+  [#4181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4181)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.11.0-rc.1...@carbon/ibmdotcom-react@1.11.0) (2020-09-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
