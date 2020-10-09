@@ -55,10 +55,6 @@
     position: relative;
     height: 100%;
 
-    @include carbon--breakpoint(md) {
-      overflow-x: auto;
-    }
-
     &.#{$prefix}--masthead__platform {
       .#{$prefix}--header__nav {
         padding-left: 0;
@@ -85,6 +81,18 @@
 
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
+    }
+
+    &.#{$prefix}--masthead__header--search-active {
+      .#{$prefix}--header__nav-container {
+        display: none;
+      }
+    }
+  }
+
+  .#{$prefix}--header__search:not(.#{$prefix}--masthead__header--search-active) {
+    @include carbon--breakpoint(md) {
+      overflow-x: auto;
     }
   }
 
