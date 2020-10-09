@@ -39,9 +39,9 @@ class HeaderMenu extends React.Component {
     ...AriaLabelPropType,
 
     /**
-     * element ID
+     * Optional data-title attribute
      */
-    id: PropTypes.string,
+    dataTitle: PropTypes.string,
 
     /**
      * Provide a custom ref handler for the menu button
@@ -101,9 +101,6 @@ class HeaderMenu extends React.Component {
    * Toggle the expanded state of the menu on click.
    */
   handleOnClick = event => {
-    let onMegaMenuOpen = new Event('megaMenuOpen', { bubbles: true });
-    let onMegaMenuClose = new Event('megaMenuClose', { bubbles: true });
-
     event.preventDefault();
     this.menuLinkRef.current.focus();
 
@@ -112,13 +109,18 @@ class HeaderMenu extends React.Component {
         if (prevState.expanded) {
           this.props.setOverlay(false);
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
-          this.menuLinkRef.current.dispatchEvent(onMegaMenuClose);
         } else {
           this.props.setOverlay(true);
           root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
-          this.menuLinkRef.current.dispatchEvent(onMegaMenuOpen);
         }
       }
+
+      const onMegaMenuToggle = new CustomEvent('onMegaMenuToggle', {
+        bubbles: true,
+        detail: { isExpanded: !prevState.expanded },
+      });
+      this.menuLinkRef.current.dispatchEvent(onMegaMenuToggle);
+
       return {
         expanded: !prevState.expanded,
       };
@@ -230,7 +232,7 @@ class HeaderMenu extends React.Component {
       menuLinkName,
       autoId,
       selected,
-      id,
+      dataTitle,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -258,7 +260,7 @@ class HeaderMenu extends React.Component {
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
-          id={id}
+          data-title={dataTitle}
           href="#"
           onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}

@@ -81,16 +81,11 @@ const mastheadL1Data = {
 
 ## Custom Events
 
-The masthead (and side nav) currently emits two events: `megaMenuOpen` and
-`megaMenuClose`. These can be useful for analytics purposes.
+The masthead and side nav currently emit the event `onMegaMenuToggle`.
 
 ```javascript
-document.addEventListener('megaMenuOpen', e => {
-  console.log(`${e.target.id} opened megamenu`);
-  // do something here
-});
-document.addEventListener('megaMenuClose', e => {
-  console.log(`${e.target.id} closed megamenu`);
+document.addEventListener('onMegaMenuToggle', e => {
+  console.log(e.detail); // { isExpanded: true|false }
   // do something here
 });
 ```
