@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.11.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.11.0-rc.0...@carbon/ibmdotcom-services@1.11.0) (2020-09-22)
+# [1.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.11.0-rc.0...@carbon/ibmdotcom-services@1.11.0) (2020-09-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -12,15 +12,15 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.11.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2...@carbon/ibmdotcom-services@1.11.0-rc.0) (2020-09-11)
+# [1.11.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.2...@carbon/ibmdotcom-services@1.11.0-rc.0) (2020-09-11)
 
 ### Features
 
 - **search:** add redirect and typeahead hooks
-  ([#3918](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3918))
-  ([84c0481](https://github.com/carbon-design-system/ibm-dotcom-library/commit/84c0481)),
+  ([#3918](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3918))
+  ([84c0481](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/84c0481)),
   closes
-  [#3766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3766)
+  [#3766](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3766)
 
 ## 1.10.2 (2020-09-08)
 
@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.2...@carbon/ibmdotcom-services@1.10.2) (2020-09-08)
+## [1.10.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.2-rc.2...@carbon/ibmdotcom-services@1.10.2) (2020-09-08)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -40,22 +40,22 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.2-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.1...@carbon/ibmdotcom-services@1.10.2-rc.2) (2020-09-03)
+## [1.10.2-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.2-rc.1...@carbon/ibmdotcom-services@1.10.2-rc.2) (2020-09-03)
 
 ### Bug Fixes
 
 - **translation:** adding string/replace of login url state param
-  ([#3852](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3852))
-  ([435500c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/435500c)),
+  ([#3852](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3852))
+  ([435500c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/435500c)),
   closes
-  [#3851](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3851)
+  [#3851](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3851)
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.2-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.2-rc.0...@carbon/ibmdotcom-services@1.10.2-rc.1) (2020-09-02)
+## [1.10.2-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.2-rc.0...@carbon/ibmdotcom-services@1.10.2-rc.1) (2020-09-02)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -64,22 +64,22 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.1...@carbon/ibmdotcom-services@1.10.2-rc.0) (2020-09-01)
+## [1.10.2-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.1...@carbon/ibmdotcom-services@1.10.2-rc.0) (2020-09-01)
 
 ### Bug Fixes
 
 - **lang:** get immediate lang value rather than waiting for DDO
-  ([#3822](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3822))
-  ([49e1308](https://github.com/carbon-design-system/ibm-dotcom-library/commit/49e1308)),
+  ([#3822](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3822))
+  ([49e1308](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/49e1308)),
   closes
-  [#3824](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3824)
+  [#3824](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3824)
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.1-rc.0...@carbon/ibmdotcom-services@1.10.1) (2020-08-28)
+## [1.10.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.1-rc.0...@carbon/ibmdotcom-services@1.10.1) (2020-08-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -88,7 +88,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.0...@carbon/ibmdotcom-services@1.10.1-rc.0) (2020-08-27)
+## [1.10.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.0...@carbon/ibmdotcom-services@1.10.1-rc.0) (2020-08-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -97,7 +97,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.10.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.10.0-rc.0...@carbon/ibmdotcom-services@1.10.0) (2020-08-26)
+# [1.10.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.10.0-rc.0...@carbon/ibmdotcom-services@1.10.0) (2020-08-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -106,35 +106,35 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.10.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0...@carbon/ibmdotcom-services@1.10.0-rc.0) (2020-08-19)
+# [1.10.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.9.0...@carbon/ibmdotcom-services@1.10.0-rc.0) (2020-08-19)
 
 ### Bug Fixes
 
 - **devenv:** use ibm-common.js
-  ([#3578](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3578))
-  ([36b148c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36b148c)),
+  ([#3578](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3578))
+  ([36b148c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/36b148c)),
   closes
-  [#3575](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3575)
+  [#3575](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3575)
 - **VideoPlayerAPI:** stop video when modal closes
-  ([#3427](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3427))
-  ([b61b5ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b61b5ee)),
+  ([#3427](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3427))
+  ([b61b5ee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b61b5ee)),
   closes
-  [#3295](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3295)
+  [#3295](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3295)
 
 ### Features
 
 - **masthead:** support profile API
-  ([#3463](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3463))
-  ([1f41b05](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f41b05)),
+  ([#3463](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3463))
+  ([1f41b05](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1f41b05)),
   closes
-  [#3432](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3432)
+  [#3432](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3432)
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.9.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0-rc.1...@carbon/ibmdotcom-services@1.9.0) (2020-07-29)
+# [1.9.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.9.0-rc.1...@carbon/ibmdotcom-services@1.9.0) (2020-07-29)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -143,7 +143,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.9.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.9.0-rc.0...@carbon/ibmdotcom-services@1.9.0-rc.1) (2020-07-22)
+# [1.9.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.9.0-rc.0...@carbon/ibmdotcom-services@1.9.0-rc.1) (2020-07-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -152,20 +152,20 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.9.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0...@carbon/ibmdotcom-services@1.9.0-rc.0) (2020-07-17)
+# [1.9.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.8.0...@carbon/ibmdotcom-services@1.9.0-rc.0) (2020-07-17)
 
 ### Bug Fixes
 
 - **ddo:** setting the proper attribute for version in ddo
-  ([#3190](https://github.com/carbon-design-system/ibm-dotcom-library/issues/3190))
-  ([22bf463](https://github.com/carbon-design-system/ibm-dotcom-library/commit/22bf463))
+  ([#3190](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3190))
+  ([22bf463](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/22bf463))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.8.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.2...@carbon/ibmdotcom-services@1.8.0) (2020-06-23)
+# [1.8.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.8.0-rc.2...@carbon/ibmdotcom-services@1.8.0) (2020-06-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -174,7 +174,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.8.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.1...@carbon/ibmdotcom-services@1.8.0-rc.2) (2020-06-17)
+# [1.8.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.8.0-rc.1...@carbon/ibmdotcom-services@1.8.0-rc.2) (2020-06-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -183,53 +183,53 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.8.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.0...@carbon/ibmdotcom-services@1.8.0-rc.1) (2020-06-16)
+# [1.8.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.8.0-rc.0...@carbon/ibmdotcom-services@1.8.0-rc.1) (2020-06-16)
 
 ### Features
 
 - **services:** support REACT_APP_TRANSLATION_HOST
-  ([#2766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2766))
-  ([1a9800d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1a9800d)),
+  ([#2766](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2766))
+  ([1a9800d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1a9800d)),
   closes
-  [#2761](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2761)
+  [#2761](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2761)
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.8.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0...@carbon/ibmdotcom-services@1.8.0-rc.0) (2020-06-12)
+# [1.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.7.0...@carbon/ibmdotcom-services@1.8.0-rc.0) (2020-06-12)
 
 ### Bug Fixes
 
 - **VideoPlayer:** have overlay poster image on video player to align with
   visual specs
-  ([#2716](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2716))
-  ([0ceed38](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ceed38))
+  ([#2716](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2716))
+  ([0ceed38](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ceed38))
 
 # 1.8.0-beta.4335 (2020-06-05)
 
 ### Bug Fixes
 
 - **corsproxy:** removing cors proxy on production environments
-  ([#2633](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2633))
-  ([81a4587](https://github.com/carbon-design-system/ibm-dotcom-library/commit/81a4587))
+  ([#2633](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2633))
+  ([81a4587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/81a4587))
 - **services:** fix uncaught rejections
-  ([#2655](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2655))
-  ([77b5298](https://github.com/carbon-design-system/ibm-dotcom-library/commit/77b5298))
+  ([#2655](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2655))
+  ([77b5298](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77b5298))
 
 ### Features
 
 - **component:** enhance card to support video
-  ([#2652](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2652))
-  ([d363d4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d363d4f))
+  ([#2652](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2652))
+  ([d363d4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d363d4f))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.7.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0-rc.1...@carbon/ibmdotcom-services@1.7.0) (2020-05-27)
+# [1.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.7.0-rc.1...@carbon/ibmdotcom-services@1.7.0) (2020-05-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -238,7 +238,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.7.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0-rc.0...@carbon/ibmdotcom-services@1.7.0-rc.1) (2020-05-20)
+# [1.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.7.0-rc.0...@carbon/ibmdotcom-services@1.7.0-rc.1) (2020-05-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -247,23 +247,23 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.7.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0...@carbon/ibmdotcom-services@1.7.0-rc.0) (2020-05-18)
+# [1.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.6.0...@carbon/ibmdotcom-services@1.7.0-rc.0) (2020-05-18)
 
 ### Bug Fixes
 
 - **jest:** accounting for CORS_PROXY in service unit tests
-  ([2d5d154](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2d5d154))
+  ([2d5d154](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2d5d154))
 - **video-player:** set different partner and uiconf ids for vp
-  ([523d45c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/523d45c))
+  ([523d45c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/523d45c))
 - **videoplayer:** format partnerid and handle html in desc
-  ([6708a1c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6708a1c))
+  ([6708a1c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6708a1c))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.1...@carbon/ibmdotcom-services@1.6.0) (2020-04-28)
+# [1.6.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.6.0-rc.1...@carbon/ibmdotcom-services@1.6.0) (2020-04-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -272,62 +272,62 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.0...@carbon/ibmdotcom-services@1.6.0-rc.1) (2020-04-22)
+# [1.6.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.6.0-rc.0...@carbon/ibmdotcom-services@1.6.0-rc.1) (2020-04-22)
 
 ### Bug Fixes
 
 - **service:** cache video data in an object within service
-  ([606969c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/606969c))
+  ([606969c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/606969c))
 - **services:** set associative array for cache object
-  ([f61adc2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f61adc2))
+  ([f61adc2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f61adc2))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.1...@carbon/ibmdotcom-services@1.6.0-rc.0) (2020-04-17)
+# [1.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.5.1...@carbon/ibmdotcom-services@1.6.0-rc.0) (2020-04-17)
 
 ### Bug Fixes
 
 - **analytics:** add documentation to vp analytics method
-  ([b6a6d36](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b6a6d36))
+  ([b6a6d36](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6a6d36))
 - **analytics:** unit tests
-  ([154bd9c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/154bd9c))
+  ([154bd9c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/154bd9c))
 - **issue-1695:** edit locale.js/update tests
-  ([a475210](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a475210))
+  ([a475210](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a475210))
 - **issue-1695:** refactoring
-  ([3129d2f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3129d2f))
+  ([3129d2f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3129d2f))
 - **issue-1695:** using DDO to get language
-  ([32ef879](https://github.com/carbon-design-system/ibm-dotcom-library/commit/32ef879))
+  ([32ef879](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/32ef879))
 - **issue-2103:** getfromddo returns false
-  ([4d75802](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4d75802))
+  ([4d75802](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d75802))
 - **issue-2103:** isReady() catch, new test
-  ([a9a0777](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a9a0777))
+  ([a9a0777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9a0777))
 - **locale:** setting default host to www.ibm.com
-  ([5e8f4f5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5e8f4f5))
+  ([5e8f4f5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5e8f4f5))
 - **locale-service:** changed dash to em-dash in location string
-  ([5003965](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5003965))
+  ([5003965](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5003965))
 - **translation:** fixes multiple translation api fetches
-  ([959c8de](https://github.com/carbon-design-system/ibm-dotcom-library/commit/959c8de))
+  ([959c8de](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/959c8de))
 - **unittesting:** aligning jest versions across packages
-  ([c4e8ac0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4e8ac0))
+  ([c4e8ac0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c4e8ac0))
 - **video-player:** import analytics api using relative path
-  ([f4aa71c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4aa71c))
+  ([f4aa71c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f4aa71c))
 
 ### Features
 
 - **analytics:** metrics for kaltura video player
-  ([0b5e2a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0b5e2a5))
+  ([0b5e2a5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b5e2a5))
 - **videoplayerAPI:** adding VideoPlayerAPI test coverage
-  ([b1253db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b1253db))
+  ([b1253db](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b1253db))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.1-rc.0...@carbon/ibmdotcom-services@1.5.1) (2020-03-30)
+## [1.5.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.5.1-rc.0...@carbon/ibmdotcom-services@1.5.1) (2020-03-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -336,7 +336,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.5.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.0...@carbon/ibmdotcom-services@1.5.1-rc.0) (2020-03-23)
+## [1.5.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.5.0...@carbon/ibmdotcom-services@1.5.1-rc.0) (2020-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -345,7 +345,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.0-rc.0...@carbon/ibmdotcom-services@1.5.0) (2020-03-18)
+# [1.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.5.0-rc.0...@carbon/ibmdotcom-services@1.5.0) (2020-03-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -354,19 +354,19 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.1...@carbon/ibmdotcom-services@1.5.0-rc.0) (2020-03-06)
+# [1.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.1...@carbon/ibmdotcom-services@1.5.0-rc.0) (2020-03-06)
 
 ### Bug Fixes
 
 - **storybook:** update FPO image host for stories
-  ([896ef4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/896ef4f))
+  ([896ef4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/896ef4f))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.4.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.1-rc.0...@carbon/ibmdotcom-services@1.4.1) (2020-02-28)
+## [1.4.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.1-rc.0...@carbon/ibmdotcom-services@1.4.1) (2020-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -375,7 +375,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.4.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0...@carbon/ibmdotcom-services@1.4.1-rc.0) (2020-02-26)
+## [1.4.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.0...@carbon/ibmdotcom-services@1.4.1-rc.0) (2020-02-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -384,7 +384,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.4.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.2...@carbon/ibmdotcom-services@1.4.0) (2020-02-25)
+# [1.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.0-rc.2...@carbon/ibmdotcom-services@1.4.0) (2020-02-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -393,7 +393,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.1...@carbon/ibmdotcom-services@1.4.0-rc.2) (2020-02-25)
+# [1.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.0-rc.1...@carbon/ibmdotcom-services@1.4.0-rc.2) (2020-02-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -402,7 +402,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.0...@carbon/ibmdotcom-services@1.4.0-rc.1) (2020-02-24)
+# [1.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.4.0-rc.0...@carbon/ibmdotcom-services@1.4.0-rc.1) (2020-02-24)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
 
@@ -411,26 +411,26 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1...@carbon/ibmdotcom-services@1.4.0-rc.0) (2020-02-14)
+# [1.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.3.1...@carbon/ibmdotcom-services@1.4.0-rc.0) (2020-02-14)
 
 ### Bug Fixes
 
 - **eslint:** adjust config for sort-imports in eslint
-  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+  ([3a4a3dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3a4a3dc))
 - **storybook:** fixes IE11 loading issues in Storybook; fixes
-  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
-  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+  [#840](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/53d2fa3))
 
 ### Features
 
 - **services:** added api method and updated the jsdoc
-  ([4c15c42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c15c42))
+  ([4c15c42](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4c15c42))
 - **services:** created a videoplayer service to load script and embed
-  ([6b7cdf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6b7cdf2))
+  ([6b7cdf2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6b7cdf2))
 - **services:** kwidget.api warpped inside the checkScript
-  ([849364d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/849364d))
+  ([849364d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/849364d))
 - **services:** removed tests for now
-  ([12d98ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/12d98ce))
+  ([12d98ce](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/12d98ce))
 - **services:** updated the changes
   ([a5407d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a5407d9))
 
