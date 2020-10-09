@@ -9,20 +9,25 @@
 
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../link-with-icon';
 import readme from './README.stories.mdx';
+import { ICON_PLACEMENT } from '../link-with-icon';
 
 export const Default = ({ parameters }) => {
-  const { children, disabled, href, onClick } = parameters?.props?.LinkWithIcon ?? {};
+  const { children, disabled, href, onClick, iconPlacement } = parameters?.props?.LinkWithIcon ?? {};
   return html`
-    <dds-link-with-icon ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
+    <dds-link-with-icon icon-placement="${iconPlacement}" ?disabled="${disabled}" href="${ifNonNull(href)}" @click="${onClick}">
       ${children}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;
+};
+
+const placementTypes = {
+  [`${ICON_PLACEMENT.LEFT}`]: ICON_PLACEMENT.LEFT,
+  [`${ICON_PLACEMENT.RIGHT}`]: ICON_PLACEMENT.RIGHT,
 };
 
 export default {
@@ -35,6 +40,12 @@ export default {
         disabled: boolean('Disabled (disabled)', false, groupId),
         href: textNullable('Link href (href)', 'https://github.com/carbon-design-system/carbon-web-components', groupId),
         onClick: action('click'),
+        iconPlacement: select(
+          'Icon Position (icon-placement):',
+          placementTypes,
+          placementTypes[`${ICON_PLACEMENT.RIGHT}`],
+          groupId
+        ),
       }),
     },
   },
