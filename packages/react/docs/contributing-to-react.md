@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Contributing to Carbon for IBM.com React package](#contributing-to-the-ibmcom-library-react-package)
+- [Contributing to Carbon for IBM.com React package](#contributing-to-carbon-for-ibmcom-react-package)
   - [Overview](#overview)
   - [Packages](#packages)
   - [React DocGen](#react-docgen)
@@ -10,8 +10,8 @@
   - [Feature Flag](#feature-flag)
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
+  - [Unit Test Coverage](#unit-test-coverage)
   - [Don't Forget To...](#dont-forget-to)
-  - [Pull Requests](#pull-requests)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
