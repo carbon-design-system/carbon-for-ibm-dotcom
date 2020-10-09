@@ -31,7 +31,7 @@ export default {
     story => html`
       <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4" style="padding-top: 20px">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             ${story()}
           </div>
         </div>
