@@ -530,7 +530,7 @@ It’s called React [“composition pattern”](https://reactjs.org/docs/composi
 However, it often doesn’t work well with Web Components for several reasons, e.g. the ancestor component loses the style ownership of the inherited component due to Shadow DOM CSS encapsulation boundary.
 That said, in `@carbon/ibmdotcom-web-components` codebase prefers class inheritance pattern.
 
-It means, we prefer:
+To highlight this, here is an example of what a preferred inheritance pattern would be:
 
 ```typescript
 class DDSFoo extends DDSBar {
