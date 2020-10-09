@@ -542,7 +542,7 @@ class DDSFoo extends DDSBar {
 }
 ```
 
-Over:
+Whereas this would be a pattern to avoid:
 
 ```typescript
 class DDSFoo extends LitElement {
