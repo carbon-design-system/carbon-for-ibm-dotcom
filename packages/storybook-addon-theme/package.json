@@ -9,8 +9,8 @@
   "files": [
     "es"
   ],
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/storybook-addon-theme",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/storybook-addon-theme",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "keywords": [
     "ibm",
     "carbon",
