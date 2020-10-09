@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-vanilla@0.11.0...@carbon/ibmdotcom-vanilla@0.12.0-rc.0) (2020-10-09)
+
+### Features
+
+- **corsproxy:** removal of CORS_PROXY
+  ([#4040](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4040))
+  ([d50a7d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d50a7d7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-vanilla@0.11.0-rc.1...@carbon/ibmdotcom-vanilla@0.11.0) (2020-09-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla

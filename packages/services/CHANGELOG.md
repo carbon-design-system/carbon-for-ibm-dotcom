@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.11.0...@carbon/ibmdotcom-services@1.12.0-rc.0) (2020-10-09)
+
+### Bug Fixes
+
+- **masthead-container:** profile menu items from translate API
+  ([#3955](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3955))
+  ([b8ef7ea](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b8ef7ea))
+- **video:** changing video id across packages
+  ([#4121](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4121))
+  ([8b73e11](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b73e11))
+
+### Features
+
+- **corsproxy:** removal of CORS_PROXY
+  ([#4040](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4040))
+  ([d50a7d7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d50a7d7))
+- **videoplayer:** add closed captions
+  ([#4036](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4036))
+  ([d051621](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d051621)),
+  closes
+  [#4012](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4012)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.11.0-rc.0...@carbon/ibmdotcom-services@1.11.0) (2020-09-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
