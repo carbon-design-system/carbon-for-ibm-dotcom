@@ -19,7 +19,7 @@ instead:
 yarn add @carbon/ibmdotcom-react
 ```
 
-> NOTE: Carbon dependencies will be managed by the IBM.com Library starting in
+> NOTE: Carbon dependencies will be managed by Carbon for IBM.com starting in
 > `v1.3.0`. For earlier versions, Carbon dependencies will have to be installed
 > separately:
 >

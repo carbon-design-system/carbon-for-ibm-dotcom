@@ -1,6 +1,6 @@
 # @carbon/ibmdotcom-styles
 
-A single, shared CSS resource for the IBM.com Library.
+A single, shared CSS resource for Carbon for IBM.com.
 
 ## Getting started
 
@@ -20,7 +20,7 @@ yarn add @carbon/ibmdotcom-styles
 
 ## Expressive Theme
 
-The IBM.com Library runs optimally with the expressive theme enabled.
+Carbon for IBM.com runs optimally with the expressive theme enabled.
 
 ### Step 1: CSS Custom Properties
 
@@ -53,7 +53,7 @@ const sassLoader = {
 ### Step 2: CSS Import
 
 This includes the expressive theme that would be applied to all Carbon
-components, as well as adjustments to the core type scale for IBM.com Library
+components, as well as adjustments to the core type scale for Carbon for IBM.com
 components and patterns.
 
 ```css

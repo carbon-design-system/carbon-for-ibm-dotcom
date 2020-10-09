@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-styles",
-  "description": "IBM.com Library Styles",
+  "description": "Carbon for IBM.com Styles",
   "version": "1.11.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
