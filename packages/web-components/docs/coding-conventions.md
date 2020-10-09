@@ -527,7 +527,7 @@ This codebase tends to make all component class/instance properties `private` un
 As we are converting our React code to Web Components code, it’s tempting to just copy over the markup structure of React to Web Components.
 However, our React codebase has lots of occurrences of a pattern where a component extends another component by putting such “ancestor component” in the render logic.
 It’s called React [“composition pattern”](https://reactjs.org/docs/composition-vs-inheritance.html), and as the link tells React community recommends it even.
-OTOH it often doesn’t work well with Web Components for several reasons, e.g. the ancestor component loses the style ownership of the inherited component due to Shadow DOM CSS encapsulation boundary.
+However, it often doesn’t work well with Web Components for several reasons, e.g. the ancestor component loses the style ownership of the inherited component due to Shadow DOM CSS encapsulation boundary.
 That said, in `@carbon/ibmdotcom-web-components` codebase prefers class inheritance pattern.
 
 It means, we prefer:
