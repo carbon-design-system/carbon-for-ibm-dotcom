@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, TemplateResult } from 'lit-element';
+import { html, customElement, TemplateResult, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -16,6 +16,21 @@ import styles from './link-with-icon.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/**
+ * Icon Placement
+ */
+export enum ICON_PLACEMENT {
+  /**
+   * left of footer copy
+   */
+  LEFT = 'left',
+
+  /**
+   * right of footer copy
+   */
+  RIGHT = 'right',
+}
 
 /**
  * Link with icon.
@@ -27,12 +42,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   /**
+   * Icon placement(right (default) | left)
+   */
+  @property({ attribute: 'icon-placement', reflect: true })
+  iconPlacement = ICON_PLACEMENT.RIGHT;
+
+  /**
    * @returns The main content.
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     return html`
-      <slot name="icon-left"></slot>
       <span><slot></slot></span>
     `;
   }
@@ -43,14 +63,18 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderIcon(): TemplateResult | string | void {
     return html`
-      <slot name="icon"></slot>
+      <slot class="${prefix}--link-with-icon__icon-${this.iconPlacement}" name="icon"></slot>
     `;
   }
 
   protected _renderInner() {
-    return html`
-      ${this._renderContent()}${this._renderIcon()}
-    `;
+    return this.iconPlacement === ICON_PLACEMENT.LEFT
+      ? html`
+          ${this._renderIcon()}${this._renderContent()}
+        `
+      : html`
+          ${this._renderContent()}${this._renderIcon()}
+        `;
   }
 
   updated() {
