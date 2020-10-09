@@ -376,7 +376,11 @@ $search-transition-timing: 95ms;
       top: 0;
       height: 100%;
       width: rem(8px);
-      background: linear-gradient(to right, $ui-background, transparent);
+      background: linear-gradient(
+        to right,
+        $ui-background,
+        rgba(255, 255, 255, 0)
+      );
       z-index: 1;
     }
   }
@@ -389,7 +393,11 @@ $search-transition-timing: 95ms;
       left: -$carbon--spacing-03;
       height: 100%;
       width: rem(8px);
-      background: linear-gradient(to left, $ui-background, transparent);
+      background: linear-gradient(
+        to left,
+        $ui-background,
+        rgba(255, 255, 255, 0)
+      );
     }
 
     &::after {
