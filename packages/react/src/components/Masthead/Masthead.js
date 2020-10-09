@@ -67,6 +67,12 @@ const Masthead = ({
    */
   const [isAuthenticated, setStatus] = useState(false);
 
+  /**
+   * Returns state of search status
+   *
+   * @param {boolean} isSearchActive Whether the search bar is open
+   * @returns {*} The active search status
+   */
   const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
   const handleSearchActive = e => {
     setIsSearchActive(e);
