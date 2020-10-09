@@ -141,12 +141,9 @@ const Masthead = ({
     [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
-  const mastheadSearchActive = cx({
-    [`${prefix}--masthead__header--search-active`]: isSearchActive,
-  });
-
-  const hasPlatform = cx({
+  const headerSearchClasses = cx({
     [`${prefix}--masthead__platform`]: platform,
+    [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
   useEffect(() => {
@@ -240,7 +237,7 @@ const Masthead = ({
                 />
 
                 <div
-                  className={`${prefix}--header__search ${hasPlatform} ${mastheadSearchActive}`}>
+                  className={`${prefix}--header__search ${headerSearchClasses}`}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
