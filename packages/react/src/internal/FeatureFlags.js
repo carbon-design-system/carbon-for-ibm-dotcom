@@ -25,6 +25,14 @@ export const DDS_CARD_WITH_PICTOGRAM =
   process.env.DDS_CARD_WITH_PICTOGRAM === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * Feature flag to enable custom login url in masthead profile menu
+ *
+ * @type {boolean}
+ */
+export const DDS_CUSTOM_PROFILE_LOGIN =
+  process.env.DDS_CUSTOM_PROFILE_LOGIN === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * Feature flag for the optional language selector in the footer
  *
  * @type {boolean}

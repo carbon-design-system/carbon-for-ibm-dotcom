@@ -14,18 +14,14 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import Container from './Container';
 
-const SORT_ORDER_GROUP = [
-  'Overview',
-  'Components',
-  'Patterns (Sections)',
-  'Patterns (Blocks)',
-];
+const SORT_ORDER_GROUP = ['Overview', 'Components'];
 
 const SORT_ORDER = [
   'overview-getting-started--page',
   'overview-building-for-ibm-dot-com--page',
   'overview-environment-variables--page',
   'overview-feature-flags--page',
+  'overview-enable-right-to-left-rtl--page',
   'overview-contributing-to-the-react-package--page',
 ];
 
