@@ -1,12 +1,12 @@
 {
   "name": "@carbon/ibmdotcom-react",
-  "description": "IBM.com Library React Components and Patterns",
+  "description": "Carbon for IBM.com React Components",
   "version": "1.11.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "files": [
     "lib/**/*",
     "es/**/*",

@@ -22,7 +22,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/p
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
-import styles from './dotcom-shell-container.scss';
+import styles from './dotcom-shell-composite.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

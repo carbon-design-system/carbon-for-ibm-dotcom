@@ -21,8 +21,8 @@ features, by not reporting duplicate issues.
 
 ## Submitting a Contribution
 
-- [Development guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md)
-- [Contributing to the React package](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/contributing-to-react.md)
+- [Development guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)
+- [Contributing to the React package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/contributing-to-react.md)
 - Details on contributions to the `Web Components` package coming soon!
 
 ## When a Pull Request is opened
@@ -50,7 +50,7 @@ This includes the creation of:
 - Visual specifications
 - Functional specifications
 - Finalization of code/documentation per above specifications
-- Updates to the [IBM.com Library website](https://www.ibm/com/standards/web/ibm-dotcom-library)
+- Updates to the [Carbon for IBM.com website](https://www.ibm/com/standards/web/carbon-for-ibm-dotcom)
 
 The feature will also go through quality assurance with our design team as well
 as functional QA team per [browser support scope](https://www.ibm.com/standards/web/browser-support):
