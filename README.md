@@ -46,8 +46,9 @@ If you are building pages for IBM.com,
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibm-dotcom.mybluemix.net)
-  for full how-to docs and guidelines
+- See our documentation site
+  [here](http://www.ibm.com/standards/web/carbon-for-ibm-dotcom) for full how-to
+  docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
