@@ -86,6 +86,13 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     super.disconnectedCallback();
   }
 
+  renderLightDOM() {
+    // In this class we render that in modal instead of in light DOM.
+    // Overriding `.renderLightDOM()` here
+    // to prevent the parent `<dds-video-player-composite>` from rendering `<dds-video-player>` in light DOM.
+    return html``;
+  }
+
   renderModal() {
     const { formatCaption, formatDuration, hideCaption, open, videoData = {}, videoId } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
