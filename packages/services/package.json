@@ -1,12 +1,12 @@
 {
   "name": "@carbon/ibmdotcom-services",
-  "description": "IBM.com Library Services",
+  "description": "Carbon for IBM.com Services",
   "version": "1.11.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "exports": {
     "./es": "./es/index.js",
     "./es/": "./es/",

@@ -20,13 +20,13 @@
     "cleverLinks": false,
     "monospaceLinks": false,
     "better-docs": {
-      "name": "IBM.com Library Services",
+      "name": "Carbon for IBM.com Services",
       "logo": "images/logo.png",
       "trackingCode": "tracking-code-which-will-go-to-the-HEAD",
       "navigation": [
         {
           "label": "Github",
-          "href": "https://github.com/carbon-design-system/ibm-dotcom-library"
+          "href": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom"
         },
         {
           "label": "Example Application",

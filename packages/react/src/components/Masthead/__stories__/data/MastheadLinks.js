@@ -14,6 +14,7 @@
 const mastheadLinks = [
   {
     title: 'Lorem ipsum dolor sit amet',
+    titleEnglish: 'Lorem ipsum dolor sit amet',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -63,6 +64,7 @@ const mastheadLinks = [
   },
   {
     title: 'Consectetur adipiscing elit',
+    titleEnglish: 'Consectetur adipiscing elit',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
@@ -164,6 +166,7 @@ const mastheadLinks = [
   },
   {
     title: 'Fusce nec tellus sed augue semper porta',
+    titleEnglish: 'Fusce nec tellus sed augue semper porta',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
