@@ -35,6 +35,9 @@ export enum FOOTER_SIZE {
  * The top-level element in footer.
  *
  * @element dds-footer
+ * @slot brand - The brand content.
+ * @slot legal-nav - The legal nav content.
+ * @slot locale-button - The locale button content.
  */
 @customElement(`${ddsPrefix}-footer`)
 class DDSFooter extends StableSelectorMixin(LitElement) {

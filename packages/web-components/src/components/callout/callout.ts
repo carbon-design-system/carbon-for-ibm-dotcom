@@ -27,12 +27,11 @@ class DDSCallout extends LitElement {
     return `${ddsPrefix}--callout`;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
       <div class="${prefix}--callout__column">
         <div class="${prefix}--callout__content">
-          <slot />
+          <slot></slot>
         </div>
       </div>
     `;

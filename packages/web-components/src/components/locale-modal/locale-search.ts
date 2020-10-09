@@ -131,6 +131,24 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   unavailabilityLabelText = 'This page is unavailable in your preferred location or language';
 
   /**
+   * Focus on first focusable element in shadow DOM
+   */
+  focus() {
+    // @ts-ignore: Ultil `delegatesFocus` is added to `ShadowRoot` definition
+    if (this.shadowRoot!.delegatesFocus) {
+      super.focus();
+    } else {
+      const { selectorTabable } = this.constructor as typeof DDSLocaleSearch;
+      const delegateTarget = this.shadowRoot!.querySelector(selectorTabable);
+      if (delegateTarget) {
+        (delegateTarget as HTMLElement).focus();
+      } else {
+        super.focus();
+      }
+    }
+  }
+
+  /**
    * Resets the search box and the scroll position.
    */
   reset() {
@@ -192,24 +210,6 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
         </div>
       </div>
     `;
-  }
-
-  /**
-   * Focus on first focusable element in shadow DOM
-   */
-  focus() {
-    // @ts-ignore: Ultil `delegatesFocus` is added to `ShadowRoot` definition
-    if (this.shadowRoot!.delegatesFocus) {
-      super.focus();
-    } else {
-      const { selectorTabable } = this.constructor as typeof DDSLocaleSearch;
-      const delegateTarget = this.shadowRoot!.querySelector(selectorTabable);
-      if (delegateTarget) {
-        (delegateTarget as HTMLElement).focus();
-      } else {
-        super.focus();
-      }
-    }
   }
 
   /**

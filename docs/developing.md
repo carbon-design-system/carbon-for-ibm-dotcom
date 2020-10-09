@@ -54,7 +54,7 @@ members/maintainers.
 
 ## Installing dependencies
 
-The IBM.com Library is built using a collection of packages all built in the same git
+Carbon for IBM.com is built using a collection of packages all built in the same git
 repository. You might have heard this setup described as a
 [monorepo](https://en.wikipedia.org/wiki/Monorepo).
 
@@ -95,7 +95,7 @@ dependencies, definitely take a look at our write-up
 
 ## Common tasks
 
-While working on the IBM.com Library, here are some of the top-level tasks that you might
+While working on Carbon for IBM.com, here are some of the top-level tasks that you might
 want to run:
 
 | Command                           | Usage                                                                                                         |
@@ -155,7 +155,7 @@ https://yarnpkg.com/lang/en/docs/cli/link/
    [writing good commit messages](https://github.com/erlang/otp/wiki/Writing-good-commit-messages)
    for more details on commit messages.
 
-   IBM.com Library also uses a commit format called
+   Carbon for IBM.com also uses a commit format called
    [Conventional Commits](https://www.conventionalcommits.org). This format is
    used to help automate details about our project and how it changes. When
    committing changes, there will be a tool that automatically looks at commits

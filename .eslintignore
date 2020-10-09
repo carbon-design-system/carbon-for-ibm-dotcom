@@ -52,6 +52,7 @@ packages/vanilla/storybook-static
 
 # web-components
 packages/web-components/coverage
+packages/web-components/dist
 packages/web-components/es
 packages/web-components/examples
 packages/web-components/umd

@@ -20,6 +20,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The image content of lightbox media viewer.
  *
  * @element dds-lightbox-image-viewer
+ * @slot title - The title content.
+ * @slot description - The description content.
  */
 @customElement(`${ddsPrefix}-lightbox-image-viewer`)
 class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
