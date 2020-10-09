@@ -31,6 +31,12 @@ $fcb-breakpoint-up--lg: map-get(
       margin-bottom: $carbon--layout-06;
     }
 
+    :hover {
+      .#{$prefix}--card__wrapper {
+        background: $inverse-hover-ui;
+      }
+    }
+
     .#{$prefix}--card {
       background: none;
       height: 100%;
