@@ -5,8 +5,8 @@
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "files": [
     "dist/**/*",
     "scss/**/*",
