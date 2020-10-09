@@ -101,6 +101,7 @@ const MastheadSearch = ({
   searchOpenOnload,
   navType,
   customTypeaheadApi,
+  ...rest
 }) => {
   const { ref } = useSearchVisible(false);
 
@@ -194,6 +195,11 @@ const MastheadSearch = ({
     [`${prefix}--masthead__search`]: true,
     [`${prefix}--masthead__search--active`]: state.isSearchOpen,
   });
+
+  // pass search state back to <Masthead />
+  if (rest.isSearchActive) {
+    rest.isSearchActive(state.isSearchOpen);
+  }
 
   /**
    * When the input field changes, we set the new val to our state
