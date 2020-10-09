@@ -28,6 +28,6 @@ fit within the scope of any of the existing doc fix projects.
 
 ## Submission Guidelines
 
-Read more about our [submission guidelines](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/submission-guidelines.md).
+Read more about our [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).
 
 **Thank you for your contribution!**
