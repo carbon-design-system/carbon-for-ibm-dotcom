@@ -48,7 +48,7 @@ In addition to using TypeScript, we try to leverage editors' code assistance fea
 
 For that purpose, we add TSDoc comments to the following:
 
-- All classes (With their custom events (`@fires`), Shadow DOM slots (`@slot`) and Shaodw DOM parts (`@csspart`))
+- All classes (With their custom events (`@fires`), Shadow DOM slots (`@slot`) and Shadow DOM parts (`@csspart`))
 - All properties/methods (including private properties), only exception here is one being overriden
 - All type definitions (e.g. `interface`, `enum`)
 
