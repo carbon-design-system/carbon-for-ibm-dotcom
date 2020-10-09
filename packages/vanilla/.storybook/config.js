@@ -14,7 +14,7 @@ const SORT_ORDER_GROUP = ['Overview', 'Components'];
 
 addParameters({
   options: {
-    name: `IBM.com Library Vanilla Components`,
+    name: `Carbon for IBM.com Vanilla Components`,
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
     storySort(lhs, rhs) {
       const { kind: lhsKind } = lhs[1];
