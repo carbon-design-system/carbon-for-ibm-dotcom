@@ -27,7 +27,7 @@ const SORT_ORDER = [
 
 addParameters({
   options: {
-    name: `IBM.com Library React`,
+    name: `Carbon for IBM.com React`,
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
     storySort(lhs, rhs) {
       const [lhsId, lhsMeta] = lhs;

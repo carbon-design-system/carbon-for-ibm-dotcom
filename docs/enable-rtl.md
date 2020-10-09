@@ -15,7 +15,7 @@
 
 ## Overview
 
-The IBM.com Library supports right-to-left rendering in all components. However,
+Carbon for IBM.com supports right-to-left rendering in all components. However,
 in addition to setting the direction (`dir`) attribute in the `<html>` element,
 some of our components also utilizes directives from the 
 [RTLCSS framework](https://rtlcss.com/). 
