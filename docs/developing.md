@@ -23,15 +23,15 @@ contributing back to the repository. This includes regular team
 members/maintainers.
 
 1. Fork the project by navigating to the main
-   [repository](https://github.com/carbon-design-system/ibm-dotcom-library/) and
+   [repository](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/) and
    clicking the **Fork** button on the top-right corner.
 
 2. Navigate to your forked repository and copy the **SSH url**. Clone your fork
    by running the following in your terminal:
 
    ```
-   $ git clone git@github.com:{ YOUR_USERNAME }/ibm-dotcom-library.git
-   $ cd ibm-dotcom-library
+   $ git clone git@github.com:{ YOUR_USERNAME }/carbon-for-ibm-dotcom.git
+   $ cd carbon-for-ibm-dotcom
    ```
 
    See [GitHub docs](https://help.github.com/articles/fork-a-repo/) for more
@@ -39,10 +39,10 @@ members/maintainers.
 
 3. Once cloned, you will see `origin` as your default remote, pointing to your
    personal forked repository. Add a remote named `upstream` pointing to the
-   main `ibm-dotcom-library`:
+   main `carbon-for-ibm-dotcom`:
 
    ```
-   $ git remote add upstream git@github.com:carbon-design-system/ibm-dotcom-library.git
+   $ git remote add upstream git@github.com:carbon-design-system/carbon-for-ibm-dotcom.git
    $ git remote -v
    ```
 
@@ -91,7 +91,7 @@ yarn build
 
 Afterwards, you should be good to go! For more information about how we handle
 dependencies, definitely take a look at our write-up
-[here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/dependencies.md).
+[here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/dependencies.md).
 
 ## Common tasks
 
@@ -171,7 +171,7 @@ https://yarnpkg.com/lang/en/docs/cli/link/
    ```
 
 7. In Github, navigate to
-   [carbon-design-system/ibm-dotcom-library](https://github.com/carbon-design-system/ibm-dotcom-library/)
+   [carbon-design-system/carbon-for-ibm-dotcom](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/)
    and click the button that reads "Compare & pull request".
 
 8. Write a title and description, then click "Create pull request".
