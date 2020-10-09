@@ -17,7 +17,7 @@ import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss
 
 > 💡 Only import fonts once per usage. Don't forget to import the DotcomShell
 > styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
 ### Content
 
@@ -72,9 +72,9 @@ _loadDotcomShell();
 | `dotcomshellProps.footer`   | Footer props   |
 
 > 💡 See the
-> [Masthead](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/vanilla/src/components/masthead)
+> [Masthead](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/vanilla/src/components/masthead)
 > and
-> [Footer](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/vanilla/src/components/footer)
+> [Footer](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/vanilla/src/components/footer)
 > component documentation for their specific usage.
 
 ## Props
