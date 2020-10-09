@@ -28,7 +28,7 @@ const botUser = 'ibmdotcom-bot';
  * Github Repo Slug
  * @type {string}
  */
-const repoSlug = 'carbon-design-system/ibm-dotcom-library';
+const repoSlug = 'carbon-design-system/carbon-for-ibm-dotcom';
 
 /**
  * Stores the arguments
