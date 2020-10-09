@@ -79,6 +79,17 @@ const mastheadL1Data = {
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/MastheadL1)
 
+## Custom Events
+
+The masthead and side nav currently emit the event `onMegaMenuToggle`.
+
+```javascript
+document.addEventListener('onMegaMenuToggle', e => {
+  console.log(e.detail); // { isExpanded: true|false }
+  // do something here
+});
+```
+
 ## Props
 
 <Props of={Masthead} />
@@ -151,7 +162,7 @@ const platformData = {
 <Masthead platform={platformData} navigation="default" />;
 ```
 
-## customeProfileLogin
+## customProfileLogin
 
 This allows setting a user-defined login URL. This is currently an experimental
 feature. Please see the [feature flags](#feature-flags) section for usage
