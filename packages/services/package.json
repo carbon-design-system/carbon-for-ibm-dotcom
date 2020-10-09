@@ -1,6 +1,6 @@
 {
   "name": "@carbon/ibmdotcom-services",
-  "description": "IBM.com Library Services",
+  "description": "Carbon for IBM.com Services",
   "version": "1.11.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",

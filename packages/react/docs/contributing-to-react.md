@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Contributing to the IBM.com Library React package](#contributing-to-the-ibmcom-library-react-package)
+- [Contributing to Carbon for IBM.com React package](#contributing-to-the-ibmcom-library-react-package)
   - [Overview](#overview)
   - [Packages](#packages)
   - [React DocGen](#react-docgen)
@@ -15,13 +15,13 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Contributing to the IBM.com Library React package
+# Contributing to Carbon for IBM.com React package
 
 > Guidelines for how to make a code contribution to the React package
 
 ## Overview
 
-Thank you for your contribution to the IBM.com Library! Below are guidelines on
+Thank you for your contribution to Carbon for IBM.com! Below are guidelines on
 what some of the things we would be looking for as part of your contribution.
 
 ## Packages
@@ -79,7 +79,7 @@ const MyComponent = () => {
 ## Feature Flag
 
 If this is a new component or enhancement, we would require that it is 
-introduced into the IBM.com Library behind a feature flag. 
+introduced into Carbon for IBM.com behind a feature flag. 
 
 [You can read full details on how to create and implement a feature flag here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md).
 

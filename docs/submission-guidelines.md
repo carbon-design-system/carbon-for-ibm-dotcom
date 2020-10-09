@@ -50,7 +50,7 @@ This includes the creation of:
 - Visual specifications
 - Functional specifications
 - Finalization of code/documentation per above specifications
-- Updates to the [IBM.com Library website](https://www.ibm/com/standards/web/ibm-dotcom-library)
+- Updates to the [Carbon for IBM.com website](https://www.ibm/com/standards/web/ibm-dotcom-library)
 
 The feature will also go through quality assurance with our design team as well
 as functional QA team per [browser support scope](https://www.ibm.com/standards/web/browser-support):
