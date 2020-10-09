@@ -19,7 +19,7 @@ import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 
 > 💡 Only import fonts once per usage. 💡 Don't forget to import the Footer
 > styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
 ### Method 1: Fetch Navigation data and return Footer markup (recommended)
 
@@ -57,11 +57,11 @@ Footer.init(elem); // initializes the footer
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                                                                                                                                                              |
-| ------------ | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json) |
-| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)  |
-| `type`       | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                                                                       |
+| Name         | Required | Data Type | Default Value | Description                                                                                                                                                                                 |
+| ------------ | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer. [Example data](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json) |
+| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer. [Example data](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                                                                          |
 
 ### types (optional)
 
@@ -90,10 +90,10 @@ Footer.init(elem); // initializes the footer
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/LICENSE).

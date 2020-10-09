@@ -419,7 +419,6 @@ $search-transition-timing: 95ms;
     background-color: $hover-ui;
 
     @include carbon--breakpoint-up(sm) {
-      position: absolute;
       top: 0;
       z-index: 6001;
     }
