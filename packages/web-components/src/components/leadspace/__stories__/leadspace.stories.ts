@@ -15,7 +15,6 @@ import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import styles from './leadspace.stories.scss';
 import '../leadspace';
-import '../leadspace-centered';
 import '../../image/image';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
@@ -23,7 +22,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 export const DefaultWithNoImage = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
     <dds-leadspace
       theme="${ifNonNull(theme)}"
@@ -45,7 +45,8 @@ export const DefaultWithNoImage = ({ parameters }) => {
 };
 
 export const DefaultWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
     <dds-leadspace
       theme="${ifNonNull(theme)}"
@@ -71,9 +72,10 @@ export const DefaultWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace-centered theme="${ifNonNull(theme)}" gradient="${ifNonNull(gradient)}" type="centered">
+    <dds-leadspace theme="${ifNonNull(theme)}" gradient="${ifNonNull(gradient)}" type="centered">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -83,14 +85,15 @@ export const Centered = ({ parameters }) => {
           `
         )}
       </dds-button-group>
-    </dds-leadspace-centered>
+    </dds-leadspace>
   `;
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace-centered
+    <dds-leadspace
       theme="${ifNonNull(theme)}"
       gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
@@ -110,12 +113,13 @@ export const CenteredWithImage = ({ parameters }) => {
         <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
         <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
       </dds-image>
-    </dds-leadspace-centered>
+    </dds-leadspace>
   `;
 };
 
 export const Small = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
     <dds-leadspace
       theme="${ifNonNull(theme)}"
@@ -138,7 +142,8 @@ export const Small = ({ parameters }) => {
 };
 
 export const SmallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, theme, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
     <dds-leadspace
       theme="${ifNonNull(theme)}"
@@ -162,11 +167,6 @@ export const SmallWithImage = ({ parameters }) => {
       </dds-image>
     </dds-leadspace>
   `;
-};
-
-const themes = {
-  white: 'white',
-  g100: 'g100',
 };
 
 const iconMap = {
@@ -198,7 +198,6 @@ export default {
     ...readme.parameters,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        theme: select('theme (theme):', themes, themes.white, groupId),
         title: text('title (title):', 'Lead space title', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
