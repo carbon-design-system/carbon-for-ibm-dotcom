@@ -87,7 +87,7 @@ EmbeddedVideoPlayer.story = {
       LightboxMediaViewer: ({ groupId }) => ({
         open: boolean('open', true, groupId),
         media: {
-          src: '0_uka1msg4',
+          src: '1_9h94wo6b',
           type: 'video',
         },
       }),
@@ -96,7 +96,7 @@ EmbeddedVideoPlayer.story = {
       default: {
         LightboxMediaViewer: {
           media: {
-            src: '0_uka1msg4',
+            src: '1_9h94wo6b',
             type: 'video',
           },
         },

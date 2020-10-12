@@ -22,6 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Footer nav group.
  *
  * @element dds-footer-nav-group
+ * @slot title - The title content.
  */
 @customElement(`${ddsPrefix}-footer-nav-group`)
 class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {

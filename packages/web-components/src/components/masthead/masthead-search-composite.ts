@@ -22,6 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Component that rendres masthead search from search results, etc. data.
  *
  * @element dds-masthead-search-composite
+ * @slot search - The search box content.
  */
 @customElement(`${ddsPrefix}-masthead-search-composite`)
 class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(LitElement)) {
@@ -61,7 +62,7 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   /**
    * `true` to activate the search box.
    */
-  @property()
+  @property({ type: Boolean })
   active = false;
 
   /**

@@ -15,6 +15,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * Card Group.
+ *
  * @element dds-card-group
  */
 @customElement(`${ddsPrefix}-card-group`)
