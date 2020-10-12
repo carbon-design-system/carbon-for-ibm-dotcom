@@ -67,6 +67,17 @@ const Masthead = ({
    */
   const [isAuthenticated, setStatus] = useState(false);
 
+  /**
+   * Returns state of search status
+   *
+   * @param {boolean} isSearchActive Whether the search bar is open
+   * @returns {*} The active search status
+   */
+  const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  const handleSearchActive = e => {
+    setIsSearchActive(e);
+  };
+
   useEffect(() => {
     // initialize global execution calls
     globalInit();
@@ -130,8 +141,9 @@ const Masthead = ({
     [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
-  const hasPlatform = cx({
+  const headerSearchClasses = cx({
     [`${prefix}--masthead__platform`]: platform,
+    [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
   useEffect(() => {
@@ -224,7 +236,8 @@ const Masthead = ({
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 
-                <div className={`${prefix}--header__search ${hasPlatform}`}>
+                <div
+                  className={`${prefix}--header__search ${headerSearchClasses}`}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
@@ -236,7 +249,7 @@ const Masthead = ({
                   )}
                   {hasSearch && (
                     <MastheadSearch
-                      searchOpenOnload={searchOpenOnload}
+                      searchOpenOnload={isSearchActive}
                       placeHolderText={placeHolderText}
                       navType={navType}
                       {...(mastheadProps.customTypeaheadApi
@@ -245,6 +258,7 @@ const Masthead = ({
                               mastheadProps.customTypeaheadApi,
                           }
                         : {})}
+                      isSearchActive={handleSearchActive}
                     />
                   )}
                 </div>

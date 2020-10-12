@@ -34,6 +34,13 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const mastheadLinks = navigation.map((link, i) => {
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected = link.titleEnglish === topNavProps.selectedMenuItem;
+    const dataTitle = link.titleEnglish
+      ? link.titleEnglish
+          .replace(/[^-a-zA-Z0-9_ ]/g, '')
+          .replace(/ +/g, '-')
+          .toLowerCase()
+      : null;
+
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
@@ -46,7 +53,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           autoId={autoid}
           key={i}
           disableScroll={link.hasMegapanel}
-          setOverlay={setOverlay}>
+          setOverlay={setOverlay}
+          dataTitle={dataTitle}>
           {renderNav(link, autoid)}
         </HeaderMenu>
       );
