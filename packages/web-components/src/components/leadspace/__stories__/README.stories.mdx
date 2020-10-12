@@ -1,7 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import '../leadspace';
-import '../leadspace-centered';
 
 # LeadSpace
 
@@ -15,7 +14,7 @@ import '../leadspace-centered';
 
 Here's a quick example to get you started.
 
-### JS - Small/Left LeadSpace
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace';
@@ -52,45 +51,6 @@ or with [JSPM](https://jspm.org)
     <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
   </dds-image>
 </dds-leadspace>
-```
-
-### JS - Centered LeadSpace
-
-```javascript
-import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace-centered';
-import '@carbon/ibmdotcom-web-components/es/components/image/image';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/leadspace/leadspace-centered.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
-</script>
-```
-
-### HTML
-
-```html
-<dds-leadspace-centered alt="alt text" default-src="www.example.com">
-  <span slot="title">LeadSpace title</span>
-  <span slot="copy">LeadSpace copy</span>
-  <dds-button-group slot="buttons">
-    ${buttons.map( elem => html`
-    <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
-    ` )}
-  </dds-button-group>
-  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-  </dds-image>
-</dds-leadspace-centered>
 ```
 
 ## Props
