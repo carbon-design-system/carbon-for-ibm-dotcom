@@ -41,15 +41,6 @@ packages/utilities/umd
 packages/utilities/lib
 packages/utilities/node_modules
 
-# vanilla
-packages/vanilla/coverage
-packages/vanilla/es
-packages/vanilla/jsdocs
-packages/vanilla/umd
-packages/vanilla/lib
-packages/vanilla/node_modules
-packages/vanilla/storybook-static
-
 # web-components
 packages/web-components/coverage
 packages/web-components/dist
