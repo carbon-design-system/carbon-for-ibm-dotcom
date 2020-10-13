@@ -1,3 +1,10 @@
+# This package is no longer supported or maintained.
+
+We are deprecating this package in favor of
+[@carbon/ibmdotcom-web-components](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components).
+
+---
+
 # @carbon/ibmdotcom-vanilla
 
 > A collection of IBM.com components implemented using
