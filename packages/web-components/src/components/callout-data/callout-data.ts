@@ -11,6 +11,7 @@ import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-data.scss';
+import { DDS_CALLOUT_DATA } from '../../globals/internal/feature-flags';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -39,4 +40,4 @@ class DDSCalloutData extends LitElement {
   static styles = styles;
 }
 
-export default DDSCalloutData;
+export default !DDS_CALLOUT_DATA ? undefined : DDSCalloutData;

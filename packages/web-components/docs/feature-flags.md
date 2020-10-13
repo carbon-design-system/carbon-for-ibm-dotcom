@@ -28,7 +28,7 @@ Within the file `/packages/web-components/src/globals/internal/feature-flags.ts`
 add a line with the following structure:
 
 ```javascript
-export const DDS_FEATURE_NAME: boolean = process.env.DDS_FLAGS_ALL === 'true' || false;
+export const DDS_FEATURE_NAME: boolean = process.env.DDS_FEATURE_NAME === 'true' || DDS_FLAGS_ALL || false;
 ```
 
 Then, add `DDS_FEATURE_NAME` to `.env.example` in the root of the package:
@@ -47,7 +47,7 @@ For example:
 
 ```javascript
 import { customElement, LitElement } from 'lit-element';
-import { DDS_FEATURE_NAME } from '../../../internal/feature-flags';
+import { DDS_FEATURE_NAME } from '../../globals/internal/feature-flags';
 
 /**
  * EXPERIMENTAL: My Feature
