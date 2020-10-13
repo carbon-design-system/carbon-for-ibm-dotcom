@@ -1,9 +1,0 @@
-.env
-coverage
-jsdocs
-
-# Storybook
-storybook-static
-
-# rollup
-stats.html

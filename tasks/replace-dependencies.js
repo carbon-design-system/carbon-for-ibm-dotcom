@@ -21,7 +21,6 @@ const packs = [
   '@carbon/ibmdotcom-services',
   '@carbon/ibmdotcom-styles',
   '@carbon/ibmdotcom-utilities',
-  '@carbon/ibmdotcom-vanilla',
   '@carbon/ibmdotcom-react',
   '@carbon/ibmdotcom-web-components',
 ];
