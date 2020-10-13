@@ -26,7 +26,7 @@ not be ready for the next release, etc.
 Within the file `FeatureFlags.js`, add a line with the following structure:
 
 ```javascript
-export const DDS_FEATURE_NAME = process.env.DDS_FEATURE_NAME === 'true' || false;
+export const DDS_FEATURE_NAME = process.env.DDS_FEATURE_NAME === 'true' || DDS_FLAGS_ALL || false;
 ```
 
 Then, add `DDS_FEATURE_NAME` to `.env.example` in the root of the package:
