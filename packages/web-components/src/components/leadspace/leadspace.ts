@@ -8,6 +8,7 @@
  */
 
 import { customElement, html, internalProperty, property, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './leadspace.scss';
@@ -69,31 +70,23 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    * Returns a class-name based on the gradient parameter type
    */
   protected _getGradientClass() {
-    return this.gradient ? `${prefix}--leadspace--gradient` : '';
+    return classMap({
+      [`${prefix}--leadspace--gradient`]: this.gradient,
+      [`${prefix}--leadspace__overlay`]: true,
+    });
   }
 
   /**
    * Returns a class-name based on the type parameter type
    */
   protected _getTypeClass() {
-    let classname = '';
-
-    if (this.type === 'centered') {
-      classname += `${prefix}--leadspace--centered `;
-
-      if (this._hasImage) {
-        classname += `${prefix}--leadspace--centered__image `;
-      }
-    }
-
-    if (this.theme) {
-      classname += `${prefix}--leadspace--${this.theme} `;
-    }
-
-    if (this.type === 'small') {
-      classname += `${prefix}--leadspace--productive `;
-    }
-    return classname;
+    return classMap({
+      [`${prefix}--leadspace--centered`]: this.type === 'centered',
+      [`${prefix}--leadspace--centered__image`]: this._hasImage,
+      [`${prefix}--leadspace--productive`]: this.type === 'small',
+      [`${prefix}--leadspace--${this.theme}`]: true,
+      [`${prefix}--leadspace__section`]: true,
+    });
   }
 
   /**
@@ -146,6 +139,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     this._hasImage = (event.target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this.requestUpdate();
   }
 
   /**
@@ -188,7 +182,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    * Carbon color theme of the Leadspace
    */
   @property({ reflect: true })
-  theme = LEADSPACE_THEME;
+  theme = LEADSPACE_THEME.WHITE;
 
   /**
    * `true` to hide the divider.
@@ -198,9 +192,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <section style="${this._getBackgroundImage()}" class="${prefix}--leadspace__section ${this._getTypeClass()}">
+      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}">
         <div class="${prefix}--leadspace__container">
-          <div class="${prefix}--leadspace__overlay ${this._getGradientClass()}">
+          <div class="${this._getGradientClass()}">
             <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
                 <h1 class="${prefix}--leadspace__title">${this._renderTitle()}</h1>
