@@ -1,9 +1,0 @@
----
-applications:
-  - name: ibmdotcom-vanilla-canary
-    path: ./storybook-static
-    memory: 64M
-    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
-    routes:
-      - route: ibmdotcom-vanilla-canary.mybluemix.net
-
