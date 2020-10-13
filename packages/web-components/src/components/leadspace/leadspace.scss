@@ -6,7 +6,8 @@
 //
 
 @import '../../globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace';
+// @import '@carbon/ibmdotcom-styles/scss/components/leadspace/leadspace';
+@import '../../../../styles/scss/components/leadspace/leadspace';
 
 :host(#{$dds-prefix}-leadspace) {
   display: block;

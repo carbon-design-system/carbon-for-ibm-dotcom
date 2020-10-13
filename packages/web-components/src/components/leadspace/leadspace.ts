@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, property, LitElement } from 'lit-element';
+import { customElement, html, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -81,9 +81,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getTypeClass() {
     return classMap({
-      [`${prefix}--leadspace--centered`]: this.type === 'centered',
-      [`${prefix}--leadspace--centered__image`]: this._hasImage,
-      [`${prefix}--leadspace--productive`]: this.type === 'small',
+      [`${prefix}--leadspace--centered`]: this.type === LEADSPACE_TYPE.CENTERED,
+      [`${prefix}--leadspace--centered__image`]: this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
+      [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
       [`${prefix}--leadspace--${this.theme}`]: true,
       [`${prefix}--leadspace__section`]: true,
     });
@@ -126,27 +126,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
       `;
     }
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChangeImage}"></slot>
+      <slot name="image"></slot>
     `;
   }
-
-  /**
-   * Handles `slotchange` event on `<slot name="image">`.
-   *
-   * @param event The event.
-   */
-  private _handleSlotChangeImage(event: Event) {
-    this._hasImage = (event.target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this.requestUpdate();
-  }
-
-  /**
-   * `true` if there is image content.
-   */
-  @internalProperty()
-  private _hasImage = false;
 
   /**
    * The alternate text.
