@@ -77,7 +77,7 @@ if (DDS_FEATURE_NAME) {
   customElements.define(`${ddsPrefix}-callout-data`, DDSMyFeature);
 }
 
-export default DDS_FEATURE_NAME ? undefined : DDSMyFeature;
+export default !DDS_FEATURE_NAME ? undefined : DDSMyFeature;
 ```
 
 ## Wrapping Storybook Stories with Feature Flags
