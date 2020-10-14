@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-data.scss';
+import { DDS_CALLOUT_DATA } from '../../globals/internal/feature-flags';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot copy - The copy content.
  * @slot source - The source content.
  */
-@customElement(`${ddsPrefix}-callout-data`)
 class DDSCalloutData extends LitElement {
   render() {
     return html`
@@ -42,4 +42,9 @@ class DDSCalloutData extends LitElement {
   static styles = styles;
 }
 
-export default DDSCalloutData;
+// Define the new element
+if (DDS_CALLOUT_DATA) {
+  customElements.define(`${ddsPrefix}-callout-data`, DDSCalloutData);
+}
+
+export default !DDS_CALLOUT_DATA ? undefined : DDSCalloutData;
