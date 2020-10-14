@@ -32,6 +32,7 @@
 - [Custom element itself as an eleement](#custom-element-itself-as-an-eleement)
 - [Propagating misc attributes from shadow host to an element in shadow DOM](#propagating-misc-attributes-from-shadow-host-to-an-element-in-shadow-dom)
 - [Private properties](#private-properties)
+- [Preferring class inheritance pattern over React composition pattern](#preferring-class-inheritance-pattern-over-react-composition-pattern)
 - [Limiting components that works with complex data](#limiting-components-that-works-with-complex-data)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -47,9 +48,11 @@ In addition to using TypeScript, we try to leverage editors' code assistance fea
 
 For that purpose, we add TSDoc comments to the following:
 
-- All classes
+- All classes (With their custom events (`@fires`), Shadow DOM slots (`@slot`) and Shadow DOM parts (`@csspart`))
 - All properties/methods (including private properties), only exception here is one being overriden
 - All type definitions (e.g. `interface`, `enum`)
+
+For `@fires`, `@slot` and `@csspart`, refer to: https://github.com/runem/web-component-analyzer#-how-to-document-your-components-using-jsdoc
 
 ## No kitchen-sink "base" class and using mix-in
 
@@ -518,6 +521,39 @@ In such case, we let consumer create a derived class. For example, its `.attribu
 This codebase tends to make all component class/instance properties `private` unless they serve API purpose. This codebase makes some of them `protected` to support inherited components.
 
 `private`/`protected` properties should be prefixed with `_`.
+
+## Preferring class inheritance pattern over React composition pattern
+
+As we are converting our React code to Web Components code, it’s tempting to just copy over the markup structure of React to Web Components.
+However, our React codebase has lots of occurrences of a pattern where a component extends another component by putting such “ancestor component” in the render logic.
+It’s called React [“composition pattern”](https://reactjs.org/docs/composition-vs-inheritance.html), and as the link tells React community recommends it even.
+However, it often doesn’t work well with Web Components for several reasons, e.g. the ancestor component loses the style ownership of the inherited component due to Shadow DOM CSS encapsulation boundary.
+That said, in `@carbon/ibmdotcom-web-components` codebase prefers class inheritance pattern.
+
+To highlight this, here is an example of what a preferred inheritance pattern would be:
+
+```typescript
+class DDSFoo extends DDSBar {
+  render() {
+    return html`
+      ${super.render()}(Some additional content)
+    `;
+  }
+}
+```
+
+Whereas this would be a pattern to avoid:
+
+```typescript
+class DDSFoo extends LitElement {
+  render() {
+    return html`
+      // ❗️ Consider avoiding this
+      <dds-bar>...</dds-bar>
+    `;
+  }
+}
+```
 
 ## Limiting components that works with complex data
 

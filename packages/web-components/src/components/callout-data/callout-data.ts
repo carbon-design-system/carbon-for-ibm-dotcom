@@ -19,6 +19,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Callout Data.
  *
  * @element dds-callout-data
+ * @slot data - The data content.
+ * @slot copy - The copy content.
+ * @slot source - The source content.
  */
 @customElement(`${ddsPrefix}-callout-data`)
 class DDSCalloutData extends LitElement {
