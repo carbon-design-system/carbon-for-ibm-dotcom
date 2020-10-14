@@ -5,6 +5,7 @@
 - [Feature Flags](#feature-flags)
   - [Overview](#overview)
   - [Creating a Feature Flag](#creating-a-feature-flag)
+  - [Activating Feature Flag in Unit Tests](#activating-feature-flag-in-unit-tests)
 - [Using Feature Flags](#using-feature-flags)
   - [Wrapping a Component with a Feature Flag](#wrapping-a-component-with-a-feature-flag)
   - [Wrapping Storybook Stories with Feature Flags](#wrapping-storybook-stories-with-feature-flags)
@@ -38,7 +39,7 @@ Then, add `DDS_FEATURE_NAME` to `.env.example` in the root of the package:
 DDS_FEATURE_NAME=<boolean flag to turn on or off feature xyz>
 ```
 
-### Activating Feature Flag in Unit Tests
+## Activating Feature Flag in Unit Tests
 
 In order for unit tests to pass, the feature flag needs to be activated in 
 the unit test configuration. To do this, in 
