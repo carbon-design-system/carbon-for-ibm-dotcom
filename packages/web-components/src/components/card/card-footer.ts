@@ -7,30 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, TemplateResult } from 'lit-element';
+import { html, property, internalProperty, query, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import DDSLinkWithIcon, { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
 import styles from './card.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Icon Placement
- */
-export enum ICON_PLACEMENT {
-  /**
-   * left of footer copy
-   */
-  LEFT = 'left',
-
-  /**
-   * right of footer copy
-   */
-  RIGHT = 'right',
-}
 
 /**
  * Card footer.
@@ -48,6 +33,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * `true` if there is copy content.
    */
+  @internalProperty()
   protected _hasCopy = false;
 
   /**
@@ -67,14 +53,12 @@ class DDSCardFooter extends DDSLinkWithIcon {
         .assignedNodes()
         .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
       this._hasCopy = hasContent;
-      this.requestUpdate();
     }
   }
 
   /**
    * @returns The main content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
@@ -102,12 +86,6 @@ class DDSCardFooter extends DDSLinkWithIcon {
    */
   @property({ reflect: true })
   slot = 'footer';
-
-  /**
-   * Icon placement(right (default) | left)
-   */
-  @property({ attribute: 'icon-placement', reflect: true })
-  iconPlacement = ICON_PLACEMENT.RIGHT;
 
   updated() {
     super.updated();

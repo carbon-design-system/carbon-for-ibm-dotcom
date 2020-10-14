@@ -29,6 +29,9 @@ const slotExistencePropertyNames = {
  * Content item.
  *
  * @element dds-content-item
+ * @slot media - The media content.
+ * @slot heading - The heading content.
+ * @slot cta - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-content-item`)
 class DDSContentItem extends StableSelectorMixin(LitElement) {
@@ -52,7 +55,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Link `href`.
+   * The copy text.
    */
   @property()
   copy = '';

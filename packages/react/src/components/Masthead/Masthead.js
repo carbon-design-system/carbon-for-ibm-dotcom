@@ -5,11 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import React, { useEffect, useRef, useState } from 'react';
-import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import cx from 'classnames';
-import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
@@ -68,6 +66,17 @@ const Masthead = ({
    * @returns {*} The user status
    */
   const [isAuthenticated, setStatus] = useState(false);
+
+  /**
+   * Returns state of search status
+   *
+   * @param {boolean} isSearchActive Whether the search bar is open
+   * @returns {*} The active search status
+   */
+  const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  const handleSearchActive = e => {
+    setIsSearchActive(e);
+  };
 
   useEffect(() => {
     // initialize global execution calls
@@ -132,8 +141,9 @@ const Masthead = ({
     [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
-  const hasPlatform = cx({
+  const headerSearchClasses = cx({
     [`${prefix}--masthead__platform`]: platform,
+    [`${prefix}--masthead__header--search-active`]: isSearchActive,
   });
 
   useEffect(() => {
@@ -173,69 +183,6 @@ const Masthead = ({
     }
   }
 
-  /**
-   * Determines whether to add class to masthead to hide nav items and
-   * display hamburger menu instead to prevent overlapping of menu items
-   */
-  const [hideNavItems, setHideNavItems] = useState(false);
-
-  /**
-   * set nav items to hide/show depending if the window size is smaller/larger to
-   * the total width of the masthead items calculated previously
-   *
-   * @param {object} mediaQuery MediaQueryList object
-   */
-  const hideShowNavItems = mediaQuery => {
-    if (mediaQuery.matches) {
-      setHideNavItems(true);
-    } else {
-      setHideNavItems(false);
-    }
-  };
-
-  const lgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
-
-  /**
-   * check window size to determine whether to trigger hide/show nav item function
-   */
-  const onResize = () => {
-    if (root.innerWidth >= lgBreakpoint) {
-      /**
-       * get total width of masthead items (logo, nav menu items, search icons) and set css media query
-       * in order to hide nav menu items at the width and show hamburger menu. This prevents menu items
-       * from overlapping
-       */
-      const width = calculateTotalWidth([
-        'bx--header__logo',
-        'bx--header__nav-container',
-        'bx--masthead__platform-name',
-        'bx--header__search--actions',
-        'bx--header__global',
-      ]);
-
-      if (width > lgBreakpoint) {
-        const mediaQuery = root.matchMedia(
-          `(min-width: ${lgBreakpoint}px) and (max-width: ${width + 50}px)`
-        );
-        hideShowNavItems(mediaQuery);
-        mediaQuery.addListener(hideShowNavItems);
-
-        return () => {
-          mediaQuery.removeListener(hideShowNavItems);
-        };
-      }
-    }
-  };
-
-  useEffect(() => {
-    onResize();
-    root.document.addEventListener('resize', onResize);
-
-    return () => {
-      root.document.removeEventListener('resize', onResize);
-    };
-  });
-
   // set navigation type (default, alternate, or ecosystem) for autoids
   let navType;
   if (!navigation && !platform) {
@@ -256,9 +203,7 @@ const Masthead = ({
         }
         return (
           <div
-            className={cx(`${prefix}--masthead ${mastheadSticky}`, {
-              [`${prefix}--masthead--hide-items`]: hideNavItems,
-            })}
+            className={`${prefix}--masthead ${mastheadSticky}`}
             ref={stickyRef}>
             <div className={`${prefix}--masthead__l0`}>
               <Header
@@ -291,7 +236,8 @@ const Masthead = ({
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 
-                <div className={`${prefix}--header__search ${hasPlatform}`}>
+                <div
+                  className={`${prefix}--header__search ${headerSearchClasses}`}>
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
@@ -303,7 +249,7 @@ const Masthead = ({
                   )}
                   {hasSearch && (
                     <MastheadSearch
-                      searchOpenOnload={searchOpenOnload}
+                      searchOpenOnload={isSearchActive}
                       placeHolderText={placeHolderText}
                       navType={navType}
                       {...(mastheadProps.customTypeaheadApi
@@ -312,6 +258,7 @@ const Masthead = ({
                               mastheadProps.customTypeaheadApi,
                           }
                         : {})}
+                      isSearchActive={handleSearchActive}
                     />
                   )}
                 </div>
@@ -336,13 +283,20 @@ const Masthead = ({
                           ? profileData.signedin
                           : profileData.signedout
                       }
+                      {...(mastheadProps.customProfileLogin &&
+                      DDS_CUSTOM_PROFILE_LOGIN
+                        ? {
+                            customProfileLogin:
+                              mastheadProps.customProfileLogin,
+                          }
+                        : {})}
                       navType={navType}
                     />
                   </HeaderGlobalBar>
                 )}
               </Header>
             </div>
-            {mastheadL1Data && DDS_MASTHEAD_L1 && (
+            {mastheadL1Data && (
               <div ref={mastheadL1Ref}>
                 <MastheadL1
                   {...mastheadL1Data}
@@ -396,6 +350,11 @@ Masthead.propTypes = {
    * `true` to render IBM Profile Menu component.
    */
   hasProfile: PropTypes.bool,
+
+  /**
+   * Custom login url in masthead profile menu (experimental)
+   */
+  customProfileLogin: PropTypes.string,
 
   /**
    * `true` to render SearchBar component.

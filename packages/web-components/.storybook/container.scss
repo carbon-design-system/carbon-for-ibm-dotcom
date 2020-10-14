@@ -10,6 +10,25 @@
 @import 'carbon-components/scss/globals/scss/css--helpers';
 @import 'carbon-components/scss/globals/scss/css--font-face';
 @import 'carbon-components/scss/globals/grid/grid';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+
+:root {
+  @include carbon--theme($carbon--theme--white, true);
+
+  height: 100%;
+}
+
+:root[storybook-carbon-theme='g10'] {
+  @include carbon--theme($carbon--theme--g10, true);
+}
+
+:root[storybook-carbon-theme='g90'] {
+  @include carbon--theme($carbon--theme--g90, true);
+}
+
+:root[storybook-carbon-theme='g100'] {
+  @include carbon--theme($carbon--theme--g100, true);
+}
 
 html,
 body,
@@ -51,6 +70,11 @@ body {
   align-items: stretch;
 }
 
+// For cards/videos, we want to ensure the card/video takes up the entire width of the grid column.
+// Also, feature card and video has `position:absolute` in `<a>` that contains its contents.
+// `margin-left: auto`/`margin-right: auto` in `.bx--grid`
+// (as well as `flex-direction: column; align-items: center` in `.dds-ce-demo-devenv--container`)
+// seems to be hostile to such styling strategy
 .dds-ce-demo-devenv--grid--card {
   margin-left: 0;
   margin-right: 0;

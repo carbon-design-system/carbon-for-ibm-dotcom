@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
+    "@carbon/icons-react": "10.13.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.0",
+    "@snowpack/plugin-babel": "^2.1.0",
+    "@snowpack/plugin-react-refresh": "^2.2.0",
+    "snowpack": "2.10.1",
+    "snowpack-plugin-sass": "^1.0.0"
+  }
+}

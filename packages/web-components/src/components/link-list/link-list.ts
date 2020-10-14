@@ -44,6 +44,7 @@ export enum LINK_LIST_TYPE {
  * Link list.
  *
  * @element dds-link-list
+ * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends LitElement {
@@ -66,12 +67,11 @@ class DDSLinkList extends LitElement {
     return `${ddsPrefix}--link-list`;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   protected render() {
     return html`
-      <h4 class="${prefix}--link-list__heading"><slot name="heading" /></h4>
+      <h4 class="${prefix}--link-list__heading"><slot name="heading"></h4>
       <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
-        <slot @slotchange="${this._handleSlotChange}" />
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
   }
@@ -125,7 +125,6 @@ class DDSLinkList extends LitElement {
     if (this.childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
       this.classList.add((this.constructor as typeof DDSLinkList).splitLayoutClass);
     }
-
     sameHeight(this.childItems, 'md');
   }
 }

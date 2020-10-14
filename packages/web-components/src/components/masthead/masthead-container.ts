@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { pickBy } from 'lodash-es';
+import pickBy from 'lodash-es/pickBy.js';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -28,31 +28,6 @@ import {
 import DDSMastheadComposite from './masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * An profile item in masthead.
- */
-export interface MastheadProfileItem {
-  /**
-   * `true` if this profile item is for logging in.
-   */
-  isLoginItem?: boolean;
-
-  /**
-   * The key identifying this profile item within the menu.
-   */
-  key: string;
-
-  /**
-   * The title text.
-   */
-  title: string;
-
-  /**
-   * The link URL.
-   */
-  url?: string;
-}
 
 /**
  * The Redux state used for `<dds-masthead-container>`.
@@ -115,7 +90,9 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   }
   return pickBy(
     {
+      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
+      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
       userStatus: status?.user,
       currentSearchResults: currentSearchResults ?? [],
     },

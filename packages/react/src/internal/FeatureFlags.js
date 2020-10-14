@@ -17,20 +17,20 @@
 export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
 
 /**
- * Feature flag to turn on the Masthead L1
- *
- * @type {boolean}
- */
-export const DDS_MASTHEAD_L1 =
-  process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * Feature flag to turn on the Card with Pictogram
  *
  * @type {boolean}
  */
 export const DDS_CARD_WITH_PICTOGRAM =
   process.env.DDS_CARD_WITH_PICTOGRAM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Feature flag to enable custom login url in masthead profile menu
+ *
+ * @type {boolean}
+ */
+export const DDS_CUSTOM_PROFILE_LOGIN =
+  process.env.DDS_CUSTOM_PROFILE_LOGIN === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * Feature flag for the optional language selector in the footer
@@ -63,3 +63,11 @@ export const DDS_CALLOUT_DATA =
  */
 export const DDS_CONTENTBLOCK_HEADLINES =
   process.env.DDS_CONTENTBLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if Promo Banner will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_PROMO_BANNER =
+  process.env.DDS_PROMO_BANNER === 'true' || DDS_FLAGS_ALL || false;

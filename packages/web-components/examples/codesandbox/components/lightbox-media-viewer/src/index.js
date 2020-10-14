@@ -23,8 +23,8 @@ document.addEventListener('click', async event => {
     videoTarget.className = 'bx--video-player__video';
     videoPlayer.appendChild(videoTarget);
     const [videoData] = await Promise.all([
-      VideoPlayerAPI.api('0_uka1msg4'),
-      VideoPlayerAPI.embedVideo('0_uka1msg4', videoTarget.id, true),
+      VideoPlayerAPI.api('1_9h94wo6b'),
+      VideoPlayerAPI.embedVideo('1_9h94wo6b', videoTarget.id, true),
     ]);
     const { name, description, duration } = videoData;
     videoPlayer.name = name;

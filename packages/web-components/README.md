@@ -37,14 +37,29 @@ yarn add @carbon/ibmdotcom-web-components lit-html lit-element
 
 ### Basic usage
 
-For quick start, you can use CDNs that support module mapping (e.g. [JSPM](https://jspm.org)). With it, you can use our components as easy as using HTML tags, just by importing our modules in `<script type="module">` like:
+For quick start, you can use our pre-built bundle that contains masthead, footer and dotcom shell. With it, you can use our components as easy as using HTML tags, just by loading the bundle like:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <script type="module">
-      import 'https://jspm.dev/@carbon/ibmdotcom-web-components@latest/es/components/masthead/masthead-container.js';
+      // Copy from `dist` directory in the package and put it to the same directory as this file
+      import './ibmdotcom-web-components-dotcom-shell.min.js';
+
+      // The minimum prerequisite to use our service for translation data, etc.
+      window.digitalData = {
+        page: {
+          pageInfo: {
+            language: 'en-US',
+            ibm: {
+              country: 'US',
+              siteID: 'IBMTESTWWW',
+            },
+          },
+          isDataLayerReady: true,
+        },
+      };
     </script>
     <style type="text/css">
       body {
@@ -72,7 +87,7 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 ```
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
 ### Expressive Theme
@@ -80,7 +95,7 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 While styles are included as part of the web components, the expressive theme
 for Carbon requires the `CSS Custom Properties` flag in Carbon to be enabled.
 
-[Learn how to activate CSS Custom Properties here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/README.md).
+[Learn how to activate CSS Custom Properties here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
 
 ## Browser support
 
@@ -140,7 +155,7 @@ dds-link-with-icon {
 The color of the link in the code below changes to the one in the `g100` theme:
 
 ```html
-<dds-link-with-icon href="https://www.ibm.com/standards/web/ibm-dotcom-library">
+<dds-link-with-icon href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
   Link text
   <svg
     slot="icon"

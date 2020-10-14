@@ -12,21 +12,21 @@
 
 @mixin content-group-cards {
   .#{$prefix}--content-group-cards {
-    &__row {
-      @include carbon--make-row;
-    }
-
-    &-item__col {
-      margin-top: $carbon--grid-gutter--condensed / 2;
-      margin-bottom: $carbon--grid-gutter--condensed / 2;
-      @include carbon--make-col-ready;
-
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(8, 16);
-      }
-    }
-
     @include themed-items;
+  }
+
+  .#{$prefix}--content-group-cards__row {
+    @include carbon--make-row;
+  }
+
+  .#{$prefix}--content-group-cards-item__col {
+    margin-top: $carbon--grid-gutter--condensed / 2;
+    margin-bottom: $carbon--grid-gutter--condensed / 2;
+    @include carbon--make-col-ready;
+
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(8, 16);
+    }
   }
 }
 @include exports('content-group-cards') {

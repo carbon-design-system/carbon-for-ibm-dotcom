@@ -19,18 +19,6 @@ const _host =
   'https://www.ibm.com';
 
 /**
- * @constant {string | string} CORS proxy for lower environment calls
- * @private
- */
-const _proxy =
-  root.location?.host === 'www.ibm.com'
-    ? ''
-    : // Optional chaining operator in `process.env.ENVVAR` does not work in some build systems, notably Parcel
-      (process &&
-        (process.env.REACT_APP_CORS_PROXY || process.env.CORS_PROXY)) ||
-      '';
-
-/**
  * Translation API endpoint
  *
  * @type {string}
@@ -125,12 +113,7 @@ class TranslationAPI {
     } else {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
-        let proxy = '';
-        if (root.location) {
-          const currenthost = `${root.location.protocol}//${root.location.host}`;
-          proxy = currenthost !== _host ? _proxy : '';
-        }
-        const url = `${proxy}${_endpoint}/${country}${lang}.json`;
+        const url = `${_endpoint}/${country}${lang}.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
@@ -161,15 +144,17 @@ class TranslationAPI {
    */
   static transformData(data) {
     const signedout = data.profileMenu?.signedout;
-    const strReplace = 'state=https%3A%2F%2Fwww.ibm.com';
-    const loginIdx = signedout.findIndex(
-      elem => elem.url?.indexOf(strReplace) !== -1
-    );
-    if (loginIdx !== -1 && root.location) {
-      const location = encodeURIComponent(root.location.href);
-      data.profileMenu.signedout[loginIdx].url = signedout[
-        loginIdx
-      ].url.replace(strReplace, `state=${location}`);
+    if (signedout) {
+      const strReplace = 'state=https%3A%2F%2Fwww.ibm.com';
+      const loginIdx = signedout.findIndex(
+        elem => elem.url?.indexOf(strReplace) !== -1
+      );
+      if (loginIdx !== -1 && root.location) {
+        const location = encodeURIComponent(root.location.href);
+        data.profileMenu.signedout[loginIdx].url = signedout[
+          loginIdx
+        ].url.replace(strReplace, `state=${location}`);
+      }
     }
 
     data.footerMenu.push(data.socialFollow);

@@ -2,6 +2,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
 
 - [Ignoring aChecker results](#ignoring-achecker-results)
 - [Debugging aChecker results](#debugging-achecker-results)
@@ -40,7 +41,7 @@ Above options can be used together, like:
 
 ## Ignoring aChecker results
 
-The a11y test may report potential issues that should be handled in application-level, not in `ibm-dotcom-library` code. In such case, you can ignore those issues by adding an item to `shouldIssueBeIgnoredForRule` table in [tests/utils/global-ignore-achecker-issues.js](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/tests/utils/global-ignore-achecker-issues.js). The table is keyed by something like `Rpt_Aria_RegionLabel_Implicit ` which helps indentifying what aChecker rule to ignore. You can specify `true` to the value which ignores all violations of the rule, or a function which takes the DOM element violating the rule and returns `true` if such violation should be ignored:
+The a11y test may report potential issues that should be handled in application-level, not in `carbon-for-ibm-dotcom` code. In such case, you can ignore those issues by adding an item to `shouldIssueBeIgnoredForRule` table in [tests/utils/global-ignore-achecker-issues.js](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/tests/utils/global-ignore-achecker-issues.js). The table is keyed by something like `Rpt_Aria_RegionLabel_Implicit ` which helps indentifying what aChecker rule to ignore. You can specify `true` to the value which ignores all violations of the rule, or a function which takes the DOM element violating the rule and returns `true` if such violation should be ignored:
 
 ```javascript
 const shouldIssueBeIgnoredForRule = {

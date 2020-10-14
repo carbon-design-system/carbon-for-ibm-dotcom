@@ -249,7 +249,7 @@ describe('LocaleAPI', () => {
     expect(
       mockAxios.get
     ).toHaveBeenCalledWith(
-      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
+      'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
 
@@ -287,13 +287,13 @@ describe('LocaleAPI', () => {
     expect(
       mockAxios.get
     ).toHaveBeenCalledWith(
-      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
+      'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
     expect(
       mockAxios.get
     ).toHaveBeenCalledWith(
-      'https://cra-myproxy.com/https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/usen-utf8.json',
+      'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/usen-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
 

@@ -2,7 +2,7 @@
 name: Bug Report 🐛
 about: Something isn't working as expected? Here is the right place to report.
 labels: bug
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, asudoh, jacobottesen-dgc, ariellalgilmore
+assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, andysherman2121, oliviaflory, ariellalgilmore
 ---
 
 <!-- Feel free to remove sections that aren't relevant.
@@ -25,7 +25,7 @@ assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, asudoh, jacobottesen-dg
 
 > What browser are you working in?
 
-> What version of the IBM.com Library are you using?
+> What version of Carbon for IBM.com are you using?
 
 > What offering/product do you work on? Any pressing ship or release dates we
 > should be aware of?

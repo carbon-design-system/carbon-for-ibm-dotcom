@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import {
@@ -137,123 +136,108 @@ const buttonEvents = {
 
 RadioButton.displayName = 'RadioButton';
 
-storiesOf('Form', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => (
-      <Form {...additionalProps} className="dds-story--form">
-        <FormGroup {...fieldsetCheckboxProps()}>
-          <Checkbox defaultChecked {...checkboxEvents} id="checkbox-0" />
-          <Checkbox {...checkboxEvents} id="checkbox-1" />
-          <Checkbox disabled {...checkboxEvents} id="checkbox-2" />
-        </FormGroup>
+export default {
+  title: 'Form',
+  decorators: [withKnobs],
+};
 
-        <FormGroup {...fieldsetToggleProps}>
-          <Toggle {...toggleProps} id="toggle-1" />
-          <Toggle disabled {...toggleProps} id="toggle-2" />
-        </FormGroup>
+export const Default = () => (
+  <Form {...additionalProps} className="dds-story--form">
+    <FormGroup {...fieldsetCheckboxProps()}>
+      <Checkbox defaultChecked {...checkboxEvents} id="checkbox-0" />
+      <Checkbox {...checkboxEvents} id="checkbox-1" />
+      <Checkbox disabled {...checkboxEvents} id="checkbox-2" />
+    </FormGroup>
 
-        <FormGroup {...fieldsetFileUploaderProps}>
-          <FileUploader
-            {...fileUploaderEvents}
-            id="file-1"
-            labelDescription="Choose Files..."
-          />
-        </FormGroup>
+    <FormGroup {...fieldsetToggleProps}>
+      <Toggle {...toggleProps} id="toggle-1" />
+      <Toggle disabled {...toggleProps} id="toggle-2" />
+    </FormGroup>
 
-        <FormGroup {...fieldsetRadioProps}>
-          <RadioButtonGroup
-            onChange={action('onChange')}
-            name="radio-button-group"
-            defaultSelected="default-selected">
-            <RadioButton
-              value="standard"
-              id="radio-1"
-              labelText="Standard Radio Button"
-              {...radioProps}
-            />
-            <RadioButton
-              value="default-selected"
-              labelText="Default Selected Radio Button"
-              id="radio-2"
-              {...radioProps}
-            />
-            <RadioButton
-              value="blue"
-              labelText="Standard Radio Button"
-              id="radio-3"
-              {...radioProps}
-            />
-            <RadioButton
-              value="disabled"
-              labelText="Disabled Radio Button"
-              id="radio-4"
-              disabled
-              {...radioProps}
-            />
-          </RadioButtonGroup>
-        </FormGroup>
+    <FormGroup {...fieldsetFileUploaderProps}>
+      <FileUploader {...fileUploaderEvents} id="file-1" labelDescription="Choose Files..." />
+    </FormGroup>
 
-        <FormGroup className="dds-story--form-group--number-input">
-          <NumberInput {...numberInputProps} />
-        </FormGroup>
-
-        <FormGroup {...fieldsetSearchProps}>
-          <Search
-            {...searchProps}
-            id="search-1"
-            labelText="Search"
-            placeHolderText="Search"
-          />
-        </FormGroup>
-
-        <FormGroup className="dds-story--form-group--select">
-          <Select {...selectProps} id="select-1" defaultValue="placeholder-item">
-            <SelectItem
-              disabled
-              hidden
-              value="placeholder-item"
-              text="Choose an option"
-            />
-            <SelectItem value="option-1" text="Option 1" />
-            <SelectItem value="option-2" text="Option 2" />
-            <SelectItem value="option-3" text="Option 3" />
-          </Select>
-        </FormGroup>
-
-        <TextInput {...TextInputProps} />
-
-        <TextInput
-          type="password"
-          required
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          {...PasswordProps}
+    <FormGroup {...fieldsetRadioProps}>
+      <RadioButtonGroup
+        onChange={action('onChange')}
+        name="radio-button-group"
+        defaultSelected="default-selected"
+      >
+        <RadioButton
+          value="standard"
+          id="radio-1"
+          labelText="Standard Radio Button"
+          {...radioProps}
         />
-
-        <TextInput
-          type="password"
-          required
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          {...InvalidPasswordProps}
+        <RadioButton
+          value="default-selected"
+          labelText="Default Selected Radio Button"
+          id="radio-2"
+          {...radioProps}
         />
+        <RadioButton value="blue" labelText="Standard Radio Button" id="radio-3" {...radioProps} />
+        <RadioButton
+          value="disabled"
+          labelText="Disabled Radio Button"
+          id="radio-4"
+          disabled
+          {...radioProps}
+        />
+      </RadioButtonGroup>
+    </FormGroup>
 
-        <TextArea {...textareaProps} />
+    <FormGroup className="dds-story--form-group--number-input">
+      <NumberInput {...numberInputProps} />
+    </FormGroup>
 
-        <Button type="submit" className="some-class" {...buttonEvents}>
-          Submit
-        </Button>
-      </Form>
-    ),
-    {
-      info: {
-        text: `
-            Forms are widely used to collect user input.
-    
-            Form can have any number of react components enclosed within FormGroup component. FormGroup component
-            is a wrapper for legend and fieldset component.
-    
-          `,
-      },
-    }
-  );
+    <FormGroup {...fieldsetSearchProps}>
+      <Search {...searchProps} id="search-1" labelText="Search" placeHolderText="Search" />
+    </FormGroup>
+
+    <FormGroup className="dds-story--form-group--select">
+      <Select {...selectProps} id="select-1" defaultValue="placeholder-item">
+        <SelectItem disabled hidden value="placeholder-item" text="Choose an option" />
+        <SelectItem value="option-1" text="Option 1" />
+        <SelectItem value="option-2" text="Option 2" />
+        <SelectItem value="option-3" text="Option 3" />
+      </Select>
+    </FormGroup>
+
+    <TextInput {...TextInputProps} />
+
+    <TextInput
+      type="password"
+      required
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+      {...PasswordProps}
+    />
+
+    <TextInput
+      type="password"
+      required
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+      {...InvalidPasswordProps}
+    />
+
+    <TextArea {...textareaProps} />
+
+    <Button type="submit" className="some-class" {...buttonEvents}>
+      Submit
+    </Button>
+  </Form>
+);
+
+Default.story = {
+  parameters: {
+    info: {
+      text: `
+          Forms are widely used to collect user input.
+  
+          Form can have any number of react components enclosed within FormGroup component. FormGroup component
+          is a wrapper for legend and fieldset component.
+  
+        `,
+    },
+  },
+};

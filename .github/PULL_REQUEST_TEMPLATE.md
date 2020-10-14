@@ -25,7 +25,6 @@
 <!-- React and Web Component deploy previews are enabled by default. -->
 <!-- To enable additional available deploy previews, apply the following -->
 <!-- labels for the corresponding package: -->
-<!-- *** "package: vanilla": Vanilla -->
 <!-- *** "package: services": Services -->
 <!-- *** "package: utilities": Utilities -->
 <!-- *** "package: styles": Carbon Expressive, React (Expressive) -->

@@ -5,10 +5,10 @@ import ExpressiveModal from './ExpressiveModal';
 # Feature Card
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/feature-card-block-large)
 
 ## Getting started
 
@@ -18,7 +18,6 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/feature-card-block-large';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 ```
 
 or with [JSPM](https://jspm.org)
@@ -35,7 +34,9 @@ or with [JSPM](https://jspm.org)
 <dds-feature-card-block-large href="https://example.com">
   <img />
   <h3>Copy text</h3>
-  ${ArrowRight20({ slot: 'footer' })}
+  <svg slot="footer" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+  </svg>
 </dds-feature-card-block-large>
 ```
 

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16.js';
@@ -22,6 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Footer nav group.
  *
  * @element dds-footer-nav-group
+ * @slot title - The title content.
  */
 @customElement(`${ddsPrefix}-footer-nav-group`)
 class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
@@ -33,6 +34,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
   /**
    * `true` to make the accordion item stick expanded.
    */
+  @internalProperty()
   private _shouldStickExpanded = false;
 
   /**
@@ -80,9 +82,7 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
    * @param event The event.
    */
   private _handleChangeMediaQuery = (event: MediaQueryListEvent) => {
-    const { _shouldStickExpanded: oldshouldStickExpanded } = this;
     this._shouldStickExpanded = event.matches;
-    this.requestUpdate('_shouldStickExpanded', oldshouldStickExpanded);
   };
 
   /**
@@ -109,10 +109,10 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
     const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._shouldStickExpanded = mediaQueryList.matches;
     const { _handleChangeMediaQuery: handleChangeMediaQuery } = this;
-    mediaQueryList.addEventListener('change', handleChangeMediaQuery);
+    mediaQueryList.addListener(handleChangeMediaQuery);
     this._hChangeMediaQuery = {
       release() {
-        mediaQueryList.removeEventListener('change', handleChangeMediaQuery);
+        mediaQueryList.removeListener(handleChangeMediaQuery);
       },
     } as Handle;
   }

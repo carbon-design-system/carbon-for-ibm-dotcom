@@ -104,7 +104,6 @@ module.exports = function setupKarmaIBMa(config) {
                             ? new RegExp(specs[0])
                             : /\.stories\.js$/,
                         'process.env.AAT_VERBOSE': !!verbose,
-                        'process.env.CORS_PROXY': process.env.CORS_PROXY,
                       },
                     ],
                   ],

@@ -13,15 +13,17 @@ import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
 import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
 import DDSMastheadComposite from '../masthead-composite';
+import { authenticatedProfileItems, unauthenticatedProfileItems } from '../__stories__/profile-items';
 
 const template = (props?) => {
-  const { language, loginNonce, userStatus, navLinks } = props ?? {};
+  const { language, userStatus, navLinks } = props ?? {};
   return html`
     <dds-masthead-composite
       language="${ifNonNull(language)}"
-      login-nonce="${ifNonNull(loginNonce)}"
       user-status="${ifNonNull(userStatus)}"
+      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
     >
     </dds-masthead-composite>
   `;
@@ -40,7 +42,7 @@ describe('dds-masthead-composite', function() {
 
   describe('Rendering global bar', function() {
     it('should render unauthenticated state', async function() {
-      render(template({ loginNonce: 'login-nonce-foo' }), document.body);
+      render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector('dds-masthead-composite');
       expect(mastheadComposite!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();

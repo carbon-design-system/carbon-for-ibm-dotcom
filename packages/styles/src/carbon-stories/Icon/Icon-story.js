@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { iconAdd, iconAddSolid, iconAddOutline } from 'carbon-icons';
-import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { Icon, IconSkeleton } from 'carbon-components-react';
 
@@ -24,11 +23,7 @@ const iconMap = {
 };
 
 const props = () => {
-  const selectedIcon = select(
-    'The icon (icon (regular)/name (legacy))',
-    icons,
-    'iconAdd'
-  );
+  const selectedIcon = select('The icon (icon (regular)/name (legacy))', icons, 'iconAdd');
   return {
     style: {
       margin: '50px',
@@ -63,20 +58,23 @@ const propsSkeleton2 = {
   },
 };
 
-storiesOf('Icon', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => (
-      <div>
-        <Icon {...props()} />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Icons are used in the product to present common actions and commands. Modify the fill property to change the color of the icon. The name property defines which icon to display. For accessibility, provide a context-rich description with the description prop. For a full list of icon names, see https://www.carbondesignsystem.com/guidelines/iconography/library
-          `,
-      },
-    }
-  );
+export default {
+  title: 'Icon',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <div>
+    <Icon {...props()} />
+  </div>
+);
+
+Default.story = {
+  parameters: {
+    info: {
+      text: `
+          Icons are used in the product to present common actions and commands. Modify the fill property to change the color of the icon. The name property defines which icon to display. For accessibility, provide a context-rich description with the description prop. For a full list of icon names, see https://www.carbondesignsystem.com/guidelines/iconography/library
+        `,
+    },
+  },
+};

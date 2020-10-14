@@ -25,23 +25,25 @@
             color: $text-01;
           }
         }
-        &-simple__media-video {
-          @include carbon--breakpoint-down('md') {
-            margin-top: -16px;
-          }
+      }
 
-          margin-top: $spacing-07;
+      .#{$prefix}--content-block-simple__media-video {
+        @include carbon--breakpoint-down('md') {
+          margin-top: -16px;
         }
 
-        &-simple__media-image {
-          @include carbon--breakpoint-down('md') {
-            margin-top: 0;
-          }
+        margin-top: $spacing-07;
+      }
 
-          margin-top: $spacing-09;
+      .#{$prefix}--content-block-simple__media-image {
+        @include carbon--breakpoint-down('md') {
+          margin-top: 0;
         }
+
+        margin-top: $spacing-09;
       }
     }
+
     .#{$prefix}--video-player__video-caption {
       padding-top: $spacing-03;
     }

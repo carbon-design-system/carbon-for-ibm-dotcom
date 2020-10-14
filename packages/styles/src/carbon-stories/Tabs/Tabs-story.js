@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
 import { settings } from 'carbon-components';
@@ -19,10 +18,7 @@ const props = {
   tabs: () => ({
     className: 'some-class',
     selected: number('The index of the selected tab (selected in <Tabs>)', 1),
-    triggerHref: text(
-      'The href of trigger button for narrow mode (triggerHref in <Tabs>)',
-      '#'
-    ),
+    triggerHref: text('The href of trigger button for narrow mode (triggerHref in <Tabs>)', '#'),
     role: text('ARIA role (role in <Tabs>)', 'navigation'),
     iconDescription: text(
       'The description of the trigger icon for narrow mode (iconDescription in <Tabs>)',
@@ -49,80 +45,70 @@ const props = {
 
 const CustomLabel = ({ text }) => <>{text}</>;
 
-const TabContentRenderedOnlyWhenSelected = ({
-  selected,
-  children,
-  className,
-  ...other
-}) =>
+const TabContentRenderedOnlyWhenSelected = ({ selected, children, className, ...other }) =>
   !selected ? null : (
-    <div
-      {...other}
-      className={classNames(className, `${prefix}--tab-content`)}
-      selected={selected}>
+    <div {...other} className={classNames(className, `${prefix}--tab-content`)} selected={selected}>
       {children}
     </div>
   );
 
-storiesOf('Tabs', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => (
-      <Tabs {...props.tabs()}>
-        <Tab {...props.tab()} label="Tab label 1">
-          <div className="some-content">Content for first tab goes here.</div>
-        </Tab>
-        <Tab {...props.tab()} label="Tab label 2">
-          <div className="some-content">Content for second tab goes here.</div>
-        </Tab>
-        <Tab
-          {...props.tab()}
-          label="Tab label 3"
-          renderContent={TabContentRenderedOnlyWhenSelected}>
-          <div className="some-content">Content for third tab goes here.</div>
-        </Tab>
-        <Tab {...props.tab()} label={<CustomLabel text="Custom Label" />}>
-          <div className="some-content">Content for fourth tab goes here.</div>
-        </Tab>
-      </Tabs>
-    ),
-    {
-      info: {
-        text: `
-            Tabs are used to quickly navigate between views within the same context. Create individual
-            Tab components for each item in the Tabs list.
-          `,
-      },
-    }
-  )
-  .add(
-    'Container',
-    () => (
-      <Tabs type="container" {...props.tabs()}>
-        <Tab {...props.tab()} label="Tab label 1">
-          <div className="some-content">Content for first tab goes here.</div>
-        </Tab>
-        <Tab {...props.tab()} label="Tab label 2">
-          <div className="some-content">Content for second tab goes here.</div>
-        </Tab>
-        <Tab
-          {...props.tab()}
-          label="Tab label 3"
-          renderContent={TabContentRenderedOnlyWhenSelected}>
-          <div className="some-content">Content for third tab goes here.</div>
-        </Tab>
-        <Tab {...props.tab()} label={<CustomLabel text="Custom Label" />}>
-          <div className="some-content">Content for fourth tab goes here.</div>
-        </Tab>
-      </Tabs>
-    ),
-    {
-      info: {
-        text: `
-            Tabs are used to quickly navigate between views within the same context. Create individual
-            Tab components for each item in the Tabs list.
-          `,
-      },
-    }
-  );
+export default {
+  title: 'Tabs',
+  decorators: [withKnobs],
+};
+
+export const Default = () => (
+  <Tabs {...props.tabs()}>
+    <Tab {...props.tab()} label="Tab label 1">
+      <div className="some-content">Content for first tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label="Tab label 2">
+      <div className="some-content">Content for second tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label="Tab label 3" renderContent={TabContentRenderedOnlyWhenSelected}>
+      <div className="some-content">Content for third tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label={<CustomLabel text="Custom Label" />}>
+      <div className="some-content">Content for fourth tab goes here.</div>
+    </Tab>
+  </Tabs>
+);
+
+Default.story = {
+  parameters: {
+    info: {
+      text: `
+          Tabs are used to quickly navigate between views within the same context. Create individual
+          Tab components for each item in the Tabs list.
+        `,
+    },
+  },
+};
+
+export const Container = () => (
+  <Tabs type="container" {...props.tabs()}>
+    <Tab {...props.tab()} label="Tab label 1">
+      <div className="some-content">Content for first tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label="Tab label 2">
+      <div className="some-content">Content for second tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label="Tab label 3" renderContent={TabContentRenderedOnlyWhenSelected}>
+      <div className="some-content">Content for third tab goes here.</div>
+    </Tab>
+    <Tab {...props.tab()} label={<CustomLabel text="Custom Label" />}>
+      <div className="some-content">Content for fourth tab goes here.</div>
+    </Tab>
+  </Tabs>
+);
+
+Container.story = {
+  parameters: {
+    info: {
+      text: `
+          Tabs are used to quickly navigate between views within the same context. Create individual
+          Tab components for each item in the Tabs list.
+        `,
+    },
+  },
+};

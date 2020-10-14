@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import {
@@ -31,31 +30,35 @@ const notificationProps = () => ({
       Subtitle text goes here. <a href="#example">Example link</a>
     </span>
   ),
-  iconDescription: text(
-    'Icon description (iconDescription)',
-    'describes the close button'
-  ),
+  iconDescription: text('Icon description (iconDescription)', 'describes the close button'),
   hideCloseButton: boolean('Hide close button (hideCloseButton)', false),
   onCloseButtonClick: action('onCloseButtonClick'),
 });
 
-storiesOf('Notifications', module)
-  .addDecorator(withKnobs)
-  .add('Toast', () => (
-    <ToastNotification
-      {...notificationProps()}
-      caption={text('Caption (caption)', 'Time stamp [00:00:00]')}
-      style={{ minWidth: '30rem', marginBottom: '.5rem' }}
-    />
-  ))
-  .add('inline', () => (
-    <InlineNotification
-      {...notificationProps()}
-      actions={
-        <NotificationActionButton
-          onClick={action('NotificationActionButton onClick')}>
-          {text('Action (NotificationActionButton > children)', 'Action')}
-        </NotificationActionButton>
-      }
-    />
-  ));
+export default {
+  title: 'Notifications',
+  decorators: [withKnobs],
+};
+
+export const Toast = () => (
+  <ToastNotification
+    {...notificationProps()}
+    caption={text('Caption (caption)', 'Time stamp [00:00:00]')}
+    style={{ minWidth: '30rem', marginBottom: '.5rem' }}
+  />
+);
+
+export const Inline = () => (
+  <InlineNotification
+    {...notificationProps()}
+    actions={
+      <NotificationActionButton onClick={action('NotificationActionButton onClick')}>
+        {text('Action (NotificationActionButton > children)', 'Action')}
+      </NotificationActionButton>
+    }
+  />
+);
+
+Inline.story = {
+  name: 'inline',
+};

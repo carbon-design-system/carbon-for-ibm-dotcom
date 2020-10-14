@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import './masthead-search';
@@ -21,6 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Component that rendres masthead search from search results, etc. data.
  *
  * @element dds-masthead-search-composite
+ * @slot search - The search box content.
  */
 @customElement(`${ddsPrefix}-masthead-search-composite`)
 class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(LitElement)) {
@@ -60,7 +62,7 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   /**
    * `true` to activate the search box.
    */
-  @property()
+  @property({ type: Boolean })
   active = false;
 
   /**
@@ -80,6 +82,12 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+
+  /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  placeholder?: string;
 
   /**
    * The shadow slot this search UI should be in.
@@ -104,9 +112,9 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   }
 
   renderLightDOM() {
-    const { active, currentSearchResults, open } = this;
+    const { active, currentSearchResults, open, placeholder } = this;
     return html`
-      <dds-masthead-search ?active="${active}" ?open="${open}">
+      <dds-masthead-search ?active="${active}" ?open="${open}" placeholder="${ifNonNull(placeholder)}">
         ${currentSearchResults.map(
           item =>
             html`

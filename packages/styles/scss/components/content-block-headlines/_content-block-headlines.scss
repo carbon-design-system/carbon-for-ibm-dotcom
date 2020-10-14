@@ -8,27 +8,6 @@
 @mixin content-block-headlines {
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
-      &__heading,
-      &__copy {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col-ready;
-
-          @include carbon--make-col(8, 12);
-
-          @include hang;
-        }
-      }
-
-      &__copy {
-        p {
-          margin-bottom: $carbon--layout-05;
-
-          @include carbon--breakpoint('lg') {
-            margin-bottom: $carbon--layout-06;
-          }
-        }
-      }
-
       @include carbon--breakpoint('md') {
         padding-top: $carbon--spacing-07;
       }
@@ -38,74 +17,93 @@
       }
     }
 
-    &__container {
-      @include carbon--make-row;
+    .#{$prefix}--content-block__heading,
+    .#{$prefix}--content-block__copy {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(8, 12);
+        @include hang;
+      }
     }
 
-    &__row {
-      @include carbon--make-col-ready;
-
-      &:last-of-type {
-        margin-bottom: $carbon--spacing-07;
-
-        @include carbon--breakpoint('md') {
-          margin-bottom: $carbon--spacing-07;
-        }
+    .#{$prefix}--content-block__copy {
+      p {
+        margin-bottom: $carbon--layout-05;
 
         @include carbon--breakpoint('lg') {
           margin-bottom: $carbon--layout-06;
         }
       }
+    }
+  }
+
+  .#{$prefix}--content-block-headlines__container {
+    @include carbon--make-row;
+  }
+
+  .#{$prefix}--content-block-headlines__row {
+    @include carbon--make-col-ready;
+
+    &:last-of-type {
+      margin-bottom: $carbon--spacing-07;
 
       @include carbon--breakpoint('md') {
-        border-top: 1px solid $ui-03;
-
-        @include carbon--make-col(12, 12);
+        margin-bottom: $carbon--spacing-07;
       }
 
       @include carbon--breakpoint('lg') {
-        @include carbon--make-col(8, 12);
+        margin-bottom: $carbon--layout-06;
       }
     }
 
-    &__item {
-      &-container {
-        @include carbon--make-row;
-      }
-
-      @include carbon--make-col-ready;
-
+    @include carbon--breakpoint('md') {
       border-top: 1px solid $ui-03;
+
+      @include carbon--make-col(12, 12);
+    }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(8, 12);
+    }
+  }
+
+  .#{$prefix}--content-block-headlines__item {
+    &-container {
+      @include carbon--make-row;
+    }
+
+    @include carbon--make-col-ready;
+
+    border-top: 1px solid $ui-03;
+    padding-top: $carbon--spacing-05;
+    padding-bottom: $carbon--spacing-07;
+
+    h4,
+    p {
+      max-width: 90%;
+      color: $text-01;
+    }
+
+    p {
+      @include carbon--type-style('body-long-02', true);
+
+      margin: $carbon--spacing-05 0 0;
+    }
+
+    h4 {
+      @include carbon--type-style('display-02', true);
+    }
+
+    .#{$prefix}--link {
+      margin-top: $carbon--spacing-05;
+    }
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(4, 8);
+
+      border-top: none;
       padding-top: $carbon--spacing-05;
-      padding-bottom: $carbon--spacing-07;
-
-      h4,
-      p {
-        max-width: 90%;
-        color: $text-01;
-      }
-
-      p {
-        @include carbon--type-style('body-long-02', true);
-
-        margin: $carbon--spacing-05 0 0;
-      }
-
-      h4 {
-        @include carbon--type-style('display-02', true);
-      }
-
-      .#{$prefix}--link {
-        margin-top: $carbon--spacing-05;
-      }
-
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(4, 8);
-
-        border-top: none;
-        padding-top: $carbon--spacing-05;
-        padding-bottom: $carbon--layout-05;
-      }
+      padding-bottom: $carbon--layout-05;
     }
   }
 }

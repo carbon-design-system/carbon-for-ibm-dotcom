@@ -46,6 +46,11 @@ body {
   height: 100%;
 }
 
+#root,
+div[role='main'] {
+  height: 100%;
+}
+
 // Storybook styles
 .storybook-center-container {
   padding: 1rem;
@@ -65,4 +70,19 @@ body {
 // hide the cookie button
 #teconsent {
   visibility: hidden;
+}
+
+// Fixes the README docs styles
+#docs-root {
+  ul {
+    list-style: disc;
+
+    ul {
+      list-style: circle;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
 }

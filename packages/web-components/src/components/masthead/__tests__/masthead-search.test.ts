@@ -11,7 +11,11 @@ import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
+/* eslint-disable import/no-duplicates */
 import DDSMastheadSearch from '../masthead-search';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../masthead-search';
+/* eslint-enable import/no-duplicates */
 import '../masthead-search-item';
 
 const template = (props?) => {

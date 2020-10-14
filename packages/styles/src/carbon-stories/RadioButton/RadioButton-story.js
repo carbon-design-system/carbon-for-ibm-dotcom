@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
@@ -22,24 +21,27 @@ const radioProps = () => ({
   name: text('Form item name (name)', 'test'),
   value: text('Value (value)', 'standard'),
   labelText: text('Label text (labelText)', 'Standard Radio Button'),
-  labelPosition: select(
-    'Label position (labelPosition)',
-    labelPositions,
-    'right'
-  ),
+  labelPosition: select('Label position (labelPosition)', labelPositions, 'right'),
   disabled: boolean('Disabled (disabled)', false),
   onChange: action('onChange'),
 });
 
-storiesOf('RadioButton', module)
-  .addDecorator(withKnobs)
-  .add('Default', () => <RadioButton id="radio-1" {...radioProps()} />, {
+export default {
+  title: 'RadioButton',
+  decorators: [withKnobs],
+};
+
+export const Default = () => <RadioButton id="radio-1" {...radioProps()} />;
+
+Default.story = {
+  parameters: {
     info: {
       text: `
-            Radio buttons are used when a list of two or more options are mutually exclusive,
-            meaning the user must select only one option. The example below shows how the Radio Button component
-            can be used as an uncontrolled component that is initially checked by setting the defaultChecked property
-            to true. To use the component in a controlled way, set the checked property instead.
-          `,
+              Radio buttons are used when a list of two or more options are mutually exclusive,
+              meaning the user must select only one option. The example below shows how the Radio Button component
+              can be used as an uncontrolled component that is initially checked by setting the defaultChecked property
+              to true. To use the component in a controlled way, set the checked property instead.
+            `,
     },
-  });
+  },
+};

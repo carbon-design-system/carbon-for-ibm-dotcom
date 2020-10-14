@@ -1,12 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { settings } from 'carbon-components';
 import { withKnobs, select, text, number } from '@storybook/addon-knobs';
 import { Tooltip, Button } from 'carbon-components-react';
@@ -63,21 +62,18 @@ function UncontrolledTooltipExample() {
   const [value, setValue] = useState(true);
   return (
     <>
-      <Button
-        style={{ padding: '15px 20px', margin: '4px 20px' }}
-        onClick={() => setValue(false)}>
+      <Button style={{ padding: '15px 20px', margin: '4px 20px' }} onClick={() => setValue(false)}>
         Hide
       </Button>
-      <Button
-        style={{ padding: '15px 20px', margin: '4px 20px' }}
-        onClick={() => setValue(true)}>
+      <Button style={{ padding: '15px 20px', margin: '4px 20px' }} onClick={() => setValue(true)}>
         Show
       </Button>
       <div style={{ padding: '15px', margin: '4px 20px' }}>
         <Tooltip
           triggerText={<div>My text wrapped with tooltip</div>}
           open={value}
-          showIcon={false}>
+          showIcon={false}
+        >
           Some text
         </Tooltip>
       </div>
@@ -85,122 +81,137 @@ function UncontrolledTooltipExample() {
   );
 }
 
-storiesOf('Tooltip', module)
-  .addDecorator(withKnobs)
-  .add(
-    'default (bottom)',
-    () => (
-      <div style={{ marginTop: '2rem' }}>
-        <Tooltip {...props.withIcon()}>
-          <p>
-            This is some tooltip text. This box shows the maximum amount of text
-            that should appear inside. If more room is needed please use a modal
-            instead.
-          </p>
-          <div className={`${prefix}--tooltip__footer`}>
-            <a href="/" className={`${prefix}--link`}>
-              Learn More
-            </a>
-            <Button size="small">Create</Button>
-          </div>
-        </Tooltip>
+export default {
+  title: 'Tooltip',
+  decorators: [withKnobs],
+};
+
+export const DefaultBottom = () => (
+  <div style={{ marginTop: '2rem' }}>
+    <Tooltip {...props.withIcon()}>
+      <p>
+        This is some tooltip text. This box shows the maximum amount of text that should appear
+        inside. If more room is needed please use a modal instead.
+      </p>
+      <div className={`${prefix}--tooltip__footer`}>
+        <a href="/" className={`${prefix}--link`}>
+          Learn More
+        </a>
+        <Button size="small">Create</Button>
       </div>
-    ),
-    {
-      info: {
-        text: `
-            Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
-            For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
-            By default, the tooltip will render above the element. The example below shows the default scenario.
-          `,
-      },
-    }
-  )
-  .add(
-    'no icon',
-    () => (
-      <div style={{ marginTop: '2rem' }}>
-        <Tooltip {...props.withoutIcon()}>
-          <p>
-            This is some tooltip text. This box shows the maximum amount of text
-            that should appear inside. If more room is needed please use a modal
-            instead.
-          </p>
-          <div className={`${prefix}--tooltip__footer`}>
-            <a href="/" className={`${prefix}--link`}>
-              Learn More
-            </a>
-            <Button size="small">Create</Button>
-          </div>
-        </Tooltip>
+    </Tooltip>
+  </div>
+);
+
+DefaultBottom.story = {
+  name: 'default (bottom)',
+
+  parameters: {
+    info: {
+      text: `
+          Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
+          For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
+          By default, the tooltip will render above the element. The example below shows the default scenario.
+        `,
+    },
+  },
+};
+
+export const NoIcon = () => (
+  <div style={{ marginTop: '2rem' }}>
+    <Tooltip {...props.withoutIcon()}>
+      <p>
+        This is some tooltip text. This box shows the maximum amount of text that should appear
+        inside. If more room is needed please use a modal instead.
+      </p>
+      <div className={`${prefix}--tooltip__footer`}>
+        <a href="/" className={`${prefix}--link`}>
+          Learn More
+        </a>
+        <Button size="small">Create</Button>
       </div>
-    ),
-    {
-      info: {
-        text: `
-            Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
-            For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
-            By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
-          `,
-      },
-    }
-  )
-  .add(
-    'custom icon',
-    () => (
-      <div style={{ marginTop: '2rem' }}>
-        <Tooltip {...props.customIcon()}>
-          <p>
-            This is some tooltip text. This box shows the maximum amount of text
-            that should appear inside. If more room is needed please use a modal
-            instead.
-          </p>
-          <div className={`${prefix}--tooltip__footer`}>
-            <a href="/" className={`${prefix}--link`}>
-              Learn More
-            </a>
-            <Button size="small">Create</Button>
-          </div>
-        </Tooltip>
+    </Tooltip>
+  </div>
+);
+
+NoIcon.story = {
+  name: 'no icon',
+
+  parameters: {
+    info: {
+      text: `
+          Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
+          For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
+          By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
+        `,
+    },
+  },
+};
+
+export const CustomIcon = () => (
+  <div style={{ marginTop: '2rem' }}>
+    <Tooltip {...props.customIcon()}>
+      <p>
+        This is some tooltip text. This box shows the maximum amount of text that should appear
+        inside. If more room is needed please use a modal instead.
+      </p>
+      <div className={`${prefix}--tooltip__footer`}>
+        <a href="/" className={`${prefix}--link`}>
+          Learn More
+        </a>
+        <Button size="small">Create</Button>
       </div>
-    ),
-    {
-      info: {
-        text: `
-            Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
-            For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
-            By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
-          `,
-      },
-    }
-  )
-  .add(
-    'only custom icon',
-    () => (
-      <div style={{ marginTop: '2rem' }}>
-        <Tooltip {...props.customIconOnly()}>
-          <p>
-            This is some tooltip text. This box shows the maximum amount of text
-            that should appear inside. If more room is needed please use a modal
-            instead.
-          </p>
-          <div className={`${prefix}--tooltip__footer`}>
-            <a href="/" className={`${prefix}--link`}>
-              Learn More
-            </a>
-            <Button size="small">Create</Button>
-          </div>
-        </Tooltip>
+    </Tooltip>
+  </div>
+);
+
+CustomIcon.story = {
+  name: 'custom icon',
+
+  parameters: {
+    info: {
+      text: `
+          Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
+          For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
+          By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
+        `,
+    },
+  },
+};
+
+export const OnlyCustomIcon = () => (
+  <div style={{ marginTop: '2rem' }}>
+    <Tooltip {...props.customIconOnly()}>
+      <p>
+        This is some tooltip text. This box shows the maximum amount of text that should appear
+        inside. If more room is needed please use a modal instead.
+      </p>
+      <div className={`${prefix}--tooltip__footer`}>
+        <a href="/" className={`${prefix}--link`}>
+          Learn More
+        </a>
+        <Button size="small">Create</Button>
       </div>
-    ),
-    {
-      info: {
-        text: `
-            Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
-            For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
-            By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
-          `,
-      },
-    }
-  )
-  .add('uncontrolled tooltip', () => <UncontrolledTooltipExample />);
+    </Tooltip>
+  </div>
+);
+
+OnlyCustomIcon.story = {
+  name: 'only custom icon',
+
+  parameters: {
+    info: {
+      text: `
+          Interactive tooltip should be used if there are actions a user can take in the tooltip (e.g. a link or a button).
+          For more regular use case, e.g. giving the user more text information about something, use definition tooltip or icon tooltip.
+          By default, the tooltip will render with an information Icon. The example below shows the option to exclude the Icon.
+        `,
+    },
+  },
+};
+
+export const UncontrolledTooltip = () => <UncontrolledTooltipExample />;
+
+UncontrolledTooltip.story = {
+  name: 'uncontrolled tooltip',
+};

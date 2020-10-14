@@ -110,7 +110,8 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   renderLightDOM() {
     const { langDisplay, localeList, open } = this;
     const { localeModal, regionList } = localeList ?? {};
-    const { searchPlaceholder } = localeModal ?? {};
+    const { availabilityText, headerTitle, modalClose, searchClearText, searchLabel, searchPlaceholder, unavailabilityText } =
+      localeModal ?? {};
     const pageLangs: { [locale: string]: string } = altlangs();
     if (Object.keys(pageLangs).length === 0 && (regionList?.length as number) > 0) {
       const messages = [
@@ -138,7 +139,12 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     }, [] as { href: string; locale: string; region: string; country: string; language: string }[]);
 
     return html`
-      <dds-locale-modal lang-display="${ifNonNull(langDisplay)}" ?open="${open}">
+      <dds-locale-modal
+        close-button-assistive-text="${ifNonNull(modalClose)}"
+        header-title="${ifNonNull(headerTitle)}"
+        lang-display="${ifNonNull(langDisplay)}"
+        ?open="${open}"
+      >
         <dds-regions>
           ${regionList?.map(
             ({ countryList, name }) => html`
@@ -146,7 +152,13 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
             `
           )}
         </dds-regions>
-        <dds-locale-search placeholder="${ifNonNull(searchPlaceholder)}">
+        <dds-locale-search
+          close-button-assistive-text="${ifNonNull(searchClearText)}"
+          label-text="${ifNonNull(searchLabel)}"
+          placeholder="${ifNonNull(searchPlaceholder)}"
+          availability-label-text="${ifNonNull(availabilityText)}"
+          unavailability-label-text="${ifNonNull(unavailabilityText)}"
+        >
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
               <dds-locale-item country="${country}" href="${href}" language="${language}" locale="${locale}" region="${region}">

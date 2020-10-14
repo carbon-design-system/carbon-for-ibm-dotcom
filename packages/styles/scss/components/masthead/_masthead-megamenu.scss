@@ -7,6 +7,7 @@
 
 @mixin masthead-megamenu {
   $l0-nav-height: $spacing-09;
+  $l1-nav-height: rem(98px);
 
   @keyframes expand {
     0% {
@@ -31,6 +32,10 @@
   .#{$prefix}--header__nav
     .#{$prefix}--masthead__megamenu__l0-nav
     .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu,
+  .#{$prefix}--header__nav
+    .#{$prefix}--masthead__megamenu__l1-nav
+    .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: transparent;
     bottom: 0;
@@ -48,7 +53,8 @@
     @include box-shadow;
   }
 
-  .#{$prefix}--masthead__megamenu__l0-nav {
+  .#{$prefix}--masthead__megamenu__l0-nav,
+  .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
       position: fixed;
       display: block;
@@ -68,7 +74,6 @@
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
       position: fixed;
-      top: $l0-nav-height;
       left: 0;
       transform: translateZ(0);
       visibility: visible;
@@ -80,6 +85,18 @@
         animation: $transition--expansion motion(standard, expressive) expand;
       }
     }
+  }
+
+  .#{$prefix}--masthead__megamenu__l0-nav
+    .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
+    top: $l0-nav-height;
+  }
+
+  .#{$prefix}--masthead__megamenu__l1-nav
+    .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
+    top: $l1-nav-height;
   }
 
   .#{$prefix}--masthead__megamenu__container {
@@ -126,7 +143,7 @@
 
     p,
     .#{$prefix}--link-with-icon {
-      padding: 9px $spacing-05;
+      padding: 7px $spacing-05;
       text-decoration: none;
       width: 100%;
     }
@@ -156,7 +173,7 @@
 
     color: $text-02;
     text-decoration: none;
-    padding: 9px $spacing-05;
+    padding: 7px $spacing-05;
 
     &:hover,
     &:active {
@@ -216,6 +233,24 @@
     padding-top: $spacing-06;
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
+  }
+
+  @include carbon--breakpoint-between(800px, 1055px) {
+    .#{$prefix}--masthead__megamenu__container--row {
+      flex-direction: column;
+    }
+
+    .#{$prefix}--masthead__megamenu__highlight-section {
+      border-right: none;
+      border-bottom: carbon--rem(1px) solid $ui-03;
+      column-count: 2;
+      @include carbon--make-col(8, 8);
+    }
+    .#{$prefix}--masthead__megamenu__container--hasHighlights
+      .#{$prefix}--masthead__megamenu__categories,
+    .#{$prefix}--masthead__megamenu__categories {
+      column-count: 2;
+    }
   }
 }
 

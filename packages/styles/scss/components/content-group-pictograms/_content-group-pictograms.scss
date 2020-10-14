@@ -14,14 +14,15 @@
         margin-bottom: $spacing-07;
       }
     }
+  }
 
-    &__item:last-child {
-      .#{$prefix}--content-item {
-        margin-bottom: 0;
-      }
+  .#{$prefix}--content-group-pictograms__item:last-child {
+    .#{$prefix}--content-item {
+      margin-bottom: 0;
     }
   }
 }
+
 @include exports('content-group-pictograms') {
   @include content-group-pictograms;
 }

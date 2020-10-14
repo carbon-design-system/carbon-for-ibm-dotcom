@@ -1,21 +1,14 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import {
-  withKnobs,
-  boolean,
-  number,
-  text,
-  object,
-} from '@storybook/addon-knobs';
+import { withKnobs, boolean, number, text, object } from '@storybook/addon-knobs';
 import { NumberInput, NumberInputSkeleton } from 'carbon-components-react';
 
 const props = () => ({
@@ -31,10 +24,7 @@ const props = () => ({
   readOnly: boolean('Read only (readOnly)', false),
   invalid: boolean('Show form validation UI (invalid)', false),
   isMobile: boolean('Mobile variant', false),
-  invalidText: text(
-    'Form validation UI content (invalidText)',
-    'Number is not valid'
-  ),
+  invalidText: text('Form validation UI content (invalidText)', 'Number is not valid'),
   helperText: text('Helper text (helperText)', 'Optional helper text.'),
   light: boolean('Light variant (light)', false),
   onChange: action('onChange'),
@@ -51,25 +41,23 @@ const props = () => ({
 
 NumberInput.displayName = 'NumberInput';
 
-storiesOf('NumberInput', module)
-  .addDecorator(withKnobs)
-  .add(
-    'Default',
-    () => {
-      const { numberInputArrowTranslationIds, ...rest } = props();
-      return (
-        <NumberInput
-          translateWithId={id => numberInputArrowTranslationIds[id]}
-          {...rest}
-        />
-      );
+export default {
+  title: 'NumberInput',
+  decorators: [withKnobs],
+};
+
+export const Default = () => {
+  const { numberInputArrowTranslationIds, ...rest } = props();
+  return <NumberInput translateWithId={id => numberInputArrowTranslationIds[id]} {...rest} />;
+};
+
+Default.story = {
+  parameters: {
+    info: {
+      text: `
+          Number inputs are similar to text fields, but contain controls used to increase or decrease an incremental value.
+          The Number Input component can be passed a starting value, a min, a max, and the step.
+        `,
     },
-    {
-      info: {
-        text: `
-            Number inputs are similar to text fields, but contain controls used to increase or decrease an incremental value.
-            The Number Input component can be passed a starting value, a min, a max, and the step.
-          `,
-      },
-    }
-  );
+  },
+};

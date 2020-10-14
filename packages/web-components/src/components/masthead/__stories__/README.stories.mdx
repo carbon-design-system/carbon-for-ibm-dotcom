@@ -1,6 +1,5 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import corsproxy from '../../../../../../docs/cors-proxy.md';
 
 # Masthead
 
@@ -9,10 +8,10 @@ import corsproxy from '../../../../../../docs/cors-proxy.md';
 > profile services for IBM.com.
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
 
 ## Getting Started
 
@@ -49,7 +48,7 @@ document.getElementById('masthead-container').navLinks = links;
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                                                                   | Compatibility selector                                                   | Description |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
@@ -62,8 +61,6 @@ See [our README](https://github.com/carbon-design-system/ibm-dotcom-library/tree
 | `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
 | `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav-${item}"`                   | Interactive |
 | `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
-
-<Description markdown={corsproxy} />
 
 ## Advanced: Manually setting the Redux Store
 
@@ -111,10 +108,10 @@ customElements.define(
 You can also render the masthead content by your own, e.g. for server-side rendering, like:
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead-search)
 
 ##### JS
 
@@ -262,7 +259,7 @@ function handleInput(searchQueryString) {
 
 const throttledHandleInput = throttle(handleInput);
 
-document.querySelector('dds-masthead-search').addEventListener('bx-search-input', event => {
+document.querySelector('dds-masthead-search').addEventListener('dds-masthead-search-input', event => {
   throttledHandleInput(event.target.searchQueryString);
 });
 ```

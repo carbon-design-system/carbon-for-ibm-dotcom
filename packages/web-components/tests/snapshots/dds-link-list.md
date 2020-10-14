@@ -14,6 +14,7 @@
   <slot>
   </slot>
 </ul>
+
 ```
 
 #### `Renders Horizontal`
@@ -30,6 +31,7 @@
   <slot>
   </slot>
 </ul>
+
 ```
 
 #### `Renders Vertical`
@@ -46,6 +48,7 @@
   <slot>
   </slot>
 </ul>
+
 ```
 
 #### `Renders Vertical with cards`
@@ -62,6 +65,7 @@
   <slot>
   </slot>
 </ul>
+
 ```
 
 #### `Renders End of section`
@@ -78,5 +82,6 @@
   <slot>
   </slot>
 </ul>
+
 ```
 

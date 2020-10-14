@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import findLast from 'lodash-es/findLast';
+import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
@@ -135,6 +135,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   static get selectorButtonToggle() {
     return `${ddsPrefix}-masthead-menu-button`;
+  }
+
+  /**
+   * A selector that will return side nav focusable items.
+   */
+  static get selectorNavItems() {
+    return `${ddsPrefix}-left-nav-item,${ddsPrefix}-left-nav-menu,${ddsPrefix}-left-nav-menu-item`;
   }
 
   /**

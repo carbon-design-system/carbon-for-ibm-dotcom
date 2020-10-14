@@ -33,12 +33,12 @@ class MockMediaQueryList {
     this._matches = matches;
   }
 
-  addEventListener(_: string, fn: EventListener) {
+  addListener(fn: EventListener) {
     const { _matches: matches } = this;
     fn(({ matches } as unknown) as Event);
   }
 
-  removeEventListener() {} // eslint-disable-line class-methods-use-this
+  removeListener() {} // eslint-disable-line class-methods-use-this
 }
 
 describe('dds-footer-nav-group', function() {

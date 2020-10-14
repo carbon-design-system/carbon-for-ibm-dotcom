@@ -6,49 +6,56 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { OrderedList, ListItem } from 'carbon-components-react';
 
-storiesOf('OrderedList', module)
-  .add(
-    'default',
-    () => (
-      <OrderedList>
-        <ListItem>Ordered List level 1</ListItem>
-        <ListItem>Ordered List level 1</ListItem>
-        <ListItem>Ordered List level 1</ListItem>
-      </OrderedList>
-    ),
-    {
-      info: {
-        text: `Lists consist of related content grouped together and organized vertically. Ordered lists are used to present content in a numbered list.`,
-      },
-    }
-  )
-  .add(
-    'nested',
-    () => (
-      <OrderedList>
+export default {
+  title: 'OrderedList',
+};
+
+export const Default = () => (
+  <OrderedList>
+    <ListItem>Ordered List level 1</ListItem>
+    <ListItem>Ordered List level 1</ListItem>
+    <ListItem>Ordered List level 1</ListItem>
+  </OrderedList>
+);
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    info: {
+      text: `Lists consist of related content grouped together and organized vertically. Ordered lists are used to present content in a numbered list.`,
+    },
+  },
+};
+
+export const Nested = () => (
+  <OrderedList>
+    <ListItem>
+      Ordered List level 1
+      <OrderedList nested>
+        <ListItem>Ordered List level 2</ListItem>
         <ListItem>
-          Ordered List level 1
+          Ordered List level 2
           <OrderedList nested>
             <ListItem>Ordered List level 2</ListItem>
-            <ListItem>
-              Ordered List level 2
-              <OrderedList nested>
-                <ListItem>Ordered List level 2</ListItem>
-                <ListItem>Ordered List level 2</ListItem>
-              </OrderedList>
-            </ListItem>
+            <ListItem>Ordered List level 2</ListItem>
           </OrderedList>
         </ListItem>
-        <ListItem>Ordered List level 1</ListItem>
-        <ListItem>Ordered List level 1</ListItem>
       </OrderedList>
-    ),
-    {
-      info: {
-        text: `Lists consist of related content grouped together and organized vertically. Ordered lists are used to present content in a numbered list.`,
-      },
-    }
-  );
+    </ListItem>
+    <ListItem>Ordered List level 1</ListItem>
+    <ListItem>Ordered List level 1</ListItem>
+  </OrderedList>
+);
+
+Nested.story = {
+  name: 'nested',
+
+  parameters: {
+    info: {
+      text: `Lists consist of related content grouped together and organized vertically. Ordered lists are used to present content in a numbered list.`,
+    },
+  },
+};

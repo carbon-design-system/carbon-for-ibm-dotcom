@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, TemplateResult } from 'lit-element';
+import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
@@ -31,28 +31,36 @@ const slotExistencePropertyNames = {
  * Card.
  *
  * @element dds-card
+ * @slot eyebrow - The eyebrow content.
+ * @slot heading - The heading content.
+ * @slot image - The image content.
+ * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
 class DDSCard extends DDSLink {
   /**
    * `true` if there is eyebrow content.
    */
-  protected _hasEyebrow;
+  @internalProperty()
+  protected _hasEyebrow = false;
 
   /**
    * `true` if there is heading content.
    */
-  protected _hasHeading;
+  @internalProperty()
+  protected _hasHeading = false;
 
   /**
    * `true` if there is image content.
    */
-  protected _hasImage;
+  @internalProperty()
+  protected _hasImage = false;
 
   /**
    * `true` if there is copy content.
    */
-  protected _hasCopy;
+  @internalProperty()
+  protected _hasCopy = false;
 
   /**
    * Handles `slotchange` event.
@@ -63,7 +71,6 @@ class DDSCard extends DDSLink {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
-    this.requestUpdate();
   }
 
   /**
@@ -81,7 +88,6 @@ class DDSCard extends DDSLink {
   /**
    * @returns The image content.
    */
-  // eslint-disable-next-line class-methods-use-this
   protected _renderImage(): TemplateResult | string | void {
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
@@ -97,13 +103,13 @@ class DDSCard extends DDSLink {
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
         <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}" />
+          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
         </p>
         <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
-          <slot name="heading" @slotchange="${handleSlotChange}" />
+          <slot name="heading" @slotchange="${handleSlotChange}"></slot>
         </h3>
         ${this._renderCopy()}
-        <slot name="footer" />
+        <slot name="footer"></slot>
       </div>
     `;
   }
@@ -121,7 +127,10 @@ class DDSCard extends DDSLink {
   href = '';
 
   createRenderRoot() {
-    return this.attachShadow({ mode: 'open', delegatesFocus: true });
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
   }
 
   updated(changedProperties) {
