@@ -49,17 +49,17 @@ const sassLoader = {
 ### CSS Import
 
 This includes the expressive theme that would be applied to all Carbon
-components, as well as adjustments to the core type scale for IBM.com Library
+components, as well as adjustments to the core type scale for Carbon for IBM.com
 components and patterns.
 
 ```css
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
 ```
 
-## Expressive Theme and the IBM.com Library
+## Expressive Theme and Carbon for IBM.com
 
 This functionality is currently enabled by the import above. This theme will
-become enabled by default in the IBM.com Library starting in `v1.10.0`.
+become enabled by default in Carbon for IBM.com starting in `v1.10.0`.
 
 ## Learn More
 

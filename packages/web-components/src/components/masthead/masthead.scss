@@ -15,6 +15,21 @@
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
+// The masthead nav overflow feature made tweaks to overflow style so it can keep track of overflowed content.
+// It works with mega menu that "floats",
+// but Web Components masthead menu with classic menu style still relies on the overflow area being visible.
+:host(#{$dds-prefix}-masthead) {
+  .#{$prefix}--header__search {
+    @include carbon--breakpoint(md) {
+      overflow-x: visible;
+    }
+  }
+
+  .#{$prefix}--header__nav-container {
+    overflow-x: visible;
+  }
+}
+
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
 
@@ -38,7 +53,7 @@
   @include masthead-logo;
 
   // We have a style to remove extra left padding when the masthead logo is next to left nav trigger button:
-  // https://github.com/carbon-design-system/ibm-dotcom-library/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
+  // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
   // For `md`-`lg` breakpoint it's always the case.
   a {
     @include carbon--breakpoint-between('md', 'lg') {

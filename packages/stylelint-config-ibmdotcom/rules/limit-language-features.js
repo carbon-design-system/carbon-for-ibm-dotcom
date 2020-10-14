@@ -163,7 +163,7 @@ module.exports = {
     // Specify a blacklist of disallowed words within comments.
     'comment-word-blacklist': OFF,
 
-    // `ibm-dotcom-library` codebase uses Sass nesting
+    // `carbon-for-ibm-dotcom` codebase uses Sass nesting
     'max-nesting-depth': OFF,
     // Disallow unknown animations.
     'no-unknown-animations': true,

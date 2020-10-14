@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Contributing to the IBM.com Library React package](#contributing-to-the-ibmcom-library-react-package)
+- [Contributing to Carbon for IBM.com React package](#contributing-to-carbon-for-ibmcom-react-package)
   - [Overview](#overview)
   - [Packages](#packages)
   - [React DocGen](#react-docgen)
@@ -10,18 +10,18 @@
   - [Feature Flag](#feature-flag)
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
+  - [Unit Test Coverage](#unit-test-coverage)
   - [Don't Forget To...](#dont-forget-to)
-  - [Pull Requests](#pull-requests)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Contributing to the IBM.com Library React package
+# Contributing to Carbon for IBM.com React package
 
 > Guidelines for how to make a code contribution to the React package
 
 ## Overview
 
-Thank you for your contribution to the IBM.com Library! Below are guidelines on
+Thank you for your contribution to Carbon for IBM.com! Below are guidelines on
 what some of the things we would be looking for as part of your contribution.
 
 ## Packages
@@ -30,19 +30,19 @@ We try to have any contributions to the library to live in their corresponding
 package(s). The main packages to look out for when contributing a React 
 component:
 
-- **Styles**: ([@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles)) 
+- **Styles**: ([@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/styles)) 
 All styles should live in the styles package in the monorepo. This way, the
 styles can be shared with any other framework package (e.g. web components). 
 In addition, the way that web components utilize styles requires that there 
 isn't a heavy amount of nesting happening in the `SCSS` code. 
-- **Services**: ([@carbon/ibmdotcom-services](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services))
+- **Services**: ([@carbon/ibmdotcom-services](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services))
 If your component makes any API requests to a service that does not currently
 exist yet in our Services package, you can add in a new ES6 service class in
 this package. If you need to test across multiple packages, you can make use of
-[yarn link](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md#developing-locally).
+[yarn link](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md#developing-locally).
 Be sure to properly export the class from the main `index.js`.
-- **Utilities**: ([@carbon/ibmdotcom-utilities](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities))
-Similar to ([Services](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services)),
+- **Utilities**: ([@carbon/ibmdotcom-utilities](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/utilities))
+Similar to ([Services](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services)),
 any abstract utilities can be added to the Utilities package as an ES6 class or
 function. Be sure to properly export the class or function from the main 
 `index.js`.
@@ -56,7 +56,7 @@ are looking for one of many values values (e.g. `PropTypes.oneOf`)
 
 ## Stable Selectors
 
-Every component must include [stable selectors](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/stable-selectors.md) 
+Every component must include [stable selectors](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/stable-selectors.md) 
 as part of the overall markup, identifying any key elements that would be useful
 to have the ability to identify in a DOM search. At minimum, there should be at
 least a container level stable selector defined, and all should use the `dds--`
@@ -79,9 +79,9 @@ const MyComponent = () => {
 ## Feature Flag
 
 If this is a new component or enhancement, we would require that it is 
-introduced into the IBM.com Library behind a feature flag. 
+introduced into Carbon for IBM.com behind a feature flag. 
 
-[You can read full details on how to create and implement a feature flag here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md).
+[You can read full details on how to create and implement a feature flag here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/feature-flags.md).
 
 An example of creating a Storybook story that will be ignored if the feature
 flag is disabled:
@@ -170,4 +170,4 @@ yarn test:unit:updateSnapshot
 <li>Export any new components from the main `index.js`</li>
 </ul>
 
-Read more about our [submission guidelines](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/submission-guidelines.md).
+Read more about our [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).

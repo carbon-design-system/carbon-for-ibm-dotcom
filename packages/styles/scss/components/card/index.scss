@@ -148,9 +148,6 @@
   }
 
   .#{$prefix}--card__footer__icon-left {
-    justify-content: flex-end;
-    flex-direction: row-reverse;
-
     svg.#{$prefix}--card__cta,
     ::slotted(svg[slot='icon']) {
       margin-right: $carbon--spacing-03;
