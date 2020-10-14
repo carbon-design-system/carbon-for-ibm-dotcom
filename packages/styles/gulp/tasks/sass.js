@@ -11,6 +11,7 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
+  rtlcss = require('gulp-rtlcss'),
   sass = require('gulp-sass'),
   path = require('path');
 
@@ -43,6 +44,9 @@ function _sass() {
     .pipe(gulp.dest('dist'))
     .pipe(cleanCSS())
     .pipe(rename(global.config.distCssMin))
+    .pipe(rtlcss())
+    .pipe(cleanCSS())
+    .pipe(rename(global.config.distRtlCssMin))
     .pipe(gulp.dest('dist'));
 }
 
