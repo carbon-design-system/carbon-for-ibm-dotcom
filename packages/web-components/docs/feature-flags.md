@@ -48,8 +48,25 @@ the unit test configuration. To do this, in
 
 ```javascript
 new webpack.DefinePlugin({
-  'process.env.DDS_MY_FEATURE': JSON.stringify('true'),
+  'process.env.DDS_FEATURE_NAME': JSON.stringify('true'),
 })
+```
+
+> NOTE: You may need to also add a `@ts-ignore` to your test as typescript
+> checks will throw an error if a component may return `undefined`: 
+
+```javascript
+import { Default } from '../__stories__/feature-name.stories';
+
+const template = (props?) =>
+  // @ts-ignore: Behind feature flag
+  Default({
+    parameters: {
+      props: {
+        'dds-feature-name': props,
+      },
+    },
+  });
 ```
 
 # Using Feature Flags
