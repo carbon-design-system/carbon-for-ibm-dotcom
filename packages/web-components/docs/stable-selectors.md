@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Stable selectors (for analytics and integration/E2E testing) in Web Components](#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+  - [`data-autoid` support for partial backward compatibility](#data-autoid-support-for-partial-backward-compatibility)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Stable selectors (for analytics and integration/E2E testing) in Web Components
 
 `@carbon/ibmdotcom-react`, etc. libraries have `data-autoid` attributes in several places, to convey better context for e.g. analytics libraries, when they capture bubbling events e.g. `click` on `<body>` and inspects `event.target`. `data-autoid` is more useful than having to inspect contents in raw HTML `<div>` tags, etc., because `data-autoid` augments raw `<div>` tags with the context of application structure where raw `<div>` tags themselves tend to only convey how the UI should look like. We call such `data-autoid` attributes "stable selectors".

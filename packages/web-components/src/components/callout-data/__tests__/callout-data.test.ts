@@ -11,6 +11,7 @@ import { render } from 'lit-html';
 import { Default } from '../__stories__/callout-data.stories';
 
 const template = (props?) =>
+  // @ts-ignore: Behind feature flag
   Default({
     parameters: {
       props: {
