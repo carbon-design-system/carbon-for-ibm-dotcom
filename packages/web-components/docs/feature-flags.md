@@ -38,6 +38,19 @@ Then, add `DDS_FEATURE_NAME` to `.env.example` in the root of the package:
 DDS_FEATURE_NAME=<boolean flag to turn on or off feature xyz>
 ```
 
+### Activating Feature Flag in Unit Tests
+
+In order for unit tests to pass, the feature flag needs to be activated in 
+the unit test configuration. To do this, in 
+`packages/web-components/tests/karma.conf.js`, add the following in 
+`DefinePlugin`:
+
+```javascript
+new webpack.DefinePlugin({
+  'process.env.DDS_MY_FEATURE': JSON.stringify('true'),
+})
+```
+
 # Using Feature Flags
 
 ## Wrapping a Component with a Feature Flag
@@ -46,20 +59,25 @@ Once a flag is created, it can then be imported for use within a component.
 For example:
 
 ```javascript
-import { customElement, LitElement } from 'lit-element';
+import { LitElement } from 'lit-element';
 import { DDS_FEATURE_NAME } from '../../globals/internal/feature-flags';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * EXPERIMENTAL: My Feature
  *
  * @element dds-my-feature
  */
-@customElement(`${ddsPrefix}-my-feature`)
 class DDSMyFeature extends LitElement {
   ...
 }
+// Define the new element
+if (DDS_FEATURE_NAME) {
+  customElements.define(`${ddsPrefix}-callout-data`, DDSMyFeature);
+}
 
-export default DDS_FEATURE_NAME ? null : DDSMyFeature;
+export default DDS_FEATURE_NAME ? undefined : DDSMyFeature;
 ```
 
 ## Wrapping Storybook Stories with Feature Flags
