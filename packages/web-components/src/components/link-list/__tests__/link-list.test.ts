@@ -19,19 +19,52 @@ describe('dds-link-list', function() {
   });
 
   it('Renders Horizontal', async function() {
-    render(Horizontal(), document.body);
+    render(
+      Horizontal({
+        parameters: {
+          props: {
+            'dds-link-list': {
+              iconPlacement: 'left',
+            },
+          },
+        },
+      }),
+      document.body
+    );
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });
 
   it('Renders Vertical', async function() {
-    render(Vertical(), document.body);
+    render(
+      Vertical({
+        parameters: {
+          props: {
+            'dds-link-list': {
+              iconPlacement: 'left',
+            },
+          },
+        },
+      }),
+      document.body
+    );
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });
 
   it('Renders Vertical with cards', async function() {
-    render(VerticalWithCards(), document.body);
+    render(
+      VerticalWithCards({
+        parameters: {
+          props: {
+            'dds-link-list': {
+              iconPlacement: 'left',
+            },
+          },
+        },
+      }),
+      document.body
+    );
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });

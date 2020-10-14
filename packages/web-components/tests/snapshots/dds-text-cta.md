@@ -9,8 +9,6 @@
   class="bx--link bx--link-with-icon"
   id="link"
 >
-  <slot name="icon-left">
-  </slot>
   <span>
     <slot>
     </slot>

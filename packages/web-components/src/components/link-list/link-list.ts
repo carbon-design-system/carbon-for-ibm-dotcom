@@ -125,7 +125,6 @@ class DDSLinkList extends LitElement {
     if (this.childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
       this.classList.add((this.constructor as typeof DDSLinkList).splitLayoutClass);
     }
-
     sameHeight(this.childItems, 'md');
   }
 }
