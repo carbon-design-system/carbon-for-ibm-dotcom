@@ -134,8 +134,8 @@ export default {
   title: 'Components/Content block simple',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 ${parameters.gridLargeColumnClass} bx--offset-lg-4">
             ${story()}
           </div>
@@ -145,6 +145,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     gridLargeColumnClass: 'bx--col-lg-8',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
