@@ -46,6 +46,11 @@ body {
   height: 100%;
 }
 
+#root,
+div[role='main'] {
+  height: 100%;
+}
+
 // Storybook styles
 .storybook-center-container {
   padding: 1rem;
@@ -75,5 +80,9 @@ body {
     ul {
       list-style: circle;
     }
+  }
+
+  ol {
+    list-style: decimal;
   }
 }

@@ -9,8 +9,12 @@
 
 import { html } from 'lit-html'; // eslint-disable-line import/first
 import { classMap } from 'lit-html/directives/class-map';
+import 'carbon-web-components/es/components/skip-to-content/skip-to-content.js';
 import { configure, addDecorator, addParameters, setCustomElements } from '@storybook/web-components'; // eslint-disable-line import/first
+import coreEvents from '@storybook/core-events';
+import addons from '@storybook/addons';
 import { withKnobs } from '@storybook/addon-knobs';
+import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import customElements from '../custom-elements.json';
 import theme from './theme';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
@@ -25,6 +29,8 @@ const SORT_ORDER = [
   'overview-getting-started--page',
   'overview-building-for-ibm-dotcom--page',
   'overview-stable-selectors--page',
+  'overview-enable-right-to-left-rtl--page',
+  'overview-feature-flags--page',
 ];
 
 addParameters({
@@ -59,7 +65,14 @@ addDecorator((story, { parameters }) => {
     <style>
       ${containerStyles}
     </style>
-    <div name="main-content" data-floating-menu-container role="${hasMainTag ? 'none' : 'main'}" class="${classes}">
+    <bx-skip-to-content href="#main-content">Skip to main content</bx-skip-to-content>
+    <div
+      id="main-content"
+      name="main-content"
+      data-floating-menu-container
+      role="${hasMainTag ? 'none' : 'main'}"
+      class="${classes}"
+    >
       ${result}
     </div>
   `;
@@ -83,6 +96,23 @@ addDecorator((story, { parameters }) => {
     });
   }
   return story();
+});
+
+let preservedTheme;
+
+addDecorator((story, { parameters }) => {
+  const root = document.documentElement;
+  if (parameters['carbon-theme']?.disabled) {
+    root.setAttribute('storybook-carbon-theme', '');
+  } else {
+    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+  }
+  return story();
+});
+
+addons.getChannel().on(CURRENT_THEME, theme => {
+  document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));
+  addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
 });
 
 const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);

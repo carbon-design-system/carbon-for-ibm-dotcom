@@ -19,7 +19,7 @@ const chalk = require('chalk');
  *
  * @type {string}
  */
-const repoSlug = 'carbon-design-system/ibm-dotcom-library';
+const repoSlug = 'carbon-design-system/carbon-for-ibm-dotcom';
 
 /**
  * Github release API

@@ -23,7 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-dotcom-shell`)
 class DDSDotcomShell extends StableSelectorMixin(LitElement) {
-  // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
       <div class="${prefix}--dotcom-shell__content">

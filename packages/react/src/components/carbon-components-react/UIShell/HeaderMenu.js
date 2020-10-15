@@ -39,6 +39,11 @@ class HeaderMenu extends React.Component {
     ...AriaLabelPropType,
 
     /**
+     * Optional data-title attribute
+     */
+    dataTitle: PropTypes.string,
+
+    /**
      * Provide a custom ref handler for the menu button
      */
     focusRef: PropTypes.func,
@@ -57,6 +62,11 @@ class HeaderMenu extends React.Component {
      * Optional component to render instead of string
      */
     renderMenuContent: PropTypes.func,
+
+    /**
+     * Determines whether to disable body scroll
+     */
+    disableScroll: PropTypes.bool,
 
     /**
      * function to toogle overlay that appears when opening menu
@@ -95,13 +105,22 @@ class HeaderMenu extends React.Component {
     this.menuLinkRef.current.focus();
 
     this.setState(prevState => {
-      if (prevState.expanded) {
-        this.props.setOverlay(false);
-        root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
-      } else {
-        this.props.setOverlay(true);
-        root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+      if (this.props.disableScroll) {
+        if (prevState.expanded) {
+          this.props.setOverlay(false);
+          root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+        } else {
+          this.props.setOverlay(true);
+          root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+        }
       }
+
+      const onMegaMenuToggle = new CustomEvent('onMegaMenuToggle', {
+        bubbles: true,
+        detail: { isExpanded: !prevState.expanded },
+      });
+      this.menuLinkRef.current.dispatchEvent(onMegaMenuToggle);
+
       return {
         expanded: !prevState.expanded,
       };
@@ -133,6 +152,7 @@ class HeaderMenu extends React.Component {
       `${prefix}--masthead__megamenu__category-group`,
       `${prefix}--masthead__megamenu__view-all-cta`,
       `${prefix}--masthead__megamenu__l0-nav`,
+      `${prefix}--masthead__megamenu__l1-nav`,
       `${prefix}--header__menu`,
     ];
 
@@ -149,7 +169,8 @@ class HeaderMenu extends React.Component {
   handleOnBlur = event => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
-      root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+      this.props.disableScroll &&
+        root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
     }
 
     if (!event.relatedTarget || !this.checkMenuItems(event).length) {
@@ -211,6 +232,7 @@ class HeaderMenu extends React.Component {
       menuLinkName,
       autoId,
       selected,
+      dataTitle,
     } = this.props;
     const accessibilityLabel = {
       'aria-label': ariaLabel,
@@ -238,6 +260,7 @@ class HeaderMenu extends React.Component {
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
+          data-title={dataTitle}
           href="#"
           onClick={this.handleOnClick}
           onKeyDown={this.handleOnKeyDown}

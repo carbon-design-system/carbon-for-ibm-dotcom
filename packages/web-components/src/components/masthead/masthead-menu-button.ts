@@ -93,16 +93,31 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   }
 
   render() {
-    const { _hasSearchActive: hasSearchActive } = this;
+    const { active, _hasSearchActive: hasSearchActive } = this;
     const classes = classMap({
       [`${ddsPrefix}-ce--header__menu-trigger__container`]: true,
       [`${ddsPrefix}-ce--header__menu-trigger__container--has-search-active`]: hasSearchActive,
     });
+    const sentinelTabIndex = !active ? -1 : 0;
     return html`
       <div class="${classes}">
-        <a id="start-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"> </a>
+        <a
+          id="start-sentinel"
+          tabindex="${sentinelTabIndex}"
+          class="${prefix}--visually-hidden"
+          href="javascript:void 0"
+          role="navigation"
+        >
+        </a>
         ${super.render()}
-        <a id="end-sentinel" class="${prefix}--visually-hidden" href="javascript:void 0" role="navigation"> </a>
+        <a
+          id="end-sentinel"
+          tabindex="${sentinelTabIndex}"
+          class="${prefix}--visually-hidden"
+          href="javascript:void 0"
+          role="navigation"
+        >
+        </a>
       </div>
     `;
   }

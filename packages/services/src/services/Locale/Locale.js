@@ -20,18 +20,6 @@ const _host =
   'https://www.ibm.com';
 
 /**
- * @constant {string | string} CORS proxy for lower environment calls
- * @private
- */
-const _proxy =
-  root.location?.host === 'www.ibm.com'
-    ? ''
-    : // Optional chaining operator in `process.env.ENVVAR` does not work in some build systems, notably Parcel
-      (process &&
-        (process.env.REACT_APP_CORS_PROXY || process.env.CORS_PROXY)) ||
-      '';
-
-/**
  * Sets the default location if nothing is returned
  *
  * @type {object}
@@ -56,7 +44,7 @@ const _localeNameDefault = 'United States — English';
  * @type {string}
  * @private
  */
-const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
+const _endpoint = `${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
  * Configuration for axios

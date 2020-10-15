@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, svg, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
@@ -39,15 +39,24 @@ class DDSFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   slot = 'brand';
 
   createRenderRoot() {
-    return this.attachShadow({ mode: 'open', delegatesFocus: true });
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
   }
 
   render() {
     const { href } = this;
     return html`
-      <a class="${prefix}--footer-logo__link" aria-label="IBM logo" href="${ifNonNull(href)}"
-        >${IBM8BarLogoH65White()}<slot></slot
-      ></a>
+      <a class="${prefix}--footer-logo__link" aria-label="IBM logo" href="${ifNonNull(href)}">
+        ${IBM8BarLogoH65White({
+          class: `${prefix}--footer-logo__logo`,
+          role: 'img',
+          'aria-labelledby': 'footer-logo',
+          children: svg`<title id="footer-logo">IBM Logo</title>`,
+        })}
+        <slot></slot>
+      </a>
     `;
   }
 

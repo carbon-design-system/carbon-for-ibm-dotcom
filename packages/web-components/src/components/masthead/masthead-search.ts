@@ -66,7 +66,9 @@ class DDSMastheadSearch extends BXDropdown {
   private async _handleClickSearchButton() {
     const { active } = this;
     if (active) {
-      this._handleUserInitiatedRedirect();
+      if (this._searchInputNode.value) {
+        this._handleUserInitiatedRedirect();
+      }
     } else {
       this._handleUserInitiatedToggleActiveState(true);
     }
@@ -136,7 +138,6 @@ class DDSMastheadSearch extends BXDropdown {
    *
    * @param event The event.
    */
-  // eslint-disable-next-line class-methods-use-this
   private _handleKeyInput(event: KeyboardEvent) {
     if ((this.constructor as typeof DDSMastheadSearch).getAction(event.key) === DROPDOWN_KEYBOARD_ACTION.NONE) {
       event.stopPropagation();
@@ -341,7 +342,7 @@ class DDSMastheadSearch extends BXDropdown {
    * Value to display when the input has an empty `value`.
    */
   @property({ reflect: true })
-  placeholder = '';
+  placeholder = 'Search all of IBM';
 
   /**
    * The redirect URL when a user selects a search suggestion.

@@ -11,6 +11,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
 import HeaderName from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderName';
+import HeaderNavContainer from './HeaderNavContainer';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
@@ -24,6 +25,7 @@ const { prefix } = settings;
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const [overlay, setOverlay] = useState(false);
+
   /**
    * Top masthead navigation
    *
@@ -32,6 +34,13 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   const mastheadLinks = navigation.map((link, i) => {
     const autoid = `${stablePrefix}--masthead-${topNavProps.navType}__l0-nav${i}`;
     const selected = link.titleEnglish === topNavProps.selectedMenuItem;
+    const dataTitle = link.titleEnglish
+      ? link.titleEnglish
+          .replace(/[^-a-zA-Z0-9_ ]/g, '')
+          .replace(/ +/g, '-')
+          .toLowerCase()
+      : null;
+
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
@@ -43,7 +52,9 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           selected={selected}
           autoId={autoid}
           key={i}
-          setOverlay={setOverlay}>
+          disableScroll={link.hasMegapanel}
+          setOverlay={setOverlay}
+          dataTitle={dataTitle}>
           {renderNav(link, autoid)}
         </HeaderMenu>
       );
@@ -62,21 +73,21 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
 
   return (
     <>
-      <div className={`${prefix}--header__nav-container`}>
-        {topNavProps.platform && (
-          <HeaderName
-            prefix=""
-            href={topNavProps.platform.url}
-            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
-            {topNavProps.platform.name}
-          </HeaderName>
-        )}
+      {topNavProps.platform && (
+        <HeaderName
+          prefix=""
+          href={topNavProps.platform.url}
+          data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
+          {topNavProps.platform.name}
+        </HeaderName>
+      )}
+      <HeaderNavContainer>
         <HeaderNavigation
           aria-label="IBM"
           data-autoid={`${stablePrefix}--masthead__l0-nav`}>
           {mastheadLinks}
         </HeaderNavigation>
-      </div>
+      </HeaderNavContainer>
       <div
         className={classnames(`${prefix}--masthead__overlay`, {
           [`${prefix}--masthead__overlay-show`]: overlay,

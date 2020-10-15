@@ -10,7 +10,8 @@
 @import '../feature-card/feature-card';
 
 @mixin feature-card-block-medium {
-  .#{$prefix}--feature-card-block-medium {
+  .#{$prefix}--feature-card-block-medium,
+  :host(#{$dds-prefix}-feature-card-block-medium) {
     color: $text-01;
     background: $ui-background;
 
@@ -22,9 +23,11 @@
       margin-bottom: $carbon--layout-06;
     }
 
-    &__heading {
+    .#{$prefix}--feature-card-block-medium__heading,
+    ::slotted(#{$dds-prefix}-feature-card-block-medium-heading) {
       @include carbon--type-style('expressive-heading-04', true);
 
+      display: block;
       margin-bottom: $carbon--spacing-07;
     }
   }

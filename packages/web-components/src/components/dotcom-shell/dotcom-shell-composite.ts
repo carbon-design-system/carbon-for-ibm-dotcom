@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { pickBy } from 'lodash-es';
+import pickBy from 'lodash-es/pickBy.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../globals/services-store/types/localeAPI';
@@ -22,7 +22,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/p
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
-import styles from './dotcom-shell-container.scss';
+import styles from './dotcom-shell-composite.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -106,7 +106,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` to activate the search box. This goes to masthead.
    */
-  @property({ attribute: 'activate-search' })
+  @property({ type: Boolean, attribute: 'activate-search' })
   activateSearch = false;
 
   /**
@@ -140,7 +140,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * The throttle timeout to run query upon user input. This goes to masthead.
    */
-  @property({ type: Number })
+  @property({ type: Number, attribute: 'input-timeout' })
   inputTimeout?: number;
 
   /**
@@ -336,7 +336,6 @@ class DDSDotcomShellComposite extends LitElement {
     );
   }
 
-  // eslint-disable-next-line class-methods-use-this
   render() {
     return html`
       <dds-dotcom-shell>

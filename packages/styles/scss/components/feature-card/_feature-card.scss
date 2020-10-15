@@ -11,6 +11,28 @@
 @import '../../globals/utils/aspect-ratio';
 @import '../../globals/utils/hang';
 
+@mixin card {
+  position: absolute;
+  padding-top: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include carbon--breakpoint('md') {
+    flex-direction: row;
+    @include hang;
+  }
+
+  &:focus {
+    outline-offset: 1px;
+    outline-width: 3px;
+  }
+
+  .#{$prefix}--card__heading {
+    margin-bottom: $layout-03;
+  }
+}
+
 @mixin feature-card {
   .#{$prefix}--feature-card,
   :host(#{$dds-prefix}-feature-card),
@@ -30,6 +52,22 @@
       .#{$prefix}--card,
       .#{$prefix}--feature-card__card {
         @include carbon--make-row;
+
+        // `flex-wrap: wrap` comes from `@include carbon--make-row`,
+        // which may change the layout between the media and the card body from vertical to horizontal.
+        //
+        // It makes the card body invisible by being visually pushed out from the feature card UI.
+        //
+        // Such symptom is observed if the space for feature card is smaller than the width of browser viewport,
+        // e.g. when there is a notable margin/padding
+        // between the browser viewport and the Carbon grid surrounding the feature card.
+        //
+        // OTOH feature card does not seem to get any benefit from `flex-wrap: wrap` given the card body has flexible size
+        // and feature card itself explicitly changes the layout between the media and the card body from vertical to horizontal
+        // for larger breakpoint by changing `flex-direction`.
+        //
+        // Refs https://github.com/carbon-design-system/ibm-dotcom-library/issues/4171.
+        flex-wrap: nowrap;
       }
     }
 
@@ -50,25 +88,11 @@
     }
 
     .#{$prefix}--card {
-      position: absolute;
-      padding-top: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      @include carbon--breakpoint('md') {
-        flex-direction: row;
-        @include hang;
-      }
+      @include card;
+    }
 
-      &__heading {
-        margin-bottom: $layout-03;
-      }
-
-      &:focus {
-        outline-offset: 1px;
-        outline-width: 3px;
-      }
+    .#{$prefix}--card__heading {
+      margin-bottom: $layout-03;
     }
 
     ::slotted([slot='image']),
@@ -76,6 +100,13 @@
     .#{$prefix}--image {
       width: 100%;
       height: aspect-ratio(2, 1);
+
+      // `.bx--card-wrapper` defines its `min-height`,
+      // but the height `.bx--card-wrapper` in feature card is relative to the entire size of feature card
+      // and setting `min-height` here may cause an adverse effect
+      // where some portion of card body in feature card goes outside the box of the feature card.
+      min-height: auto;
+
       @include carbon--breakpoint('md') {
         width: 50%;
         height: aspect-ratio(1, 1);

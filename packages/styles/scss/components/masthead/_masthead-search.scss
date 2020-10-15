@@ -40,7 +40,7 @@
     background-color: #dcdcdc;
   }
 
-  @include carbon--breakpoint-down(lg) {
+  @include carbon--breakpoint-down(800px) {
     display: none;
   }
 }
@@ -82,6 +82,18 @@
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
     }
+
+    &.#{$prefix}--masthead__header--search-active {
+      .#{$prefix}--header__nav-container {
+        display: none;
+      }
+    }
+  }
+
+  .#{$prefix}--header__search:not(.#{$prefix}--masthead__header--search-active) {
+    @include carbon--breakpoint(md) {
+      overflow-x: auto;
+    }
   }
 
   .#{$prefix}--header__search--actions {
@@ -93,14 +105,15 @@
   // search container
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
-    flex: 1;
     height: $carbon--spacing-09;
+    margin-left: rem(48px);
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
       position: absolute;
       z-index: 999;
       width: 100%;
+      margin-left: 0;
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;

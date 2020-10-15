@@ -1,0 +1,38 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import '../../globals/scss/vars';
+@import '../../globals/scss/box-sizing';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+
+// TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
+:host(#{$dds-prefix}-table-of-contents) {
+  @extend .#{$prefix}--grid;
+}
+
+// TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
+.#{$prefix}--tableofcontents__sidebar {
+  @extend .#{$prefix}--col-lg-4;
+}
+
+// TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
+.#{$prefix}--tableofcontents__content {
+  @extend .#{$prefix}--col-lg-12;
+}
+
+.#{$dds-prefix}-ce--table-of-contents__container {
+  @include carbon--make-row();
+}
+
+.#{$dds-prefix}-ce--table-of-contents__items-container {
+  @include carbon--breakpoint('lg') {
+    position: sticky;
+    top: 0;
+  }
+}

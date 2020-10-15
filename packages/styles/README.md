@@ -1,6 +1,6 @@
 # @carbon/ibmdotcom-styles
 
-A single, shared CSS resource for the IBM.com Library.
+A single, shared CSS resource for Carbon for IBM.com.
 
 ## Getting started
 
@@ -20,7 +20,7 @@ yarn add @carbon/ibmdotcom-styles
 
 ## Expressive Theme
 
-The IBM.com Library runs optimally with the expressive theme enabled.
+Carbon for IBM.com runs optimally with the expressive theme enabled.
 
 ### Step 1: CSS Custom Properties
 
@@ -53,7 +53,7 @@ const sassLoader = {
 ### Step 2: CSS Import
 
 This includes the expressive theme that would be applied to all Carbon
-components, as well as adjustments to the core type scale for IBM.com Library
+components, as well as adjustments to the core type scale for Carbon for IBM.com
 components and patterns.
 
 ```css
@@ -102,9 +102,10 @@ it.
 
 ## Documentation
 
-- See our documentation site [here](https://ibm-dotcom-library.mybluemix.net)
-  for full how-to docs and guidelines
-- [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
+- See our documentation site
+  [here](https://www.ibm.com/standards/web/carbon-for-ibm-dotcom) for full
+  how-to docs and guidelines
+- [Contributing](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
 ## 🙌 Contributing
@@ -112,12 +113,12 @@ it.
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)
 and our
-[Developer Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md)!
+[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/LICENSE).

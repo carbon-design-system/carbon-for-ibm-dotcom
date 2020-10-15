@@ -19,7 +19,7 @@ function initVideoPlayerTrigger() {
     currentTime: 1,
     duration: 60,
     playerState: 1,
-    videoId: '0_uka1msg4',
+    videoId: '1_9h94wo6b',
   };
 
   AnalyticsAPI.videoPlayerStats(data);
@@ -35,10 +35,10 @@ function initVideoPlayerTrigger() {
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/LICENSE).

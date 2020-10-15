@@ -12,21 +12,29 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import '../link-list';
 import '../link-list-item';
 import '../link-list-item-card';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 
-export const Default = () => html`
-  <dds-link-list type="default">
-    <span slot="heading">Tutorial</span>
-    <dds-link-list-item-card href="https://example.com">
-      <p>Learn more</p>
-      ${ArrowRight20({ slot: 'footer' })}
-    </dds-link-list-item-card>
-    <dds-link-list-item-card href="https://example.com">
-      <p>Containerization A Complete Guide</p>
-      ${ArrowRight20({ slot: 'footer' })}
-    </dds-link-list-item-card>
-  </dds-link-list>
-`;
+const placement = {
+  left: 'left',
+  right: 'right',
+};
+
+export const Default = () => {
+  return html`
+    <dds-link-list type="default">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Learn more</p>
+        ${ArrowRight20({ slot: 'footer' })}
+      </dds-link-list-item-card>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Containerization A Complete Guide</p>
+        ${ArrowRight20({ slot: 'footer' })}
+      </dds-link-list-item-card>
+    </dds-link-list>
+  `;
+};
 
 Default.story = {
   parameters: {
@@ -34,68 +42,92 @@ Default.story = {
   },
 };
 
-export const Horizontal = () => html`
-  <dds-link-list type="horizontal">
-    <span slot="heading">Tutorial</span>
-    <dds-link-list-item>
-      Learn more ${ArrowRight20({ slot: 'icon' })}
-    </dds-link-list-item>
-    <dds-link-list-item>
-      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-    </dds-link-list-item>
-  </dds-link-list>
-`;
+export const Horizontal = ({ parameters }) => {
+  const { iconPlacement } = parameters?.props?.LinkList ?? { iconPlacement: 'left' };
+  return html`
+    <dds-link-list type="horizontal">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Learn more ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+    </dds-link-list>
+  `;
+};
 
 Horizontal.story = {
   parameters: {
     colLgClass: 'bx--col-lg-10',
+    knobs: {
+      LinkList: ({ groupId }) => ({
+        iconPlacement: select('Icon Placement (icon-placement)', placement, placement.left, groupId),
+      }),
+    },
   },
 };
 
-export const Vertical = () => html`
-  <dds-link-list type="vertical">
-    <span slot="heading">Tutorial</span>
-    <dds-link-list-item>
-      Learn more ${ArrowRight20({ slot: 'icon-left' })}
-    </dds-link-list-item>
-    <dds-link-list-item>
-      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon-left' })}
-    </dds-link-list-item>
-  </dds-link-list>
-`;
+export const Vertical = ({ parameters }) => {
+  const { iconPlacement } = parameters?.props?.LinkList ?? { iconPlacement: 'left' };
+  return html`
+    <dds-link-list type="vertical">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Learn more ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+    </dds-link-list>
+  `;
+};
 
 Vertical.story = {
   parameters: {
     colLgClass: 'bx--col-lg-4',
+    knobs: {
+      LinkList: ({ groupId }) => ({
+        iconPlacement: select('Icon Placement (icon-placement)', placement, placement.left, groupId),
+      }),
+    },
   },
 };
 
-export const VerticalWithCards = () => html`
-  <dds-link-list type="vertical">
-    <span slot="heading">Tutorial</span>
-    <dds-link-list-item>
-      Learn more ${ArrowRight20({ slot: 'icon-left' })}
-    </dds-link-list-item>
-    <dds-link-list-item>
-      Containerization A Complete Guide ${ArrowRight20({ slot: 'icon-left' })}
-    </dds-link-list-item>
-  </dds-link-list>
-  <dds-link-list type="default">
-    <span slot="heading">Tutorial</span>
-    <dds-link-list-item-card href="https://example.com">
-      <p>Learn more</p>
-      ${ArrowRight20({ slot: 'footer' })}
-    </dds-link-list-item-card>
-    <dds-link-list-item-card href="https://example.com">
-      <p>Containerization A Complete Guide</p>
-      ${ArrowRight20({ slot: 'footer' })}
-    </dds-link-list-item-card>
-  </dds-link-list>
-`;
+export const VerticalWithCards = ({ parameters }) => {
+  const { iconPlacement } = parameters?.props?.LinkList ?? { iconPlacement: 'left' };
+  return html`
+    <dds-link-list type="vertical">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Learn more ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+      <dds-link-list-item icon-placement="${iconPlacement}">
+        Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+    </dds-link-list>
+    <dds-link-list type="default">
+      <span slot="heading">Tutorial</span>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Learn more</p>
+        ${ArrowRight20({ slot: 'footer' })}
+      </dds-link-list-item-card>
+      <dds-link-list-item-card href="https://example.com">
+        <p>Containerization A Complete Guide</p>
+        ${ArrowRight20({ slot: 'footer' })}
+      </dds-link-list-item-card>
+    </dds-link-list>
+  `;
+};
 
 VerticalWithCards.story = {
   parameters: {
     colLgClass: 'bx--col-lg-4',
+    knobs: {
+      LinkList: ({ groupId }) => ({
+        iconPlacement: select('Icon Placement (icon-placement)', placement, placement.left, groupId),
+      }),
+    },
   },
 };
 
@@ -130,7 +162,7 @@ export default {
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return html`
-        <div class="bx--grid dds-ce-demo-devenv--grid--card">
+        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
           <div class="bx--row">
             <div class="bx--col-sm-4 ${colLgClass} bx--offset-lg-4">
               ${story()}

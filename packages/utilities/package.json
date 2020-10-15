@@ -1,12 +1,12 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
-  "description": "IBM.com Library Utilities",
-  "version": "1.11.0-rc.0",
+  "description": "Carbon for IBM.com Utilities",
+  "version": "1.12.0-rc.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "exports": {
     "./es": "./es/index.js",
     "./es/": "./es/",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "carbon-components": "10.19.0",
+    "carbon-components": "10.21.0",
     "isomorphic-dompurify": "0.4.0",
     "js-cookie": "^2.2.1",
     "marked": "1.1.0",

@@ -259,7 +259,7 @@ describe('AnalyticsAPI', function() {
         currentTime: 1,
         duration: 60,
         playerState: 0,
-        videoId: '0_uka1msg4',
+        videoId: '1_9h94wo6b',
       };
 
       this.registerEvent = jest.spyOn(AnalyticsAPI, 'registerEvent');
