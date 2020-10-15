@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import styles from './feature-card.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card';
 
@@ -30,12 +29,9 @@ export default {
   title: 'Components/Feature Card',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid" style="width: 100%">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4" style="padding-top: 20px">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             ${story()}
           </div>
         </div>
@@ -44,6 +40,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
