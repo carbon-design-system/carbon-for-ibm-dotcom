@@ -169,6 +169,39 @@ jobs:
           cf-app: ibmdotcom-web-components-rtl
           cf-manifest: manifest-rtl.yml
           deploy-dir: packages/web-components
+  web-components-experimental:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          DDS_FLAGS_ALL: true
+      - name: Building @carbon/ibmdotcom-web-components experimental storybook
+        run: yarn build-storybook
+        working-directory: packages/web-components
+      - name: Deploying @carbon/ibmdotcom-web-components experimental storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
+        with:
+          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
+          cf-app: ibmdotcom-web-components-experimental
+          cf-manifest: manifest-experimental.yml
+          deploy-dir: packages/web-components
   services:
     runs-on: ubuntu-16.04
     steps:
@@ -265,35 +298,3 @@ jobs:
           cf-app: carbon-expressive
           cf-manifest: manifest.yml
           deploy-dir: packages/styles
-  vanilla:
-    runs-on: ubuntu-16.04
-    steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Install dependencies
-        run: yarn install --offline
-      - name: Build project
-        run: yarn build
-      - name: Set env vars
-        uses: ./.github/actions/set-dotenv
-        with:
-          env-file: packages/vanilla/.env
-        env:
-          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
-          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
-      - name: Building @carbon/ibmdotcom-vanilla storybook
-        run: yarn build-storybook
-        working-directory: packages/vanilla
-      - name: Deploying @carbon/ibmdotcom-vanilla storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
-        with:
-          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-          cf-org: ibm-digital-design
-          cf-space: ibmdotcom-production
-          cf-region: us-south
-          cf-app: ibmdotcom-vanilla
-          cf-manifest: manifest-canary.yml
-          deploy-dir: packages/vanilla

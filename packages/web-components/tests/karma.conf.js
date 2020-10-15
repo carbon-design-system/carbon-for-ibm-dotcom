@@ -148,6 +148,7 @@ module.exports = function setupKarma(config) {
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
+          'process.env.DDS_CALLOUT_DATA': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, resource => {
           const { request } = resource;
