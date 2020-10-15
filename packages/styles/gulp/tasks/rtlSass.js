@@ -11,20 +11,21 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
+  rtlcss = require('gulp-rtlcss'),
   sass = require('gulp-sass'),
   path = require('path');
 
 /**
- * @name _sass
+ * @name _rtlSass
  * @function
  * @description
- * Compile .scss files into build css directory with autoprefixer,
+ * Compile RTL .scss files into build css directory with autoprefixer,
  * then live reload the browser
  *
  * @returns {object} The gulp task stream
  * @private
  */
-function _sass() {
+function _rtlSass() {
   // prettier-ignore
   return gulp
     .src(global.config.scssEntry)
@@ -39,16 +40,17 @@ function _sass() {
         cascade: true,
       })
     )
-    .pipe(rename(global.config.distCss))
+    .pipe(rtlcss())
+    .pipe(rename(global.config.distRtlCss))
     .pipe(gulp.dest('dist'))
     .pipe(cleanCSS())
-    .pipe(rename(global.config.distCssMin))
+    .pipe(rename(global.config.distRtlCssMin))
     .pipe(gulp.dest('dist'));
 }
 
 /**
  * Gulp task export
  *
- * @module sass
+ * @module rtlSass
  */
-module.exports = gulp.task('sass', _sass);
+module.exports = gulp.task('rtlSass', _rtlSass);

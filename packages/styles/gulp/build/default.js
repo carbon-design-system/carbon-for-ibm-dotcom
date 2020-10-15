@@ -14,4 +14,4 @@ const gulp = require('gulp');
  *
  * @module default
  */
-module.exports = gulp.task('default', gulp.series('clean', 'sass'));
+module.exports = gulp.task('default', gulp.series('clean', 'sass', 'rtlSass'));
