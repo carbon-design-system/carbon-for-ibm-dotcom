@@ -29,7 +29,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/react
       - name: Deploying @carbon/ibmdotcom-react (staging) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
@@ -61,7 +61,7 @@ jobs:
         run: yarn build-storybook
         working-directory: packages/web-components
       - name: Deploying @carbon/ibmdotcom-web-components (staging) storybook to IBM Cloud
-        uses: carbon-design-system/action-ibmcloud-cf@v1.2.0
+        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
           cf-org: ibm-digital-design
