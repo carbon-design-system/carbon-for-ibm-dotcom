@@ -1,4 +1,4 @@
-# Developing`@carbon/ibmdotcom-web-components`
+# Developing `@carbon/ibmdotcom-web-components`
 
 You can start it with:
 
@@ -8,6 +8,7 @@ You can start it with:
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
 
 - [Running unit test](#running-unit-test)
 - [Coding conventions](#coding-conventions)
