@@ -19,7 +19,7 @@ export default {
   title: 'Components/Video player',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--card">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             ${story()}

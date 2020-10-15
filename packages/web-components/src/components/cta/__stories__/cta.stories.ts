@@ -106,6 +106,7 @@ export const Card = ({ parameters }) => {
 
 Card.story = {
   parameters: {
+    colExtraClasses: 'bx--col-md-4 bx--col-lg-4',
     useGridForCard: true,
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
@@ -149,6 +150,7 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
+    colExtraClasses: 'bx--col-lg-8 bx--offset-lg-4',
     useGridForCard: true,
     knobs: {
       FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
@@ -161,11 +163,10 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { useGridForCard } = parameters ?? {};
-      const colExtraClasses = useGridForCard ? 'bx--col-md-4 bx--col-lg-4' : 'bx--col-lg-8';
+      const { colExtraClasses = 'bx--col-lg-8', useGridForCard } = parameters ?? {};
       const classes = classMap({
         'bx--grid': true,
-        'dds-ce-demo-devenv--grid--card': useGridForCard,
+        'dds-ce-demo-devenv--grid--stretch': useGridForCard,
       });
       return html`
         <dds-video-cta-container class="${classes}">
