@@ -124,6 +124,7 @@ class TranslationAPI {
           })
           .then(response => this.transformData(response.data))
           .then(data => {
+            data['timestamp'] = new Date().getTime();
             sessionStorage.setItem(
               `${_sessionTranslationKey}-${country}-${lang}`,
               JSON.stringify(data)
@@ -159,6 +160,16 @@ class TranslationAPI {
 
     data.footerMenu.push(data.socialFollow);
     return data;
+  }
+
+  static timestampCheck(savedTime) {
+    const currentTime = new Date().getTime(),
+      timeDiff = currentTime - savedTime,
+      twoHours = 60 * 60 * 2000;
+
+    if (timeDiff > twoHours) {
+      this.clearCache();
+    }
   }
 }
 
