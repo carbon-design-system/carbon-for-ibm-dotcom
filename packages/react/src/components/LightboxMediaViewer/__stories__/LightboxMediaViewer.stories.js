@@ -89,6 +89,16 @@ EmbeddedVideoPlayer.story = {
         media: {
           src: '1_9h94wo6b',
           type: 'video',
+          title: text(
+            'title (required)',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+          description: text(
+            'description (required)',
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,
+            groupId
+          ),
         },
       }),
     },
@@ -98,6 +108,8 @@ EmbeddedVideoPlayer.story = {
           media: {
             src: '1_9h94wo6b',
             type: 'video',
+            title: 'Curabitur malesuada varius mi eu posuere',
+            description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,
           },
         },
       },
