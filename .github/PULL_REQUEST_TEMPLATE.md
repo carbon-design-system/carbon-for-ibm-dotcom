@@ -27,6 +27,6 @@
 <!-- labels for the corresponding package: -->
 <!-- *** "package: services": Services -->
 <!-- *** "package: utilities": Utilities -->
-<!-- *** "package: styles": Carbon Expressive, React (Expressive) -->
-<!-- *** "RTL": React (RTL) -->
-<!-- *** "feature flag": React (experimental) -->
+<!-- *** "package: styles": Carbon Expressive -->
+<!-- *** "RTL": React / Web Components (RTL) -->
+<!-- *** "feature flag": React / Web Components (experimental) -->

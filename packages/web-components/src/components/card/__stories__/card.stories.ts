@@ -14,7 +14,6 @@ import '../card-footer';
 import '../../image/image';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import readme from './README.stories.mdx';
-import styles from './card.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
 
@@ -50,11 +49,8 @@ export default {
   title: 'Components/Card',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid" style="width: 100%">
-        <div class="bx--row">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 bx--col-md-3 bx--no-gutter">
             ${story()}
           </div>
@@ -64,6 +60,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',

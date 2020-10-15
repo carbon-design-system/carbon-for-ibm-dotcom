@@ -18,9 +18,11 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- *  Pictogram item.
+ * Pictogram item.
  *
  * @element dds-pictogram-item
+ * @slot heading - The heading content.
+ * @slot cta - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends LitElement {

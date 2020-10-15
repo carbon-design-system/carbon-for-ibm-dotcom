@@ -13,7 +13,6 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Error20 from 'carbon-web-components/es/icons/error/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import styles from './card-link.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card-link';
 
@@ -33,11 +32,8 @@ export default {
   title: 'Components/Card Link',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid bx--grid--condensed" style="width: 100%">
-        <div class="bx--row">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 bx--col-md-4 bx--col-lg-3 bx--offset-lg-4">
             ${story()}
           </div>
@@ -47,6 +43,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       CardLink: ({ groupId }) => ({
         disabled: boolean('Disabled (disabled):', false, groupId),
