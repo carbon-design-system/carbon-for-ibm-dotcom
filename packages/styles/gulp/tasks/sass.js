@@ -11,6 +11,7 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
+  rtlcss = require('gulp-rtlcss'),
   sass = require('gulp-sass'),
   path = require('path');
 
@@ -39,11 +40,6 @@ function _sass() {
         cascade: true,
       })
     )
-    .pipe(rename(global.config.distCss))
-    .pipe(gulp.dest('dist'))
-    .pipe(cleanCSS())
-    .pipe(rename(global.config.distCssMin))
-    .pipe(gulp.dest('dist'));
 }
 
 /**
@@ -51,4 +47,24 @@ function _sass() {
  *
  * @module sass
  */
-module.exports = gulp.task('sass', _sass);
+
+module.exports = {
+  ltr() {
+    return _sass()
+      .pipe(rename(global.config.distCss))
+      .pipe(gulp.dest('dist'))
+      .pipe(cleanCSS())
+      .pipe(rename(global.config.distCssMin))
+      .pipe(gulp.dest('dist'));
+  },
+
+  rtl() {
+    return _sass()
+      .pipe(rtlcss())
+      .pipe(rename(global.config.distRtlCss))
+      .pipe(gulp.dest('dist'))
+      .pipe(cleanCSS())
+      .pipe(rename(global.config.distRtlCssMin))
+      .pipe(gulp.dest('dist'));
+  },
+};
