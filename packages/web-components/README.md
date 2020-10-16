@@ -113,7 +113,7 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 
 While styles are included as part of the web components, setting up Sass toolchain is often useful for styling your contents.
 
-To use Sass, You can add Sass toolchain to your module bundler.
+To use Sass, you can add a Sass toolchain to your module bundler.
 A couple of key settings needed in the Sass toolchain are:
 
 1. [`autoprefixer`](https://github.com/postcss/autoprefixer). This is a requirement for using Carbon core Sass code.
