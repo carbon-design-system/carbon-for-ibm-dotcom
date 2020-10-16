@@ -88,7 +88,7 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
 > for `window.digitalData` and `<link rel="alternate" ...>`.
 
 For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s.
-You can start with minimum configuration for most module bundlers; For example, with [WebPack](https://webpack.js.org/), you don't need any configuration.
+You can start with a minimum configuration for most module bundlers. For example, with [WebPack](https://webpack.js.org/), you don't need any configuration.
 Once you set up a module bundler, you can start importing our component modules, like:
 
 ```javascript
