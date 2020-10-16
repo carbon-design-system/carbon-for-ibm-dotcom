@@ -117,7 +117,7 @@ To use Sass, You can add Sass toolchain to your module bundler.
 A couple of key settings needed in the Sass toolchain are:
 
 1. [`autoprefixer`](https://github.com/postcss/autoprefixer). This is a requirement for using Carbon core Sass code.
-2. `enable-css-custom-properties` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles, expecially using the [Expressive theme](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+2. `enable-css-custom-properties` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles, especially using the [Expressive theme](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
 
 Here's an example for WebPack:
 
