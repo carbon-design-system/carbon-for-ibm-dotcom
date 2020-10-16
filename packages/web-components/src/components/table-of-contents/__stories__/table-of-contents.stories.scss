@@ -8,12 +8,14 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/colors/colors';
 @import 'carbon-components/scss/globals/scss/typography';
 
-a[name] {
-  display: block;
-  color: $text-01;
-}
+.dds-ce-demo--table-of-contents {
+  a[name] {
+    display: block;
+    color: $text-01;
+  }
 
-h3 {
-  padding-top: rem(16px);
-  padding-bottom: rem(32px);
+  h3 {
+    padding-top: rem(16px);
+    padding-bottom: rem(32px);
+  }
 }

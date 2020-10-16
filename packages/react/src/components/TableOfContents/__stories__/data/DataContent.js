@@ -8,7 +8,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 const DataContent = () => (
-  <div>
+  <div className="dds-react-demo--table-of-contents">
     <a data-title="Cras molestie condimentum" name="8">
       <h3>Cras molestie condimentum</h3>
     </a>
