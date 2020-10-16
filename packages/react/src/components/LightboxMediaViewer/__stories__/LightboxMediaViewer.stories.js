@@ -90,12 +90,12 @@ EmbeddedVideoPlayer.story = {
           src: '1_9h94wo6b',
           type: 'video',
           title: text(
-            'title (required)',
+            'title (optional)',
             'Curabitur malesuada varius mi eu posuere',
             groupId
           ),
           description: text(
-            'description (required)',
+            'description (optional)',
             `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,
             groupId
           ),
