@@ -90,6 +90,7 @@
     border-radius: 0;
     border: none;
     background-color: transparent;
+    color: $text-01;
     height: carbon--rem(48px);
     appearance: none;
     @include carbon--type-style(body-short-02);
