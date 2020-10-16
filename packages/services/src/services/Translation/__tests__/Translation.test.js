@@ -6,6 +6,7 @@
  */
 
 import mockAxios from 'axios';
+import oldSession from './data/timestamp_response.json';
 import responseSuccess from './data/response.json';
 import root from 'window-or-global';
 
@@ -76,7 +77,22 @@ describe('TranslationAPI', () => {
         origin: 'https://ibm.com',
       },
     });
-
     expect(response).toEqual(responseSuccess);
+  });
+
+  it('should return a json with a recent timestamp', async () => {
+    // reinitializing import
+    const TranslationAPI = (await import('../Translation')).default;
+
+    const response = await TranslationAPI.getTranslation({
+      lc: 'en',
+      cc: 'us',
+    });
+
+    // should contain timestamp
+    expect(response).toHaveProperty('timestamp');
+
+    // should not equal old timestamp
+    expect(response).not.toEqual(oldSession);
   });
 });

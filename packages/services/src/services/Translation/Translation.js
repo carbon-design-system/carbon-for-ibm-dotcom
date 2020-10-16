@@ -42,6 +42,14 @@ const _sessionTranslationKey = 'dds-translation';
 const _requestsTranslation = {};
 
 /**
+ * Two hours in milliseconds to compare session timestamp.
+ *
+ * @type {number}
+ * @private
+ */
+const _twoHours = 60 * 60 * 2000;
+
+/**
  * Translation API class with methods for fetching i18n data for ibm.com
  */
 class TranslationAPI {
@@ -104,9 +112,9 @@ class TranslationAPI {
    * @param {Function} reject rejects the promise
    */
   static fetchTranslation(lang, country, resolve, reject) {
-    const sessionTranslation = JSON.parse(
-      sessionStorage.getItem(`${_sessionTranslationKey}-${country}-${lang}`)
-    );
+    const itemKey = `${_sessionTranslationKey}-${country}-${lang}`;
+
+    const sessionTranslation = this.getSessionCache(itemKey);
 
     if (sessionTranslation) {
       resolve(sessionTranslation);
@@ -162,14 +170,28 @@ class TranslationAPI {
     return data;
   }
 
-  static timestampCheck(savedTime) {
-    const currentTime = new Date().getTime(),
-      timeDiff = currentTime - savedTime,
-      twoHours = 60 * 60 * 2000;
+  /**
+   * Retrieves session cache and checks if cache needs to be refreshed
+   *
+   * @param   {string} key session storage key
+   * @returns {object} session storage object
+   */
+  static getSessionCache(key) {
+    const session = JSON.parse(sessionStorage.getItem(key));
 
-    if (timeDiff > twoHours) {
-      this.clearCache();
+    if (!session || !session.timestamp) {
+      return;
     }
+
+    const currentTime = new Date().getTime(),
+      timeDiff = currentTime - session.timestamp;
+
+    if (timeDiff > _twoHours) {
+      sessionStorage.removeItem(key);
+      return;
+    }
+
+    return session;
   }
 }
 
