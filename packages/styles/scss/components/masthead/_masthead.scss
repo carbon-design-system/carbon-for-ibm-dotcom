@@ -174,7 +174,8 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--masthead__l0-nav--selected a[aria-expanded='false'] {
+  .#{$prefix}--masthead__l0-nav--selected a[aria-expanded='false'],
+  .#{$prefix}--masthead__l0-nav--selected-item a {
     border-bottom: solid 3px $interactive-01;
   }
 
