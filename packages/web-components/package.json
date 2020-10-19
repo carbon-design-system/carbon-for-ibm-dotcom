@@ -45,7 +45,7 @@
     "lint:scripts": "eslint --ext .js,.ts,.tsx .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "yarn test:unit && yarn test:integration",
-    "test:unit": "gulp test:unit && yarn jest",
+    "test:unit": "gulp test:unit",
     "test:unit:updateSnapshot": "gulp test:unit --update-snapshot",
     "test:integration": "yarn test:integration:build && yarn test:integration:ui",
     "test:integration:build": "jest -c tests/integration/build/jest.config.js --runInBand",
