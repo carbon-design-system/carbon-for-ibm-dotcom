@@ -13,6 +13,10 @@ const gulp = require('gulp');
 const clean = require('./gulp-tasks/clean');
 const build = require('./gulp-tasks/build');
 const test = require('./gulp-tasks/test');
+const vendor = require('./gulp-tasks/vendor');
+
+gulp.task('vendor:services-store', vendor.servicesStore);
+gulp.task('vendor', gulp.task('vendor:services-store'));
 
 gulp.task('build:bundles:scripts:dev', build.bundles.scripts.dev);
 gulp.task('build:bundles:scripts:prod', build.bundles.scripts.prod);
@@ -31,7 +35,10 @@ gulp.task(
   )
 );
 gulp.task('build:sass', build.sass);
-gulp.task('build', gulp.parallel(gulp.task('build:bundles'), gulp.task('build:modules'), gulp.task('build:sass')));
+gulp.task(
+  'build',
+  gulp.series(gulp.task('vendor'), gulp.parallel(gulp.task('build:bundles'), gulp.task('build:modules'), gulp.task('build:sass')))
+);
 
 gulp.task('clean', clean);
 

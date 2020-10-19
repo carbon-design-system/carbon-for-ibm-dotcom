@@ -9,7 +9,7 @@
 
 import { VIDEO_PLAYER_API_ACTION, VideoData, VideoPlayerAPIState } from '../../types/videoPlayerAPI';
 import { VideoPlayerAPIActions } from '../../actions/videoPlayerAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../videoPlayerAPI';
 
 const mockVideoData: Partial<VideoData> = {

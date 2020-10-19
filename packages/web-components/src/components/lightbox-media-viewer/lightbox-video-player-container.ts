@@ -10,8 +10,8 @@
 import { ActionCreatorsMapObject, Store } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import store from '../../globals/services-store/store';
-import { VideoPlayerAPIActions } from '../../globals/services-store/actions/videoPlayerAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
 import {
   VideoPlayerContainerState,

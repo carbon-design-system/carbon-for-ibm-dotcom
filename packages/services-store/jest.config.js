@@ -13,7 +13,7 @@ module.exports = {
   coverageReporters: ['text', 'html'],
   coverageDirectory: '<rootDir>/tests/coverage-jest',
   rootDir: '.',
-  roots: ['src/globals/services-store'],
+  roots: ['src'],
   setupFiles: ['<rootDir>/tests/unit/setup.js'],
   testMatch: ['<rootDir>/**/__tests__/**/*.test.ts'],
   testRunner: 'jest-circus/runner',

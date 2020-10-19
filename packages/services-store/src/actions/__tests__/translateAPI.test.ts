@@ -15,7 +15,7 @@ import TranslateAPI from '@carbon/ibmdotcom-services/es/services/Translation/Tra
 import { LOCALE_API_ACTION } from '../../types/localeAPI';
 import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
 import { setTranslation, loadTranslation } from '../translateAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Locale/Locale');
 jest.mock('@carbon/ibmdotcom-services/es/services/Translation/Translation');

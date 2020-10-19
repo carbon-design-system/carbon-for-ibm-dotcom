@@ -23,6 +23,9 @@ packages/services/umd
 packages/services/lib
 packages/services/node_modules
 
+# services-store
+packages/services-store/es
+
 # styles
 packages/styles/dist
 packages/styles/es

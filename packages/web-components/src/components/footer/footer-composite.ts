@@ -14,8 +14,12 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { LocaleList } from '../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-store/types/translateAPI';
+import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import {
+  BasicLink,
+  BasicLinkSet,
+  Translation,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 /* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
 // Above import is interface-only ref and thus code won't be brought into the build

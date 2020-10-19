@@ -11,14 +11,21 @@ import pickBy from 'lodash-es/pickBy.js';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
-import { MastheadLink, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
-import { USER_AUTHENTICATION_STATUS, ProfileAPIState } from '../../globals/services-store/types/profileAPI';
-import store from '../../globals/services-store/store';
-import { loadLanguage, setLanguage, LocaleAPIActions } from '../../globals/services-store/actions/localeAPI';
-import { loadTranslation, TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
-import { monitorUserStatus, ProfileAPIActions } from '../../globals/services-store/actions/profileAPI';
-import { loadSearchResults, SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { MastheadLink, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import {
+  USER_AUTHENTICATION_STATUS,
+  ProfileAPIState,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
+import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
+import { monitorUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
+import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
+import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
+import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
 import {
   MastheadSearchContainerState,

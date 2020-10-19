@@ -15,8 +15,8 @@ import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import { LOCALE_API_ACTION } from '../../types/localeAPI';
 import { SEARCH_API_ACTION, SearchAPIState } from '../../types/searchAPI';
 import { setCurrentSearchQueryString, loadSearchResults } from '../searchAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
-import getSearchParams from '../../../../../tests/utils/search-params';
+import convertValue from '../../../tests/utils/convert-value';
+import getSearchParams from '../../../tests/utils/search-params';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Locale/Locale');
 
