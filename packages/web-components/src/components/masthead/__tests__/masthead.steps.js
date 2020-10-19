@@ -51,13 +51,13 @@ describe('dds-masthead-*', () => {
       await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
 
-    it('should support navigating in top nav menu', async () => {
+    it('should support navigating in left nav menu', async () => {
       await page.click('dds-masthead-menu-button');
       await page.click('dds-left-nav-menu[title="Products"]');
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-left-nav-menu-item[title="Products"]');
       await promiseNavigation;
-      expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com/products');
+      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/(products|search\/products)/);
     });
   });
 });
