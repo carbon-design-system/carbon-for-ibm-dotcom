@@ -177,7 +177,7 @@ class TranslationAPI {
    * @returns {object} session storage object
    */
   static getSessionCache(key) {
-    const session = JSON.parse(sessionStorage.getItem(key));
+    const session = sessionStorage.getItem(key);
 
     if (!session || !session.timestamp) {
       return;

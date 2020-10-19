@@ -24,12 +24,36 @@ jest.mock('axios', () => {
   };
 });
 
+const sessionStorageMock = (() => {
+  let cache = {};
+
+  return {
+    getItem(key) {
+      return cache[key];
+    },
+    setItem(key, value) {
+      cache[key] = value;
+    },
+    removeItem(key) {
+      delete cache[key];
+    },
+    clear() {
+      cache = {};
+    },
+  };
+})();
+
+Object.defineProperty(window, 'sessionStorage', {
+  value: sessionStorageMock,
+});
+
 describe('TranslationAPI', () => {
   const { location } = root;
 
   afterEach(() => {
     jest.resetModules();
     root.location = location;
+    //sessionStorageMock.mockRestore();
   });
 
   it('should replace the signout url "state" param with current location', async () => {
@@ -55,6 +79,8 @@ describe('TranslationAPI', () => {
   });
 
   it('should fetch the i18n data', async () => {
+    //console.log(responseSuccess.timestamp)
+
     // reinitializing import
     const TranslationAPI = (await import('../Translation')).default;
 
@@ -69,6 +95,13 @@ describe('TranslationAPI', () => {
 
     const elseResponse = await TranslationAPI.getTranslation({});
 
+    /*
+
+    console.log(mockAxios.get.getMockImplementation.toString())
+    console.log(responseSuccess.timestamp)
+    console.log(response.timestamp);
+    console.log(elseResponse.timestamp) */
+
     expect(elseResponse).toEqual(responseSuccess);
 
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
@@ -81,6 +114,10 @@ describe('TranslationAPI', () => {
   });
 
   it('should return a json with a recent timestamp', async () => {
+    // using very old cached session
+    sessionStorageMock.setItem('dds-translation-us-en', oldSession);
+    const previousSession = sessionStorageMock.getItem('dds-translation-us-en');
+
     // reinitializing import
     const TranslationAPI = (await import('../Translation')).default;
 
@@ -89,10 +126,23 @@ describe('TranslationAPI', () => {
       cc: 'us',
     });
 
+    const newSession = JSON.parse(
+      sessionStorageMock.getItem('dds-translation-us-en')
+    );
+
+    // newest response and storage data should match
+    expect(response).toEqual(newSession);
+
     // should contain timestamp
     expect(response).toHaveProperty('timestamp');
 
     // should not equal old timestamp
-    expect(response).not.toEqual(oldSession);
+    expect(previousSession.timestamp).not.toEqual(response.timestamp);
+
+    const timeDiff = response.timestamp - previousSession.timestamp,
+      _twoHours = 60 * 60 * 2000;
+
+    // timestamps should have at least a two hour difference
+    expect(timeDiff).toBeGreaterThan(_twoHours);
   });
 });
