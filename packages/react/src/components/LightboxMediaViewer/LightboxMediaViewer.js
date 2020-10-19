@@ -48,10 +48,10 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
   useEffect(() => {
     const { current: containerNode } = containerRef;
     const dialogNode = containerNode.querySelector('div[role="dialog"]');
-    if (dialogNode && videoData.title) {
+    if (dialogNode && (media.title || videoData.title)) {
       dialogNode.setAttribute('aria-labelledby', titleId);
     }
-  }, [titleId, videoData.title]);
+  }, [titleId, media.title, videoData.title]);
 
   /**
    * Adds aria-describedby attribute to dialog container with video description.
@@ -59,10 +59,10 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
   useEffect(() => {
     const { current: containerNode } = containerRef;
     const dialogNode = containerNode.querySelector('div[role="dialog"]');
-    if (dialogNode && videoData.description) {
+    if (dialogNode && (media.description || videoData.description)) {
       dialogNode.setAttribute('aria-describedby', descriptionId);
     }
-  }, [descriptionId, videoData.description]);
+  }, [descriptionId, media.description, videoData.description]);
 
   useEffect(() => {
     let stale = false;
@@ -71,9 +71,11 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
         const data = await VideoPlayerAPI.api(media.src);
         if (!stale) {
           setVideoData({
-            title: data.name,
-            alt: data.name,
-            description: data.description,
+            title: media.title ? media.title : data.name,
+            alt: media.title ? media.title : data.name,
+            description: media.description
+              ? media.description
+              : data.description,
           });
         }
       } else {

@@ -8,14 +8,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 const DataContent = () => (
-  <div>
-    <a
-      data-title="Cras molestie condimentum"
-      name="8"
-      style={{ color: '#000' }}>
-      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-        Cras molestie condimentum
-      </h3>
+  <div className="dds-react-demo--table-of-contents">
+    <a data-title="Cras molestie condimentum" name="8">
+      <h3>Cras molestie condimentum</h3>
     </a>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
@@ -53,13 +48,8 @@ const DataContent = () => (
       vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien
       pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
     </p>
-    <a
-      data-title="Praesent fermentum sodales"
-      name="7"
-      style={{ color: '#000' }}>
-      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-        Praesent fermentum sodales
-      </h3>
+    <a data-title="Praesent fermentum sodales" name="7">
+      <h3>Praesent fermentum sodales</h3>
     </a>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
@@ -97,10 +87,8 @@ const DataContent = () => (
       vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien
       pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
     </p>
-    <a data-title="Nulla tristique lacinia" name="2" style={{ color: '#000' }}>
-      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-        Nulla tristique lacinia
-      </h3>
+    <a data-title="Nulla tristique lacinia" name="2">
+      <h3>Nulla tristique lacinia</h3>
     </a>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
@@ -138,10 +126,8 @@ const DataContent = () => (
       vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien
       pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
     </p>
-    <a data-title="Morbi id nibh metus" name="3" style={{ color: '#000' }}>
-      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-        Morbi id nibh metus
-      </h3>
+    <a data-title="Morbi id nibh metus" name="3">
+      <h3>Morbi id nibh metus</h3>
     </a>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
@@ -179,10 +165,8 @@ const DataContent = () => (
       vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien
       pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
     </p>
-    <a data-title="Integer non scelerisque" name="14" style={{ color: '#000' }}>
-      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-        Integer non scelerisque
-      </h3>
+    <a data-title="Integer non scelerisque" name="14">
+      <h3>Integer non scelerisque</h3>
     </a>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie

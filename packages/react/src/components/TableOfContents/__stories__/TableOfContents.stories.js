@@ -10,6 +10,7 @@ import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import styles from './TableOfContents.stories.scss';
 import TableOfContents from '../TableOfContents';
 
 const sources = [
@@ -33,7 +34,14 @@ const longDescription = 'Lorem Ipsum Dolor';
 
 export default {
   title: 'Components|Table of Contents',
-
+  decorators: [
+    story => (
+      <>
+        <style>{styles.cssText}</style>
+        {story()}
+      </>
+    ),
+  ],
   parameters: {
     ...readme.parameters,
   },

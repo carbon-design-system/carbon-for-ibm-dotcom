@@ -1,0 +1,46 @@
+{
+  "parserOptions" : {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": [
+    "plugin:lit/recommended",
+    "../.eslintrc.js"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": [
+    "@carbon/eslint-plugin-ibmdotcom-import-rules"
+  ],
+  "rules": {
+    "no-underscore-dangle": 0,
+    "@carbon/ibmdotcom-import-rules/no-shorthand-index": 2
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,ts}", "**/*.steps.js"],
+      "globals": {
+        "describe": true,
+        "beforeAll": true,
+        "beforeEach": true,
+        "afterAll": true,
+        "afterEach": true,
+        "it": true,
+        "expect": true,
+        "jasmine": true,
+        "spyOn": true,
+        "spyOnProperty": true,
+        "page": true
+      },
+      "rules": {
+        "func-names": 0,
+        "no-new": 0,
+        "no-underscore-dangle": 0,
+        "no-unused-expressions": 0,
+        "prefer-arrow-callback": 0
+      }
+    }
+  ]
+}
