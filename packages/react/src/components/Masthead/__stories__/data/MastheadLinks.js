@@ -159,6 +159,7 @@ const mastheadLinks = [
   },
   {
     title: 'Nulla quis sem at nibh elementum imperdiet',
+    titleEnglish: 'Nulla quis sem at nibh elementum imperdiet',
     url: 'https://www.ibm.com/industries?lnk=min',
     hasMenu: false,
     hasMegapanel: false,

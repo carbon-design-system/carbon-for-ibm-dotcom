@@ -127,7 +127,8 @@ const MastheadLeftNav = ({
         <SideNavLink
           href={link.url}
           className={
-            rest.selected && `${prefix}--masthead__side-nav--submemu--selected`
+            rest.selectedMenuItem === link.titleEnglish &&
+            `${prefix}--masthead__side-nav--submemu--selected`
           }
           data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
           key={i}>
