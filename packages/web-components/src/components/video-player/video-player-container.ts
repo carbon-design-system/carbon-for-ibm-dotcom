@@ -12,9 +12,10 @@ import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
-import store from '../../globals/services-store/store';
-import { VideoData, VideoPlayerAPIState } from '../../globals/services-store/types/videoPlayerAPI';
-import { loadVideoData, VideoPlayerAPIActions } from '../../globals/services-store/actions/videoPlayerAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
+import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
+import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoPlayerComposite from './video-player-composite';
 

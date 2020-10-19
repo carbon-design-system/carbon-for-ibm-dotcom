@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { BasicLinkSet } from '../../../globals/services-store/types/translateAPI';
+import { BasicLinkSet } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 /**
  * Footer links.
