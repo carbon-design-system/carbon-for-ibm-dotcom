@@ -105,7 +105,7 @@ const LightboxMediaViewer = ({ media, onClose, ...modalProps }) => {
               <div
                 className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
                 {media.type === 'video' ? (
-                  <VideoPlayer videoId={media.src} autoPlay={true} />
+                  <VideoPlayer videoId={media.src} />
                 ) : (
                   <Image defaultSrc={media.src} alt={videoData.alt} />
                 )}
