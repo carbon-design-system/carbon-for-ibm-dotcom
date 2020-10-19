@@ -10,8 +10,12 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { MastheadLink, MastheadProfileItem, Translation } from '../../globals/services-store/types/translateAPI';
-import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
+import {
+  MastheadLink,
+  MastheadProfileItem,
+  Translation,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import './masthead';
 import './masthead-logo';
 import './masthead-menu-button';

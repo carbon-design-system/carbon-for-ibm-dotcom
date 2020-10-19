@@ -13,7 +13,7 @@ import thunk, { ThunkDispatch } from 'redux-thunk';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import { VIDEO_PLAYER_API_ACTION, VideoData, VideoPlayerAPIState } from '../../types/videoPlayerAPI';
 import { setVideoData, loadVideoData } from '../videoPlayerAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer');
 

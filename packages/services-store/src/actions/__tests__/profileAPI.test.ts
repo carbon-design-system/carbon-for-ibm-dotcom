@@ -12,7 +12,7 @@ import { AnyAction } from 'redux';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile.js';
 import { USER_AUTHENTICATION_STATUS, PROFILE_API_ACTION, ProfileAPIState } from '../../types/profileAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 import { setUserStatus, monitorUserStatus } from '../profileAPI';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Profile/Profile');

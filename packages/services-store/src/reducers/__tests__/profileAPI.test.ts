@@ -9,7 +9,7 @@
 
 import { USER_AUTHENTICATION_STATUS, PROFILE_API_ACTION, ProfileAPIState } from '../../types/profileAPI';
 import { ProfileAPIActions } from '../../actions/profileAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../profileAPI';
 
 describe('Redux reducers for `ProfileAPI`', () => {
