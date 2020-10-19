@@ -14,5 +14,5 @@ carbon-stories
 carbon-tools
 .next
 .yarn
-packages/react/src/internal/vendor
+packages/**/src/internal/vendor
 packages/web-components/tests/snapshots

@@ -9,7 +9,7 @@
 
 import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
 import { TranslateAPIActions } from '../../actions/translateAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../translateAPI';
 
 const mockTranslation: Partial<Translation> = {

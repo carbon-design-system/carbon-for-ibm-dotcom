@@ -9,7 +9,7 @@
 
 import { SEARCH_API_ACTION, SearchAPIState } from '../../types/searchAPI';
 import { SearchAPIActions } from '../../actions/searchAPI';
-import convertValue from '../../../../../tests/utils/convert-value';
+import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../searchAPI';
 
 describe('Redux reducers for `SearchAPI`', () => {
