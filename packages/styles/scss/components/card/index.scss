@@ -7,9 +7,11 @@
 
 @import '../../globals/imports';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
-
+@import '../../globals/utils/ratio-base';
 @import 'carbon-components/scss/components/tile/tile';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
+
+$aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin card {
   .#{$prefix}--card,
@@ -27,9 +29,31 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: $carbon--spacing-05;
       min-height: carbon--mini-units(20);
       justify-content: space-between;
+
+      @include ratio-base(2, 1, true);
+
+      @each $aspect-ratio in $aspect-ratios {
+        $width: nth($aspect-ratio, 1);
+        $height: nth($aspect-ratio, 2);
+
+        &.#{$prefix}--card__wrapper--aspect-ratio {
+          &.#{$prefix}--card__wrapper--aspect-ratio__#{$width}x#{$height} {
+            @include ratio-base($width, $height, true);
+          }
+        }
+      }
+    }
+
+    .#{$prefix}--card__content {
+      padding: $carbon--spacing-05;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
 
     .#{$prefix}--card__heading {
