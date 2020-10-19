@@ -10,8 +10,8 @@
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
-import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
-import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
+import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSMastheadComposite from '../masthead-composite';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../__stories__/profile-items';
 

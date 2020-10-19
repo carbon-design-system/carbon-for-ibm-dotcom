@@ -14,12 +14,5 @@ const del = require('del');
 const config = require('./config');
 
 module.exports = function clean() {
-  return Promise.all([
-    del(config.bundleDestDir),
-    del(config.jsDestDir),
-    del(config.sassDestDir),
-    del(config.servicesStoreVendorSrcDir),
-    del('custom-elements.json'),
-    del('storybook-static'),
-  ]);
+  return Promise.all([del(config.jsDestDir)]);
 };
