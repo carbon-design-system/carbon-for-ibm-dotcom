@@ -10,7 +10,7 @@
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 /* eslint-disable import/no-duplicates */
-import { LocaleList } from '../../../globals/services-store/types/localeAPI';
+import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal-container';
 /* eslint-enable import/no-duplicates */

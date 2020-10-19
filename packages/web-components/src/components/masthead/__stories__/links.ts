@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
+import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 /* eslint-disable max-len */
 
