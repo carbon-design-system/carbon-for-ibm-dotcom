@@ -1,5 +1,7 @@
 /dist
+/src/internal/vendor
 /tests/coverage
 /tests/snapshots
 es
 node_modules
+docs

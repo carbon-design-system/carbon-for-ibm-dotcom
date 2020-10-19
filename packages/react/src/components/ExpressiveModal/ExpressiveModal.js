@@ -39,6 +39,7 @@ const ExpressiveModal = ({
       className={classNames(`${prefix}--modal--expressive`, className, {
         [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
       })}
+      selectorPrimaryFocus={`.${prefix}--modal-close`}
       {...props}>
       <ExpressiveModalCloseBtn onClick={closeModal} />
       {children}

@@ -12,7 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
-import { Country, LocaleList } from '../../globals/services-store/types/localeAPI';
+import { Country, LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
 import './regions';
 import './region-item';

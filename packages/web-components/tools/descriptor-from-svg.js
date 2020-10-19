@@ -69,7 +69,7 @@ function svg2JSAsync(data) {
  * @param {string} svg A `<svg>` string.
  * @returns {object} The JSON version of the given `<svg>` string.
  */
-async function svgResultCarbonIconLoader(svg) {
+async function descriptorFromSVG(svg) {
   const svgNode = findRootNode(await svg2JSAsync(svg));
   if (!svgNode) {
     throw new Error(`Wrong SVG2JS result found in: ${svg}`);
@@ -77,4 +77,4 @@ async function svgResultCarbonIconLoader(svg) {
   return convertAttrs(svgNode);
 }
 
-module.exports = svgResultCarbonIconLoader;
+module.exports = descriptorFromSVG;

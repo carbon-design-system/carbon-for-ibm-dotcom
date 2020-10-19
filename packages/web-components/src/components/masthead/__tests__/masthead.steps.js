@@ -24,7 +24,7 @@ describe('dds-masthead-*', () => {
     it('should support navigating in profile menu', async () => {
       await page.click('dds-masthead-profile');
       const promiseNavigation = page.waitForNavigation();
-      await page.click('dds-masthead-profile-item[key="login"]');
+      await page.click('dds-masthead-profile-item[href*="authorize"]');
       await promiseNavigation;
       expect(await page.evaluate(() => window.location.href)).toMatch('https://idaas.iam.ibm.com');
     });
@@ -34,7 +34,7 @@ describe('dds-masthead-*', () => {
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-top-nav-menu-item[title="Products"]');
       await promiseNavigation;
-      expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com/products');
+      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/(products|search\/products)/);
     });
 
     it('should support showing/hiding the search box', async () => {
@@ -42,10 +42,6 @@ describe('dds-masthead-*', () => {
       await expect(page).toHaveSelector('dds-masthead-search input[part="search-input"]', { state: 'visible' });
       await page.click('dds-masthead-search button[part="close-button"]');
       await expect(page).toHaveSelector('dds-masthead-search input[part="search-input"]', { state: 'hidden' });
-    });
-
-    it('should show the elements', async () => {
-      await expect(page).toHaveSelector('dds-masthead-search', { state: 'visible' });
     });
   });
 
@@ -55,13 +51,13 @@ describe('dds-masthead-*', () => {
       await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-masthead--default&mock`);
     });
 
-    it('should support navigating in top nav menu', async () => {
+    it('should support navigating in left nav menu', async () => {
       await page.click('dds-masthead-menu-button');
       await page.click('dds-left-nav-menu[title="Products"]');
       const promiseNavigation = page.waitForNavigation();
       await page.click('dds-left-nav-menu-item[title="Products"]');
       await promiseNavigation;
-      expect(await page.evaluate(() => window.location.href)).toMatch('https://www.ibm.com/products');
+      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/(products|search\/products)/);
     });
   });
 });

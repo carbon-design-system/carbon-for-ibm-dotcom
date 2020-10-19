@@ -10,7 +10,7 @@
 'use strict';
 
 const svg2js = require('svgo/lib/svgo/svg2js');
-const createSVGResultFromCarbonIcon = require('./svg-result-carbon-icon');
+const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descriptor');
 
 /**
  * @param {object} node The node in SVG2JS result.
@@ -68,7 +68,7 @@ function svgResultIBMDotcomIconLoader(content) {
           `
           import { svg } from 'lit-html';
           import spread from 'carbon-web-components/es/globals/directives/spread';
-          const svgResultCarbonIcon = ${createSVGResultFromCarbonIcon(convertAttrs(svgNode))};
+          const svgResultCarbonIcon = ${createSVGResultFromIconDescriptor(convertAttrs(svgNode))};
           export default svgResultCarbonIcon;
         `
         );

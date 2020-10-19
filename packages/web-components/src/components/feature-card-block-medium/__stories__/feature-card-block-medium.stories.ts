@@ -12,7 +12,6 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../image/image';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import styles from './feature-card-block-medium.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card-block-medium';
 import '../feature-card-block-medium-card';
@@ -35,11 +34,8 @@ export default {
   title: 'Components/Feature Card Block Medium',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid" style="width: 100%">
-        <div class="bx--row">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-2" style="padding-top: 20px">
             ${story()}
           </div>
@@ -49,6 +45,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       'dds-feature-card-block-medium': () => ({
         blockHeading: textNullable(
