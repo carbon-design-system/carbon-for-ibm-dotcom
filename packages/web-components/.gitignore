@@ -1,6 +1,7 @@
 custom-elements.json
 es
 node_modules
+/src/internal/vendor
 /scss
 storybook-static
 .vscode

@@ -10,13 +10,14 @@
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
-import store from '../../globals/services-store/store';
-import { setLanguage } from '../../globals/services-store/actions/localeAPI';
-import { loadSearchResults, SearchAPIActions } from '../../globals/services-store/actions/searchAPI';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
+import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSMastheadSearchComposite from './masthead-search-composite';
-import { SearchAPIState } from '../../globals/services-store/types/searchAPI';
+import { SearchAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/searchAPI.d';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
