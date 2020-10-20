@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Button from 'carbon-components-react/lib/components/Button';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,7 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
-const LeadspaceWithSearch = ({ heading, searchProps, buttonsProps }) => (
+const LeadspaceWithSearch = ({ heading, copy, searchProps }) => (
   <section
     data-autoid={`${stablePrefix}--leadspace-with-search`}
     className={`${prefix}--leadspace-with-search`}>
@@ -24,24 +23,13 @@ const LeadspaceWithSearch = ({ heading, searchProps, buttonsProps }) => (
         <h1 className={`${prefix}--leadspace-with-search__heading`}>
           {heading}
         </h1>
+        {copy && (
+          <p className={`${prefix}--leadspace-with-search__copy`}>{copy}</p>
+        )}
         <Search
           className={`${prefix}--leadspace-with-search__search`}
           {...searchProps}
         />
-        <div
-          className={`${prefix}--leadspace-with-search__button-group-container`}>
-          <ul className={`${prefix}--leadspace-with-search__button-group`}>
-            {buttonsProps.map((button, index) => (
-              <li key={index}>
-                <Button
-                  {...button}
-                  className={`${prefix}--leadspace-with-search__button`}>
-                  <span>{button.children}</span>
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   </section>
@@ -55,11 +43,11 @@ LeadspaceWithSearch.propTypes = {
   /**
    *
    */
-  searchProps: Search.propTypes,
+  copy: PropTypes.string,
   /**
    *
    */
-  buttonsProps: PropTypes.arrayOf(Button.propTypes),
+  searchProps: Search.propTypes,
 };
 
 export default LeadspaceWithSearch;
