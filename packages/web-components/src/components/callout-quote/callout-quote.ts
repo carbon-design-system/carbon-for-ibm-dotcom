@@ -10,7 +10,7 @@
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-quote.scss';
-import { DDSCalloutMixin } from '../callout/callout';
+import DDSCalloutMixin from '../../component-mixins/callout/callout';
 import DDSQuote from '../quote/quote';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
