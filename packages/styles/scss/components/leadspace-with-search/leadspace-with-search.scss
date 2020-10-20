@@ -26,7 +26,7 @@
     }
     &__heading {
       color: $text-01;
-      @include type-style('expressive-heading-06');
+      @include type-style('expressive-heading-06', true);
     }
     &__copy {
       color: $text-01;
