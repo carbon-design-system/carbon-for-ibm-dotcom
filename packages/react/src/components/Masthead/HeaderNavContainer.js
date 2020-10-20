@@ -18,98 +18,134 @@ const { prefix } = settings;
  * Header nav container component.
  */
 const HeaderNavContainer = ({ children }) => {
-  const headerNavContainerRef = useRef(null);
-  const [resizeObserver, setResizeObserver] = useState(null);
-  const [showLeftCaret, setShowLeftCaret] = useState(false);
-  const [showRightCaret, setShowRightCaret] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  // const headerNavContainerRef = useRef(null);
+  // const [resizeObserver, setResizeObserver] = useState(null);
+  // const [showLeftCaret, setShowLeftCaret] = useState(false);
+  // const [showRightCaret, setShowRightCaret] = useState(false);
+  // const [containerWidth, setContainerWidth] = useState(0);
+  // const [totalNavWidth, setTotalNavWidth] = useState(0);
+  //
+  // const paginateLeft = useCallback(() => {
+  //   headerNavContainerRef.current.scrollLeft -= containerWidth;
+  //   setShowRightCaret(true);
+  //   // 40 accounts for caret size
+  //   if (headerNavContainerRef.current.scrollLeft <= 40) {
+  //     setShowLeftCaret(false);
+  //     headerNavContainerRef.current.scrollLeft = 0;
+  //   }
+  // }, [containerWidth]);
+  //
+  // const paginateRight = useCallback(() => {
+  //   headerNavContainerRef.current.scrollLeft += containerWidth;
+  //   setShowLeftCaret(true);
+  //   // 80 accounts for caret sizes
+  //   if (
+  //     headerNavContainerRef.current.scrollLeft + containerWidth >=
+  //     totalNavWidth - 80
+  //   ) {
+  //     setShowRightCaret(false);
+  //     headerNavContainerRef.current.scrollLeft += 80;
+  //   }
+  // }, [containerWidth, totalNavWidth]);
+  //
+  // useEffect(() => {
+  //   if (window.ResizeObserver) {
+  //     setResizeObserver(
+  //       new ResizeObserver(() => {
+  //         setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
+  //         setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
+  //       })
+  //     );
+  //   }
+  // }, []);
+  //
+  // useEffect(() => {
+  //   if (totalNavWidth > containerWidth) {
+  //     // 80 accounts for caret sizes
+  //     if (
+  //       headerNavContainerRef.current.scrollLeft === 0 ||
+  //       headerNavContainerRef.current.scrollLeft + containerWidth <
+  //         totalNavWidth - 80
+  //     ) {
+  //       setShowRightCaret(true);
+  //     }
+  //     if (headerNavContainerRef.current.scrollLeft > 0) {
+  //       setShowLeftCaret(true);
+  //     }
+  //   } else {
+  //     setShowLeftCaret(false);
+  //     setShowRightCaret(false);
+  //   }
+  // }, [containerWidth, totalNavWidth]);
+  //
+  // useEffect(() => {
+  //   const { current: headerNavContainerNode } = headerNavContainerRef;
+  //   if (resizeObserver) {
+  //     resizeObserver.observe(headerNavContainerNode);
+  //   }
+  //
+  //   return () => {
+  //     if (resizeObserver) {
+  //       resizeObserver.disconnect();
+  //     }
+  //   };
+  // }, [resizeObserver]);
 
-  const paginateLeft = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft -= containerWidth;
-    setShowRightCaret(true);
-    // 40 accounts for caret size
-    if (headerNavContainerRef.current.scrollLeft <= 40) {
-      setShowLeftCaret(false);
-      headerNavContainerRef.current.scrollLeft = 0;
-    }
-  }, [containerWidth]);
-
-  const paginateRight = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft += containerWidth;
-    setShowLeftCaret(true);
-    // 80 accounts for caret sizes
-    if (
-      headerNavContainerRef.current.scrollLeft + containerWidth >=
-      totalNavWidth - 80
-    ) {
-      setShowRightCaret(false);
-      headerNavContainerRef.current.scrollLeft += 80;
-    }
-  }, [containerWidth, totalNavWidth]);
+  const containerRef = useRef(null);
+  const [io, setIO] = useState(null);
 
   useEffect(() => {
-    if (window.ResizeObserver) {
-      setResizeObserver(
-        new ResizeObserver(() => {
-          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
-          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
+    setIO(new IntersectionObserver(
+      (records) => {
+        records.forEach((record) => {
+          console.log(record)
         })
-      );
-    }
-  }, []);
+      }, {
+        root: containerRef.current,
+        threshold: 1
+      }
+    ))
+  }, [setIO])
 
   useEffect(() => {
-    if (totalNavWidth > containerWidth) {
-      // 80 accounts for caret sizes
-      if (
-        headerNavContainerRef.current.scrollLeft === 0 ||
-        headerNavContainerRef.current.scrollLeft + containerWidth <
-          totalNavWidth - 80
-      ) {
-        setShowRightCaret(true);
-      }
-      if (headerNavContainerRef.current.scrollLeft > 0) {
-        setShowLeftCaret(true);
-      }
+    if (io) {
+      io.observe(document.querySelector(".sub-content-left"));
+      io.observe(document.querySelector(".sub-content-right"));
     } else {
-      setShowLeftCaret(false);
-      setShowRightCaret(false);
+      return () => {
+        if (io) {
+          io.disconnect();
+        }
+      };
     }
-  }, [containerWidth, totalNavWidth]);
-
-  useEffect(() => {
-    const { current: headerNavContainerNode } = headerNavContainerRef;
-    if (resizeObserver) {
-      resizeObserver.observe(headerNavContainerNode);
-    }
-
-    return () => {
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-    };
-  }, [resizeObserver]);
+  }, [io]);
 
   return (
     <>
       <button
         className={`${prefix}--header__nav-caret-left`}
         aria-label="Masthead left caret"
-        hidden={!showLeftCaret}
-        onClick={paginateLeft}>
+        // hidden={!showLeftCaret}
+        // onClick={paginateLeft}
+      >
         <CaretLeft20 />
       </button>
       <div
         className={`${prefix}--header__nav-container`}
-        ref={headerNavContainerRef}>
-        {children}
+        ref={containerRef}
+      >
+        <div className='content'>
+          <div className="sub-content-left"></div>
+          <div className="sub-content-right"></div>
+          {children}
+        </div>
       </div>
       <button
         className={`${prefix}--header__nav-caret-right`}
         aria-label="Masthead right caret"
-        hidden={!showRightCaret}
-        onClick={paginateRight}>
+        // hidden={!showRightCaret}
+        // onClick={paginateRight}
+      >
         <CaretRight20 />
       </button>
     </>
