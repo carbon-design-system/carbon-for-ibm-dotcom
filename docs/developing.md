@@ -12,6 +12,7 @@
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [FAQ](#faq)
     - [CI checks are failing saying that it cannot find a dependency in offline mode](#ci-checks-are-failing-saying-that-it-cannot-find-a-dependency-in-offline-mode)
+    - [Yarn/Gulp tasks are failing after rebasing or getting new `master`](#yarngulp-tasks-are-failing-after-rebasing-or-getting-new-master)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
