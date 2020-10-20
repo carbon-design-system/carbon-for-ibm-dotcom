@@ -17,21 +17,19 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * renders the pattern classnames
+ * renders main class name
  *
- * @param {string} theme theme of the pattern
  * @param {string} type switches between centered or default
- * @param {object} image object
+ * @param {object} image image object
+ * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const className = (theme, type, image) => {
-  const mainClassName = `${prefix}--leadspace${
-    type === 'centered' ? '--centered' : ''
-  }`;
-  return classnames(mainClassName, {
-    [`${mainClassName}--${theme}`]: theme,
-    [`${prefix}--leadspace--productive`]: type === 'small',
+const classNames = (type, image, theme) => {
+  return classnames(`${prefix}--leadspace__section`, {
+    [`${prefix}--leadspace--${theme}`]: theme,
+    [`${prefix}--leadspace--centered`]: type === 'centered',
     [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
+    [`${prefix}--leadspace--productive`]: type === 'small',
   });
 };
 
@@ -72,38 +70,39 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
   };
 
   return (
-    <section
-      style={background}
+    <div
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(theme, type, image)}>
-      <div className={`${prefix}--leadspace__container`}>
-        <div
-          className={classnames(`${prefix}--leadspace__overlay`, {
-            [`${prefix}--leadspace--gradient`]: gradient,
-          })}>
-          <div className={`${prefix}--leadspace--content__container`}>
-            <div className={`${prefix}--leadspace__row`}>
-              <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
-            </div>
-            <div className={`${prefix}--leadspace__content`}>
-              {copy && (
-                <div className={`${prefix}--leadspace__row`}>
-                  <p
-                    data-autoid={`${stablePrefix}--leadspace__desc`}
-                    className={`${prefix}--leadspace__desc`}>
-                    {copy}
-                  </p>
-                </div>
-              )}
-              {buttons && buttons.length > 0 && (
-                <ButtonGroup buttons={buttons} />
-              )}
+      className={`${prefix}--leadspace`}>
+      <section style={background} className={classNames(type, image, theme)}>
+        <div className={`${prefix}--leadspace__container`}>
+          <div
+            className={classnames(`${prefix}--leadspace__overlay`, {
+              [`${prefix}--leadspace--gradient`]: gradient,
+            })}>
+            <div className={`${prefix}--leadspace--content__container`}>
+              <div className={`${prefix}--leadspace__row`}>
+                <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
+              </div>
+              <div className={`${prefix}--leadspace__content`}>
+                {copy && (
+                  <div className={`${prefix}--leadspace__row`}>
+                    <p
+                      data-autoid={`${stablePrefix}--leadspace__desc`}
+                      className={`${prefix}--leadspace__desc`}>
+                      {copy}
+                    </p>
+                  </div>
+                )}
+                {buttons && buttons.length > 0 && (
+                  <ButtonGroup buttons={buttons} />
+                )}
+              </div>
             </div>
           </div>
+          {image && imageClassname(type, image)}
         </div>
-        {image && imageClassname(type, image)}
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

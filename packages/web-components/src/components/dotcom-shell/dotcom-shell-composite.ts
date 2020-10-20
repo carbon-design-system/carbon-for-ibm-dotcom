@@ -10,15 +10,15 @@
 import pickBy from 'lodash-es/pickBy.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LocaleList } from '../../globals/services-store/types/localeAPI';
+import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,
   BasicLinkSet,
   MastheadLink,
   MastheadProfileItem,
   Translation,
-} from '../../globals/services-store/types/translateAPI';
-import { USER_AUTHENTICATION_STATUS } from '../../globals/services-store/types/profileAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
