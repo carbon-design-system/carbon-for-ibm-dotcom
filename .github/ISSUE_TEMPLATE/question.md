@@ -14,7 +14,7 @@ share a couple resources that you could use if you haven't tried them yet 🙂.
 If you're an IBMer, we have a couple of Slack channels available across all IBM
 Workspaces:
 
-- #ibm-digital-design for questions about Carbon for IBM.com
+- #carbon-for-ibm-dotcom for questions about Carbon for IBM.com
 - #carbon-design-system for questions about the Carbon Design System
 
 If these resources don't work out, help us out by filling out a couple of

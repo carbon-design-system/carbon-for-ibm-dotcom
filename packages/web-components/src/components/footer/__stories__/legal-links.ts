@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { BasicLink } from '../../../globals/services-store/types/translateAPI';
+import { BasicLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 const legalLinks: BasicLink[] = [
   {

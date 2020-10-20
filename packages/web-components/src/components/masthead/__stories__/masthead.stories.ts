@@ -14,7 +14,7 @@ import contentStyles from 'carbon-components/scss/components/ui-shell/_content.s
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
+import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
