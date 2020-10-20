@@ -49,13 +49,15 @@ class TranslationAPI {
    * Clears the cache.
    */
   static clearCache() {
-    Object.keys(_requestsTranslation).forEach(
-      key => delete _requestsTranslation[key]
-    );
-    for (let i = 0; i < sessionStorage.length; ++i) {
-      const key = sessionStorage.key(i);
-      if (key.indexOf(_sessionTranslationKey) === 0) {
-        sessionStorage.removeItem(key);
+    if (typeof sessionStorage !== 'undefined') {
+      Object.keys(_requestsTranslation).forEach(
+        key => delete _requestsTranslation[key]
+      );
+      for (let i = 0; i < sessionStorage.length; ++i) {
+        const key = sessionStorage.key(i);
+        if (key.indexOf(_sessionTranslationKey) === 0) {
+          sessionStorage.removeItem(key);
+        }
       }
     }
   }
@@ -104,9 +106,14 @@ class TranslationAPI {
    * @param {Function} reject rejects the promise
    */
   static fetchTranslation(lang, country, resolve, reject) {
-    const sessionTranslation = JSON.parse(
-      sessionStorage.getItem(`${_sessionTranslationKey}-${country}-${lang}`)
-    );
+    const sessionTranslation =
+      typeof sessionStorage === 'undefined'
+        ? undefined
+        : JSON.parse(
+            sessionStorage.getItem(
+              `${_sessionTranslationKey}-${country}-${lang}`
+            )
+          );
 
     if (sessionTranslation) {
       resolve(sessionTranslation);
