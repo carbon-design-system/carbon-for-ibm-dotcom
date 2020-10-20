@@ -12,6 +12,7 @@
 - [Submitting a Pull Request](#submitting-a-pull-request)
 - [FAQ](#faq)
     - [CI checks are failing saying that it cannot find a dependency in offline mode](#ci-checks-are-failing-saying-that-it-cannot-find-a-dependency-in-offline-mode)
+    - [Yarn/Gulp tasks are failing after rebasing or getting new `master`](#yarngulp-tasks-are-failing-after-rebasing-or-getting-new-master)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- prettier-ignore-end -->
@@ -208,4 +209,12 @@ A shortcut task available from the root also runs the above commands:
 
 ```bash
 yarn reset
+```
+
+#### Yarn/Gulp tasks are failing after rebasing or getting new `master`
+
+It is possible that a newly introduced package is added to this monorepo, but `packages/newpackage` is not linked in `node_modules`. While a `yarn reset` may resolve this, another possible way is to run:
+
+```bash
+yarn install --force
 ```
