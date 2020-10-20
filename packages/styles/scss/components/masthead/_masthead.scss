@@ -209,10 +209,18 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__nav-container {
     height: 100%;
     overflow-x: hidden;
+    outline: solid cyan 2px;
+    outline-offset: -2px;
     @include carbon--breakpoint(md) {
       display: flex;
       flex: 1;
     }
+  }
+
+  .content {
+    outline: solid green 2px;
+    outline-offset: -2px;
+    position: relative;
   }
 
   .#{$prefix}--header__nav {
@@ -305,6 +313,22 @@ $search-transition-timing: 95ms;
         box-shadow: none;
       }
     }
+  }
+
+  .sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+  }
+
+  .sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
   }
 
   .#{$prefix}--header__nav-caret-left,
