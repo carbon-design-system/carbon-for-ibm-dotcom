@@ -28,13 +28,6 @@ const { browser: browsers, spec: specs, ...rest } = commander
   .parse(process.argv);
 const cloptions = { browsers: Array.from(browsers), specs: Array.from(specs), ...rest };
 
-let servicesStoreLink;
-try {
-  servicesStoreLink = path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'es');
-} catch (err) {
-  servicesStoreLink = null;
-}
-
 module.exports = {
   ENV_PRODUCTION: 'production',
   cloptions,
@@ -45,7 +38,7 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
-  servicesStoreESSrcDir: servicesStoreLink,
+  servicesStoreESSrcDir: path.resolve(__dirname, '../../services-store/es'),
   servicesStoreVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-services-store'),
   servicesStoreVendorESDstDir: path.resolve(__dirname, '../es/internal/vendor/@carbon/ibmdotcom-services-store'),
 };
