@@ -212,7 +212,7 @@ yarn reset
 
 #### Yarn/Gulp tasks are failing after rebasing or getting new `master`
 
-A possiblity is that new package is added to this monorepo but `packages/newpackage` is not linked in `node_modules`. To sreolve that, you can run:
+It is possible that a newly introduced package is added to this monorepo, but `packages/newpackage` is not linked in `node_modules`. While a `yarn reset` may resolve this, another possible way is to run:
 
 ```bash
 yarn install --force
