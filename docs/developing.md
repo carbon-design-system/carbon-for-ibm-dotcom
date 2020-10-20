@@ -209,3 +209,11 @@ A shortcut task available from the root also runs the above commands:
 ```bash
 yarn reset
 ```
+
+#### Yarn/Gulp tasks are failing after rebasing or getting new `master`
+
+A possiblity is that new package is added to this monorepo but `packages/newpackage` is not linked in `node_modules`. To sreolve that, you can run:
+
+```bash
+yarn install --force
+```
