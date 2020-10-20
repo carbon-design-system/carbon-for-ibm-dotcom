@@ -11,7 +11,7 @@ import { html, property, customElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';
+import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';

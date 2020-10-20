@@ -15,7 +15,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { forEach } from '../../globals/internal/collection-helpers';
-import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';
+import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
 import { VIDEO_PLAYER_CONTENT_STATE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build

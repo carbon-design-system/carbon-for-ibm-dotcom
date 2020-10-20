@@ -1,9 +1,8 @@
 name: publish-nightly (Publish Nightly release to NPM)
 
 on:
-  on:
-    schedule:
-      - cron: '0 1 * * 1-5'
+  schedule:
+    - cron: '0 1 * * 1-5'
 
 jobs:
   publish:
