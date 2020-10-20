@@ -209,8 +209,7 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__nav-container {
     height: 100%;
     overflow-x: hidden;
-    outline: solid cyan 2px;
-    outline-offset: -2px;
+    scroll-behavior: smooth;
     @include carbon--breakpoint(md) {
       display: flex;
       flex: 1;
@@ -218,8 +217,6 @@ $search-transition-timing: 95ms;
   }
 
   .content {
-    outline: solid green 2px;
-    outline-offset: -2px;
     position: relative;
   }
 
@@ -321,6 +318,7 @@ $search-transition-timing: 95ms;
     left: 0;
     width: 10px;
     height: 100%;
+    //clip: rect(0,0,0,0);
   }
 
   .sub-content-right {
@@ -329,6 +327,7 @@ $search-transition-timing: 95ms;
     right: 0;
     width: 10px;
     height: 100%;
+    //clip: rect(0,0,0,0);
   }
 
   .#{$prefix}--header__nav-caret-left,

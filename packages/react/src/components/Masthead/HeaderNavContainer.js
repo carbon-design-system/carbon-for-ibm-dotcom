@@ -6,7 +6,6 @@
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import PropTypes from 'prop-types';
@@ -94,23 +93,54 @@ const HeaderNavContainer = ({ children }) => {
   const containerRef = useRef(null);
   const [io, setIO] = useState(null);
 
+  const paginateLeft = useCallback(() => {
+    containerRef.current.scrollLeft = Math.max(
+      containerRef.current.scrollLeft - containerRef.current.offsetWidth,
+      0
+    );
+  }, []);
+
+  const paginateRight = useCallback(() => {
+    console.log(
+      containerRef.current.scrollLeft,
+      containerRef.current.offsetWidth,
+      document.querySelector('.content').offsetWidth,
+      containerRef.current.offsetWidth
+    );
+    containerRef.current.scrollLeft = Math.min(
+      containerRef.current.scrollLeft + containerRef.current.offsetWidth,
+      document.querySelector('.content').offsetWidth -
+        containerRef.current.offsetWidth
+    );
+  }, []);
+
   useEffect(() => {
-    setIO(new IntersectionObserver(
-      (records) => {
-        records.forEach((record) => {
-          console.log(record)
-        })
-      }, {
-        root: containerRef.current,
-        threshold: 1
-      }
-    ))
-  }, [setIO])
+    setIO(
+      new IntersectionObserver(
+        records => {
+          records.forEach(record => {
+            if (record.target.classList.contains('sub-content-left')) {
+              document.querySelector('.bx--header__nav-caret-left').hidden =
+                record.isIntersecting;
+            }
+            if (record.target.classList.contains('sub-content-right')) {
+              document.querySelector('.bx--header__nav-caret-right').hidden =
+                record.isIntersecting;
+            }
+          });
+        },
+        {
+          root: containerRef.current,
+          threshold: 1,
+        }
+      )
+    );
+  }, [setIO]);
 
   useEffect(() => {
     if (io) {
-      io.observe(document.querySelector(".sub-content-left"));
-      io.observe(document.querySelector(".sub-content-right"));
+      io.observe(document.querySelector('.sub-content-left'));
+      io.observe(document.querySelector('.sub-content-right'));
     } else {
       return () => {
         if (io) {
@@ -126,15 +156,11 @@ const HeaderNavContainer = ({ children }) => {
         className={`${prefix}--header__nav-caret-left`}
         aria-label="Masthead left caret"
         // hidden={!showLeftCaret}
-        // onClick={paginateLeft}
-      >
+        onClick={paginateLeft}>
         <CaretLeft20 />
       </button>
-      <div
-        className={`${prefix}--header__nav-container`}
-        ref={containerRef}
-      >
-        <div className='content'>
+      <div className={`${prefix}--header__nav-container`} ref={containerRef}>
+        <div className="content">
           <div className="sub-content-left"></div>
           <div className="sub-content-right"></div>
           {children}
@@ -144,8 +170,7 @@ const HeaderNavContainer = ({ children }) => {
         className={`${prefix}--header__nav-caret-right`}
         aria-label="Masthead right caret"
         // hidden={!showRightCaret}
-        // onClick={paginateRight}
-      >
+        onClick={paginateRight}>
         <CaretRight20 />
       </button>
     </>
