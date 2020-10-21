@@ -36,54 +36,6 @@ import '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
 
 <Props of="dds-footer-composite" />
 
-### Customizing service/data integration
-
-The Footer takes advantage of a redux store which manages the API calls made
-to fetch translation data, locale data, etc. To manually initialize the Redux
-store (e.g. integrating with your application level redux store), the underlying
-component, `<dds-footer-composite>`, can be initialized instead:
-
-
-##### JS
-
-```javascript
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-// The default reducers, you can e.g. add your own reducer to `reducers` table
-import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
-import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
-import {
-  mapStateToProps,
-  mapDispatchToProps,
-} from '@carbon/ibmdotcom-web-components/es/components/footer/footer-container';
-import DDSFooterComposite from '@carbon/ibmdotcom-web-components/es/components/footer/footer-composite';
-
-// Creates `<app-footer-container>` custom element that wires your store to our rendering logic
-customElements.define(
-  'app-footer-container',
-  class extends ConnectMixin(
-    store,
-    mapStateToProps,
-    mapDispatchToProps
-  )(DDSFooterComposite) {}
-);
-```
-
-// Connects `<dds-footer-composite>` to `@carbon/ibmdotcom-servies` and creates `<myapp-footer-container>`
-customElements.define('myapp-footer-container', class extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {})
-```
-
-##### HTML
-
-```html
-<myapp-footer-container></myapp-footer-container>
-```
-
-#### Attributes and properties `<dds-footer-composite>`
-
-<Props of="dds-footer-composite" />
-
 ### Rendering footer content by your own
 
 You can also render the footer content by your own, e.g. for server-side rendering, like:

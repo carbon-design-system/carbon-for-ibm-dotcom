@@ -1,0 +1,25 @@
+name: publish-nightly (Publish Nightly release to NPM)
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'
+
+jobs:
+  publish:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set NPM token
+        env:
+          NPM_API_KEY: ${{ secrets.NPM_API_KEY }}
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_API_KEY" >> .npmrc
+      - name: Run Lerna
+        run: yarn lerna publish --canary minor --dist-tag nightly.${{github.run_id}} --preid nightly --no-push --no-git-tag-version --yes

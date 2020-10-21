@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import styles from './feature-card-block-large.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card-block-large';
 
@@ -43,11 +42,8 @@ export default {
   title: 'Components/Feature Card Block Large',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid" style="width: 100%">
-        <div class="bx--row">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-2">
             ${story()}
           </div>
@@ -57,6 +53,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       'dds-feature-card-block-large': () => ({
         eyebrow: textNullable('Card Eyebrow (eyebrow):', 'This is an eyebrow'),
