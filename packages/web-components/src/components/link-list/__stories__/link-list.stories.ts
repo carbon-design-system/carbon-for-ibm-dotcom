@@ -47,10 +47,10 @@ export const Horizontal = ({ parameters }) => {
   return html`
     <dds-link-list type="horizontal">
       <span slot="heading">Tutorial</span>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Learn more ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
     </dds-link-list>
@@ -73,10 +73,10 @@ export const Vertical = ({ parameters }) => {
   return html`
     <dds-link-list type="vertical">
       <span slot="heading">Tutorial</span>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Learn more ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
     </dds-link-list>
@@ -99,10 +99,10 @@ export const VerticalWithCards = ({ parameters }) => {
   return html`
     <dds-link-list type="vertical">
       <span slot="heading">Tutorial</span>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Learn more ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
-      <dds-link-list-item icon-placement="${iconPlacement}">
+      <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
         Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
     </dds-link-list>
@@ -134,13 +134,13 @@ VerticalWithCards.story = {
 export const EndOfSection = () => html`
   <dds-link-list type="end">
     <span slot="heading">Tutorial</span>
-    <dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
       Learn more ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
-    <dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
       Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
-    <dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
       Microservices and containers ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
   </dds-link-list>
