@@ -22,7 +22,7 @@ export default {
             {
               heading: 'Nunc convallis lobortis',
               copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -30,7 +30,7 @@ export default {
             {
               heading: 'Fusce gravida eu arcu',
               copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -38,7 +38,7 @@ export default {
             {
               heading: 'Interdum et malesuada',
               copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -46,7 +46,7 @@ export default {
             {
               heading: 'Nunc convallis loborti',
               copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -54,7 +54,7 @@ export default {
             {
               heading: 'Nunc convallis lbortis',
               copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -69,7 +69,7 @@ export default {
 const defaultCard = {
   heading: 'Nunc convallis lobortis',
   copy:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
   cta: {
     href: 'https://www.example.com',
   },

@@ -21,14 +21,14 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   :host(#{$dds-prefix}-card-cta) {
     background-color: $ui-01;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     height: 100%;
 
     .#{$prefix}--card__wrapper {
       height: 100%;
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
       min-height: carbon--mini-units(20);
       justify-content: space-between;
 
@@ -47,6 +47,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
 
     .#{$prefix}--card__content {
+      display: flex;
+      flex-direction: column;
       padding: $carbon--spacing-05;
 
       position: absolute;
@@ -59,7 +61,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     .#{$prefix}--card__heading {
       @include carbon--type-style('expressive-heading-03');
 
-      margin-bottom: $carbon--layout-05;
+      // margin-bottom: $carbon--layout-05;
     }
 
     .#{$prefix}--card__heading,
