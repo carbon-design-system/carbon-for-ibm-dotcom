@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
+  class="bx--card__footer bx--link bx--link-with-icon bx--link-with-icon__icon-right dds-ce--card__footer"
   id="link"
 >
   <span
@@ -26,7 +26,7 @@
 
 ```
 <a
-  class="bx--card__footer bx--link bx--link-with-icon dds-ce--card__footer"
+  class="bx--card__footer bx--link bx--link-with-icon bx--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"
 >
