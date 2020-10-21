@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-rc.0...@carbon/ibmdotcom-web-components@0.5.0) (2020-10-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
 # [0.5.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.5028...@carbon/ibmdotcom-web-components@0.5.0-rc.0) (2020-10-09)
 
 ### Features
