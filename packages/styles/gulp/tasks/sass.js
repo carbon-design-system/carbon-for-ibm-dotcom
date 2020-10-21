@@ -42,29 +42,32 @@ function _sass() {
     )
 }
 
+function ltr() {
+  return _sass()
+    .pipe(rename(global.config.distCss))
+    .pipe(gulp.dest('dist'))
+    .pipe(cleanCSS())
+    .pipe(rename(global.config.distCssMin))
+    .pipe(gulp.dest('dist'));
+}
+
+function rtl() {
+  return _sass()
+    .pipe(rtlcss())
+    .pipe(rename(global.config.distRtlCss))
+    .pipe(gulp.dest('dist'))
+    .pipe(cleanCSS())
+    .pipe(rename(global.config.distRtlCssMin))
+    .pipe(gulp.dest('dist'));
+}
+
+gulp.task('sass:ltr', ltr);
+gulp.task('sass:rtl', rtl);
+
 /**
  * Gulp task export
  *
  * @module sass
  */
 
-module.exports = {
-  ltr() {
-    return _sass()
-      .pipe(rename(global.config.distCss))
-      .pipe(gulp.dest('dist'))
-      .pipe(cleanCSS())
-      .pipe(rename(global.config.distCssMin))
-      .pipe(gulp.dest('dist'));
-  },
-
-  rtl() {
-    return _sass()
-      .pipe(rtlcss())
-      .pipe(rename(global.config.distRtlCss))
-      .pipe(gulp.dest('dist'))
-      .pipe(cleanCSS())
-      .pipe(rename(global.config.distRtlCssMin))
-      .pipe(gulp.dest('dist'));
-  },
-};
+module.exports = gulp.task('sass', gulp.parallel('sass:ltr', 'sass:rtl'));
