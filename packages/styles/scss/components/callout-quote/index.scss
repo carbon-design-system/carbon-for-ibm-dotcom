@@ -6,14 +6,26 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/vars';
 @import '../../internal/callout/callout';
 @import '../quote/quote';
 @import '../../globals/utils/hang';
 
 @mixin callout-quote {
-  .#{$prefix}--callout-quote {
+  .#{$prefix}--callout-quote,
+  :host(#{$dds-prefix}-callout-quote) {
     @include carbon--breakpoint('md') {
       @include hang;
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-quote) {
+    @extend .#{$prefix}--callout__container;
+
+    padding-bottom: $layout-05;
+
+    ::slotted(#{$dds-prefix}-link-with-icon) {
+      padding-left: 2rem;
     }
   }
 }
