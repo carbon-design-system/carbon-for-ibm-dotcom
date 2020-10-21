@@ -33,13 +33,12 @@ const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
           <div class="${prefix}--callout__content">
             ${/* Declaring this mixin as it extends \`LitElement\` seems to cause a TS error
             // @ts-ignore */
-              super.render()
-            }
+            super.render()}
           </div>
         </div>
       `;
     }
-  }
+  };
 };
 
 export default DDSCalloutMixin;
