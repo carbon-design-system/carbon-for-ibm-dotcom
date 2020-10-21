@@ -21,15 +21,51 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading>
         Our customers
       </dds-content-block-heading>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
-      <dds-logo-grid-item href="https://example.com" default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1" alt=""></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
+      <dds-logo-grid-item
+        href="https://example.com"
+        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
+        alt=""
+      ></dds-logo-grid-item>
     </dds-logo-grid>
   `;
 };
@@ -40,7 +76,7 @@ export default {
     story => html`
       <div style="width: 100%" class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row">
-          <div class="bx--col-lg-8 bx--offset-lg-2">
+          <div class="bx--col-lg-8 bx--offset-lg-2 bx--col-sm-4">
             ${story()}
           </div>
         </div>
