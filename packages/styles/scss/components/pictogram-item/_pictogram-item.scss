@@ -33,7 +33,7 @@
       @include carbon--make-col(4, 4);
 
       @include carbon--breakpoint('md') {
-        @include carbon--make-col(6, 8);
+        @include carbon--make-col(8, 8);
       }
     }
 
