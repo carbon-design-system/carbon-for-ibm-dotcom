@@ -37,6 +37,7 @@
     </slot>
   </div>
 </section>
+
 ```
 
 ####   `should render with various attributes`
@@ -74,6 +75,7 @@
     </slot>
   </div>
 </section>
+
 ```
 
 ## `Misc attributes - DefaultWithImage`
@@ -113,6 +115,7 @@
     </slot>
   </div>
 </section>
+
 ```
 
 ####   `should render with various attributes`
@@ -150,6 +153,7 @@
     </slot>
   </div>
 </section>
+
 ```
 
 ## `Misc attributes - Centered`
@@ -196,6 +200,7 @@
     </div>
   </div>
 </section>
+
 ```
 
 ####   `should render with various attributes`
@@ -240,6 +245,7 @@
     </div>
   </div>
 </section>
+
 ```
 
 ## `Misc attributes - CenteredWithImage`
