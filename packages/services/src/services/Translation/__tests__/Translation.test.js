@@ -104,18 +104,23 @@ describe('TranslationAPI', () => {
   });
 
   it('should return a json with a recent timestamp', async () => {
+    const mockDate = new Date('2019');
+    const _Date = Date;
+    global.Date = jest.fn(() => mockDate);
+    global.Date.now = _Date.now;
+
     // using very old cached session
     sessionStorageMock.setItem(
       'dds-translation-us-en',
       JSON.stringify(oldSession)
     );
+
     const previousSession = JSON.parse(
       sessionStorageMock.getItem('dds-translation-us-en')
     );
 
     // reinitializing import
     const TranslationAPI = (await import('../Translation')).default;
-
     const response = await TranslationAPI.getTranslation({
       lc: 'en',
       cc: 'us',
@@ -131,8 +136,8 @@ describe('TranslationAPI', () => {
     // should contain timestamp
     expect(response).toHaveProperty('timestamp');
 
-    // should not equal old timestamp
-    expect(previousSession.timestamp).not.toEqual(response.timestamp);
+    // should equal mock timestamp
+    expect(response.timestamp).toEqual(mockDate.valueOf());
 
     // timestamps should have at least a two hour difference
     const timeDiff = response.timestamp - previousSession.timestamp,

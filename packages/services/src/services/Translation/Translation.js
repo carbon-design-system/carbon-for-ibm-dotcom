@@ -188,7 +188,7 @@ class TranslationAPI {
       return;
     }
 
-    const currentTime = new Date().getTime(),
+    const currentTime = Date.now(),
       timeDiff = currentTime - session.timestamp;
 
     if (timeDiff > _twoHours) {
