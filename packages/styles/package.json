@@ -67,6 +67,7 @@
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^1.4.0",
+    "gulp-rtlcss": "^1.4.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "prop-types": "^15.7.2",
