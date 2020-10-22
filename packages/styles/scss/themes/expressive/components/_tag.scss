@@ -18,7 +18,7 @@
   .#{$prefix}--tag {
     @include carbon--type-style('label-01');
 
-    line-height: 20;
+    line-height: carbon--rem(20);
 
     height: carbon--rem(32px); /* carbon--container-02 */
     padding: 6px $spacing-05;
@@ -37,8 +37,8 @@
     position: relative;
     left: 6px;
 
-    width: 1.25rem;
-    height: 1.25rem;
+    width: $icon-size-01;
+    height: $icon-size-01;
 
     margin-left: 0;
     padding: $spacing-01;
