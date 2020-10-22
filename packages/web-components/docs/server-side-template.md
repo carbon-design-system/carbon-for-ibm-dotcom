@@ -72,7 +72,7 @@ While we recommend building front-end JavaScript/Sass code with a module bundler
   <head>
     <script type="module">
       // Uses pre-built bundle
-      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/v0.5.0/ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
     </script>
     <style type="text/css">
       /* From: https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/type/scss/_reset.scss#L31-L32 */
