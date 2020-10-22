@@ -94,25 +94,55 @@ const HeaderNavContainer = ({ children }) => {
   const [io, setIO] = useState(null);
 
   const paginateLeft = useCallback(() => {
-    containerRef.current.scrollLeft = Math.max(
-      containerRef.current.scrollLeft - containerRef.current.offsetWidth,
-      0
+    // containerRef.current.scrollLeft = Math.max(
+    //   containerRef.current.scrollLeft - containerRef.current.offsetWidth,
+    //   0
+    // );
+    scrollLeft(
+      containerRef.current,
+      -Math.max(
+        document.querySelector('.content').offsetWidth -
+          containerRef.current.scrollLeft,
+        0
+      ),
+      100
     );
   }, []);
 
   const paginateRight = useCallback(() => {
-    console.log(
-      containerRef.current.scrollLeft,
-      containerRef.current.offsetWidth,
-      document.querySelector('.content').offsetWidth,
-      containerRef.current.offsetWidth
-    );
-    containerRef.current.scrollLeft = Math.min(
+    scrollLeft(
+      containerRef.current,
       containerRef.current.scrollLeft + containerRef.current.offsetWidth,
-      document.querySelector('.content').offsetWidth -
-        containerRef.current.offsetWidth
+      100
     );
   }, []);
+
+  function scrollLeft(element, change, duration) {
+    let start = element.scrollLeft,
+      currentTime = 0,
+      increment = 1;
+
+    const animateScroll = function() {
+      currentTime += increment;
+      let val = Math.easeInOutQuad(currentTime, start, change, duration);
+      element.scrollLeft = val;
+      if (currentTime < duration) {
+        setTimeout(animateScroll, increment);
+      }
+    };
+    animateScroll();
+  }
+
+  //t = current time
+  //b = start value
+  //c = change in value
+  //d = duration
+  Math.easeInOutQuad = function(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t * t + b;
+    t -= 2;
+    return (c / 2) * (t * t * t + 2) + b;
+  };
 
   useEffect(() => {
     setIO(
