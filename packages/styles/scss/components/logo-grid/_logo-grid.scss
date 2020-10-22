@@ -12,7 +12,8 @@
 @import '../../internal/content-block/content-block';
 
 @mixin logo-grid {
-  .#{$prefix}--logo-grid {
+  .#{$prefix}--logo-grid,
+  :host(#{$dds-prefix}-logo-grid) {
     padding: $spacing-03;
 
     .#{$prefix}--content-block {
@@ -83,7 +84,9 @@
     }
   }
 
-  .#{$prefix}--logo-grid__container {
+  .#{$prefix}--logo-grid__container,
+  :host(#{$dds-prefix}-logo-grid):not(.#{$prefix}--logo-grid__no-border)
+    .#{$prefix}--content-block__cta-row {
     border-bottom: 1px $ui-04 solid;
   }
 
@@ -109,7 +112,8 @@
     @include carbon--make-row;
   }
 
-  .#{$prefix}--logo-grid__col {
+  .#{$prefix}--logo-grid__col,
+  :host(#{$dds-prefix}-logo-grid-item) {
     @include carbon--make-col-ready;
     @include carbon--make-col(1, 2);
 
@@ -130,6 +134,10 @@
 
   .#{$prefix}--logo-grid__wrapper {
     width: 100%;
+  }
+
+  :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
+    fill: $link-01;
   }
 }
 @include exports('logo-grid') {

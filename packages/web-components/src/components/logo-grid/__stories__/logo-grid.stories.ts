@@ -11,61 +11,30 @@ import { html } from 'lit-element';
 import '../logo-grid';
 import '../../content-block/content-block-heading';
 import '../logo-grid-item';
+import '../logo-grid-link';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import { boolean } from '@storybook/addon-knobs';
+import logos from './data/logos.json';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
+  const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } = parameters?.props?.LogoGrid ?? {};
   return html`
-    <dds-logo-grid>
+    <dds-logo-grid ?hide-border="${hideBorder}">
       <dds-content-block-heading>
-        Our customers
+        ${heading}
       </dds-content-block-heading>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
-      <dds-logo-grid-item
-        href="https://example.com"
-        default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-        alt=""
-      ></dds-logo-grid-item>
+      ${logosGroup.map(
+        elem => html`
+          <dds-logo-grid-item href="${elem.href}" default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+        `
+      )}
+      <dds-logo-grid-link href="${ctaHref}">
+        <p>${ctaCopy}</p>
+        ${ArrowRight20({ slot: 'footer' })}
+      </dds-logo-grid-link>
     </dds-logo-grid>
   `;
 };
@@ -84,9 +53,14 @@ export default {
     `,
   ],
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     knobs: {
       LogoGrid: ({ groupId }) => ({
+        heading: textNullable('Heading (heading)', 'Our customers', groupId),
+        logosGroup: logos,
+        ctaCopy: textNullable('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet', groupId),
+        ctaHref: textNullable('CTA Href (ctaHref)', 'http://local.url.com/', groupId),
+        hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
       }),
     },
   },

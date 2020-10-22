@@ -6,26 +6,37 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { css, customElement, html } from 'lit-element';
+import { css, customElement, html, property } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './logo-grid.scss';
 import DDSContentBlock from '../content-block/content-block';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-
 /**
- * Link list.
+ * Logo grid.
  *
- * @element dds-link-list
- * @slot heading - The heading content.
+ * @element dds-logo-grid
  */
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   static get stableSelector() {
     return `${ddsPrefix}--logo-grid`;
+  }
+
+  static get hideBorderClass() {
+    return `${prefix}--logo-grid__no-border`;
+  }
+
+  @property({ attribute: 'hide-border', reflect: true, type: Boolean })
+  hideBorder = false;
+
+  protected updated() {
+    this.classList.toggle((this.constructor as typeof DDSLogoGrid).hideBorderClass, this.hideBorder);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -36,7 +47,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
           <slot></slot>
         </div>
       </div>
-    `
+    `;
   }
 
   // eslint-disable-next-line class-methods-use-this
