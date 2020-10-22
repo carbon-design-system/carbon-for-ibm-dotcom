@@ -209,18 +209,17 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__nav-container {
     height: 100%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
-    //transition: all 100ms cubic-bezier(0.2, 0, 0.38, 0.9);
-    //transition: left 3s cubic-bezier(0.2, 0, 0.38, 0.9);
+    position: relative;
     @include carbon--breakpoint(md) {
       display: flex;
       flex: 1;
     }
   }
 
-  .content {
-    position: relative;
-    //transition: left 3s cubic-bezier(0.2, 0, 0.38, 0.9);
+  .#{$prefix}--header__nav-content {
+    position: absolute;
+    height: 100%;
+    transition: left $transition--base motion(standard, productive);
   }
 
   .#{$prefix}--header__nav {
