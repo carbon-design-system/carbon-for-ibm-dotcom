@@ -8,10 +8,17 @@
 'use strict';
 
 const gulp = require('gulp');
+const sass = require('../tasks/sass');
 
 /**
  * Gulp task export
  *
  * @module default
  */
-module.exports = gulp.task('default', gulp.series('clean', 'sass'));
+module.exports = 
+
+gulp.task('sass:ltr', sass.ltr);
+gulp.task('sass:rtl', sass.rtl);
+
+gulp.task('default', gulp.series('clean', 
+    gulp.parallel('sass:ltr', 'sass:rtl')));
