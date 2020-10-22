@@ -26,6 +26,8 @@ export default {
             'Search keywords',
             groupId
           ),
+          onChange: () => {},
+          onKeyDown: () => {},
         },
       }),
     },
@@ -33,7 +35,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, searchProps, buttonsProps } =
+  const { heading, copy, searchProps } =
     parameters?.props?.LeadspaceWithSearch ?? {};
 
   return (
@@ -41,7 +43,6 @@ export const Default = ({ parameters }) => {
       heading={heading}
       copy={copy}
       searchProps={searchProps}
-      buttonsProps={buttonsProps}
     />
   );
 };
