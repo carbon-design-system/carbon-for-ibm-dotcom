@@ -11,7 +11,6 @@ const gulp = require('gulp'),
   prefix = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
-  rtlcss = require('gulp-rtlcss'),
   sass = require('gulp-sass'),
   path = require('path');
 
@@ -43,28 +42,26 @@ function _sass() {
 }
 
 /**
+ * @name ltr
+ * @function
+ * @description
+ * Compile the regular versions of the css directory into the dist folder
+ *
+ * @returns {object} the gulp task stream
+ * @private
+ */
+function ltr() {
+  return _sass()
+    .pipe(rename(global.config.distCss))
+    .pipe(gulp.dest('dist'))
+    .pipe(cleanCSS())
+    .pipe(rename(global.config.distCssMin))
+    .pipe(gulp.dest('dist'));
+}
+
+/**
  * Gulp task export
  *
- * @module sass
+ * @module sass-ltr
  */
-
-module.exports = {
-  ltr() {
-    return _sass()
-      .pipe(rename(global.config.distCss))
-      .pipe(gulp.dest('dist'))
-      .pipe(cleanCSS())
-      .pipe(rename(global.config.distCssMin))
-      .pipe(gulp.dest('dist'));
-  },
-
-  rtl() {
-    return _sass()
-      .pipe(rtlcss())
-      .pipe(rename(global.config.distRtlCss))
-      .pipe(gulp.dest('dist'))
-      .pipe(cleanCSS())
-      .pipe(rename(global.config.distRtlCssMin))
-      .pipe(gulp.dest('dist'));
-  },
-};
+module.exports = gulp.task('sass-ltr', ltr);
