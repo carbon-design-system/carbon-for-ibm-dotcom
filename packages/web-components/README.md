@@ -49,7 +49,7 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
 <html>
   <head>
     <script type="module">
-      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/v0.5.0/ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
