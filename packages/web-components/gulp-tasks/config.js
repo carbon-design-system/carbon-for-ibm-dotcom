@@ -38,7 +38,7 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
-  servicesStoreESSrcDir: path.resolve(__dirname, '../../services-store/es'),
+  servicesStoreESSrcDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-services-store/package.json')), 'es'),
   servicesStoreVendorSrcDir: path.resolve(__dirname, '../src/internal/vendor/@carbon/ibmdotcom-services-store'),
   servicesStoreVendorESDstDir: path.resolve(__dirname, '../es/internal/vendor/@carbon/ibmdotcom-services-store'),
 };
