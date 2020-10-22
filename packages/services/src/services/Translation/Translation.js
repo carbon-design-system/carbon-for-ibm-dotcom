@@ -133,10 +133,11 @@ class TranslationAPI {
           .then(response => this.transformData(response.data))
           .then(data => {
             data['timestamp'] = new Date().getTime();
-            sessionStorage.setItem(
-              `${_sessionTranslationKey}-${country}-${lang}`,
-              JSON.stringify(data)
-            );
+            (data['id'] = 'TRANSLATION_FRESH'),
+              sessionStorage.setItem(
+                `${_sessionTranslationKey}-${country}-${lang}`,
+                JSON.stringify(data)
+              );
             return data;
           });
       }
@@ -196,6 +197,7 @@ class TranslationAPI {
       return;
     }
 
+    session['id'] = 'TRANSLATION_OLD';
     return session;
   }
 }
