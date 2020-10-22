@@ -6,8 +6,10 @@
 //
 
 @import '../../globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/content-section/content-section';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 
 :host(#{$dds-prefix}-content-section) {
+  @include content-section;
+
   display: block;
 }
