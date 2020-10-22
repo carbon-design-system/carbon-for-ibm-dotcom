@@ -39,14 +39,22 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
 
 LeadspaceWithSearch.propTypes = {
   /**
-   *
+   * Required heading for the Leadspace with search
    */
   heading: PropTypes.string.isRequired,
   /**
-   *
+   *  An optional copy for the Leadspace with search
    */
   copy: PropTypes.string,
   /**
+   *  The search mechanism does not have a built-in behavior. Make sure to provide both onChange and onKeyDown functions to the component with the validations and behavior you want it to have.
+   *
+   *  | Function    | Parameters | Description                                                                                                  |
+   *  |-------------|------------|--------------------------------------------------------------------------------------------------------------|
+   *  | `onChange`  | event      | Use this to reach out to `event.target.value`, the value inputed by the user.                                |
+   *  | `onKeyDown` | event      | You could use it to detect the user pressing the 'Enter/Return' key and trigger the search mechanism to work |
+   *
+   * Any other functions and properties passed down to this will be applyed to the [Search component](https://www.carbondesignsystem.com/components/search/usage/).
    *
    */
   searchProps: Search.propTypes,
