@@ -26,11 +26,12 @@ export const Default = ({ parameters }) => {
       <dds-content-block-heading>
         ${heading}
       </dds-content-block-heading>
-      ${logosGroup.map(
-        elem => html`
-          <dds-logo-grid-item href="${elem.href}" default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
-        `
-      )}
+      ${logosGroup &&
+        logosGroup.map(
+          elem => html`
+            <dds-logo-grid-item href="${elem.href}" default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+          `
+        )}
       <dds-logo-grid-link href="${ctaHref}">
         <p>${ctaCopy}</p>
         ${ArrowRight20({ slot: 'footer' })}
