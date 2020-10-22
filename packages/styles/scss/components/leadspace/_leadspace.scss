@@ -17,6 +17,10 @@ $btn-min-width: 26;
     background-color: rgba($color, 0.75);
   }
 
+  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
+    background-color: rgba($color, 1);
+  }
+
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--gradient {
       background-color: transparent;
@@ -47,9 +51,11 @@ $btn-min-width: 26;
 
   @include buttongroup;
 
-  background-color: $ui-background;
+  .#{$prefix}--leadspace__section {
+    background-color: $ui-background;
+  }
 
-  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
+  .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
     background-color: $ui-background;
   }
 
@@ -58,15 +64,16 @@ $btn-min-width: 26;
     color: $text-01;
   }
 
-  &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
+  .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
     width: 100%;
   }
+
   .#{$prefix}--buttongroup {
     padding-left: 0;
   }
 
   @include carbon--breakpoint(md) {
-    &.#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
+    .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__overlay {
       background-color: transparent;
     }
   }
@@ -133,10 +140,16 @@ $btn-min-width: 26;
       margin-bottom: $spacing-09;
       padding-left: 1rem;
       width: 95%;
+      z-index: 1;
       @include carbon--type-style(display-01, true);
     }
 
+    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+      @include carbon--type-style(expressive-heading-06, true);
+    }
+
     .#{$prefix}--leadspace__desc {
+      z-index: 1;
       @include carbon--make-col-ready;
       @include carbon--type-style(expressive-heading-03, true);
       @include carbon--make-col(4, 4);
@@ -150,25 +163,7 @@ $btn-min-width: 26;
       min-width: carbon--mini-units($btn-min-width);
     }
 
-    @include themed-items;
-  }
-
-  .#{$prefix}--leadspace--g100,
-  .#{$prefix}--leadspace--g90 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items(dark);
-    }
-  }
-
-  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-    @include carbon--type-style(expressive-heading-06, true);
-  }
-
-  @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace {
+    @include carbon--breakpoint(md) {
       .#{$prefix}--leadspace__container {
         position: relative;
       }
@@ -195,15 +190,15 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 8);
       }
     }
-  }
 
-  @include carbon--breakpoint(lg) {
-    .#{$prefix}--leadspace {
-      margin-right: auto;
-      margin-left: auto;
-      position: relative;
-      padding-top: aspect-ratio(1056px, 480px);
-      height: 0;
+    @include carbon--breakpoint(lg) {
+      .#{$prefix}--leadspace__section {
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        padding-top: aspect-ratio(1056px, 480px);
+        height: 0;
+      }
 
       .#{$prefix}--leadspace__container {
         overflow: hidden;
@@ -225,117 +220,134 @@ $btn-min-width: 26;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
       }
-    }
 
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-      @include carbon--make-col(7, 16);
-    }
-  }
-
-  @include carbon--breakpoint(xlg) {
-    .#{$prefix}--leadspace {
-      padding-top: aspect-ratio(1312px, 560px);
-    }
-  }
-
-  @include carbon--breakpoint(max) {
-    .#{$prefix}--leadspace {
-      padding-top: aspect-ratio(1584px, 640px);
-    }
-  }
-}
-
-@mixin leadspace-centered {
-  :host(#{$dds-prefix}-leadspace-centered),
-  .#{$prefix}--leadspace--centered {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 99rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-
-    .#{$prefix}--buttongroup {
-      padding-bottom: $carbon--layout-01;
-      padding-top: 0;
-    }
-
-    .#{$prefix}--leadspace--content__container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 4);
-    }
-
-    .#{$prefix}--leadspace--centered--mobile__image {
-      height: carbon--mini-units(20);
-      width: 100%;
-
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
+      .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+        @include carbon--make-col(7, 16);
       }
     }
 
-    .#{$prefix}--leadspace__desc {
-      width: 95%;
-      @include carbon--type-style(expressive-heading-03, true);
+    @include carbon--breakpoint(xlg) {
+      .#{$prefix}--leadspace__section {
+        padding-top: aspect-ratio(1312px, 560px);
+      }
     }
 
-    .#{$prefix}--leadspace__title {
-      @include carbon--type-style(expressive-heading-05, true);
+    @include carbon--breakpoint(max) {
+      .#{$prefix}--leadspace__section {
+        padding-top: aspect-ratio(1584px, 640px);
+      }
     }
 
-    .#{$prefix}--leadspace__desc,
-    .#{$prefix}--leadspace__title {
-      padding-top: $carbon--layout-03;
+    .#{$prefix}--leadspace--centered {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 99rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+
+      ::slotted(#{$dds-prefix}-button-group),
+      .#{$prefix}--buttongroup {
+        padding-bottom: $carbon--layout-01;
+        padding-top: 0;
+      }
+
+      &.#{$prefix}--leadspace__section {
+        height: 100%;
+        padding-top: 0;
+      }
+
+      .#{$prefix}--leadspace__container {
+        overflow: auto;
+        position: relative;
+      }
+
+      .#{$prefix}--leadspace--content__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+      }
+
+      .#{$prefix}--leadspace--centered--mobile__image {
+        height: carbon--mini-units(20);
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .#{$prefix}--leadspace__desc {
+        width: 95%;
+        @include carbon--type-style(expressive-heading-03, true);
+      }
+
+      .#{$prefix}--leadspace__title {
+        margin-bottom: 0;
+        @include carbon--type-style(expressive-heading-05, true);
+      }
+
+      .#{$prefix}--leadspace__desc,
+      .#{$prefix}--leadspace__title {
+        flex: none;
+        padding-top: $carbon--layout-03;
+      }
+
+      .#{$prefix}--leadspace__overlay {
+        padding: 0;
+      }
+
+      @include themed-items;
+
+      @include carbon--breakpoint(md) {
+        .#{$prefix}--buttongroup {
+          padding-bottom: 0;
+        }
+
+        .#{$prefix}--leadspace__overlay {
+          padding: 0 0 carbon--mini-units(20) 0;
+        }
+
+        .#{$prefix}--leadspace--content__container {
+          margin: 0 auto;
+          padding-left: 1.5rem;
+          @include carbon--make-col(4, 8);
+        }
+
+        .#{$prefix}--leadspace__title,
+        .#{$prefix}--leadspace__desc {
+          max-width: carbon--mini-units(80);
+        }
+
+        .#{$prefix}--leadspace__desc {
+          padding-top: $carbon--layout-04;
+        }
+
+        .#{$prefix}--leadspace--centered--mobile__image {
+          display: none;
+        }
+
+        &.#{$prefix}--leadspace--centered__image
+          .#{$prefix}--leadspace__overlay {
+          padding-bottom: carbon--mini-units(32);
+        }
+      }
+
+      @include carbon--breakpoint(lg) {
+        .#{$prefix}--leadspace__title {
+          padding-top: $carbon--layout-05;
+        }
+      }
     }
 
     @include themed-items;
 
-    @include carbon--breakpoint(md) {
-      .#{$prefix}--buttongroup {
-        padding-bottom: 0;
-      }
-
-      .#{$prefix}--leadspace__overlay {
-        padding-bottom: carbon--mini-units(20);
-      }
-
-      .#{$prefix}--leadspace--content__container {
-        margin: auto;
-        padding-left: 1.5rem;
-        @include carbon--make-col(4, 8);
-      }
-
-      .#{$prefix}--leadspace__title,
-      .#{$prefix}--leadspace__desc {
-        max-width: carbon--mini-units(80);
-      }
-
-      .#{$prefix}--leadspace__desc {
-        padding-top: $carbon--layout-04;
-      }
-
-      .#{$prefix}--leadspace--centered--mobile__image {
-        display: none;
-      }
-
-      &.#{$prefix}--leadspace--centered__image .#{$prefix}--leadspace__overlay {
-        padding-bottom: carbon--mini-units(32);
-      }
-    }
-
-    @include carbon--breakpoint(lg) {
-      .#{$prefix}--leadspace__title {
-        padding-top: $carbon--layout-05;
-      }
-    }
-
-    &.#{$prefix}--leadspace--centered--g100,
-    &.#{$prefix}--leadspace--centered--g90 {
+    .#{$prefix}--leadspace--g100,
+    .#{$prefix}--leadspace--g90 {
       @include carbon--theme(
         $carbon--theme--g100,
         feature-flag-enabled('enable-css-custom-properties')
@@ -344,10 +356,6 @@ $btn-min-width: 26;
       }
     }
   }
-}
-
-@include exports('leadspace-centered') {
-  @include leadspace-centered;
 }
 
 @include exports('leadspace') {

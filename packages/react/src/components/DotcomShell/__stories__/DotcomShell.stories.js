@@ -10,6 +10,7 @@ import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
+import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
 import languageItems from '../../Footer/__data__/language-items.json';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
@@ -275,6 +276,25 @@ MicroFooterLanguageOnly.story = {
                   groupId
                 ),
             languageInitialItem: { id: 'en', text: 'English' },
+          },
+        };
+      },
+    },
+  },
+};
+
+export const WithL1 = ({ parameters }) => <Default parameters={parameters} />;
+
+WithL1.story = {
+  name: 'With L1',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      DotcomShell: () => {
+        const { Masthead: mastheadKnobs } = l1Story.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
           },
         };
       },

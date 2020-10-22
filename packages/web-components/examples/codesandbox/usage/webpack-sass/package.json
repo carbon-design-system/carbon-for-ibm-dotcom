@@ -1,0 +1,27 @@
+{
+  "name": "ibmdotcom-web-components-webpack-sass-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sample project for getting started with the Web Components from Carbon for IBM.com.",
+  "scripts": {
+    "start": "webpack serve --port=9000"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "css-loader": "^4.3.0",
+    "html-webpack-plugin": "^4.5.0",
+    "node-sass": "^4.14.0",
+    "postcss": "^8.1.0",
+    "postcss-loader": "^4.0.0",
+    "sass-loader": "^10.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-web-components": "^0.4.0",
+    "lit-element": "^2.4.0",
+    "lit-html": "^1.3.0"
+  }
+}

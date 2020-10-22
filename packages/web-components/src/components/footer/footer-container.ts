@@ -12,9 +12,13 @@ import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 're
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '../../globals/services-store/store';
-import { LocaleAPIState } from '../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet, TranslateAPIState } from '../../globals/services-store/types/translateAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import {
+  BasicLink,
+  BasicLinkSet,
+  TranslateAPIState,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   loadLanguage,
   setLanguage,
@@ -22,9 +26,10 @@ import {
   setLangDisplay,
   loadLocaleList,
   setLocaleList,
-  LocaleAPIActions,
-} from '../../globals/services-store/actions/localeAPI';
-import { loadTranslation, setTranslation, TranslateAPIActions } from '../../globals/services-store/actions/translateAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
+import { loadTranslation, setTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
+import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
 import {
   LocaleModalContainerState,
   LocaleModalContainerStateProps,

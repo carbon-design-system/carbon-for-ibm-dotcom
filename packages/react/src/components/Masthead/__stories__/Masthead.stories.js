@@ -161,18 +161,34 @@ WithL1.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
-      Masthead: ({ groupId }) => ({
-        ...Default.story.parameters.knobs.Masthead({ groupId }),
-        mastheadL1Data: {
-          title: text('L1 title (title)', 'Stock Charts', groupId),
-          titleLink: text(
-            'L1 title link (titleLink)',
-            'https://example.com/',
+      Masthead: ({ groupId }) => {
+        return {
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
             groupId
           ),
-          navigationL1: mastheadKnobs.navigation.custom,
-        },
-      }),
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          mastheadL1Data: {
+            title: text('L1 title (title)', 'Stock Charts', groupId),
+            titleLink: text(
+              'L1 title link (titleLink)',
+              'https://example.com/',
+              groupId
+            ),
+            navigationL1: mastheadKnobs.navigation.custom,
+          },
+        };
+      },
     },
   },
 };
