@@ -18,7 +18,7 @@
   .#{$prefix}--tag {
     @include carbon--type-style('label-01');
 
-    /* stylelint-disable-next-line */
+    /* stylelint-disable-next-line declaration-property-unit-whitelist */
     line-height: carbon--rem(20px);
 
     height: carbon--rem(32px); /* carbon--container-02 */
