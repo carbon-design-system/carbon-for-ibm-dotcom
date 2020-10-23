@@ -320,9 +320,6 @@ $search-transition-timing: 95ms;
     left: 0;
     width: 1px;
     height: 100%;
-    //background-color: purple;
-
-    //clip: rect(0,0,0,0);
   }
 
   .sub-content-right {
@@ -331,8 +328,6 @@ $search-transition-timing: 95ms;
     right: 1px;
     width: 1px;
     height: 100%;
-    //background-color: purple;
-    //clip: rect(0,0,0,0);
   }
 
   .#{$prefix}--header__nav-caret-left,

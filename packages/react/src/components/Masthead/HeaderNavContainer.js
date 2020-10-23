@@ -19,6 +19,10 @@ const { prefix } = settings;
 const HeaderNavContainer = ({ children }) => {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
+  const contentLeftRef = useRef(null);
+  const contentRightRef = useRef(null);
+  const caretLeftRef = useRef(null);
+  const caretRightRef = useRef(null);
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
 
@@ -42,13 +46,17 @@ const HeaderNavContainer = ({ children }) => {
       new IntersectionObserver(
         records => {
           records.forEach(record => {
-            if (record.target.classList.contains('sub-content-left')) {
-              document.querySelector('.bx--header__nav-caret-left').hidden =
-                record.isIntersecting;
+            if (
+              record.target.classList.contains(contentLeftRef.current.className)
+            ) {
+              caretLeftRef.current.hidden = record.isIntersecting;
             }
-            if (record.target.classList.contains('sub-content-right')) {
-              document.querySelector('.bx--header__nav-caret-right').hidden =
-                record.isIntersecting;
+            if (
+              record.target.classList.contains(
+                contentRightRef.current.className
+              )
+            ) {
+              caretRightRef.current.hidden = record.isIntersecting;
             }
           });
         },
@@ -62,8 +70,8 @@ const HeaderNavContainer = ({ children }) => {
 
   useEffect(() => {
     if (io) {
-      io.observe(document.querySelector('.sub-content-left'));
-      io.observe(document.querySelector('.sub-content-right'));
+      io.observe(contentLeftRef.current);
+      io.observe(contentRightRef.current);
     } else {
       return () => {
         if (io) {
@@ -78,20 +86,22 @@ const HeaderNavContainer = ({ children }) => {
       <button
         className={`${prefix}--header__nav-caret-left`}
         aria-label="Masthead left caret"
-        onClick={paginateLeft}>
+        onClick={paginateLeft}
+        ref={caretLeftRef}>
         <CaretLeft20 />
       </button>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
         <div className={`${prefix}--header__nav-content`} ref={contentRef}>
-          <div className="sub-content-left"></div>
-          <div className="sub-content-right"></div>
+          <div className="sub-content-left" ref={contentLeftRef} />
+          <div className="sub-content-right" ref={contentRightRef} />
           {children}
         </div>
       </div>
       <button
         className={`${prefix}--header__nav-caret-right`}
         aria-label="Masthead right caret"
-        onClick={paginateRight}>
+        onClick={paginateRight}
+        ref={caretRightRef}>
         <CaretRight20 />
       </button>
     </>
