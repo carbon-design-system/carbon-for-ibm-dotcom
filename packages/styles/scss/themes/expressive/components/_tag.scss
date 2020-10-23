@@ -18,7 +18,8 @@
   .#{$prefix}--tag {
     @include carbon--type-style('label-01');
 
-    line-height: 20;
+    /* stylelint-disable-next-line */
+    line-height: carbon--rem(20px);
 
     height: carbon--rem(32px); /* carbon--container-02 */
     padding: 6px $spacing-05;
