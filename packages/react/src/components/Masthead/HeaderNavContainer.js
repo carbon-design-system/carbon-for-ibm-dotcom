@@ -42,30 +42,34 @@ const HeaderNavContainer = ({ children }) => {
   }, [position]);
 
   useEffect(() => {
-    setIO(
-      new IntersectionObserver(
-        records => {
-          records.forEach(record => {
-            if (
-              record.target.classList.contains(contentLeftRef.current.className)
-            ) {
-              caretLeftRef.current.hidden = record.isIntersecting;
-            }
-            if (
-              record.target.classList.contains(
-                contentRightRef.current.className
-              )
-            ) {
-              caretRightRef.current.hidden = record.isIntersecting;
-            }
-          });
-        },
-        {
-          root: containerRef.current,
-          threshold: 1,
-        }
-      )
-    );
+    if (window.IntersectionObserver) {
+      setIO(
+        new IntersectionObserver(
+          records => {
+            records.forEach(record => {
+              if (
+                record.target.classList.contains(
+                  contentLeftRef.current.className
+                )
+              ) {
+                caretLeftRef.current.hidden = record.isIntersecting;
+              }
+              if (
+                record.target.classList.contains(
+                  contentRightRef.current.className
+                )
+              ) {
+                caretRightRef.current.hidden = record.isIntersecting;
+              }
+            });
+          },
+          {
+            root: containerRef.current,
+            threshold: 1,
+          }
+        )
+      );
+    }
   }, [setIO]);
 
   useEffect(() => {
