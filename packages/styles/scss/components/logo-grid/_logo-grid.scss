@@ -85,7 +85,7 @@
   }
 
   .#{$prefix}--logo-grid__container,
-  :host(#{$dds-prefix}-logo-grid):not(.#{$prefix}--logo-grid__no-border)
+  :host(#{$dds-prefix}-logo-grid):not([hide-border])
     .#{$prefix}--content-block__cta-row {
     border-bottom: 1px $ui-04 solid;
   }
