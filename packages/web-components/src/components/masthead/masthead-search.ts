@@ -12,7 +12,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
@@ -116,21 +115,6 @@ class DDSMastheadSearch extends BXDropdown {
         },
       })
     );
-  }
-
-  /**
-   * Handles `focusin` event on this component.
-   */
-  @HostListener('focusin')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  // @ts-ignore
-  private _handleFocusIn() {
-    this._handleUserInitiatedToggleActiveState(true);
-  }
-
-  protected _handleFocusOut(event: FocusEvent) {
-    super._handleFocusOut(event);
-    this._handleUserInitiatedToggleActiveState(false, false);
   }
 
   /**
