@@ -268,6 +268,7 @@ class HeaderMenu extends React.Component {
           role="menuitem"
           tabIndex={0}
           ref={this.menuLinkRef}
+          aria-selected={selected ? 'true' : ''}
           {...accessibilityLabel}>
           {menuLinkName}
           <MenuContent />
