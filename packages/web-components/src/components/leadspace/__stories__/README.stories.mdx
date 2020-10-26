@@ -1,0 +1,59 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import '../leadspace';
+
+# LeadSpace
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/leadspace)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/leadspace)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace';
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/leadspace/leadspace.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/image/image.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/button-group/button-group-item.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-leadspace alt="alt text" default-src="www.example.com">
+  <span slot="title">LeadSpace title</span>
+  <span slot="copy">LeadSpace copy</span>
+  <dds-button-group slot="buttons">
+    ${buttons.map( elem => html`
+    <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
+    ` )}
+  </dds-button-group>
+  <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+    <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
+    <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+  </dds-image>
+</dds-leadspace>
+```
+
+## Props
+
+<Props of="dds-leadspace" />
+<Description markdown={contributing} />

@@ -12,16 +12,16 @@ import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 're
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ConnectMixin from '../../globals/mixins/connect';
-import store from '../../globals/services-store/store';
-import { LocaleList, LocaleAPIState } from '../../globals/services-store/types/localeAPI';
+import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
+import { LocaleList, LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   loadLanguage,
   setLanguage,
   loadLangDisplay,
   setLangDisplay,
   loadLocaleList,
-  LocaleAPIActions,
-} from '../../globals/services-store/actions/localeAPI';
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import DDSLocaleModalComposite from './locale-modal-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;

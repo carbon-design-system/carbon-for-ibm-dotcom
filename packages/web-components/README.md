@@ -9,10 +9,15 @@ A IBM.com Design System variant that's as easy to use as native HTML elements, w
 
 - [Getting started](#getting-started)
   - [Basic usage](#basic-usage)
+  - [Using Sass](#using-sass)
 - [Browser support](#browser-support)
 - [List of available components](#list-of-available-components)
+- [Advanced](#advanced)
+  - [Using custom styles in components](#using-custom-styles-in-components)
+    - [Creating derived components with different style](#creating-derived-components-with-different-style)
+    - [Using CSS Custom Properties](#using-css-custom-properties)
+    - [CSS Shadow Parts](#css-shadow-parts)
 - [Stable selectors (for analytics and integration/E2E testing) in Web Components](#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
-  - [`data-autoid` support for partial backward compatibility](#data-autoid-support-for-partial-backward-compatibility)
 - [Developer documentations](#developer-documentations)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -67,6 +72,10 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
         margin: 0;
       }
     </style>
+    <!-- The minimum prerequisite to use our locale selector -->
+    <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.ibm.com" />
+    ...
   </head>
   <body>
     <dds-masthead-container></dds-masthead-container>
@@ -74,7 +83,13 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
 </html>
 ```
 
-For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s. Once you set up a module bundler, you can start importing our component modules, like:
+> 💡 Refer to
+> ["Building for IBM.com'](http://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
+> for `window.digitalData` and `<link rel="alternate" ...>`.
+
+For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s.
+You can start with a minimum configuration for most module bundlers. For example, with [WebPack](https://webpack.js.org/), you don't need any configuration.
+Once you set up a module bundler, you can start importing our component modules, like:
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
@@ -87,15 +102,139 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 ```
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-basic)
 > example implementation.
 
-### Expressive Theme
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-basic)
 
-While styles are included as part of the web components, the expressive theme
-for Carbon requires the `CSS Custom Properties` flag in Carbon to be enabled.
+> 💡 Above CodeSandbox example uses [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-plugin/) to let [WebPack server](https://webpack.js.org/configuration/dev-server/) serve the `.html` file, but you can use other means to serve `.html` files, for example, using [Express](http://expressjs.com) server.
 
-[Learn how to activate CSS Custom Properties here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+### Using Sass
+
+While styles are included as part of the web components, setting up Sass toolchain is often useful for styling your contents.
+
+To use Sass, you can add a Sass toolchain to your module bundler.
+A couple of key settings needed in the Sass toolchain are:
+
+1. [`autoprefixer`](https://github.com/postcss/autoprefixer). This is a requirement for using Carbon core Sass code.
+2. `enable-css-custom-properties` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles, especially using the [Expressive theme](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+3. `grid-column-16` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles as the design prefers Carbon 16 columns grid over [`carbon-components` library's default 12 columns grid](https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/components/src/globals/grid/_grid.scss#L17-L43).
+
+Here's an example for WebPack:
+
+```javascript
+module: {
+  rules: [
+    {
+      test: /\.scss$/,
+      sideEffects: true,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              // `autoprefixer` is a requirement for Carbon core Sass code
+              plugins: [autoprefixer],
+            },
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            implementation: require('node-sass'),
+            sassOptions: {
+              includePaths: ['node_modules'],
+              // `enable-css-custom-properties` and `grid-columns-16` feature flags
+              // are requirements for Carbon for IBM.com styles
+              data: `
+                $feature-flags: (
+                  enable-css-custom-properties: true,
+                  grid-columns-16: true,
+                );
+              `,
+            },
+          },
+        },
+      ],
+    },
+  ],
+},
+```
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
+
+### Using server-side template
+
+`@carbon/ibmdotcom-web-components` uses client-side templates by default for masthead, footer, etc.
+Optionally, you can use server-side template engines, e.g. [Handlebars](https://handlebarsjs.com), to render them.
+
+The first step is loading the data for the template.
+You can use [`@carbon/ibmdotcom-services`](https://www.npmjs.com/package/@carbon/ibmdotcom-services) to load the data:
+
+```javascript
+const { default: LocaleAPI } = require('@carbon/ibmdotcom-services/lib/services/Locale/Locale');
+const { default: TranslateAPI } = require('@carbon/ibmdotcom-services/lib/services/Translation/Translation');
+
+// This allows to use `@carbon/ibmdotcom-services` in node.js environment
+global.sessionStorage = {
+  getItem() {
+    return '""';
+  },
+  setItem() {},
+};
+
+// Uses IBM.com services to load the data to render the template with
+const [langDisplay, translation] = await Promise.all([
+  LocaleAPI.getLangDisplay({
+    cc: region,
+    lc: code,
+  }),
+  TranslateAPI.getTranslation({
+    cc: region,
+    lc: code,
+  }),
+]);
+
+const { footerMenu: footerLinks, footerThin: legalLinks } = translation;
+
+...
+```
+
+Once the data is available, leaf components for masthead, footer, etc. can be used, for example:
+
+```handlebars
+<dds-footer>
+  <dds-footer-logo slot="brand"></dds-footer-logo>
+  <dds-footer-nav>
+    {{#each footerLinks}}
+      <dds-footer-nav-group title-text="{{title}}">
+        {{#each links}}
+          <dds-footer-nav-item href="{{url}}">{{title}}</dds-footer-nav-item>
+        {{/each}}
+      </dds-footer-nav-group>
+    {{/each}}
+  </dds-footer-nav>
+  <dds-locale-button slot="locale-button">{{langDisplay}}</dds-locale-button>
+  <dds-legal-nav slot="legal-nav">
+    {{#each legalLinks}}
+      <dds-legal-nav-item href="{{url}}">{{title}}</dds-legal-nav-item>
+    {{/each}}
+    <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
+  </dds-legal-nav>
+</dds-footer>
+```
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/handlebars)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/handlebars)
 
 ## Browser support
 

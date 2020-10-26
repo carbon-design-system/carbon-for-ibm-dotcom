@@ -9,8 +9,8 @@
 
 import { render } from 'lit-html';
 import { forEach } from '../../../globals/internal/collection-helpers';
-import { LocaleList } from '../../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet } from '../../../globals/services-store/types/translateAPI';
+import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import { BasicLink, BasicLinkSet } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import '../footer-composite';
 import { Default } from '../__stories__/footer.stories';
 

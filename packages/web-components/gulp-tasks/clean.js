@@ -18,6 +18,7 @@ module.exports = function clean() {
     del(config.bundleDestDir),
     del(config.jsDestDir),
     del(config.sassDestDir),
+    del(config.servicesStoreVendorSrcDir),
     del('custom-elements.json'),
     del('storybook-static'),
   ]);

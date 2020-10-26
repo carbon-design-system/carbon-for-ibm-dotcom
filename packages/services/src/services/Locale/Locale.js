@@ -142,11 +142,13 @@ class LocaleAPI {
    * Clears the cache.
    */
   static clearCache() {
-    Object.keys(_requestsList).forEach(key => delete _requestsList[key]);
-    for (let i = 0; i < sessionStorage.length; ++i) {
-      const key = sessionStorage.key(i);
-      if (key.indexOf(_sessionListKey) === 0) {
-        sessionStorage.removeItem(key);
+    if (typeof sessionStorage !== 'undefined') {
+      Object.keys(_requestsList).forEach(key => delete _requestsList[key]);
+      for (let i = 0; i < sessionStorage.length; ++i) {
+        const key = sessionStorage.key(i);
+        if (key.indexOf(_sessionListKey) === 0) {
+          sessionStorage.removeItem(key);
+        }
       }
     }
   }
@@ -298,9 +300,10 @@ class LocaleAPI {
    * @param {Function} reject rejects the promise
    */
   static fetchList(cc, lc, resolve, reject) {
-    const sessionList = JSON.parse(
-      sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`)
-    );
+    const sessionList =
+      typeof sessionStorage === 'undefined'
+        ? undefined
+        : JSON.parse(sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`));
 
     if (sessionList) {
       resolve(sessionList);

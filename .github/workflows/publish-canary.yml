@@ -1,0 +1,36 @@
+name: publish-canary (Publish Canary release to NPM)
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set NPM token
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_API_KEY }}" >> .npmrc
+      - name: Run Lerna
+        run: yarn lerna publish --canary minor --preid canary.${{github.run_id}} --dist-tag canary --force-publish --no-push --no-git-tag-version --yes
+      - name: Deploy NextJS Test
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: carbon-design-system/carbon-for-ibm-dotcom-nextjs-test
+          token: ${{ secrets.GH_DISPATCH_TOKEN }}
+          event-type: deploy-canary
+      - name: Deploy Web Components HTML Test
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: carbon-design-system/carbon-for-ibm-dotcom-web-components-test
+          token: ${{ secrets.GH_DISPATCH_TOKEN }}
+          event-type: deploy-canary

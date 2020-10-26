@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadProfileItem } from '../../../globals/services-store/types/translateAPI';
+import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 const searchParams = new URLSearchParams();
 searchParams.append('response_type', 'token');
