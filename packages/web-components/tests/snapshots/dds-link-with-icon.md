@@ -13,10 +13,7 @@
     <slot>
     </slot>
   </span>
-  <slot
-    class="bx--link-with-icon__icon-undefined"
-    name="icon"
-  >
+  <slot name="icon">
   </slot>
 </a>
 
@@ -33,10 +30,7 @@
     <slot>
     </slot>
   </span>
-  <slot
-    class="bx--link-with-icon__icon-undefined"
-    name="icon"
-  >
+  <slot name="icon">
   </slot>
 </p>
 

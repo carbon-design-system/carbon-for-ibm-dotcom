@@ -16,7 +16,8 @@
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
-  :host(#{$dds-prefix}-card-cta) {
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-link-list-item-card-cta) {
     background-color: $ui-01;
     text-decoration: none;
     display: flex;
