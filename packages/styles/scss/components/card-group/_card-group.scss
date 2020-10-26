@@ -79,17 +79,6 @@
   }
 
   :host(#{$dds-prefix}-card-group),
-  .#{$prefix}--card-group__cards {
-    @include carbon--make-col-ready;
-
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(12, 16);
-    }
-
-    padding: 0;
-  }
-
-  :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__cards__row {
     @include carbon--make-row;
 

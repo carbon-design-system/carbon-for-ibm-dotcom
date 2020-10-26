@@ -118,6 +118,7 @@ A couple of key settings needed in the Sass toolchain are:
 
 1. [`autoprefixer`](https://github.com/postcss/autoprefixer). This is a requirement for using Carbon core Sass code.
 2. `enable-css-custom-properties` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles, especially using the [Expressive theme](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+3. `grid-column-16` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles as the design prefers Carbon 16 columns grid over [`carbon-components` library's default 12 columns grid](https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/components/src/globals/grid/_grid.scss#L17-L43).
 
 Here's an example for WebPack:
 
@@ -145,10 +146,12 @@ module: {
             implementation: require('node-sass'),
             sassOptions: {
               includePaths: ['node_modules'],
-              // `enable-css-custom-properties` feature flag is a requirement for Carbon for IBM.com styles
+              // `enable-css-custom-properties` and `grid-columns-16` feature flags
+              // are requirements for Carbon for IBM.com styles
               data: `
                 $feature-flags: (
                   enable-css-custom-properties: true,
+                  grid-columns-16: true,
                 );
               `,
             },
@@ -165,6 +168,73 @@ module: {
 > example implementation.
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
+
+### Using server-side template
+
+`@carbon/ibmdotcom-web-components` uses client-side templates by default for masthead, footer, etc.
+Optionally, you can use server-side template engines, e.g. [Handlebars](https://handlebarsjs.com), to render them.
+
+The first step is loading the data for the template.
+You can use [`@carbon/ibmdotcom-services`](https://www.npmjs.com/package/@carbon/ibmdotcom-services) to load the data:
+
+```javascript
+const { default: LocaleAPI } = require('@carbon/ibmdotcom-services/lib/services/Locale/Locale');
+const { default: TranslateAPI } = require('@carbon/ibmdotcom-services/lib/services/Translation/Translation');
+
+// This allows to use `@carbon/ibmdotcom-services` in node.js environment
+global.sessionStorage = {
+  getItem() {
+    return '""';
+  },
+  setItem() {},
+};
+
+// Uses IBM.com services to load the data to render the template with
+const [langDisplay, translation] = await Promise.all([
+  LocaleAPI.getLangDisplay({
+    cc: region,
+    lc: code,
+  }),
+  TranslateAPI.getTranslation({
+    cc: region,
+    lc: code,
+  }),
+]);
+
+const { footerMenu: footerLinks, footerThin: legalLinks } = translation;
+
+...
+```
+
+Once the data is available, leaf components for masthead, footer, etc. can be used, for example:
+
+```handlebars
+<dds-footer>
+  <dds-footer-logo slot="brand"></dds-footer-logo>
+  <dds-footer-nav>
+    {{#each footerLinks}}
+      <dds-footer-nav-group title-text="{{title}}">
+        {{#each links}}
+          <dds-footer-nav-item href="{{url}}">{{title}}</dds-footer-nav-item>
+        {{/each}}
+      </dds-footer-nav-group>
+    {{/each}}
+  </dds-footer-nav>
+  <dds-locale-button slot="locale-button">{{langDisplay}}</dds-locale-button>
+  <dds-legal-nav slot="legal-nav">
+    {{#each legalLinks}}
+      <dds-legal-nav-item href="{{url}}">{{title}}</dds-legal-nav-item>
+    {{/each}}
+    <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
+  </dds-legal-nav>
+</dds-footer>
+```
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/handlebars)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/handlebars)
 
 ## Browser support
 
