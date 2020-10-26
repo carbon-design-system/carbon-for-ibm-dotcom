@@ -14,18 +14,16 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card-block-medium';
-import '../feature-card-block-medium-card';
+// import '../feature-card-block-medium-card';
 
 export const Default = ({ parameters }) => {
-  const { blockHeading, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
+  const { copy, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
   return html`
-    <dds-feature-card-block-medium>
-      <dds-feature-card-block-medium-heading slot="heading">${blockHeading}</dds-feature-card-block-medium-heading>
-      <dds-feature-card-block-medium-card href=${ifNonNull(href || undefined)}>
-        <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
-        <slot slot="heading">${heading}</slot>
-        ${ArrowRight20({ slot: 'footer' })}
-      </dds-feature-card-block-medium-card>
+    <dds-feature-card-block-medium href=${ifNonNull(href || undefined)}>
+      <slot slot="heading">${heading}</slot>
+      <slot slot="eyebrow">${eyebrow}</slot>
+      <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+      ${copy} ${ArrowRight20({ slot: 'footer' })}
     </dds-feature-card-block-medium>
   `;
 };
@@ -48,12 +46,10 @@ export default {
     hasGrid: true,
     knobs: {
       'dds-feature-card-block-medium': () => ({
-        blockHeading: textNullable(
-          'Block Heading (blockHeading):',
-          'How is artificial intelligence used today in your industry?'
-        ),
-        heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
+        heading: textNullable('Block Heading (blockHeading):', 'How is artificial intelligence used today in your industry?'),
+        copy: textNullable('Card copy (copy):', 'Explore AI use cases in all industries'),
         defaultSrc: textNullable('Image src (defaultSrc):', 'https://dummyimage.com/672x672/ee5396/161616&text=1x1'),
+        eyebrow: textNullable('Card eyebrow (eyebrow):', 'Explore AI use cases in all industries'),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),

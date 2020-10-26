@@ -12,7 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/feature-card-block-medium/feature-card-block-medium';
 @import '../feature-card/feature-card.scss';
 
-:host(#{$dds-prefix}-feature-card-block-medium-card) {
+:host(#{$dds-prefix}-feature-card-block-medium) {
   @extend :host(#{$dds-prefix}-feature-card);
 
   display: block;
