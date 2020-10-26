@@ -13,7 +13,9 @@
 global.config = {
   distPath: 'dist/**/*',
   distCss: 'ibm-dotcom-styles.css',
+  distRtlCss: 'ibm-dotcom-styles-rtl.css',
   distCssMin: 'ibm-dotcom-styles.min.css',
+  distRtlCssMin: 'ibm-dotcom-styles-rtl.min.css',
   scssEntry: 'scss/ibm-dotcom-styles.scss',
   scssFiles: 'scss/**/*.scss',
 };

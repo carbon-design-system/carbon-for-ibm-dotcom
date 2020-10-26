@@ -39,6 +39,19 @@ function _sass() {
         cascade: true,
       })
     )
+}
+
+/**
+ * @name ltr
+ * @function
+ * @description
+ * Compile the regular versions of the css directory into the dist folder
+ *
+ * @returns {object} the gulp task stream
+ * @private
+ */
+function ltr() {
+  return _sass()
     .pipe(rename(global.config.distCss))
     .pipe(gulp.dest('dist'))
     .pipe(cleanCSS())
@@ -49,6 +62,6 @@ function _sass() {
 /**
  * Gulp task export
  *
- * @module sass
+ * @module sass-ltr
  */
-module.exports = gulp.task('sass', _sass);
+module.exports = gulp.task('sass-ltr', ltr);
