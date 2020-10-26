@@ -140,6 +140,7 @@ module.exports = ({ config, mode }) => {
             data: `
               $feature-flags: (
                 enable-css-custom-properties: true,
+                grid-columns-16: true,
               );
             `,
             sourceMap: useStyleSourceMap,

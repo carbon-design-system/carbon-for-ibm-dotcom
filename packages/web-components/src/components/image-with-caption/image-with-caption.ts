@@ -33,6 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   /**
    * `true` handles re-opening after model is closed
+   *
    * @private
    */
   private _handleClick() {

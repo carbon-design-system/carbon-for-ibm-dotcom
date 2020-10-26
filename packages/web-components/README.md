@@ -9,10 +9,15 @@ A IBM.com Design System variant that's as easy to use as native HTML elements, w
 
 - [Getting started](#getting-started)
   - [Basic usage](#basic-usage)
+  - [Using Sass](#using-sass)
 - [Browser support](#browser-support)
 - [List of available components](#list-of-available-components)
+- [Advanced](#advanced)
+  - [Using custom styles in components](#using-custom-styles-in-components)
+    - [Creating derived components with different style](#creating-derived-components-with-different-style)
+    - [Using CSS Custom Properties](#using-css-custom-properties)
+    - [CSS Shadow Parts](#css-shadow-parts)
 - [Stable selectors (for analytics and integration/E2E testing) in Web Components](#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
-  - [`data-autoid` support for partial backward compatibility](#data-autoid-support-for-partial-backward-compatibility)
 - [Developer documentations](#developer-documentations)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -44,8 +49,7 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
 <html>
   <head>
     <script type="module">
-      // Copy from `dist` directory in the package and put it to the same directory as this file
-      import './ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -67,6 +71,10 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
         margin: 0;
       }
     </style>
+    <!-- The minimum prerequisite to use our locale selector -->
+    <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.ibm.com" />
+    ...
   </head>
   <body>
     <dds-masthead-container></dds-masthead-container>
@@ -74,7 +82,19 @@ For quick start, you can use our pre-built bundle that contains masthead, footer
 </html>
 ```
 
-For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s. Once you set up a module bundler, you can start importing our component modules, like:
+> 💡 Refer to
+> ["Building for IBM.com'](http://ibmdotcom-web-components.mybluemix.net/?path=/docs/overview-building-for-ibm-dotcom--page) page
+> for `window.digitalData` and `<link rel="alternate" ...>`.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/bundle)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/bundle)
+
+For production usage, our recommendation is **setting up a module bundler** to resolve ECMAScript `import`s.
+You can start with a minimum configuration for most module bundlers. For example, with [WebPack](https://webpack.js.org/), you don't need any configuration.
+Once you set up a module bundler, you can start importing our component modules, like:
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
@@ -87,15 +107,76 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 ```
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/masthead)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-basic)
 > example implementation.
 
-### Expressive Theme
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-basic)
 
-While styles are included as part of the web components, the expressive theme
-for Carbon requires the `CSS Custom Properties` flag in Carbon to be enabled.
+> 💡 Above CodeSandbox example uses [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-plugin/) to let [WebPack server](https://webpack.js.org/configuration/dev-server/) serve the `.html` file, but you can use other means to serve `.html` files, for example, using [Express](http://expressjs.com) server.
 
-[Learn how to activate CSS Custom Properties here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+### Using Sass
+
+While styles are included as part of the web components, setting up Sass toolchain is often useful for styling your contents.
+
+To use Sass, you can add a Sass toolchain to your module bundler.
+A couple of key settings needed in the Sass toolchain are:
+
+1. [`autoprefixer`](https://github.com/postcss/autoprefixer). This is a requirement for using Carbon core Sass code.
+2. `enable-css-custom-properties` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles, especially using the [Expressive theme](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles/README.md).
+3. `grid-column-16` Carbon Sass feature flag. This is a requirement for Carbon for IBM.com styles as the design prefers Carbon 16 columns grid over [`carbon-components` library's default 12 columns grid](https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/components/src/globals/grid/_grid.scss#L17-L43).
+
+Here's an example for WebPack:
+
+```javascript
+module: {
+  rules: [
+    {
+      test: /\.scss$/,
+      sideEffects: true,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              // `autoprefixer` is a requirement for Carbon core Sass code
+              plugins: [autoprefixer],
+            },
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            implementation: require('node-sass'),
+            sassOptions: {
+              includePaths: ['node_modules'],
+              // `enable-css-custom-properties` and `grid-columns-16` feature flags
+              // are requirements for Carbon for IBM.com styles
+              data: `
+                $feature-flags: (
+                  enable-css-custom-properties: true,
+                  grid-columns-16: true,
+                );
+              `,
+            },
+          },
+        },
+      ],
+    },
+  ],
+},
+```
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
+
+### Using server-side template
+
+Please see [here](./docs/server-side-template.md).
 
 ## Browser support
 

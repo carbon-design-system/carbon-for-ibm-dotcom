@@ -1,0 +1,41 @@
+//
+// @license
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+$feature-flags: (
+  enable-css-custom-properties: true,
+  grid-columns-16: true,
+);
+
+@import 'carbon-components/scss/globals/grid/grid';
+@import 'carbon-components/scss/components/ui-shell/content';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/mono';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/sans';
+
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+html,
+body {
+  margin: 0;
+}
+
+/* Margin settings for demo content */
+h2 {
+  margin: $spacing-07 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+main {
+  margin: calc(#{mini-units(6)} + 1px) auto 0 auto;
+  padding: $spacing-09;
+  max-width: 99rem;
+}
