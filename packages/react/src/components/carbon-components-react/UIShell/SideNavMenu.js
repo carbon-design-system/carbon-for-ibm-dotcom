@@ -186,7 +186,10 @@ export class SideNavMenu extends React.Component {
       [customClassName]: !!customClassName,
     });
     return (
-      <li className={className}>
+      <li
+        className={className}
+        role="tab"
+        aria-selected={rest.selected ? 'true' : 'false'}>
         <button
           aria-haspopup="true"
           aria-expanded={isExpanded}
