@@ -28,6 +28,7 @@ export default {
             'Search keywords',
             groupId
           ),
+          labelText: 'Search keywords',
           onChange: () => {},
           onKeyDown: () => {},
         },
