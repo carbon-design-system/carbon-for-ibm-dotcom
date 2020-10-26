@@ -7,6 +7,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+$feature-flags: (
+  enable-css-custom-properties: true,
+  grid-columns-16: true,
+);
+
 @import 'carbon-components/scss/globals/grid/grid';
 @import 'carbon-components/scss/components/ui-shell/content';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/mono';

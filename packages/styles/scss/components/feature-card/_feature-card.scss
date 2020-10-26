@@ -71,12 +71,6 @@
       }
     }
 
-    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
-    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
-      margin-right: 0;
-      color: $inverse-link;
-    }
-
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
     }

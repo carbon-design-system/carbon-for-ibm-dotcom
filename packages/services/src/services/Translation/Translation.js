@@ -118,6 +118,7 @@ class TranslationAPI {
 
     const sessionTranslation = this.getSessionCache(itemKey);
 
+
     if (sessionTranslation) {
       resolve(sessionTranslation);
     } else {
