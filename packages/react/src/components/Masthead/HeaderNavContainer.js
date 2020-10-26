@@ -85,8 +85,11 @@ const HeaderNavContainer = ({ children }) => {
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
         <div className={`${prefix}--header__nav-content`} ref={contentRef}>
-          <div className="sub-content-left" ref={contentLeftRef} />
-          <div className="sub-content-right" ref={contentRightRef} />
+          <div className={`${prefix}-sub-content-left`} ref={contentLeftRef} />
+          <div
+            className={`${prefix}-sub-content-right`}
+            ref={contentRightRef}
+          />
           {children}
         </div>
         <button
