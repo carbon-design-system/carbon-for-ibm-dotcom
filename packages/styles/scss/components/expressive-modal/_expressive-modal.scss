@@ -43,6 +43,14 @@
     }
   }
 
+  :host(#{$dds-prefix}-modal-close-button),
+  #{$modal}--expressive {
+    #{$modal}-close {
+      top: $offset-close-icon;
+      right: $offset-close-icon;
+    }
+  }
+
   :host(#{$dds-prefix}-modal-heading),
   #{$modal}--expressive #{$modal}-content h1 {
     @include carbon--type-style('expressive-heading-04');
@@ -64,6 +72,14 @@
         height: calc(100% - #{$carbon--spacing-07});
         max-height: none;
       }
+    }
+  }
+
+  :host(#{$dds-prefix}-modal-close-button[expressive-size='full-width']),
+  #{$modal}--expressive--fullwidth {
+    #{$modal}-close {
+      top: 0;
+      right: 0;
     }
   }
 

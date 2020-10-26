@@ -58,8 +58,6 @@
 }
 
 :host(#{$dds-prefix}-modal-close-button) {
-  @extend .#{$prefix}--modal--expressive;
-
   display: contents;
 }
 

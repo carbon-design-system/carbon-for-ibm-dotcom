@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import BXModal from 'carbon-web-components/es/components/modal/modal.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSModalCloseButton from './modal-close-button';
 import styles from './modal.scss';
 
 const { prefix } = settings;
@@ -157,8 +158,20 @@ class DDSModal extends StableSelectorMixin(BXModal) {
   /**
    * The size variant.
    */
-  @property({ attribute: 'expressive-size' })
+  @property({ reflect: true, attribute: 'expressive-size' })
   expressiveSize = DDS_MODAL_SIZE.REGULAR;
+
+  updated(changedProperties) {
+    if (changedProperties.has('expressiveSize')) {
+      const { selectorCloseButton } = this.constructor as typeof DDSModal;
+      const { expressiveSize } = this;
+      const closeButton = this.querySelector(selectorCloseButton);
+      if (closeButton) {
+        (closeButton as DDSModalCloseButton).expressiveSize = expressiveSize;
+      }
+    }
+    return super.updated(changedProperties);
+  }
 
   render() {
     const {
