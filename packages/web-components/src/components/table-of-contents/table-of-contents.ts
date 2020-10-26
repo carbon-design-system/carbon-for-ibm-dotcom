@@ -55,12 +55,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _intersectionStatus: WeakMap<HTMLAnchorElement, boolean> = new WeakMap();
 
   /**
-   * The container for the mobile UI.
-   */
-  @query(`.${prefix}--tableofcontents__mobile`)
-  private _mobileContainerNode?: HTMLElement;
-
-  /**
    * The `<select>` for the mobile UI.
    */
   @query(`.${prefix}--tableofcontents__mobile__select`)
@@ -72,37 +66,10 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _observerIntersectionTarget: IntersectionObserver | null = null;
 
   /**
-   * The observer for the resize of the mobile container.
-   */
-  private _observerResizeMobileContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-
-  /**
    * The target `<a>`s harvested from the document.
    */
   @internalProperty()
   private _targets: HTMLAnchorElement[] = [];
-
-  /**
-   * Cleans-up and creats the resize observer for the mobile container.
-   *
-   * @param [options] The options.
-   * @param [options.create] `true` to create the new resize observer.
-   */
-  private _cleanAndCreateObserverResizeMobileContainer({ create }: { create?: boolean } = {}) {
-    const { _mobileContainerNode: mobileContainerNode } = this;
-    if (mobileContainerNode) {
-      if (this._observerResizeMobileContainer) {
-        this._observerResizeMobileContainer.disconnect();
-        this._observerResizeMobileContainer = null;
-      }
-      if (create) {
-        // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-        // @ts-ignore
-        this._observerResizeMobileContainer = new ResizeObserver(this._observeResizeMobileContainer);
-        this._observerResizeMobileContainer.observe(mobileContainerNode);
-      }
-    }
-  }
 
   /**
    * Cleans-up and creats the inersection observer for the intersection of target `<a>`s with the viewport.
@@ -119,7 +86,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     }
     if (typeof height === 'number') {
       this._observerIntersectionTarget = new IntersectionObserver(this._observeIntersectionTarget, {
-        rootMargin: `-${height}px 0px 0px 0px`,
         threshold: 1,
       });
       this._targets.forEach(item => {
@@ -218,32 +184,14 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     }
   };
 
-  /**
-   * Handles resize of mobile container.
-   *
-   * @param records The resize records.
-   */
-  private _observeResizeMobileContainer = records => {
-    const entry = records[records.length - 1];
-    const { height } = entry.contentRect;
-    this._cleanAndCreateObserverIntersectionTarget({ height });
-    this._hasMobileContainerVisible = height > 0;
-  };
-
   connectedCallback() {
     super.connectedCallback();
-    this._cleanAndCreateObserverResizeMobileContainer({ create: true });
     this._cleanAndCreateObserverIntersectionTarget({ height: 0 });
   }
 
   disconnectedCallback() {
     this._cleanAndCreateObserverIntersectionTarget();
-    this._cleanAndCreateObserverResizeMobileContainer();
     super.disconnectedCallback();
-  }
-
-  firstUpdated() {
-    this._cleanAndCreateObserverResizeMobileContainer({ create: true });
   }
 
   updated(changedProperties) {

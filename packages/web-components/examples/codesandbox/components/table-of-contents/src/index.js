@@ -8,3 +8,4 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents.js';
+import './index.scss';
