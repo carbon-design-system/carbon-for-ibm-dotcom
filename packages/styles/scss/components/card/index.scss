@@ -88,7 +88,8 @@
     }
 
     .#{$prefix}--card:focus {
-      outline-color: $focus;
+      outline: 2px solid $focus;
+      outline-offset: -2px;
     }
 
     .#{$prefix}--card.#{$prefix}--tile {
@@ -101,6 +102,10 @@
         @include use-carbon-productive-tokens();
         @include carbon--type-style('body-short-01');
       }
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
