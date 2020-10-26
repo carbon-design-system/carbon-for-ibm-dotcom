@@ -29,7 +29,7 @@ const sessionStorageMock = (() => {
 
   return {
     getItem(key) {
-      return cache[key];
+      return cache[key] || null;
     },
     setItem(key, value) {
       cache[key] = value;
@@ -93,6 +93,7 @@ describe('TranslationAPI', () => {
     const elseResponse = await TranslationAPI.getTranslation({});
 
     // done since current test only focuses on body
+    let successId = responseSuccess.id;
     delete responseSuccess.id;
     delete response.id;
     delete elseResponse.id;
@@ -106,13 +107,13 @@ describe('TranslationAPI', () => {
       },
     });
     expect(response).toEqual(responseSuccess);
+
+    responseSuccess['id'] = successId;
   });
 
   it('should return a json with a recent timestamp', async () => {
-    const mockDate = new Date('2019');
-    const _Date = Date;
-    global.Date = jest.fn(() => mockDate);
-    global.Date.now = _Date.now;
+    const mockDate = 1546300800000; // Epoch time of January 1, 2019 midnight UTC
+    global.Date.now = jest.fn(() => mockDate);
 
     // using very old cached session
     sessionStorageMock.setItem(
@@ -124,7 +125,7 @@ describe('TranslationAPI', () => {
       sessionStorageMock.getItem('dds-translation-us-en')
     );
 
-    expect(previousSession.id).toEqual('TRANSLATION_OLD');
+    expect(previousSession.id).toEqual('TRANSLATION_UNCHANGED');
 
     // reinitializing import
     const TranslationAPI = (await import('../Translation')).default;
@@ -144,7 +145,7 @@ describe('TranslationAPI', () => {
     expect(response).toHaveProperty('timestamp');
 
     // should equal mock timestamp
-    expect(response.timestamp).toEqual(mockDate.valueOf());
+    expect(response.timestamp).toEqual(mockDate);
 
     // id should have changed
     expect(response.id).not.toEqual(previousSession.id);
@@ -174,7 +175,12 @@ describe('TranslationAPI', () => {
       cc: 'us',
     });
 
-    // timestamp should remain unchanged
-    expect(response.timestamp).toEqual(previousSession.timestamp);
+    // cache remains unchanged
+    expect(response.id).toEqual('TRANSLATION_UNCHANGED');
+    delete previousSession.id;
+    delete response.id;
+
+    // body and timestamp should remain unchanged
+    expect(response).toEqual(previousSession);
   });
 });

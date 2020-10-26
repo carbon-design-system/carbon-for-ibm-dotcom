@@ -57,13 +57,15 @@ class TranslationAPI {
    * Clears the cache.
    */
   static clearCache() {
-    Object.keys(_requestsTranslation).forEach(
-      key => delete _requestsTranslation[key]
-    );
-    for (let i = 0; i < sessionStorage.length; ++i) {
-      const key = sessionStorage.key(i);
-      if (key.indexOf(_sessionTranslationKey) === 0) {
-        sessionStorage.removeItem(key);
+    if (typeof sessionStorage !== 'undefined') {
+      Object.keys(_requestsTranslation).forEach(
+        key => delete _requestsTranslation[key]
+      );
+      for (let i = 0; i < sessionStorage.length; ++i) {
+        const key = sessionStorage.key(i);
+        if (key.indexOf(_sessionTranslationKey) === 0) {
+          sessionStorage.removeItem(key);
+        }
       }
     }
   }
@@ -132,7 +134,7 @@ class TranslationAPI {
           })
           .then(response => this.transformData(response.data))
           .then(data => {
-            data['timestamp'] = new Date().getTime();
+            data['timestamp'] = Date.now();
             (data['id'] = 'TRANSLATION_FRESH'),
               sessionStorage.setItem(
                 `${_sessionTranslationKey}-${country}-${lang}`,
@@ -178,14 +180,12 @@ class TranslationAPI {
    * @returns {object} session storage object
    */
   static getSessionCache(key) {
-    let session = sessionStorage.getItem(key);
-    if (!session) {
-      return;
-    }
+    const session =
+      typeof sessionStorage === 'undefined'
+        ? undefined
+        : JSON.parse(sessionStorage.getItem(key));
 
-    session = JSON.parse(session);
-
-    if (!session.timestamp) {
+    if (!session || !session.timestamp) {
       return;
     }
 
@@ -197,7 +197,7 @@ class TranslationAPI {
       return;
     }
 
-    session['id'] = 'TRANSLATION_OLD';
+    session['id'] = 'TRANSLATION_UNCHANGED';
     return session;
   }
 }
