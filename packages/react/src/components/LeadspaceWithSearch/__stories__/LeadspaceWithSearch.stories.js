@@ -7,11 +7,13 @@
 
 import LeadspaceWithSearch from '../LeadspaceWithSearch';
 import React from 'react';
+import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|LeadspaceWithSearch',
   parameters: {
+    ...readme.parameters,
     knobs: {
       LeadspaceWithSearch: ({ groupId }) => ({
         heading: text('Heading (heading):', 'Find a product', groupId),
