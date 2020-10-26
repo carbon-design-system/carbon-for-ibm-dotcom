@@ -92,12 +92,6 @@ describe('TranslationAPI', () => {
 
     const elseResponse = await TranslationAPI.getTranslation({});
 
-    // done since current test only focuses on body
-    let successId = responseSuccess.id;
-    delete responseSuccess.id;
-    delete response.id;
-    delete elseResponse.id;
-
     expect(elseResponse).toEqual(responseSuccess);
 
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
@@ -107,8 +101,6 @@ describe('TranslationAPI', () => {
       },
     });
     expect(response).toEqual(responseSuccess);
-
-    responseSuccess['id'] = successId;
   });
 
   it('should return a json with a recent timestamp', async () => {
@@ -125,7 +117,7 @@ describe('TranslationAPI', () => {
       sessionStorageMock.getItem('dds-translation-us-en')
     );
 
-    expect(previousSession.id).toEqual('TRANSLATION_UNCHANGED');
+    expect(previousSession.id).toEqual('TRANSLATION_FRESH');
 
     // reinitializing import
     const TranslationAPI = (await import('../Translation')).default;
@@ -146,9 +138,6 @@ describe('TranslationAPI', () => {
 
     // should equal mock timestamp
     expect(response.timestamp).toEqual(mockDate);
-
-    // id should have changed
-    expect(response.id).not.toEqual(previousSession.id);
     expect(response.id).toEqual('TRANSLATION_FRESH');
 
     // timestamps should have at least a two hour difference
@@ -174,11 +163,6 @@ describe('TranslationAPI', () => {
       lc: 'en',
       cc: 'us',
     });
-
-    // cache remains unchanged
-    expect(response.id).toEqual('TRANSLATION_UNCHANGED');
-    delete previousSession.id;
-    delete response.id;
 
     // body and timestamp should remain unchanged
     expect(response).toEqual(previousSession);

@@ -118,7 +118,6 @@ class TranslationAPI {
 
     const sessionTranslation = this.getSessionCache(itemKey);
 
-
     if (sessionTranslation) {
       resolve(sessionTranslation);
     } else {
@@ -197,8 +196,6 @@ class TranslationAPI {
       sessionStorage.removeItem(key);
       return;
     }
-
-    session['id'] = 'TRANSLATION_UNCHANGED';
     return session;
   }
 }
