@@ -22,4 +22,4 @@ jobs:
           NPM_API_KEY: ${{ secrets.NPM_API_KEY }}
         run: echo "//registry.npmjs.org/:_authToken=$NPM_API_KEY" >> .npmrc
       - name: Run Lerna
-        run: yarn lerna publish --canary minor --dist-tag nightly.${{github.run_id}} --preid nightly --no-push --no-git-tag-version --yes
+        run: yarn lerna publish --canary minor --dist-tag nightly --preid nightly.${{github.run_id}} --no-push --no-git-tag-version --yes

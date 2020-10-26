@@ -18,22 +18,26 @@ const { prefix } = settings;
  */
 const CategoryGroup = ({ href, title, children, ...rest }) => (
   <div className={`${prefix}--masthead__megamenu__category-group`}>
-    {href ? (
-      <LinkWithIcon
-        href={href}
-        className={`${prefix}--masthead__megamenu__category-headline`}
-        data-autoid={`${rest.autoid}-list${rest.index}`}>
-        <span>{title}</span>
-        <ArrowRight16 />
-      </LinkWithIcon>
-    ) : (
-      <div
-        className={`${prefix}--masthead__megamenu__category-headline`}
-        data-autoid={`${rest.autoid}-list${rest.index}`}>
-        <p>{title}</p>
+    <div className={`${prefix}--masthead__megamenu__category-group-shield`}>
+      <div className={`${prefix}--masthead__megamenu__category-group-content`}>
+        {href ? (
+          <LinkWithIcon
+            href={href}
+            className={`${prefix}--masthead__megamenu__category-headline`}
+            data-autoid={`${rest.autoid}-list${rest.index}`}>
+            <span>{title}</span>
+            <ArrowRight16 />
+          </LinkWithIcon>
+        ) : (
+          <div
+            className={`${prefix}--masthead__megamenu__category-headline`}
+            data-autoid={`${rest.autoid}-list${rest.index}`}>
+            <p>{title}</p>
+          </div>
+        )}
+        {children}
       </div>
-    )}
-    {children}
+    </div>
   </div>
 );
 
