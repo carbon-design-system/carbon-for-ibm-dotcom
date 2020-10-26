@@ -87,7 +87,7 @@ module.exports = {
       },
     },
     {
-      files: ['examples/codesandbox/**/*.config.js'],
+      files: ['examples/codesandbox/**/*.config.js', 'examples/codesandbox/**/app.js'],
       parserOptions: {
         sourceType: 'script',
       },
