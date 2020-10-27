@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link bx--link-with-icon"
+  class="bx--link bx--link-with-icon bx--link-with-icon__icon-right"
   id="link"
 >
   <span>
@@ -23,7 +23,7 @@
 
 ```
 <a
-  class="bx--link bx--link-with-icon"
+  class="bx--link bx--link-with-icon bx--link-with-icon__icon-right"
   href="#"
   id="link"
 >

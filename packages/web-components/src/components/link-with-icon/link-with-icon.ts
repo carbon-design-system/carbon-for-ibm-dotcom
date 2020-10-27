@@ -63,24 +63,25 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderIcon(): TemplateResult | string | void {
     return html`
-      <slot class="${prefix}--link-with-icon__icon-${this.iconPlacement}" name="icon"></slot>
+      <slot name="icon"></slot>
     `;
   }
 
   protected _renderInner() {
-    return this.iconPlacement === ICON_PLACEMENT.LEFT
-      ? html`
-          ${this._renderIcon()}${this._renderContent()}
-        `
-      : html`
-          ${this._renderContent()}${this._renderIcon()}
-        `;
+    return html`
+      ${this._renderContent()}${this._renderIcon()}
+    `;
   }
 
   updated() {
-    const { _linkNode: linkNode } = this;
+    const { iconPlacement, _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
+      linkNode.classList.toggle(`${prefix}--link-with-icon__icon-${ICON_PLACEMENT.LEFT}`, iconPlacement === ICON_PLACEMENT.LEFT);
+      linkNode.classList.toggle(
+        `${prefix}--link-with-icon__icon-${ICON_PLACEMENT.RIGHT}`,
+        iconPlacement === ICON_PLACEMENT.RIGHT
+      );
     }
   }
 

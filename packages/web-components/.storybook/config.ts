@@ -29,6 +29,7 @@ const SORT_ORDER = [
   'overview-getting-started--page',
   'overview-building-for-ibm-dotcom--page',
   'overview-stable-selectors--page',
+  'overview-using-server-side-template--page',
   'overview-enable-right-to-left-rtl--page',
   'overview-feature-flags--page',
 ];
