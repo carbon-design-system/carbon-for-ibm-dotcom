@@ -9,6 +9,7 @@ import mockAxios from 'axios';
 import oldSession from './data/timestamp_response.json';
 import responseSuccess from './data/response.json';
 import root from 'window-or-global';
+import TranslationAPI from '../Translation';
 
 jest.mock('../../Locale', () => ({
   LocaleAPI: {
@@ -62,9 +63,6 @@ describe('TranslationAPI', () => {
       href: 'https://www.loremipsum.com',
     };
 
-    // reinitializing import
-    const TranslationAPI = (await import('../Translation')).default;
-
     const response = await TranslationAPI.getTranslation({
       lc: 'en',
       cc: 'us',
@@ -78,9 +76,6 @@ describe('TranslationAPI', () => {
   });
 
   it('should fetch the i18n data', async () => {
-    // reinitializing import
-    const TranslationAPI = (await import('../Translation')).default;
-
     // Expected endpoint called
     const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
     const fetchUrl = `${endpoint}/usen.json`;
@@ -119,8 +114,6 @@ describe('TranslationAPI', () => {
 
     expect(previousSession.id).toEqual('TRANSLATION_FRESH');
 
-    // reinitializing import
-    const TranslationAPI = (await import('../Translation')).default;
     const response = await TranslationAPI.getTranslation({
       lc: 'en',
       cc: 'us',
@@ -139,11 +132,6 @@ describe('TranslationAPI', () => {
     // should equal mock timestamp
     expect(response.timestamp).toEqual(mockDate);
     expect(response.id).toEqual('TRANSLATION_FRESH');
-
-    // timestamps should have at least a two hour difference
-    const timeDiff = response.timestamp - previousSession.timestamp,
-      _twoHours = 60 * 60 * 2000;
-    expect(timeDiff).toBeGreaterThan(_twoHours);
   });
 
   it('timestamp should not change if within two hours', async () => {
@@ -157,8 +145,6 @@ describe('TranslationAPI', () => {
       sessionStorageMock.getItem('dds-translation-us-en')
     );
 
-    // reinitializing import
-    const TranslationAPI = (await import('../Translation')).default;
     const response = await TranslationAPI.getTranslation({
       lc: 'en',
       cc: 'us',
@@ -166,5 +152,9 @@ describe('TranslationAPI', () => {
 
     // body and timestamp should remain unchanged
     expect(response).toEqual(previousSession);
+  });
+
+  afterEach(() => {
+    TranslationAPI.clearCache();
   });
 });
