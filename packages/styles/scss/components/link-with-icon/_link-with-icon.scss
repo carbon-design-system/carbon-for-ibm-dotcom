@@ -14,6 +14,7 @@
   .#{$prefix}--link-with-icon,
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-link-list-item),
+  :host(#{$dds-prefix}-link-list-item-cta),
   :host(#{$dds-prefix}-text-cta) {
     display: flex;
 
@@ -41,18 +42,18 @@
         }
       }
     }
+  }
 
-    &.#{$prefix}--link-with-icon__icon-left {
-      justify-content: flex-end;
-      flex-direction: row-reverse;
+  .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon__icon-left {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 
-      svg {
-        align-self: start;
-        position: relative;
-        top: 1px;
-        margin-left: 0;
-        margin-right: $carbon--spacing-03;
-      }
+    svg {
+      align-self: start;
+      position: relative;
+      top: 1px;
+      margin-left: 0;
+      margin-right: $carbon--spacing-03;
     }
   }
 
@@ -61,15 +62,6 @@
   :host(#{$dds-prefix}-text-cta) {
     &:not(:first-of-type) {
       margin-left: $carbon--spacing-07;
-    }
-
-    .#{$prefix}--link-with-icon__icon-left::slotted(svg[slot='icon']) {
-      margin-right: $carbon--spacing-03;
-      margin-left: 0;
-    }
-    .#{$prefix}--link-with-icon__icon-right::slotted(svg[slot='icon']) {
-      margin-left: $carbon--spacing-03;
-      margin-right: 0;
     }
   }
 

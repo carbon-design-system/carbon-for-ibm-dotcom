@@ -13,7 +13,7 @@ import { Default, Horizontal, Vertical, VerticalWithCards, EndOfSection } from '
 
 describe('dds-link-list', function() {
   it('Renders Default', async function() {
-    render(Default(), document.body);
+    render(Default({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });
@@ -70,7 +70,7 @@ describe('dds-link-list', function() {
   });
 
   it('Renders End of section', async function() {
-    render(EndOfSection(), document.body);
+    render(EndOfSection({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
   });
