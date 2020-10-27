@@ -116,6 +116,7 @@
   <div class="bx--modal-content">
     <dds-modal-header slot="header">
       <dds-modal-close-button
+        expressive-size=""
         role="button"
         tabindex="0"
       >
