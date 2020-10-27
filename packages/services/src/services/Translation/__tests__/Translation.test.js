@@ -33,9 +33,7 @@ const sessionStorageMock = (() => {
       return cache[key] || null;
     },
     setItem(key, value) {
-      value = JSON.parse(value);
-      value['id'] = 'TRANSLATION_FRESH';
-      cache[key] = JSON.stringify(value);
+      cache[key] = value;
     },
     removeItem(key) {
       delete cache[key];
@@ -88,8 +86,6 @@ describe('TranslationAPI', () => {
     });
 
     const elseResponse = await TranslationAPI.getTranslation({});
-    delete elseResponse['id'];
-
     expect(elseResponse).toEqual(responseSuccess);
 
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
@@ -98,7 +94,7 @@ describe('TranslationAPI', () => {
         origin: 'https://ibm.com',
       },
     });
-    delete response['id'];
+
     expect(response).toEqual(responseSuccess);
   });
 
@@ -109,16 +105,10 @@ describe('TranslationAPI', () => {
     // using very old cached session
     sessionStorageMock.setItem(
       'dds-translation-us-en',
-      JSON.stringify(oldSession)
+      JSON.stringify(Object.assign(oldSession, { CACHE: true }))
     );
 
-    const previousSession = JSON.parse(
-      sessionStorageMock.getItem('dds-translation-us-en')
-    );
-
-    expect(previousSession.id).toEqual('TRANSLATION_FRESH');
-
-    const response = await TranslationAPI.getTranslation({
+    await TranslationAPI.getTranslation({
       lc: 'en',
       cc: 'us',
     });
@@ -127,37 +117,8 @@ describe('TranslationAPI', () => {
       sessionStorageMock.getItem('dds-translation-us-en')
     );
 
-    response['id'] = newSession.id;
-
-    // newest response and storage data should match
-    expect(response).toEqual(newSession);
-
-    // should contain timestamp
-    expect(response).toHaveProperty('timestamp');
-
-    // should equal mock timestamp
-    expect(response.timestamp).toEqual(mockDate);
-    expect(response.id).toEqual('TRANSLATION_FRESH');
-  });
-
-  it('timestamp should not change if within two hours', async () => {
-    // using recent cached session
-    sessionStorageMock.setItem(
-      'dds-translation-us-en',
-      JSON.stringify(responseSuccess)
-    );
-
-    const previousSession = JSON.parse(
-      sessionStorageMock.getItem('dds-translation-us-en')
-    );
-
-    const response = await TranslationAPI.getTranslation({
-      lc: 'en',
-      cc: 'us',
-    });
-
-    // body and timestamp should remain unchanged
-    expect(response).toEqual(previousSession);
+    // fresh data would lack this property
+    expect(newSession).not.toHaveProperty('CACHE');
   });
 
   afterEach(() => {
