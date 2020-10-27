@@ -135,11 +135,10 @@ class TranslationAPI {
           .then(response => this.transformData(response.data))
           .then(data => {
             data['timestamp'] = Date.now();
-            (data['id'] = 'TRANSLATION_FRESH'),
-              sessionStorage.setItem(
-                `${_sessionTranslationKey}-${country}-${lang}`,
-                JSON.stringify(data)
-              );
+            sessionStorage.setItem(
+              `${_sessionTranslationKey}-${country}-${lang}`,
+              JSON.stringify(data)
+            );
             return data;
           });
       }

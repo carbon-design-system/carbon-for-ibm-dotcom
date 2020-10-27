@@ -33,7 +33,9 @@ const sessionStorageMock = (() => {
       return cache[key] || null;
     },
     setItem(key, value) {
-      cache[key] = value;
+      value = JSON.parse(value);
+      value['id'] = 'TRANSLATION_FRESH';
+      cache[key] = JSON.stringify(value);
     },
     removeItem(key) {
       delete cache[key];
@@ -86,6 +88,7 @@ describe('TranslationAPI', () => {
     });
 
     const elseResponse = await TranslationAPI.getTranslation({});
+    delete elseResponse['id'];
 
     expect(elseResponse).toEqual(responseSuccess);
 
@@ -95,6 +98,7 @@ describe('TranslationAPI', () => {
         origin: 'https://ibm.com',
       },
     });
+    delete response['id'];
     expect(response).toEqual(responseSuccess);
   });
 
@@ -122,6 +126,8 @@ describe('TranslationAPI', () => {
     const newSession = JSON.parse(
       sessionStorageMock.getItem('dds-translation-us-en')
     );
+
+    response['id'] = newSession.id;
 
     // newest response and storage data should match
     expect(response).toEqual(newSession);
