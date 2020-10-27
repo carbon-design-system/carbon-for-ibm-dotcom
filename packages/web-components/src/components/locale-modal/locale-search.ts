@@ -55,7 +55,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
   /**
    * The search box.
    */
-  @query(`${prefix}-search`)
+  @query(`${ddsPrefix}-search`)
   private _searchNode?: DDSSearch;
 
   /**
