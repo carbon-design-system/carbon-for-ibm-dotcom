@@ -45,6 +45,8 @@
 
     @include carbon--breakpoint-down('md') {
       padding-top: aspect-ratio(1, 1);
+
+      @include carbon--make-row;
     }
 
     @include carbon--breakpoint('lg') {
