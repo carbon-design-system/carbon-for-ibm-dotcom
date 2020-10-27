@@ -40,7 +40,7 @@
     "@carbon/motion": "10.9.0",
     "@carbon/themes": "10.21.0",
     "@carbon/type": "10.16.0",
-    "carbon-components": "10.21.0"
+    "carbon-components": "10.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
