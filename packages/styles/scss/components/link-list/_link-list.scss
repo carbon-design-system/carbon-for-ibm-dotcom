@@ -58,6 +58,10 @@
         padding-right: $carbon--spacing-07;
       }
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .#{$prefix}--link-list__heading {

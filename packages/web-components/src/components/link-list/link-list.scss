@@ -22,6 +22,10 @@
     > span {
       flex: 1;
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &:focus {
