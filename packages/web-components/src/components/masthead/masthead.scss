@@ -289,13 +289,22 @@
     left: 0;
     z-index: calc(#{z('header')} - 1);
     clip-path: polygon(
-      mini-units(6) 0,
-      100% 0,
+        mini-units(6) 0,
+        100% 0,
+        100% 100%,
+        0 100%,
+        0 calc(#{mini-units(6)} + 1px),
+        mini-units(6) calc(#{mini-units(6)} + 1px)
+      )
+      #{'/*rtl:polygon(
+      0 0,
+      calc(100% - ' + mini-units(6) + ') 0,
+      calc(100% - ' + mini-units(6) + ') calc(' +
+      mini-units(6) + ' + 1px),
+      100% calc(' + mini-units(6) + ' + 1px),
       100% 100%,
-      0 100%,
-      0 calc(#{mini-units(6)} + 1px),
-      mini-units(6) calc(#{mini-units(6)} + 1px)
-    );
+      0 100%
+    )*/'};
 
     @include carbon--breakpoint-down(md) {
       background-color: $ui-background;
