@@ -45,7 +45,9 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
       <h3 ?hidden="${!hasHeading}" class="${prefix}--feature-card-block-medium__heading">
         <slot name="heading" @slotchange="${handleSlotChange}"></slot>
       </h3>
-      ${super.render()}
+      <div class="${prefix}--feature-card" data-autoid="${ddsPrefix}--feature-card">
+        ${super.render()}
+      </div>
     `;
   }
 

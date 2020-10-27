@@ -14,7 +14,6 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card-block-medium';
-// import '../feature-card-block-medium-card';
 
 export const Default = ({ parameters }) => {
   const { copy, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};

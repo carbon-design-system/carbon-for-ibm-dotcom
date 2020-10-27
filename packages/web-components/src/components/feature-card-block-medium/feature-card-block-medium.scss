@@ -16,4 +16,8 @@
   @extend :host(#{$dds-prefix}-feature-card);
 
   display: block;
+
+  @include carbon--breakpoint-down('md') {
+    padding-top: 0;
+  }
 }
