@@ -76,6 +76,10 @@
       background-color: $hover-ui;
     }
 
+    &:focus {
+      outline: 2px solid $focus;
+    }
+
     .#{$prefix}--card__img {
       transition: $duration--moderate-01 motion(standard, productive);
     }
@@ -103,10 +107,6 @@
         @include use-carbon-productive-tokens();
         @include carbon--type-style('body-short-01');
       }
-    }
-
-    &:focus {
-      outline: none;
     }
   }
 

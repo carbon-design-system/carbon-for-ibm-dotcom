@@ -18,6 +18,7 @@
 
   .#{$prefix}--link {
     cursor: pointer;
+    outline: none;
 
     > span {
       flex: 1;
