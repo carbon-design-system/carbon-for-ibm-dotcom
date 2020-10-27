@@ -47,6 +47,11 @@ body {
   line-height: 1;
 }
 
+// hide the cookie button
+#teconsent {
+  visibility: hidden;
+}
+
 // Reverts Carbon reset style of lists for docs page
 #docs-root {
   ol {

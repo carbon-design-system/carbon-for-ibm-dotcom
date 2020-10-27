@@ -39,7 +39,7 @@ export default {
 
 export const Default = () => (
   <Tag className="some-class" {...props.regular()}>
-    {text('Content (children)', 'This is not a tag')}
+    {text('Content (children)', 'This is a tag')}
   </Tag>
 );
 
@@ -57,7 +57,7 @@ Default.story = {
 
 export const Filter = () => (
   <Tag className="some-class" {...props.filter()} filter>
-    {text('Content (children)', 'This is not a tag')}
+    {text('Content (children)', 'This is a tag')}
   </Tag>
 );
 

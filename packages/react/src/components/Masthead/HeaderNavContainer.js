@@ -6,7 +6,6 @@
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import PropTypes from 'prop-types';
@@ -18,100 +17,100 @@ const { prefix } = settings;
  * Header nav container component.
  */
 const HeaderNavContainer = ({ children }) => {
-  const headerNavContainerRef = useRef(null);
-  const [resizeObserver, setResizeObserver] = useState(null);
-  const [showLeftCaret, setShowLeftCaret] = useState(false);
-  const [showRightCaret, setShowRightCaret] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const contentLeftRef = useRef(null);
+  const contentRightRef = useRef(null);
+  const caretLeftRef = useRef(null);
+  const caretRightRef = useRef(null);
+  const [io, setIO] = useState(null);
+  const [position, setPosition] = useState(0);
 
   const paginateLeft = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft -= containerWidth;
-    setShowRightCaret(true);
-    // 40 accounts for caret size
-    if (headerNavContainerRef.current.scrollLeft <= 40) {
-      setShowLeftCaret(false);
-      headerNavContainerRef.current.scrollLeft = 0;
-    }
-  }, [containerWidth]);
+    const moveLeft = Math.min(position + containerRef.current.offsetWidth, 0);
+    contentRef.current.style.left = String(moveLeft) + 'px';
+    setPosition(moveLeft);
+  }, [position]);
 
   const paginateRight = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft += containerWidth;
-    setShowLeftCaret(true);
-    // 80 accounts for caret sizes
-    if (
-      headerNavContainerRef.current.scrollLeft + containerWidth >=
-      totalNavWidth - 80
-    ) {
-      setShowRightCaret(false);
-      headerNavContainerRef.current.scrollLeft += 80;
-    }
-  }, [containerWidth, totalNavWidth]);
+    const moveRight = -Math.min(
+      -position + containerRef.current.offsetWidth,
+      contentRef.current.offsetWidth - containerRef.current.offsetWidth
+    );
+    contentRef.current.style.left = String(moveRight) + 'px';
+    setPosition(moveRight);
+  }, [position]);
 
   useEffect(() => {
-    if (window.ResizeObserver) {
-      setResizeObserver(
-        new ResizeObserver(() => {
-          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
-          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
-        })
+    if (window.IntersectionObserver) {
+      setIO(
+        new IntersectionObserver(
+          records => {
+            records.forEach(record => {
+              if (
+                record.target.classList.contains(
+                  contentLeftRef.current.className
+                )
+              ) {
+                caretLeftRef.current.hidden = record.isIntersecting;
+              }
+              if (
+                record.target.classList.contains(
+                  contentRightRef.current.className
+                )
+              ) {
+                caretRightRef.current.hidden = record.isIntersecting;
+              }
+            });
+          },
+          {
+            root: containerRef.current,
+            threshold: 1,
+          }
+        )
       );
     }
-  }, []);
+  }, [setIO]);
 
   useEffect(() => {
-    if (totalNavWidth > containerWidth) {
-      // 80 accounts for caret sizes
-      if (
-        headerNavContainerRef.current.scrollLeft === 0 ||
-        headerNavContainerRef.current.scrollLeft + containerWidth <
-          totalNavWidth - 80
-      ) {
-        setShowRightCaret(true);
-      }
-      if (headerNavContainerRef.current.scrollLeft > 0) {
-        setShowLeftCaret(true);
-      }
+    if (io) {
+      io.observe(contentLeftRef.current);
+      io.observe(contentRightRef.current);
     } else {
-      setShowLeftCaret(false);
-      setShowRightCaret(false);
+      return () => {
+        if (io) {
+          io.disconnect();
+        }
+      };
     }
-  }, [containerWidth, totalNavWidth]);
-
-  useEffect(() => {
-    const { current: headerNavContainerNode } = headerNavContainerRef;
-    if (resizeObserver) {
-      resizeObserver.observe(headerNavContainerNode);
-    }
-
-    return () => {
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-    };
-  }, [resizeObserver]);
+  }, [io]);
 
   return (
     <>
-      <button
-        className={`${prefix}--header__nav-caret-left`}
-        aria-label="Masthead left caret"
-        hidden={!showLeftCaret}
-        onClick={paginateLeft}>
-        <CaretLeft20 />
-      </button>
-      <div
-        className={`${prefix}--header__nav-container`}
-        ref={headerNavContainerRef}>
-        {children}
+      <div className={`${prefix}--header__nav-container`} ref={containerRef}>
+        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
+          <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
+          <div
+            className={`${prefix}--sub-content-right`}
+            ref={contentRightRef}
+          />
+          {children}
+        </div>
+        <button
+          className={`${prefix}--header__nav-caret-left`}
+          aria-label="Masthead left caret"
+          onClick={paginateLeft}
+          ref={caretLeftRef}>
+          <CaretLeft20 />
+        </button>
+        <button
+          className={`${prefix}--header__nav-caret-right`}
+          aria-label="Masthead right caret"
+          onClick={paginateRight}
+          ref={caretRightRef}>
+          <CaretRight20 />
+        </button>
       </div>
-      <button
-        className={`${prefix}--header__nav-caret-right`}
-        aria-label="Masthead right caret"
-        hidden={!showRightCaret}
-        onClick={paginateRight}>
-        <CaretRight20 />
-      </button>
     </>
   );
 };
