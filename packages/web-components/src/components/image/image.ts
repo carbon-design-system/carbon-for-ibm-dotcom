@@ -39,13 +39,13 @@ class DDSImage extends LitElement {
       .assignedNodes()
       // Supports `<dds-image><slot></slot></dds-image>` rendered in shadow DOM
       .reduce((acc, node) => {
-        if (node.tagName === 'SLOT') {
-          acc.push(...node.assignedNodes());
+        if ((node as Element).tagName === 'SLOT') {
+          acc.push(...(node as HTMLSlotElement).assignedNodes());
         } else {
           acc.push(node);
         }
         return acc;
-      }, [])
+      }, [] as Node[])
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element).matches(selectorItem)) as HTMLElement[];
   }
 
