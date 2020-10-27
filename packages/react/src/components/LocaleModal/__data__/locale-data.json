@@ -6,313 +6,142 @@
       "countryList": [
         {
           "name": "Anguilla",
-          "locale": [
-            [
-              "en-ai",
-              "English"
-            ]
-          ]
+          "locale": [["en-ai", "English"]]
         },
         {
           "name": "Antigua and Barbuda",
-          "locale": [
-            [
-              "en-ag",
-              "English"
-            ]
-          ]
+          "locale": [["en-ag", "English"]]
         },
         {
           "name": "Argentina",
-          "locale": [
-            [
-              "es-ar",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-ar", "Spanish (Español)"]]
         },
         {
           "name": "Aruba",
-          "locale": [
-            [
-              "en-aw",
-              "English"
-            ]
-          ]
+          "locale": [["en-aw", "English"]]
         },
         {
           "name": "Bahamas",
-          "locale": [
-            [
-              "en-bs",
-              "English"
-            ]
-          ]
+          "locale": [["en-bs", "English"]]
         },
         {
           "name": "Barbados",
-          "locale": [
-            [
-              "en-bb",
-              "English"
-            ]
-          ]
+          "locale": [["en-bb", "English"]]
         },
         {
           "name": "Bermuda",
-          "locale": [
-            [
-              "en-bm",
-              "English"
-            ]
-          ]
+          "locale": [["en-bm", "English"]]
         },
         {
           "name": "Bolivia",
-          "locale": [
-            [
-              "es-bo",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-bo", "Spanish (Español)"]]
         },
         {
-          "name": "Brazil",
-          "locale": [
-            [
-              "pt-br",
-              "Portuguese"
-            ]
-          ]
+          "name": "Brazil (Brasil)",
+          "locale": [["pt-br", "Portuguese (Português)"]]
         },
         {
           "name": "Canada",
           "locale": [
-            [
-              "en-ca",
-              "English"
-            ],
-            [
-              "fr-ca",
-              "French"
-            ]
+            ["en-ca", "English"],
+            ["fr-ca", "French (Français)"]
           ]
         },
         {
           "name": "Cayman Islands",
-          "locale": [
-            [
-              "en-ky",
-              "English"
-            ]
-          ]
+          "locale": [["en-ky", "English"]]
         },
         {
           "name": "Chile",
-          "locale": [
-            [
-              "es-cl",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-cl", "Spanish (Español)"]]
         },
         {
           "name": "Colombia",
-          "locale": [
-            [
-              "es-co",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-co", "Spanish (Español)"]]
         },
         {
           "name": "Costa Rica",
-          "locale": [
-            [
-              "es-cr",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-cr", "Spanish (Español)"]]
         },
         {
           "name": "Curacao",
-          "locale": [
-            [
-              "en-cw",
-              "English"
-            ]
-          ]
+          "locale": [["en-cw", "English"]]
         },
         {
           "name": "Dominica",
-          "locale": [
-            [
-              "en-dm",
-              "English"
-            ]
-          ]
+          "locale": [["en-dm", "English"]]
         },
         {
           "name": "Ecuador",
-          "locale": [
-            [
-              "es-ec",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-ec", "Spanish (Español)"]]
         },
         {
           "name": "Grenada",
-          "locale": [
-            [
-              "en-gd",
-              "English"
-            ]
-          ]
+          "locale": [["en-gd", "English"]]
         },
         {
           "name": "Guyana",
-          "locale": [
-            [
-              "en-gy",
-              "English"
-            ]
-          ]
+          "locale": [["en-gy", "English"]]
         },
         {
           "name": "Jamaica",
-          "locale": [
-            [
-              "en-jm",
-              "English"
-            ]
-          ]
+          "locale": [["en-jm", "English"]]
         },
         {
           "name": "Mexico",
-          "locale": [
-            [
-              "es-mx",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-mx", "Spanish (Español)"]]
         },
         {
           "name": "Montserrat",
-          "locale": [
-            [
-              "en-ms",
-              "English"
-            ]
-          ]
+          "locale": [["en-ms", "English"]]
         },
         {
           "name": "Paraguay",
-          "locale": [
-            [
-              "es-py",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-py", "Spanish (Español)"]]
         },
         {
           "name": "Peru",
-          "locale": [
-            [
-              "es-pe",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-pe", "Spanish (Español)"]]
         },
         {
           "name": "Saint Kitts and Nevis",
-          "locale": [
-            [
-              "en-kn",
-              "English"
-            ]
-          ]
+          "locale": [["en-kn", "English"]]
         },
         {
           "name": "Saint Lucia",
-          "locale": [
-            [
-              "en-lc",
-              "English"
-            ]
-          ]
+          "locale": [["en-lc", "English"]]
         },
         {
           "name": "Saint Vincent and the Grenadines",
-          "locale": [
-            [
-              "en-vc",
-              "English"
-            ]
-          ]
+          "locale": [["en-vc", "English"]]
         },
         {
           "name": "Suriname",
-          "locale": [
-            [
-              "en-sr",
-              "English"
-            ]
-          ]
+          "locale": [["en-sr", "English"]]
         },
         {
           "name": "Trinidad and Tobago",
-          "locale": [
-            [
-              "en-tt",
-              "English"
-            ]
-          ]
+          "locale": [["en-tt", "English"]]
         },
         {
           "name": "Turks and Caicos Islands",
-          "locale": [
-            [
-              "en-tc",
-              "English"
-            ]
-          ]
+          "locale": [["en-tc", "English"]]
         },
         {
           "name": "United States",
-          "locale": [
-            [
-              "en-us",
-              "English"
-            ]
-          ]
+          "locale": [["en-us", "English"]]
         },
         {
           "name": "Uruguay",
-          "locale": [
-            [
-              "es-uy",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-uy", "Spanish (Español)"]]
         },
         {
           "name": "Venezuela",
-          "locale": [
-            [
-              "es-ve",
-              "Spanish"
-            ]
-          ]
+          "locale": [["es-ve", "Spanish (Español)"]]
         },
         {
           "name": "Virgin Islands, British",
-          "locale": [
-            [
-              "en-vg",
-              "English"
-            ]
-          ]
+          "locale": [["en-vg", "English"]]
         }
       ]
     },
@@ -322,168 +151,81 @@
       "countryList": [
         {
           "name": "Australia",
-          "locale": [
-            [
-              "en-au",
-              "English"
-            ]
-          ]
+          "locale": [["en-au", "English"]]
         },
         {
           "name": "Bangladesh",
-          "locale": [
-            [
-              "en-bd",
-              "English"
-            ]
-          ]
+          "locale": [["en-bd", "English"]]
         },
         {
           "name": "Brunei Darussalam",
-          "locale": [
-            [
-              "en-bn",
-              "English"
-            ]
-          ]
+          "locale": [["en-bn", "English"]]
         },
         {
           "name": "Cambodia",
-          "locale": [
-            [
-              "en-kh",
-              "English"
-            ]
-          ]
+          "locale": [["en-kh", "English"]]
         },
         {
-          "name": "China",
-          "locale": [
-            [
-              "zh-cn",
-              "Chinese (Simplified)"
-            ]
-          ]
+          "name": "China (中国)",
+          "locale": [["zh-cn", "Chinese (简体中文)"]]
         },
         {
           "name": "Hong Kong S.A.R. of China",
-          "locale": [
-            [
-              "en-hk",
-              "English"
-            ]
-          ]
+          "locale": [["en-hk", "English"]]
         },
         {
           "name": "India",
-          "locale": [
-            [
-              "en-in",
-              "English"
-            ]
-          ]
+          "locale": [["en-in", "English"]]
         },
         {
           "name": "Indonesia",
-          "locale": [
-            [
-              "en-id",
-              "English"
-            ]
-          ]
+          "locale": [["en-id", "English"]]
         },
         {
-          "name": "Japan",
-          "locale": [
-            [
-              "ja-jp",
-              "Japanese"
-            ]
-          ]
+          "name": "Japan (日本)",
+          "locale": [["ja-jp", "Japanese (日本語)"]]
         },
         {
-          "name": "Korea, Republic of",
-          "locale": [
-            [
-              "ko-kr",
-              "Korean"
-            ]
-          ]
+          "name": "Korea, Republic of (대한민국)",
+          "locale": [["ko-kr", "Korean (한국어)"]]
         },
         {
           "name": "Malaysia",
-          "locale": [
-            [
-              "en-my",
-              "English"
-            ]
-          ]
+          "locale": [["en-my", "English"]]
+        },
+        {
+          "name": "Nepal",
+          "locale": [["en-np", "English"]]
         },
         {
           "name": "New Zealand",
-          "locale": [
-            [
-              "en-nz",
-              "English"
-            ]
-          ]
+          "locale": [["en-nz", "English"]]
         },
         {
           "name": "Philippines",
-          "locale": [
-            [
-              "en-ph",
-              "English"
-            ]
-          ]
+          "locale": [["en-ph", "English"]]
         },
         {
           "name": "Singapore",
-          "locale": [
-            [
-              "en-sg",
-              "English"
-            ]
-          ]
+          "locale": [["en-sg", "English"]]
         },
         {
           "name": "Sri Lanka",
-          "locale": [
-            [
-              "en-lk",
-              "English"
-            ]
-          ]
+          "locale": [["en-lk", "English"]]
         },
         {
-          "name": "Taiwan",
-          "locale": [
-            [
-              "zh-tw",
-              "Chinese (Traditional)"
-            ]
-          ]
+          "name": "Taiwan (台灣)",
+          "locale": [["zh-tw", "Chinese (繁體中文)"]]
         },
         {
           "name": "Thailand",
-          "locale": [
-            [
-              "en-th",
-              "English"
-            ]
-          ]
+          "locale": [["en-th", "English"]]
         },
         {
           "name": "Vietnam",
           "locale": [
-            [
-              "en-vn",
-              "English"
-            ],
-            [
-              "vi-vn",
-              "Vietnamese"
-            ]
+            ["en-vn", "English"],
+            ["vi-vn", "Vietnamese"]
           ]
         }
       ]
@@ -493,511 +235,144 @@
       "key": "eu",
       "countryList": [
         {
-          "name": "Austria",
-          "locale": [
-            [
-              "de-at",
-              "German"
-            ]
-          ]
+          "name": "Austria (Österreich)",
+          "locale": [["de-at", "German (Deutsche)"]]
         },
         {
           "name": "Belgium/Luxembourg",
-          "locale": [
-            [
-              "nl-be",
-              "Dutch"
-            ],
-            [
-              "en-be",
-              "English"
-            ],
-            [
-              "fr-be",
-              "French"
-            ]
-          ]
+          "locale": [["en-be", "English"]]
         },
         {
           "name": "Bulgaria",
-          "locale": [
-            [
-              "bg-bg",
-              "Bulgarian"
-            ]
-          ]
-        },
-        {
-          "name": "Bulgaria",
-          "locale": [
-            [
-              "en-bg",
-              "English"
-            ]
-          ]
+          "locale": [["en-bg", "English"]]
         },
         {
           "name": "Croatia",
-          "locale": [
-            [
-              "hr-hr",
-              "Croatian"
-            ]
-          ]
-        },
-        {
-          "name": "Croatia",
-          "locale": [
-            [
-              "en-hr",
-              "English"
-            ]
-          ]
+          "locale": [["en-hr", "English"]]
         },
         {
           "name": "Cyprus",
-          "locale": [
-            [
-              "en-cy",
-              "English"
-            ]
-          ]
+          "locale": [["en-cy", "English"]]
         },
         {
           "name": "Czech Republic",
-          "locale": [
-            [
-              "en-cz",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Czech Republic",
-          "locale": [
-            [
-              "cs-cz",
-              "Czech"
-            ]
-          ]
+          "locale": [["en-cz", "English"]]
         },
         {
           "name": "Denmark",
-          "locale": [
-            [
-              "en-dk",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Denmark",
-          "locale": [
-            [
-              "da-dk",
-              "Danish"
-            ]
-          ]
+          "locale": [["en-dk", "English"]]
         },
         {
           "name": "Estonia",
-          "locale": [
-            [
-              "et-ee",
-              "Estonian"
-            ]
-          ]
-        },
-        {
-          "name": "Estonia",
-          "locale": [
-            [
-              "en-ee",
-              "English"
-            ]
-          ]
+          "locale": [["en-ee", "English"]]
         },
         {
           "name": "Finland",
-          "locale": [
-            [
-              "fi-fi",
-              "Finnish"
-            ]
-          ]
-        },
-        {
-          "name": "Finland",
-          "locale": [
-            [
-              "en-fi",
-              "English"
-            ]
-          ]
+          "locale": [["en-fi", "English"]]
         },
         {
           "name": "France",
-          "locale": [
-            [
-              "fr-fr",
-              "French"
-            ]
-          ]
+          "locale": [["fr-fr", "French (Français)"]]
         },
         {
-          "name": "Germany",
-          "locale": [
-            [
-              "de-de",
-              "German"
-            ]
-          ]
+          "name": "Germany (Deutschland)",
+          "locale": [["de-de", "German (Deutsche)"]]
         },
         {
           "name": "Greece",
-          "locale": [
-            [
-              "el-gr",
-              "Greek"
-            ]
-          ]
-        },
-        {
-          "name": "Greece",
-          "locale": [
-            [
-              "en-gr",
-              "English"
-            ]
-          ]
+          "locale": [["en-gr", "English"]]
         },
         {
           "name": "Hungary",
-          "locale": [
-            [
-              "en-hu",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Hungary",
-          "locale": [
-            [
-              "hu-hu",
-              "Hungarian"
-            ]
-          ]
+          "locale": [["en-hu", "English"]]
         },
         {
           "name": "Ireland",
-          "locale": [
-            [
-              "en-ie",
-              "English"
-            ]
-          ]
+          "locale": [["en-ie", "English"]]
         },
         {
-          "name": "Italy",
-          "locale": [
-            [
-              "it-it",
-              "Italian"
-            ]
-          ]
+          "name": "Italy (Italia)",
+          "locale": [["it-it", "Italian (Italiano)"]]
         },
         {
           "name": "Kazakhstan",
-          "locale": [
-            [
-              "kk-kz",
-              "Kazakh"
-            ]
-          ]
-        },
-        {
-          "name": "Kazakhstan",
-          "locale": [
-            [
-              "en-kz",
-              "English"
-            ]
-          ]
+          "locale": [["en-kz", "English"]]
         },
         {
           "name": "Latvia",
-          "locale": [
-            [
-              "lv-lv",
-              "Latvian"
-            ]
-          ]
-        },
-        {
-          "name": "Latvia",
-          "locale": [
-            [
-              "en-lv",
-              "English"
-            ]
-          ]
+          "locale": [["en-lv", "English"]]
         },
         {
           "name": "Lithuania",
-          "locale": [
-            [
-              "en-lt",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Lithuania",
-          "locale": [
-            [
-              "lt-lt",
-              "Lithuanian"
-            ]
-          ]
+          "locale": [["en-lt", "English"]]
         },
         {
           "name": "Netherlands",
-          "locale": [
-            [
-              "nl-nl",
-              "Dutch"
-            ]
-          ]
-        },
-        {
-          "name": "Netherlands",
-          "locale": [
-            [
-              "en-nl",
-              "English"
-            ]
-          ]
+          "locale": [["en-nl", "English"]]
         },
         {
           "name": "Norway",
-          "locale": [
-            [
-              "no-no",
-              "Norwegian"
-            ]
-          ]
+          "locale": [["en-no", "English"]]
         },
         {
-          "name": "Norway",
-          "locale": [
-            [
-              "en-no",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Poland",
-          "locale": [
-            [
-              "pl-pl",
-              "Polish"
-            ]
-          ]
+          "name": "Poland (Polska)",
+          "locale": [["pl-pl", "Polish (Polskie)"]]
         },
         {
           "name": "Portugal",
-          "locale": [
-            [
-              "pt-pt",
-              "Portuguese"
-            ]
-          ]
-        },
-        {
-          "name": "Portugal",
-          "locale": [
-            [
-              "en-pt",
-              "English"
-            ]
-          ]
+          "locale": [["pt-pt", "Portuguese (Português)"]]
         },
         {
           "name": "Romania",
-          "locale": [
-            [
-              "ro-ro",
-              "Romanian"
-            ]
-          ]
+          "locale": [["en-ro", "English"]]
         },
         {
-          "name": "Romania",
-          "locale": [
-            [
-              "en-ro",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Russian Federation",
-          "locale": [
-            [
-              "ru-ru",
-              "Russian"
-            ]
-          ]
+          "name": "Russian (Россия)",
+          "locale": [["ru-ru", "Russian (русский)"]]
         },
         {
           "name": "Serbia",
-          "locale": [
-            [
-              "sr-rs",
-              "Serbian"
-            ]
-          ]
-        },
-        {
-          "name": "Serbia",
-          "locale": [
-            [
-              "en-rs",
-              "English"
-            ]
-          ]
+          "locale": [["en-rs", "English"]]
         },
         {
           "name": "Slovakia",
-          "locale": [
-            [
-              "sk-sk",
-              "Slovak"
-            ]
-          ]
-        },
-        {
-          "name": "Slovakia",
-          "locale": [
-            [
-              "en-sk",
-              "English"
-            ]
-          ]
+          "locale": [["en-sk", "English"]]
         },
         {
           "name": "Slovenia",
-          "locale": [
-            [
-              "en-si",
-              "English"
-            ]
-          ]
+          "locale": [["en-si", "English"]]
         },
         {
-          "name": "Slovenia",
-          "locale": [
-            [
-              "sl-si",
-              "Slovenian"
-            ]
-          ]
-        },
-        {
-          "name": "Spain",
-          "locale": [
-            [
-              "es-es",
-              "Spanish"
-            ]
-          ]
+          "name": "Spain (España)",
+          "locale": [["es-es", "Spanish (Español)"]]
         },
         {
           "name": "Sweden",
-          "locale": [
-            [
-              "en-se",
-              "English"
-            ]
-          ]
+          "locale": [["en-se", "English"]]
         },
         {
-          "name": "Sweden",
-          "locale": [
-            [
-              "sv-se",
-              "Swedish"
-            ]
-          ]
+          "name": "Switzerland (Suisse)",
+          "locale": [["fr-ch", "French (Français)"]]
         },
         {
-          "name": "Switzerland",
-          "locale": [
-            [
-              "fr-ch",
-              "French"
-            ],
-            [
-              "de-ch",
-              "German"
-            ]
-          ]
+          "name": "Switzerland (Schweiz)",
+          "locale": [["de-ch", "German (Deutsche)"]]
         },
         {
-          "name": "Turkey",
-          "locale": [
-            [
-              "tr-tr",
-              "Turkish"
-            ]
-          ]
+          "name": "Turkey (Türkiye)",
+          "locale": [["tr-tr", "Turkish (Türk)"]]
         },
         {
           "name": "Ukraine",
-          "locale": [
-            [
-              "uk-ua",
-              "Ukrainian"
-            ]
-          ]
-        },
-        {
-          "name": "Ukraine",
-          "locale": [
-            [
-              "en-ua",
-              "English"
-            ]
-          ]
+          "locale": [["en-ua", "English"]]
         },
         {
           "name": "United Kingdom",
-          "locale": [
-            [
-              "en-gb",
-              "English"
-            ]
-          ]
+          "locale": [["en-gb", "English"]]
         },
         {
           "name": "Uzbekistan",
-          "locale": [
-            [
-              "en-uz",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Uzbekistan",
-          "locale": [
-            [
-              "uz-uz",
-              "Uzbek"
-            ]
-          ]
+          "locale": [["en-uz", "English"]]
         }
       ]
     },
@@ -1007,458 +382,197 @@
       "countryList": [
         {
           "name": "Afghanistan",
-          "locale": [
-            [
-              "en-af",
-              "English"
-            ]
-          ]
+          "locale": [["en-af", "English"]]
         },
         {
-          "name": "Algeria",
-          "locale": [
-            [
-              "fr-dz",
-              "French"
-            ]
-          ]
+          "name": "Algeria (Algérie)",
+          "locale": [["fr-dz", "French (Français)"]]
         },
         {
           "name": "Angola",
-          "locale": [
-            [
-              "pt-ao",
-              "Portuguese"
-            ]
-          ]
+          "locale": [["pt-ao", "Portuguese (Português)"]]
         },
         {
           "name": "Bahrain",
-          "locale": [
-            [
-              "en-bh",
-              "English"
-            ]
-          ]
+          "locale": [["en-bh", "English"]]
         },
         {
           "name": "Botswana",
-          "locale": [
-            [
-              "en-bw",
-              "English"
-            ]
-          ]
+          "locale": [["en-bw", "English"]]
         },
         {
           "name": "Burkina Faso",
-          "locale": [
-            [
-              "fr-bf",
-              "French"
-            ]
-          ]
+          "locale": [["fr-bf", "French (Français)"]]
         },
         {
-          "name": "Cameroon",
-          "locale": [
-            [
-              "en-cm",
-              "English"
-            ],
-            [
-              "fr-cm",
-              "French"
-            ]
-          ]
+          "name": "Cameroon (Cameroun)",
+          "locale": [["fr-cm", "French (Français)"]]
         },
         {
-          "name": "Chad",
-          "locale": [
-            [
-              "fr-td",
-              "French"
-            ]
-          ]
+          "name": "Chad (Tchad)",
+          "locale": [["fr-td", "French (Français)"]]
         },
         {
           "name": "Congo",
-          "locale": [
-            [
-              "fr-cg",
-              "French"
-            ]
-          ]
+          "locale": [["fr-cg", "French (Français)"]]
         },
         {
-          "name": "Congo, The Democratic Republic of the",
-          "locale": [
-            [
-              "fr-cd",
-              "French"
-            ]
-          ]
+          "name": "Congo, Democratic Republic of (République Démocratique du Congo)",
+          "locale": [["fr-cd", "French (Français)"]]
         },
         {
           "name": "Egypt",
-          "locale": [
-            [
-              "en-eg",
-              "English"
-            ]
-          ]
+          "locale": [["en-eg", "English"]]
         },
         {
           "name": "Ethiopia",
-          "locale": [
-            [
-              "en-et",
-              "English"
-            ]
-          ]
+          "locale": [["en-et", "English"]]
         },
         {
           "name": "Gabon",
-          "locale": [
-            [
-              "fr-ga",
-              "French"
-            ]
-          ]
+          "locale": [["fr-ga", "French (Français)"]]
         },
         {
           "name": "Ghana",
-          "locale": [
-            [
-              "en-gh",
-              "English"
-            ]
-          ]
+          "locale": [["en-gh", "English"]]
         },
         {
           "name": "Iraq",
-          "locale": [
-            [
-              "en-iq",
-              "English"
-            ]
-          ]
+          "locale": [["en-iq", "English"]]
         },
         {
           "name": "Israel",
-          "locale": [
-            [
-              "he-il",
-              "Hebrew"
-            ]
-          ]
+          "locale": [["en-il", "English"]]
         },
         {
-          "name": "Israel",
-          "locale": [
-            [
-              "en-il",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Ivory Coast",
-          "locale": [
-            [
-              "fr-ci",
-              "French"
-            ]
-          ]
+          "name": "Ivory Coast (Côte d'Ivoire)",
+          "locale": [["fr-ci", "French (Français)"]]
         },
         {
           "name": "Jordan",
-          "locale": [
-            [
-              "en-jo",
-              "English"
-            ]
-          ]
+          "locale": [["en-jo", "English"]]
         },
         {
           "name": "Kenya",
-          "locale": [
-            [
-              "en-ke",
-              "English"
-            ]
-          ]
+          "locale": [["en-ke", "English"]]
         },
         {
           "name": "Kuwait",
-          "locale": [
-            [
-              "en-kw",
-              "English"
-            ]
-          ]
+          "locale": [["en-kw", "English"]]
         },
         {
           "name": "Lebanon",
-          "locale": [
-            [
-              "en-lb",
-              "English"
-            ]
-          ]
+          "locale": [["en-lb", "English"]]
         },
         {
           "name": "Libya",
-          "locale": [
-            [
-              "en-ly",
-              "English"
-            ]
-          ]
+          "locale": [["en-ly", "English"]]
         },
         {
           "name": "Madagascar",
-          "locale": [
-            [
-              "fr-mg",
-              "French"
-            ]
-          ]
+          "locale": [["fr-mg", "French (Français)"]]
         },
         {
           "name": "Malawi",
-          "locale": [
-            [
-              "en-mw",
-              "English"
-            ]
-          ]
+          "locale": [["en-mw", "English"]]
         },
         {
-          "name": "Mauritius",
-          "locale": [
-            [
-              "en-mu",
-              "English"
-            ],
-            [
-              "fr-mu",
-              "French"
-            ]
-          ]
+          "name": "Mauritius (Maurice)",
+          "locale": [["fr-mu", "French (Français)"]]
         },
         {
-          "name": "Morocco",
-          "locale": [
-            [
-              "fr-ma",
-              "French"
-            ]
-          ]
+          "name": "Morocco (Maroc)",
+          "locale": [["fr-ma", "French (Français)"]]
         },
         {
           "name": "Mozambique",
-          "locale": [
-            [
-              "pt-mz",
-              "Portuguese"
-            ]
-          ]
+          "locale": [["pt-mz", "Portuguese (Português)"]]
         },
         {
           "name": "Namibia",
-          "locale": [
-            [
-              "en-na",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Nepal",
-          "locale": [
-            [
-              "en-np",
-              "English"
-            ]
-          ]
+          "locale": [["en-na", "English"]]
         },
         {
           "name": "Niger",
-          "locale": [
-            [
-              "fr-ne",
-              "French"
-            ]
-          ]
+          "locale": [["fr-ne", "French (Français)"]]
         },
         {
           "name": "Nigeria",
-          "locale": [
-            [
-              "en-ng",
-              "English"
-            ]
-          ]
+          "locale": [["en-ng", "English"]]
         },
         {
           "name": "Oman",
-          "locale": [
-            [
-              "en-om",
-              "English"
-            ]
-          ]
+          "locale": [["en-om", "English"]]
         },
         {
           "name": "Pakistan",
-          "locale": [
-            [
-              "en-pk",
-              "English"
-            ]
-          ]
+          "locale": [["en-pk", "English"]]
         },
         {
           "name": "Qatar",
-          "locale": [
-            [
-              "en-qa",
-              "English"
-            ]
-          ]
+          "locale": [["en-qa", "English"]]
         },
         {
           "name": "Saudi Arabia",
-          "locale": [
-            [
-              "en-sa",
-              "English"
-            ]
-          ]
+          "locale": [["en-sa", "English"]]
         },
         {
-          "name": "Saudi Arabia",
-          "locale": [
-            [
-              "ar-sa",
-              "Arabic"
-            ]
-          ]
+          "name": "Saudi Arabia (المملكة العربية السعودية)",
+          "locale": [["ar-sa", "Arabic (عربى)"]]
         },
         {
-          "name": "Senegal",
-          "locale": [
-            [
-              "fr-sn",
-              "French"
-            ]
-          ]
+          "name": "Senegal (Sénégal)",
+          "locale": [["fr-sn", "French (Français)"]]
         },
         {
           "name": "Seychelles",
-          "locale": [
-            [
-              "fr-sc",
-              "French"
-            ]
-          ]
+          "locale": [["fr-sc", "French (Français)"]]
         },
         {
           "name": "Sierra Leone",
-          "locale": [
-            [
-              "en-sl",
-              "English"
-            ]
-          ]
+          "locale": [["en-sl", "English"]]
         },
         {
           "name": "South Africa",
-          "locale": [
-            [
-              "en-za",
-              "English"
-            ]
-          ]
+          "locale": [["en-za", "English"]]
         },
         {
           "name": "Tanzania, United Republic of",
-          "locale": [
-            [
-              "en-tz",
-              "English"
-            ]
-          ]
+          "locale": [["en-tz", "English"]]
         },
         {
-          "name": "Tunisia",
-          "locale": [
-            [
-              "fr-tn",
-              "French"
-            ]
-          ]
+          "name": "Tunisia (Tunisie)",
+          "locale": [["fr-tn", "French (Français)"]]
         },
         {
           "name": "Uganda",
-          "locale": [
-            [
-              "en-ug",
-              "English"
-            ]
-          ]
+          "locale": [["en-ug", "English"]]
         },
         {
           "name": "United Arab Emirates",
-          "locale": [
-            [
-              "en-ae",
-              "English"
-            ]
-          ]
+          "locale": [["en-ae", "English"]]
         },
         {
-          "name": "United Arab Emirates",
-          "locale": [
-            [
-              "ar-ae",
-              "Arabic"
-            ]
-          ]
+          "name": "United Arab Emirates (الإمارات العربية المتحدة)",
+          "locale": [["ar-ae", "Arabic (عربى)"]]
         },
         {
           "name": "Yemen",
-          "locale": [
-            [
-              "en-ye",
-              "English"
-            ]
-          ]
+          "locale": [["en-ye", "English"]]
         },
         {
           "name": "Zambia",
-          "locale": [
-            [
-              "en-zm",
-              "English"
-            ]
-          ]
+          "locale": [["en-zm", "English"]]
         },
         {
           "name": "Zimbabwe",
-          "locale": [
-            [
-              "en-zw",
-              "English"
-            ]
-          ]
+          "locale": [["en-zw", "English"]]
         }
       ]
     }
   ],
   "localeModal": {
-    "headerTitle": "Select region",
+    "headerTitle": "Select geographic area",
     "modalClose": "Close modal",
     "searchLabel": "Search by location or language",
     "searchClearText": "Clear search input",
