@@ -76,10 +76,6 @@
       background-color: $hover-ui;
     }
 
-    &:focus {
-      outline: 2px solid $focus;
-    }
-
     .#{$prefix}--card__img {
       transition: $duration--moderate-01 motion(standard, productive);
     }
@@ -92,11 +88,6 @@
       }
     }
 
-    .#{$prefix}--card:focus {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-    }
-
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
@@ -107,6 +98,12 @@
         @include use-carbon-productive-tokens();
         @include carbon--type-style('body-short-01');
       }
+    }
+
+    &.#{$prefix}--link:focus,
+    .#{$prefix}--link:focus {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
     }
   }
 

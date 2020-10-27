@@ -71,6 +71,10 @@
         }
       }
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   :host(#{$dds-prefix}-card-group),

@@ -18,16 +18,20 @@
 
   .#{$prefix}--link {
     cursor: pointer;
-    outline: none;
+    display: inline-block;
 
     > span {
       flex: 1;
     }
+
+    &:focus {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+    }
   }
 
   &:focus {
-    outline: 2px solid $focus;
-    outline-offset: -2px;
+    outline: none;
   }
 }
 
