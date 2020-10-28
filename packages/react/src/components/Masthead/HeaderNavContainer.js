@@ -63,9 +63,7 @@ const HeaderNavContainer = ({ children }) => {
   }, [position]);
 
   const paginateRight = useCallback(() => {
-    let menuItems = contentRef.current
-      .querySelector('.bx--header__menu-bar')
-      .querySelectorAll('li');
+    let menuItems = contentRef.current.querySelectorAll('.bx--header__menu-bar li');
     for (let i = 0; i < menuItems.length; i++) {
       // checks if the right most visible element is partially hidden
       if (
