@@ -66,7 +66,7 @@ function renderSelectItems(items) {
 
 LanguageSelector.propTypes = {
   /**
-   * Array of items to pass into ComboBox.
+   * Array of items to pass into Select.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({
@@ -76,7 +76,7 @@ LanguageSelector.propTypes = {
   ),
 
   /**
-   * Initial selected item for the ComboBox.
+   * Initial selected item for the Select.
    */
   initialSelectedItem: PropTypes.shape({
     id: PropTypes.string,
