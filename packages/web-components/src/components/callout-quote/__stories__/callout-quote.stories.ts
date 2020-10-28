@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import '../callout-quote';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import styles from './callout-quote.stories.scss';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
@@ -56,9 +57,12 @@ export default {
     },
     decorators: [
       story => html`
+        <style>
+          ${styles}
+        </style>
         <div class="bx--grid" style="width: 100%">
           <div class="bx--row">
-            <div class="bx--offset-lg-3 bx--col-lg-9">
+            <div class="bx--offset-lg-4 bx--col-lg-12">
               ${story()}
             </div>
           </div>
