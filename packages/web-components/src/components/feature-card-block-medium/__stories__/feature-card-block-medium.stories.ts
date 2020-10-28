@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-feature-card-block-medium href=${ifNonNull(href || undefined)}>
       <span slot="heading">${heading}</span>
-      <slot slot="eyebrow">${eyebrow}</slot>
+      <span slot="eyebrow">${eyebrow}</span>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
       ${copy} ${ArrowRight20({ slot: 'footer' })}
     </dds-feature-card-block-medium>
