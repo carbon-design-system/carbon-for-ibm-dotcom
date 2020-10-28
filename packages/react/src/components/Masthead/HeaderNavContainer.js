@@ -24,22 +24,68 @@ const HeaderNavContainer = ({ children }) => {
   const caretLeftRef = useRef(null);
   const caretRightRef = useRef(null);
   const [io, setIO] = useState(null);
+  const [menuItems, setMenuItems] = useState(null);
   const [position, setPosition] = useState(0);
+  const buttonSize = 48; // 40px(width) + 8px(gradient)
 
   const paginateLeft = useCallback(() => {
-    const moveLeft = Math.min(position + containerRef.current.offsetWidth, 0);
-    contentRef.current.style.left = String(moveLeft) + 'px';
-    setPosition(moveLeft);
-  }, [position]);
+    for (let i = 0; i < menuItems.length; i++) {
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
+        buttonSize
+      ) {
+        if (
+          menuItems[i].offsetLeft + menuItems[i].offsetWidth >
+          containerRef.current.offsetWidth
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth -
+              menuItems[i].offsetLeft -
+              menuItems[i].offsetWidth -
+              buttonSize
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth -
+                menuItems[i].offsetLeft -
+                menuItems[i].offsetWidth -
+                buttonSize
+            ) + 'px';
+        } else {
+          setPosition(0);
+          contentRef.current.style.left = '0px';
+        }
+        break;
+      }
+    }
+  }, [menuItems, position]);
 
   const paginateRight = useCallback(() => {
-    const moveRight = -Math.min(
-      -position + containerRef.current.offsetWidth,
-      contentRef.current.offsetWidth - containerRef.current.offsetWidth
-    );
-    contentRef.current.style.left = String(moveRight) + 'px';
-    setPosition(moveRight);
-  }, [position]);
+    for (let i = 0; i < menuItems.length; i++) {
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
+        containerRef.current.offsetWidth
+      ) {
+        if (
+          contentRef.current.offsetWidth - menuItems[i].offsetLeft <
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth - contentRef.current.offsetWidth
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth - contentRef.current.offsetWidth
+            ) + 'px';
+        } else {
+          setPosition(buttonSize - menuItems[i].offsetLeft);
+          contentRef.current.style.left =
+            String(buttonSize - menuItems[i].offsetLeft) + 'px';
+        }
+        break;
+      }
+    }
+  }, [menuItems, position]);
 
   useEffect(() => {
     if (window.IntersectionObserver) {
@@ -76,6 +122,9 @@ const HeaderNavContainer = ({ children }) => {
     if (io) {
       io.observe(contentLeftRef.current);
       io.observe(contentRightRef.current);
+      setMenuItems(
+        document.querySelector('.bx--header__menu-bar').querySelectorAll('li')
+      );
     } else {
       return () => {
         if (io) {
