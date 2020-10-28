@@ -64,7 +64,7 @@
     }
   }
 
-  .#{$prefix}--content-grou__cta--row {
+  .#{$prefix}--content-group__cta-row {
     @include carbon--make-row;
 
     // allows for margin collapsing
