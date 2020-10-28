@@ -87,11 +87,6 @@
       }
     }
 
-    .#{$prefix}--card:focus {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-    }
-
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
@@ -104,8 +99,10 @@
       }
     }
 
-    &:focus {
-      outline: none;
+    &.#{$prefix}--link:focus,
+    .#{$prefix}--link:focus {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
     }
   }
 
