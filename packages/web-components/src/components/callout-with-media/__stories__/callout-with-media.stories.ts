@@ -11,18 +11,18 @@ import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import styles from './callout-with-media.stories.scss';
 import '../callout-with-media';
-import '../../content-block-simple/content-block-simple__media-image';
+import '../callout-with-media-image';
 import '../../content-block-simple/content-block-simple__media-video';
 import '../../image-with-caption/image-with-caption'
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 const image = html`
-<dds-content-block-simple__media-image
+<dds-callout-with-media-image
  alt="Image alt text"
  default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-</dds-content-block-simple__media-image>
+</dds-callout-with-media-image>
 `;
 
 const video = html`
