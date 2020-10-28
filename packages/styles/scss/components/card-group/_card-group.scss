@@ -55,7 +55,6 @@
 
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__card {
-    height: auto;
     .#{$prefix}--image {
       &__img {
         height: carbon--mini-units(30);
@@ -70,6 +69,10 @@
           top: 0;
         }
       }
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
@@ -96,6 +99,7 @@
       box-shadow: inset 0 0 0 1px $ui-background;
     }
   }
+
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
     @include carbon--make-col-ready;
