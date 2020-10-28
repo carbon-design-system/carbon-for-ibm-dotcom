@@ -66,8 +66,8 @@ const HeaderNavContainer = ({ children }) => {
     for (let i = 0; i < menuItems.length; i++) {
       // checks if the right most visible element is partially hidden
       if (
-        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
-        containerRef.current.offsetWidth
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
+        containerRef.current.offsetWidth - buttonSize
       ) {
         // checks if there is space for remaining menuItems
         if (
