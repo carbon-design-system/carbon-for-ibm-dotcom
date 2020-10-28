@@ -19,7 +19,7 @@ export const Default = ({ parameters }) => {
   const { copy, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
   return html`
     <dds-feature-card-block-medium href=${ifNonNull(href || undefined)}>
-      <slot slot="heading">${heading}</slot>
+      <span slot="heading">${heading}</span>
       <slot slot="eyebrow">${eyebrow}</slot>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
       ${copy} ${ArrowRight20({ slot: 'footer' })}
