@@ -38,7 +38,7 @@ const HeaderNavContainer = ({ children }) => {
         // checks if there is space for remaining menuItems
         if (
           menuItems[i].offsetLeft + menuItems[i].offsetWidth >
-          containerRef.current.offsetWidth
+          containerRef.current.offsetWidth - buttonSize
         ) {
           setPosition(
             containerRef.current.offsetWidth -
