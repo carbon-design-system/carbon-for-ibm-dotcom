@@ -18,6 +18,7 @@ const gzip = require('gzip-size');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const rtlcss = require('rtlcss');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
@@ -34,10 +35,12 @@ const license = require('./rollup-plugin-license');
 const readFile = promisify(fs.readFile);
 
 /**
- * @param {string} [mode=development] The build mode.
+ * @param {object} [options] The build options.
+ * @param {string} [options.mode=development] The build mode.
+ * @param {string} [options.dir=development] The UI direction.
  * @returns {Rollup.RollupOptions} The Rollup config.
  */
-function getRollupConfig(mode = 'development') {
+function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
   const postCSSPlugins = [
     fixHostPseudo(),
     autoprefixer({
@@ -57,6 +60,10 @@ function getRollupConfig(mode = 'development') {
 
   if (mode !== 'development') {
     postCSSPlugins.push(cssnano());
+  }
+
+  if (dir === 'rtl') {
+    postCSSPlugins.push(rtlcss);
   }
 
   const licenseOptions = {
@@ -163,7 +170,7 @@ function getRollupConfig(mode = 'development') {
             }),
             {
               async generateBundle(options, bundle) {
-                const { code } = bundle['ibmdotcom-web-components-dotcom-shell.min.js'];
+                const { code } = bundle[`ibmdotcom-web-components-dotcom-shell${dir !== 'rtl' ? '' : '.rtl'}.min.js`];
                 const gzipSize = await gzip(code);
                 const { bundleSizeThreshold } = packageJson;
                 console.log('Total size (gzipped):', gzipSize); // eslint-disable-line no-console
