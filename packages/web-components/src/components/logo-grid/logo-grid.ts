@@ -25,10 +25,6 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   @property({ attribute: 'hide-border', reflect: true, type: Boolean })
   hideBorder = false;
 
-  protected updated() {
-    this.toggleAttribute('hide-border', this.hideBorder);
-  }
-
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent() {
     return html`
