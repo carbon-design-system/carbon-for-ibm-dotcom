@@ -14,13 +14,10 @@
   :host(#{$dds-prefix}-feature-card-block-medium) {
     color: $text-01;
     background: $ui-background;
-
-    margin-top: $carbon--layout-05;
-    margin-bottom: $carbon--layout-05;
+    margin: $carbon--layout-05 0;
 
     @include carbon--breakpoint('lg') {
-      margin-top: $carbon--layout-06;
-      margin-bottom: $carbon--layout-06;
+      margin: $carbon--layout-06 0;
     }
 
     .#{$prefix}--feature-card-block-medium__heading,
@@ -29,6 +26,10 @@
 
       display: block;
       margin-bottom: $carbon--spacing-07;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }

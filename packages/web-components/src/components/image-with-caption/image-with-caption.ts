@@ -111,14 +111,14 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
       ${this.lightbox
         ? html`
             <button class="${prefix}--image-with-caption__image" @click="${this._handleClick}">
-              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}"></dds-image>
+              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}"><slot></slot></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
         : html`
-            <dds-image default-src="${this.defaultSrc}"></dds-image>
+            <dds-image default-src="${this.defaultSrc}"><slot></slot></dds-image>
           `}
       <p class="${prefix}--image__caption">
         ${this.heading}
