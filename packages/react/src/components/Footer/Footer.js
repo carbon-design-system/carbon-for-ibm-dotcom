@@ -231,7 +231,8 @@ Footer.propTypes = {
 
   /**
    * Array of items for the language selector,
-   * utilizes the [Carbon Select](https://react.carbondesignsystem.com/?path=/story/select--default) component.
+   * uses [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--combobox) for desktop,
+   * and [Carbon Select](https://react.carbondesignsystem.com/?path=/story/select--default) for tablet/mobile.
    */
   languageItems: PropTypes.arrayOf(PropTypes.object),
 

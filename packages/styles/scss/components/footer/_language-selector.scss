@@ -5,8 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import 'carbon-components/scss/components/combo-box/combo-box';
+@import 'carbon-components/scss/components/list-box/list-box';
 @import 'carbon-components/scss/components/select/select';
-@import '../../themes/expressive/components/select';
+@import 'carbon-components/scss/components/text-input/text-input';
+@import '../../themes/expressive/components/combo-box';
+@import '../../themes/expressive/components/list-box';
+@import '../../themes/expressive/components/text-input';
 
 /// Footer language selector
 /// @access private
@@ -18,8 +23,14 @@
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
+      @include combo-box;
+      @include listbox;
       @include select;
+      @include text-input;
+      @include combo-box-expressive;
+      @include list-box-expressive;
       @include select-expressive;
+      @include text-input-expressive;
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
 
@@ -96,8 +107,23 @@
       }
     }
 
+    // Toggle views depending on breakpoint
+    // <Select /> for mobile/tablet
+    // <ComboBox /> for desktop
     .#{$prefix}--form-item {
       display: block;
+
+      @include carbon--breakpoint('lg') {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--list-box__wrapper {
+      display: none;
+
+      @include carbon--breakpoint('lg') {
+        display: block;
+      }
     }
   }
 }
