@@ -71,3 +71,11 @@ export const DDS_CONTENTBLOCK_HEADLINES =
  */
 export const DDS_PROMO_BANNER =
   process.env.DDS_PROMO_BANNER === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if Leadspace with search will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_LEADSPACE_WITH_SEARCH =
+  process.env.DDS_LEADSPACE_WITH_SEARCH === 'true' || DDS_FLAGS_ALL || false;

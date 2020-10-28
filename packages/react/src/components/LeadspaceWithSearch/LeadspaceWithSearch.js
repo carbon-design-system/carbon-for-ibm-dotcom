@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { DDS_LEADSPACE_WITH_SEARCH } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Search from 'carbon-components-react/lib/components/Search';
@@ -14,8 +16,9 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
-const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
-  return (
+const LeadspaceWithSearch = ({ heading, copy, searchProps }) =>
+  featureFlag(
+    DDS_LEADSPACE_WITH_SEARCH,
     <section
       data-autoid={`${stablePrefix}--leadspace-with-search`}
       className={`${prefix}--leadspace-with-search`}>
@@ -35,7 +38,6 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
       </div>
     </section>
   );
-};
 
 LeadspaceWithSearch.propTypes = {
   /**
