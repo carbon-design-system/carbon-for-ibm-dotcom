@@ -125,6 +125,13 @@
         display: block;
       }
     }
+
+    .#{$prefix}--label {
+      height: 0;
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
   }
 }
 

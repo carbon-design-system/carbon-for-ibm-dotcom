@@ -30,6 +30,7 @@ const Footer = ({
   langCode,
   disableLocaleButton,
   languageOnly,
+  labelText,
   languageItems,
   languageInitialItem,
   languageCallback,
@@ -112,6 +113,7 @@ const Footer = ({
               localeButtonAria,
               displayLang,
               languageOnly,
+              labelText,
               languageItems,
               languageInitialItem,
               languageCallback
@@ -128,6 +130,7 @@ const Footer = ({
                 localeButtonAria,
                 displayLang,
                 languageOnly,
+                labelText,
                 languageItems,
                 languageInitialItem,
                 languageCallback
@@ -146,6 +149,7 @@ const Footer = ({
  * @param {string} localeButtonAria String for the aria label
  * @param {string} displayLang display language for locale button
  * @param {boolean} languageOnly Switches to the language selector
+ * @param {string} labelText Label text for locale/language selector
  * @param {Array} languageItems Array of language data for the dropdown
  * @param {object} languageInitialItem Initial language selected
  * @param {Function} languageCallback Callback function when language is selected
@@ -157,6 +161,7 @@ function _loadLocaleLanguage(
   localeButtonAria,
   displayLang,
   languageOnly,
+  labelText,
   languageItems,
   languageInitialItem,
   languageCallback
@@ -167,6 +172,7 @@ function _loadLocaleLanguage(
         items={languageItems}
         initialSelectedItem={languageInitialItem}
         callback={languageCallback}
+        labelText={labelText}
       />
     );
   } else if (!disableLocaleButton) {
@@ -228,6 +234,11 @@ Footer.propTypes = {
    * `true` to switch the locale button with a language selector.
    */
   languageOnly: PropTypes.bool,
+
+  /**
+   * Label text for combobox/select
+   */
+  labelText: PropTypes.string,
 
   /**
    * Array of items for the language selector,

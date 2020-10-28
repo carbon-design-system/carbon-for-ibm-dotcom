@@ -19,7 +19,16 @@ const { prefix } = settings;
 /**
  * Footer language selector component.
  */
+<<<<<<< HEAD
 const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
+=======
+const LanguageSelector = ({
+  items,
+  initialSelectedItem,
+  callback,
+  labelText,
+}) => {
+>>>>>>> fix(a11y): add label to combobox and select
   const { ref } = useClickOutside();
 
   const [selectedItem, setSelectedItem] = useState(
@@ -79,6 +88,10 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
         selectedItem={selectedItem}
         direction="top"
         placeholder=""
+<<<<<<< HEAD
+=======
+        titleText={labelText}
+>>>>>>> fix(a11y): add label to combobox and select
       />
       <Select
         defaultValue={selectedItem.id}
@@ -86,7 +99,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
         className={`${prefix}--language-selector`}
         onChange={evt => _setSelectedItem(evt)}
         text={selectedItem.text}
-        hideLabel>
+        labelText={labelText}>
         {renderSelectItems(items)}
       </Select>
     </div>
@@ -131,12 +144,18 @@ LanguageSelector.propTypes = {
    * Callback function when an item is selected.
    */
   callback: PropTypes.func,
+
+  /**
+   * Label text
+   */
+  labelText: PropTypes.string,
 };
 
 LanguageSelector.defaultProps = {
   items: null,
   initialSelectedItem: null,
   callback: () => {},
+  labelText: 'Choose a language',
 };
 
 export default LanguageSelector;
