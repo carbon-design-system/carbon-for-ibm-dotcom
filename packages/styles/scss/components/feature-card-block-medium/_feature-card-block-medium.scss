@@ -27,6 +27,10 @@
       display: block;
       margin-bottom: $carbon--spacing-07;
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 @include exports('feature-card-block-medium') {
