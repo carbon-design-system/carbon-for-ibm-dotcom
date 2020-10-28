@@ -28,7 +28,9 @@ const HeaderNavContainer = ({ children }) => {
   const buttonSize = 48; // 40px(width) + 8px(gradient)
 
   const paginateLeft = useCallback(() => {
-    let menuItems = contentRef.current.querySelectorAll('.bx--header__menu-bar li');
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
+    );
     for (let i = 0; i < menuItems.length; i++) {
       // checks if first visible item is partially hidden
       if (
@@ -63,7 +65,9 @@ const HeaderNavContainer = ({ children }) => {
   }, [position]);
 
   const paginateRight = useCallback(() => {
-    let menuItems = contentRef.current.querySelectorAll('.bx--header__menu-bar li');
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
+    );
     for (let i = 0; i < menuItems.length; i++) {
       // checks if the right most visible element is partially hidden
       if (
