@@ -43,6 +43,7 @@
 @import 'components/layout/layout';
 @import 'components/leadspace/leadspace';
 @import 'components/leadspace-block/leadspace-block';
+@import 'components/leadspace-with-search/index';
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
 @import 'components/link-list/index';
@@ -51,12 +52,11 @@
 @import 'components/logo-grid/logo-grid';
 @import 'components/masthead/index';
 @import 'components/pictogram-item/pictogram-item';
+@import 'components/promo-banner/index';
 @import 'components/quote/quote';
 @import 'components/simplebenefits/simplebenefits';
 @import 'components/tableofcontents/tableofcontents';
 @import 'components/video-player/video-player';
-@import 'components/leadspace-with-search/index';
-@import 'components/promo-banner/index';
 
 // Expressive Theme
 @import 'themes/expressive/index';
