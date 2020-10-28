@@ -30,10 +30,12 @@ const HeaderNavContainer = ({ children }) => {
 
   const paginateLeft = useCallback(() => {
     for (let i = 0; i < menuItems.length; i++) {
+      // checks if first visible item is partially hidden
       if (
         menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
         buttonSize
       ) {
+        // checks if there is space for remaining menuItems
         if (
           menuItems[i].offsetLeft + menuItems[i].offsetWidth >
           containerRef.current.offsetWidth
@@ -62,10 +64,12 @@ const HeaderNavContainer = ({ children }) => {
 
   const paginateRight = useCallback(() => {
     for (let i = 0; i < menuItems.length; i++) {
+      // checks if the right most visible element is partially hidden
       if (
         menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
         containerRef.current.offsetWidth
       ) {
+        // checks if there is space for remaining menuItems
         if (
           contentRef.current.offsetWidth - menuItems[i].offsetLeft <
           containerRef.current.offsetWidth - buttonSize
