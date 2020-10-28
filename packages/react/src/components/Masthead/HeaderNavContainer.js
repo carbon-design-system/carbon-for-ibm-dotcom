@@ -164,7 +164,7 @@ const HeaderNavContainer = ({ children }) => {
           aria-label="Masthead right caret"
           onClick={paginateRight}
           ref={caretRightRef}
-          hidden="true">
+          hidden>
           <CaretRight20 />
         </button>
       </div>
