@@ -24,11 +24,13 @@ const HeaderNavContainer = ({ children }) => {
   const caretLeftRef = useRef(null);
   const caretRightRef = useRef(null);
   const [io, setIO] = useState(null);
-  const [menuItems, setMenuItems] = useState(null);
   const [position, setPosition] = useState(0);
   const buttonSize = 48; // 40px(width) + 8px(gradient)
 
   const paginateLeft = useCallback(() => {
+    let menuItems = contentRef.current
+      .querySelector('.bx--header__menu-bar')
+      .querySelectorAll('li');
     for (let i = 0; i < menuItems.length; i++) {
       // checks if first visible item is partially hidden
       if (
@@ -60,9 +62,12 @@ const HeaderNavContainer = ({ children }) => {
         break;
       }
     }
-  }, [menuItems, position]);
+  }, [position]);
 
   const paginateRight = useCallback(() => {
+    let menuItems = contentRef.current
+      .querySelector('.bx--header__menu-bar')
+      .querySelectorAll('li');
     for (let i = 0; i < menuItems.length; i++) {
       // checks if the right most visible element is partially hidden
       if (
@@ -89,7 +94,7 @@ const HeaderNavContainer = ({ children }) => {
         break;
       }
     }
-  }, [menuItems, position]);
+  }, [position]);
 
   useEffect(() => {
     if (window.IntersectionObserver) {
@@ -126,9 +131,6 @@ const HeaderNavContainer = ({ children }) => {
     if (io) {
       io.observe(contentLeftRef.current);
       io.observe(contentRightRef.current);
-      setMenuItems(
-        document.querySelector('.bx--header__menu-bar').querySelectorAll('li')
-      );
     } else {
       return () => {
         if (io) {
@@ -153,14 +155,16 @@ const HeaderNavContainer = ({ children }) => {
           className={`${prefix}--header__nav-caret-left`}
           aria-label="Masthead left caret"
           onClick={paginateLeft}
-          ref={caretLeftRef}>
+          ref={caretLeftRef}
+          hidden="true">
           <CaretLeft20 />
         </button>
         <button
           className={`${prefix}--header__nav-caret-right`}
           aria-label="Masthead right caret"
           onClick={paginateRight}
-          ref={caretRightRef}>
+          ref={caretRightRef}
+          hidden="true">
           <CaretRight20 />
         </button>
       </div>
