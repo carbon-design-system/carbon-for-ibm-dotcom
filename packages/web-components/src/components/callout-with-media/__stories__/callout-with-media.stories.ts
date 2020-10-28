@@ -12,8 +12,7 @@ import { select } from '@storybook/addon-knobs';
 import styles from './callout-with-media.stories.scss';
 import '../callout-with-media';
 import '../callout-with-media-image';
-import '../../content-block-simple/content-block-simple__media-video';
-import '../../image-with-caption/image-with-caption'
+import '../callout-with-media-video';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
@@ -26,7 +25,7 @@ const image = html`
 `;
 
 const video = html`
-<dds-content-block-simple__media-video video-id="0_uka1msg4"></dds-content-block-simple__media-video>
+<dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
 `;
 
 export const Default = ({ parameters }) => {

@@ -55,16 +55,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-simple__media-image){
-    color: $text-01;
-    .#{$prefix}--image__caption{
-      color: $text-01;
-    }
-  }
-
-  :host(#{$dds-prefix}-content-block-simple__media-image),
+  :host(#{$dds-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content .#{$prefix}--content-block {
     .#{$prefix}--image__caption {
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style('body-short-01', true);
+
+      margin-top: $carbon--spacing-03;
       color: $text-01;
     }
     .#{$prefix}--video-player__video-caption {

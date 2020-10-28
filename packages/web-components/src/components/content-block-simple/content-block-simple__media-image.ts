@@ -15,9 +15,9 @@ import styles from './content-block-simple.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Feature Card Block Large.
+ * Content Block Simple Media Image
  *
- * @element dds-feature-card-block-large
+ * @element dds-content-block-simple__media-image
  */
 @customElement(`${ddsPrefix}-content-block-simple__media-image`)
 class DDSContentBlockSimpleMediaImage extends DDSImageWithCaption {

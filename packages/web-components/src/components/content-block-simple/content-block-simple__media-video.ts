@@ -15,14 +15,14 @@ import styles from './content-block-simple.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Feature Card Block Large.
+ * Content Block Simple Media Video.
  *
- * @element dds-feature-card-block-large
+ * @element dds-content-block-simple__media-video
  */
 @customElement(`${ddsPrefix}-content-block-simple__media-video`)
 class DDSContentBlockSimpleMediaVideo extends DDSVideoPlayerContainer {
   /**
-   * The shadow slot this image with caption should be in.
+   * The shadow slot this video container should be in.
    */
   @property({ reflect: true })
   slot = 'media';

@@ -9,9 +9,8 @@
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-simple/content-block-simple';
-@import '../../../../styles/scss/components/image-with-caption/image-with-caption';
-@import '../../../../styles/scss/components/video-player/video-player';
-
+@import '@carbon/ibmdotcom-styles/scss/components/image-with-caption/image-with-caption';
+@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
 
 :host(#{$dds-prefix}-content-block-simple) {
   display: block;
