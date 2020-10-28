@@ -5,12 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/components/combo-box/combo-box';
-@import 'carbon-components/scss/components/list-box/list-box';
-@import 'carbon-components/scss/components/text-input/text-input';
-@import '../../themes/expressive/components/combo-box';
-@import '../../themes/expressive/components/list-box';
-@import '../../themes/expressive/components/text-input';
+@import 'carbon-components/scss/components/select/select';
+@import '../../themes/expressive/components/select';
 
 /// Footer language selector
 /// @access private
@@ -22,12 +18,8 @@
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
     ) {
-      @include combo-box;
-      @include listbox;
-      @include text-input;
-      @include combo-box-expressive;
-      @include list-box-expressive;
-      @include text-input-expressive;
+      @include select;
+      @include select-expressive;
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
 
@@ -39,6 +31,7 @@
       .#{$prefix}--language-selector {
         max-width: 100%;
         width: 100%;
+        height: 3rem;
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
@@ -91,6 +84,20 @@
 
     .#{$prefix}--list-box__menu {
       z-index: 1;
+    }
+
+    .#{$prefix}--select-input__wrapper {
+      width: 100%;
+
+      .#{$prefix}--select-input {
+        width: 100%;
+        max-width: 100%;
+        height: $layout-04;
+      }
+    }
+
+    .#{$prefix}--form-item {
+      display: block;
     }
   }
 }
