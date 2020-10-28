@@ -67,6 +67,14 @@ const _axiosConfig = {
 const _sessionListKey = 'dds-countrylist';
 
 /**
+ * Two hours in milliseconds to compare session timestamp.
+ *
+ * @type {number}
+ * @private
+ */
+const _twoHours = 60 * 60 * 2000;
+
+/**
  * Use the <html> lang attr to determine a return locale object
  *
  * @type {object}
@@ -300,10 +308,9 @@ class LocaleAPI {
    * @param {Function} reject rejects the promise
    */
   static fetchList(cc, lc, resolve, reject) {
-    const sessionList =
-      typeof sessionStorage === 'undefined'
-        ? undefined
-        : JSON.parse(sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`));
+    const itemKey = `${_sessionListKey}-${cc}-${lc}`;
+
+    const sessionList = this.getSessionCache(itemKey);
 
     if (sessionList) {
       resolve(sessionList);
@@ -313,6 +320,7 @@ class LocaleAPI {
         const url = `${_endpoint}/${cc}${lc}-utf8.json`;
         _requestsList[key] = axios.get(url, _axiosConfig).then(response => {
           const { data } = response;
+          data['timestamp'] = Date.now();
           sessionStorage.setItem(
             `${_sessionListKey}-${cc}-${lc}`,
             JSON.stringify(data)
@@ -372,6 +380,32 @@ class LocaleAPI {
       locale = { cc, lc: priorityLC };
     }
     return locale;
+  }
+
+  /**
+   * Retrieves session cache and checks if cache needs to be refreshed
+   *
+   * @param   {string} key session storage key
+   * @returns {object} session storage object
+   */
+  static getSessionCache(key) {
+    const session =
+      typeof sessionStorage === 'undefined'
+        ? undefined
+        : JSON.parse(sessionStorage.getItem(key));
+
+    if (!session || !session.timestamp) {
+      return;
+    }
+
+    const currentTime = Date.now(),
+      timeDiff = currentTime - session.timestamp;
+
+    if (timeDiff > _twoHours) {
+      sessionStorage.removeItem(key);
+      return;
+    }
+    return session;
   }
 }
 

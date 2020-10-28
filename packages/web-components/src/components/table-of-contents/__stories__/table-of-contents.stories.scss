@@ -8,7 +8,15 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/colors/colors';
 @import 'carbon-components/scss/globals/scss/typography';
 
+.dds-ce-demo-devenv--container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .dds-ce-demo--table-of-contents {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
   a[name] {
     display: block;
     color: $text-01;
