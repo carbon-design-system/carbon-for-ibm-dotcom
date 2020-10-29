@@ -6,3 +6,14 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup';
+
+#{$prefix}--buttongroup,
+:host(#{$dds-prefix}-button-group) {
+  align-items: flex-start;
+}
+
+.#{$prefix}--buttongroup-item,
+:host(#{$dds-prefix}-button-group-item) {
+  margin-right: 1rem;
+  padding-right: 0;
+}
