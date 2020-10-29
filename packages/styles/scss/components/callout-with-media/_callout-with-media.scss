@@ -24,8 +24,9 @@
     padding-top: 0;
   }
 
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content
-  .#{$prefix}--content-block-simple__media-video {
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block-simple__media-video {
     @include carbon--breakpoint-down('md') {
       margin-top: -16px;
     }
@@ -34,8 +35,9 @@
   }
 
   :host(#{$dds-prefix}-content-block-simple__media-image),
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content
-  .#{$prefix}--content-block-simple__media-image {
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block-simple__media-image {
     @include carbon--breakpoint-down('md') {
       margin-top: 0;
     }
@@ -44,19 +46,26 @@
   }
 
   :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content .#{$prefix}--content-block {
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block {
     padding-bottom: $layout-05;
 
     @include carbon--theme(
-        $carbon--theme--g90,
-        feature-flag-enabled('enable-css-custom-properties')
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
     ) {
       color: $text-04;
+      // `$text-05` in inverse theme is not accessible, which has an adverse effect to `bx--video-player__video-caption` in `<dds-callout-with-media>`.
+      // TODO: Consider global `$text-05` color change in inverse theme, or introduce a component-specific token for `.bx--video-player__video-caption`.
+      --cds-text-05: #f4f4f4;
     }
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content .#{$prefix}--content-block {
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block {
     .#{$prefix}--image__caption {
       @include use-carbon-productive-tokens();
       @include carbon--type-style('body-short-01', true);
