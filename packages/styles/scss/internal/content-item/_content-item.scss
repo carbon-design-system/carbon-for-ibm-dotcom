@@ -36,6 +36,7 @@
   }
 
   :host(#{$dds-prefix}-content-item-heading),
+  :host(#{$dds-prefix}-content-item),
   .#{$prefix}--content-item__heading,
   .#{$prefix}--content-item__copy {
     @include carbon--breakpoint(md) {
@@ -56,7 +57,6 @@
   }
 
   .#{$prefix}--content-item__copy {
-    //display: block;
     p {
       @include carbon--type-style('body-long-02');
 

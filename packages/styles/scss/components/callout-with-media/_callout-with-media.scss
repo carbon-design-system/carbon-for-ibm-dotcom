@@ -14,10 +14,6 @@
   .#{$prefix}--callout-with-media {
     display: block;
     background-color: $inverse-02;
-
-    .#{$prefix}--video-player__video-caption {
-      padding-top: $spacing-03;
-    }
   }
 
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
@@ -75,6 +71,7 @@
     }
     .#{$prefix}--video-player__video-caption {
       color: $text-01;
+      padding-top: $spacing-03;
     }
   }
 }
