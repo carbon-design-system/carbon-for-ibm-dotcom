@@ -19,7 +19,7 @@
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
     padding-top: 0;
   }
-
+  :host(#{$dds-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-video {

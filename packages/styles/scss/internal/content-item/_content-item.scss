@@ -41,7 +41,7 @@
     @include carbon--breakpoint(md) {
       @include content-width;
 
-      display: block
+      display: block;
     }
   }
 
