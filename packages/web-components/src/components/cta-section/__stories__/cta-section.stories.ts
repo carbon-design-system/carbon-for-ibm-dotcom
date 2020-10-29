@@ -7,15 +7,40 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { select } from '@storybook/addon-knobs';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../cta-section';
 
+const iconMap = {
+  ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  Launch20: Launch20({ slot: 'icon' }),
+};
+
+const iconOptions = {
+  Default: null,
+  'Arrow Right': 'ArrowRight20',
+  'External Launch': 'Launch20',
+};
+
 export const Default = ({ parameters }) => {
-  const { heading, copy } = parameters?.props?.CTASection ?? {};
+  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
   return html`
-    <dds-cta-section heading="${heading}" copy="${copy}"> </dds-cta-section>
+    <dds-cta-section .copy="${ifNonNull(copy)}">
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-button-group>
+        <dds-button-group-item href="https://example.com">
+          Primary Button ${renderIcon}
+        </dds-button-group-item>
+        <dds-button-group-item href="https://example.com">
+          Primary button ${renderIcon}
+        </dds-button-group-item>
+      </dds-button-group>
+    </dds-cta-section>
   `;
 };
 
@@ -43,6 +68,7 @@ export default {
           'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
           groupId
         ),
+        renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],
       }),
     },
     ...readme.parameters,

@@ -13,19 +13,21 @@
   @include cta-section--pattern;
 
   display: block;
+}
 
-  .#{$dds-prefix}--content-block__copy p {
-    font-size: 1.5rem;
+.#{$dds-prefix}--content-block__copy {
+  display: inline-block;
+  font-size: 1.5rem;
 
-    /* stylelint-disable-next-line declaration-property-unit-whitelist */
-    line-height: 125%;
+  width: 90%;
+  max-width: 640px;
 
+  @include carbon--breakpoint('sm') {
+    width: 100%;
+  }
+
+  @include carbon--breakpoint('md') {
     width: 90%;
-    max-width: 640px;
-
-    @include carbon--breakpoint('sm') {
-      width: 100%;
-    }
   }
 }
 

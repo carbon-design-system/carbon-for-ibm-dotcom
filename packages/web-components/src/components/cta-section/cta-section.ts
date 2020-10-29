@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, LitElement } from 'lit-element';
+import { customElement, html, property, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
@@ -26,16 +27,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(LitElement) {
   /**
-   * Renders CTA heading slot
-   */
-  protected _renderHeading() {
-    const { heading } = this;
-    return html`
-      <slot name="heading">${heading}</slot>
-    `;
-  }
-
-  /**
    * Applies section attribute
    */
   connectedCallback() {
@@ -43,6 +34,31 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
       this.setAttribute('role', 'section');
     }
     super.connectedCallback();
+  }
+
+  protected _renderBody(): TemplateResult | string | void {
+    // const { _hasFooter: hasFooter } = this;
+    return html`
+      ${this._renderCopy()} ${this._renderContent()}
+    `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderContent(): TemplateResult | string | void {
+    return html`
+      <slot></slot>
+    `;
+  }
+
+  protected _renderCopy(): TemplateResult | string | void {
+    const { copy } = this;
+    return html`
+      ${!copy
+        ? undefined
+        : html`
+            <dds-markdown class="${ddsPrefix}--content-block__copy" nobold .content="${ifNonNull(copy)}"></dds-markdown>
+          `}
+    `;
   }
 
   /**
@@ -56,23 +72,13 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <dds-content-block>
-        <dds-content-block-heading .copy=${this.copy}>${this.heading}</dds-content-block-heading>
-        <div class="${ddsPrefix}--content-block__copy"><p>${this.copy}</p></div>
-        <dds-button-group>
-          <dds-button-group-item href="https://example.com">
-            Secondary button
-          </dds-button-group-item>
-
-          <dds-button-group-item href="https://example.com">
-            Primary button
-          </dds-button-group-item>
-        </dds-button-group>
-      </dds-content-block>
+      <slot name="heading"></slot>
+      ${this._renderBody()}
     `;
   }
 
   /**
+   * 
    * <section
       data-autoid={`${stablePrefix}--cta-section`}
       className={classNames(`${prefix}--cta-section`, {
