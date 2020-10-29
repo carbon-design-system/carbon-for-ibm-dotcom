@@ -19,16 +19,12 @@ const { prefix } = settings;
 /**
  * Footer language selector component.
  */
-<<<<<<< HEAD
-const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
-=======
 const LanguageSelector = ({
   items,
   initialSelectedItem,
   callback,
   labelText,
 }) => {
->>>>>>> fix(a11y): add label to combobox and select
   const { ref } = useClickOutside();
 
   const [selectedItem, setSelectedItem] = useState(
@@ -88,10 +84,7 @@ const LanguageSelector = ({
         selectedItem={selectedItem}
         direction="top"
         placeholder=""
-<<<<<<< HEAD
-=======
         titleText={labelText}
->>>>>>> fix(a11y): add label to combobox and select
       />
       <Select
         defaultValue={selectedItem.id}
