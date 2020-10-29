@@ -20,8 +20,6 @@
     </slot>
   </div>
 </div>
-<slot name="complementary">
-</slot>
 
 ```
 
