@@ -11,7 +11,9 @@
     <blockquote class="bx--quote__copy">
       <slot name="copy">
       </slot>
-      ”
+      <span class="bx--quote__mark-closing">
+        ”
+      </span>
     </blockquote>
     <div
       class="bx--quote__source"
