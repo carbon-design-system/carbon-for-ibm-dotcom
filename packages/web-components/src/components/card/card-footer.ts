@@ -68,6 +68,16 @@ class DDSCardFooter extends DDSLinkWithIcon {
     `;
   }
 
+  protected _renderInner() {
+    return this.iconPlacement === ICON_PLACEMENT.LEFT
+      ? html`
+          ${this._renderIcon()}${this._renderContent()}
+        `
+      : html`
+          ${this._renderContent()}${this._renderIcon()}
+        `;
+  }
+
   /**
    * The color scheme.
    */

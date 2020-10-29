@@ -12,14 +12,11 @@
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 
 :host(#{$dds-prefix}-card-link),
-:host(#{$dds-prefix}-link-list-item-card) {
+:host(#{$dds-prefix}-link-list-item-card),
+:host(#{$dds-prefix}-link-list-item-card-cta) {
   .#{$prefix}--card__wrapper {
     .#{$prefix}--card__copy {
       flex: 1;
-    }
-
-    ::slotted(svg[slot='footer']) {
-      fill: $link-01;
     }
   }
 }

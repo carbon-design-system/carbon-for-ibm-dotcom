@@ -10,7 +10,15 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 
+.dds-ce-demo-devenv--container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .dds-ce-demo--table-of-contents {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
   h3 {
     padding-top: rem(16px);
     padding-bottom: rem(32px);
