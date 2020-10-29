@@ -17,15 +17,16 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 const image = html`
-<dds-callout-with-media-image
- alt="Image alt text"
- default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
- heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-</dds-callout-with-media-image>
+  <dds-callout-with-media-image
+    alt="Image alt text"
+    default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
+  </dds-callout-with-media-image>
 `;
 
 const video = html`
-<dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
+  <dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
 `;
 
 export const Default = ({ parameters }) => {
@@ -33,8 +34,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-callout-with-media copy=${copy}>
       <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
-      ${mediaType === 'image' ? image : ``}
-      ${mediaType === 'video' ? video : ``}
+      ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;
 };
@@ -59,12 +59,12 @@ export default {
     },
     decorators: [
       story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-2">
+        <style>
+          ${styles}
+        </style>
+        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+          <div class="bx--row dds-ce-demo-devenv--grid-row">
+            <div class="bx--offset-lg-4 bx--col-lg-12">
               ${story()}
             </div>
           </div>
