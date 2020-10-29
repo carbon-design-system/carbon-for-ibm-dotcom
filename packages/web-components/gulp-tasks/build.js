@@ -90,29 +90,52 @@ const cssStream = ({ banner, dir }) =>
     .pipe(header(banner))
     .pipe(gulp.dest(path.resolve(config.jsDestDir)));
 
+const modeSuffixes = {
+  development: '',
+  production: '.min',
+};
+
+const dirSuffixes = {
+  ltr: '',
+  rtl: '.rtl',
+};
+
+/**
+ * Builds a Rollup bundle.
+ *
+ * @param {object} [options] The build options.
+ * @param {string} [options.mode=development] The build mode.
+ * @param {string} [options.dir=development] The UI direction.
+ */
+async function buildBundle({ mode = 'development', dir = 'ltr' } = {}) {
+  const bundle = await rollup(getRollupConfig({ mode, dir }));
+  await bundle.write({
+    format: 'es',
+    name: 'IBMDotcomWebComponentsDotcomShell',
+    file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}.js`,
+    // FIXME: Figure out how to handle `process.env` without build toolstack
+    banner: 'let process = { env: {} };',
+  });
+}
+
 module.exports = {
   bundles: {
     scripts: {
-      async dev() {
-        const bundle = await rollup(getRollupConfig());
-        await bundle.write({
-          format: 'es',
-          name: 'IBMDotcomWebComponentsDotcomShell',
-          file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell.js`,
-          // FIXME: Figure out how to handle `process.env` without build toolstack
-          banner: 'let process = { env: {} };',
-        });
+      ltr: {
+        dev() {
+          return buildBundle();
+        },
+        prod() {
+          return buildBundle({ mode: 'production' });
+        },
       },
-
-      async prod() {
-        const bundle = await rollup(getRollupConfig('production'));
-        await bundle.write({
-          format: 'es',
-          name: 'IBMDotcomWebComponentsDotcomShell',
-          file: `${config.bundleDestDir}/ibmdotcom-web-components-dotcom-shell.min.js`,
-          // FIXME: Figure out how to handle `process.env` without build toolstack
-          banner: 'let process = { env: {} };',
-        });
+      rtl: {
+        dev() {
+          return buildBundle({ dir: 'rtl' });
+        },
+        prod() {
+          return buildBundle({ mode: 'production', dir: 'rtl' });
+        },
       },
     },
   },
