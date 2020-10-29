@@ -26,3 +26,11 @@ module.exports = {
 > example implementation.
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/rtl)
+
+While we recommend using a module bundler by yourself for creating a RTL version of bundle optimized fully for your application (it's what above example does), you can use our pre-built version e.g. for evaluation purpose. The pre-built version can be found at `https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.rtl.min.js`.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/bundle-rtl)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/bundle-rtl)
