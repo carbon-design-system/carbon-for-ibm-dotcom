@@ -26,11 +26,18 @@ export default !DDS_LEADSPACE_WITH_SEARCH
               groupId
             ),
             searchProps: {
-              placeHolderText: text(
-                'Placeholder (searchProps.placeHolderText):',
-                'Search keywords',
-                groupId
-              ),
+              placeHolder: {
+                mobile: text(
+                  'Mobile placeholder (searchProps.placeHolder.mobile):',
+                  'Search keywords',
+                  groupId
+                ),
+                desktop: text(
+                  'Desktop placeholder (searchProps.placeHolder.desktop)',
+                  'Search known issues, documentation and support forums',
+                  groupId
+                ),
+              },
               labelText: 'Search keywords',
               onChange: () => {},
               onKeyDown: () => {},

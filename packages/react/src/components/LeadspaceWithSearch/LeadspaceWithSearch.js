@@ -5,23 +5,45 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_LEADSPACE_WITH_SEARCH } from '../../internal/FeatureFlags';
+import React, { useState, useEffect, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
-import React from 'react';
 import Search from 'carbon-components-react/lib/components/Search';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
-const LeadspaceWithSearch = ({ heading, copy, searchProps }) =>
-  featureFlag(
-    DDS_LEADSPACE_WITH_SEARCH,
+const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
+  const [searchPlaceHolder, setSearchplaceHolder] = useState(null);
+  const leadspaceContainer = useRef(null);
+
+  useEffect(() => {
+    if (leadspaceContainer) {
+      const { current } = leadspaceContainer;
+      const observer = new ResizeObserver(entries => {
+        for (const entry of entries) {
+          const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
+          const CARBON_MD_BREAKPOINT = 672;
+          const { desktop, mobile } = searchProps.placeHolder;
+
+          if (leadspaceWidth > CARBON_MD_BREAKPOINT || !mobile) {
+            setSearchplaceHolder(desktop);
+          }
+          if (leadspaceWidth <= CARBON_MD_BREAKPOINT && mobile) {
+            setSearchplaceHolder(mobile);
+          }
+        }
+      });
+      observer.observe(current);
+    }
+  }, [searchProps.placeHolder]);
+
+  return (
     <section
       data-autoid={`${stablePrefix}--leadspace-with-search`}
-      className={`${prefix}--leadspace-with-search`}>
+      className={`${prefix}--leadspace-with-search`}
+      ref={leadspaceContainer}>
       <div className={`${prefix}--leadspace-with-search__row`}>
         <div className={`${prefix}--leadspace-with-search__content`}>
           <h1 className={`${prefix}--leadspace-with-search__heading`}>
@@ -32,12 +54,14 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) =>
           )}
           <Search
             className={`${prefix}--leadspace-with-search__search`}
+            placeHolderText={searchPlaceHolder}
             {...searchProps}
           />
         </div>
       </div>
     </section>
   );
+};
 
 LeadspaceWithSearch.propTypes = {
   /**
@@ -59,7 +83,23 @@ LeadspaceWithSearch.propTypes = {
    * Any other functions and properties passed down to this will be applyed to the [Search component](https://www.carbondesignsystem.com/components/search/usage/).
    *
    */
-  searchProps: Search.propTypes,
+  searchProps: {
+    /**
+     * The Leadspace With Search accepts two placeholders. One for mobile view and another for desktop. Both are optional. If you do not provide, it will be set to "Search".
+     */
+    placeHolder: PropTypes.shape({
+      mobile: PropTypes.string,
+      desktop: PropTypes.string,
+    }),
+    labelText: PropTypes.string,
+    ...Search.propTypes,
+  },
+};
+
+LeadspaceWithSearch.defaultProps = {
+  searchProps: {
+    desktop: 'Search',
+  },
 };
 
 export default LeadspaceWithSearch;
