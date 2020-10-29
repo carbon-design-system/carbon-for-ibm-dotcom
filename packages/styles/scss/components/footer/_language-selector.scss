@@ -7,6 +7,7 @@
 
 @import 'carbon-components/scss/components/combo-box/combo-box';
 @import 'carbon-components/scss/components/list-box/list-box';
+@import 'carbon-components/scss/components/select/select';
 @import 'carbon-components/scss/components/text-input/text-input';
 @import '../../themes/expressive/components/combo-box';
 @import '../../themes/expressive/components/list-box';
@@ -24,9 +25,11 @@
     ) {
       @include combo-box;
       @include listbox;
+      @include select;
       @include text-input;
       @include combo-box-expressive;
       @include list-box-expressive;
+      @include select-expressive;
       @include text-input-expressive;
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
@@ -39,6 +42,7 @@
       .#{$prefix}--language-selector {
         max-width: 100%;
         width: 100%;
+        height: 3rem;
 
         @include carbon--breakpoint('md') {
           min-width: carbon--mini-units(27);
@@ -91,6 +95,42 @@
 
     .#{$prefix}--list-box__menu {
       z-index: 1;
+    }
+
+    .#{$prefix}--select-input__wrapper {
+      width: 100%;
+
+      .#{$prefix}--select-input {
+        width: 100%;
+        max-width: 100%;
+        height: $layout-04;
+      }
+    }
+
+    // Toggle views depending on breakpoint
+    // <Select /> for mobile/tablet
+    // <ComboBox /> for desktop
+    .#{$prefix}--form-item {
+      display: block;
+
+      @include carbon--breakpoint('lg') {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--list-box__wrapper {
+      display: none;
+
+      @include carbon--breakpoint('lg') {
+        display: block;
+      }
+    }
+
+    .#{$prefix}--label {
+      height: 0;
+      padding: 0;
+      margin: 0;
+      display: block;
     }
   }
 }
