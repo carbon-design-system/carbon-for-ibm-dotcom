@@ -19,7 +19,7 @@ import readme from './README.stories.mdx';
 const image = html`
   <dds-callout-with-media-image
     alt="Image alt text"
-    default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+    default-src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
   </dds-callout-with-media-image>
