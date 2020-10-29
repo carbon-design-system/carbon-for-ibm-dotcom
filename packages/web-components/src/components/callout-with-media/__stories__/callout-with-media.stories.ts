@@ -62,8 +62,8 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-          <div class="bx--row dds-ce-demo-devenv--grid-row">
+        <div class="bx--grid" style="width:100%">
+          <div class="bx--row">
             <div class="bx--offset-lg-4 bx--col-lg-12">
               ${story()}
             </div>

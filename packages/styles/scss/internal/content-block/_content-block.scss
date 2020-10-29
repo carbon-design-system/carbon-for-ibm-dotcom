@@ -49,7 +49,6 @@
   }
 
   :host(#{$dds-prefix}-content-block-heading),
-  .#{$prefix}--content-block__children,
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;

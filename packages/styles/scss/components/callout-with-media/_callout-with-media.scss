@@ -30,7 +30,7 @@
     margin-top: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-block-simple__media-image),
+  :host(#{$dds-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-image {

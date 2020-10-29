@@ -36,11 +36,12 @@
   }
 
   :host(#{$dds-prefix}-content-item-heading),
-  :host(#{$dds-prefix}-content-item),
   .#{$prefix}--content-item__heading,
   .#{$prefix}--content-item__copy {
     @include carbon--breakpoint(md) {
       @include content-width;
+
+      display: block
     }
   }
 
