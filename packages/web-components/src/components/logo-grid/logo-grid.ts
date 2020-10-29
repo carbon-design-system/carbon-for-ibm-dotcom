@@ -36,6 +36,13 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
     `;
   }
 
+  protected render() {
+    return html`
+      <slot name="heading"></slot>
+      ${this._renderBody()}
+    `;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   protected _renderCopy() {
     return '';
