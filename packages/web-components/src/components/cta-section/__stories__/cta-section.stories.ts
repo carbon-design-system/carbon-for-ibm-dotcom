@@ -32,7 +32,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-cta-section .copy="${ifNonNull(copy)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-button-group>
+      <dds-button-group slot="buttons">
         <dds-button-group-item href="https://example.com">
           Primary Button ${renderIcon}
         </dds-button-group-item>

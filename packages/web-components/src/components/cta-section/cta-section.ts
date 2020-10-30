@@ -23,6 +23,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The CTA Section pattern
  *
  * @element dds-cta-section
+ * @slot heading - The text heading.
+ * @slot buttons - The CTA Buttons.
  */
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(LitElement) {
@@ -36,20 +38,28 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
+  /**
+   * @returns The content, including the copy and button group
+   */
   protected _renderBody(): TemplateResult | string | void {
-    // const { _hasFooter: hasFooter } = this;
     return html`
       ${this._renderCopy()} ${this._renderContent()}
     `;
   }
 
+  /**
+   * @returns The main content.
+   */
   // eslint-disable-next-line class-methods-use-this
   protected _renderContent(): TemplateResult | string | void {
     return html`
-      <slot></slot>
+      <slot name="buttons"></slot>
     `;
   }
 
+  /**
+   * @returns The copy content.
+   */
   protected _renderCopy(): TemplateResult | string | void {
     const { copy } = this;
     return html`
@@ -62,11 +72,14 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * The Content Section heading.
+   * The CTA Section heading.
    */
   @property()
   heading = '';
 
+  /**
+   * The CTA Section copy content.
+   */
   @property()
   copy = '';
 
@@ -76,34 +89,6 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
       ${this._renderBody()}
     `;
   }
-
-  /**
-   * 
-   * <section
-      data-autoid={`${stablePrefix}--cta-section`}
-      className={classNames(`${prefix}--cta-section`, {
-        [`${prefix}--cta-section__has-items`]: items,
-        [`${prefix}--cta-section--${theme}`]: theme,
-      })}
-      ref={containerRef}>
-      <ContentBlock heading={heading} copy={copy} />
-      <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
-      {items && (
-        <div className={`${prefix}--helper-wrapper`}>
-          <div className={`${prefix}--content-item-wrapper`}>
-            {items.map((item, index) => (
-              <ContentItem
-                key={index}
-                heading={item.heading}
-                copy={item.copy}
-                cta={item.cta}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-    </section>
-   */
 
   static get stableSelector() {
     return `${ddsPrefix}--cta-section`;

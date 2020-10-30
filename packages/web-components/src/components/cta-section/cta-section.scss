@@ -13,11 +13,15 @@
   @include cta-section--pattern;
 
   display: block;
+
+  ::slotted([slot='buttons']) {
+    margin-top: 1rem;
+  }
 }
 
 .#{$dds-prefix}--content-block__copy {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62));
 
   width: 90%;
   max-width: 640px;
