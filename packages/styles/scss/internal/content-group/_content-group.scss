@@ -10,11 +10,14 @@
 @import '../../globals/utils/hang';
 
 @mixin themed-items {
+  :host(#{$dds-prefix}-content-group-heading),
   .#{$prefix}--content-group__title {
     color: $text-01;
   }
 }
 @mixin content-group {
+  :host(#{$dds-prefix}-content-group),
+  :host(#{$dds-prefix}-content-group-simple),
   .#{$prefix}--content-group {
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
@@ -24,46 +27,48 @@
       margin-bottom: $carbon--layout-06;
     }
 
-    &__title {
-      @include carbon--type-style('expressive-heading-04', true);
-
-      margin-bottom: $carbon--spacing-07;
-    }
-
-    &__title,
-    &__copy {
-      @include content-width;
-    }
-
-    &__copy {
-      margin-bottom: $layout-04;
-
-      @include carbon--breakpoint(md) {
-        margin-bottom: $layout-05;
-      }
-    }
-
-    &__cta {
-      @include carbon--make-col-ready;
-
-      margin-top: $carbon--layout-04;
-
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(4, 8);
-      }
-
-      &-row {
-        @include carbon--make-row;
-
-        // allows for margin collapsing
-        display: block;
-      }
-    }
-
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
       @include hang;
     }
+  }
+
+  :host(#{$dds-prefix}-content-group-heading),
+  .#{$prefix}--content-group__title {
+    @include carbon--type-style('expressive-heading-04', true);
+
+    margin-bottom: $carbon--spacing-07;
+  }
+
+  :host(#{$dds-prefix}-content-group-heading),
+  .#{$prefix}--content-group__title,
+  .#{$prefix}--content-group__copy {
+    @include content-width;
+  }
+
+  .#{$prefix}--content-group__copy {
+    margin-bottom: $layout-04;
+
+    @include carbon--breakpoint(md) {
+      margin-bottom: $layout-05;
+    }
+  }
+
+  .#{$prefix}--content-group__cta {
+    @include carbon--make-col-ready;
+
+    margin-top: $carbon--layout-04;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(4, 8);
+    }
+  }
+
+  .#{$prefix}--content-group__cta-row {
+    @include carbon--make-row;
+
+    // allows for margin collapsing
+    display: block;
   }
 }
 
