@@ -36,7 +36,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
     `;
   }
 
-  protected render() {
+  render() {
     return html`
       <slot name="heading"></slot>
       ${this._renderBody()}
