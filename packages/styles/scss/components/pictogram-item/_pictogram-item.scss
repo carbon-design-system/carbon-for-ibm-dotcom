@@ -39,6 +39,7 @@
 
     .#{$prefix}--pictogram-item__pictogram,
     ::slotted(svg) {
+      display: block;
       margin-top: $carbon--spacing-07;
       height: 80px;
       width: 80px;
