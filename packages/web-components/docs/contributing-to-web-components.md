@@ -11,7 +11,7 @@
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
   - [Unit Test Coverage](#unit-test-coverage)
-  - [Submission Guidelines](#submission-guidelines)
+  - [Further Reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -145,6 +145,8 @@ To update the snapshot file, run the following:
 yarn test:unit:updateSnapshot
 ```
 
-## Submission Guidelines
+## Further Reading
 
-Read more about our [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).
+- [Coding Conventions](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/coding-conventions.md)
+- [Developer Documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/developer.md)
+- [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).
