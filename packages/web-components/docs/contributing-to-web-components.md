@@ -24,6 +24,12 @@
 Thank you for your contribution to Carbon for IBM.com! Below are guidelines on
 what some of the things we would be looking for as part of your contribution.
 
+## Get Started
+
+1. Fork this repository and clone it
+2. `yarn install`
+3. `yarn wca && yarn storybook`
+
 ## Packages
 
 We try to have any contributions to the library to live in their corresponding
@@ -145,8 +151,43 @@ To update the snapshot file, run the following:
 yarn test:unit:updateSnapshot
 ```
 
+or the more directed command:
+
+```bash
+gulp test:unit --update-snapshot
+```
+
+To run a specific test spec:
+
+```
+> gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts
+```
+
+To choose a specific browser (instead of Headless Chrome):
+
+```
+> gulp test:unit -b Firefox
+```
+
+You can keep the browser after the test (and re-run the test when files change) by:
+
+```
+> gulp test:unit -b Chrome -k
+```
+
+To disable the coverage instrumentation code from being generated:
+
+```
+> gulp test:unit -d
+```
+
+Above options can be used together. This is useful to debug your code as you test:
+
+```
+> gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts -b Chrome -d -k
+```
+
 ## Further Reading
 
 - [Coding Conventions](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/coding-conventions.md)
-- [Developer Documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/developer.md)
-- [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).
+- [Submission Guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md)
