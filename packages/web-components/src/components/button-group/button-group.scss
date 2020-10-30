@@ -6,3 +6,7 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup';
+
+:host(#{$dds-prefix}-button-group-item) {
+  outline: none;
+}
