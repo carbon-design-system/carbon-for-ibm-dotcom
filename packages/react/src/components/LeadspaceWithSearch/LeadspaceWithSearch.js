@@ -23,8 +23,8 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
       const { current } = leadspaceContainer;
       const observer = new ResizeObserver(entries => {
         for (const entry of entries) {
-          const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
           const CARBON_MD_BREAKPOINT = 672;
+          const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
           const { desktop, mobile } = searchProps.placeHolder;
 
           if (leadspaceWidth > CARBON_MD_BREAKPOINT || !mobile) {
@@ -35,11 +35,11 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
           }
         }
       });
-      observer.observe(current);
+      observer?.observe(current);
     }
   }, [searchProps.placeHolder]);
 
-  return (
+  return heading ? (
     <section
       data-autoid={`${stablePrefix}--leadspace-with-search`}
       className={`${prefix}--leadspace-with-search`}
@@ -55,12 +55,13 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
           <Search
             className={`${prefix}--leadspace-with-search__search`}
             placeHolderText={searchPlaceHolder}
+            id={`${prefix}--leadspace-with-search__search-input`}
             {...searchProps}
           />
         </div>
       </div>
     </section>
-  );
+  ) : null;
 };
 
 LeadspaceWithSearch.propTypes = {
