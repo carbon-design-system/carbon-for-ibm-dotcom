@@ -49,6 +49,7 @@
   }
 
   :host(#{$dds-prefix}-content-block-heading),
+  :host(#{$dds-prefix}-content-block-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;
@@ -65,13 +66,12 @@
     }
   }
 
-  .#{$prefix}--content-block__copy {
-    p {
-      @include carbon--type-style('expressive-heading-03', true);
+  :host(#{$dds-prefix}-content-block-paragraph),
+  .#{$prefix}--content-block__copy p {
+    @include carbon--type-style('expressive-heading-03', true);
 
-      color: $text-01;
-      margin-bottom: $carbon--spacing-07;
-    }
+    color: $text-01;
+    margin-bottom: $carbon--spacing-07;
   }
 
   .#{$prefix}--content-block__cta {

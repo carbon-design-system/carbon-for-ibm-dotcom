@@ -12,10 +12,11 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
 import '../image/image';
+import '../modal/modal';
+import '../modal/modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
-import 'carbon-web-components/es/components/modal/modal-close-button';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
@@ -127,18 +128,20 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   }
 
   renderModal() {
-    return html`
-      <dds-modal ?open=${this.open} expressive-size="full-width">
-        <bx-modal-close-button></bx-modal-close-button>
-        <dds-lightbox-image-viewer
-          alt="${this.alt}"
-          default-src="${this.defaultSrc}"
-          description="${this.copy}"
-          title="${this.heading}"
-        >
-        </dds-lightbox-image-viewer>
-      </dds-modal>
-    `;
+    return !this.lightbox
+      ? undefined
+      : html`
+          <dds-modal ?open=${this.open} expressive-size="full-width">
+            <dds-modal-close-button></dds-modal-close-button>
+            <dds-lightbox-image-viewer
+              alt="${this.alt}"
+              default-src="${this.defaultSrc}"
+              description="${this.copy}"
+              title="${this.heading}"
+            >
+            </dds-lightbox-image-viewer>
+          </dds-modal>
+        `;
   }
 
   /**

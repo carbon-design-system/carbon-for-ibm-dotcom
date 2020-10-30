@@ -9,6 +9,7 @@
 
 import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/content-block-simple.js';
 import './index.scss';

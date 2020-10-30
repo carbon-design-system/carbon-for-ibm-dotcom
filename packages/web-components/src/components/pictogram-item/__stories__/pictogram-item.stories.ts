@@ -8,6 +8,8 @@
  */
 
 import { html } from 'lit-element';
+import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
 import '../pictogram-item';
 import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
@@ -18,7 +20,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = ({ parameters }) => {
   const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item copy="${copy}">
+    <dds-pictogram-item>
       <svg
         slot="pictogram"
         focusable="false"
@@ -42,7 +44,8 @@ export const Default = ({ parameters }) => {
         0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
         ></path>
       </svg>
-      <span slot="heading">${heading}</span>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy .content="${copy}"></dds-content-item-copy>
       <dds-link-with-icon href="${href}" slot="cta">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>

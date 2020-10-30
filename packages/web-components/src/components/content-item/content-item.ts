@@ -7,12 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { html, internalProperty, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import '../markdown/markdown';
 import styles from './content-item.scss';
 
 const { prefix } = settings;
@@ -22,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
 const slotExistencePropertyNames = {
-  cta: '_hasCta',
+  cta: '_hasCTA',
 };
 
 /**
@@ -39,7 +37,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
    * `true` if there is a CTA content.
    */
   @internalProperty()
-  _hasCta = false;
+  _hasCTA = false;
 
   /**
    * Handles `slotchange` event on the CTA slot.
@@ -54,25 +52,15 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
     this[slotExistencePropertyNames[name] || '_hasDefaultContent'] = hasContent;
   }
 
-  /**
-   * The copy text.
-   */
-  @property()
-  copy = '';
-
   render() {
-    const { copy, _hasCta: hasCta } = this;
+    const { _hasCTA: hasCTA } = this;
     return html`
       <slot name="heading"></slot>
       <div>
         <slot name="media"></slot>
       </div>
-      ${!copy
-        ? undefined
-        : html`
-            <dds-markdown class="${prefix}--content-item__copy" nobold .content="${ifNonNull(copy)}"> </dds-markdown>
-          `}
-      <div ?hidden="${!hasCta}" class="${prefix}--content-item__cta">
+      <slot></slot>
+      <div ?hidden="${!hasCTA}" class="${prefix}--content-item__cta">
         <slot name="cta" @slotchange="${this._handleSlotchange}"></slot>
       </div>
     `;

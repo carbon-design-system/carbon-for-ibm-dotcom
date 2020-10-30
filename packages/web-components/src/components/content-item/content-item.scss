@@ -9,3 +9,7 @@
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
+
+:host(#{$dds-prefix}-content-item-paragraph) {
+  display: block;
+}
