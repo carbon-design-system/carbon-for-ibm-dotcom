@@ -127,8 +127,8 @@ so that our automated visual regression tool ([Percy](https://percy.io)) can
 automatically capture in its snapshot suite rather than creating multiple 
 knobs.
 - Knob labels include the actual prop name in parenthesis
-- README (`README.stories.mdx`) with clear instructions for any IBM.com 
-Library user to get started right away. This would include:
+- README (`README.stories.mdx`) with clear instructions for any Carbon for 
+IBM.com user to get started right away. This would include:
   * Which import(s) to include
   * How to implement in a sample React application (multiple examples if 
     necessary)
@@ -155,7 +155,7 @@ To view a coverage report (and run the test suite), you can run:
 yarn test:unit
 ``` 
 
-This will generage a `coverage` folder which includes what the current coverage
+This will generate a `coverage` folder which includes what the current coverage
 amount is, and which line(s) are missing any coverage.
 
 To update the snapshot file, run the following:
