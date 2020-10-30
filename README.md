@@ -18,7 +18,7 @@
   <a href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
   </a>
-  <a href="https://percy.io/538fc19a/IBM.com-Library-React">
+  <a href="https://percy.io/538fc19a/Carbon-for-IBM.com-Web-Components">
   <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing." />
 </a>
 </p>
@@ -55,11 +55,12 @@ If you are building pages for IBM.com,
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)
-and our
-[Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)!
-👀
+check out our guides:
+
+- [Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/.github/CONTRIBUTING.md)
+- [Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/developing.md)
+- [Contributing to the Web Components package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/contributing-to-web-components.md)
+- [Contributing to the React package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/contributing-to-react.md)
 
 ## 📝 License
 
