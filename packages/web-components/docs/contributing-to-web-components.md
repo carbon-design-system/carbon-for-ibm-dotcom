@@ -2,33 +2,38 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Contributing to Carbon for IBM.com React package](#contributing-to-carbon-for-ibmcom-react-package)
+- [Contributing to Carbon for IBM.com Web Components package](#contributing-to-carbon-for-ibmcom-web-components-package)
   - [Overview](#overview)
   - [Packages](#packages)
-  - [React DocGen](#react-docgen)
+  - [JSDoc](#jsdoc)
   - [Stable Selectors](#stable-selectors)
   - [Feature Flag](#feature-flag)
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
   - [Unit Test Coverage](#unit-test-coverage)
-  - [Don't Forget To...](#dont-forget-to)
+  - [Further Reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Contributing to Carbon for IBM.com React package
+# Contributing to Carbon for IBM.com Web Components package
 
-> Guidelines for how to make a code contribution to the React package
+> Guidelines for how to make a code contribution to the Web Components package
 
 ## Overview
 
 Thank you for your contribution to Carbon for IBM.com! Below are guidelines on
 what some of the things we would be looking for as part of your contribution.
 
+## Get Started
+
+1. Fork this repository and clone it
+2. `yarn install`
+3. `yarn wca && yarn storybook`
+
 ## Packages
 
 We try to have any contributions to the library to live in their corresponding
-package(s). The main packages to look out for when contributing a React 
-component:
+package(s). The main packages to look out for when contributing a Web Component:
 
 - **Styles**: ([@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/styles)) 
 All styles should live in the styles package in the monorepo. This way, the
@@ -47,33 +52,41 @@ any abstract utilities can be added to the Utilities package as an ES6 class or
 function. Be sure to properly export the class or function from the main 
 `index.js`.
 
-## React DocGen
+## JSDoc
 
-It is important that the component includes full documentation using [React DocGen](https://github.com/reactjs/react-docgen)
-standards. Be sure to fully define the `propTypes`, and provide any default 
-values (under `defaultProps`) as well as all possible values for any props that
-are looking for one of many values values (e.g. `PropTypes.oneOf`)
+It is important that the component includes full documentation using `JSDoc`
+standards. Our codebase uses `web-component-analyzer` to output the 
+`custom-elements.json` for rendering the prop tables in our Storybook Docs for
+each component. When documenting, be sure to capture:
+
+- Element name and description
+- Documenting slots and attributes
+- Default values and allowed values
 
 ## Stable Selectors
 
-Every component must include [stable selectors](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/stable-selectors.md) 
+Every component must include [stable selectors](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/stable-selectors.md) 
 as part of the overall markup, identifying any key elements that would be useful
 to have the ability to identify in a DOM search. At minimum, there should be at
 least a container level stable selector defined, and all should use the `dds--`
-prefix identified from the utilities package. For example:
+prefix identified from the utilities package. 
+
+Our codebase provides a `StableSelectorMixin`, which is used for automatically
+setting the `data-autoid` based on the custom element name for the wrapper 
+element:
 
 ```javascript
-const { stablePrefix } = ddsSettings;
+@customElement(`${ddsPrefix}-my-component`)
+class DDSMyComponent extends StableSelectorMixin(LitElement) {
+  ...
+  render() {
+    return html`
+      <div></div>
+    `;
+  }
 
-const MyComponent = () => {
-  
-  return (
-    <div
-      data-autoid={`${stablePrefix}--my-components`}
-    >
-    </div>
-  );
-};
+  static styles = styles;
+} // => <dds-my-component data-autoid="dds--my-component"></dds-my-component>
 ```
 
 ## Feature Flag
@@ -81,41 +94,14 @@ const MyComponent = () => {
 If this is a new component or enhancement, we would require that it is 
 introduced into Carbon for IBM.com behind a feature flag. 
 
-[You can read full details on how to create and implement a feature flag here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/docs/feature-flags.md).
-
-An example of creating a Storybook story that will be ignored if the feature
-flag is disabled:
-
-```javascript
-import MyComponent from '../MyComponent';
-import { DDS_MY_COMPONENT } from '../../../internal/FeatureFlags';
-import React from 'react';
-import readme from '../README.stories.mdx';
-
-export default !DDS_MY_COMPONENT
-  ? undefined
-  : {
-      title: 'Components|MyComponent',
-      parameters: {
-        ...readme.parameters,
-        knobs: {
-          MyComponent: ({ groupId }) => ({
-            props: {
-              prop1: text('Prop 1 (prop1):', 'Lorem Ipsum', groupId),
-              prop2: text('Prop 2 (prop2):', 'Lorem Ipsum', groupId),
-            },
-          }),
-        },
-      },
-    };
-```
+[You can read full details on how to create and implement a feature flag here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/feature-flags.md).
 
 ## Environment Variables
 
 If introducing any new environment variables (e.g. feature flags), be sure to 
-also update the `.env.example` file at the root of the React package folder. 
-The example should include a good description of what the environment variable 
-does.
+also update the `.env.example` file at the root of the Web Components package 
+folder. The example should include a good description of what the environment 
+variable does.
 
 ## Storybook
 
@@ -130,7 +116,7 @@ knobs.
 - README (`README.stories.mdx`) with clear instructions for any Carbon for 
 IBM.com user to get started right away. This would include:
   * Which import(s) to include
-  * How to implement in a sample React application (multiple examples if 
+  * How to implement in a sample application (multiple examples if 
     necessary)
   * Environment variable description and implementation details (if introducing 
     a new component)
@@ -141,12 +127,12 @@ IBM.com user to get started right away. This would include:
 ## Unit Test Coverage
 
 Our team looks to include a minimum of 80% unit test coverage. One of the 
-features that we have included in Storybook is [Storyshots](https://www.npmjs.com/package/@storybook/addon-storyshots),
-which will auto-generate snapshot tests based on existing storybook stories. 
+features that we have included is automated snapshot testing, which will 
+auto-generate snapshot tests based on existing storybook stories. 
 While this gives automatic coverage right off the bat, additional unit tests
 may be required to get over the 80% goal. All component level tests must live
 in the component folder under a sub-folder `__tests__`. The file name structure
-should be `MyComponent.test.js`. Be sure to include any mock data (if necessary)
+should be `my-component.test.js`. Be sure to include any mock data (if necessary)
 in a `data` subfolder under `__tests__`. 
 
 To view a coverage report (and run the test suite), you can run:
@@ -155,8 +141,9 @@ To view a coverage report (and run the test suite), you can run:
 yarn test:unit
 ``` 
 
-This will generate a `coverage` folder which includes what the current coverage
-amount is, and which line(s) are missing any coverage.
+This will generate a `coverage` folder under the package level `tests` folder 
+which includes what the current coverage amount is, and which line(s) are 
+missing any coverage.
 
 To update the snapshot file, run the following:
 
@@ -164,10 +151,43 @@ To update the snapshot file, run the following:
 yarn test:unit:updateSnapshot
 ```
 
-## Don't Forget To...
+or the more directed command:
 
-<ul>
-<li>Export any new components from the main `index.js`</li>
-</ul>
+```bash
+gulp test:unit --update-snapshot
+```
 
-Read more about our [submission guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md).
+To run a specific test spec:
+
+```
+> gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts
+```
+
+To choose a specific browser (instead of Headless Chrome):
+
+```
+> gulp test:unit -b Firefox
+```
+
+You can keep the browser after the test (and re-run the test when files change) by:
+
+```
+> gulp test:unit -b Chrome -k
+```
+
+To disable the coverage instrumentation code from being generated:
+
+```
+> gulp test:unit -d
+```
+
+Above options can be used together. This is useful to debug your code as you test:
+
+```
+> gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts -b Chrome -d -k
+```
+
+## Further Reading
+
+- [Coding Conventions](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/docs/coding-conventions.md)
+- [Submission Guidelines](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/submission-guidelines.md)
