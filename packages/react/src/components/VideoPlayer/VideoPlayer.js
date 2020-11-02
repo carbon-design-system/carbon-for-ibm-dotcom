@@ -33,7 +33,7 @@ const VideoPlayer = ({
   const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
-
+console.log('auto?', autoPlay);
   useEffect(() => {
     let stale = false;
     (async () => {

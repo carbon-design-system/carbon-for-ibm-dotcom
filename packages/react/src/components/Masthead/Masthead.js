@@ -233,6 +233,7 @@ const Masthead = ({
                 )}
 
                 <IbmLogo
+                  logoData={mastheadProps.mastheadLogo}
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 

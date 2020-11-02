@@ -192,3 +192,20 @@ WithL1.story = {
     },
   },
 };
+
+export const AlternateLogo = ({ parameters }) => <Default parameters={parameters} />;
+
+AlternateLogo.story = {
+  name: 'With Alternate Logo',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: () => {
+        const logoData = mastheadKnobs.mastheadLogo;
+        return {
+          mastheadLogo: logoData,
+        };
+      }
+    },
+  },
+};

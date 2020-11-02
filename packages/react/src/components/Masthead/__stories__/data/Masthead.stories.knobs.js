@@ -11,6 +11,7 @@
  * type {{}}
  */
 import mastheadLinks from './MastheadLinks.js';
+import mastheadLogo from './MastheadLogo.js';
 
 const mastheadKnobs = {
   navigation: {
@@ -25,6 +26,7 @@ const mastheadKnobs = {
       url: 'https://www.ibm.com/cloud',
     },
   },
+  mastheadLogo: mastheadLogo,
 };
 
 export default mastheadKnobs;
