@@ -32,6 +32,7 @@ const SORT_ORDER = [
   'overview-using-server-side-template--page',
   'overview-enable-right-to-left-rtl--page',
   'overview-feature-flags--page',
+  'overview-contributing-to-the-web-components-package--page',
 ];
 
 addParameters({
