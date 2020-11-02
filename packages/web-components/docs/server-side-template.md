@@ -1,3 +1,11 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Using server-side template](#using-server-side-template)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Using server-side template
 
 `@carbon/ibmdotcom-web-components` uses client-side templates by default for masthead, footer, etc.

@@ -114,27 +114,37 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
       case QUOTE_TYPES.SINGLE_CURVED:
         return html`
           <span class="${prefix}--quote__mark">‘</span>
-          <blockquote class="${prefix}--quote__copy"><slot name="copy"></slot>’</blockquote>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">’</span>
+          </blockquote>
         `;
       case QUOTE_TYPES.DOUBLE_ANGLE:
         return html`
           <span class="${prefix}--quote__mark">«</span>
-          <blockquote class="${prefix}--quote__copy"><slot name="copy"></slot>»</blockquote>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">»</span>
+          </blockquote>
         `;
       case QUOTE_TYPES.SINGLE_ANGLE:
         return html`
           <span class="${prefix}--quote__mark">‹</span>
-          <blockquote class="${prefix}--quote__copy"><slot name="copy"></slot>›</blockquote>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">›</span>
+          </blockquote>
         `;
       case QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED:
         return html`
           <span class="${prefix}--quote__mark">„</span>
-          <blockquote class="${prefix}--quote__copy"><slot name="copy"></slot>“</blockquote>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">“</span>
+          </blockquote>
         `;
       default:
         return html`
           <span class="${prefix}--quote__mark">“</span>
-          <blockquote class="${prefix}--quote__copy"><slot name="copy"></slot>”</blockquote>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">”</span>
+          </blockquote>
         `;
     }
   }

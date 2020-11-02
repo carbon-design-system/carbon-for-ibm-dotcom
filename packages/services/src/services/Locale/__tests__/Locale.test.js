@@ -8,6 +8,7 @@ import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
 import mockAxios from 'axios';
+import oldSession from './data/timestamp_response.json';
 import response from './data/response.json';
 import root from 'window-or-global';
 
@@ -486,6 +487,53 @@ describe('LocaleAPI', () => {
     await LocaleAPI.getList({ cc: 'kr', lc: 'ko' });
 
     expect(mockAxios.get).toHaveBeenCalledTimes(2);
+  });
+
+  it('should update the cached response if session is old', async () => {
+    // mock storage for specific test
+    const sessionStorageMock = (() => {
+      let cache = {};
+
+      return {
+        getItem(key) {
+          return cache[key] || null;
+        },
+        setItem(key, value) {
+          cache[key] = value;
+        },
+        removeItem(key) {
+          delete cache[key];
+        },
+        clear() {
+          cache = {};
+        },
+      };
+    })();
+
+    Object.defineProperty(window, 'sessionStorage', {
+      value: sessionStorageMock,
+    });
+
+    const mockDate = 1546300800000; // Epoch time of January 1, 2019 midnight UTC
+    global.Date.now = jest.fn(() => mockDate);
+
+    // using very old cached session
+    sessionStorageMock.setItem(
+      'dds-countrylist-us-en',
+      JSON.stringify(Object.assign(oldSession, { CACHE: true }))
+    );
+
+    await LocaleAPI.getList({
+      cc: 'us',
+      lc: 'en',
+    });
+
+    const newSession = JSON.parse(
+      sessionStorageMock.getItem('dds-countrylist-us-en')
+    );
+
+    // fresh cached data would lack this property
+    expect(newSession).not.toHaveProperty('CACHE');
   });
 
   afterEach(() => {

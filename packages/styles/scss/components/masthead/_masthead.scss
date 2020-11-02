@@ -390,10 +390,6 @@ $search-transition-timing: 95ms;
       height: rem(24px);
       width: rem(1px);
       background-color: #dcdcdc;
-      &:focus,
-      &:active {
-        display: none;
-      }
     }
     &::after {
       content: '';

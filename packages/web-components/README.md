@@ -1,4 +1,4 @@
-A IBM.com Design System variant that's as easy to use as native HTML elements, with no framework tax, no framework silo.
+A IBM.com Design System variant that iss as easy to use as native HTML elements, with no framework tax, no framework silo.
 
 # `@carbon/ibmdotcom-web-components`
 
@@ -283,6 +283,6 @@ dds-locale-modal::part(back-button) {
 
 Can be found at [here](./docs/stable-selectors.md).
 
-## Developer documentations
+## Contributing to Carbon for IBM.com Web Components
 
-Can be found at [here](./docs/developer.md).
+Can be found at [here](./docs/contributing-to-web-components.md).
