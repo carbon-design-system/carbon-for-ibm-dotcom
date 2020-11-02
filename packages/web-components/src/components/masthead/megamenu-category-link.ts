@@ -15,12 +15,9 @@ import styles from './masthead.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * MegaMenu
+ * MegaMenu category sublink
  *
- * @element dds-megamenu
- * @slot brand - The left hand area.
- * @slot nav - The nav content.
- * @slot profile - The right hand area.
+ * @element dds-megamenu-category-link
  */
 @customElement(`${ddsPrefix}-megamenu-category-link`)
 class DDSMegaMenuCateoryLink extends DDSLink {

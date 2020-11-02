@@ -90,7 +90,7 @@ class DDSMastheadComposite extends LitElement {
 
     const hasHighlights = highlightedItems.length !== 0;
     return html`
-      <dds-megamenu ?has-highlights="${ifNonNull(hasHighlights)}">
+      <dds-megamenu>
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
@@ -116,6 +116,7 @@ class DDSMastheadComposite extends LitElement {
             `
           : null}
         <dds-megamenu-right-navigation
+          ?has-highlights="${ifNonNull(hasHighlights)}"
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >

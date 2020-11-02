@@ -7,8 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map';
+import { html, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -27,25 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu`)
 class DDSMasthead extends StableSelectorMixin(LitElement) {
-  /**
-   * `true` to render left (highlighted) section layout.
-   */
-  @property({ type: Boolean, reflect: true, attribute: 'has-highlights' })
-  hasHighlights = false;
-
-  /**
-   * Returns a class-name(s) for megamenu container
-   */
-  protected _getClassNames() {
-    return classMap({
-      [`${prefix}--masthead__megamenu__container--hasHighlights`]: this.hasHighlights,
-      [`${prefix}--masthead__megamenu`]: true,
-    });
-  }
-
   render() {
     return html`
-      <section tabindex="-1" class="${this._getClassNames()}">
+      <section tabindex="-1" class="${prefix}--masthead__megamenu">
         <div class="${prefix}--masthead__megamenu__container">
           <div class="${prefix}--masthead__megamenu__container--row">
             <slot></slot>

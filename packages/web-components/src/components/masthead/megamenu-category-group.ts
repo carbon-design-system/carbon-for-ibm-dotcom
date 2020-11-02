@@ -14,18 +14,15 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import '../link-with-icon/link-with-icon';
+import './megamenu-link-with-icon';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * MegaMenu
+ * MegaMenu category group
  *
- * @element dds-megamenu
- * @slot brand - The left hand area.
- * @slot nav - The nav content.
- * @slot profile - The right hand area.
+ * @element dds-megamenu-category-group
  */
 @customElement(`${ddsPrefix}-megamenu-category-group`)
 class DDSMegaMenuCategoryGroup extends StableSelectorMixin(LitElement) {
@@ -61,13 +58,13 @@ class DDSMegaMenuCategoryGroup extends StableSelectorMixin(LitElement) {
           <div class="${prefix}--masthead__megamenu__category-group-content">
             ${href
               ? html`
-                  <dds-link-with-icon
+                  <dds-megamenu-link-with-icon
                     href="${ifNonNull(href)}"
                     class="${prefix}--masthead__megamenu__category-headline"
                     data-autoid="${autoid}-list${index}"
                   >
                     <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                  </dds-link-with-icon>
+                  </dds-megamenu-link-with-icon>
                 `
               : html`
                   <div class="${prefix}--masthead__megamenu__category-headline" data-autoid="${autoid}-list${index}">

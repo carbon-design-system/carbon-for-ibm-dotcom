@@ -15,12 +15,9 @@ import styles from './masthead.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * MegaMenu
+ * MegaMenu left navigation (highlighted) section.
  *
- * @element dds-megamenu
- * @slot brand - The left hand area.
- * @slot nav - The nav content.
- * @slot profile - The right hand area.
+ * @element dds-megamenu-left-navigation
  */
 @customElement(`${ddsPrefix}-megamenu-left-navigation`)
 class DDSMegaMenuLeftNavigation extends StableSelectorMixin(LitElement) {
