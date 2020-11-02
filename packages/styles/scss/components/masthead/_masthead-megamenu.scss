@@ -42,17 +42,7 @@
     box-shadow: none;
   }
 
-  .#{$prefix}--masthead__megamenu {
-    overflow-y: scroll;
-    background-color: $ui-background;
-
-    &:focus {
-      outline: none;
-    }
-
-    @include box-shadow;
-  }
-
+  :host(#{$dds-prefix}-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav,
   .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
@@ -87,10 +77,12 @@
     }
   }
 
-  .#{$prefix}--masthead__megamenu__l0-nav
+  :host(#{$dds-prefix}-top-nav-menu),
+  .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
-    + .#{$prefix}--header__menu {
-    top: $l0-nav-height;
+      + .#{$prefix}--header__menu {
+      top: $l0-nav-height;
+    }
   }
 
   .#{$prefix}--masthead__megamenu__l1-nav
@@ -99,31 +91,44 @@
     top: $l1-nav-height;
   }
 
-  .#{$prefix}--masthead__megamenu__container {
-    width: 100%;
-    @include carbon--make-container;
+  :host(#{$dds-prefix}-megamenu),
+  .#{$prefix}--masthead__megamenu {
+    overflow-y: scroll;
+    background-color: $ui-background;
 
-    .#{$prefix}--masthead__megamenu__container--row {
-      @include carbon--make-row;
-
-      flex-wrap: nowrap;
+    &:focus {
+      outline: none;
     }
-  }
 
-  .#{$prefix}--masthead__megamenu__categories {
-    padding: 0 0 $layout-03 $layout-01;
-    column-count: 4;
+    @include box-shadow;
 
-    .#{$prefix}--masthead__megamenu__container--hasHighlights & {
+    .#{$prefix}--masthead__megamenu__container {
+      width: 100%;
+      @include carbon--make-container;
+
+      .#{$prefix}--masthead__megamenu__container--row {
+        @include carbon--make-row;
+
+        flex-wrap: nowrap;
+      }
+    }
+
+    .#{$prefix}--masthead__megamenu__container--hasHighlights
+      .#{$prefix}--masthead__megamenu__categories {
       column-count: 3;
     }
-  }
 
-  .#{$prefix}--masthead__megamenu__categories-section {
-    display: flex;
-    flex-direction: column;
-    padding-top: $spacing-06;
-    width: 100%;
+    .#{$prefix}--masthead__megamenu__categories {
+      padding: 0 0 $layout-03 $layout-01;
+      column-count: 4;
+    }
+
+    .#{$prefix}--masthead__megamenu__categories-section {
+      display: flex;
+      flex-direction: column;
+      padding-top: $spacing-06;
+      width: 100%;
+    }
   }
 
   .#{$prefix}--masthead__megamenu__category-group {
@@ -160,7 +165,6 @@
     svg {
       color: $link-01;
       min-width: $spacing-05;
-      align-self: flex-start;
     }
 
     &:visited,
@@ -231,6 +235,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: $spacing-06;
@@ -243,6 +248,7 @@
       flex-direction: column;
     }
 
+    :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
       border-bottom: carbon--rem(1px) solid $ui-03;
