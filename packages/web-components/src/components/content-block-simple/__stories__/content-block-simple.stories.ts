@@ -146,6 +146,7 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     gridLargeColumnClass: 'bx--col-lg-8',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
