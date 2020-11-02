@@ -43,6 +43,7 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     knobs: {
       'dds-feature-card-block-medium': () => ({
         heading: textNullable('Block Heading (blockHeading):', 'How is artificial intelligence used today in your industry?'),
