@@ -1,0 +1,46 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <script type="module" src="src/index.js"></script>
+  <style type="text/css">
+    /* Avoids FOUC - Will be overriden by `index.scss` */
+    body {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+      <dds-content-group-simple copy="Lorem ipsum *dolor* sit amet">
+        <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+        <dds-image-with-caption slot="media" alt="Image alt text" default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9" heading="Curabitur malesuada varius mi eu posuere">
+          <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x378/ee5396/161616&text=16:9"></dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/400x225/ee5396/161616&text=16:9"></dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x180/ee5396/161616&text=16:9"></dds-image-item>
+        </dds-image-with-caption>
+        <dds-content-item copy="Lorem ipsum *dolor* sit amet">
+          <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
+        </dds-content-item>
+        <dds-content-item copy="Lorem ipsum *dolor* sit amet">
+          <dds-content-item-heading>Lorem ipsum dolor sit amet.</dds-content-item-heading>
+        </dds-content-item>
+        <dds-card-cta slot="footer" href="https://www.ibm.com/" cta-type="local">
+          Lorem ipsum dolor sit amet
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-card-cta>
+      </dds-content-group-simple>
+    </div>
+  </div>
+</div>
+</body>
+</html>
