@@ -50,6 +50,19 @@ $search-transition-timing: 95ms;
       padding: 0 $carbon--spacing-05;
     }
   }
+
+  .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip__trigger--definition,
+  .#{$prefix}--tooltip--definition {
+    .#{$prefix}--tooltip__trigger {
+      border: none;
+    }
+
+    border: none;
+
+    &.#{$prefix}--tooltip--a11y {
+      height: 100%;
+    }
+  }
 }
 
 /// @access private
