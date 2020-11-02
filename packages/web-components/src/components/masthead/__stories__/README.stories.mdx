@@ -180,8 +180,8 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-search-
 The search box appears when user clicks on the magnifier icon.
 The search box disappears when user clicks on the X button.
 
-Fires an `input` event when user types in a search query string.
-Application code should take care of fulfilling the search result upon `input` event, by putting `<dds-masthead-search-item text="The search result">` as the child elements of `<dds-masthead-search>`. Here's an exmaple:
+Fires an `dds-masthead-search-input` event when user types in a search query string.
+Application code should take care of fulfilling the search result upon `dds-masthead-search-input` event, by putting `<dds-masthead-search-item text="The search result">` as the child elements of `<dds-masthead-search>`. Here's an exmaple:
 
 ```javascript
 import throttle from 'lodash-es/throttle';
