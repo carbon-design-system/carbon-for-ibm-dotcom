@@ -153,7 +153,7 @@ const HeaderNavContainer = ({ children }) => {
         //Focus previous input
         if (
           document.activeElement.parentElement.previousSibling.offsetLeft +
-            position <
+            position <=
           buttonSize
         ) {
           paginateLeft();
@@ -162,8 +162,8 @@ const HeaderNavContainer = ({ children }) => {
         //Focus next input
         if (
           document.activeElement.parentElement.nextSibling.offsetLeft +
-            document.activeElement.parentElement.nextSibling.offsetWidth >
-          containerRef.current.offsetWidth
+            document.activeElement.parentElement.nextSibling.offsetWidth >=
+          containerRef.current.offsetWidth - buttonSize
         ) {
           paginateRight();
         }
