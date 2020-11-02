@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
+@import '../../../../styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
@@ -165,6 +166,15 @@
       bottom: -1px;
     }
   }
+}
+
+:host(#{$dds-prefix}-top-nav)
+  .#{$prefix}--masthead__megamenu__l0-nav
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+  + .#{$prefix}--header__menu {
+  background-color: transparent;
+  bottom: 0;
+  box-shadow: none;
 }
 
 :host(#{$dds-prefix}-top-nav-menu-item),
