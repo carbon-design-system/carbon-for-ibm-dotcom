@@ -114,6 +114,44 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 
 > 💡 Above CodeSandbox example uses [`html-webpack-plugin`](https://webpack.js.org/plugins/html-webpack-plugin/) to let [WebPack server](https://webpack.js.org/configuration/dev-server/) serve the `.html` file, but you can use other means to serve `.html` files, for example, using [Express](http://expressjs.com) server.
 
+### Using with legacy IBM.com Design System (Northstar)
+
+[Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/), one of the standards Carbon for IBM.com Web Components library is created on top of, isolates IBM.com Web Components library's component style from your application style, that means those two styles won't adversely affect each other.
+
+If your have a website that currently runs on [legacy IBM.com Design System (Northstar)](https://www.ibm.com/standards/web/v18/), such isolation helps you for gradual migration from legacy IBM.com Northstar style to Carbon for IBM.com style. You can simply use both technologies in your page. Here's an example with Carbon for IBM.com masthead and legacy IBM.com Northstar footer:
+
+```html
+<!-- Loads legacy IBM.com Design System (Northstar) -->
+<link rel="stylesheet" href="https://1.www.s81c.com/common/v18/css/www.css" />
+<script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
+<!-- Loads Carbon for IBM.com Web Components masthead -->
+<script type="module">
+  import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
+</script>
+
+...
+
+<body id="ibm-com" class="ibm-type">
+  <div id="ibm-top" class="ibm-landing-page">
+    <!-- Uses Carbon for IBM.com Web Components masthead -->
+    <dds-masthead-container></dds-masthead-container>
+    <div id="ibm-content-wrapper">
+      ...
+    </div>
+    <!-- Uses legacy IBM.com Design System (Northstar) footer -->
+    <footer role="contentinfo" aria-label="IBM"></footer>
+  </div>
+</body>
+```
+
+> 💡 Above example requires setting up a module bundler, as discussed in earlier section.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/v18)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/v18)
+
 ### Using Sass
 
 While styles are included as part of the web components, setting up Sass toolchain is often useful for styling your contents.
