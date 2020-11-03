@@ -15,6 +15,14 @@
   :host(#{$dds-prefix}-pictogram-item) {
     .#{$prefix}--pictogram-item__row {
       @include carbon--make-row;
+
+      max-width: 100%;
+      @include carbon--breakpoint('md') {
+        max-width: 75%;
+      }
+      @include carbon--breakpoint('lg') {
+        max-width: 100%;
+      }
     }
 
     .#{$prefix}--pictogram-item__wrapper {
@@ -33,7 +41,7 @@
       @include carbon--make-col(4, 4);
 
       @include carbon--breakpoint('md') {
-        @include carbon--make-col(8, 8);
+        @include carbon--make-col(6, 8);
       }
     }
 
