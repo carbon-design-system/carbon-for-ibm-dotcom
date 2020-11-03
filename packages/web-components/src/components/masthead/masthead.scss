@@ -154,17 +154,21 @@
 }
 
 :host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
     background-color: $ui-01;
+  }
+}
 
-    + .#{$prefix}--header__menu {
-      background-color: $ui-02;
-      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
-      bottom: -1px;
-    }
+:host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-masthead-profile) {
+  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
+    background-color: $ui-02;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    bottom: -1px;
   }
 }
 
@@ -176,6 +180,7 @@
 
 :host(#{$dds-prefix}-top-nav-item),
 :host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {

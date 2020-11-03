@@ -26,18 +26,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-megamenu-category-group`)
 class DDSMegaMenuCategoryGroup extends LitElement {
   /**
-   * autoid
-   */
-  @property({ reflect: true })
-  autoid = '';
-
-  /**
-   * index for the autoid
-   */
-  @property({ reflect: true })
-  index = 0;
-
-  /**
    * href for the category group title
    */
   @property({ reflect: true })
@@ -50,22 +38,18 @@ class DDSMegaMenuCategoryGroup extends LitElement {
   title = '';
 
   render() {
-    const { href, autoid, index, title } = this;
+    const { href, title } = this;
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
         <div class="${prefix}--masthead__megamenu__category-group-content">
           ${href
             ? html`
-                <dds-megamenu-link-with-icon
-                  href="${ifNonNull(href)}"
-                  class="${prefix}--masthead__megamenu__category-headline"
-                  data-autoid="${autoid}-list${index}"
-                >
+                <dds-megamenu-link-with-icon href="${ifNonNull(href)}" class="${prefix}--masthead__megamenu__category-headline">
                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
                 </dds-megamenu-link-with-icon>
               `
             : html`
-                <div class="${prefix}--masthead__megamenu__category-headline" data-autoid="${autoid}-list${index}">
+                <div class="${prefix}--masthead__megamenu__category-headline">
                   <p>${title}</p>
                 </div>
               `}

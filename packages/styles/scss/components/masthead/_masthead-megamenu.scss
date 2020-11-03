@@ -20,19 +20,14 @@
 
   @keyframes collapse {
     0% {
-      overflow-y: auto;
       max-height: 100vh;
     }
     100% {
       max-height: 0;
-      overflow-y: hidden;
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu).#{$prefix}--masthead__megamenu__l0-nav
-    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true']
-    + .#{$prefix}--header__menu,
-  :host(#{$dds-prefix}-top-nav-menu).#{$prefix}--masthead__megamenu__l1-nav
+  :host(#{$dds-prefix}-megamenu-top-nav-menu)
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true']
     + .#{$prefix}--header__menu,
   .#{$prefix}--header__nav
@@ -48,7 +43,7 @@
     box-shadow: none;
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$dds-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav,
   .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
@@ -61,10 +56,12 @@
       transition: visibility $transition--expansion $carbon--standard-easing;
     }
 
-    .#{$prefix}--header__menu-title[aria-expanded='false']
-      + .#{$prefix}--header__menu
+    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='false']
+      + .#{$prefix}--header__menu {
+      ::slotted(#{$dds-prefix}-megamenu),
       .#{$prefix}--masthead__megamenu {
-      animation: $transition--expansion motion(standard, expressive) collapse;
+        animation: $transition--expansion motion(standard, expressive) collapse;
+      }
     }
 
     .#{$prefix}--header__menu-title[aria-expanded='true']
@@ -77,13 +74,14 @@
       min-height: carbon--mini-units(40);
       width: 100vw;
 
+      ::slotted(#{$dds-prefix}-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition--expansion motion(standard, expressive) expand;
       }
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$dds-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
@@ -132,7 +130,7 @@
       column-count: 4;
     }
 
-    :host(#{$dds-prefix}-megamenu-category-group)
+    ::slotted(#{$dds-prefix}-megamenu-category-group)
       .#{$prefix}--masthead__megamenu__category-group-shield,
     .#{$prefix}--masthead__megamenu__category-group-shield {
       margin-left: -1rem;

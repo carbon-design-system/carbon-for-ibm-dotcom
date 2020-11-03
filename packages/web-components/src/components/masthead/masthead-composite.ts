@@ -9,7 +9,6 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   MastheadLink,
@@ -25,6 +24,7 @@ import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
+import './megamenu-top-nav-menu';
 import './megamenu-right-navigation';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
@@ -44,7 +44,6 @@ import './masthead-search-composite';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -97,15 +96,14 @@ class DDSMastheadComposite extends LitElement {
                 ${highlightedItems.map(
                   (item, i) =>
                     html`
-                      <dds-megamenu-category-group index="${i}" href="${item.url}" title="${item.title}">
+                      <dds-megamenu-category-group
+                        data-autoid="${ddsPrefix}--masthead__l0-nav-list${i}"
+                        href="${item.url}"
+                        title="${item.title}"
+                      >
                         ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                           return html`
-                            <dds-megamenu-category-link
-                              class="${prefix}--masthead__megamenu__category-sublink"
-                              title="${title}"
-                              href="${url}"
-                              index="${key}"
-                            >
+                            <dds-megamenu-category-link title="${title}" href="${url}" index="${key}">
                             </dds-megamenu-category-link>
                           `;
                         })}
@@ -122,16 +120,14 @@ class DDSMastheadComposite extends LitElement {
         >
           ${menu.map((item, j) => {
             return html`
-              <dds-megamenu-category-group index="${j + highlightedItems.length}" href="${item.url}" title="${item.title}">
+              <dds-megamenu-category-group
+                data-autoid="${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}"
+                href="${item.url}"
+                title="${item.title}"
+              >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link
-                      class="${prefix}--masthead__megamenu__category-sublink"
-                      title="${title}"
-                      href="${url}"
-                      index="${key}"
-                    >
-                    </dds-megamenu-category-link>
+                    <dds-megamenu-category-link title="${title}" href="${url}" index="${key}"> </dds-megamenu-category-link>
                   `;
                 })}
               </dds-megamenu-category-group>
@@ -179,24 +175,35 @@ class DDSMastheadComposite extends LitElement {
               );
           }
           if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-            return sections.length === 0
-              ? html`
-                  <dds-top-nav-item
-                    href="${url}"
-                    title="${title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
-                  ></dds-top-nav-item>
-                `
-              : html`
-                  <dds-top-nav-menu
-                    menu-label="${title}"
-                    class="${prefix}--masthead__megamenu__l0-nav"
-                    trigger-content="${title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
-                  >
-                    ${sections}
-                  </dds-top-nav-menu>
-                `;
+            if (sections.length === 0) {
+              return html`
+                <dds-top-nav-item
+                  href="${url}"
+                  title="${title}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                ></dds-top-nav-item>
+              `;
+            }
+            if (link.hasMegapanel) {
+              return html`
+                <dds-megamenu-top-nav-menu
+                  menu-label="${title}"
+                  trigger-content="${title}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                >
+                  ${sections}
+                </dds-megamenu-top-nav-menu>
+              `;
+            }
+            return html`
+              <dds-top-nav-menu
+                menu-label="${title}"
+                trigger-content="${title}"
+                data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+              >
+                ${sections}
+              </dds-top-nav-menu>
+            `;
           }
           return sections.length === 0
             ? html`
