@@ -9,7 +9,6 @@
 
 import { html, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-left-navigation
  */
 @customElement(`${ddsPrefix}-megamenu-left-navigation`)
-class DDSMegaMenuLeftNavigation extends StableSelectorMixin(LitElement) {
+class DDSMegaMenuLeftNavigation extends LitElement {
   render() {
     return html`
       <slot></slot>

@@ -12,7 +12,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
 
@@ -25,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-right-navigation
  */
 @customElement(`${ddsPrefix}-megamenu-right-navigation`)
-class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
+class DDSMegaMenuRightNavigation extends LitElement {
   /**
    * autoid.
    */

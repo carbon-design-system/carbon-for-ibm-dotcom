@@ -12,7 +12,6 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
 
@@ -25,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-category-group
  */
 @customElement(`${ddsPrefix}-megamenu-category-group`)
-class DDSMegaMenuCategoryGroup extends StableSelectorMixin(LitElement) {
+class DDSMegaMenuCategoryGroup extends LitElement {
   /**
    * autoid
    */
@@ -53,26 +52,24 @@ class DDSMegaMenuCategoryGroup extends StableSelectorMixin(LitElement) {
   render() {
     const { href, autoid, index, title } = this;
     return html`
-      <div class="${prefix}--masthead__megamenu__category-group">
-        <div class="${prefix}--masthead__megamenu__category-group-shield">
-          <div class="${prefix}--masthead__megamenu__category-group-content">
-            ${href
-              ? html`
-                  <dds-megamenu-link-with-icon
-                    href="${ifNonNull(href)}"
-                    class="${prefix}--masthead__megamenu__category-headline"
-                    data-autoid="${autoid}-list${index}"
-                  >
-                    <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                  </dds-megamenu-link-with-icon>
-                `
-              : html`
-                  <div class="${prefix}--masthead__megamenu__category-headline" data-autoid="${autoid}-list${index}">
-                    <p>${title}</p>
-                  </div>
-                `}
-            <slot></slot>
-          </div>
+      <div class="${prefix}--masthead__megamenu__category-group-shield">
+        <div class="${prefix}--masthead__megamenu__category-group-content">
+          ${href
+            ? html`
+                <dds-megamenu-link-with-icon
+                  href="${ifNonNull(href)}"
+                  class="${prefix}--masthead__megamenu__category-headline"
+                  data-autoid="${autoid}-list${index}"
+                >
+                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
+                </dds-megamenu-link-with-icon>
+              `
+            : html`
+                <div class="${prefix}--masthead__megamenu__category-headline" data-autoid="${autoid}-list${index}">
+                  <p>${title}</p>
+                </div>
+              `}
+          <slot></slot>
         </div>
       </div>
     `;

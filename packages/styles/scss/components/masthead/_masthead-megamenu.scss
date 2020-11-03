@@ -143,6 +143,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-category-group),
   .#{$prefix}--masthead__megamenu__category-group {
     display: inline;
 
