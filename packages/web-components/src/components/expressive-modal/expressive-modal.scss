@@ -10,7 +10,7 @@
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
-:host(#{$dds-prefix}-modal) {
+:host(#{$dds-prefix}-expressive-modal) {
   @extend :host(#{$prefix}-modal);
 
   &[open] {
@@ -47,23 +47,23 @@
   }
 }
 
-:host(#{$dds-prefix}-modal-header),
-:host(#{$dds-prefix}-modal-heading),
-:host(#{$dds-prefix}-modal-footer) {
+:host(#{$dds-prefix}-expressive-modal-header),
+:host(#{$dds-prefix}-expressive-modal-heading),
+:host(#{$dds-prefix}-expressive-modal-footer) {
   display: block;
 }
 
-:host(#{$dds-prefix}-modal-header) {
+:host(#{$dds-prefix}-expressive-modal-header) {
   padding: 0;
 }
 
-:host(#{$dds-prefix}-modal-close-button) {
+:host(#{$dds-prefix}-expressive-modal-close-button) {
   @extend .#{$prefix}--modal--expressive;
 
   display: contents;
 }
 
-:host(#{$dds-prefix}-modal-body),
+:host(#{$dds-prefix}-expressive-modal-body),
 :host(#{$dds-prefix}-lightbox-media-viewer-body) {
   @include carbon--type-style('body-long-02');
 

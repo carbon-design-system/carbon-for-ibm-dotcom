@@ -41,14 +41,14 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   }
 
   /**
-   * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
+   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     this.open = false;
   };
 
   /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -128,7 +128,7 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
 
   renderModal() {
     return html`
-      <dds-modal ?open=${this.open} expressive-size="full-width">
+      <dds-expressive-modal ?open=${this.open} expressive-size="full-width">
         <bx-modal-close-button></bx-modal-close-button>
         <dds-lightbox-image-viewer
           alt="${this.alt}"
@@ -137,7 +137,7 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
           title="${this.heading}"
         >
         </dds-lightbox-image-viewer>
-      </dds-modal>
+      </dds-expressive-modal>
     `;
   }
 
@@ -145,7 +145,7 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
    * The name of the custom event fired after the modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 
   static styles = styles;

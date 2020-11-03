@@ -57,7 +57,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   private _activeVideoId?: string;
 
   /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -188,7 +188,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The name of the custom event fired after the lightbox is closed upon a user gesture.
    */
   static get eventCloseLightbox() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 
   /**

@@ -8,9 +8,9 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-header';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-heading';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-body';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-footer';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-header';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-heading';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-body';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-footer';

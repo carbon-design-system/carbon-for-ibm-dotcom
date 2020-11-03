@@ -18,15 +18,15 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-modal-header>
-      <dds-modal-close-button
+    <dds-expressive-modal-header>
+      <dds-expressive-modal-close-button
         role="button"
         tabindex="0"
       >
-      </dds-modal-close-button>
-      <dds-modal-heading>
-      </dds-modal-heading>
-    </dds-modal-header>
+      </dds-expressive-modal-close-button>
+      <dds-expressive-modal-heading>
+      </dds-expressive-modal-heading>
+    </dds-expressive-modal-header>
     <div class="bx--locale-modal bx--modal-content">
       <slot name="regions-selector">
       </slot>
@@ -63,21 +63,21 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-modal-header>
-      <dds-modal-close-button
+    <dds-expressive-modal-header>
+      <dds-expressive-modal-close-button
         role="button"
         tabindex="0"
       >
-      </dds-modal-close-button>
-      <dds-modal-heading>
+      </dds-expressive-modal-close-button>
+      <dds-expressive-modal-heading>
         <p class="bx--modal-header__label bx--type-delta">
           lang-display-foo
         </p>
         <p class="bx--modal-header__heading bx--type-beta">
           header-title-foo
         </p>
-      </dds-modal-heading>
-    </dds-modal-header>
+      </dds-expressive-modal-heading>
+    </dds-expressive-modal-header>
     <div class="bx--locale-modal bx--modal-content">
       <slot name="regions-selector">
       </slot>
@@ -114,13 +114,13 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <dds-modal-header slot="header">
-      <dds-modal-close-button
+    <dds-expressive-modal-header slot="header">
+      <dds-expressive-modal-close-button
         role="button"
         tabindex="0"
       >
-      </dds-modal-close-button>
-      <dds-modal-heading>
+      </dds-expressive-modal-close-button>
+      <dds-expressive-modal-heading>
         <button
           class="bx--modal-header__label bx--type-delta"
           data-autoid="dds--locale-modal__region-back"
@@ -134,8 +134,8 @@
         >
           region-foo
         </p>
-      </dds-modal-heading>
-    </dds-modal-header>
+      </dds-expressive-modal-heading>
+    </dds-expressive-modal-header>
     <slot name="locales-selector">
     </slot>
     <div>
