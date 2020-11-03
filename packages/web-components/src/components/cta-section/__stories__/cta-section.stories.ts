@@ -14,6 +14,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../button-group/button-group-item';
 import '../cta-section';
 
 const iconMap = {
@@ -32,14 +33,49 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-cta-section .copy="${ifNonNull(copy)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-button-group slot="buttons">
+
+      <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
-          Primary Button ${renderIcon}
+          Secondary Button ${renderIcon}
         </dds-button-group-item>
         <dds-button-group-item href="https://example.com">
           Primary button ${renderIcon}
         </dds-button-group-item>
       </dds-button-group>
+    </dds-cta-section>
+  `;
+};
+
+export const WithContentItems = ({ parameters }) => {
+  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  return html`
+    <dds-cta-section .copy="${ifNonNull(copy)}">
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+
+      <dds-button-group slot="cta">
+        <dds-button-group-item href="https://example.com">
+          Secondary Button ${renderIcon}
+        </dds-button-group-item>
+        <dds-button-group-item href="https://example.com">
+          Primary button ${renderIcon}
+        </dds-button-group-item>
+      </dds-button-group>
+
+      <div slot="footer">
+        <dds-cta-section-item>
+          <dds-content-item .copy="${ifNonNull(copy)}">
+            <dds-content-block-heading>${heading}</dds-content-block-heading>
+            <dds-text-cta slot="cta" href="example.com">${copy}</dds-text-cta>
+          </dds-content-item>
+        </dds-cta-section-item>
+
+        <dds-cta-section-item>
+          <dds-content-item .copy="${ifNonNull(copy)}">
+            <dds-content-block-heading>${heading}</dds-content-block-heading>
+            <dds-text-cta slot="cta" href="example.com">${copy}</dds-text-cta>
+          </dds-content-item>
+        </dds-cta-section-item>
+      </div>
     </dds-cta-section>
   `;
 };

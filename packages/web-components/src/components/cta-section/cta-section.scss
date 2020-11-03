@@ -5,8 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/ctasection/ctasection';
+@import '../../../../styles/scss/components/ctasection/ctasection';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-cta-section) {
@@ -14,17 +13,27 @@
 
   display: block;
 
-  ::slotted([slot='buttons']) {
+  ::slotted([slot='cta']) {
     margin-top: 1rem;
+    padding-bottom: $carbon--spacing-07;
+
+    @include carbon--breakpoint('md') {
+      padding-bottom: $carbon--layout-05;
+    }
+
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $carbon--layout-06;
+    }
   }
 }
 
-.#{$dds-prefix}--content-block__copy {
-  display: inline-block;
-  font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62));
+.#{$prefix}--content-item__copy {
+  @include carbon--type-style('expressive-heading-03', true);
 
-  width: 90%;
+  display: inline-block;
+
   max-width: 640px;
+  margin-bottom: 0;
 
   @include carbon--breakpoint('sm') {
     width: 100%;

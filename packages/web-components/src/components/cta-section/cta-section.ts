@@ -7,17 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, LitElement, TemplateResult } from 'lit-element';
+import { customElement, html, internalProperty, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
+import DDSContentItem from '../content-item/content-item';
 
 // eslint-disable-next-line
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+/**
+ * The table mapping slot name with the private property name that indicates the existence of the slot content.
+ */
+const slotExistencePropertyNames = {
+  contentItems: '_hasContentItems',
+  linkList: '_hasLinkList',
+};
 
 /**
  * The CTA Section pattern
@@ -27,7 +35,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot buttons - The CTA Buttons.
  */
 @customElement(`${ddsPrefix}-cta-section`)
-class DDSCTASection extends StableSelectorMixin(LitElement) {
+class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
+  /**
+   * `true` if there is CTA content.
+   */
+  @internalProperty()
+  protected _hasFooter = false;
+
   /**
    * Applies section attribute
    */
@@ -39,54 +53,35 @@ class DDSCTASection extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * @returns The content, including the copy and button group
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
    */
-  protected _renderBody(): TemplateResult | string | void {
-    return html`
-      ${this._renderCopy()} ${this._renderContent()}
-    `;
+  private _handleSlotChange({ target }: Event) {
+    const { name } = target as HTMLSlotElement;
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
   }
 
   /**
-   * @returns The main content.
+   * @returns The footer content.
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
+  protected _renderFooter(): TemplateResult | string | void {
+    const { _hasFooter: hasFooter } = this;
     return html`
-      <slot name="buttons"></slot>
+      <div ?hidden="${!hasFooter}" class="${prefix}--helper-wrapper">
+        <div class="${prefix}--content-item-wrapper">
+          <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
+        </div>
+      </div>
     `;
   }
-
-  /**
-   * @returns The copy content.
-   */
-  protected _renderCopy(): TemplateResult | string | void {
-    const { copy } = this;
-    return html`
-      ${!copy
-        ? undefined
-        : html`
-            <dds-markdown class="${ddsPrefix}--content-block__copy" nobold .content="${ifNonNull(copy)}"></dds-markdown>
-          `}
-    `;
-  }
-
-  /**
-   * The CTA Section heading.
-   */
-  @property()
-  heading = '';
-
-  /**
-   * The CTA Section copy content.
-   */
-  @property()
-  copy = '';
 
   render() {
     return html`
-      <slot name="heading"></slot>
-      ${this._renderBody()}
+      ${super.render()} ${this._renderFooter()}
     `;
   }
 
