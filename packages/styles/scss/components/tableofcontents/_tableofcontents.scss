@@ -166,6 +166,26 @@
     }
   }
 
+  .#{$prefix}--tableofcontents__contents {
+    a[name] {
+      display: block;
+      color: $text-01;
+      transform: translateY(calc(-1 * #{$layout-03}));
+
+      > * {
+        transform: translateY($layout-03);
+      }
+
+      @include carbon--breakpoint('lg') {
+        transform: none;
+
+        > * {
+          transform: none;
+        }
+      }
+    }
+  }
+
   @include carbon--breakpoint('sm') {
     .#{$prefix}--tableofcontents__desktop {
       display: none;

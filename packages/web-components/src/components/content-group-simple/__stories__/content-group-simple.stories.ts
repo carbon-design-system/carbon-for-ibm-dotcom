@@ -186,6 +186,7 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     knobs: {
       ContentGroupSimple: ({ groupId }) => ({
         copy: textNullable(

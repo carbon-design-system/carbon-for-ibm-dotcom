@@ -11,7 +11,6 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { QUOTE_TYPES } from '../quote';
-import styles from './quote.stories.scss';
 import '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -52,9 +51,6 @@ export default {
   title: 'Components/Quote',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--offset-lg-4 bx--col-lg-12">
@@ -66,6 +62,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       Quote: ({ groupId }) => ({
         copy: textNullable(
