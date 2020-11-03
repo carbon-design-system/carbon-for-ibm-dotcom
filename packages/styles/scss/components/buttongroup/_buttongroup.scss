@@ -57,6 +57,8 @@
     ::slotted([slot='icon']) {
       position: absolute;
       right: 1rem;
+      top: 13px;
+      bottom: 13px;
       flex-shrink: 0;
     }
     .#{$prefix}--btn {
