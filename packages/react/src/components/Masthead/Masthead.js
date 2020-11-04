@@ -450,20 +450,6 @@ Masthead.propTypes = {
    * Custom typeahead API function
    */
   customTypeaheadApi: PropTypes.func,
-
-  /**
-   * Masthead logo object
-   * See [logo](#logo)
-   * for details.
-   */
-  logoData: PropTypes.shape({
-    svg: PropTypes.string,
-    copy: PropTypes.string,
-    denyList: PropTypes.array,
-    allowList: PropTypes.array,
-    expire: PropTypes.string,
-    path: PropTypes.string,
-  }),
 };
 
 Masthead.defaultProps = {
