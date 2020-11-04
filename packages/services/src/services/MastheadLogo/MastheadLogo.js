@@ -33,7 +33,8 @@ class MastheadLogoAPI {
       return false;
     } else if (
       logoData.allowlist &&
-      logoData.allowlist.indexOf(location.pathname) !== -1 &&
+      (logoData.allowlist.length == 0 ||
+        logoData.allowlist.indexOf(location.pathname) !== -1) &&
       logoData.svg
     ) {
       return true;

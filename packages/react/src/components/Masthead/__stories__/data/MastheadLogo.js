@@ -27,7 +27,7 @@ const MastheadLogo = {
   </svg>`,
     tooltip: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     denylist: ['/example-path'],
-    allowlist: ['/iframe.html'],
+    allowlist: [],
     end: 'May 5, 2021 0:00:01',
     path: '/',
   },
@@ -45,7 +45,7 @@ const MastheadLogo = {
     </g>
   </svg>`,
     denylist: ['/example-path'],
-    allowlist: ['/iframe.html'],
+    allowlist: [],
     end: 'May 5, 2021 0:00:01',
     path: '/',
   },
