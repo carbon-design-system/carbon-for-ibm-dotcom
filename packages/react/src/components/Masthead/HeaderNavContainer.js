@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  keys,
+  matches,
+} from '../../internal/vendor/carbon-components-react/internal/keyboard';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
@@ -25,20 +29,75 @@ const HeaderNavContainer = ({ children }) => {
   const caretRightRef = useRef(null);
   const [io, setIO] = useState(null);
   const [position, setPosition] = useState(0);
+  const buttonSize = 48; // 40px(width) + 8px(gradient)
 
   const paginateLeft = useCallback(() => {
-    const moveLeft = Math.min(position + containerRef.current.offsetWidth, 0);
-    contentRef.current.style.left = String(moveLeft) + 'px';
-    setPosition(moveLeft);
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
+    );
+    for (let i = 0; i < menuItems.length; i++) {
+      // checks if first visible item is partially hidden
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
+        buttonSize
+      ) {
+        // checks if there is space for remaining menuItems
+        if (
+          menuItems[i].offsetLeft + menuItems[i].offsetWidth >
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth -
+              menuItems[i].offsetLeft -
+              menuItems[i].offsetWidth -
+              buttonSize
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth -
+                menuItems[i].offsetLeft -
+                menuItems[i].offsetWidth -
+                buttonSize
+            ) + 'px';
+        } else {
+          setPosition(0);
+          contentRef.current.style.left = '0px';
+        }
+        break;
+      }
+    }
   }, [position]);
 
   const paginateRight = useCallback(() => {
-    const moveRight = -Math.min(
-      -position + containerRef.current.offsetWidth,
-      contentRef.current.offsetWidth - containerRef.current.offsetWidth
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
     );
-    contentRef.current.style.left = String(moveRight) + 'px';
-    setPosition(moveRight);
+    for (let i = 0; i < menuItems.length; i++) {
+      // checks if the right most visible element is partially hidden
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
+        containerRef.current.offsetWidth - buttonSize
+      ) {
+        // checks if there is space for remaining menuItems
+        if (
+          contentRef.current.offsetWidth - menuItems[i].offsetLeft <
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth - contentRef.current.offsetWidth
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth - contentRef.current.offsetWidth
+            ) + 'px';
+        } else {
+          setPosition(buttonSize - menuItems[i].offsetLeft);
+          contentRef.current.style.left =
+            String(buttonSize - menuItems[i].offsetLeft) + 'px';
+        }
+        break;
+      }
+    }
   }, [position]);
 
   useEffect(() => {
@@ -85,10 +144,40 @@ const HeaderNavContainer = ({ children }) => {
     }
   }, [io]);
 
+  /**
+   * Keyboard event handler for menu items.
+   */
+  const handleOnKeyDown = event => {
+    if (matches(event, [keys.Tab])) {
+      if (event.shiftKey) {
+        //Focus previous input
+        if (
+          document.activeElement.parentElement.previousSibling.offsetLeft +
+            position <=
+          buttonSize
+        ) {
+          paginateLeft();
+        }
+      } else {
+        //Focus next input
+        if (
+          document.activeElement.parentElement.nextSibling.offsetLeft +
+            document.activeElement.parentElement.nextSibling.offsetWidth >=
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          paginateRight();
+        }
+      }
+    }
+  };
+
   return (
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
-        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
+        <div
+          className={`${prefix}--header__nav-content`}
+          ref={contentRef}
+          onKeyDown={handleOnKeyDown}>
           <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
           <div
             className={`${prefix}--sub-content-right`}
@@ -100,14 +189,18 @@ const HeaderNavContainer = ({ children }) => {
           className={`${prefix}--header__nav-caret-left`}
           aria-label="Masthead left caret"
           onClick={paginateLeft}
-          ref={caretLeftRef}>
+          ref={caretLeftRef}
+          tabIndex="-1"
+          hidden>
           <CaretLeft20 />
         </button>
         <button
           className={`${prefix}--header__nav-caret-right`}
           aria-label="Masthead right caret"
           onClick={paginateRight}
-          ref={caretRightRef}>
+          ref={caretRightRef}
+          tabIndex="-1"
+          hidden>
           <CaretRight20 />
         </button>
       </div>

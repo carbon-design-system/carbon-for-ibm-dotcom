@@ -99,7 +99,8 @@
         }
 
         .#{$prefix}--btn--secondary,
-        .#{$prefix}--list-box {
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
           background-color: $ui-background;
           max-width: 100%;
 
@@ -112,8 +113,13 @@
           }
         }
 
+        .#{$prefix}--select {
+          max-width: 100%;
+        }
+
         .#{$prefix}--text-input,
-        .#{$prefix}--list-box {
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
           border-bottom: none;
         }
       }
