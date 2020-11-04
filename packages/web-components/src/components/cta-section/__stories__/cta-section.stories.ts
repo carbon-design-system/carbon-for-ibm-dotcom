@@ -16,6 +16,9 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button-group/button-group-item';
 import '../cta-section';
+import '../cta-section-item';
+import '../cta-section-item-heading';
+import '../cta-section-item-copy';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -61,22 +64,99 @@ export const WithContentItems = ({ parameters }) => {
         </dds-button-group-item>
       </dds-button-group>
 
-      <div slot="footer">
-        <dds-cta-section-item>
-          <dds-content-item .copy="${ifNonNull(copy)}">
-            <dds-content-block-heading>${heading}</dds-content-block-heading>
-            <dds-text-cta slot="cta" href="example.com">${copy}</dds-text-cta>
-          </dds-content-item>
-        </dds-cta-section-item>
+      <dds-cta-section-item>
+        <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
+        <dds-cta-section-item-copy
+          content="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
+        ></dds-cta-section-item-copy>
+        <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
+      </dds-cta-section-item>
 
-        <dds-cta-section-item>
-          <dds-content-item .copy="${ifNonNull(copy)}">
-            <dds-content-block-heading>${heading}</dds-content-block-heading>
-            <dds-text-cta slot="cta" href="example.com">${copy}</dds-text-cta>
-          </dds-content-item>
-        </dds-cta-section-item>
-      </div>
+      <dds-cta-section-item>
+        <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
+        <dds-cta-section-item-copy content="IBM DevOps partners have a wide range of expertise"></dds-cta-section-item-copy>
+        <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+      </dds-cta-section-item>
     </dds-cta-section>
+  `;
+};
+
+export const WithLinkList = ({ parameters }) => {
+  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  return html`
+    <dds-cta-section .copy="${ifNonNull(copy)}">
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+
+      <dds-button-group slot="cta">
+        <dds-button-group-item href="https://example.com">
+          Secondary Button ${renderIcon}
+        </dds-button-group-item>
+        <dds-button-group-item href="https://example.com">
+          Primary button ${renderIcon}
+        </dds-button-group-item>
+      </dds-button-group>
+
+      <dds-link-list type="end">
+        <span slot="heading">Tutorial</span>
+        <dds-link-list-item href="https://example.com">
+          Learn more ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+      </dds-link-list>
+
+      <dds-link-list type="end">
+        <span slot="heading"></span>
+        <dds-link-list-item href="https://example.com">
+          Learn more ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+      </dds-link-list>
+    </dds-cta-section>
+  `;
+};
+
+export const TEST = () => {
+  // const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  return html`
+    <div class="bx--helper-wrapper">
+      <div class="bx--content-item-wrapper">
+        <dds-link-list class="test" type="end">
+          <span slot="heading">Tutorial</span>
+          <dds-link-list-item href="https://example.com">
+            Learn more ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+        </dds-link-list>
+
+        <dds-link-list class="test" type="end">
+          <span slot="heading"></span>
+          <dds-link-list-item href="https://example.com">
+            Learn more ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+        </dds-link-list>
+      </div>
+    </div>
   `;
 };
 

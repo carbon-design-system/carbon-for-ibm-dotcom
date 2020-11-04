@@ -14,8 +14,9 @@
   display: block;
 
   ::slotted([slot='cta']) {
-    margin-top: 1rem;
-    padding-bottom: $carbon--spacing-07;
+    display: block;
+    margin-top: $carbon--spacing-07;
+    padding-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-05;
@@ -28,12 +29,13 @@
 }
 
 .#{$prefix}--content-item__copy {
-  @include carbon--type-style('expressive-heading-03', true);
-
   display: inline-block;
-
   max-width: 640px;
-  margin-bottom: 0;
+
+  p {
+    margin-bottom: 0;
+    @include carbon--type-style('expressive-heading-03', true);
+  }
 
   @include carbon--breakpoint('sm') {
     width: 100%;
@@ -41,6 +43,41 @@
 
   @include carbon--breakpoint('md') {
     width: 90%;
+  }
+}
+
+.#{$prefix}--content-item {
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: $carbon--spacing-05;
+  position: relative;
+
+  @include carbon--make-col-ready;
+
+  @include carbon--breakpoint('md') {
+    @include carbon--make-col(8, 8);
+  }
+}
+
+.#{$prefix}--content-item__heading {
+  @include carbon--type-style('expressive-heading-02', true);
+
+  width: 100%;
+
+  @include carbon--breakpoint('md') {
+    width: 90%;
+  }
+}
+
+.#{$prefix}--cta-section-item__copy {
+  @include carbon--type-style('body-long-02', true);
+
+  width: 100%;
+  margin-bottom: $carbon--spacing-05;
+
+  @include carbon--breakpoint('md') {
+    width: 90%;
+    max-width: 32rem;
   }
 }
 

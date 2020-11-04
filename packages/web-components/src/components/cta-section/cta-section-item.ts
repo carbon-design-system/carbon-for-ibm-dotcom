@@ -21,17 +21,27 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * List item version of Content Item.
  *
  * @element dds-cta-section-item
- * @slot media - The media content.
  */
 @customElement(`${ddsPrefix}-cta-section-item`)
 class DDSCTASectionItem extends StableSelectorMixin(DDSContentItem) {
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  render() {
     return html`
       <div class="${prefix}--content-item">
+        <slot name="heading"></slot>
         <slot></slot>
+        <slot name="cta"></slot>
       </div>
     `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderContent() {
+    return html``;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderCopy() {
+    return '';
   }
 
   static get stableSelector() {
