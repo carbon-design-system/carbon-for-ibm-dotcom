@@ -26,7 +26,12 @@ const mastheadKnobs = {
       url: 'https://www.ibm.com/cloud',
     },
   },
-  mastheadLogo: mastheadLogo,
+  mastheadLogo: {
+    alternateWithTooltip: mastheadLogo.alternateWithToolTip,
+    alternateNoTooltip: mastheadLogo.alternateNoToolTip,
+    defaultWithTooltip: mastheadLogo.defaultWithTooltip,
+    defaultNoTooltip: mastheadLogo.defaultNoTooltip,
+  },
 };
 
 export default mastheadKnobs;

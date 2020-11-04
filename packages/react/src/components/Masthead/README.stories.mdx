@@ -173,6 +173,21 @@ contain an `id: signin` entry in the corresponding translation data file. See
 [here](https://github.ibm.com/webstandards/ibm-dotcom-translations/blob/master/translations/masthead-footer/jsononly/usen.json#L1467)
 for an example.
 
+## mastheadLogo
+
+The masthead can display an alternate logo and a tooltip.
+
+```javascript
+const MastheadLogo = {
+  svg: `<svg width="58" height="23"...></svg>`,
+  tooltip: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  denylist: ['/example-path'],
+  allowlist: ['/iframe.html'],
+  end: 'May 5, 2021 0:00:01',
+  path: '/', // URL path, e.g. /it-it
+};
+```
+
 #### Feature Flags
 
 To utilize the following features, set the following variables to `true` within

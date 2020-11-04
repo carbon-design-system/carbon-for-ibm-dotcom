@@ -193,19 +193,55 @@ WithL1.story = {
   },
 };
 
-export const AlternateLogo = ({ parameters }) => <Default parameters={parameters} />;
+export const WithLogoData = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} />
+);
 
-AlternateLogo.story = {
-  name: 'With Alternate Logo',
+WithLogoData.story = {
+  name: 'With logo data',
   parameters: {
     knobs: {
       escapeHTML: false,
-      Masthead: () => {
-        const logoData = mastheadKnobs.mastheadLogo;
+      Masthead: ({ groupId }) => {
+        const useMockData = boolean('Use mock data', inPercy());
+
         return {
-          mastheadLogo: logoData,
+          navigation: select(
+            'navigation data (navigation)',
+            mastheadKnobs.navigation,
+            useMockData
+              ? mastheadKnobs.navigation.custom
+              : mastheadKnobs.navigation.default,
+            groupId
+          ),
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
+          mastheadLogo: select(
+            'masthead logo data (mastheadLogo)',
+            mastheadKnobs.mastheadLogo,
+            mastheadKnobs.mastheadLogo.defaultNoTooltip,
+            groupId
+          ),
         };
-      }
+      },
     },
   },
 };
