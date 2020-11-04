@@ -59,12 +59,8 @@ IbmLogo.propTypes = {
 
   /**
    * Masthead logo object
-   * `svg`: Alternate IBM logo <svg />
-   * `tooltip`: Tooltip copy
-   * `denyList`: List of paths to block using alternate logo
-   * `allowList`: List of paths to allow using alternate logo
-   * `expire`: Expiry date. Reverts to standard 8-bar
-   * `url`: IBM logo url path. e.g. /it-it
+   * See [mastheadLogo](#mastheadlogo)
+   * for details.
    */
   logoData: PropTypes.shape({
     svg: PropTypes.string,

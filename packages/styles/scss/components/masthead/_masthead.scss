@@ -49,6 +49,11 @@ $search-transition-timing: 95ms;
     @include carbon--breakpoint-down(lg) {
       padding: 0 $carbon--spacing-05;
     }
+
+    svg {
+      width: 58px;
+      height: 23px;
+    }
   }
 
   .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip__trigger--definition,

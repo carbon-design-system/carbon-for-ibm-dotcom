@@ -9,14 +9,12 @@ class MastheadLogoAPI {
   /**
    * Determines whether to return custom or default IBM logo
    *
-   * @returns {string} IBM logo
+   * @returns {boolean} Use alternate logo or not
    *
    * @example
-   * import {MastheadLogoAPI} from '@carbon/ibmdotcom-services';
+   * import { MastheadLogoAPI } from '@carbon/ibmdotcom-services';
    *
-   * const useCustomLogo = mastheadProps.mastheadLogo
-   *   ? MastheadLogoAPI.setMastheadLogo(mastheadProps.mastheadLogo)
-   *   : false;
+   * const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
    */
   static setMastheadLogo(logoData) {
     if (logoData === undefined) return false;
