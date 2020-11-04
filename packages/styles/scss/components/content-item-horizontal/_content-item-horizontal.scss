@@ -55,6 +55,7 @@
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal__item--heading {
+    display: block;
     color: $text-01;
     @include carbon--type-style('expressive-heading-03', true);
     @include carbon--breakpoint(sm) {
