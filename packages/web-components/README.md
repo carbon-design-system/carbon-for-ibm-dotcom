@@ -116,7 +116,7 @@ Once you do that, you can use our components as easy as using HTML tags, like:
 
 ### Using with legacy IBM.com Design System (Northstar)
 
-[Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/), one of the standards Carbon for IBM.com Web Components library is created on top of, isolates IBM.com Web Components library's component style from your application style, that means those two styles won't adversely affect each other.
+[Shadow DOM](https://w3c.github.io/webcomponents/spec/shadow/), one of the standards for Carbon for IBM.com Web Components is created on top of, isolates the web component styles from the application styles. This means those two styles won't adversely affect each other.
 
 If your have a website that currently runs on [legacy IBM.com Design System (Northstar)](https://www.ibm.com/standards/web/v18/), such isolation helps you for gradual migration from legacy IBM.com Northstar style to Carbon for IBM.com style. You can simply use both technologies in your page. Here's an example with Carbon for IBM.com masthead and legacy IBM.com Northstar footer:
 
