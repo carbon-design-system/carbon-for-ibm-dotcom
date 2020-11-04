@@ -6,9 +6,9 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/_inlined/mixins';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 @import '@carbon/ibmdotcom-styles/scss/components/locale-modal/locale-modal';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 @import '../expressive-modal/expressive-modal';
 
