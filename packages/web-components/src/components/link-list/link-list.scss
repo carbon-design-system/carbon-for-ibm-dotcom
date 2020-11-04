@@ -19,10 +19,6 @@
   .#{$prefix}--link {
     cursor: pointer;
 
-    > span {
-      flex: 1;
-    }
-
     &:focus {
       outline: none;
     }
@@ -31,6 +27,14 @@
   &:focus {
     outline: 2px solid $focus;
     outline-offset: -2px;
+  }
+}
+
+:host(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link {
+    > span {
+      flex: 1;
+    }
   }
 }
 
