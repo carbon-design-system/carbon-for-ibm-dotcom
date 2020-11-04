@@ -14,6 +14,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../content-item-horizontal';
 import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
 import '../../link-list/link-list';
 import '../../cta/link-list-item-cta';
 import styles from './content-item-horizontal.stories.scss';
@@ -29,9 +30,10 @@ export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal .copy=${ifNonNull(copy)}>
+    <dds-content-item-horizontal>
       <slot slot="eyebrow">${eyebrow}</slot>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
       <dds-link-list slot="cta" type="vertical">
         <dds-link-list-item-cta
           icon-placement="${ICON_PLACEMENT.RIGHT}"
