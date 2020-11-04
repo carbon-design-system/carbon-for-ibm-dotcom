@@ -15,7 +15,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
 import DDSContentItem from '../content-item/content-item';
 
-// eslint-disable-next-line
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -71,6 +70,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter } = this;
     return html`
+      <slot name="link-list"></slot>
       <div ?hidden="${!hasFooter}" class="${prefix}--helper-wrapper">
         <div class="${prefix}--content-item-wrapper">
           <slot @slotchange="${this._handleSlotChange}"></slot>

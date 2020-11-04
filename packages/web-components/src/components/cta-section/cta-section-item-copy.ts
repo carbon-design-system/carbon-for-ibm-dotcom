@@ -22,7 +22,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-cta-section-item-copy`)
 class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemCopy) {
-  // needs to extend the dds-content-item-copy
   render() {
     return html`
       <div class="${prefix}--cta-section-item__copy">

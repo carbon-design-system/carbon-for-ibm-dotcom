@@ -36,6 +36,9 @@
   class="bx--content-group__copy"
   nobold=""
 >
+  <p>
+    copy-foo
+  </p>
 </dds-markdown>
 <div class="bx--content-group__children bx--content-group__col">
   <div>

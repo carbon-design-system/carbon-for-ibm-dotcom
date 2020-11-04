@@ -1,4 +1,4 @@
-# `dds-content-item`
+# `dds-cta-section`
 
 ## `Misc attributes`
 
@@ -17,6 +17,17 @@
 >
   <slot name="cta">
   </slot>
+</div>
+<slot name="link-list">
+</slot>
+<div
+  class="bx--helper-wrapper"
+  hidden=""
+>
+  <div class="bx--content-item-wrapper">
+    <slot>
+    </slot>
+  </div>
 </div>
 
 ```
@@ -41,6 +52,17 @@
 <div class="bx--content-item__cta">
   <slot name="cta">
   </slot>
+</div>
+<slot name="link-list">
+</slot>
+<div
+  class="bx--helper-wrapper"
+  hidden=""
+>
+  <div class="bx--content-item-wrapper">
+    <slot>
+    </slot>
+  </div>
 </div>
 
 ```

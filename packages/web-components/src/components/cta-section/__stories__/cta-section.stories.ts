@@ -96,67 +96,28 @@ export const WithLinkList = ({ parameters }) => {
         </dds-button-group-item>
       </dds-button-group>
 
-      <dds-link-list type="end">
-        <span slot="heading">Tutorial</span>
+      <dds-link-list slot="link-list" type="end">
+        <span slot="heading">More ways to explore DevOps</span>
         <dds-link-list-item href="https://example.com">
-          Learn more ${ArrowRight20({ slot: 'icon' })}
+          Events ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
-          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          Blogs ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
-          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-      </dds-link-list>
-
-      <dds-link-list type="end">
-        <span slot="heading"></span>
-        <dds-link-list-item href="https://example.com">
-          Learn more ${ArrowRight20({ slot: 'icon' })}
+          Training ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
-          Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+          Developer resources ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
-          Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          Research ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+          News ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
       </dds-link-list>
     </dds-cta-section>
-  `;
-};
-
-export const TEST = () => {
-  // const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  return html`
-    <div class="bx--helper-wrapper">
-      <div class="bx--content-item-wrapper">
-        <dds-link-list class="test" type="end">
-          <span slot="heading">Tutorial</span>
-          <dds-link-list-item href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
-
-        <dds-link-list class="test" type="end">
-          <span slot="heading"></span>
-          <dds-link-list-item href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
-      </div>
-    </div>
   `;
 };
 
