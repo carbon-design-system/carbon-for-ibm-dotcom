@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  keys,
+  matches,
+} from '../../internal/vendor/carbon-components-react/internal/keyboard';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
@@ -103,6 +107,7 @@ const HeaderNavContainer = ({ children }) => {
           records => {
             records.forEach(record => {
               if (
+                contentLeftRef.current &&
                 record.target.classList.contains(
                   contentLeftRef.current.className
                 )
@@ -110,6 +115,7 @@ const HeaderNavContainer = ({ children }) => {
                 caretLeftRef.current.hidden = record.isIntersecting;
               }
               if (
+                contentRightRef.current &&
                 record.target.classList.contains(
                   contentRightRef.current.className
                 )
@@ -140,10 +146,42 @@ const HeaderNavContainer = ({ children }) => {
     }
   }, [io]);
 
+  /**
+   * Keyboard event handler for menu items.
+   */
+  const handleOnKeyDown = event => {
+    if (matches(event, [keys.Tab])) {
+      if (event.shiftKey) {
+        //Focus previous input
+        if (
+          document.activeElement.parentElement.previousSibling &&
+          document.activeElement.parentElement.previousSibling.offsetLeft +
+            position <=
+            buttonSize
+        ) {
+          paginateLeft();
+        }
+      } else {
+        //Focus next input
+        if (
+          document.activeElement.parentElement.nextSibling &&
+          document.activeElement.parentElement.nextSibling.offsetLeft +
+            document.activeElement.parentElement.nextSibling.offsetWidth >=
+            containerRef.current.offsetWidth - buttonSize
+        ) {
+          paginateRight();
+        }
+      }
+    }
+  };
+
   return (
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
-        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
+        <div
+          className={`${prefix}--header__nav-content`}
+          ref={contentRef}
+          onKeyDown={handleOnKeyDown}>
           <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
           <div
             className={`${prefix}--sub-content-right`}
@@ -156,6 +194,7 @@ const HeaderNavContainer = ({ children }) => {
           aria-label="Masthead left caret"
           onClick={paginateLeft}
           ref={caretLeftRef}
+          tabIndex="-1"
           hidden>
           <CaretLeft20 />
         </button>
@@ -164,6 +203,7 @@ const HeaderNavContainer = ({ children }) => {
           aria-label="Masthead right caret"
           onClick={paginateRight}
           ref={caretRightRef}
+          tabIndex="-1"
           hidden>
           <CaretRight20 />
         </button>

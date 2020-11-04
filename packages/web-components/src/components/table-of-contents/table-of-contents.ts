@@ -108,18 +108,15 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * Cleans-up and creats the inersection observer for the intersection of target `<a>`s with the viewport.
    *
    * @param [options] The options.
-   * @param [options.height]
-   *   The height of the mobile container.
-   *   If this is left `undefined`, the new intersection observer is not created.
+   * @param [options.create] `true` to create the new intersection observer.
    */
-  private _cleanAndCreateObserverIntersectionTarget({ height }: { height?: number } = {}) {
+  private _cleanAndCreateObserverIntersectionTarget({ create }: { create?: boolean } = {}) {
     if (this._observerIntersectionTarget) {
       this._observerIntersectionTarget.disconnect();
       this._observerIntersectionTarget = null;
     }
-    if (typeof height === 'number') {
+    if (create) {
       this._observerIntersectionTarget = new IntersectionObserver(this._observeIntersectionTarget, {
-        rootMargin: `-${height}px 0px 0px 0px`,
         threshold: 1,
       });
       this._targets.forEach(item => {
@@ -226,14 +223,13 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _observeResizeMobileContainer = records => {
     const entry = records[records.length - 1];
     const { height } = entry.contentRect;
-    this._cleanAndCreateObserverIntersectionTarget({ height });
     this._hasMobileContainerVisible = height > 0;
   };
 
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
-    this._cleanAndCreateObserverIntersectionTarget({ height: 0 });
+    this._cleanAndCreateObserverIntersectionTarget({ create: true });
   }
 
   disconnectedCallback() {

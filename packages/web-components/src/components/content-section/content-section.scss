@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 
 :host(#{$dds-prefix}-content-section) {

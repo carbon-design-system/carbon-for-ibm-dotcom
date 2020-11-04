@@ -73,8 +73,18 @@ body {
 }
 
 .dds-ce-demo-devenv--container--has-grid {
-  padding: 2rem 5%;
+  padding: 1rem 0;
   align-items: stretch;
+}
+
+.dds-ce-demo-devenv--container--has-vertical-spacing-in-component {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// stylelint-disable-next-line selector-type-no-unknown
+dds-video-cta-container.bx--grid {
+  display: block;
 }
 
 // For cards/videos, we want to ensure the card/video takes up the entire width of the grid column.
