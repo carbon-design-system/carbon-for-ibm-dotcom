@@ -35,9 +35,7 @@ const IbmLogo = ({ autoid, logoData }) => {
             aria-label="IBM®"
             data-autoid={autoid}
             href={`http://www.ibm.com${logoData.path}`}
-            {...(useAlternateLogo
-              ? { dangerouslySetInnerHTML: { __html: logoData.svg } }
-              : {})}
+            dangerouslySetInnerHTML={{ __html: logoData.svg }}
           />
         ) : (
           <a aria-label="IBM®" data-autoid={autoid} href={`http://www.ibm.com`}>

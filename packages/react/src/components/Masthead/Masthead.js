@@ -97,6 +97,7 @@ const Masthead = ({
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
+  const [logo, setlogo] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
     signedout: [],
@@ -110,6 +111,7 @@ const Masthead = ({
         if (!unmounted) {
           setMastheadData(pageData.mastheadNav.links);
           setProfileData(pageData.profileMenu);
+          setlogo(pageData?.logo);
         }
       } catch (error) {
         console.error('Error populating masthead data:', error);
@@ -233,7 +235,7 @@ const Masthead = ({
                 )}
 
                 <IbmLogo
-                  logoData={mastheadProps.mastheadLogo}
+                  logoData={logo}
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                 />
 
@@ -451,7 +453,7 @@ Masthead.propTypes = {
 
   /**
    * Masthead logo object
-   * See [mastheadLogo](#mastheadlogo)
+   * See [logo](#logo)
    * for details.
    */
   logoData: PropTypes.shape({
