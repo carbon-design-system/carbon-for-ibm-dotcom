@@ -10,7 +10,7 @@
 import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import DDSContntItem from '../content-item/content-item';
+import DDSContentItem from '../content-item/content-item';
 import styles from './pictogram-item.scss';
 
 const { prefix } = settings;
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot cta - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
-class DDSPictogramItem extends DDSContntItem {
+class DDSPictogramItem extends DDSContentItem {
   render() {
     return html`
       <div class="${prefix}--pictogram-item__row">
