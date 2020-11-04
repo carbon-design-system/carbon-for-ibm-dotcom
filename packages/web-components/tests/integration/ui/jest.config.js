@@ -20,7 +20,4 @@ module.exports = {
   testEnvironment: 'jest-playwright-preset',
   testRunner: 'jest-circus/runner',
   testRegex: '.*\\.steps\\.js$',
-  transform: {
-    '^.+\\.[jt]s$': '<rootDir>/config/jest/jsTransform.js',
-  },
 };

@@ -124,10 +124,12 @@ module.exports = {
               implementation: sass,
               sassOptions: {
                 includePaths: ['node_modules'],
-                // `enable-css-custom-properties` feature flag is a requirement for Carbon for IBM.com styles
+                // `enable-css-custom-properties` and `grid-columns-16` feature flags
+                // are requirements for Carbon for IBM.com styles
                 data: `
                   $feature-flags: (
                     enable-css-custom-properties: true,
+                    grid-columns-16: true,
                   );
                 `,
               },
