@@ -58,10 +58,11 @@ addParameters({
 addDecorator((story, { parameters }) => {
   const result = story();
   const { hasMainTag } = result as any;
-  const { hasGrid } = parameters;
+  const { hasGrid, hasVerticalSpacingInComponent } = parameters;
   const classes = classMap({
     'dds-ce-demo-devenv--container': true,
     'dds-ce-demo-devenv--container--has-grid': hasGrid,
+    'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
   });
   return html`
     <style>
