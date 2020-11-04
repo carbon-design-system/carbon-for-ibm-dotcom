@@ -19,6 +19,21 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * The style scheme for the right navigation.
+ */
+export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
+  /**
+   * Regular style.
+   */
+  REGULAR = 'regular',
+
+  /**
+   * For left (highlighted) section layout.
+   */
+  LEFT_SECTION = 'left-section',
+}
+
+/**
  * MegaMenu right navigation section
  *
  * @element dds-megamenu-right-navigation
@@ -26,35 +41,29 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-megamenu-right-navigation`)
 class DDSMegaMenuRightNavigation extends LitElement {
   /**
-   * autoid.
-   */
-  @property({ reflect: true })
-  autoid = '';
-
-  /**
    * `true` to render left (highlighted) section layout.
    */
-  @property({ type: Boolean, reflect: true, attribute: 'has-highlights' })
-  hasHighlights = false;
+  @property({ reflect: true, attribute: 'style-scheme' })
+  styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR;
 
   /**
    * view all link href.
    */
   @property({ attribute: 'view-all-href', reflect: true })
-  viewAllLinkHref = '';
+  viewAllHref = '';
 
   /**
    * view all link title.
    */
   @property({ attribute: 'view-all-title', reflect: true })
-  viewAllLinkTitle = '';
+  viewAllTitle = '';
 
   /**
    * Returns a class-name(s) for megamenu container
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--hasHighlights`]: this.hasHighlights,
+      [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
       [`${prefix}--masthead__megamenu__categories`]: true,
     });
   }
@@ -64,14 +73,10 @@ class DDSMegaMenuRightNavigation extends LitElement {
       <div class="${this._getClassNames()}">
         <slot></slot>
       </div>
-      ${this.viewAllLinkHref &&
+      ${this.viewAllHref &&
         html`
-          <dds-megamenu-link-with-icon
-            href="${this.viewAllLinkHref}"
-            class="${prefix}--masthead__megamenu__view-all-cta"
-            part="${this.autoid}-view-all"
-          >
-            <span>${this.viewAllLinkTitle}</span>${ArrowRight16({ slot: 'icon' })}
+          <dds-megamenu-link-with-icon href="${this.viewAllHref}" style-scheme="view-all" part="view-all">
+            <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
           </dds-megamenu-link-with-icon>
         `}
     `;

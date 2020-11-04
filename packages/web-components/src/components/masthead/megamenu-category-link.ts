@@ -27,25 +27,9 @@ class DDSMegaMenuCateoryLink extends DDSLink {
   @property({ reflect: true })
   title = '';
 
-  /**
-   * autoid.
-   */
-  @property({ reflect: true })
-  autoid = '';
-
-  /**
-   * index for data-autoid.
-   */
-  @property({ reflect: true })
-  index = 0;
-
   connectedCallback() {
     if (!this.hasAttribute('tabindex')) {
       this.setAttribute('tabindex', '0');
-    }
-    if (!this.hasAttribute('data-autoid')) {
-      const { autoid, index } = this;
-      this.setAttribute('data-autoid', `${autoid}-item${index}`);
     }
     super.connectedCallback();
   }

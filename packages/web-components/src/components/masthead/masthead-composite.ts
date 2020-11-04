@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   MastheadLink,
@@ -44,6 +45,7 @@ import './masthead-search-composite';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -103,7 +105,7 @@ class DDSMastheadComposite extends LitElement {
                       >
                         ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                           return html`
-                            <dds-megamenu-category-link title="${title}" href="${url}" index="${key}">
+                            <dds-megamenu-category-link data-autoid="-item${key}" title="${title}" href="${url}">
                             </dds-megamenu-category-link>
                           `;
                         })}
@@ -114,7 +116,7 @@ class DDSMastheadComposite extends LitElement {
             `
           : null}
         <dds-megamenu-right-navigation
-          ?has-highlights="${ifNonNull(hasHighlights)}"
+          style-scheme="${hasHighlights ? 'left-section' : 'regular'}"
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
@@ -127,7 +129,8 @@ class DDSMastheadComposite extends LitElement {
               >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link title="${title}" href="${url}" index="${key}"> </dds-megamenu-category-link>
+                    <dds-megamenu-category-link data-autoid="-item${key}" title="${title}" href="${url}">
+                    </dds-megamenu-category-link>
                   `;
                 })}
               </dds-megamenu-category-group>
@@ -427,6 +430,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
+        <div class="${prefix}--masthead__overlay"></div>
       </dds-masthead>
     `;
   }

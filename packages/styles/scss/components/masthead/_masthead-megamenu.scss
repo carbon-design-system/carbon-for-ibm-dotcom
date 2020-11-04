@@ -152,7 +152,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon).#{$prefix}--masthead__megamenu__category-headline,
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
   .#{$prefix}--masthead__megamenu__category-headline {
     width: 100%;
 
@@ -198,7 +198,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon).#{$prefix}--masthead__megamenu__view-all-cta,
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
     margin-top: auto;
     display: flex;
@@ -230,10 +230,7 @@
   }
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
-  :host(#{$dds-prefix}-megamenu-link-with-icon).#{$prefix}--masthead__megamenu__category-headline
-    a,
-  :host(#{$dds-prefix}-megamenu-link-with-icon).#{$prefix}--masthead__megamenu__view-all-cta
-    a,
+  :host(#{$dds-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-headline
     .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
