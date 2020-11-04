@@ -9,7 +9,6 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   MastheadLink,
@@ -30,6 +29,7 @@ import './megamenu-right-navigation';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
 import './megamenu-category-group';
+import './megamenu-overlay';
 import './top-nav';
 import './top-nav-name';
 import './top-nav-item';
@@ -45,7 +45,6 @@ import './masthead-search-composite';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -430,7 +429,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        <div class="${prefix}--masthead__overlay"></div>
+        <dds-megamenu-overlay active></dds-megamenu-overlay>
       </dds-masthead>
     `;
   }
