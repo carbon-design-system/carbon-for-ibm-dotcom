@@ -25,9 +25,9 @@ const slotExistencePropertyNames = {
 };
 
 /**
- * Feature Card.
+ * A component to present a content in a horizontal orientation.
  *
- * @element dds-feature-card
+ * @element dds-content-item-horizontal
  */
 @customElement(`${ddsPrefix}-content-item-horizontal`)
 class DDSContentItemHorizontal extends DDSContentItem {
