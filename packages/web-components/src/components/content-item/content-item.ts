@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, customElement, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -46,7 +46,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
    *
    * @param event The event.
    */
-  private _handleSlotchange({ target }: Event) {
+  protected _handleSlotchange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
@@ -60,13 +60,12 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   @property()
   copy = '';
 
-  render() {
+  /**
+   * @returns The body content.
+   */
+  protected _renderBody(): TemplateResult | string | void {
     const { copy, _hasCta: hasCta } = this;
     return html`
-      <slot name="heading"></slot>
-      <div>
-        <slot name="media"></slot>
-      </div>
       ${!copy
         ? undefined
         : html`
@@ -75,6 +74,16 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
       <div ?hidden="${!hasCta}" class="${prefix}--content-item__cta">
         <slot name="cta" @slotchange="${this._handleSlotchange}"></slot>
       </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <slot name="heading"></slot>
+      <div>
+        <slot name="media"></slot>
+      </div>
+      ${this._renderBody()}
     `;
   }
 
