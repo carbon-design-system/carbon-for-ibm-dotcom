@@ -56,7 +56,6 @@
   >
   </dds-top-nav-item>
   <dds-top-nav-menu
-    class="bx--masthead__megamenu__l0-nav"
     data-autoid="dds--masthead__l0-nav--nav-1"
     menu-label="menu-title-foo"
     role="listitem"
