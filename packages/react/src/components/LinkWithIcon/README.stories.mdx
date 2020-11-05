@@ -59,6 +59,14 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 And don't forget to import the LinkWithIcon styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import CalloutQuote from '@carbon/ibmdotcom-react/es/components/CalloutQuote/CalloutQuote';
+````
+
 ## Props
 
 <Props of={LinkWithIcon} />
