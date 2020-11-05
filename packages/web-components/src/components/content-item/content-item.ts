@@ -75,6 +75,16 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
     `;
   }
 
+  render() {
+    return html`
+      <slot name="heading"></slot>
+      <div>
+        <slot name="media"></slot>
+      </div>
+      ${this._renderBody()}
+    `;
+  }
+
   static get stableSelector() {
     return `${ddsPrefix}--content-item`;
   }

@@ -7,6 +7,8 @@
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/colors/colors';
 @import 'carbon-components/scss/globals/scss/typography';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 
 .dds-ce-demo-devenv--container {
   padding-top: 0;
@@ -16,11 +18,6 @@
 .dds-ce-demo--table-of-contents {
   padding-top: 3rem;
   padding-bottom: 3rem;
-
-  a[name] {
-    display: block;
-    color: $text-01;
-  }
 
   h3 {
     padding-top: rem(16px);

@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-list-item),
@@ -18,10 +18,6 @@
 
   .#{$prefix}--link {
     cursor: pointer;
-
-    > span {
-      flex: 1;
-    }
 
     &:focus {
       outline: none;
@@ -42,6 +38,14 @@
     }
   }
   /* stylelint-enable declaration-no-important */
+}
+
+:host(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link {
+    > span {
+      flex: 1;
+    }
+  }
 }
 
 :host(#{$dds-prefix}-link-list):last-of-type {

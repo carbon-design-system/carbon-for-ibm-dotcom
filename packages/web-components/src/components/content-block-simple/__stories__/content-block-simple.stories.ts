@@ -107,17 +107,17 @@ export const WithAsideElements = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
       <dds-content-block-complementary>
-        <!-- TODO: Replace with <dds-link-list> -->
-        <div style="margin-top: 4rem">
-          <dds-text-cta href="https://ibm.com" cta-type="local">
-            Containerization A Complete Guide
-          </dds-text-cta>
-        </div>
-        <div style="margin-bottom: 4rem">
-          <dds-text-cta href="https://ibm.com" cta-type="external">
-            Why should you use microservices and containers
-          </dds-tet-cta>
-        </div>
+        <dds-link-list type="default">
+          <span slot="heading">Tutorial</span>
+          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
+            <p>Containerization A Complete Guide</p>
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-link-list-item-card-cta>
+          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+            <p>Why should you use microservices and containers</p>
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-link-list-item-card-cta>
+        </dds-link-list>
       </dds-content-block-complementary>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
@@ -146,6 +146,7 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     gridLargeColumnClass: 'bx--col-lg-8',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({

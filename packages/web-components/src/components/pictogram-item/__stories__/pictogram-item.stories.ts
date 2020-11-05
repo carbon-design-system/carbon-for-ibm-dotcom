@@ -11,6 +11,7 @@ import { html } from 'lit-element';
 import '../pictogram-item';
 import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import styles from './pictogram-item.stories.scss';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -59,7 +60,7 @@ export default {
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
         copy: textNullable(
           'Copy (copy):',
-          'Lorem ipsum dolor sit amet,' +
+          'Lorem ipsum dolor sit amet, ' +
             'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
             'Ut enim ad minim veniam\n',
           groupId
@@ -72,9 +73,12 @@ export default {
   },
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-6 bx--offset-lg-3">
+          <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
             ${story()}
           </div>
         </div>
