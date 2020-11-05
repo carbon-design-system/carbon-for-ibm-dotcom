@@ -5,46 +5,72 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import '../../internal/callout/callout';
+
 @mixin callout-with-media {
+  :host(#{$dds-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
-    .#{$prefix}--callout__content {
-      padding-top: 0;
+    display: block;
+    background-color: $inverse-02;
+  }
 
-      .#{$prefix}--content-block {
-        padding-bottom: $layout-05;
-
-        @include carbon--theme(
-          $carbon--theme--g90,
-          feature-flag-enabled('enable-css-custom-properties')
-        ) {
-          color: $text-04;
-          .#{$prefix}--image__caption {
-            color: $text-01;
-          }
-          .#{$prefix}--video-player__video-caption {
-            color: $text-01;
-          }
-        }
-      }
-
-      .#{$prefix}--content-block-simple__media-video {
-        @include carbon--breakpoint-down('md') {
-          margin-top: -16px;
-        }
-
-        margin-top: $spacing-07;
-      }
-
-      .#{$prefix}--content-block-simple__media-image {
-        @include carbon--breakpoint-down('md') {
-          margin-top: 0;
-        }
-
-        margin-top: $spacing-09;
-      }
+  .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
+    padding-top: 0;
+  }
+  :host(#{$dds-prefix}-callout-with-media-video),
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block-simple__media-video {
+    @include carbon--breakpoint-down('md') {
+      margin-top: -16px;
     }
 
+    margin-top: $spacing-07;
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image),
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block-simple__media-image {
+    @include carbon--breakpoint-down('md') {
+      margin-top: 0;
+    }
+
+    margin-top: $spacing-09;
+  }
+
+  :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block {
+    padding-bottom: $layout-05;
+
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      color: $text-04;
+      // `$text-05` in inverse theme is not accessible, which has an adverse effect to `bx--video-player__video-caption` in `<dds-callout-with-media>`.
+      // TODO: Consider global `$text-05` color change in inverse theme, or introduce a component-specific token for `.bx--video-player__video-caption`.
+      --cds-text-05: #f4f4f4;
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image),
+  .#{$prefix}--callout-with-media
+    .#{$prefix}--callout__content
+    .#{$prefix}--content-block {
+    .#{$prefix}--image__caption {
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style('body-short-01', true);
+
+      margin-top: $carbon--spacing-03;
+      color: $text-01;
+    }
     .#{$prefix}--video-player__video-caption {
+      color: $text-01;
       padding-top: $spacing-03;
     }
   }
