@@ -10,7 +10,7 @@
 import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSCard from '../card/card';
+import DDSFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card-block-large
  */
 @customElement(`${ddsPrefix}-feature-card-block-large`)
-class DDSFeatureCardBlockLarge extends DDSCard {
+class DDSFeatureCardBlockLarge extends DDSFeatureCard {
   render() {
     return html`
       <div class="${prefix}--feature-card-block-large__container">
@@ -36,7 +36,7 @@ class DDSFeatureCardBlockLarge extends DDSCard {
     super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
     if (linkNode) {
-      linkNode.classList.add(`${prefix}--card--inverse`);
+      linkNode.classList.remove(`${prefix}--feature-card`);
       linkNode.classList.add(`${prefix}--feature-card-block-large`);
     }
   }
