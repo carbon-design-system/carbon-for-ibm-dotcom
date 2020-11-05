@@ -17,6 +17,7 @@ import {
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import './masthead';
 import './masthead-logo';
 import './masthead-menu-button';
@@ -25,7 +26,6 @@ import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
 import './megamenu-top-nav-menu';
-import './megamenu-right-navigation';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
 import './megamenu-category-group';
@@ -94,41 +94,36 @@ class DDSMastheadComposite extends LitElement {
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
-                ${highlightedItems.map(
-                  (item, i) =>
-                    html`
-                      <dds-megamenu-category-group
-                        data-autoid="${ddsPrefix}--masthead__l0-nav-list${i}"
-                        href="${item.url}"
-                        title="${item.title}"
-                      >
-                        ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
-                          return html`
-                            <dds-megamenu-category-link data-autoid="-item${key}" title="${title}" href="${url}">
-                            </dds-megamenu-category-link>
-                          `;
-                        })}
-                      </dds-megamenu-category-group>
-                    `
-                )}
+                ${highlightedItems.map((item, i) => {
+                  const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
+                  return html`
+                    <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
+                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                        return html`
+                          <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                          </dds-megamenu-category-link>
+                        `;
+                      })}
+                    </dds-megamenu-category-group>
+                  `;
+                })}
               </dds-megamenu-left-navigation>
             `
           : null}
         <dds-megamenu-right-navigation
-          style-scheme="${hasHighlights ? 'left-section' : 'regular'}"
+          style-scheme="${hasHighlights
+            ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
+            : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
           ${menu.map((item, j) => {
+            const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
             return html`
-              <dds-megamenu-category-group
-                data-autoid="${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}"
-                href="${item.url}"
-                title="${item.title}"
-              >
+              <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
                   return html`
-                    <dds-megamenu-category-link data-autoid="-item${key}" title="${title}" href="${url}">
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
                     </dds-megamenu-category-link>
                   `;
                 })}
