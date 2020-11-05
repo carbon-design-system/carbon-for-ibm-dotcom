@@ -8,12 +8,14 @@
  */
 
 import { customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXHeaderMenu from 'carbon-web-components/es/components/ui-shell/header-menu.js';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -29,6 +31,12 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
         (item as DDSMegaMenuOverlay).active = this.expanded;
       });
+
+      if (this.expanded) {
+        doc?.body?.classList.add(`${prefix}--body__lock-scroll`);
+      } else {
+        doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+      }
     }
   }
 

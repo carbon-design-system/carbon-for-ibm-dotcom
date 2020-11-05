@@ -540,11 +540,6 @@ $search-transition-timing: 95ms;
       display: block;
     }
   }
-
-  .#{$prefix}--body__lock-scroll {
-    position: relative;
-    overflow: hidden;
-  }
 }
 
 @include exports('masthead') {

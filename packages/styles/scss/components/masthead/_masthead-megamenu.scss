@@ -98,7 +98,7 @@
   :host(#{$dds-prefix}-megamenu),
   .#{$prefix}--masthead__megamenu {
     display: block;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: $ui-background;
 
     &:focus {

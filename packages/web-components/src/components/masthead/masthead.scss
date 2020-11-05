@@ -13,7 +13,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
-@import '../../../../styles/scss/components/masthead/masthead-megamenu';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
 
 // The masthead nav overflow feature made tweaks to overflow style so it can keep track of overflowed content.
