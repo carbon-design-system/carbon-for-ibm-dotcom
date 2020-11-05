@@ -28,13 +28,17 @@
   }
 }
 
-.#{$prefix}--content-item__copy {
+.#{$prefix}--cta-section__copy {
+  @include carbon--type-style('expressive-heading-03', true);
+
   display: inline-block;
   max-width: 640px;
 
-  p {
+  ::slotted(p) {
     margin-bottom: 0;
-    @include carbon--type-style('expressive-heading-03', true);
+
+    /* stylelint-disable-next-line declaration-no-important */
+    font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62)) !important;
   }
 
   @include carbon--breakpoint('sm') {

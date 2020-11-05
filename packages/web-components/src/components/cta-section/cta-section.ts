@@ -73,7 +73,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       <slot name="link-list"></slot>
       <div ?hidden="${!hasFooter}" class="${prefix}--helper-wrapper">
         <div class="${prefix}--content-item-wrapper">
-          <slot @slotchange="${this._handleSlotChange}"></slot>
+          <slot name="content-item" @slotchange="${this._handleSlotChange}"></slot>
         </div>
       </div>
     `;

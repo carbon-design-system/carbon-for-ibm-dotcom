@@ -17,6 +17,10 @@ Here's a quick example to get you started.
 ```javascript
 
 import '@carbon/ibmdotcom-web-components/es/components/cta-section/cta-section';
+import '@carbon/ibmdtocom-web-components/es/components/cta-section/cta-section-copy';
+import '@carbon/ibmdtocom-web-components/es/components/cta-section/cta-section-item';
+import '@carbon/ibmdtocom-web-components/es/components/cta-section/cta-section-heading';
+import '@carbon/ibmdtocom-web-components/es/components/cta-section/cta-section-item-copy';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
@@ -26,8 +30,9 @@ import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group
 ### HTML
 
 ```html
-<dds-cta-section .copy="Lorem ipsum *dolor* sit amet">
+<dds-cta-section>
   <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+  <dds-cta-section-copy content="Lorem ipsum *dolor* sit amet"></dds-cta-section-copy>
   <dds-button-group slot='buttons'>
     <dds-button-group-item href="https://example.com">
       Primary Button

@@ -16,6 +16,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button-group/button-group-item';
 import '../cta-section';
+import '../cta-section-copy';
 import '../cta-section-item';
 import '../cta-section-item-heading';
 import '../cta-section-item-copy';
@@ -34,8 +35,9 @@ const iconOptions = {
 export const Default = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
   return html`
-    <dds-cta-section .copy="${ifNonNull(copy)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <dds-cta-section>
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
@@ -52,8 +54,9 @@ export const Default = ({ parameters }) => {
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
   return html`
-    <dds-cta-section .copy="${ifNonNull(copy)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <dds-cta-section>
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
@@ -64,7 +67,7 @@ export const WithContentItems = ({ parameters }) => {
         </dds-button-group-item>
       </dds-button-group>
 
-      <dds-cta-section-item>
+      <dds-cta-section-item slot="content-item">
         <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
         <dds-cta-section-item-copy
           content="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
@@ -72,7 +75,7 @@ export const WithContentItems = ({ parameters }) => {
         <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
       </dds-cta-section-item>
 
-      <dds-cta-section-item>
+      <dds-cta-section-item slot="content-item">
         <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
         <dds-cta-section-item-copy content="IBM DevOps partners have a wide range of expertise"></dds-cta-section-item-copy>
         <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
@@ -84,8 +87,9 @@ export const WithContentItems = ({ parameters }) => {
 export const WithLinkList = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
   return html`
-    <dds-cta-section .copy="${ifNonNull(copy)}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <dds-cta-section>
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">

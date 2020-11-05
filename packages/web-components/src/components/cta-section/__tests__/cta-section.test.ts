@@ -12,9 +12,11 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import '../cta-section';
 
 const template = (props?) => {
-  const { copy, children } = props ?? {};
+  const { copy, heading, children } = props ?? {};
   return html`
-    <dds-cta-section .copy="${ifNonNull(copy)}">
+    <dds-cta-section>
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
       ${children}
     </dds-cta-section>
   `;
@@ -31,6 +33,7 @@ describe('dds-cta-section', function() {
     it('should render with various attributes', async function() {
       render(
         template({
+          heading: 'heading-foo',
           copy: 'copy-foo',
           children: html`
             <div slot="cta">cta-foo</div>

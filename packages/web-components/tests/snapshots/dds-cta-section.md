@@ -11,6 +11,8 @@
   <slot name="media">
   </slot>
 </div>
+<slot>
+</slot>
 <div
   class="bx--content-item__cta"
   hidden=""
@@ -25,7 +27,7 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot>
+    <slot name="content-item">
     </slot>
   </div>
 </div>
@@ -41,14 +43,8 @@
   <slot name="media">
   </slot>
 </div>
-<dds-markdown
-  class="bx--content-item__copy"
-  nobold=""
->
-  <p>
-    copy-foo
-  </p>
-</dds-markdown>
+<slot>
+</slot>
 <div class="bx--content-item__cta">
   <slot name="cta">
   </slot>
@@ -60,7 +56,7 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot>
+    <slot name="content-item">
     </slot>
   </div>
 </div>

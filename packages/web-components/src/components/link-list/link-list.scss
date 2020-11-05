@@ -35,7 +35,11 @@
 
   /* stylelint-disable declaration-no-important */
   &:nth-child(5n) {
-    margin-top: -3px !important;
+    margin-top: -1px !important;
+
+    @include carbon--breakpoint('md') {
+      margin-top: -3px !important;
+    }
   }
   /* stylelint-enable declaration-no-important */
 }
@@ -60,6 +64,7 @@
       margin-left: -$carbon--layout-01;
     }
   }
+
   &.#{$prefix}--link-list__split {
     @include carbon--breakpoint('md') {
       @include carbon--breakpoint('lg') {
