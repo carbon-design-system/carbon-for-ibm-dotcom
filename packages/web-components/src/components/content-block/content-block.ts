@@ -140,8 +140,8 @@ class DDSContentBlock extends LitElement {
           <div class="${complementaryRowClasses}">
             <div class="${ddsPrefix}-ce--content-block__col">
               ${this._renderBody()}
-              <slot name="complementary" @slotchange="${this._handleSlotChange}"></slot>
             </div>
+            <slot name="complementary" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `;
   }

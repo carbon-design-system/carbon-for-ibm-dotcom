@@ -67,9 +67,9 @@
         </slot>
       </div>
     </div>
-    <slot name="complementary">
-    </slot>
   </div>
+  <slot name="complementary">
+  </slot>
 </div>
 
 ```
