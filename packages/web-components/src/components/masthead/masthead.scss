@@ -318,6 +318,11 @@
   }
 }
 
+:host(#{$dds-prefix}-megamenu-link-with-icon):focus,
+:host(#{$dds-prefix}-megamenu-category-link):focus {
+  outline: none;
+}
+
 :host(#{$dds-prefix}-masthead-search-composite),
 :host(#{$dds-prefix}-masthead-search-container) {
   display: contents;

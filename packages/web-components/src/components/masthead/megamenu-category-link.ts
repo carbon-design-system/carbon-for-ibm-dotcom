@@ -27,13 +27,6 @@ class DDSMegaMenuCateoryLink extends DDSLink {
   @property({ reflect: true })
   title = '';
 
-  connectedCallback() {
-    if (!this.hasAttribute('tabindex')) {
-      this.setAttribute('tabindex', '0');
-    }
-    super.connectedCallback();
-  }
-
   /**
    * @returns The inner content.
    */
