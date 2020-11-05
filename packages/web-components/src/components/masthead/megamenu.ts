@@ -26,13 +26,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu`)
 class DDSMegaMenu extends StableSelectorMixin(LitElement) {
-  connectedCallback() {
-    if (!this.hasAttribute('tabindex')) {
-      this.setAttribute('tabindex', '-1');
-    }
-    super.connectedCallback();
-  }
-
   render() {
     return html`
       <div class="${prefix}--masthead__megamenu__container">

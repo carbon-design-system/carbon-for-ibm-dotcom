@@ -424,7 +424,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        <dds-megamenu-overlay active></dds-megamenu-overlay>
+        <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
   }

@@ -17,7 +17,6 @@ const { prefix } = settings;
  */
 const NavigationGroup = ({ children, ...rest }) => (
   <section
-    tabIndex={-1}
     className={`${prefix}--masthead__megamenu`}
     data-autoid={`${stablePrefix}--masthead__megamenu`}
     {...rest}>
