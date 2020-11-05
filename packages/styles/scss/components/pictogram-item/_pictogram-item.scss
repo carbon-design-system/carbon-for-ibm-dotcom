@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
 @import '../../globals/vars';
+@import '../../globals/imports';
 @import '../../internal/content-item/content-item';
 @import '../link-with-icon/link-with-icon';
 
@@ -15,6 +15,14 @@
   :host(#{$dds-prefix}-pictogram-item) {
     .#{$prefix}--pictogram-item__row {
       @include carbon--make-row;
+
+      max-width: 100%;
+      @include carbon--breakpoint('md') {
+        max-width: 75%;
+      }
+      @include carbon--breakpoint('lg') {
+        max-width: 100%;
+      }
     }
 
     .#{$prefix}--pictogram-item__wrapper {
