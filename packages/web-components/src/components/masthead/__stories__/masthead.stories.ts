@@ -106,6 +106,18 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const withL1 = ({ parameters }) => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <dds-masthead-composite>
+    
+    </dds-masthead-composite>
+    ${StoryContent()}
+  `;
+}
+
 export default {
   title: 'Components/Masthead',
   decorators: [

@@ -18,6 +18,7 @@ import {
 import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import './masthead';
 import './masthead-logo';
+import './masthead-l1';
 import './masthead-menu-button';
 import './masthead-global-bar';
 import './masthead-profile';
@@ -126,6 +127,8 @@ class DDSMastheadComposite extends LitElement {
         });
   }
 
+  private
+
   /**
    * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
    *
@@ -227,6 +230,18 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * L1 elements
+   */
+  @property()
+  l1Items?: object[]; //for testing, will be changed
+
+  /**
+   * L1 Title
+   */
+  @property()
+  l1Title = { title: "test", href: "https://www.example.com" } //for testing, will be changed
+
+  /**
    * `true` to open the search dropdown.
    */
   @property({ type: Boolean, reflect: true, attribute: 'open-search-dropdown' })
@@ -285,6 +300,8 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       _loadSearchResults: loadSearchResults,
+      l1Title,
+      l1Items
     } = this;
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -332,6 +349,10 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
+        ${!l1Title ? undefined : html`
+          <dds-masthead-l1 slot="masthead-l1" l1-title="${l1Title.title}" l1-title-href="${l1Title.href}">
+          </dds-masthead-l1>
+        `}
       </dds-masthead>
     `;
   }
