@@ -139,7 +139,7 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   renderModal() {
     const { alt, copy, defaultSrc, heading, open } = this;
     return html`
-      <dds-expressive-modal ?open=${this.open} size="full-width">
+      <dds-expressive-modal ?open="${open}" size="full-width">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-image-viewer
           alt="${ifNonNull(alt)}"
