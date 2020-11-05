@@ -28,8 +28,4 @@
     align-items: flex-end;
     color: $inverse-link;
   }
-
-  ::slotted(svg[slot='icon']) {
-    float: right;
-  }
 }

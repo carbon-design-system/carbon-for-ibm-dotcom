@@ -33,7 +33,9 @@ export const Default = ({ parameters }) => {
       <slot slot="eyebrow">${eyebrow}</slot>
       <slot slot="heading">${heading}</slot>
       <p>${copy}</p>
-      ${ArrowRight20({ slot: 'footer' })}
+      <dds-feature-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-feature-card-footer>
     </dds-feature-card-block-large>
   `;
 };

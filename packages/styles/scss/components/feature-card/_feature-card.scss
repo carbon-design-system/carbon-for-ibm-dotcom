@@ -59,12 +59,6 @@
       flex-direction: row-reverse;
     }
 
-    ::slotted(svg[slot='footer']) {
-      margin-top: auto;
-      margin-left: auto;
-      color: $inverse-link;
-    }
-
     .#{$prefix}--card {
       @include card;
     }
