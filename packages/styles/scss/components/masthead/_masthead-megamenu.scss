@@ -14,16 +14,18 @@
       max-height: 0;
     }
     100% {
-      max-height: 100vh;
+      max-height: 100%;
     }
   }
 
   @keyframes collapse {
     0% {
+      overflow-y: auto;
       max-height: 100vh;
     }
     100% {
       max-height: 0;
+      overflow-y: hidden;
     }
   }
 
@@ -50,6 +52,7 @@
       position: fixed;
       display: block;
       visibility: hidden;
+      min-height: carbon--mini-units(40);
       margin-bottom: $layout-05;
       left: 0;
       width: 100vw;
@@ -71,7 +74,6 @@
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
-      min-height: carbon--mini-units(40);
       width: 100vw;
 
       ::slotted(#{$dds-prefix}-megamenu),
@@ -97,6 +99,7 @@
 
   :host(#{$dds-prefix}-megamenu),
   .#{$prefix}--masthead__megamenu {
+    display: block;
     overflow-y: scroll;
     background-color: $ui-background;
 
