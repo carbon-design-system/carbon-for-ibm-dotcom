@@ -6,7 +6,7 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/image/image';
-@import '../../globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
 :host(#{$dds-prefix}-image) {
   @extend .#{$prefix}--image;
