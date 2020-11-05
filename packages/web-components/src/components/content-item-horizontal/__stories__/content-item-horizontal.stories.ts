@@ -30,7 +30,7 @@ export const Default = ({ parameters }) => {
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal .copy=${ifNonNull(copy)}>
-      <slot slot="eyebrow">${eyebrow}</slot>
+      <span slot="eyebrow">${eyebrow}</span>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-link-list slot="cta" type="vertical">
         <dds-link-list-item-cta
