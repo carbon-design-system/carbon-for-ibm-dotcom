@@ -4,23 +4,22 @@
 
 ```
 <div>
-  <dds-modal
+  <dds-expressive-modal
     data-autoid="dds--expressive-modal"
     expressive-size="full-width"
-    tabindex="0"
   >
-    <dds-modal-close-button
+    <dds-expressive-modal-close-button
       role="button"
       tabindex="0"
     >
-    </dds-modal-close-button>
+    </dds-expressive-modal-close-button>
     <dds-lightbox-video-player
       description="video-description-foo"
       duration="120"
       name="video-name-foo"
     >
     </dds-lightbox-video-player>
-  </dds-modal>
+  </dds-expressive-modal>
 </div>
 
 ```

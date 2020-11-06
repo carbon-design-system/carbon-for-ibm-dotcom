@@ -38,7 +38,7 @@ describe('dds-content-item-horizontal', function() {
         template({
           copy: 'copy-foo',
           children: html`
-            <slot slot="eyebrow">eyebrow-foo</slot>
+            <span slot="eyebrow">eyebrow-foo</span>
             <dds-content-item-heading>heading-foo</dds-content-item-heading>
             <dds-content-item-copy>copy-foo</dds-content-item-copy>
             <dds-link-list slot="cta" type="vertical">
