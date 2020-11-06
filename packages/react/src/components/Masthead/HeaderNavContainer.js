@@ -107,6 +107,7 @@ const HeaderNavContainer = ({ children }) => {
           records => {
             records.forEach(record => {
               if (
+                contentLeftRef.current &&
                 record.target.classList.contains(
                   contentLeftRef.current.className
                 )
@@ -114,6 +115,7 @@ const HeaderNavContainer = ({ children }) => {
                 caretLeftRef.current.hidden = record.isIntersecting;
               }
               if (
+                contentRightRef.current &&
                 record.target.classList.contains(
                   contentRightRef.current.className
                 )
@@ -152,18 +154,20 @@ const HeaderNavContainer = ({ children }) => {
       if (event.shiftKey) {
         //Focus previous input
         if (
+          document.activeElement.parentElement.previousSibling &&
           document.activeElement.parentElement.previousSibling.offsetLeft +
             position <=
-          buttonSize
+            buttonSize
         ) {
           paginateLeft();
         }
       } else {
         //Focus next input
         if (
+          document.activeElement.parentElement.nextSibling &&
           document.activeElement.parentElement.nextSibling.offsetLeft +
             document.activeElement.parentElement.nextSibling.offsetWidth >=
-          containerRef.current.offsetWidth - buttonSize
+            containerRef.current.offsetWidth - buttonSize
         ) {
           paginateRight();
         }

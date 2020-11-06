@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image-with-caption';
 import readme from './README.stories.mdx';
@@ -36,7 +37,13 @@ export const Default = ({ parameters }) => {
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
-    <dds-image-with-caption alt="${alt}" default-src="${defaultSrc}" heading="${heading}" copy="${copy}" ?lightbox="${lightbox}">
+    <dds-image-with-caption
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      heading="${ifNonNull(heading)}"
+      copy="${ifNonNull(copy)}"
+      ?lightbox="${lightbox}"
+    >
       ${!srcset
         ? undefined
         : html`

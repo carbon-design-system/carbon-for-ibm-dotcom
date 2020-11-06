@@ -87,7 +87,7 @@ describe('dds-lightbox-video-player-composite', function() {
     };
     await Promise.resolve();
     (lightboxVideoPlayerComposite.modalRenderRoot as Element).dispatchEvent(
-      new CustomEvent('dds-modal-closed', { bubbles: true })
+      new CustomEvent('dds-expressive-modal-closed', { bubbles: true })
     );
     expect((embeddedVideoFoo as any).sendNotification).not.toHaveBeenCalled();
     expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith('doStop');

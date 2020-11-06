@@ -9,7 +9,6 @@
   close-button-assistive-text="Close modal"
   data-autoid="dds--locale-modal"
   header-title="Select geographic area"
-  tabindex="0"
 >
   <dds-regions>
   </dds-regions>
@@ -34,7 +33,6 @@
   header-title="header-title-foo"
   lang-display="lang-display-foo"
   open=""
-  tabindex="0"
 >
   <dds-regions>
     <dds-region-item name="region-name-foo">

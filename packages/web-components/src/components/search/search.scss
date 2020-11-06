@@ -6,8 +6,8 @@
 //
 
 @import 'carbon-web-components/scss/components/search/search';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-search) {
