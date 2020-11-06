@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 document.addEventListener('click', async event => {

@@ -156,10 +156,10 @@ video player component and working with our video player service API to put the
 video data into the video player component:
 
 ```javascript
-import 'carbon-web-components/es/components/modal/modal-close-button';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button';
 import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
 
 ...
@@ -169,10 +169,10 @@ document.addEventListener('dds-cta-run-action', async event => {
   const lightboxId = `lightbox-${videoId}`;
   let lightboxElem = document.getElementById(lightboxId);
   if (!lightboxElem) {
-    lightboxElem = document.createElement('dds-modal');
+    lightboxElem = document.createElement('dds-expressive-modal');
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
-      <bx-modal-close-button></bx-modal-close-button>
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
