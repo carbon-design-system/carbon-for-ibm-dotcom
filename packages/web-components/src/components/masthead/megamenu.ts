@@ -20,9 +20,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * MegaMenu
  *
  * @element dds-megamenu
- * @slot brand - The left hand area.
- * @slot nav - The nav content.
- * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-megamenu`)
 class DDSMegaMenu extends StableSelectorMixin(LitElement) {
