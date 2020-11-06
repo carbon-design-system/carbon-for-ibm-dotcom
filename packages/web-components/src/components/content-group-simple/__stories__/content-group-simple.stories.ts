@@ -111,12 +111,12 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy .content="${ifNonNull(groupCopy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy .content="${itemCopy}">
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
         `
       )}
@@ -134,13 +134,13 @@ export const WithImage = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy .content="${ifNonNull(groupCopy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
       ${image({ heading: groupHeading })}
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy .content="${itemCopy}">
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
         `
       )}
@@ -158,13 +158,13 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy .content="${ifNonNull(groupCopy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-            <dds-content-item-copy .content="${itemCopy}">
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
         `
       )}

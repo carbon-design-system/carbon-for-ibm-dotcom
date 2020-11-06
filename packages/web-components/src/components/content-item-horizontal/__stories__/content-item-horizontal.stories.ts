@@ -33,7 +33,7 @@ export const Default = ({ parameters }) => {
     <dds-content-item-horizontal>
       <span slot="eyebrow">${eyebrow}</span>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-link-list slot="cta" type="vertical">
         <dds-link-list-item-cta
           icon-placement="${ICON_PLACEMENT.RIGHT}"

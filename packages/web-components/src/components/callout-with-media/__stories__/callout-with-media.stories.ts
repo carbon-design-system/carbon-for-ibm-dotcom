@@ -36,7 +36,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
-      <dds-content-item-copy .content=${copy}></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;

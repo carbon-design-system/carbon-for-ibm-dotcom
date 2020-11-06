@@ -1,5 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
 
 # `<dds-content-group-simple>`
 
@@ -32,7 +33,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/cont
 ```html
 <dds-content-group-simple>
   <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-  <dds-content-item-copy content="Lorem ipsum *dolor* sit amet"></dds-content-item-copy>
+  <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
   <dds-image-with-caption
     slot="media"
     alt="Image alt text"
@@ -59,6 +60,8 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/cont
 ## Props
 
 <Props of="dds-content-group-simple" />
+
+<Description markdown={markdownContents} />
 
 ## Stable selectors
 

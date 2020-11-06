@@ -71,7 +71,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -84,7 +84,7 @@ export const WithImage = ({ parameters }) => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
-      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -96,7 +96,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
@@ -109,7 +109,7 @@ export const WithAsideElements = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy .content="${ifNonNull(copy)}"></dds-content-item-copy>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${image}
       <dds-content-block-complementary>
         <dds-link-list type="default">
