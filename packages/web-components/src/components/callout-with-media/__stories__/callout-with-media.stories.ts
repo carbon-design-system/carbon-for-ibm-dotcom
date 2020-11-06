@@ -10,6 +10,8 @@
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import styles from './callout-with-media.stories.scss';
+import '../../content-block/content-block-heading';
+import '../../content-item/content-item-copy';
 import '../callout-with-media';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
@@ -32,8 +34,9 @@ const video = html`
 export const Default = ({ parameters }) => {
   const { copy, heading, mediaType } = parameters?.props?.CalloutWithMedia ?? {};
   return html`
-    <dds-callout-with-media copy=${copy}>
+    <dds-callout-with-media>
       <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
+      <dds-content-item-copy .content=${copy}></dds-content-item-copy>
       ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;
