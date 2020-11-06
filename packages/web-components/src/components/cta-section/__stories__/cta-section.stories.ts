@@ -37,7 +37,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
+      <dds-cta-section-copy>${copy}</dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
@@ -56,7 +56,7 @@ export const WithContentItems = ({ parameters }) => {
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
+      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
@@ -70,14 +70,14 @@ export const WithContentItems = ({ parameters }) => {
       <dds-cta-section-item slot="content-item">
         <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
         <dds-cta-section-item-copy
-          content="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
-        ></dds-cta-section-item-copy>
+          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
+        </dds-cta-section-item-copy>
         <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
       </dds-cta-section-item>
 
       <dds-cta-section-item slot="content-item">
         <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-        <dds-cta-section-item-copy content="IBM DevOps partners have a wide range of expertise"></dds-cta-section-item-copy>
+        <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
         <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
       </dds-cta-section-item>
     </dds-cta-section>
@@ -89,7 +89,7 @@ export const WithLinkList = ({ parameters }) => {
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
+      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
 
       <dds-button-group slot="cta">
         <dds-button-group-item href="https://example.com">
