@@ -10,12 +10,12 @@
 @import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 @import '@carbon/ibmdotcom-styles/scss/components/locale-modal/locale-modal';
 @import '../../globals/scss/box-sizing';
-@import '../modal/modal';
+@import '../expressive-modal/expressive-modal';
 
 :host(#{$dds-prefix}-locale-modal) {
-  @extend :host(#{$dds-prefix}-modal);
+  @extend :host(#{$dds-prefix}-expressive-modal);
 
-  #{$dds-prefix}-modal-header {
+  #{$dds-prefix}-expressive-modal-header {
     padding: 0 20% 0 $spacing-05;
     margin-bottom: $carbon--spacing-03;
   }
