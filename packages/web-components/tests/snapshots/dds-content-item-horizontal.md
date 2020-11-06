@@ -18,6 +18,8 @@
     </slot>
   </div>
   <div class="bx--content-item-horizontal__col">
+    <slot>
+    </slot>
     <div
       class="bx--content-item__cta"
       hidden=""
@@ -46,11 +48,8 @@
     </slot>
   </div>
   <div class="bx--content-item-horizontal__col">
-    <dds-markdown
-      class="bx--content-item__copy"
-      nobold=""
-    >
-    </dds-markdown>
+    <slot>
+    </slot>
     <div
       class="bx--content-item__cta"
       hidden=""

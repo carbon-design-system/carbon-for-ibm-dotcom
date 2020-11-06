@@ -8,15 +8,18 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
+import '../../link-list/link-list';
+import '../../cta/link-list-item-cta';
 import '../content-item-horizontal';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/shared-enums';
 
 const template = (props?) => {
-  const { copy, children } = props ?? {};
+  const { children } = props ?? {};
   return html`
-    <dds-content-item-horizontal .copy="${ifNonNull(copy)}">
+    <dds-content-item-horizontal>
       ${children}
     </dds-content-item-horizontal>
   `;
@@ -37,6 +40,7 @@ describe('dds-content-item-horizontal', function() {
           children: html`
             <span slot="eyebrow">eyebrow-foo</span>
             <dds-content-item-heading>heading-foo</dds-content-item-heading>
+            <dds-content-item-copy>copy-foo</dds-content-item-copy>
             <dds-link-list slot="cta" type="vertical">
               <dds-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"

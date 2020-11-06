@@ -11,8 +11,10 @@
     </slot>
     <div class="bx--content-block__children">
       <div class="bx--content-block-simple__content">
-        <dds-content-item data-autoid="dds--content-item">
-        </dds-content-item>
+        <div class="bx--content-item">
+          <slot>
+          </slot>
+        </div>
         <div>
           <slot name="media">
           </slot>
@@ -44,8 +46,10 @@
     </slot>
     <div class="bx--content-block__children">
       <div class="bx--content-block-simple__content">
-        <dds-content-item data-autoid="dds--content-item">
-        </dds-content-item>
+        <div class="bx--content-item">
+          <slot>
+          </slot>
+        </div>
         <div>
           <slot name="media">
           </slot>
@@ -77,8 +81,10 @@
     </slot>
     <div class="bx--content-block__children">
       <div class="bx--content-block-simple__content">
-        <dds-content-item data-autoid="dds--content-item">
-        </dds-content-item>
+        <div class="bx--content-item">
+          <slot>
+          </slot>
+        </div>
         <div>
           <slot name="media">
           </slot>

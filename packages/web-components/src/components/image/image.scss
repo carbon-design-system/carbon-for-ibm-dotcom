@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/image/image';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/image/image';
 
 :host(#{$dds-prefix}-image) {
   @extend .#{$prefix}--image;
