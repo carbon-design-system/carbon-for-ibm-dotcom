@@ -49,14 +49,16 @@ const navLinksMegaMenu: MastheadLink[] = [
             title: 'menu-section-1-title',
             url: 'https://www.ibm.com',
             megapanelContent: {
-              quickLinks: { links: [{ title: 'category-link-1', url: 'https://www.ibm.com' }] },
+              feature: {},
+              quickLinks: { title: '', links: [{ title: 'category-link-1', url: 'https://www.ibm.com' }] },
             },
           },
           {
             title: 'menu-section-2-title',
             url: 'https://www.ibm.com',
             megapanelContent: {
-              quickLinks: { links: [{ title: 'category-link-2', url: 'https://www.ibm.com' }] },
+              feature: {},
+              quickLinks: { title: '', links: [{ title: 'category-link-2', url: 'https://www.ibm.com' }] },
             },
           },
         ],

@@ -19,7 +19,10 @@
 >
   <div class="bx--modal-content">
     <dds-expressive-modal-header>
-      <dds-expressive-modal-close-button>
+      <dds-expressive-modal-close-button
+        role="button"
+        tabindex="0"
+      >
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
       </dds-expressive-modal-heading>
@@ -61,7 +64,10 @@
 >
   <div class="bx--modal-content">
     <dds-expressive-modal-header>
-      <dds-expressive-modal-close-button>
+      <dds-expressive-modal-close-button
+        role="button"
+        tabindex="0"
+      >
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
         <p class="bx--modal-header__label bx--type-delta">
@@ -109,7 +115,10 @@
 >
   <div class="bx--modal-content">
     <dds-expressive-modal-header slot="header">
-      <dds-expressive-modal-close-button>
+      <dds-expressive-modal-close-button
+        role="button"
+        tabindex="0"
+      >
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
         <button
