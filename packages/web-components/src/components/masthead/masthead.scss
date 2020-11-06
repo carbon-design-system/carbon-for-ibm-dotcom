@@ -7,12 +7,12 @@
 
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 // The masthead nav overflow feature made tweaks to overflow style so it can keep track of overflowed content.
@@ -289,13 +289,22 @@
     left: 0;
     z-index: calc(#{z('header')} - 1);
     clip-path: polygon(
-      mini-units(6) 0,
-      100% 0,
+        mini-units(6) 0,
+        100% 0,
+        100% 100%,
+        0 100%,
+        0 calc(#{mini-units(6)} + 1px),
+        mini-units(6) calc(#{mini-units(6)} + 1px)
+      )
+      #{'/*rtl:polygon(
+      0 0,
+      calc(100% - ' + mini-units(6) + ') 0,
+      calc(100% - ' + mini-units(6) + ') calc(' +
+      mini-units(6) + ' + 1px),
+      100% calc(' + mini-units(6) + ' + 1px),
       100% 100%,
-      0 100%,
-      0 calc(#{mini-units(6)} + 1px),
-      mini-units(6) calc(#{mini-units(6)} + 1px)
-    );
+      0 100%
+    )*/'};
 
     @include carbon--breakpoint-down(md) {
       background-color: $ui-background;

@@ -15,6 +15,7 @@
   }
 
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list {
     .#{$prefix}--card {
       max-width: none;
@@ -57,6 +58,10 @@
         padding-right: $carbon--spacing-07;
       }
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .#{$prefix}--link-list__heading {
@@ -74,6 +79,8 @@
   .#{$prefix}--link-list__list--horizontal {
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-card),
+    ::slotted(#{$dds-prefix}-link-list-item-cta),
+    ::slotted(#{$dds-prefix}-link-list-item-card-cta),
     .#{$prefix}--link-list__list__CTA {
       float: left;
       padding-right: $carbon--spacing-07;
@@ -88,6 +95,8 @@
   .#{$prefix}--link-list__list--vertical {
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-card),
+    ::slotted(#{$dds-prefix}-link-list-item-cta),
+    ::slotted(#{$dds-prefix}-link-list-item-card-cta),
     .#{$prefix}--link-list__list__CTA {
       padding-bottom: $carbon--spacing-05;
 
@@ -99,6 +108,7 @@
 
   .#{$prefix}--link-list__list--vertical-end {
     ::slotted(#{$dds-prefix}-link-list-item),
+    ::slotted(#{$dds-prefix}-link-list-item-cta),
     .#{$prefix}--link-list__list__CTA .#{$prefix}--link-with-icon__container {
       @include carbon--make-col-ready;
 
@@ -128,6 +138,7 @@
   }
 
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list__CTA {
     &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
       color: $link-01;
@@ -135,6 +146,7 @@
   }
 
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA {
     max-width: carbon--mini-units(80);
     border-top: 1px solid $ui-03;
@@ -145,6 +157,7 @@
   }
 
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA div {
     .#{$prefix}--tile {
       margin-left: 0;

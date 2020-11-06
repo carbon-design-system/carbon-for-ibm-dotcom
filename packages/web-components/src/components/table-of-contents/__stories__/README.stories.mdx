@@ -17,25 +17,36 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 Here's a quick example to get you started.
 
+> 💡 `bx--tableofcontents__contents` class in the content `<div>` ensures the `<h3>` is visible by navigating to a hashbang URL (e.g. `https://yoursite.com/yourpage#2`).
+
 ##### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-of-contents';
 ```
 
+##### SCSS
+
+```scss
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+```
+
 ### HTML
 
 ```html
 <dds-table-of-contents>
-  <a name="1" data-title="Section - 1"></a>
-  <h3>Section - 1</h3>
-  <p>Section 1 content</p>
-  <a name="2" data-title="Section - 2"></a>
-  <h3>Section - 2</h3>
-  <p>Section 2 content</p>
-  <a name="3" data-title="Section - 3"></a>
-  <h3>Section - 3</h3>
-  <p>Section 3 content</p>
+  <div class="bx--tableofcontents__contents">
+    <a name="1" data-title="Section - 1"></a>
+    <h3>Section - 1</h3>
+    <p>Section 1 content</p>
+    <a name="2" data-title="Section - 2"></a>
+    <h3>Section - 2</h3>
+    <p>Section 2 content</p>
+    <a name="3" data-title="Section - 3"></a>
+    <h3>Section - 3</h3>
+    <p>Section 3 content</p>
+  </div>
 </dds-table-of-contents>
 ```
 

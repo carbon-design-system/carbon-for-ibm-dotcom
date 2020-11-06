@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
-import DDSModal from '../../modal/modal';
+import DDSExpressiveModal from '../../expressive-modal/expressive-modal';
 import DDSLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
 import '../video-cta-composite';
 
@@ -45,12 +45,12 @@ describe('dds-video-cta-composite', function() {
         'dds-lightbox-video-player-composite'
       ) as DDSLightboxVideoPlayerComposite;
       const lightboxRenderRoot = lightboxVideoPlayerComposite.modalRenderRoot as Element;
-      expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(true);
+      expect((lightboxRenderRoot.querySelector('dds-expressive-modal') as DDSExpressiveModal).open).toBe(true);
       const { videoId: videoIdInVideoPlayerCompositeOpen } = lightboxVideoPlayerComposite;
       expect(videoIdInVideoPlayerCompositeOpen).toBe('1_9h94wo6b');
-      (lightboxRenderRoot.querySelector('dds-modal-close-button') as HTMLElement).click();
+      (lightboxRenderRoot.querySelector('dds-expressive-modal-close-button') as HTMLElement).click();
       await Promise.resolve();
-      expect((lightboxRenderRoot.querySelector('dds-modal') as DDSModal).open).toBe(false);
+      expect((lightboxRenderRoot.querySelector('dds-expressive-modal') as DDSExpressiveModal).open).toBe(false);
       const { videoId: videoIdInVideoPlayerCompositeClosed } = lightboxVideoPlayerComposite;
       expect(videoIdInVideoPlayerCompositeClosed).toBeFalsy();
     });

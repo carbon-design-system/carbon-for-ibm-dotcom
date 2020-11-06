@@ -49,6 +49,24 @@ $search-transition-timing: 95ms;
     @include carbon--breakpoint-down(lg) {
       padding: 0 $carbon--spacing-05;
     }
+
+    svg {
+      width: 58px;
+      height: 23px;
+    }
+  }
+
+  .#{$prefix}--tooltip__trigger.#{$prefix}--tooltip__trigger--definition,
+  .#{$prefix}--tooltip--definition {
+    .#{$prefix}--tooltip__trigger {
+      border: none;
+    }
+
+    border: none;
+
+    &.#{$prefix}--tooltip--a11y {
+      height: 100%;
+    }
   }
 }
 
@@ -210,10 +228,18 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__nav-container {
     height: 100%;
     overflow-x: hidden;
+    position: relative;
     @include carbon--breakpoint(md) {
       display: flex;
       flex: 1;
     }
+  }
+
+  .#{$prefix}--header__nav-content {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    transition: left $transition--base motion(standard, productive);
   }
 
   .#{$prefix}--header__nav {
@@ -308,13 +334,30 @@ $search-transition-timing: 95ms;
     }
   }
 
+  .#{$prefix}--sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
   .#{$prefix}--header__nav-caret-left,
   .#{$prefix}--header__nav-caret-right {
     width: rem(40px);
     height: 100%;
     display: none;
-    position: relative;
-    background: none;
+    position: absolute;
+    top: 0;
+    background-color: $ui-background;
     border: none;
     > {
       svg {
@@ -354,6 +397,7 @@ $search-transition-timing: 95ms;
     display: none;
   }
   .#{$prefix}--header__nav-caret-left {
+    left: 0;
     &::before {
       content: '';
       display: block;
@@ -364,10 +408,6 @@ $search-transition-timing: 95ms;
       height: rem(24px);
       width: rem(1px);
       background-color: #dcdcdc;
-      &:focus,
-      &:active {
-        display: none;
-      }
     }
     &::after {
       content: '';
@@ -386,6 +426,7 @@ $search-transition-timing: 95ms;
     }
   }
   .#{$prefix}--header__nav-caret-right {
+    right: 0;
     &::before {
       content: '';
       display: block;

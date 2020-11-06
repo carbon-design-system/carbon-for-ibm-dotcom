@@ -5,8 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  keys,
+  matches,
+} from '../../internal/vendor/carbon-components-react/internal/keyboard';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import calculateTotalWidth from '@carbon/ibmdotcom-utilities/es/utilities/calculateTotalWidth/calculateTotalWidth';
 import CaretLeft20 from '@carbon/icons-react/es/caret--left/20';
 import CaretRight20 from '@carbon/icons-react/es/caret--right/20';
 import PropTypes from 'prop-types';
@@ -18,100 +21,193 @@ const { prefix } = settings;
  * Header nav container component.
  */
 const HeaderNavContainer = ({ children }) => {
-  const headerNavContainerRef = useRef(null);
-  const [resizeObserver, setResizeObserver] = useState(null);
-  const [showLeftCaret, setShowLeftCaret] = useState(false);
-  const [showRightCaret, setShowRightCaret] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [totalNavWidth, setTotalNavWidth] = useState(0);
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const contentLeftRef = useRef(null);
+  const contentRightRef = useRef(null);
+  const caretLeftRef = useRef(null);
+  const caretRightRef = useRef(null);
+  const [io, setIO] = useState(null);
+  const [position, setPosition] = useState(0);
+  const buttonSize = 48; // 40px(width) + 8px(gradient)
 
   const paginateLeft = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft -= containerWidth;
-    setShowRightCaret(true);
-    // 40 accounts for caret size
-    if (headerNavContainerRef.current.scrollLeft <= 40) {
-      setShowLeftCaret(false);
-      headerNavContainerRef.current.scrollLeft = 0;
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
+    );
+    for (let i = 0; i < menuItems.length; i++) {
+      // checks if first visible item is partially hidden
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >=
+        buttonSize
+      ) {
+        // checks if there is space for remaining menuItems
+        if (
+          menuItems[i].offsetLeft + menuItems[i].offsetWidth >
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth -
+              menuItems[i].offsetLeft -
+              menuItems[i].offsetWidth -
+              buttonSize
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth -
+                menuItems[i].offsetLeft -
+                menuItems[i].offsetWidth -
+                buttonSize
+            ) + 'px';
+        } else {
+          setPosition(0);
+          contentRef.current.style.left = '0px';
+        }
+        break;
+      }
     }
-  }, [containerWidth]);
+  }, [position]);
 
   const paginateRight = useCallback(() => {
-    headerNavContainerRef.current.scrollLeft += containerWidth;
-    setShowLeftCaret(true);
-    // 80 accounts for caret sizes
-    if (
-      headerNavContainerRef.current.scrollLeft + containerWidth >=
-      totalNavWidth - 80
-    ) {
-      setShowRightCaret(false);
-      headerNavContainerRef.current.scrollLeft += 80;
+    let menuItems = contentRef.current.querySelectorAll(
+      '.bx--header__menu-bar li'
+    );
+    for (let i = 0; i < menuItems.length; i++) {
+      // checks if the right most visible element is partially hidden
+      if (
+        menuItems[i].offsetLeft + menuItems[i].offsetWidth + position >
+        containerRef.current.offsetWidth - buttonSize
+      ) {
+        // checks if there is space for remaining menuItems
+        if (
+          contentRef.current.offsetWidth - menuItems[i].offsetLeft <
+          containerRef.current.offsetWidth - buttonSize
+        ) {
+          setPosition(
+            containerRef.current.offsetWidth - contentRef.current.offsetWidth
+          );
+          contentRef.current.style.left =
+            String(
+              containerRef.current.offsetWidth - contentRef.current.offsetWidth
+            ) + 'px';
+        } else {
+          setPosition(buttonSize - menuItems[i].offsetLeft);
+          contentRef.current.style.left =
+            String(buttonSize - menuItems[i].offsetLeft) + 'px';
+        }
+        break;
+      }
     }
-  }, [containerWidth, totalNavWidth]);
+  }, [position]);
 
   useEffect(() => {
-    if (window.ResizeObserver) {
-      setResizeObserver(
-        new ResizeObserver(() => {
-          setContainerWidth(calculateTotalWidth(['bx--header__nav-container']));
-          setTotalNavWidth(calculateTotalWidth(['bx--header__nav']));
-        })
+    if (window.IntersectionObserver) {
+      setIO(
+        new IntersectionObserver(
+          records => {
+            records.forEach(record => {
+              if (
+                contentLeftRef.current &&
+                record.target.classList.contains(
+                  contentLeftRef.current.className
+                )
+              ) {
+                caretLeftRef.current.hidden = record.isIntersecting;
+              }
+              if (
+                contentRightRef.current &&
+                record.target.classList.contains(
+                  contentRightRef.current.className
+                )
+              ) {
+                caretRightRef.current.hidden = record.isIntersecting;
+              }
+            });
+          },
+          {
+            root: containerRef.current,
+            threshold: 1,
+          }
+        )
       );
     }
-  }, []);
+  }, [setIO]);
 
   useEffect(() => {
-    if (totalNavWidth > containerWidth) {
-      // 80 accounts for caret sizes
-      if (
-        headerNavContainerRef.current.scrollLeft === 0 ||
-        headerNavContainerRef.current.scrollLeft + containerWidth <
-          totalNavWidth - 80
-      ) {
-        setShowRightCaret(true);
-      }
-      if (headerNavContainerRef.current.scrollLeft > 0) {
-        setShowLeftCaret(true);
-      }
+    if (io) {
+      io.observe(contentLeftRef.current);
+      io.observe(contentRightRef.current);
     } else {
-      setShowLeftCaret(false);
-      setShowRightCaret(false);
+      return () => {
+        if (io) {
+          io.disconnect();
+        }
+      };
     }
-  }, [containerWidth, totalNavWidth]);
+  }, [io]);
 
-  useEffect(() => {
-    const { current: headerNavContainerNode } = headerNavContainerRef;
-    if (resizeObserver) {
-      resizeObserver.observe(headerNavContainerNode);
-    }
-
-    return () => {
-      if (resizeObserver) {
-        resizeObserver.disconnect();
+  /**
+   * Keyboard event handler for menu items.
+   */
+  const handleOnKeyDown = event => {
+    if (matches(event, [keys.Tab])) {
+      if (event.shiftKey) {
+        //Focus previous input
+        if (
+          document.activeElement.parentElement.previousSibling &&
+          document.activeElement.parentElement.previousSibling.offsetLeft +
+            position <=
+            buttonSize
+        ) {
+          paginateLeft();
+        }
+      } else {
+        //Focus next input
+        if (
+          document.activeElement.parentElement.nextSibling &&
+          document.activeElement.parentElement.nextSibling.offsetLeft +
+            document.activeElement.parentElement.nextSibling.offsetWidth >=
+            containerRef.current.offsetWidth - buttonSize
+        ) {
+          paginateRight();
+        }
       }
-    };
-  }, [resizeObserver]);
+    }
+  };
 
   return (
     <>
-      <button
-        className={`${prefix}--header__nav-caret-left`}
-        aria-label="Masthead left caret"
-        hidden={!showLeftCaret}
-        onClick={paginateLeft}>
-        <CaretLeft20 />
-      </button>
-      <div
-        className={`${prefix}--header__nav-container`}
-        ref={headerNavContainerRef}>
-        {children}
+      <div className={`${prefix}--header__nav-container`} ref={containerRef}>
+        <div
+          className={`${prefix}--header__nav-content`}
+          ref={contentRef}
+          onKeyDown={handleOnKeyDown}>
+          <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
+          <div
+            className={`${prefix}--sub-content-right`}
+            ref={contentRightRef}
+          />
+          {children}
+        </div>
+        <button
+          className={`${prefix}--header__nav-caret-left`}
+          aria-label="Masthead left caret"
+          onClick={paginateLeft}
+          ref={caretLeftRef}
+          tabIndex="-1"
+          hidden>
+          <CaretLeft20 />
+        </button>
+        <button
+          className={`${prefix}--header__nav-caret-right`}
+          aria-label="Masthead right caret"
+          onClick={paginateRight}
+          ref={caretRightRef}
+          tabIndex="-1"
+          hidden>
+          <CaretRight20 />
+        </button>
       </div>
-      <button
-        className={`${prefix}--header__nav-caret-right`}
-        aria-label="Masthead right caret"
-        hidden={!showRightCaret}
-        onClick={paginateRight}>
-        <CaretRight20 />
-      </button>
     </>
   );
 };

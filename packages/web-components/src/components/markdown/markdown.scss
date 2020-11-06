@@ -8,7 +8,7 @@
 $css--reset: false !default;
 
 @import 'carbon-components/scss/globals/scss/css--reset';
-@import '../../globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
 :host(#{$dds-prefix}-markdown) {
   p {

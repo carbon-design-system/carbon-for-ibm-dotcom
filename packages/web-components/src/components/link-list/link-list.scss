@@ -7,25 +7,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
-:host(#{$dds-prefix}-link-list-item) {
+:host(#{$dds-prefix}-link-list-item),
+:host(#{$dds-prefix}-link-list-item-cta) {
   display: block;
 
   .#{$prefix}--link {
     cursor: pointer;
 
-    > span {
-      flex: 1;
+    &:focus {
+      outline: none;
     }
   }
 
   &:focus {
     outline: 2px solid $focus;
     outline-offset: -2px;
+  }
+}
+
+:host(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link {
+    > span {
+      flex: 1;
+    }
   }
 }
 
@@ -40,7 +49,8 @@
     display: flex;
     flex-direction: column;
 
-    ::slotted(#{$dds-prefix}-link-list-item) {
+    ::slotted(#{$dds-prefix}-link-list-item),
+    ::slotted(#{$dds-prefix}-link-list-item-cta) {
       padding: $carbon--layout-01;
       border-top: 1px solid $ui-03;
       border-bottom: 1px solid $ui-03;

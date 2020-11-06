@@ -67,7 +67,7 @@ describe('<dds-footer> example', () => {
     const modalCloseButton = await page.evaluateHandle(() =>
       document
         .querySelector('dds-locale-modal')
-        .shadowRoot.querySelector('dds-modal-close-button')
+        .shadowRoot.querySelector('dds-expressive-modal-close-button')
         .shadowRoot.querySelector('.bx--modal-close')
     );
     await modalCloseButton.click();

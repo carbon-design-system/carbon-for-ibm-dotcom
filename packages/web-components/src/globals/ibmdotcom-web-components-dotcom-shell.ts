@@ -52,9 +52,9 @@ export { default as DDSTopNavMenuItem } from '../components/masthead/top-nav-men
 export { default as DDSTopNavMenu } from '../components/masthead/top-nav-menu';
 export { default as DDSTopNavName } from '../components/masthead/top-nav-name';
 export { default as DDSTopNav } from '../components/masthead/top-nav';
-export { default as DDSModalBody } from '../components/modal/modal-body';
-export { default as DDSModalCloseButton } from '../components/modal/modal-close-button';
-export { default as DDSModalFooter } from '../components/modal/modal-footer';
-export { default as DDSModalHeader } from '../components/modal/modal-header';
-export { default as DDSModalHeading } from '../components/modal/modal-heading';
-export { default as DDSModal } from '../components/modal/modal';
+export { default as DDSExpressiveModalBody } from '../components/expressive-modal/expressive-modal-body';
+export { default as DDSExpressiveModalCloseButton } from '../components/expressive-modal/expressive-modal-close-button';
+export { default as DDSExpressiveModalFooter } from '../components/expressive-modal/expressive-modal-footer';
+export { default as DDSExpressiveModalHeader } from '../components/expressive-modal/expressive-modal-header';
+export { default as DDSExpressiveModalHeading } from '../components/expressive-modal/expressive-modal-heading';
+export { default as DDSExpressiveModal } from '../components/expressive-modal/expressive-modal';

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
 @import '../../globals/vars';
+@import '../../globals/imports';
 @import '../../components/horizontalrule/horizontalrule';
 @import '../../components/link-with-icon/link-with-icon';
 
@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-quote) {
     background: $ui-background;
     padding-bottom: $layout-05;
+
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
       max-width: 80%;
@@ -90,6 +91,13 @@
     .#{$prefix}--link-with-icon__container .#{$prefix}--link,
     ::slotted(#{$dds-prefix}-link-with-icon) {
       color: $inverse-link;
+    }
+  }
+
+  .#{$prefix}--quote__mark-closing {
+    margin-left: -0.25rem;
+    @include carbon--breakpoint('md') {
+      margin-left: -0.5rem;
     }
   }
 
