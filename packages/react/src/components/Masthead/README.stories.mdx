@@ -56,6 +56,14 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import Masthead from '@carbon/ibmdotcom-react/es/components/Masthead/Masthead';
+````
+
 ## Using L1 nav
 
 To use L1 nav, set `mastheadL1Data` prop. `mastheadL1Data` prop should be an
