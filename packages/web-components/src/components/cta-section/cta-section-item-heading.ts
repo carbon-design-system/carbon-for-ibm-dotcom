@@ -8,13 +8,11 @@
  */
 
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItemHeading from '../content-item/content-item-heading';
 import styles from './cta-section.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -42,9 +40,7 @@ class DDSCTASectionItemHeading extends StableSelectorMixin(DDSContentItemHeading
 
   render() {
     return html`
-      <div class="${prefix}--content-item__heading">
-        <slot></slot>
-      </div>
+      <slot></slot>
     `;
   }
 

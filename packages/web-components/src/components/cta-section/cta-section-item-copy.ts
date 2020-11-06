@@ -8,7 +8,6 @@
  */
 
 import { html, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
 
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentItemCopy from '../content-item/content-item-copy';
@@ -16,17 +15,13 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
 import '../content-item/content-item-paragraph';
 
-const { prefix } = settings;
-
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-cta-section-item-copy`)
 class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemCopy) {
   render() {
     return html`
-      <div class="${prefix}--cta-section-item__copy">
-        <slot></slot>
-      </div>
+      <slot></slot>
     `;
   }
 
