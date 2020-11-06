@@ -12,6 +12,32 @@
 @import '../../globals/utils/aspect-ratio';
 @import '../../globals/utils/hang';
 
+@mixin card {
+  @include carbon--breakpoint-down('md') {
+    position: absolute;
+    padding-top: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  @include carbon--breakpoint('md') {
+    flex-direction: row;
+
+    @include hang;
+  }
+
+  &:focus {
+    outline: 2px solid $focus;
+    outline-offset: 2px;
+  }
+
+  .#{$prefix}--card__heading {
+    margin-bottom: $layout-03;
+  }
+}
+
 @mixin feature-card {
   .#{$prefix}--feature-card,
   :host(#{$dds-prefix}-feature-card),
@@ -33,44 +59,18 @@
       flex-direction: row-reverse;
     }
 
+    ::slotted(svg[slot='footer']) {
+      margin-top: auto;
+      margin-left: auto;
+      color: $inverse-link;
+    }
+
     .#{$prefix}--card {
-      @include carbon--breakpoint-down('md') {
-        position: absolute;
-        padding-top: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
+      @include card;
+    }
 
-      @include carbon--breakpoint('md') {
-        flex-direction: row;
-
-        @include hang;
-      }
-
-      &:focus {
-        outline: 2px solid $focus;
-        outline-offset: 2px;
-      }
-
-      .#{$prefix}--card__heading {
-        margin-bottom: 0;
-
-        // `sm` breakpoint, `@mixin carbon--breakpoint()` won't emit a media query for smallest breakpoint symbol
-        @include carbon--breakpoint(20rem) {
-          margin-bottom: $layout-03;
-        }
-      }
-
-      .#{$prefix}--card__copy {
-        margin-bottom: 0;
-
-        // `sm` breakpoint, `@mixin carbon--breakpoint()` won't emit a media query for smallest breakpoint symbol
-        @include carbon--breakpoint(20rem) {
-          margin-bottom: $carbon--spacing-07;
-        }
-      }
+    .#{$prefix}--card__heading {
+      margin-bottom: $layout-03;
     }
 
     .#{$prefix}--card__wrapper {
