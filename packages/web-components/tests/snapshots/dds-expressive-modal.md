@@ -1,4 +1,4 @@
-# `dds-modal`
+# `dds-expressive-modal`
 
 ## `Misc attributes`
 
@@ -53,7 +53,7 @@
 >
 </a>
 <div
-  class="bx--modal-container bx--modal-container--fullwidth"
+  class="bx--modal-container"
   role="dialog"
   tabindex="-1"
 >

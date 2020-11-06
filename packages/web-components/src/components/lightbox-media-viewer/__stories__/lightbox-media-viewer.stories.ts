@@ -13,8 +13,8 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../modal/modal';
-import '../../modal/modal-close-button';
+import '../../expressive-modal/expressive-modal';
+import '../../expressive-modal/expressive-modal-close-button';
 import '../lightbox-image-viewer';
 import '../lightbox-video-player-container';
 import styles from './lightbox-media-viewer.stories.scss';
@@ -42,13 +42,13 @@ export const Default = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-modal
+    <dds-expressive-modal
       expressive-size="full-width"
       ?open="${open}"
-      @dds-modal-beingclosed="${handleBeforeClose}"
-      @dds-modal-closed="${onClose}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
     >
-      <dds-modal-close-button></dds-modal-close-button>
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-lightbox-image-viewer
         alt="${ifNonNull(alt)}"
         default-src="${ifNonNull(defaultSrc)}"
@@ -56,7 +56,7 @@ export const Default = ({ parameters }) => {
         title="${ifNonNull(title)}"
       >
       </dds-lightbox-image-viewer>
-    </dds-modal>
+    </dds-expressive-modal>
   `;
 };
 
@@ -98,8 +98,8 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
       ?hide-caption="${hideCaption}"
       ?open="${open}"
       video-id="${videoId}"
-      @dds-modal-beingclosed="${handleBeforeClose}"
-      @dds-modal-closed="${onClose}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
     >
     </dds-lightbox-video-player-container>
   `;
@@ -127,12 +127,12 @@ export default {
       Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
           false,
           groupId
         ),
-        onBeforeClose: action('dds-modal-beingclosed'),
-        onClose: action('dds-modal-closed'),
+        onBeforeClose: action('dds-expressive-modal-beingclosed'),
+        onClose: action('dds-expressive-modal-closed'),
       }),
     },
   },

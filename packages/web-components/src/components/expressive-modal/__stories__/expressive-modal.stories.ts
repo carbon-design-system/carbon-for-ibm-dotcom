@@ -15,22 +15,22 @@ import 'carbon-web-components/es/components/button/button.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button/button';
-import { DDS_MODAL_SIZE } from '../modal';
-import '../modal-header';
-import '../modal-heading';
-import '../modal-close-button';
-import '../modal-body';
-import '../modal-footer';
-import styles from './modal.stories.scss';
+import { EXPRESSIVE_MODAL_SIZE } from '../expressive-modal';
+import '../expressive-modal-header';
+import '../expressive-modal-heading';
+import '../expressive-modal-close-button';
+import '../expressive-modal-body';
+import '../expressive-modal-footer';
+import styles from './expressive-modal.stories.scss';
 import readme from './README.stories.mdx';
 
 const sizes = {
   [`Regular size`]: null,
-  [`One that takes full width (${DDS_MODAL_SIZE.FULL_WIDTH})`]: DDS_MODAL_SIZE.FULL_WIDTH,
+  [`One that takes full width (${EXPRESSIVE_MODAL_SIZE.FULL_WIDTH})`]: EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
 };
 
 export const Default = ({ parameters }) => {
-  const { open, disableClose, expressiveSize, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { open, disableClose, size, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
   const { buttonContent } = parameters?.props?.Other ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
@@ -42,47 +42,47 @@ export const Default = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-modal
+    <dds-expressive-modal
       ?open="${open}"
-      expressive-size="${ifNonNull(expressiveSize)}"
-      @dds-modal-beingclosed="${handleBeforeClose}"
-      @dds-modal-closed="${onClose}"
+      expressive-size="${ifNonNull(size)}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
     >
-      <dds-modal-header>
-        <dds-modal-close-button></dds-modal-close-button>
-        <dds-modal-heading>Modal Title</dds-modal-heading>
-      </dds-modal-header>
-      <dds-modal-body>
+      <dds-expressive-modal-header>
+        <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+        <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
+      </dds-expressive-modal-header>
+      <dds-expressive-modal-body>
         Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum
         risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce
         sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi
         laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra
         commodo elit. In venenatis sapien eu nisl congue suscipit.
-      </dds-modal-body>
-      <dds-modal-footer>
+      </dds-expressive-modal-body>
+      <dds-expressive-modal-footer>
         <dds-btn>
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
         </dds-btn>
-      </dds-modal-footer>
-    </dds-modal>
+      </dds-expressive-modal-footer>
+    </dds-expressive-modal>
   `;
 };
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Expressive Modal',
   parameters: {
     ...readme.parameters,
     knobs: {
       Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
           false,
           groupId
         ),
-        expressiveSize: select('Modal size (expressiveSize)', sizes, null, groupId),
-        onBeforeClose: action('dds-modal-beingclosed'),
-        onClose: action('dds-modal-closed'),
+        size: select('Modal size (size)', sizes, null, groupId),
+        onBeforeClose: action('dds-expressive-modal-beingclosed'),
+        onClose: action('dds-expressive-modal-closed'),
       }),
       Other: ({ groupId }) => ({
         buttonContent: textNullable('Button content', 'Lorem ipsum dolor', groupId),

@@ -53,7 +53,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   };
 
   /**
-   * Handles `dds-modal-closed` event on the locale modal.
+   * Handles `dds-expressive-modal-closed` event on the locale modal.
    */
   @HostListener('document:eventCloseModal')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -227,7 +227,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * The name of the custom event fired after this modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 }
 
