@@ -25,6 +25,7 @@
 
   :host(#{$dds-prefix}-content-item),
   .#{$prefix}--content-item {
+    display: block;
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
   }
@@ -40,6 +41,8 @@
   .#{$prefix}--content-item__copy {
     @include carbon--breakpoint(md) {
       @include content-width;
+
+      display: block;
     }
   }
 
