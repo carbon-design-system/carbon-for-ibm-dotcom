@@ -11,6 +11,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-
 import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/content-group-simple.js';
 import './index.scss';

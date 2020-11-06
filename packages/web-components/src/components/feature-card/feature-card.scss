@@ -17,7 +17,8 @@
 }
 
 :host(#{$dds-prefix}-feature-card-footer),
-:host(#{$dds-prefix}-feature-cta-footer) {
+:host(#{$dds-prefix}-feature-cta-footer),
+:host(#{$dds-prefix}-feature-card-block-large-footer) {
   @extend :host(#{$dds-prefix}-card-footer);
 
   display: flex;
@@ -27,9 +28,5 @@
     justify-content: flex-end;
     align-items: flex-end;
     color: $inverse-link;
-  }
-
-  ::slotted(svg[slot='icon']) {
-    float: right;
   }
 }

@@ -30,6 +30,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-markdown`)
 class DDSMarkdown extends HybridRenderMixin(LitElement) {
   /**
+   * `true` if the first rendering has happened.
+   */
+  private _hasRendered = false;
+
+  /**
    * The list of custom element tags that is rendered by our custom renderer.
    */
   // eslint-disable-next-line class-methods-use-this
@@ -59,14 +64,16 @@ class DDSMarkdown extends HybridRenderMixin(LitElement) {
   /**
    * The markdown content.
    */
-  @property()
-  content = '';
+  @property({ attribute: false })
+  content?: string;
 
   renderLightDOM() {
-    const { content, _customTags: customTags, _renderer: renderer } = this;
-    return html`
-      ${unsafeHTML(markdownToHtml(content, { customTags, renderer }))}
+    const { content, _customTags: customTags, textContent, _hasRendered: hasRendered, _renderer: renderer } = this;
+    const result = html`
+      ${unsafeHTML(markdownToHtml(content ?? (hasRendered ? '' : textContent), { customTags, renderer }))}
     `;
+    this._hasRendered = true;
+    return result;
   }
 
   render() {

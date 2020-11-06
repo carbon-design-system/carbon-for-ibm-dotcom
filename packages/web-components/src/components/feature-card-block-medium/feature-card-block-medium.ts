@@ -39,6 +39,15 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
     `;
   }
 
+  /**
+   * @returns The copy content.
+   */
+  protected _renderCopy() {
+    return html`
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    `;
+  }
+
   render() {
     const { _hasHeading: hasHeading, _handleSlotChange: handleSlotChange } = this;
     return html`
