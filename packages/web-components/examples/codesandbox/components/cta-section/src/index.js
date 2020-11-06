@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta-section/cta-section.js';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group.js';
-
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
+import '@carbon/ibmdotcom-web-components/es/components/cta-section/cta-section';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
