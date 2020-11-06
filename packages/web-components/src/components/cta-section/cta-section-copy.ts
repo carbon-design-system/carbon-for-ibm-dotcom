@@ -9,14 +9,14 @@
 
 import { html, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSContentItemCopy from '../content-item/content-item-copy';
+import DDSContentItemParagraph from '../content-item/content-item-paragraph';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-cta-section-copy`)
-class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemCopy) {
+class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemParagraph) {
   render() {
     return html`
       <slot></slot>

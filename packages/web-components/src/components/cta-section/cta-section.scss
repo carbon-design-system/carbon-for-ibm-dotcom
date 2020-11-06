@@ -29,13 +29,17 @@
 }
 
 :host(#{$dds-prefix}-cta-section-copy) {
+  @include carbon--type-style('expressive-heading-03', true);
+
   display: inline-block;
   max-width: 640px;
 
-  margin-bottom: 0;
+  ::slotted(p) {
+    margin-bottom: 0;
 
-  /* stylelint-disable-next-line declaration-no-important */
-  font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62)) !important;
+    /* stylelint-disable-next-line declaration-no-important */
+    font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62)) !important;
+  }
 
   @include carbon--breakpoint('sm') {
     width: 100%;
