@@ -27,13 +27,8 @@
       </slot>
     </p>
     <h3 class="bx--card__heading">
-      <div
-        class="bx--card__copy"
-        hidden=""
-      >
-        <slot>
-        </slot>
-      </div>
+      <slot>
+      </slot>
     </h3>
     <slot name="footer">
     </slot>
@@ -72,13 +67,8 @@
         </slot>
       </p>
       <h3 class="bx--card__heading">
-        <div
-          class="bx--card__copy"
-          hidden=""
-        >
-          <slot>
-          </slot>
-        </div>
+        <slot>
+        </slot>
       </h3>
       <slot name="footer">
       </slot>
