@@ -6,4 +6,4 @@ Given the nature of child text node, some extra caution is required to use child
 
 * After-initialization change of markdown content via child text node is not supported.
 * Don't put any extra whitespace, e.g. line feeds, between the start/end tag and the markdown content.
-* HTML-espape the content as needed.
+* HTML-escape the content as needed.
