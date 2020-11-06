@@ -56,6 +56,14 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import Masthead from '@carbon/ibmdotcom-react/es/components/Masthead/Masthead';
+````
+
 ## Using L1 nav
 
 To use L1 nav, set `mastheadL1Data` prop. `mastheadL1Data` prop should be an
@@ -168,10 +176,39 @@ This allows setting a user-defined login URL. This is currently an experimental
 feature. Please see the [feature flags](#feature-flags) section for usage
 information.
 
-In order to utilize this feature, the `profileMenu.signedout` login object must
+In order to use this feature, the `profileMenu.signedout` login object must
 contain an `id: signin` entry in the corresponding translation data file. See
 [here](https://github.ibm.com/webstandards/ibm-dotcom-translations/blob/master/translations/masthead-footer/jsononly/usen.json#L1467)
 for an example.
+
+## logo
+
+The masthead can display an alternate logo and a tooltip on hover. Additionally,
+the logo can be set with an expiration date, which will revert the logo to
+default when reached. There are also allow/deny lists to control on what paths
+an alternate logo can be displayed. Leaving the `allowList` array empty serves
+as a wildcard.
+
+Please note that the `svg` dimensions are set to `58px` x `23px` and will be
+used regardless of what the asset's width/height attributes are.
+
+This feature is available only from IBM.com translation files. To enable, the
+`masthead` object must contain a `logo` object with the following structure:
+
+```javascript
+"masthead": {
+  ...
+  "logo": {
+    svg: `<svg width="58" height="23"...></svg>`, // notice template literal
+    tooltip: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    denylist: ["/example-path"],
+    allowlist: [], // leave empty for wildcard
+    end: "May 5, 2021 0:00:01",
+    path: "/", // URL path, e.g. /it-it
+  },
+  ...
+}
+```
 
 #### Feature Flags
 

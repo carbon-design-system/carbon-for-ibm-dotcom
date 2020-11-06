@@ -11,6 +11,7 @@
 
   @keyframes expand {
     0% {
+      overflow-y: hidden;
       max-height: 0;
     }
     100% {
@@ -98,7 +99,8 @@
   :host(#{$dds-prefix}-megamenu),
   .#{$prefix}--masthead__megamenu {
     display: block;
-    overflow-y: auto;
+    overflow-y: overlay;
+    overflow-x: hidden;
     background-color: $ui-background;
 
     &:focus {
@@ -108,7 +110,7 @@
     @include box-shadow;
 
     .#{$prefix}--masthead__megamenu__container {
-      width: 100%;
+      width: 100vw;
       @include carbon--make-container;
 
       .#{$prefix}--masthead__megamenu__container--row {

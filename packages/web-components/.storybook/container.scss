@@ -12,6 +12,7 @@
 @import 'carbon-components/scss/globals/grid/grid';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu-scroll';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
 
 :root {
   @include carbon--theme($carbon--theme--white, true);
