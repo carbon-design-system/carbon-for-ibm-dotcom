@@ -106,6 +106,14 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the simplebenefits styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import SimpleBenefits from '@carbon/ibmdotcom-react/es/components/SimpleBenefits/SimpleBenefits';
+````
+
 #### Feature Flags
 
 To utilize the following features, set the following variables to `true` within
