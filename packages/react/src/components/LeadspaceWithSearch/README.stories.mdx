@@ -55,6 +55,14 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import LeadspaceWithSearch from '@carbon/ibmdotcom-react/es/components/LeadspaceWithSearch/LeadspaceWithSearch';
+````
+
 ## Feature Flag
 
 This pattern is currently behind a feature flag, in order to use it you'll need
