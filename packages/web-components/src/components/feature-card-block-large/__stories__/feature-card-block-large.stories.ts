@@ -32,8 +32,8 @@ export const Default = ({ parameters }) => {
         <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1">
         </dds-image-item>
       </dds-image>
-      <slot slot="eyebrow">${eyebrow}</slot>
-      <slot slot="heading">${heading}</slot>
+      <span slot="eyebrow">${eyebrow}</span>
+      <span slot="heading">${heading}</span>
       <p>${copy}</p>
       <dds-feature-card-block-large-footer>
         ${ArrowRight20({ slot: 'icon' })}

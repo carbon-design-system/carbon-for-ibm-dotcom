@@ -11,16 +11,18 @@
 
   @keyframes expand {
     0% {
+      overflow-y: hidden;
       max-height: 0;
     }
     100% {
+      overflow-y: hidden;
       max-height: 100vh;
     }
   }
 
   @keyframes collapse {
     0% {
-      overflow-y: auto;
+      overflow-y: hidden;
       max-height: 100vh;
     }
     100% {
@@ -43,7 +45,8 @@
   }
 
   .#{$prefix}--masthead__megamenu {
-    overflow-y: scroll;
+    overflow-y: overlay;
+    overflow-x: hidden;
     background-color: $ui-background;
 
     &:focus {
@@ -100,7 +103,7 @@
   }
 
   .#{$prefix}--masthead__megamenu__container {
-    width: 100%;
+    width: 100vw;
     @include carbon--make-container;
 
     .#{$prefix}--masthead__megamenu__container--row {
