@@ -24,13 +24,8 @@
   #{$modal}--expressive {
     color: $text-01;
 
-    #{$modal}-close {
-      top: $offset-close-icon;
-      right: $offset-close-icon;
-    }
-
     #{$modal}-container {
-      padding: $carbon--spacing-08 $carbon--spacing-07 $carbon--spacing-07;
+      padding: $carbon--spacing-09 $carbon--spacing-07 $carbon--spacing-07;
       min-height: $carbon--spacing-07 + $icon-size + $carbon--spacing-07;
     }
 
@@ -46,8 +41,8 @@
   :host(#{$dds-prefix}-expressive-modal-close-button),
   #{$modal}--expressive {
     #{$modal}-close {
-      top: $offset-close-icon;
-      right: $offset-close-icon;
+      top: 0;
+      right: 0;
     }
   }
 
@@ -58,13 +53,6 @@
 
   :host(#{$dds-prefix}-expressive-modal)[size='full-width'],
   #{$modal}--expressive--fullwidth {
-    #{$modal}-container {
-      padding: $carbon--spacing-07;
-    }
-    #{$modal}-close {
-      top: 0;
-      right: 0;
-    }
     @include carbon--breakpoint('md') {
       #{$modal}-container {
         width: calc(100% - #{$carbon--spacing-07});
@@ -72,14 +60,6 @@
         height: calc(100% - #{$carbon--spacing-07});
         max-height: none;
       }
-    }
-  }
-
-  :host(#{$dds-prefix}-expressive-modal-close-button[size='full-width']),
-  #{$modal}--expressive--fullwidth {
-    #{$modal}-close {
-      top: 0;
-      right: 0;
     }
   }
 
