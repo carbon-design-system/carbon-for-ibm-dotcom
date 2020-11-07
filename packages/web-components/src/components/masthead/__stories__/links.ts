@@ -7,9 +7,41 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { MastheadLink, MastheadL1 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 /* eslint-disable max-len */
+
+/**
+ * MastheadL1 Data
+ */
+const l1Data: MastheadL1 = {
+  title: 'Stock Charts',
+  url: 'https://example.com',
+  menuItems: [
+    {
+      title: 'Lorem ipsum dolor',
+      url: 'https://example.com' 
+    },
+    {
+      title: 'Lorem ipsum dolor',
+      url: 'https://example.com',
+      menuItems: [
+        {
+          title: 'Lorem ipsum dolor',
+          url: 'https://example.com',
+        },
+        {
+          title: 'Lorem ipsum dolor',
+          url: 'https://example.com',
+        },
+        {
+          title: 'Lorem ipsum dolor',
+          url: 'https://example.com',
+        }
+      ]
+    }
+  ]
+}
 
 /**
  * Masthead items.
@@ -1037,4 +1069,4 @@ const mastheadLinks: MastheadLink[] = [
 
 /* eslint-enable max-len */
 
-export default mastheadLinks;
+export { mastheadLinks, l1Data };

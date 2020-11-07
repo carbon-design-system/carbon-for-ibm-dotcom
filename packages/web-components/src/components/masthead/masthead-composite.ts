@@ -12,13 +12,13 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   MastheadLink,
+  MastheadL1,
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import './masthead';
 import './masthead-logo';
-import './masthead-l1';
 import './masthead-menu-button';
 import './masthead-global-bar';
 import './masthead-profile';
@@ -230,16 +230,10 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
-   * L1 elements
+   * Data for l1.
    */
-  @property()
-  l1Items?: object[]; //for testing, will be changed
-
-  /**
-   * L1 Title
-   */
-  @property()
-  l1Title = { title: "test", href: "https://www.example.com" } //for testing, will be changed
+  @property({ attribute: false })
+  l1Data?: MastheadL1;
 
   /**
    * `true` to open the search dropdown.
@@ -299,9 +293,8 @@ class DDSMastheadComposite extends LitElement {
       searchPlaceholder,
       unauthenticatedProfileItems,
       userStatus,
-      _loadSearchResults: loadSearchResults,
-      l1Title,
-      l1Items
+      l1Data,
+      _loadSearchResults: loadSearchResults
     } = this;
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -320,6 +313,7 @@ class DDSMastheadComposite extends LitElement {
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
+        <slot></slot>
         </dds-masthead-menu-button>
         <dds-masthead-logo></dds-masthead-logo>
         ${!brandName
@@ -349,9 +343,10 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        ${!l1Title ? undefined : html`
-          <dds-masthead-l1 slot="masthead-l1" l1-title="${l1Title.title}" l1-title-href="${l1Title.href}">
-          </dds-masthead-l1>
+        ${!l1Data 
+          ? undefined
+        : html`
+          <dds-masthead-l1 .l1Data="${l1Data}" slot="masthead-l1"></dds-masthead-l1>
         `}
       </dds-masthead>
     `;

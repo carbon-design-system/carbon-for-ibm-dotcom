@@ -16,6 +16,7 @@ import './top-nav';
 import './top-nav-menu';
 import './top-nav-menu-item';
 import './top-nav-item';
+import { MastheadL1 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,34 +31,84 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-l1`)
 class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
-    @property({ attribute: 'l1-title', reflect: true })
-    title = '';
 
-    @property({ attribute: 'l1-title-href', reflect: true })
-    titleHref = '';
-
-    @property({ attribute: 'l1-items' })
-    l1Items = [];
+    @property({ attribute: false })
+    l1Data: MastheadL1 = {title: '', url: ''};
 
     _renderName() {
+        const { title, url } = this.l1Data;
         return html`
             <div class="${prefix}--masthead__l1-name">
                 <span class="${prefix}--masthead__l1-name-title">
-                    <a href="${this.titleHref}">${this.title}</a>
+                    <a href="${url}">${title}</a>
                 </span>
             </div>
         `;
     }
 
+    _renderMenuItems() {
+      const { menuItems } = this.l1Data;
+
+      return !menuItems ? undefined : 
+        html`
+          <dds-top-nav>
+            ${ menuItems.map((elem, i) => {
+              const { menuItems = [], title, url } = elem;
+              const sections = menuItems?.map((elem, j) => html`
+                <dds-top-nav-menu-item
+                  href="${elem.url}"
+                  title="${elem.title}"
+                  data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}">
+                </dds-top-nav-menu-item>
+              `);
+
+              return sections.length > 0 ? html`
+                <dds-top-nav-menu
+                  menu-label="${title}"
+                  trigger-content="${title}"
+                  data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                >
+                  ${sections}
+                </dds-top-nav-menu>
+              ` : html`
+              <dds-top-nav-item
+              href="${url}"
+              title="${title}"
+              data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+              ></dds-top-nav-item>
+              `
+            }) }
+          </dds-top-nav>
+        `;
+    }
+
     _renderContentContainer() {
+
         return html`
-            <div class="${prefix}--header__nav-container">
-                <dds-top-nav>
-                    <dds-top-nav-item>
-                        Lorem Ipsum dolor
-                    </dds-top-nav-item>
-                </dds-top-nav>
-            </div>
+        <div class="${prefix}--header__nav-container">
+          <div
+            class="${prefix}--header__nav-content">
+            <div class="${prefix}--sub-content-left" />
+            <div class="${prefix}--sub-content-right" />
+            ${ false 
+              ? undefined
+              : this._renderMenuItems() }
+          </div>
+          <button
+            class="${prefix}--header__nav-caret-left"
+            aria-label="Masthead left caret"
+            tabIndex="-1"
+            hidden>
+            left
+          </button>
+          <button
+            class="${prefix}--header__nav-caret-right"
+            aria-label="Masthead right caret"
+            tabIndex="-1"
+            hidden>
+              right
+          </button>
+        </div>
         `;
     }
 
