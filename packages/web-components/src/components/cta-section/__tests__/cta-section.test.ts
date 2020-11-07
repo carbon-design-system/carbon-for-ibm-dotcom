@@ -16,7 +16,7 @@ const template = (props?) => {
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy content=${ifNonNull(copy)}></dds-cta-section-copy>
+      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
       ${children}
     </dds-cta-section>
   `;

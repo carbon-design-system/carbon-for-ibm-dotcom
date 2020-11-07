@@ -70,8 +70,9 @@ export const WithContentItems = ({ parameters }) => {
       <dds-cta-section-item slot="content-item">
         <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
         <dds-cta-section-item-copy
-          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
-        </dds-cta-section-item-copy>
+          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+          you.</dds-cta-section-item-copy
+        >
         <dds-text-cta slot="cta" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
       </dds-cta-section-item>
 
