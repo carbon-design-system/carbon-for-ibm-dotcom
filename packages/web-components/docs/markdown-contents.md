@@ -16,7 +16,7 @@ Given the nature of child text node, some extra caution is required to use child
 
 While `<dds-content-*-copy>` provides an easy way to use markdown for `<dds-content-*>`, it requires markdown parser and HTML sanitizer has to be downloaded and run in browser. To reduce the cost of downloading and running, especially if the target network and device environment is limiting, rendering markdown on server is often helpful.
 
-For example, a Handlebars helper that works with our [`markdownToHtml` utility](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.12.0/packages/utilities/src/utilities/markdownToHtml/markdownToHtml.js) can be defined to convert generate HTML from markdown content:
+For example, a Handlebars helper that works with the Carbon for IBM.com [`markdownToHtml` utility](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.12.0/packages/utilities/src/utilities/markdownToHtml/markdownToHtml.js) can be defined to convert generated HTML from markdown content:
 
 ```javascript
 const Handlebars = require('handlebars');
