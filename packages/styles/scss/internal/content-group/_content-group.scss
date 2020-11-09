@@ -9,6 +9,8 @@
 @import '../../globals/utils/content-width';
 @import '../../globals/utils/hang';
 
+@import '../../components/card/index';
+
 @mixin themed-items {
   :host(#{$dds-prefix}-content-group-heading),
   .#{$prefix}--content-group__title {

@@ -1,0 +1,53 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# `<dds-content-group-horizontal>`
+
+> The Content Group - Horizontal block pattern contains a collection of
+> `<dds-content-item-horizontal>` content items.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-group-horizontal)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-group-horizontal)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-group-horizontal/content-group-horizontal';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal';
+```
+
+### HTML
+
+```html
+  <dds-content-group-horizontal>
+    <dds-content-block-heading>heading</dds-content-block-heading>
+    ${linkListItem}
+    ${linkListItem}
+    ${linkListItem}
+  </dds-content-group-horizontal>
+```
+
+## Props
+
+<Props of="dds-content-group-horizontal" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector            | Compatibility selector                       | Description |
+| ---------------------------------- | -------------------------------------------- | ----------- |
+| `<dds-content-group-horizontal>`   | `data-autoid="dds--content-block-simple"`    | Component   |
+| `<dds-content-block-heading>`      | `data-autoid="dds--content-block__heading"`  | Component   |
+| `<dds-content-item-horizontal>`    | `data-autoid="dds--content-item-horizontal"` | Component   |
+
+
+<Description markdown={contributing} />
