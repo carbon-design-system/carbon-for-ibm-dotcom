@@ -37,6 +37,7 @@
   }
 
   :host(#{$dds-prefix}-content-item-heading),
+  :host(#{$dds-prefix}-content-item-copy),
   .#{$prefix}--content-item__heading,
   .#{$prefix}--content-item__copy {
     @include carbon--breakpoint(md) {
@@ -58,13 +59,12 @@
     margin-bottom: $carbon--spacing-07;
   }
 
-  .#{$prefix}--content-item__copy {
-    p {
-      @include carbon--type-style('body-long-02');
+  :host(#{$dds-prefix}-content-item-paragraph),
+  .#{$prefix}--content-item__copy p {
+    @include carbon--type-style('body-long-02');
 
-      color: $text-01;
-      margin-bottom: $carbon--spacing-06;
-    }
+    color: $text-01;
+    margin-bottom: $carbon--spacing-06;
   }
 
   .#{$prefix}--content-item__cta {

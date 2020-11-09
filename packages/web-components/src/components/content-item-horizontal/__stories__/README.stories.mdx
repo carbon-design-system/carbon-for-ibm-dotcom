@@ -1,5 +1,6 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
 
 # `<dds-content-item-horizontal>`
 
@@ -18,6 +19,7 @@ Here's a quick example to get you started.
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
 import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
 ```
@@ -25,9 +27,10 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
 ### HTML
 
 ```html
-  <dds-content-item-horizontal .copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.">
+  <dds-content-item-horizontal>
     <slot slot="eyebrow">Lorem ipsum</slot>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+    <dds-content-item-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</dds-content-item-copy>
     <dds-link-list slot="cta" type="vertical">
       <dds-link-list-item-cta
         icon-placement="right"
@@ -50,6 +53,8 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
 ## Props
 
 <Props of="dds-content-item" />
+
+<Description markdown={markdownContents} />
 
 ## Stable selectors
 
