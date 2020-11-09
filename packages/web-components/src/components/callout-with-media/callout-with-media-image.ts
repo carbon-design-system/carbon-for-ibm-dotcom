@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './callout-with-media.scss';
-import DDSContentBlockSimpleMediaImage from '../content-block-simple/content-block-simple__media-image';
+import DDSImageWithCaption from '../image-with-caption/image-with-caption';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-callout-with-media-image
  */
 @customElement(`${ddsPrefix}-callout-with-media-image`)
-class DDSCalloutWithMediaImage extends DDSContentBlockSimpleMediaImage {
+class DDSCalloutWithMediaImage extends DDSImageWithCaption {
+  /**
+   * The shadow slot this video container should be in.
+   */
+  @property({ reflect: true })
+  slot = 'media';
+
   static styles = styles;
 }
 
