@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 const slotExistencePropertyNames = {
   eyebrow: '_hasEyebrow',
-  cta: '_hasCta',
+  cta: '_hasCTA',
 };
 
 /**

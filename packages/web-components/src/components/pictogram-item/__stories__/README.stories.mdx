@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
 import'../pictogram-item';
 
 # Pictogram Item
@@ -31,8 +32,7 @@ or with [JSPM](https://jspm.org)
 ### HTML
 
 ```html
-<dds-pictogram-item
-  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam">
+<dds-pictogram-item>
   <svg slot="pictogram" focusable="false" preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     stroke="currentColor"
@@ -44,6 +44,7 @@ or with [JSPM](https://jspm.org)
     </path>
   </svg>
   <span slot="heading">Lorem ipsum dolor sit</span>
+  <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</dds-content-item-copy>
   <dds-link-with-icon slot="cta">
     Lorem ipsum dolor
     <svg
@@ -61,5 +62,7 @@ or with [JSPM](https://jspm.org)
   </dds-link-with-icon>
 </dds-pictogram-item>
 ```
+
+<Description markdown={markdownContents} />
 
 <Description markdown={contributing} />

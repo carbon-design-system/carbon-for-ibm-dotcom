@@ -10,10 +10,8 @@
 import { html, css, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
-import '../content-item/content-item';
 import styles from './content-block-simple.scss';
 
 const { prefix } = settings;
@@ -27,12 +25,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-simple`)
 class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
+  // eslint-disable-next-line class-methods-use-this
   protected _renderContent() {
-    const { copy } = this;
+    // Renders `<div class="bx--content-item">` directly instead of using `<dds-content-item>`
+    // because `<dds-content-block-simple>` uses only the copy content
     return html`
       <div class="${prefix}--content-block__children">
         <div class="${prefix}--content-block-simple__content">
-          <dds-content-item .copy="${ifNonNull(copy)}"></dds-content-item>
+          <div class="${prefix}--content-item">
+            <slot></slot>
+          </div>
           <div>
             <slot name="media"></slot>
           </div>
