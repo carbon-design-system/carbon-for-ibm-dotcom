@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import ArrowRight16 from '@carbon/icons-react/es/arrow--right/16';
+import classnames from 'classnames';
 import LinkWithIcon from '../../LinkWithIcon/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -19,10 +20,14 @@ const RightNavigation = ({
   children,
   viewAllLinkHref,
   viewAllLinkTitle,
+  hasHighlights,
   ...rest
 }) => (
   <div className={`${prefix}--masthead__megamenu__categories-section`}>
-    <div className={`${prefix}--masthead__megamenu__categories`}>
+    <div
+      className={classnames(`${prefix}--masthead__megamenu__categories`, {
+        [`${prefix}--masthead__megamenu--hasHighlights`]: hasHighlights,
+      })}>
       {children}
     </div>
     {viewAllLinkHref && (
@@ -42,6 +47,11 @@ RightNavigation.propTypes = {
    * Category Groups to be rendered in the Left Navigation Section
    */
   children: PropTypes.node.isRequired,
+
+  /**
+   * Determines whether to render the Highlight Section (Left Navigation)
+   */
+  hasHighlights: PropTypes.bool,
 
   /**
    * Megamenu view all cta url
