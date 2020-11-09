@@ -43,8 +43,7 @@
       }
     }
   }
-
-  :host(#{$dds-prefix}-hr),
+  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
   .#{$prefix}--content-block .#{$prefix}--hr {
     margin-top: 0;
     margin-right: -1rem;
