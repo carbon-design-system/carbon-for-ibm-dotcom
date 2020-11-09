@@ -12,6 +12,7 @@ import coreEvents from '@storybook/core-events';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
+import theme from './theme';
 import Container from './Container';
 
 const SORT_ORDER_GROUP = ['Overview', 'Components'];
@@ -48,6 +49,7 @@ addParameters({
       }
       return 0;
     },
+    theme,
   },
 });
 

@@ -11,8 +11,10 @@ import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
-  brandTitle: 'Carbon for IBM.com Web Components',
-  brandUrl: 'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components',
+  brandTitle: 'Carbon for IBM.com React',
+  brandUrl:
+    'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/react',
   fontBase: '"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif',
-  fontCode: '"IBM Plex Mono", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace',
+  fontCode:
+    '"IBM Plex Mono", Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", Courier, monospace',
 });
