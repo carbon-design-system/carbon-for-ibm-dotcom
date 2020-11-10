@@ -162,11 +162,6 @@ class DDSMastheadComposite extends LitElement {
                     ></dds-left-nav-menu-item>
                   `;
                 })}
-                <dds-left-nav-menu-item
-                  href="${item.url}"
-                  title="${item.title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
-                ></dds-left-nav-menu-item>
               </dds-left-nav-menu>
             `
           : html`
