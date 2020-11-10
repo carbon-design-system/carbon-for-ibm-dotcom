@@ -11,7 +11,7 @@
   <slot name="media">
   </slot>
 </div>
-<slot>
+<slot name="copy">
 </slot>
 <div
   class="bx--content-item__cta"
@@ -32,7 +32,7 @@
   <slot name="media">
   </slot>
 </div>
-<slot>
+<slot name="copy">
 </slot>
 <div class="bx--content-item__cta">
   <slot name="cta">

@@ -7,6 +7,8 @@
 ```
 <slot name="heading">
 </slot>
+<slot>
+</slot>
 <div class="bx--content-block__children">
   <slot>
   </slot>
@@ -29,6 +31,8 @@
 
 ```
 <slot name="heading">
+</slot>
+<slot>
 </slot>
 <div class="bx--content-block__children">
   <slot>

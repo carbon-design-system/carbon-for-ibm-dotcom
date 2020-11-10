@@ -18,7 +18,7 @@
     </slot>
   </div>
   <div class="bx--content-item-horizontal__col">
-    <slot>
+    <slot name="copy">
     </slot>
     <div
       class="bx--content-item__cta"
@@ -48,7 +48,7 @@
     </slot>
   </div>
   <div class="bx--content-item-horizontal__col">
-    <slot>
+    <slot name="copy">
     </slot>
     <div
       class="bx--content-item__cta"
