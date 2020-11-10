@@ -153,6 +153,7 @@ $search-transition-timing: 95ms;
     background-color: $ui-background;
   }
 
+  :host(#{$dds-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
     position: fixed;
     left: 0;
@@ -168,6 +169,7 @@ $search-transition-timing: 95ms;
       background-color $transition--expansion $carbon--standard-easing;
   }
 
+  :host(#{$dds-prefix}-megamenu-overlay)[active],
   .#{$prefix}--masthead__overlay-show {
     background-color: $overlay-01;
     visibility: visible;
@@ -555,11 +557,6 @@ $search-transition-timing: 95ms;
     .#{$prefix}--header__nav {
       display: block;
     }
-  }
-
-  .#{$prefix}--body__lock-scroll {
-    position: relative;
-    overflow: hidden;
   }
 }
 
