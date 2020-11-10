@@ -13,9 +13,9 @@ import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/co
 import '../content-block-simple';
 
 const template = (props?) => {
-  const { complementaryStyleScheme, copy, children } = props ?? {};
+  const { complementaryStyleScheme, children } = props ?? {};
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}" .copy="${ifNonNull(copy)}">
+    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       ${children}
     </dds-content-block-simple>
   `;
@@ -33,7 +33,6 @@ describe('dds-content-block-simple', function() {
       render(
         template({
           complementaryStyleScheme: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-          copy: 'copy-foo',
           children: html`
             <div slot="complementary">complementary-foo</div>
           `,

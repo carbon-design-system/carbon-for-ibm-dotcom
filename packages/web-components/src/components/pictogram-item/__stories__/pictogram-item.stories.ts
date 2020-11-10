@@ -8,9 +8,12 @@
  */
 
 import { html } from 'lit-element';
+import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
 import '../pictogram-item';
 import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import styles from './pictogram-item.stories.scss';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -18,7 +21,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = ({ parameters }) => {
   const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item copy="${copy}">
+    <dds-pictogram-item>
       <svg
         slot="pictogram"
         focusable="false"
@@ -42,7 +45,8 @@ export const Default = ({ parameters }) => {
         0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
         ></path>
       </svg>
-      <span slot="heading">${heading}</span>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-link-with-icon href="${href}" slot="cta">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
@@ -59,7 +63,7 @@ export default {
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
         copy: textNullable(
           'Copy (copy):',
-          'Lorem ipsum dolor sit amet,' +
+          'Lorem ipsum dolor sit amet, ' +
             'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
             'Ut enim ad minim veniam\n',
           groupId
@@ -72,9 +76,12 @@ export default {
   },
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-6 bx--offset-lg-3">
+          <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
             ${story()}
           </div>
         </div>

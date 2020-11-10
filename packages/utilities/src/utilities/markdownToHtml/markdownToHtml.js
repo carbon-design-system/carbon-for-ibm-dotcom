@@ -38,6 +38,8 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * @param {string} str String to convert to html
  * @param {object} [options={}] Object with options for the conversion
  * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
+ * @param {object} [options.renderer] Custom renderers
+ * @param {Set<string>} [options.customTags] List of custom element tags the `renderer` uses.
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -45,14 +47,17 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * markdownToHtml('Lorem *ipsum* dolor __sit__.')
  * // 'Lorem <em class="bx--type-light">ipsum</em> dolor <strong class="bx--type-semibold">sit</strong>.'
  */
-function markdownToHtml(str, { allowHtml = false } = {}) {
+function markdownToHtml(
+  str,
+  { allowHtml = false, renderer = {}, customTags } = {}
+) {
   let converted = allowHtml ? str : _removeHtmlTags(str);
 
   /**
    * Custom rendering options to add Carbon styles
    *
    */
-  const renderer = {
+  const defaultRenderer = {
     link(href, title, text) {
       const linkTitle = title ? `title="${title}"` : null;
       return `<a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>`;
@@ -70,8 +75,24 @@ function markdownToHtml(str, { allowHtml = false } = {}) {
     },
   };
 
-  marked.use({ renderer });
+  marked.use({ renderer: Object.assign(defaultRenderer, renderer) });
+
+  if (customTags) {
+    DOMPurify.addHook('uponSanitizeElement', function(
+      node,
+      { allowedTags, tagName }
+    ) {
+      if (customTags.has(tagName) && !allowedTags[tagName]) {
+        allowedTags[tagName] = true;
+      }
+    });
+  }
+
   const convertedMarkdown = DOMPurify.sanitize(marked(converted));
+
+  if (customTags) {
+    DOMPurify.removeHook('uponSanitizeElement');
+  }
 
   return _cleanString(convertedMarkdown);
 }
