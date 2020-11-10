@@ -81,6 +81,8 @@
 
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
+
+      white-space: nowrap;
     }
 
     &.#{$prefix}--masthead__header--search-active {
@@ -110,7 +112,6 @@
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
-      position: absolute;
       z-index: 999;
       width: 100%;
       margin-left: 0;
