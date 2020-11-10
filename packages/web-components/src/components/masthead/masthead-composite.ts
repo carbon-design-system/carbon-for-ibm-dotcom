@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
@@ -37,6 +38,7 @@ import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -61,6 +63,29 @@ enum NAV_ITEMS_RENDER_TARGET {
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
+
+  private _renderL1Name() {
+    if(this.l1Data?.title) {
+      const { title, url } = this.l1Data;
+      return html`
+          <div class="${prefix}--masthead__l1-name">
+              <span class="${prefix}--masthead__l1-name-title">
+                  <a href="${url}">${title}</a>
+              </span>
+          </div>
+      `;
+    }
+  }
+
+  private _renderL1() {
+    const { _renderL1Name: renderL1Name } = this;
+    return html`
+      <div class="${prefix}--masthead__l1">
+          ${renderL1Name()}
+      </div>
+    `;
+  }
+
   /**
    * @param options The options.
    * @param options.target The target of rendering navigation items.
@@ -126,8 +151,6 @@ class DDSMastheadComposite extends LitElement {
               `;
         });
   }
-
-  private
 
   /**
    * The placeholder for `loadSearchResults()` Redux action that may be mixed in.
@@ -233,7 +256,7 @@ class DDSMastheadComposite extends LitElement {
    * Data for l1.
    */
   @property({ attribute: false })
-  l1Data?: MastheadL1;
+  l1Data?: MastheadL1 = {title: '', url: ''};
 
   /**
    * `true` to open the search dropdown.
@@ -294,7 +317,8 @@ class DDSMastheadComposite extends LitElement {
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
-      _loadSearchResults: loadSearchResults
+      _loadSearchResults: loadSearchResults,
+      _renderL1: renderL1
     } = this;
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -345,9 +369,7 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-global-bar>
         ${!l1Data 
           ? undefined
-        : html`
-          <dds-masthead-l1 .l1Data="${l1Data}" slot="masthead-l1"></dds-masthead-l1>
-        `}
+        : renderL1() }
       </dds-masthead>
     `;
   }
