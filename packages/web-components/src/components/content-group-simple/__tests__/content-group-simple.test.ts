@@ -8,13 +8,12 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import '../content-group-simple';
 
 const template = (props?) => {
-  const { copy, children } = props ?? {};
+  const { children } = props ?? {};
   return html`
-    <dds-content-group-simple .copy="${ifNonNull(copy)}">
+    <dds-content-group-simple>
       ${children}
     </dds-content-group-simple>
   `;
@@ -31,7 +30,6 @@ describe('dds-content-group-simple', function() {
     it('should render with various attributes', async function() {
       render(
         template({
-          copy: 'copy-foo',
           children: html`
             <div slot="footer">footer-foo</div>
           `,

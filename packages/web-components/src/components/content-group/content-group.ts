@@ -7,10 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { html, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import '../markdown/markdown';
 import styles from './content-group.scss';
 
 const { prefix } = settings;
@@ -77,22 +75,12 @@ class DDSContentGroup extends LitElement {
   /**
    * @returns The copy content.
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderCopy(): TemplateResult | string | void {
-    const { copy } = this;
     return html`
-      ${!copy
-        ? undefined
-        : html`
-            <dds-markdown class="${prefix}--content-group__copy" nobold .content="${ifNonNull(copy)}"></dds-markdown>
-          `}
+      <slot></slot>
     `;
   }
-
-  /**
-   * The copy content.
-   */
-  @property()
-  copy = '';
 
   render() {
     return html`

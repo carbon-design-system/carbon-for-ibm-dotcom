@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
 @import '../../globals/vars';
+@import '../../globals/imports';
 @import '../../internal/content-item/content-item';
 @import '../link-with-icon/link-with-icon';
 
@@ -47,13 +47,10 @@
 
     .#{$prefix}--pictogram-item__pictogram,
     ::slotted(svg) {
+      display: block;
       margin-top: $carbon--spacing-07;
       height: 80px;
       width: 80px;
-    }
-
-    ::slotted(svg) {
-      margin-top: 0;
     }
   }
 }

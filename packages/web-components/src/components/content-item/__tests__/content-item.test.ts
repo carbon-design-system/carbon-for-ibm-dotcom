@@ -11,11 +11,12 @@ import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { BASIC_COLOR_SCHEME } from '../../../globals/shared-enums';
 import '../content-item';
+import '../content-item-copy';
 
 const template = (props?) => {
-  const { colorScheme, copy, children } = props ?? {};
+  const { colorScheme, children } = props ?? {};
   return html`
-    <dds-content-item color-scheme="${ifNonNull(colorScheme)}" .copy="${ifNonNull(copy)}">
+    <dds-content-item color-scheme="${ifNonNull(colorScheme)}">
       ${children}
     </dds-content-item>
   `;
@@ -33,9 +34,9 @@ describe('dds-content-item', function() {
       render(
         template({
           colorScheme: BASIC_COLOR_SCHEME.INVERSE,
-          copy: 'copy-foo',
           children: html`
             <dds-video-player slot="media" duration="90" name="name-foo"></dds-video-player>
+            <dds-content-item-copy>copy-foo</dds-content-item-copy>
             <dds-text-cta slot="cta" type="local">copy-foo</dds-text-cta>
           `,
         }),
