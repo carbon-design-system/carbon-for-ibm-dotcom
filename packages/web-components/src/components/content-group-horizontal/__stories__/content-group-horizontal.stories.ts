@@ -22,7 +22,7 @@ const copy =
 
 const linkListItem = html`
   <dds-content-item-horizontal .copy=${copy}>
-    <slot slot="eyebrow">Lorem ipsum</slot>
+    <span slot="eyebrow">Lorem ipsum</span>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
     <dds-link-list slot="cta" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
