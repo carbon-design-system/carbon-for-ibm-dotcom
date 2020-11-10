@@ -114,7 +114,7 @@
     &[active] {
       z-index: 999;
       width: 100%;
-      margin-left: 0;
+      margin-left: $carbon--spacing-05;
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;
