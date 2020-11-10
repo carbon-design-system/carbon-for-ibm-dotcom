@@ -8,18 +8,20 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LeavingIBMLabels, MiscLabels, Translation } from '../../../../services-store/src/types/translateAPI';
+import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import './leaving-ibm-modal';
+import './leaving-ibm-modal-heading';
 import 'carbon-web-components/es/components/modal/modal-body';
 import 'carbon-web-components/es/components/modal/modal-header';
-import 'carbon-web-components/es/components/modal/modal-heading';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import 'carbon-web-components/es/components/button/button';
 import styles from './leaving-ibm.scss';
 
 export { MODAL_SIZE } from 'carbon-web-components/es/components/modal/modal.js';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -47,13 +49,13 @@ class DDSLeavingIbmComposite extends LitElement {
    * Leaving IBM modal copy
    */
   @property({ attribute: false })
-  leavingIbmCopy: LeavingIBMLabels;
+  leavingIbmCopy: LeavingIBMLabels = { LEAVING001: '', LEAVING002: '', LEAVING003: '' };
 
   /**
    * Leaving IBM modal button label
    */
   @property({ attribute: false })
-  leavingIbmButtonLabel: MiscLabels;
+  leavingIbmButtonLabel = '';
 
   /**
    * The language used for query.
@@ -66,6 +68,21 @@ class DDSLeavingIbmComposite extends LitElement {
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+
+  /**
+   * external url triggering the leaving ibm modal.
+   */
+  @property({ reflect: true })
+  url = '';
+
+  /**
+   * Extract the hostname from the url to display in the modal.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _getHostname(url) {
+    const { hostname } = new URL(url);
+    return hostname;
+  }
 
   firstUpdated() {
     const { language } = this;
@@ -85,22 +102,20 @@ class DDSLeavingIbmComposite extends LitElement {
   }
 
   render() {
-    const { open } = this;
+    const { open, leavingIbmCopy, leavingIbmButtonLabel, _getHostname, url } = this;
     return html`
       <dds-leaving-ibm-modal open="${open}" size="sm">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
-          <bx-modal-heading>Leaving the IBM web site</bx-modal-heading>
+          <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
         </bx-modal-header>
-        <bx-modal-body
-          ><p>
-            You are now leaving IBM.com and going to an external 3rd party site. Unless otherwise stated, the 3rd party's site
-            Terms and Privacy Policy will apply, and may differ from IBM's.
-          </p>
-          <a href="https://www.ibm.com">ibm.com</a></bx-modal-body
-        >
+        <bx-modal-body>
+          <p>${leavingIbmCopy?.LEAVING002}</p>
+          <p class="${prefix}--leaving-ibm__text">${leavingIbmCopy?.LEAVING003}</p>
+          <a class="${prefix}--leaving-ibm__link" href="https://www.ibm.com">${_getHostname(url)}</a>
+        </bx-modal-body>
         <bx-modal-footer>
-          <bx-btn kind="primary">Continue</bx-btn>
+          <bx-btn kind="primary">${leavingIbmButtonLabel}</bx-btn>
         </bx-modal-footer>
       </dds-leaving-ibm-modal>
     `;

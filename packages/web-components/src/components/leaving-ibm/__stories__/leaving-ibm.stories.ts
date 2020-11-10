@@ -8,16 +8,16 @@
  */
 
 import { html } from 'lit-element';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import styles from './leaving-ibm.stories.scss';
-import '../leaving-ibm-composite';
+import '../leaving-ibm-container';
 
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { open } = parameters?.props?.['leaving-ibm'] ?? {};
+  const { open, url } = parameters?.props?.['leaving-ibm'] ?? {};
   return html`
-    <dds-leaving-ibm-composite ?open=${open}> </dds-leaving-ibm-composite>
+    <dds-leaving-ibm-container ?open=${open} url="${url}"> </dds-leaving-ibm-container>
   `;
 };
 
@@ -28,6 +28,7 @@ export default {
     knobs: {
       'leaving-ibm': ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
+        url: text('Url (url)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
       }),
     },
     decorators: [

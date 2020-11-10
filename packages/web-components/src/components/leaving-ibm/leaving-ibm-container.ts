@@ -49,7 +49,7 @@ export interface LeavingIbmContainerStateProps {
   /**
    * Leaving IBM modal button label
    */
-  leavingIbmButtonLabel?: MiscLabels;
+  leavingIbmButtonLabel?: MiscLabels['continueText'];
 }
 
 /**
@@ -67,7 +67,7 @@ export function mapStateToProps(state: LeavingIbmContainerState): LeavingIbmCont
   const { translations } = translateAPI ?? {};
   return {
     leavingIbmCopy: !language ? undefined : translations?.[language]?.leaving,
-    leavingIbmButtonLabel: !language ? undefined : translations?.[language]?.misc,
+    leavingIbmButtonLabel: !language ? undefined : translations?.[language]?.misc?.continueText,
   };
 }
 
