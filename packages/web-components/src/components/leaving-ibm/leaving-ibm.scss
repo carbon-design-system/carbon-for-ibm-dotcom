@@ -1,0 +1,21 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import 'carbon-web-components/scss/components/modal/modal';
+
+:host(#{$dds-prefix}-leaving-ibm-composite) {
+  width: 100%;
+}
+
+:host(#{$dds-prefix}-leaving-ibm-modal) {
+  @extend :host(#{$prefix}-modal);
+}
+
+:host(#{$dds-prefix}-leaving-ibm-modal[open]) {
+  @extend :host(#{$prefix}-modal[open]);
+}

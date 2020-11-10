@@ -1,0 +1,59 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# Leaving IBM
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/link-list)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/link-list)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-composite';
+```
+
+or with [JSPM](https://jspm.org)
+
+```html
+<script type="module">
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-list/link-list.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/link-list/link-list-item.js';
+  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/card-link/card-link.js';
+</script>
+```
+
+### HTML
+
+```html
+<dds-link-list>
+  <dds-link-list-item> </dds-link-list-item>
+  <dds-card-link href="https://example.com">
+    <p>Copy text</p>
+    <svg
+      slot="footer"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-link>
+</dds-link-list>
+```
+
+## Props
+
+<Props of="dds-link-list" />
+<Description markdown={contributing} />
