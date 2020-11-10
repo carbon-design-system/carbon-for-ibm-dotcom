@@ -7,4 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link';
+import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link.js';
