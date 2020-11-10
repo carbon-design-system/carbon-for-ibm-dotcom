@@ -13,9 +13,11 @@
   padding-left: $carbon--spacing-05;
   padding-right: $carbon--spacing-05;
   margin-left: $carbon--spacing-05;
+  margin-right: $carbon--spacing-05;
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
+  white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
@@ -81,8 +83,6 @@
 
     a.#{$prefix}--header__name {
       @include masthead-top-nav-name;
-
-      white-space: nowrap;
     }
 
     &.#{$prefix}--masthead__header--search-active {
@@ -114,7 +114,7 @@
     &[active] {
       z-index: 999;
       width: 100%;
-      margin-left: $carbon--spacing-05;
+      margin-left: 0;
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;
