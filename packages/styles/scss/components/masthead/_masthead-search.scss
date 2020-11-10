@@ -177,6 +177,7 @@
 
     &.#{$prefix}--masthead__search--active {
       @include carbon--breakpoint-down(md) {
+        position: absolute;
         width: 100vw;
         right: (-$carbon--spacing-09);
       }
