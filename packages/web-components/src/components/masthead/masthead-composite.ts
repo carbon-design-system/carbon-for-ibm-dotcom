@@ -136,6 +136,51 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
+   *  Render MegaMenu mobile content
+   *
+   * @param sections menu section data object
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _renderMobileMegaMenu(sections) {
+    const menu: MastheadMenuItem[] = [];
+
+    sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
+      return menu.push(item);
+    });
+
+    return html`
+      ${menu.map((item, i) => {
+        return item.megapanelContent?.quickLinks?.links
+          ? html`
+              <dds-left-nav-menu title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
+                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
+                  return html`
+                    <dds-left-nav-menu-item
+                      href="${url}"
+                      title="${title}"
+                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${j}-item${j}"
+                    ></dds-left-nav-menu-item>
+                  `;
+                })}
+                <dds-left-nav-menu-item
+                  href="${item.url}"
+                  title="${item.title}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
+                ></dds-left-nav-menu-item>
+              </dds-left-nav-menu>
+            `
+          : html`
+              <dds-left-nav-menu-item
+                href="${item.url}"
+                title="${item.title}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
+              ></dds-left-nav-menu-item>
+            `;
+      })}
+    `;
+  }
+
+  /**
    * @param options The options.
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
@@ -147,8 +192,10 @@ class DDSMastheadComposite extends LitElement {
       : navLinks.map((link, i) => {
           const { menuSections = [], title, url } = link;
           let sections;
+          let mobileSections;
           if (link.hasMegapanel) {
             sections = this._renderMegaMenu(menuSections);
+            mobileSections = this._renderMobileMegaMenu(menuSections);
           } else {
             sections = menuSections
               // eslint-disable-next-line no-use-before-define
@@ -212,7 +259,7 @@ class DDSMastheadComposite extends LitElement {
               `
             : html`
                 <dds-left-nav-menu title="${title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
-                  ${sections}
+                  ${mobileSections}
                 </dds-left-nav-menu>
               `;
         });
