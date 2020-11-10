@@ -21,9 +21,10 @@ const copy =
   'Phasellus at elit sollicitudin.';
 
 const linkListItem = html`
-  <dds-content-item-horizontal .copy=${copy}>
+  <dds-content-item-horizontal>
     <span slot="eyebrow">Lorem ipsum</span>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+    <dds-content-item-copy>${copy}</dds-content-item-copy>
     <dds-link-list slot="cta" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Link text

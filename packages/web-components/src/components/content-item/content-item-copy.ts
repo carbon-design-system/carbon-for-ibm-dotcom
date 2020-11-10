@@ -6,8 +6,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import { css, customElement } from 'lit-element';
+import { css, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
@@ -18,6 +17,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-content-item-copy`)
 class DDSContentItemCopy extends StableSelectorMixin(DDSMarkdown) {
+  /**
+   * The shadow slot this copy should be in.
+   */
+  @property({ reflect: true })
+  slot = 'copy';
+
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-item-paragraph`);
