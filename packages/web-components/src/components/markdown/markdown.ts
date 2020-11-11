@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { render } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -16,7 +17,6 @@ import 'carbon-web-components/es/components/list/unordered-list.js';
 import 'carbon-web-components/es/components/list/list-item.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
-import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import styles from './markdown.scss';
 
 const { prefix } = settings;
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-markdown
  */
 @customElement(`${ddsPrefix}-markdown`)
-class DDSMarkdown extends HybridRenderMixin(LitElement) {
+class DDSMarkdown extends LitElement {
   /**
    * `true` if the first rendering has happened.
    */
@@ -67,13 +67,16 @@ class DDSMarkdown extends HybridRenderMixin(LitElement) {
   @property({ attribute: false })
   content?: string;
 
-  renderLightDOM() {
+  update(changedProperties) {
+    super.update(changedProperties);
     const { content, _customTags: customTags, textContent, _hasRendered: hasRendered, _renderer: renderer } = this;
-    const result = html`
-      ${unsafeHTML(markdownToHtml(content ?? (hasRendered ? '' : textContent), { customTags, renderer }))}
-    `;
-    this._hasRendered = true;
-    return result;
+    if (!hasRendered && !this.firstElementChild) {
+      const lightDOMTemplateResult = html`
+        ${unsafeHTML(markdownToHtml(content ?? (hasRendered ? '' : textContent), { customTags, renderer }))}
+      `;
+      this._hasRendered = true;
+      render(lightDOMTemplateResult, this, { eventContext: this });
+    }
   }
 
   render() {

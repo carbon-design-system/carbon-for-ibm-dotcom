@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import '@carbon/ibmdotcom-web-components/es/components/button/button.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player.js';
 
 document.addEventListener('click', async event => {
   if (event.target.id === 'open-modal-btn') {

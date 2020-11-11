@@ -7,6 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group';
-import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
