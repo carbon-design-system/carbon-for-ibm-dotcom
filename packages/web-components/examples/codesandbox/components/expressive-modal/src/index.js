@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-header';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-heading';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-body';
-import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-footer';
+import '@carbon/ibmdotcom-web-components/es/components/button/button.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-header.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-close-button.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-body.js';
+import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressive-modal-footer.js';

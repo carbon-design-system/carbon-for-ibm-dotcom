@@ -7,6 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/quote/quote';
-import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
+import '@carbon/ibmdotcom-web-components/es/components/quote/quote.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon.js';
 import 'carbon-web-components/es/icons/arrow--right/20.js';
