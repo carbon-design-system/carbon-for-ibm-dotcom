@@ -71,12 +71,6 @@
 
   &.#{$prefix}--link-list__split {
     @include carbon--breakpoint('md') {
-      @include carbon--breakpoint('lg') {
-        ul {
-          padding-left: $layout-01;
-        }
-      }
-
       ul {
         display: block;
         columns: 2;
