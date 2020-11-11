@@ -134,6 +134,7 @@
 
   @include carbon--breakpoint('lg') {
     display: block;
+    padding: 0;
   }
 
   .#{$prefix}-ce--header__divider {
