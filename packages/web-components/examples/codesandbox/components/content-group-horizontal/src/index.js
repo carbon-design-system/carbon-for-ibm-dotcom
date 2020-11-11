@@ -8,7 +8,7 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-complementary.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-horizontal/content-group-horizontal.js';
 import './index.scss';

@@ -58,7 +58,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   protected _renderBody(): TemplateResult | string | void {
     const { _hasCTA: hasCTA } = this;
     return html`
-      <slot name="copy"></slot>
+      <slot></slot>
       <div ?hidden="${!hasCTA}" class="${prefix}--content-item__cta">
         <slot name="cta" @slotchange="${this._handleSlotchange}"></slot>
       </div>

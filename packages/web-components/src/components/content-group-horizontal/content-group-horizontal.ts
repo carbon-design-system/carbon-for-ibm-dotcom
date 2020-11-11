@@ -10,7 +10,6 @@
 import { css, customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentBlock from '../content-block/content-block';
-import '../content-item/content-item';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group-horizontal.scss';

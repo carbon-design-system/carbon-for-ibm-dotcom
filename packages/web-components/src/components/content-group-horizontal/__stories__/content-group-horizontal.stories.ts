@@ -13,6 +13,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
 import '../../content-item-horizontal/content-item-horizontal';
+import '../../content-item-horizontal/content-item-horizontal-copy';
 import '../content-group-horizontal';
 
 const copy =
@@ -24,7 +25,7 @@ const linkListItem = html`
   <dds-content-item-horizontal>
     <span slot="eyebrow">Lorem ipsum</span>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-    <dds-content-item-copy>${copy}</dds-content-item-copy>
+    <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
     <dds-link-list slot="cta" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Link text
