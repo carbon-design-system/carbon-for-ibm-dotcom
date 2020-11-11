@@ -8,20 +8,17 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import ModalRenderMixin from '../../globals/mixins/modal-render';
 import './leaving-ibm-modal';
+import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
-import 'carbon-web-components/es/components/modal/modal-body';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import 'carbon-web-components/es/components/button/button';
 import styles from './leaving-ibm.scss';
 
-export { MODAL_SIZE } from 'carbon-web-components/es/components/modal/modal.js';
-
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -30,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-composite
  */
 @customElement(`${ddsPrefix}-leaving-ibm-composite`)
-class DDSLeavingIbmComposite extends LitElement {
+class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
    *
@@ -73,16 +70,7 @@ class DDSLeavingIbmComposite extends LitElement {
    * external url triggering the leaving ibm modal.
    */
   @property({ reflect: true })
-  url = '';
-
-  /**
-   * Extract the hostname from the url to display in the modal.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _getHostname(url) {
-    const { hostname } = new URL(url);
-    return hostname;
-  }
+  href = '';
 
   firstUpdated() {
     const { language } = this;
@@ -101,19 +89,18 @@ class DDSLeavingIbmComposite extends LitElement {
     }
   }
 
-  render() {
-    const { open, leavingIbmCopy, leavingIbmButtonLabel, _getHostname, url } = this;
+  renderModal() {
+    const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
       <dds-leaving-ibm-modal open="${open}" size="sm">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
           <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
         </bx-modal-header>
-        <bx-modal-body>
+        <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <p class="${prefix}--leaving-ibm__text">${leavingIbmCopy?.LEAVING003}</p>
-          <a class="${prefix}--leaving-ibm__link" href="https://www.ibm.com">${_getHostname(url)}</a>
-        </bx-modal-body>
+          <span slot="supplemental">${leavingIbmCopy?.LEAVING003}</span>
+        </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
           <bx-btn kind="primary">${leavingIbmButtonLabel}</bx-btn>
         </bx-modal-footer>

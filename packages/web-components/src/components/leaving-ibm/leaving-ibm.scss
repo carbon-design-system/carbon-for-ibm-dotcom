@@ -25,12 +25,12 @@
   @include carbon--type-style('expressive-heading-04');
 }
 
-.#{$prefix}--leaving-ibm__text {
-  margin-top: $spacing-07;
-  color: $text-02;
-  @include carbon--type-style('label-01');
-}
+:host(#{$dds-prefix}-leaving-ibm-modal-body) {
+  @extend :host(#{$prefix}-modal-body);
 
-.#{$prefix}--leaving-ibm__link {
-  margin-top: $spacing-03;
+  .#{$prefix}--leaving-ibm__text {
+    margin-top: $spacing-07;
+    color: $text-02;
+    @include carbon--type-style('label-01');
+  }
 }

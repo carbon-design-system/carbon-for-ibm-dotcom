@@ -15,9 +15,9 @@ import '../leaving-ibm-container';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { open, url } = parameters?.props?.['leaving-ibm'] ?? {};
+  const { open, href } = parameters?.props?.['leaving-ibm'] ?? {};
   return html`
-    <dds-leaving-ibm-container ?open=${open} url="${url}"> </dds-leaving-ibm-container>
+    <dds-leaving-ibm-container ?open=${open} href="${href}"> </dds-leaving-ibm-container>
   `;
 };
 
@@ -27,8 +27,8 @@ export default {
     ...readme.parameters,
     knobs: {
       'leaving-ibm': ({ groupId }) => ({
-        open: boolean('Open (open)', true, groupId),
-        url: text('Url (url)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
+        open: boolean('open (open)', true, groupId),
+        href: text('href (href)', 'https://www.carbondesignsystem.com/all-about-carbon/what-is-carbon/', groupId),
       }),
     },
     decorators: [

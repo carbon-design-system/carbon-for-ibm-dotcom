@@ -15,9 +15,9 @@ import styles from './leaving-ibm.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Leaving Ibm modal body.
+ * Leaving Ibm modal body heading.
  *
- * @element dds-leaving-ibm-modal-body
+ * @element dds-leaving-ibm-modal-body-heading
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-heading`)
 class DDSLeavingIbmModalHeading extends BXModalHeading {
