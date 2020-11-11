@@ -12,22 +12,12 @@ import '../lightbox-video-player';
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-image-viewer';
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal.js';
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal-close-button.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-image-viewer.js';
 
 // Opens the lightbox image viewer
 document.getElementById('my-lightbox').open = true;
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/modal/modal-close-button.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/lightbox-media-viewer/lightbox-image-viewer.js';
-</script>
 ```
 
 ### HTML
@@ -53,18 +43,10 @@ or with [JSPM](https://jspm.org)
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
 
 // Opens the lightbox media viewer
 document.getElementById('my-video').open = true;
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/lightbox-media-viewer/lightbox-video-player-container.js';
-</script>
 ```
 
 ### HTML
@@ -102,11 +84,11 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 When application code opens the lightbox, it can work with our video player service API to put the video data into the video player component:
 
 ```javascript
-import 'carbon-web-components/es/components/modal/modal-close-button';
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
-import '@carbon/ibmdotcom-web-components/es/components/button/button';
-import '@carbon/ibmdotcom-web-components/es/components/modal/modal';
-import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player';
+import 'carbon-web-components/es/components/modal/modal-close-button.js';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+import '@carbon/ibmdotcom-web-components/es/components/button/button.js';
+import '@carbon/ibmdotcom-web-components/es/components/modal/modal.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player.js';
 
 ...
 
