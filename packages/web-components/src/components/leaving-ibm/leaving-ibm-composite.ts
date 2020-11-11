@@ -102,7 +102,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
           <span slot="supplemental">${leavingIbmCopy?.LEAVING003}</span>
         </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
-          <bx-btn kind="primary">${leavingIbmButtonLabel}</bx-btn>
+          <bx-btn href="${href}" kind="primary">${leavingIbmButtonLabel}</bx-btn>
         </bx-modal-footer>
       </dds-leaving-ibm-modal>
     `;
