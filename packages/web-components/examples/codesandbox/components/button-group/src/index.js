@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group.js';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item.js';

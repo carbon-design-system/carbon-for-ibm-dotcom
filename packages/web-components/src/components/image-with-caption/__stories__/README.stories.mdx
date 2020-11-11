@@ -19,21 +19,22 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/imagewithcaption/imagewithcaption';
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/imagewithcaption/imagewithcaption.js';
-</script>
+import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption.js';
 ```
 
 ### HTML
 
 ```html
-    <dds-image-with-caption default-src='https://dummyimage.com/672x336/ee5396/161616&text=2x1' heading="this is a heading" copy="lorum ipsum" ?lightbox={true} />
+<dds-image-with-caption
+  default-src='https://dummyimage.com/672x336/ee5396/161616&text=2x1'
+  heading="this is a heading"
+  copy="lorum ipsum"
+  lightbox
+>
+  <dds-image-item media="(min-wiidth:672px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+  <dds-image-item media="(min-wiidth:400px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+  <dds-image-item media="(min-wiidth:320px)" href="https://dummyimage.com/672x336/ee5396/161616&text=2x1"> </dds-image-item>
+</dds-image-with-caption>
 ```
 
 ## Props

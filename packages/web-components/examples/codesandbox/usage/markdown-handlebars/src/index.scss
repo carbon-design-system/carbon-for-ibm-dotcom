@@ -1,0 +1,22 @@
+//
+// @license
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+// `enable-css-custom-properties` and `grid-columns-16` feature flags are requirements for Carbon for IBM.com styles
+$feature-flags: (
+  enable-css-custom-properties: true,
+  grid-columns-16: true,
+);
+
+@import 'carbon-components/scss/globals/grid/grid';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
+
+body {
+  visibility: inherit;
+}
