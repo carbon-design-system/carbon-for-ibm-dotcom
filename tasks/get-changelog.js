@@ -28,14 +28,14 @@ const args = program.parse(process.argv);
  *
  * @type {string}
  */
-const tagFrom = args.tagFrom;
+const { tagFrom } = args;
 
 /**
  * Tag To (-t)
  *
  * @type {string}
  */
-const tagTo = args.tagTo;
+const { tagTo } = args;
 
 /**
  * Uses a delimiter for splitting the comments into an array
@@ -47,14 +47,17 @@ const delimiter = '----DELIMITER----';
 /**
  * Returns back the commits in an array
  *
+ * @param {string} folder Folder to get commit log for
  * @returns {string[]} Commits array of objects
  */
-function getCommits() {
+function getCommits(folder) {
   const toTag = tagTo !== undefined ? tagTo : 'HEAD';
 
   // Gets the git output between the two tags
   const output = child
-    .execSync(`git log ${tagFrom}..${toTag} --pretty=format:"%s"${delimiter}`)
+    .execSync(
+      `git log ${tagFrom}..${toTag} --pretty=format:"%s"${delimiter} -- ${folder}`
+    )
     .toString('utf-8');
 
   // Generates the array of commit comments
@@ -64,11 +67,13 @@ function getCommits() {
 /**
  * Gets the changelog content
  *
- * @returns {*} Changelog content
+ * @param {string} pkgName Package name
+ * @param {string} folder Folder for git log
+ * @returns {string} Changelog content
  */
-function getChangelog() {
+function getChangelog(pkgName, folder) {
   // Stores the changelog
-  let changelog = '';
+  let changelog = `## ${pkgName}\n`;
 
   // Stores the list of features
   const features = [];
@@ -76,22 +81,26 @@ function getChangelog() {
   // Stores the list of fixes
   const fixes = [];
 
-  const commitsArray = getCommits();
+  const commitsArray = getCommits(folder);
 
   commitsArray.forEach(commit => {
-    commit = commit.replace(delimiter, '');
+    const commitParse = commit.replace(delimiter, '');
     if (commit.startsWith('feat(')) {
-      let pushFeat = commit.replace('feat(', '- **').replace('):', '**: ');
+      const pushFeat = commitParse
+        .replace('feat(', '- **')
+        .replace('):', '**: ');
       features.push(`${pushFeat}\n`);
     }
     if (commit.startsWith('fix(')) {
-      let pushFeat = commit.replace('fix(', '- **').replace('):', '**: ');
+      const pushFeat = commitParse
+        .replace('fix(', '- **')
+        .replace('):', '**: ');
       fixes.push(`${pushFeat}\n`);
     }
   });
 
   if (features.length) {
-    changelog += `## Features\n`;
+    changelog += `### Features\n`;
     features.forEach(feature => {
       changelog += feature;
     });
@@ -99,7 +108,7 @@ function getChangelog() {
   }
 
   if (fixes.length) {
-    changelog += `## Fixes\n`;
+    changelog += `### Fixes\n`;
     fixes.forEach(fix => {
       changelog += fix;
     });
@@ -109,4 +118,19 @@ function getChangelog() {
   return changelog;
 }
 
-console.log(getChangelog());
+/**
+ * Renders the log
+ */
+function generateLog() {
+  let log = '';
+
+  log += getChangelog('Web Components', './packages/web-components');
+  log += getChangelog('React', './packages/react');
+  log += getChangelog('Styles', './packages/styles');
+  log += getChangelog('Services', './packages/services');
+  log += getChangelog('Utilities', './packages/utilities');
+
+  console.log(log);
+}
+
+generateLog();
