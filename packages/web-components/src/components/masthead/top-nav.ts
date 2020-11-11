@@ -49,7 +49,13 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   hideDivider = false;
 
   render() {
-    return this._hideNav ? html`` : super.render();
+    return this._hideNav
+      ? html``
+      : html`
+          <nav class="bx--header__nav">
+            ${super.render()}
+          </nav>
+        `;
   }
 
   static get stableSelector() {
