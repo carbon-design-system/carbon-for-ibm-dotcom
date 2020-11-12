@@ -58,11 +58,12 @@ Add the following line in your `.env` file at the root of your project.
 
 ##### OPTIONAL 💡
 
-In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
 
-````js
+```js
 import Masthead from '@carbon/ibmdotcom-react/es/components/Masthead/Masthead';
-````
+```
 
 ## Using L1 nav
 
@@ -89,13 +90,34 @@ const mastheadL1Data = {
 
 ## Custom Events
 
-The masthead and side nav currently emit the event `onMegaMenuToggle`.
+The masthead emits several custom events.
 
 ```javascript
+// masthead and left nav menu toggle
 document.addEventListener('onMegaMenuToggle', e => {
   console.log(e.detail); // { isExpanded: true|false }
   // do something here
 });
+
+// search icon clicked to open search input
+document.addEventListener('onOpenSearch', () => {
+  // do something here
+};
+
+// close icon clicked to close search input
+document.addEventListener('onSearchCloseClicked', () => {
+  // do something here
+);
+
+// search icon clicked to perform search
+document.addEventListener('onSearchButtonClicked', () => {
+  // do something here
+);
+
+// search input onchange
+document.addEventListener('onSearchValueChanged', e =>
+  console.log(e.detail); // { value: inputValue }
+);
 ```
 
 ## Props

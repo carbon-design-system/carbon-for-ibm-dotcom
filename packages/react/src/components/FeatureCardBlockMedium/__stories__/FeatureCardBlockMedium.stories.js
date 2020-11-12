@@ -32,7 +32,7 @@ export default {
           image: {
             defaultSrc: text(
               'Image src (defaultSrc):',
-              'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
               groupId
             ),
             alt: text('Image alt text (alt):', 'Image alt text', groupId),
@@ -61,7 +61,7 @@ export default {
             },
             image: {
               defaultSrc:
-                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+                'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
           },
