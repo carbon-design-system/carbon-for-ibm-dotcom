@@ -15,15 +15,14 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-section/content-section';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
-import '../card-section-simple';
+import '../card-section-images';
 
-const defaultCardGroupItem = html`
+const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
+    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
+    </dds-image>
+    <div slot="eyebrow">Topic</div>
+    <div slot="heading">Natural Language Processing.</div>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
@@ -31,33 +30,16 @@ const defaultCardGroupItem = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
+  const { heading, cards } = parameters?.props?.CardSectionImages ?? {};
   return html`
-    <dds-card-section-simple heading=${ifNonNull(heading)}>
+    <dds-card-section-images heading=${ifNonNull(heading)}>
       <dds-card-group>${cards}</dds-card-group>
-    </dds-card-section-simple>
-  `;
-};
-
-export const WithCTA = ({ parameters }) => {
-  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
-  return html`
-    <dds-card-section-simple heading=${ifNonNull(heading)}>
-      <dds-card-group>
-        ${cards}
-        <dds-card-group-item href="https://example.com" color-scheme="inverse">
-          <div slot="heading">Top level card link</div>
-          <dds-card-footer slot="footer" color-scheme="inverse">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-card-group-item>
-      </dds-card-group>
-    </dds-card-section-simple>
+    </dds-card-section-images>
   `;
 };
 
 export default {
-  title: 'Components/Card Section Simple',
+  title: 'Components/Card Section Images',
   decorators: [
     story => html`
       <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">
@@ -74,11 +56,11 @@ export default {
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
-      CardSectionSimple: ({ groupId }) => ({
+      CardSectionImages: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Aliquam condimentum interdum', groupId),
         cards: Array.from({
           length: 5,
-        }).map(() => defaultCardGroupItem),
+        }).map(() => cardGroupItemWithImages),
       }),
     },
   },
