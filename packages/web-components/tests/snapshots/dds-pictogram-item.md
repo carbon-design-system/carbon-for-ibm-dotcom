@@ -12,24 +12,23 @@
     </slot>
   </div>
   <div class="bx--pictogram-item__content">
-    <dds-content-item
-      copy="undefined"
-      data-autoid="dds--content-item"
-    >
-      <dds-content-item-heading
-        aria-level="4"
-        data-autoid="dds--content-item__heading"
-        role="heading"
-      >
-        <slot name="heading">
-        </slot>
-      </dds-content-item-heading>
-      <slot
-        name="cta"
-        slot="cta"
-      >
+    <div class="bx--content-item">
+      <slot name="heading">
       </slot>
-    </dds-content-item>
+      <div>
+        <slot name="media">
+        </slot>
+      </div>
+      <slot>
+      </slot>
+      <div
+        class="bx--content-item__cta"
+        hidden=""
+      >
+        <slot name="cta">
+        </slot>
+      </div>
+    </div>
   </div>
 </div>
 

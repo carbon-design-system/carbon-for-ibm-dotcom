@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/content-width';
 @import '../../components/list/list';
@@ -24,6 +25,7 @@
 
   :host(#{$dds-prefix}-content-item),
   .#{$prefix}--content-item {
+    display: block;
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
   }
@@ -35,10 +37,13 @@
   }
 
   :host(#{$dds-prefix}-content-item-heading),
+  :host(#{$dds-prefix}-content-item-copy),
   .#{$prefix}--content-item__heading,
   .#{$prefix}--content-item__copy {
     @include carbon--breakpoint(md) {
       @include content-width;
+
+      display: block;
     }
   }
 
@@ -54,13 +59,12 @@
     margin-bottom: $carbon--spacing-07;
   }
 
-  .#{$prefix}--content-item__copy {
-    p {
-      @include carbon--type-style('body-long-02');
+  :host(#{$dds-prefix}-content-item-paragraph),
+  .#{$prefix}--content-item__copy p {
+    @include carbon--type-style('body-long-02');
 
-      color: $text-01;
-      margin-bottom: $carbon--spacing-06;
-    }
+    color: $text-01;
+    margin-bottom: $carbon--spacing-06;
   }
 
   .#{$prefix}--content-item__cta {

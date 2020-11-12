@@ -26,6 +26,7 @@
 }
 
 @mixin cta-section--pattern {
+  :host(#{$dds-prefix}-cta-section),
   .#{$prefix}--cta-section {
     &__cta {
       padding-bottom: $carbon--layout-05;

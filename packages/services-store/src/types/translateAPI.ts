@@ -52,6 +52,8 @@ export interface MegapanelContent {
 export interface MastheadMenuItem {
   title: string;
   url?: string;
+  highlighted?: boolean;
+  megaPanelViewAll?: boolean;
   megapanelContent?: MegapanelContent;
 }
 

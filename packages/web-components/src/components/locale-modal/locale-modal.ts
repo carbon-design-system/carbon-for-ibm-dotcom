@@ -14,10 +14,10 @@ import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
 import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import DDSModal from '../modal/modal';
-import '../modal/modal-header';
-import '../modal/modal-heading';
-import '../modal/modal-close-button';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import '../expressive-modal/expressive-modal-header';
+import '../expressive-modal/expressive-modal-heading';
+import '../expressive-modal/expressive-modal-close-button';
 import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
@@ -34,7 +34,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-locale-modal`)
 // `BXModal` extends `HostListenerMixin`
-class DDSLocaleModal extends DDSModal {
+class DDSLocaleModal extends DDSExpressiveModal {
   /**
    * The current region.
    */
@@ -136,10 +136,11 @@ class DDSLocaleModal extends DDSModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <dds-modal-header>
-        <dds-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}"></dds-modal-close-button>
-        <dds-modal-heading>${this._renderHeading()}</dds-modal-heading>
-      </dds-modal-header>
+      <dds-expressive-modal-header>
+        <dds-expressive-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}">
+        </dds-expressive-modal-close-button>
+        <dds-expressive-modal-heading>${this._renderHeading()}</dds-expressive-modal-heading>
+      </dds-expressive-modal-header>
     `;
   }
 

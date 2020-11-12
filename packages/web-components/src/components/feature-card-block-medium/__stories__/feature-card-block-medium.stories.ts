@@ -22,7 +22,10 @@ export const Default = ({ parameters }) => {
       <span slot="heading">${heading}</span>
       <span slot="eyebrow">${eyebrow}</span>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
-      ${copy} ${ArrowRight20({ slot: 'footer' })}
+      ${copy}
+      <dds-feature-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-feature-card-footer>
     </dds-feature-card-block-medium>
   `;
 };

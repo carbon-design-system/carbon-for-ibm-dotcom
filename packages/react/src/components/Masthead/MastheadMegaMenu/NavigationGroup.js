@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classnames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -16,12 +15,9 @@ const { prefix } = settings;
 /**
  * MegaMenu panel
  */
-const NavigationGroup = ({ hasHighlights, children, ...rest }) => (
+const NavigationGroup = ({ children, ...rest }) => (
   <section
-    tabIndex={-1}
-    className={classnames(`${prefix}--masthead__megamenu`, {
-      [`${prefix}--masthead__megamenu__container--hasHighlights`]: hasHighlights,
-    })}
+    className={`${prefix}--masthead__megamenu`}
     data-autoid={`${stablePrefix}--masthead__megamenu`}
     {...rest}>
     <div className={`${prefix}--masthead__megamenu__container`}>
@@ -33,11 +29,6 @@ const NavigationGroup = ({ hasHighlights, children, ...rest }) => (
 );
 
 NavigationGroup.propTypes = {
-  /**
-   * Determines whether to render the Highlight Section (Left Navigation)
-   */
-  hasHighlights: PropTypes.bool,
-
   /**
    * children elements
    */

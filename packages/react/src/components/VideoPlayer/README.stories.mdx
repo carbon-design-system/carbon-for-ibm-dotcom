@@ -102,6 +102,14 @@ VideoPlayerAPI.checkScript().then(() => {
 
 > 💡 We don't test `<VideoPlayer>` against arbitray usage of Kaltura API. Use this technique at your own risk.
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import VideoPlayer from '@carbon/ibmdotcom-react/es/components/VideoPlayer/VideoPlayer';
+````
+
 ## Props
 
 <Props of={VideoPlayer} />

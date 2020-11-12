@@ -18,7 +18,7 @@ import contributing from '../../../../../../docs/contributing-license.md';
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 ```
 
 ### HTML
@@ -30,9 +30,7 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 #### Setting Platform
 
 ```html
-<dds-masthead-container
-    brand-name="Lorem Ipsum"
-></dds-masthead-container>
+<dds-masthead-container brand-name="Lorem Ipsum"></dds-masthead-container>
 ```
 
 #### Custom Navigation
@@ -82,6 +80,14 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-menu.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/top-nav-menu-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-top-nav-menu.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-category-group.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-category-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-link-with-icon.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-left-navigation.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-right-navigation.js';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/megamenu-overlay.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/masthead/left-nav-menu.js';
@@ -252,6 +258,64 @@ The markup should be like:
 </dds-top-nav>
 ```
 
+Or with the megamenu:
+
+```html
+<dds-top-nav menu-bar-label="IBM [Platform]">
+  <dds-megamenu-top-nav-menu menu-label="Products" trigger-content="Products">
+    <dds-megamenu-left-navigation>
+      <dds-megamenu-category-group href="https://www.ibm.com/products" title="Top products & solutions">
+        <dds-megamenu-category-link title="Db2" href="https://www.ibm.com/products"></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+      <dds-megamenu-category-group href="https://www.ibm.com/industries" title="Industries">
+        <dds-megamenu-category-link
+          title="Banking & financial markets"
+          href="https://www.ibm.com/industries"
+        ></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+    </dds-megamenu-left-navigation>
+    <dds-megamenu-right-navigation
+      style-scheme="left-section"
+      view-all-href="https://www.ibm.com/products"
+      view-all-title="View all products"
+    >
+      <dds-megamenu-category-group href="https://www.ibm.com/artificial-intelligence" title="Artificial intelligence">
+        <dds-megamenu-category-link
+          title="Customer service"
+          href="https://www.ibm.com/cloud/ai/customer-service"
+        ></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+      <dds-megamenu-category-group href="https://www.ibm.com/automation" title="Automation">
+        <dds-megamenu-category-link
+          title="Business process automation"
+          href="https://www.ibm.com/automation/services"
+        ></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+    </dds-megamenu-right-navigation>
+  </dds-megamenu-top-nav-menu>
+  <dds-megamenu-top-nav-menu menu-label="Services" trigger-content="Services">
+    <dds-megamenu-right-navigation
+      style-scheme="regular"
+      view-all-href="https://www.ibm.com/services"
+      view-all-title="View all services"
+    >
+      <dds-megamenu-category-group href="https://www.ibm.com/services/process" title="Business process services">
+        <dds-megamenu-category-link
+          title="Automation"
+          href="https://www.ibm.com/automation/services"
+        ></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+      <dds-megamenu-category-group href="https://www.ibm.com/services" title="Design & business strategy">
+        <dds-megamenu-category-link
+          title="Digital strategy"
+          href="https://www.ibm.com/services/business/digital"
+        ></dds-megamenu-category-link>
+      </dds-megamenu-category-group>
+    </dds-megamenu-right-navigation>
+  </dds-megamenu-top-nav-menu>
+</dds-top-nav>
+```
+
 <Props of="dds-top-nav" />
 
 ### `<dds-top-nav-item>`
@@ -271,6 +335,58 @@ The markup should be like:
 `<dds-top-nav-menu-item>` works as a sub menu item in the top navigation bar in masthead.
 
 <Props of="dds-top-nav-menu-item" />
+
+### `<dds-megamenu>`
+
+`<dds-megamenu>` works as the menu content of a nav item in the top navigation bar in masthead.
+
+On megamenu expand, the body scroll of the page should lock. Make sure to import the following stylesheet
+to enable this feature.
+
+```javascript
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu-scroll';
+```
+
+### `<dds-megamenu-top-nav-menu>`
+
+`<dds-megamenu-nav-menu>` works as a sub menu specifically for megamenu content in the top navigation bar in masthead.
+
+<Props of="dds-megamenu-top-nav-menu" />
+
+### `<dds-megamenu-category-group>`
+
+`<dds-megamenu-category-group>` is a container for the category title and category sublinks in the megamenu.
+
+<Props of="dds-megamenu-category-group" />
+
+### `<dds-megamenu-category-link>`
+
+`<dds-megamenu-category-link>` is a sublink of a category in the megamenu.
+
+<Props of="dds-megamenu-category-link" />
+
+### `<dds-megamenu-link-with-icon>`
+
+`<dds-megamenu-link-with-icon>` is a link with icon in the megamenu.
+
+<Props of="dds-megamenu-link-with-icon" />
+
+### `<dds-megamenu-left-navigation>`
+
+`<dds-megamenu-left-navigation>` is the highlighted section containing categories that are highlighted in the megamenu.
+
+### `<dds-megamenu-right-navigation>`
+
+`<dds-megamenu-right-navigation>` is the section of the megamenu containing non-highlighted categories. This section
+displays to the right of the highlighted section in the megamenu.
+
+<Props of="dds-megamenu-right-navigation" />
+
+### `<dds-megamenu-overlay>`
+
+`<dds-megamenu-overlay>` is the overlay that appears when the megamenu is expanded.
+
+<Props of="dds-megamenu-overlay" />
 
 ### `<dds-left-nav>`
 
@@ -318,5 +434,4 @@ The markup should be like:
 `<dds-left-nav-overlay>` works as the overlay that should be shown when the left nav is open.
 
 <Props of="dds-left-nav-overlay" />
-
 <Description markdown={contributing} />

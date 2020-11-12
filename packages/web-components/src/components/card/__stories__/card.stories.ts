@@ -26,14 +26,14 @@ export const Default = ({ parameters }) => {
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
-      <slot slot="eyebrow">${eyebrow}</slot>
-      <slot slot="heading">${heading}</slot>
+      <span slot="eyebrow">${eyebrow}</span>
+      <span slot="heading">${heading}</span>
       ${copy
         ? html`
             <p>${copy}</p>
           `
         : ``}
-      <dds-card-footer slot="footer" icon-placement="${iconPlacement}">
+      <dds-card-footer icon-placement="${iconPlacement}">
         ${footer}${ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
     </dds-card>
@@ -51,7 +51,7 @@ export default {
     story => html`
       <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-md-3 bx--no-gutter">
+          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             ${story()}
           </div>
         </div>

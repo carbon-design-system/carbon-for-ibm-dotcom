@@ -29,7 +29,7 @@ const MegaMenu = ({ data, ...rest }) => {
   const hasHighlights = highlightedItems.length !== 0;
 
   return (
-    <NavigationGroup hasHighlights={hasHighlights}>
+    <NavigationGroup>
       {hasHighlights && (
         <LeftNavigation>
           {highlightedItems.map((item, i) => (
@@ -53,6 +53,7 @@ const MegaMenu = ({ data, ...rest }) => {
         </LeftNavigation>
       )}
       <RightNavigation
+        hasHighlights={hasHighlights}
         viewAllLinkHref={viewAllLink?.url}
         viewAllLinkTitle={viewAllLink?.title}
         autoid={rest.autoid}>
