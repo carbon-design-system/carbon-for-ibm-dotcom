@@ -1070,3 +1070,4 @@ const mastheadLinks: MastheadLink[] = [
 /* eslint-enable max-len */
 
 export { mastheadLinks, l1Data };
+export default mastheadLinks;

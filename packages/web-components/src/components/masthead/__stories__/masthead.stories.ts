@@ -17,7 +17,6 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
-import '../masthead-l1';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, l1Data } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';

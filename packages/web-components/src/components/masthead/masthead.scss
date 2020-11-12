@@ -12,7 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/ui-shell/header';
-@import 'carbon-web-components/scss/components/ui-shell/side-nav';
+@import 'carbon-web-components/scss/components/ui-shell/side-nav'; 
 @import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
@@ -28,6 +28,10 @@
 
   .#{$prefix}--header__nav-container {
     overflow-x: visible;
+  }
+
+  .#{$prefix}--mashead__l1 {
+    background: papayawhip;
   }
 }
 

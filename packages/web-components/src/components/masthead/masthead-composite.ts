@@ -77,11 +77,70 @@ class DDSMastheadComposite extends LitElement {
     }
   }
 
+  private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
+    const { menuItems } = this.l1Data;
+
+    if (menuItems) {
+      return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
+      ? html`
+        <dds-top-nav>
+          ${ menuItems.map((elem, i) => {
+            return elem.menuItems
+              ? html`
+                <dds-top-nav-menu
+                  menu-label="${elem.title}"
+                  trigger-content="${elem.title}"
+                  data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}">
+                    ${ elem.menuItems.map((item, j) => html`
+                      <dds-top-nav-menu-item
+                        href="${item.url}"
+                        title="${item.title}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--subnav-col${i}-item${j}"
+                      ></dds-top-nav-menu-item>
+                    `) }
+                </dds-top-nav-menu>
+              `
+              : html`
+                <dds-top-nav-item
+                  href="${elem.url}"
+                  title="${elem.title}"
+                  data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                ></dds-top-nav-item>
+              `;
+          }) }
+        </dds-top-nav>
+      `
+      : menuItems.map((elem, i) => 
+        elem.menuItems 
+          ? html`
+            <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
+              ${ elem.menuItems.map((item, j) => html`
+                <dds-left-nav-menu-item
+                  href="${item.url}"
+                  title="${item.title}"
+                  data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}"
+                ></dds-left-nav-menu-item>
+              `)}
+            </dds-left-nav-menu>
+          `
+          : html`
+            <dds-left-nav-item
+              href="${elem.url}"
+              title="${elem.title}"
+              data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+            ></dds-left-nav-item>
+          `
+        );
+    }
+    
+    return undefined;
+  }
+
   private _renderL1() {
-    const { _renderL1Name: renderL1Name } = this;
     return html`
-      <div class="${prefix}--masthead__l1">
-          ${renderL1Name()}
+      <div slot="masthead-l1" class="${prefix}--masthead__l1">
+          ${this._renderL1Name()}
+          ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </div>
     `;
   }
@@ -318,7 +377,6 @@ class DDSMastheadComposite extends LitElement {
       userStatus,
       l1Data,
       _loadSearchResults: loadSearchResults,
-      _renderL1: renderL1
     } = this;
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
@@ -331,6 +389,7 @@ class DDSMastheadComposite extends LitElement {
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
         ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${ this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined }
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -369,7 +428,7 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-global-bar>
         ${!l1Data 
           ? undefined
-        : renderL1() }
+        : this._renderL1() }
       </dds-masthead>
     `;
   }
