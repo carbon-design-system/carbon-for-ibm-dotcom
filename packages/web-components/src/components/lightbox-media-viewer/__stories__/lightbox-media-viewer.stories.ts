@@ -21,12 +21,12 @@ import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
 const images = {
-  '512 x 512 (1:1)': 'https://dummyimage.com/512x512/ee5396/161616&text=1:1',
-  '1024 x 512 (2:1)': 'https://dummyimage.com/1024x512/ee5396/161616&text=2:1',
-  '1280 x 720 (16:9)': 'https://dummyimage.com/1280x720/ee5396/161616&text=16:9',
-  '3000 x 1200 (16:9)': 'https://dummyimage.com/3000x1200/ee5396/161616&text=16:9',
-  '200 x 750 (15:4)': 'https://dummyimage.com/200x750/ee5396/161616&text=15:4',
-  '600 x 550 (12:11)': 'https://dummyimage.com/600x550/ee5396/161616&text=12:11',
+  '512 x 512 (1:1)': 'https://fpoimg.com/512x512?text=1:1&bg_color=ee5396&text_color=161616',
+  '1024 x 512 (2:1)': 'https://fpoimg.com/1024x512?text=2:1&bg_color=ee5396&text_color=161616',
+  '1280 x 720 (16:9)': 'https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616',
+  '3000 x 1200 (16:9)': 'https://fpoimg.com/3200x1200?text=16:9&bg_color=ee5396&text_color=161616',
+  '200 x 750 (15:4)': 'https://fpoimg.com/200x750?text=15:4&bg_color=ee5396&text_color=161616',
+  '600 x 550 (12:11)': 'https://fpoimg.com/600x550?text=12:11&bg_color=ee5396&text_color=161616',
 };
 
 export const Default = ({ parameters }) => {

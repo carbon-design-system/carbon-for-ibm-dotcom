@@ -19,7 +19,7 @@ const App = () => (
         {
           image: {
             defaultSrc:
-              "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
+              "https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616",
             alt: "Image alt text"
           },
           eyebrow: "Topic",
@@ -31,7 +31,7 @@ const App = () => (
         {
           image: {
             defaultSrc:
-              "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
+              "https://fpoimg.com/792x1056?text=3:4&bg_color=ee5396&text_color=161616",
             alt: "Image alt text"
           },
           eyebrow: "Blog",
@@ -43,7 +43,7 @@ const App = () => (
         {
           image: {
             defaultSrc:
-              "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
+              "https://fpoimg.com/1056x1056?text=1:1&bg_color=ee5396&text_color=161616",
             alt: "Image alt text"
           },
           eyebrow: "Topic",
@@ -55,7 +55,7 @@ const App = () => (
         {
           image: {
             defaultSrc:
-              "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
+              "https://fpoimg.com/1056x528?text=2:1&bg_color=ee5396&text_color=161616",
             alt: "Image alt text"
           },
           eyebrow: "Blog",
@@ -68,7 +68,7 @@ const App = () => (
         {
           image: {
             defaultSrc:
-              "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
+              "https://fpoimg.com/1056x594?text=16:9&bg_color=ee5396&text_color=161616",
             alt: "Image alt text"
           },
           eyebrow: "Topic",

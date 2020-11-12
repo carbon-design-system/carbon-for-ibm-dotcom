@@ -33,10 +33,17 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/cont
 <dds-content-block-simple>
   <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
   <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
-  <dds-image slot="media" alt="Image alt text" default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9">
-    <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x378/ee5396/161616&text=16:9"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/400x225/ee5396/161616&text=16:9"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x180/ee5396/161616&text=16:9"> </dds-image-item>
+  <dds-image
+    slot="media"
+    alt="Image alt text"
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+  >
+    <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
+    </dds-image-item>
   </dds-image>
   <dds-text-cta slot="cta" href="https://www.ibm.com/" type="local">Lorem ipsum dolor sit amet</dds-text-cta>
 </dds-content-block-simple>
@@ -45,7 +52,6 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/cont
 ## Props
 
 <Props of="dds-content-block-simple" />
-
 <Description markdown={markdownContents} />
 
 ## Stable selectors

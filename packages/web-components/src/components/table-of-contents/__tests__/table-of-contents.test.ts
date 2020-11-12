@@ -174,7 +174,11 @@ describe('dds-table-of-contents', function() {
       render(
         template({
           children: html`
-            <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672"></dds-image>
+            <dds-image
+              slot="heading"
+              alt="Alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+            ></dds-image>
             <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
           `,
         }),
@@ -190,7 +194,11 @@ describe('dds-table-of-contents', function() {
       render(
         template({
           children: html`
-            <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672"></dds-image>
+            <dds-image
+              slot="heading"
+              alt="Alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+            ></dds-image>
             <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
           `,
         }),
