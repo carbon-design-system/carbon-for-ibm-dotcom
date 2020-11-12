@@ -135,7 +135,8 @@ const Content = () => (
           },
         }}
         image={{
-          defaultSrc: 'https://dummyimage.com/600x600/ee5396/161616&text=1:1',
+          defaultSrc:
+            'https://fpoimg.com/600x600?text=1:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
         }}
       />
@@ -157,23 +158,23 @@ const Content = () => (
                 sources: [
                   {
                     src:
-                      'http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 320,
                   },
                   {
                     src:
-                      'http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 400,
                   },
                   {
                     src:
-                      'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
                 defaultSrc:
-                  'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+                  'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
               },
             },
             cta: {
@@ -192,23 +193,23 @@ const Content = () => (
                 sources: [
                   {
                     src:
-                      'http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 320,
                   },
                   {
                     src:
-                      'http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 400,
                   },
                   {
                     src:
-                      'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+                      'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
                 defaultSrc:
-                  'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+                  'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
               },
             },
           },
@@ -289,37 +290,43 @@ const Content = () => (
         logosGroup={[
           {
             title: 'Company A',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company B',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company C',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company D',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company E',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company F',
-            imgSrc: 'https://dummyimage.com/140x140',
+            imgSrc:
+              'https://fpoimg.com/140x140?text=Example%20Logo&bg_color=ee5396&text_color=161616',
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
@@ -335,7 +342,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
+                'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -347,7 +354,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
+                'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -359,7 +366,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
+                'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',

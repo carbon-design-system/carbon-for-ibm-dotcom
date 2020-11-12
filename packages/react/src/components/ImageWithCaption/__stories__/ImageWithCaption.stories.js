@@ -22,20 +22,23 @@ export default {
           sources: [
             {
               src:
-                'http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+                'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'sm',
             },
             {
-              src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+              src:
+                'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'md',
             },
             {
-              src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+              src:
+                'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'lg',
             },
           ],
           alt: 'image with caption image',
-          defaultSrc: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+          defaultSrc:
+            'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
         },
         copy: text(
           'Copy (copy):',

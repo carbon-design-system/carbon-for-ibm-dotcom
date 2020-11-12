@@ -76,11 +76,16 @@ const defaultCard = {
 
 const cardWithImages = {
   image: {
-    defaultSrc: 'https://dummyimage.com/1056x792/ee5396/161616&text=4:3',
+    defaultSrc:
+      'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
     alt: 'Image alt text',
   },
   eyebrow: 'Topic',
-  heading: 'Natural language processing.',
+  heading: () => {
+    const headings = ['Natural language processing.', 'asdfasdf', ';lkj;k;klj'];
+    console.log('ff', headings[Math.floor(Math.random() * 3) + 0]);
+    return headings[Math.floor(Math.random() * 3) + 0];
+  },
   cta: {
     href: 'https://www.example.com',
   },
@@ -110,10 +115,51 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map(_ => defaultCard),
+      CardGroup: () => ({
+        // cards: Array.from({
+        //   length: number('Number of cards', 5, {}, groupId),
+        // }).map(_ => defaultCard),
+        cards: [
+          {
+            heading: 'Nunc convallis lobortis  convallis lobortis',
+            copy: 'Lorem ipsum dolor sit amet.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            heading: 'Fusce gravida eu arcu',
+            copy:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            heading: 'Interdum et malesuada',
+            copy:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            heading: 'Nunc convallis loborti',
+            copy:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            heading: 'Nunc convallis lbortis',
+            copy:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+        ],
       }),
     },
   },

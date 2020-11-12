@@ -199,15 +199,16 @@ export const CenteredWithImage = ({ parameters }) => {
       image={{
         sources: [
           {
-            src: 'https://dummyimage.com/320x370/ee5396/ee5396',
+            src: 'https://fpoimg.com/320x370?bg_color=ee5396&text_color=161616',
             breakpoint: 'sm',
           },
           {
-            src: 'https://dummyimage.com/672x400/ee5396/ee5396',
+            src: 'https://fpoimg.com/672x400?bg_color=ee5396&text_color=161616',
             breakpoint: 'md',
           },
         ],
-        defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+        defaultSrc:
+          'https://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
         alt: 'lead space image',
       }}
     />

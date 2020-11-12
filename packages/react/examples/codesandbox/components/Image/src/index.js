@@ -13,20 +13,20 @@ import { Image } from "@carbon/ibmdotcom-react";
 
 const image = [
   {
-    src: 'http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+    src: 'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
     breakpoint: 'sm',
   },
   {
-    src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+    src: 'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
     breakpoint: 'md',
   },
   {
-    src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+    src: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
     breakpoint: 'lg',
   },
 ];
 const alt = "Image alt text";
-const defaultSrc = "https://dummyimage.com/672x336/ee5396/161616&text=2x1";
+const defaultSrc = "https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616";
 
 const App = () => (
   <div className="bx--grid">

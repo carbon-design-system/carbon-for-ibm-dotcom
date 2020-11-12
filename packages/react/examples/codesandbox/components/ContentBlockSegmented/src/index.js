@@ -23,20 +23,20 @@ const App = () => (
         image: {
           sources: [
             {
-              src: "http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616",
+              src: "https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616",
               breakpoint: 320
             },
             {
-              src: "http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
+              src: "https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
               breakpoint: 400
             },
             {
-              src: "http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
+              src: "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
               breakpoint: 672
             }
           ],
           alt: "Image alt text",
-          defaultSrc: "http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+          defaultSrc: "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
         }
       }}
       items={[
@@ -52,20 +52,20 @@ const App = () => (
           image: {
             sources: [
               {
-                src: "http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616",
+                src: "https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616",
                 breakpoint: 320
               },
               {
-                src: "http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
+                src: "https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616",
                 breakpoint: 400
               },
               {
-                src: "http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
+                src: "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616",
                 breakpoint: 672
               }
             ],
             alt: "Image alt text",
-            defaultSrc: "http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+            defaultSrc: "https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
           }
         }
       ]}

@@ -20,20 +20,20 @@ const App = () => (
         image: {
           sources: [
             {
-              src: "http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616",
+              src: "https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616",
               breakpoint: 320
             },
             {
-              src: "http://fpoimg.com/400x400?text=1:1&bg_color=ee5396&text_color=161616",
+              src: "https://fpoimg.com/400x400?text=1:1&bg_color=ee5396&text_color=161616",
               breakpoint: 400
             },
             {
-              src: "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+              src: "https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616",
               breakpoint: 672
             }
           ],
           alt: "Image alt text",
-          defaultSrc: "https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+          defaultSrc: "https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616"
         }
       }}
       heading="Lorem ipsum dolor sit amet"
