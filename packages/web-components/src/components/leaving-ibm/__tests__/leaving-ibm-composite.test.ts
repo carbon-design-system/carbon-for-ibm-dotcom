@@ -8,27 +8,23 @@
  */
 
 import { html, render } from 'lit-html';
+/* eslint-disable import/no-duplicates */
+import DDSLeavingIbmComposite from '../leaving-ibm-composite';
+import '../leaving-ibm-composite';
 
 const template = (props?) => {
   const { open, href } = props ?? {};
   return html`
-    <dds-leaving-ibm-container ?open=${open} href="${href}"> </dds-leaving-ibm-container>
+    <dds-leaving-ibm-composite ?open=${open} href="${href}"> </dds-leaving-ibm-composite>
   `;
 };
 
 describe('dds-leaving-ibm-composite', function() {
   it('should render modal body', async function() {
-    render(template(), document.body);
+    render(template({ open: true, href: 'http://www.example.com' }), document.body);
     await Promise.resolve();
-    const leavingIbmModal = document.body.querySelector('dds-leaving-ibm-modal');
-    expect(leavingIbmModal!.querySelector('dds-leaving-ibm-modal-body')).toMatchSnapshot();
-  });
 
-  it('should render modal heading', async function() {
-    render(template(), document.body);
-    await Promise.resolve();
-    const leavingIbmModal = document.body.querySelector('dds-leaving-ibm-modal');
-    expect(leavingIbmModal!.querySelector('dds-leaving-ibm-modal-heading')).toMatchSnapshot();
+    expect(document.querySelector('dds-leaving-ibm-composite') as DDSLeavingIbmComposite).toMatchSnapshot();
   });
 
   afterEach(function() {
