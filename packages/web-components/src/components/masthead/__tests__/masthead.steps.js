@@ -30,11 +30,11 @@ describe('dds-masthead-*', () => {
     });
 
     it('should support navigating in top nav menu', async () => {
-      await page.click('dds-megamenu-top-nav-menu[menu-label*="Products"]');
+      await page.click('dds-megamenu-top-nav-menu:first-of-type');
       const promiseNavigation = page.waitForNavigation();
-      await page.click('dds-megamenu-link-with-icon[title*="Products"]');
+      await page.click('dds-megamenu-link-with-icon:first-of-type');
       await promiseNavigation;
-      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/(products|search\/products)/);
+      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/[^ ]*/);
     });
 
     it('should support showing/hiding the search box', async () => {
@@ -53,16 +53,10 @@ describe('dds-masthead-*', () => {
 
     it('should support navigating in left nav menu', async () => {
       await page.click('dds-masthead-menu-button');
-      const promiseNavigation = page.waitForNavigation();
       await page.click('dds-left-nav-menu[title*="Products"]');
-      // works to here
-
-      await promiseNavigation;
-      await page.click('dds-left-nav-menu[title*="Industries"]');
-      // await promiseNavigation;
-      // await page.click('dds-left-nav-menu-item[title="Db2"]');
-      // await promiseNavigation;
-      // expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/(products|search\/products)/);
+      await page.click('dds-left-nav-menu[title="Industries"]');
+      await page.click('dds-left-nav-menu-item[title="Healthcare"]');
+      expect(await page.evaluate(() => window.location.href)).toMatch(/https:\/\/www.ibm.com\/industries\/healthcare/);
     });
   });
 });
