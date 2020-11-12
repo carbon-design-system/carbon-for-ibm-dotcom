@@ -4,6 +4,7 @@
 
 - [Contributing to Carbon for IBM.com Web Components package](#contributing-to-carbon-for-ibmcom-web-components-package)
   - [Overview](#overview)
+  - [Get Started](#get-started)
   - [Packages](#packages)
   - [JSDoc](#jsdoc)
   - [Stable Selectors](#stable-selectors)
@@ -11,6 +12,8 @@
   - [Environment Variables](#environment-variables)
   - [Storybook](#storybook)
   - [Unit Test Coverage](#unit-test-coverage)
+  - [Running build integration test](#running-build-integration-test)
+  - [Running UI integration test](#running-ui-integration-test)
   - [Further Reading](#further-reading)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -135,6 +138,8 @@ in the component folder under a sub-folder `__tests__`. The file name structure
 should be `my-component.test.js`. Be sure to include any mock data (if necessary)
 in a `data` subfolder under `__tests__`. 
 
+All commands below should be run at `packages/web-components` directory.
+
 To view a coverage report (and run the test suite), you can run:
 
 ```bash
@@ -185,6 +190,52 @@ Above options can be used together. This is useful to debug your code as you tes
 
 ```
 > gulp test:unit -s src/components/link-with-icon/__tests__/link-with-icon.test.ts -b Chrome -d -k
+```
+
+## Running build integration test
+
+All commands below should be run at `packages/web-components` directory.
+
+You can run build integration test by:
+
+```
+> yarn test:integration:build
+```
+
+You can run a specific set of UI test steps (e.g. running `tests/integration/build/masthead_steps.js` only) by:
+
+```
+> yarn test:integration:build masthead_steps
+```
+
+By default Chrome runs in headless mode. You can show Chrome UI by:
+
+```
+> CI=false yarn test:integration:build
+```
+
+## Running UI integration test
+
+All commands below should be run at `packages/web-components` directory.
+
+You can run UI integration test by:
+
+```
+> yarn test:integration:ui
+```
+
+UI integration test runs against the Storybook environment. Running UI integration test will be faster by starting Storybook environment beforehand.
+
+You can run a specific set of UI test steps (e.g. running `src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer_steps.js` only) by:
+
+```
+> yarn test:integration:ui lightbox-media-viewer_steps
+```
+
+By default Chrome runs in headless mode. You can show Chrome UI by:
+
+```
+> CI=false yarn test:integration:ui
 ```
 
 ## Further Reading
