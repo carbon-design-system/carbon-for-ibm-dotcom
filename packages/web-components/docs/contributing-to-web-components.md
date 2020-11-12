@@ -208,7 +208,7 @@ You can run a specific set of UI test steps (e.g. running `tests/integration/bui
 > yarn test:integration:build masthead_steps
 ```
 
-By default Chrome runs in headless mode. You can show Chrome UI by:
+By default Chrome runs in headless mode. To enable Chrome UI while running tests:
 
 ```
 > CI=false yarn test:integration:build
