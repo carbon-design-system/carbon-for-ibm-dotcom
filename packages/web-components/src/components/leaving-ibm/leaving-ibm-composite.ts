@@ -10,7 +10,6 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import ModalRenderMixin from '../../globals/mixins/modal-render';
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
@@ -22,12 +21,12 @@ import styles from './leaving-ibm.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Component that rendres leaving IBM component labels.
+ * Component that renders leaving IBM modal component.
  *
  * @element dds-leaving-ibm-composite
  */
 @customElement(`${ddsPrefix}-leaving-ibm-composite`)
-class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
+class DDSLeavingIbmComposite extends LitElement {
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
    *
@@ -89,7 +88,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
     }
   }
 
-  renderModal() {
+  render() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
       <dds-leaving-ibm-modal open="${open}" size="sm">
