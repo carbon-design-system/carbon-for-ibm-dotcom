@@ -218,7 +218,7 @@ By default Chrome runs in headless mode. You can show Chrome UI by:
 
 All commands below should be run at `packages/web-components` directory.
 
-You can run UI integration test by:
+To run UI integration tests:
 
 ```
 > yarn test:integration:ui
