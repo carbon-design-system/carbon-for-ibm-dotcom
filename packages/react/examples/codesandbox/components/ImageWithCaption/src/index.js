@@ -14,7 +14,7 @@ import { ImageWithCaption } from "@carbon/ibmdotcom-react";
 const image = {
   sources: [
     {
-      src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+      src: 'http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
       breakpoint: 'sm',
     },
     {

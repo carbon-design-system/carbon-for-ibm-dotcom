@@ -1,4 +1,4 @@
-/** 
+/**
   Copyright IBM Corp. 2016, 2020
 
   This source code is licensed under the Apache-2.0 license found in the
@@ -20,11 +20,11 @@ const App = () => (
         image: {
           sources: [
             {
-              src: "https://dummyimage.com/320x160/ee5396/161616&text=2x1",
+              src: "http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616",
               breakpoint: 320
             },
             {
-              src: "https://dummyimage.com/400x400/ee5396/161616&text=1x1",
+              src: "http://fpoimg.com/400x400?text=1:1&bg_color=ee5396&text_color=161616",
               breakpoint: 400
             },
             {

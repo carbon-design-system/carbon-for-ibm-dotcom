@@ -157,23 +157,23 @@ const Content = () => (
                 sources: [
                   {
                     src:
-                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 320,
                   },
                   {
                     src:
-                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 400,
                   },
                   {
                     src:
-                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
                 defaultSrc:
-                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                  'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
               },
             },
             cta: {
@@ -192,23 +192,23 @@ const Content = () => (
                 sources: [
                   {
                     src:
-                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 320,
                   },
                   {
                     src:
-                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 400,
                   },
                   {
                     src:
-                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                      'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
                 defaultSrc:
-                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                  'http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
               },
             },
           },
@@ -335,7 +335,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -347,7 +347,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -359,7 +359,7 @@ const Content = () => (
           {
             image: {
               defaultSrc:
-                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+                'http://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
