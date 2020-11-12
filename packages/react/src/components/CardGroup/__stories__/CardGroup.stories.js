@@ -81,11 +81,7 @@ const cardWithImages = {
     alt: 'Image alt text',
   },
   eyebrow: 'Topic',
-  heading: () => {
-    const headings = ['Natural language processing.', 'asdfasdf', ';lkj;k;klj'];
-    console.log('ff', headings[Math.floor(Math.random() * 3) + 0]);
-    return headings[Math.floor(Math.random() * 3) + 0];
-  },
+  heading: 'Natural language processing.',
   cta: {
     href: 'https://www.example.com',
   },
@@ -115,51 +111,10 @@ export const Default = ({ parameters }) => {
 Default.story = {
   parameters: {
     knobs: {
-      CardGroup: () => ({
-        // cards: Array.from({
-        //   length: number('Number of cards', 5, {}, groupId),
-        // }).map(_ => defaultCard),
-        cards: [
-          {
-            heading: 'Nunc convallis lobortis  convallis lobortis',
-            copy: 'Lorem ipsum dolor sit amet.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            heading: 'Fusce gravida eu arcu',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            heading: 'Interdum et malesuada',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            heading: 'Nunc convallis loborti',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-          {
-            heading: 'Nunc convallis lbortis',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-            cta: {
-              href: 'https://www.example.com',
-            },
-          },
-        ],
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(_ => defaultCard),
       }),
     },
   },
