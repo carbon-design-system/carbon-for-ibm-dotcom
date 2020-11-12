@@ -39,7 +39,7 @@ describe('dds-callout-with-media', function() {
           children: html`
             <dds-callout-with-media-image
               alt="Image alt text"
-              default-src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+              default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             >
             </dds-callout-with-media-image>

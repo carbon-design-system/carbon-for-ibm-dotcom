@@ -15,20 +15,20 @@ import '../image';
 import readme from './README.stories.mdx';
 
 const images = {
-  '2:1': 'https://dummyimage.com/672x336/ee5396/161616&text=2:1',
-  '16:9': 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+  '2:1': 'https://fpoimg.com/672x336?text=2:1&amp;bg_color=ee5396&amp;text_color=161616',
+  '16:9': 'https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616',
 };
 
 const srcsets = {
-  'https://dummyimage.com/672x336/ee5396/161616&text=2:1': [
-    'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
-    'https://dummyimage.com/400x200/ee5396/161616&text=2:1',
-    'https://dummyimage.com/672x336/ee5396/161616&text=2:1',
+  'https://fpoimg.com/672x336?text=2:1&amp;bg_color=ee5396&amp;text_color=161616': [
+    'https://fpoimg.com/320x160?text=2:1&amp;bg_color=ee5396&amp;text_color=161616',
+    'https://fpoimg.com/400x200?text=2:1&amp;bg_color=ee5396&amp;text_color=161616',
+    'https://fpoimg.com/672x336?text=2:1&amp;bg_color=ee5396&amp;text_color=161616',
   ],
-  'https://dummyimage.com/672x378/ee5396/161616&text=16:9': [
-    'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-    'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-    'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+  'https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616': [
+    'https://fpoimg.com/672x672?text=16:9&amp;bg_color=ee5396&amp;text_color=161616',
+    'https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616',
+    'https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616',
   ],
 };
 
@@ -71,7 +71,7 @@ export default {
         defaultSrc: select(
           'Default image (default-src)',
           images,
-          'https://dummyimage.com/672x336/ee5396/161616&text=2:1',
+          'https://fpoimg.com/672x336?text=2:1&amp;bg_color=ee5396&amp;text_color=161616',
           groupId
         ),
       }),

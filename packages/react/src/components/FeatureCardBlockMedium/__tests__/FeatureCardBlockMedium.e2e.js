@@ -58,7 +58,7 @@ describe('FeatureCardBlockMedium', () => {
 xdescribe('FeatureCardBlockMedium: Heading', () => {
   beforeAll(() => {
     const query =
-      '&knob-Pattern%20heading(required):_FeatureCardBlockMedium=Explore%20AI%20use%20cases%20in%20all%20industries%20Curabitur%20malesuada%20varius%20mi%20eu%20posuere&knob-Card%20Heading:_FeatureCardBlockMedium=Explore%20AI%20use%20cases%20in%20all%20industries&knob-Card%20href:_FeatureCardBlockMedium=https://www.example.com&knob-card%20image_FeatureCardBlockMedium={%22defaultSrc%22:%22https://dummyimage.com/672x672/ee5396/161616&text=1x1%22,%22alt%22:%22Image%20alt%20text%22}';
+      '&knob-Pattern%20heading(required):_FeatureCardBlockMedium=Explore%20AI%20use%20cases%20in%20all%20industries%20Curabitur%20malesuada%20varius%20mi%20eu%20posuere&knob-Card%20Heading:_FeatureCardBlockMedium=Explore%20AI%20use%20cases%20in%20all%20industries&knob-Card%20href:_FeatureCardBlockMedium=https://www.example.com&knob-card%20image_FeatureCardBlockMedium={%22defaultSrc%22:%22https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616%22,%22alt%22:%22Image%20alt%20text%22}';
     browser.url(_url + _path + query);
   });
 

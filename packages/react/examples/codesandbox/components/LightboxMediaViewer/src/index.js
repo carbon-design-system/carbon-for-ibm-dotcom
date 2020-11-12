@@ -13,7 +13,7 @@ import ReactDom from "react-dom";
 
 const App = () => {
   const image = {
-    src: "https://dummyimage.com/1280x720/ee5396/161616&text=16:9",
+    src: "https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616",
     alt: "Image alt text",
     title: "Curabitur malesuada varius mi eu posuere",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,

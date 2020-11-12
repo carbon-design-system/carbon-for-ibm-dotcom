@@ -180,7 +180,7 @@ describe('dds-leadspace', function() {
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
           alt: 'alt text',
-          defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+          defaultSrc: 'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
         }),
         document.body
       );
@@ -224,7 +224,7 @@ describe('dds-leadspace', function() {
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
           alt: 'alt text',
-          defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+          defaultSrc: 'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
         }),
         document.body
       );
@@ -247,7 +247,7 @@ describe('dds-leadspace', function() {
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
           alt: 'alt text',
-          defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+          defaultSrc: 'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
         }),
         document.body
       );
@@ -291,7 +291,7 @@ describe('dds-leadspace', function() {
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
           alt: 'alt text',
-          defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+          defaultSrc: 'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
         }),
         document.body
       );
