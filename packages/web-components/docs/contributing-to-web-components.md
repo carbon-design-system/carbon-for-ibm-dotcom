@@ -196,7 +196,7 @@ Above options can be used together. This is useful to debug your code as you tes
 
 All commands below should be run at `packages/web-components` directory.
 
-You can run build integration test by:
+To run build integration tests:
 
 ```
 > yarn test:integration:build
