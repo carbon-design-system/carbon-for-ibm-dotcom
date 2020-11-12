@@ -1,0 +1,65 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# `<dds-content-group-cards>`
+
+> The Content Group – Cards pattern is a variant of `<dds-content-group>`, and
+> includes a heading, copy, and card items.
+>
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-group-cards)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-group-cards)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
+```
+
+### HTML
+
+```html
+  <dds-content-group-cards>
+    <dds-content-group-heading>${heading}</dds-content-group-heading>
+    <p slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p slot="copy">
+    <dds-content-group-cards-item href="www.ibm.com">
+      <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <dds-card-footer icon-placement="left">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-content-group-cards-item>
+    <dds-content-group-cards-item href="www.ibm.com">
+      <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <dds-card-footer icon-placement="left">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-content-group-cards-item>
+  </dds-content-group-cards>
+```
+
+## Props
+
+<Props of="dds-content-group-cards" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector          | Compatibility selector                          | Description |
+| -------------------------------- | ----------------------------------------------- | ----------- |
+| `<dds-content-group-cards>`      | `data-autoid="dds--content-group-cards"`        | Component   |
+| `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"`       | Component   |
+| `<dds-content-group-cards-item>` | `data-autoid="dds--content-group-cards-item"`   | Component   |
+
+
+<Description markdown={contributing} />
