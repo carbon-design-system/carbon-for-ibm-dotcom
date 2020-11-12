@@ -396,7 +396,6 @@ class DDSMastheadComposite extends LitElement {
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
-        <slot></slot>
         </dds-masthead-menu-button>
         <dds-masthead-logo></dds-masthead-logo>
         ${!brandName
