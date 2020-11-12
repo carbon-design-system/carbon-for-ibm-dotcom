@@ -13,11 +13,10 @@ import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../content-item-horizontal';
+import '../content-item-horizontal-copy';
 import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
 import '../../link-list/link-list';
 import '../../cta/link-list-item-cta';
-import styles from './content-item-horizontal.stories.scss';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/shared-enums';
 
@@ -33,7 +32,7 @@ export const Default = ({ parameters }) => {
     <dds-content-item-horizontal>
       <span slot="eyebrow">${eyebrow}</span>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
       <dds-link-list slot="cta" type="vertical">
         <dds-link-list-item-cta
           icon-placement="${ICON_PLACEMENT.RIGHT}"
@@ -58,12 +57,9 @@ export default {
   title: 'Components/Content Item Horizontal',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
+          <div class="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2">
             ${story()}
           </div>
         </div>
@@ -72,6 +68,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    hasVerticalSpacingInComponent: true,
     hasGrid: true,
     knobs: {
       ContentItemHorizontal: () => ({
