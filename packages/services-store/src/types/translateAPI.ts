@@ -92,6 +92,21 @@ export interface MastheadProfileItem {
 }
 
 /**
+ * Labels object for leaving ibm component
+ */
+export interface LeavingIBMLabels {
+  LEAVING001: string;
+  LEAVING002: string;
+  LEAVING003: string;
+}
+
+/**
+ * Misc labels
+ */
+export interface MiscLabels {
+  continueText: string;
+}
+/**
  * The translation data for ibm.com sites
  */
 export interface Translation {
@@ -126,6 +141,16 @@ export interface Translation {
      */
     signedout: MastheadProfileItem[];
   };
+
+  /**
+   * Miscellaneous translations
+   */
+  misc: MiscLabels;
+
+  /**
+   * Leaving IBM translations
+   */
+  leaving: LeavingIBMLabels;
 }
 
 /**
