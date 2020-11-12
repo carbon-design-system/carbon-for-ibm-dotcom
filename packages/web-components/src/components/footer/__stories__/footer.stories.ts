@@ -13,7 +13,6 @@ import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
 import '../footer-container';
-import styles from './footer.stories.scss';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
@@ -23,9 +22,6 @@ export const base = ({ parameters }) => {
   const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
-    <style>
-      ${styles}
-    </style>
     ${useMock
       ? html`
           <dds-footer-composite
@@ -74,6 +70,7 @@ export default {
   title: 'Components/Footer',
   parameters: {
     ...readme.parameters,
+    useRawContainer: true,
     props: (() => {
       // Lets `<dds-footer-container>` load the footer links
       const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');

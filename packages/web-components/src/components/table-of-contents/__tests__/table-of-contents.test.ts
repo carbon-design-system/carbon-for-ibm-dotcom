@@ -9,6 +9,8 @@
 
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
+import MockLayoutObserver from '../../../../tests/utils/mock-layout-observer';
+import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 /* eslint-disable import/no-duplicates */
 import DDSTableOfContents from '../table-of-contents';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -21,103 +23,6 @@ const template = (props?) => {
     <dds-table-of-contents>${children}</dds-table-of-contents>
   `;
 };
-
-/**
- * A mock version of `ResizeObserver` or `IntersectionObserver`.
- */
-abstract class MockLayoutObserver {
-  /**
-   * The callback.
-   */
-  protected _callback?: IntersectionObserverCallback;
-
-  /**
-   * The options.
-   */
-  protected _options: IntersectionObserverInit = {};
-
-  /**
-   * The observed elements.
-   */
-  protected _targets = new Set<Element>();
-
-  /**
-   * The instances.
-   */
-  protected static _instances = null! as Set<MockLayoutObserver>;
-
-  constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
-    this._callback = callback;
-    if (options) {
-      Object.assign(this._options, options);
-    }
-  }
-
-  /**
-   * Unobserves all elements.
-   */
-  disconnect() {
-    this._targets.forEach(target => {
-      this.unobserve(target);
-    });
-  }
-
-  /**
-   * Observes the given element.
-   */
-  observe(elem: Element) {
-    this._targets.add(elem);
-    (this.constructor as typeof MockLayoutObserver)._instances.add(this);
-  }
-
-  /**
-   * Unobserves the given element.
-   */
-  unobserve(elem: Element) {
-    this._targets.delete(elem);
-    if (this._targets.size === 0) {
-      (this.constructor as typeof MockLayoutObserver)._instances.delete(this);
-    }
-  }
-
-  /**
-   * @returns The array of options of all instances.
-   */
-  static get instanceOptions() {
-    return Array.from(this._instances).map(instance => instance._options);
-  }
-}
-
-/**
- * A mock version of `ResizeObserver`.
- */
-class MockResizeObserver extends MockLayoutObserver {
-  /**
-   * The instances.
-   */
-  protected static _instances = new Set<MockResizeObserver>();
-
-  /**
-   * Triggers the callbacks on an element.
-   *
-   * @param elem The element.
-   */
-  static run(elem: Element, contentRect: Partial<ClientRect>) {
-    this._instances.forEach(instance => {
-      if (instance._callback && instance._targets.has(elem)) {
-        instance._callback(
-          [
-            ({
-              contentRect,
-              target: elem,
-            } as unknown) as IntersectionObserverEntry,
-          ],
-          (instance as unknown) as IntersectionObserver
-        );
-      }
-    });
-  }
-}
 
 /**
  * A mock version of `IntersectionObserver`.

@@ -13,3 +13,29 @@
 
   display: block;
 }
+
+:host(#{$dds-prefix}-content-section-leading) {
+  display: block;
+}
+
+:host(#{$dds-prefix}-content-section-heading) {
+  display: block;
+
+  // FIXME: Define in `@carbon/ibmdotcom-styles`
+  @include type-style('expressive-heading-02');
+
+  // `<dds-content-section-heading>` is for use within `<dds-content-section-leading>`,
+  // which defines a different spacing from `.bx--content-section__heading`
+  margin-top: 0;
+  margin-bottom: $spacing-06;
+}
+
+:host(#{$dds-prefix}-content-section-copy) {
+  display: block;
+
+  // FIXME: Define in `@carbon/ibmdotcom-styles`
+  @include type-style('body-short-02');
+
+  color: $text-02;
+  margin-bottom: $spacing-06;
+}

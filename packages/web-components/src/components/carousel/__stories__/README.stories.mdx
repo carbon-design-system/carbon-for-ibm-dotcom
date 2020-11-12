@@ -1,0 +1,95 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# Carousel
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/carousel)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/carousel)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/carousel/carousel.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-leading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-copy.js';
+
+```
+
+### HTML
+
+```html
+<dds-carousel>
+  <dds-content-section-leading>
+    <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+    <dds-content-section-copy>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    </dds-content-section-copy>
+    <dds-link-with-icon slot="footer" href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+      Link text
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-link-with-icon>
+  </dds-content-section-leading>
+  <dds-card href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+    <span slot="heading">Lorem ipsum dolor sit amet</span>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    <dds-card-footer>
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-card-footer>
+  </dds-card>
+  <dds-card href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+    <span slot="heading">Lorem ipsum dolor sit amet</span>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    <dds-card-footer>
+      <svg
+        slot="icon"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-card-footer>
+  </dds-card>
+</dds-carousel>
+```
+
+## Props
+
+<Props of="dds-card" />
+
+<Description markdown={contributing} />
