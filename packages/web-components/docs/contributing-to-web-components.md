@@ -202,7 +202,7 @@ You can run build integration test by:
 > yarn test:integration:build
 ```
 
-You can run a specific set of UI test steps (e.g. running `tests/integration/build/masthead_steps.js` only) by:
+To run a specific set of UI test steps (e.g. running `tests/integration/build/masthead_steps.js` only):
 
 ```
 > yarn test:integration:build masthead_steps
