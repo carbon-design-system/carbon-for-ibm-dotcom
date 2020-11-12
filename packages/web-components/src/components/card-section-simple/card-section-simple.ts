@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -17,20 +17,12 @@ import DDSContentSection from '../content-section/content-section';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * The CTA Section pattern
+ * The Card Section pattern
  *
- * @element dds-cta-section
- * @slot heading - The text heading.
- * @slot buttons - The CTA Buttons.
+ * @element dds-card-section-simple
  */
 @customElement(`${ddsPrefix}-card-section-simple`)
 class DDSCardSectionSimple extends StableSelectorMixin(DDSContentSection) {
-  /**
-   * `true` if there is CTA content.
-   */
-  @internalProperty()
-  protected _hasFooter = false;
-
   /**
    * Applies section attribute
    */

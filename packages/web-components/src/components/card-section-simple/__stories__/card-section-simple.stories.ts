@@ -30,6 +30,18 @@ const defaultCardGroupItem = html`
   </dds-card-group-item>
 `;
 
+const cardGroupItemWithImages = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
+    </dds-image>
+    <div slot="eyebrow">Topic</div>
+    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
+
 export const Default = ({ parameters }) => {
   const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
   return html`
@@ -54,6 +66,29 @@ export const WithCTA = ({ parameters }) => {
       </dds-card-group>
     </dds-card-section-simple>
   `;
+};
+
+export const WithImages = ({ parameters }) => {
+  const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
+  return html`
+    <dds-card-section-simple heading=${ifNonNull(heading)}>
+      <dds-card-group>${cards}</dds-card-group>
+    </dds-card-section-simple>
+  `;
+};
+
+WithImages.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardSectionSimple: ({ groupId }) => ({
+        heading: textNullable('Heading (required)', 'Aliquam condimentum interdum', groupId),
+        cards: Array.from({
+          length: 5,
+        }).map(() => cardGroupItemWithImages),
+      }),
+    },
+  },
 };
 
 export default {
