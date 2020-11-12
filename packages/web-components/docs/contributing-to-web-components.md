@@ -226,7 +226,7 @@ You can run UI integration test by:
 
 UI integration test runs against the Storybook environment. Running UI integration test will be faster by starting Storybook environment beforehand.
 
-You can run a specific set of UI test steps (e.g. running `src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer_steps.js` only) by:
+To run a specific set of UI test steps (e.g. running `src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer_steps.js` only):
 
 ```
 > yarn test:integration:ui lightbox-media-viewer_steps
