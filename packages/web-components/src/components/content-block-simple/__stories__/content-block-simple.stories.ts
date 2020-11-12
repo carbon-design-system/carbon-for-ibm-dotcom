@@ -16,6 +16,7 @@ import { CTA_TYPE } from '../../cta/shared-enums';
 import '../../image/image';
 import '../../cta/text-cta';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
+import '../../content-item/content-item-copy';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
 import '../content-block-simple';
@@ -68,8 +69,9 @@ export const Default = ({ parameters }) => {
   const { heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-content-block-simple .copy="${ifNonNull(copy)}">
+    <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -79,9 +81,10 @@ export const WithImage = ({ parameters }) => {
   const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}" .copy="${ifNonNull(copy)}">
+    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -91,8 +94,9 @@ export const WithVideo = ({ parameters }) => {
   const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}" .copy="${ifNonNull(copy)}">
+    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
@@ -103,21 +107,22 @@ export const WithAsideElements = ({ parameters }) => {
   const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   return html`
-    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}" .copy="${ifNonNull(copy)}">
+    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
       ${image}
       <dds-content-block-complementary>
-        <!-- TODO: Replace with <dds-link-list> -->
-        <div style="margin-top: 4rem">
-          <dds-text-cta href="https://ibm.com" cta-type="local">
-            Containerization A Complete Guide
-          </dds-text-cta>
-        </div>
-        <div style="margin-bottom: 4rem">
-          <dds-text-cta href="https://ibm.com" cta-type="external">
-            Why should you use microservices and containers
-          </dds-tet-cta>
-        </div>
+        <dds-link-list type="default">
+          <span slot="heading">Tutorial</span>
+          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
+            <p>Containerization A Complete Guide</p>
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-link-list-item-card-cta>
+          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+            <p>Why should you use microservices and containers</p>
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-link-list-item-card-cta>
+        </dds-link-list>
       </dds-content-block-complementary>
       <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>

@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../internal/content-group/content-group';
 @import '../feature-card/feature-card';
@@ -30,6 +31,12 @@
 
     &:focus {
       outline: none;
+    }
+
+    // There is no content under `.#{$prefix}--card__heading` in feature card block medium,
+    // because `.#{$prefix}--card__heading` actually is a copy content and the heading content goes outside the card
+    .#{$prefix}--card .#{$prefix}--card__heading {
+      margin-bottom: 0;
     }
   }
 }

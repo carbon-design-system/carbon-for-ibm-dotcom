@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-list-item),
@@ -19,10 +19,6 @@
   .#{$prefix}--link {
     cursor: pointer;
 
-    > span {
-      flex: 1;
-    }
-
     &:focus {
       outline: none;
     }
@@ -31,6 +27,24 @@
   &:focus {
     outline: 2px solid $focus;
     outline-offset: -2px;
+  }
+
+  /* stylelint-disable declaration-no-important */
+  &:nth-child(5n) {
+    margin-top: -1px !important;
+
+    @include carbon--breakpoint('md') {
+      margin-top: -3px !important;
+    }
+  }
+  /* stylelint-enable declaration-no-important */
+}
+
+:host(#{$dds-prefix}-link-list-item) {
+  .#{$prefix}--link {
+    > span {
+      flex: 1;
+    }
   }
 }
 
@@ -52,6 +66,26 @@
       border-bottom: 1px solid $ui-03;
       margin-top: -1px;
       margin-left: -$carbon--layout-01;
+    }
+  }
+
+  &.#{$prefix}--link-list__split {
+    @include carbon--breakpoint('md') {
+      ul {
+        display: block;
+        columns: 2;
+        column-gap: $layout-03;
+        flex: 1;
+      }
+
+      .#{$prefix}--link-list__heading {
+        width: 33.3%;
+        padding-right: 10%;
+      }
+
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        display: block;
+      }
     }
   }
 }

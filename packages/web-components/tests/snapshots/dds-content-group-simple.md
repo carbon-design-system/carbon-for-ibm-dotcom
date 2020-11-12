@@ -7,6 +7,8 @@
 ```
 <slot name="heading">
 </slot>
+<slot>
+</slot>
 <div class="bx--content-group__children bx--content-group__col">
   <div>
     <slot name="media">
@@ -32,11 +34,8 @@
 ```
 <slot name="heading">
 </slot>
-<dds-markdown
-  class="bx--content-group__copy"
-  nobold=""
->
-</dds-markdown>
+<slot>
+</slot>
 <div class="bx--content-group__children bx--content-group__col">
   <div>
     <slot name="media">

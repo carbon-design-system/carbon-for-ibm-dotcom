@@ -12,7 +12,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../image/image';
 import '../feature-card-block-large';
+import '../feature-card-block-large-footer';
 
 export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-large'] ?? {};
@@ -30,10 +32,12 @@ export const Default = ({ parameters }) => {
         <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1">
         </dds-image-item>
       </dds-image>
-      <slot slot="eyebrow">${eyebrow}</slot>
-      <slot slot="heading">${heading}</slot>
+      <span slot="eyebrow">${eyebrow}</span>
+      <span slot="heading">${heading}</span>
       <p>${copy}</p>
-      ${ArrowRight20({ slot: 'footer' })}
+      <dds-feature-card-block-large-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-feature-card-block-large-footer>
     </dds-feature-card-block-large>
   `;
 };

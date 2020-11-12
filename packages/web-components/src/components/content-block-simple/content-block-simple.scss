@@ -6,9 +6,11 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vars';
-@import '../../globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-simple/content-block-simple';
+@import '@carbon/ibmdotcom-styles/scss/components/image-with-caption/image-with-caption';
+@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
 
 :host(#{$dds-prefix}-content-block-simple) {
   display: block;

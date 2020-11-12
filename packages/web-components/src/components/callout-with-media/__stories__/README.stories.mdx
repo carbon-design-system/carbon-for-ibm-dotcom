@@ -1,0 +1,60 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
+import CalloutWithMedia from '../CalloutWithMedia';
+
+# Callout with Media
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/callout-with-media)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components/examples/codesandbox/components/callout-with-media)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media.js';
+```
+
+### HTML
+
+```html
+<dds-callout-with-media>
+  <dds-content-block-heading slot="heading">lorum ipsum dolor sit ameet</dds-content-block-heading>
+  <dds-content-item-copy>lorum ipsum dolor sit ameet</dds-content-item-copy>
+  <dds-callout-with-media-image
+   alt="Image alt text"
+   default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+   heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+  </dds-callout-with-media-image>
+</dds-callout-with-media>
+```
+
+## Props
+
+<Props of="dds-content-block-simple" />
+
+### `<dds-callout-with-media-image>`
+<Props of="dds-callout-with-media-image" />
+
+### `<dds-callout-with-media-video>`
+<Props of="dds-callout-with-media-video" />
+
+<Description markdown={markdownContents} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector          | Compatibility selector                        | Description |
+| -------------------------------- | --------------------------------------------- | ----------- |
+| `<dds-callout-with-media>`       | `data-autoid="dds--callout-with-media"`       | Component   |
+| `<dds-callout-with-media-image>` | `data-autoid="dds--callout-with-media-image"` | Component   |
+| `<dds-callout-with-media-video>` | `data-autoid="dds--callout-with-media-video"` | Component   |
+
+<Description markdown={contributing} />

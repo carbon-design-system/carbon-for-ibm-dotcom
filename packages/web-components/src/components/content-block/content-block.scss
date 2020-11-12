@@ -6,9 +6,10 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vars';
-@import '../../globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-content-block),
@@ -19,6 +20,10 @@
 
 :host(#{$dds-prefix}-content-block-complementary) {
   @include dds--make-col(1, 3);
+}
+
+:host(#{$dds-prefix}-content-block-paragraph) {
+  display: block;
 }
 
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version

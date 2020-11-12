@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/content-width';
 @import '../../globals/utils/hang';
@@ -13,7 +14,9 @@
 @mixin content-block {
   :host(#{$dds-prefix}-content-block),
   :host(#{$dds-prefix}-content-block-simple),
+  :host(#{$dds-prefix}-content-group-horizontal),
   .#{$prefix}--content-block {
+    display: block;
     padding-top: $carbon--layout-03;
     padding-bottom: $carbon--layout-05;
 
@@ -40,15 +43,16 @@
         }
       }
     }
-
-    .#{$prefix}--hr {
-      margin-top: 0;
-      margin-right: -1rem;
-      margin-left: -1rem;
-    }
+  }
+  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
+  .#{$prefix}--content-block .#{$prefix}--hr {
+    margin-top: 0;
+    margin-right: -1rem;
+    margin-left: -1rem;
   }
 
   :host(#{$dds-prefix}-content-block-heading),
+  :host(#{$dds-prefix}-content-block-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;
@@ -65,13 +69,12 @@
     }
   }
 
-  .#{$prefix}--content-block__copy {
-    p {
-      @include carbon--type-style('expressive-heading-03', true);
+  :host(#{$dds-prefix}-content-block-paragraph),
+  .#{$prefix}--content-block__copy p {
+    @include carbon--type-style('expressive-heading-03', true);
 
-      color: $text-01;
-      margin-bottom: $carbon--spacing-07;
-    }
+    color: $text-01;
+    margin-bottom: $carbon--spacing-07;
   }
 
   .#{$prefix}--content-block__cta {

@@ -11,11 +11,13 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import '../expressive-modal/expressive-modal';
+import '../expressive-modal/expressive-modal-close-button';
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
-import 'carbon-web-components/es/components/modal/modal-close-button';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
@@ -41,14 +43,14 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   }
 
   /**
-   * The handler of `${ddsPrefix}-modal-closed` event from `<dds-modal>`.
+   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     this.open = false;
   };
 
   /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -75,6 +77,9 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
    */
   @property({ reflect: true })
   heading = '';
+
+  @property({ attribute: 'launch-lightbox-button-assistive-text' })
+  launchLightboxButtonAssistiveText = 'launch light box media viewer';
 
   /**
    * The description.
@@ -107,45 +112,53 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
   }
 
   render() {
+    const { alt, defaultSrc, heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
     return html`
-      ${this.lightbox
+      ${lightbox
         ? html`
-            <button class="${prefix}--image-with-caption__image" @click="${this._handleClick}">
-              <dds-image alt="${this.alt}" default-src="${this.defaultSrc}"><slot></slot></dds-image>
+            <button
+              class="${prefix}--image-with-caption__image"
+              aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
+              @click="${handleClick}"
+            >
+              <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
         : html`
-            <dds-image default-src="${this.defaultSrc}"><slot></slot></dds-image>
+            <dds-image alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"><slot></slot></dds-image>
           `}
       <p class="${prefix}--image__caption">
-        ${this.heading}
+        ${heading}
       </p>
     `;
   }
 
   renderModal() {
-    return html`
-      <dds-modal ?open=${this.open} expressive-size="full-width">
-        <bx-modal-close-button></bx-modal-close-button>
-        <dds-lightbox-image-viewer
-          alt="${this.alt}"
-          default-src="${this.defaultSrc}"
-          description="${this.copy}"
-          title="${this.heading}"
-        >
-        </dds-lightbox-image-viewer>
-      </dds-modal>
-    `;
+    const { alt, copy, defaultSrc, heading, lightbox, open } = this;
+    return !lightbox
+      ? undefined
+      : html`
+          <dds-expressive-modal ?open="${open}" size="full-width">
+            <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+            <dds-lightbox-image-viewer
+              alt="${ifNonNull(alt)}"
+              default-src="${ifNonNull(defaultSrc)}"
+              description="${ifNonNull(copy)}"
+              title="${ifNonNull(heading)}"
+            >
+            </dds-lightbox-image-viewer>
+          </dds-expressive-modal>
+        `;
   }
 
   /**
    * The name of the custom event fired after the modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 
   static styles = styles;
