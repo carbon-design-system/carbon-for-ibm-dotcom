@@ -51,7 +51,10 @@ export default {
       'dds-feature-card-block-medium': () => ({
         heading: textNullable('Block Heading (blockHeading):', 'How is artificial intelligence used today in your industry?'),
         copy: textNullable('Card copy (copy):', 'Explore AI use cases in all industries'),
-        defaultSrc: textNullable('Image src (defaultSrc):', 'https://dummyimage.com/672x672/ee5396/161616&text=1x1'),
+        defaultSrc: textNullable(
+          'Image src (defaultSrc):',
+          'https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616'
+        ),
         eyebrow: textNullable('Card eyebrow (eyebrow):', 'Explore AI use cases in all industries'),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),

@@ -20,6 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The Content Section component for use with cardSection
  *
  * @element dds-content-section
+ * @slot heading - Section heading
  */
 @customElement(`${ddsPrefix}-content-section`)
 class DDSContentSection extends StableSelectorMixin(LitElement) {
