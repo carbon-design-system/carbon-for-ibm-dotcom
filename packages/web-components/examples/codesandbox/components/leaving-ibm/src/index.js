@@ -13,5 +13,3 @@ import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-m
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import 'carbon-web-components/es/components/button/button';
-
-
