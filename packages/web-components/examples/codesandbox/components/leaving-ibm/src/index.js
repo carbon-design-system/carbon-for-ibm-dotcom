@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'carbon-web-components/es/components/modal/modal-header';
-import 'carbon-web-components/es/components/modal/modal-close-button';
-import 'carbon-web-components/es/components/button/button';
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-modal';
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-modal-body';
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-modal-heading';
+import 'carbon-web-components/es/components/modal/modal-header';
+import 'carbon-web-components/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/button/button';
 
 
