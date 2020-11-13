@@ -13,6 +13,7 @@
  */
 export interface BasicLink {
   title: string;
+  titleEnglish?: string;
   url?: string;
 }
 
@@ -51,6 +52,7 @@ export interface MegapanelContent {
  */
 export interface MastheadMenuItem {
   title: string;
+  titleEnglish?: string;
   url?: string;
   highlighted?: boolean;
   megaPanelViewAll?: boolean;
@@ -70,6 +72,7 @@ export interface MastheadMenuSection {
  */
 export interface MastheadLink {
   title: string;
+  titleEnglish?: string;
   url?: string;
   hasMenu?: boolean;
   hasMegapanel?: boolean;
