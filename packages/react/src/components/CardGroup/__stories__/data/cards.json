@@ -44,7 +44,7 @@
   "Images": [
     {
       "image": {
-        "defaultSrc": "hhttps://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616",
+        "defaultSrc": "https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616",
         "alt": "Image alt text"
       },
       "eyebrow": "Topic",
