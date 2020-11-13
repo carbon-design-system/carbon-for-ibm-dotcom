@@ -93,14 +93,23 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
   <dds-image-with-caption
     slot="media"
     alt="Image alt text"
-    default-src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
     heading="${ifNonNull(imageHeading)}"
   >
-    <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9">
+    <dds-image-item
+      media="(min-width: 672px)"
+      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
     </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9">
+    <dds-image-item
+      media="(min-width: 400px)"
+      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
     </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9">
+    <dds-image-item
+      media="(min-width: 320px)"
+      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
     </dds-image-item>
   </dds-image-with-caption>
 `;

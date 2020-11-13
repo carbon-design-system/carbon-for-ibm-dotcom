@@ -15,20 +15,24 @@ import TableOfContents from '../TableOfContents';
 
 const sources = [
   {
-    src: 'https://dummyimage.com/672x200&text=Example%20Children',
+    src:
+      'https://fpoimg.com/672x200?text=Example%20Logo&bg_color=ee5396&text_color=161616',
     breakpoint: 400,
   },
   {
-    src: 'https://dummyimage.com/672x200&text=Example%20Children',
+    src:
+      'https://fpoimg.com/672x200?text=Example%20Logo&bg_color=ee5396&text_color=161616',
     breakpoint: 672,
   },
   {
-    src: 'https://dummyimage.com/672x672&text=Example%20Children',
+    src:
+      'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616&text=Example%20Children',
     breakpoint: 1056,
   },
 ];
 
-const defaultSrc = 'https://dummyimage.com/672x672';
+const defaultSrc =
+  'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616';
 const alt = 'Lorem Ipsum';
 const longDescription = 'Lorem Ipsum Dolor';
 

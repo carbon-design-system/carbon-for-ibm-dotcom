@@ -9,7 +9,7 @@
 
 describe('dds-expressive-modal', () => {
   beforeAll(async () => {
-    await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-modal--default`);
+    await page.goto(`http://localhost:${process.env.PORT}/iframe.html?id=components-expressive-modal--default`);
   });
 
   it('should have modal closable', async () => {

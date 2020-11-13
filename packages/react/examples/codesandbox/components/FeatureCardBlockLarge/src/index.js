@@ -23,7 +23,7 @@ const cta = {
   },
 };
 const image = {
-  defaultSrc: "https://dummyimage.com/600x300/ee5396/161616&text=2:1",
+  defaultSrc: "https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616",
   alt: "Image alt text",
 };
 
