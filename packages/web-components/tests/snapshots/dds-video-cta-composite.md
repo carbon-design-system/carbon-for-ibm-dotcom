@@ -5,7 +5,7 @@
 ####   `should render the media viewer`
 
 ```
-<div>
+<div style="display: contents;">
   <dds-lightbox-video-player-composite>
   </dds-lightbox-video-player-composite>
 </div>
