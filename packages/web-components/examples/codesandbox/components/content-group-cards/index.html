@@ -1,0 +1,38 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <script type="module" src="src/index.js"></script>
+  <style type="text/css">
+    /* Avoids FOUC - Will be overriden by `index.scss` */
+    body {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+<div class="bx--grid">
+  <div class="bx--row">
+    <div class="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-2">
+      <dds-content-group-cards>
+        <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+        <dds-content-group-cards-item href="https://www.example.com">
+          <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <dds-card-footer icon-placement="left">
+            ${ArrowRight20({ slot: 'icon' })}
+          </dds-card-footer>
+        </dds-content-group-cards-item>
+      </dds-content-group-cards>
+    </div>
+  </div>
+</div>
+</body>
+</html>

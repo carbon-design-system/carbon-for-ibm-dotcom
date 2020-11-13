@@ -109,7 +109,7 @@
 >
   <div class="bx--modal-content">
     <dds-expressive-modal-header slot="header">
-      <dds-expressive-modal-close-button>
+      <dds-expressive-modal-close-button size="">
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
         <button
