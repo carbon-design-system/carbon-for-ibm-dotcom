@@ -24,6 +24,7 @@ import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
 
 const { prefix } = settings;
@@ -287,7 +288,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   /**
    * The size variant.
    */
-  @property({ attribute: 'expressive-size' })
+  @property({ reflect: true, attribute: 'expressive-size' })
   size = EXPRESSIVE_MODAL_SIZE.REGULAR;
 
   render() {
@@ -319,6 +320,14 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
   }
 
   async updated(changedProperties) {
+    if (changedProperties.has('size')) {
+      const { selectorCloseButton } = this.constructor as typeof DDSExpressiveModal;
+      const { size } = this;
+      const closeButton = this.querySelector(selectorCloseButton);
+      if (closeButton) {
+        (closeButton as DDSExpressiveModalCloseButton).size = size;
+      }
+    }
     if (changedProperties.has('open')) {
       if (this.open) {
         this._launcher = this.ownerDocument!.activeElement;
@@ -338,6 +347,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         this._launcher = null;
       }
     }
+    return super.updated(changedProperties);
   }
 
   /**
