@@ -195,6 +195,7 @@ const HeaderNavContainer = ({ children }) => {
           onClick={paginateLeft}
           ref={caretLeftRef}
           tabIndex="-1"
+          aria-hidden="true"
           hidden>
           <CaretLeft20 />
         </button>
@@ -204,6 +205,7 @@ const HeaderNavContainer = ({ children }) => {
           onClick={paginateRight}
           ref={caretRightRef}
           tabIndex="-1"
+          aria-hidden="true"
           hidden>
           <CaretRight20 />
         </button>
