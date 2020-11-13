@@ -13,6 +13,7 @@ import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibm
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
+import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
 import 'carbon-web-components/es/components/button/button';
@@ -26,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-composite
  */
 @customElement(`${ddsPrefix}-leaving-ibm-composite`)
-class DDSLeavingIbmComposite extends LitElement {
+class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
    *
@@ -88,7 +89,7 @@ class DDSLeavingIbmComposite extends LitElement {
     }
   }
 
-  render() {
+  renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
       <dds-leaving-ibm-modal open="${open}" size="sm">
