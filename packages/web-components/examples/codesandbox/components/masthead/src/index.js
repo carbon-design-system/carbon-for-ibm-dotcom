@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container';
+import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
 import './index.scss';
 
 window.digitalData = {

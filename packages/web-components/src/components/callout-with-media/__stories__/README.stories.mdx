@@ -18,15 +18,7 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media';
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/callout-with-media/callout-with-media.js';
-</script>
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media.js';
 ```
 
 ### HTML
@@ -36,9 +28,10 @@ or with [JSPM](https://jspm.org)
   <dds-content-block-heading slot="heading">lorum ipsum dolor sit ameet</dds-content-block-heading>
   <dds-content-item-copy>lorum ipsum dolor sit ameet</dds-content-item-copy>
   <dds-callout-with-media-image
-   alt="Image alt text"
-   default-src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-   heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    alt="Image alt text"
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
   </dds-callout-with-media-image>
 </dds-callout-with-media>
 ```
@@ -48,11 +41,12 @@ or with [JSPM](https://jspm.org)
 <Props of="dds-content-block-simple" />
 
 ### `<dds-callout-with-media-image>`
+
 <Props of="dds-callout-with-media-image" />
 
 ### `<dds-callout-with-media-video>`
-<Props of="dds-callout-with-media-video" />
 
+<Props of="dds-callout-with-media-video" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors

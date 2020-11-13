@@ -17,43 +17,41 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid';
-import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid-item';
-import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid-link';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
-
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/logo-grid/logo-grid.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/logo-grid/logo-grid-item.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/logo-grid/logo-grid-link.js';
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/content-block/content-block-heading.js';
-</script>
+import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid.js';
+import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/logo-grid/logo-grid-link.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
 ```
 
 ### HTML
 
 ```html
-  <dds-logo-grid>
-    <dds-content-block-heading>
-      Our customers
-    </dds-content-block-heading>
-    <dds-logo-grid-item
-      href="https://example.com"
-      default-src="https://dummyimage.com/288x216/ee5396/161616&text=1:1"
-      alt=""
-    ></dds-logo-grid-item>
-    <dds-logo-grid-link href="https://example.com">
-      <p>Lorem ipsum dolor sit amet</p>
-      <svg slot="footer" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-logo-grid-link>
-  </dds-logo-grid>
+<dds-logo-grid>
+  <dds-content-block-heading>
+    Our customers
+  </dds-content-block-heading>
+  <dds-logo-grid-item
+    href="https://example.com"
+    default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616"
+    alt=""
+  ></dds-logo-grid-item>
+  <dds-logo-grid-link href="https://example.com">
+    <p>Lorem ipsum dolor sit amet</p>
+    <svg
+      slot="footer"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-logo-grid-link>
+</dds-logo-grid>
 ```
 
 ## Props
@@ -64,10 +62,10 @@ or with [JSPM](https://jspm.org)
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector                     | Description                       |
-| ----------------------- | ------------------------------------------ | --------------------------------- |
-| `<dds-logo-grid>`       | `data-autoid="dds--logo-grid"`             | Logo Grid main component          |
-| `<dds-logo-link>`       | `data-autoid="dds--logo-grid-link"`        | Logo Grid bottom link component   |
-| `<dds-logo-item>`       | `data-autoid="dds--logo-grid-item"`        | Logo Grid item component          |
+| Web Components selector | Compatibility selector              | Description                     |
+| ----------------------- | ----------------------------------- | ------------------------------- |
+| `<dds-logo-grid>`       | `data-autoid="dds--logo-grid"`      | Logo Grid main component        |
+| `<dds-logo-link>`       | `data-autoid="dds--logo-grid-link"` | Logo Grid bottom link component |
+| `<dds-logo-item>`       | `data-autoid="dds--logo-grid-item"` | Logo Grid item component        |
 
 <Description markdown={contributing} />
