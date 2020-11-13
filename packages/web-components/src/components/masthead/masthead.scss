@@ -14,11 +14,10 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav'; 
-@import '../../globals/scss/vars';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
-
+ 
 // The masthead nav overflow feature made tweaks to overflow style so it can keep track of overflowed content.
 // It works with mega menu that "floats",
 // but Web Components masthead menu with classic menu style still relies on the overflow area being visible.

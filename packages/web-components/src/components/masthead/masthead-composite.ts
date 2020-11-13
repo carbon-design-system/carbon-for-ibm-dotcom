@@ -22,6 +22,8 @@ import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdot
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import './masthead';
 import './masthead-logo';
+import './masthead-l1';
+import './masthead-l1-name';
 import './masthead-menu-button';
 import './masthead-global-bar';
 import './masthead-profile';
@@ -71,19 +73,6 @@ enum NAV_ITEMS_RENDER_TARGET {
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
-
-  private _renderL1Name() {
-    if(this.l1Data?.title) {
-      const { title, url } = this.l1Data;
-      return html`
-          <div class="${prefix}--masthead__l1-name">
-              <span class="${prefix}--masthead__l1-name-title">
-                  <a href="${url}">${title}</a>
-              </span>
-          </div>
-      `;
-    }
-  }
 
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
     const { menuItems } = this.l1Data;
@@ -145,11 +134,19 @@ class DDSMastheadComposite extends LitElement {
   }
 
   private _renderL1() {
+    const { url, title } = this.l1Data;
     return html`
-      <div slot="masthead-l1" class="${prefix}--masthead__l1">
-          ${this._renderL1Name()}
-          ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
-      </div>
+      <dds-masthead-l1 slot="masthead-l1">
+        ${ !title
+            ? undefined
+            : html`
+              <dds-masthead-l1-name>
+                <a href="${url}">${title}</a>
+              </dds-masthead-l1-name>
+            `
+        }
+        ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+      </dds-masthead-l1>
     `;
   }
 
