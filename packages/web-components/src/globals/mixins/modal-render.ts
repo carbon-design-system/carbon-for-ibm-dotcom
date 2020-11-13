@@ -10,6 +10,24 @@
 import { render, TemplateResult } from 'lit-html';
 
 /**
+ * @param elem The starting element.
+ * @param selector The CSS selector.
+ * @returns {Element}
+ *   The closest ancestor node of the given element that matches the given selector, crossing Shadow DOM boundary.
+ */
+const closestComposed = (elem: Element, selector: string) => {
+  const found = elem.closest(selector);
+  if (found) {
+    return found;
+  }
+  const { host } = elem.getRootNode() as ShadowRoot;
+  if (host) {
+    return closestComposed(host, selector);
+  }
+  return null;
+};
+
+/**
  * @param Base The base class.
  * @returns A mix-in that allows rendering modal, that should typically be rendered to a DOM node outside the component.
  */
@@ -49,12 +67,21 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     modalRenderRoot: Element | null | void = null;
 
     /**
+     * The DOM element to put the modal into.
+     */
+    get container() {
+      const { selectorContainer } = this.constructor as typeof ModalRenderMixinImpl;
+      return closestComposed(this, selectorContainer) || this.ownerDocument!.body;
+    }
+
+    /**
      * @returns The render root of the modal.
      */
     createModalRenderRoot(): Element | null | void {
-      const { ownerDocument: doc } = this;
+      const { container, ownerDocument: doc } = this;
       const div = doc!.createElement('div');
-      doc!.body.appendChild(div);
+      div.style.display = 'contents'; // Prevents render-root `<div>` from being rendered
+      container.appendChild(div);
       return div;
     }
 
@@ -86,6 +113,13 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       if (!this._disconnectedAfterCreation) {
         this._createAndRenderModal();
       }
+    }
+
+    /**
+     * The CSS selector to find the element to put the modal in.
+     */
+    static get selectorContainer() {
+      return '[data-modal-container]';
     }
   }
   return ModalRenderMixinImpl;
