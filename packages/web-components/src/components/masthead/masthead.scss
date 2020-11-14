@@ -126,8 +126,6 @@
 }
 
 :host(#{$dds-prefix}-top-nav) {
-  @extend :host(#{$prefix}-header-nav);
-
   display: contents;
 
   @include carbon--breakpoint-up(800px) {
@@ -135,7 +133,7 @@
   }
 
   @include carbon--breakpoint('lg') {
-    padding: 0;
+    display: block;
   }
 
   .#{$prefix}-ce--header__divider {
