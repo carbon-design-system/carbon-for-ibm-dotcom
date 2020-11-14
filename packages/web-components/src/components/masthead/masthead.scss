@@ -128,12 +128,13 @@
 :host(#{$dds-prefix}-top-nav) {
   @extend :host(#{$prefix}-header-nav);
 
+  display: contents;
+
   @include carbon--breakpoint-up(800px) {
     display: none;
   }
 
   @include carbon--breakpoint('lg') {
-    display: contents;
     padding: 0;
   }
 
