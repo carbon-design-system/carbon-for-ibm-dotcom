@@ -133,7 +133,7 @@
   }
 
   @include carbon--breakpoint('lg') {
-    display: block;
+    display: contents;
     padding: 0;
   }
 
