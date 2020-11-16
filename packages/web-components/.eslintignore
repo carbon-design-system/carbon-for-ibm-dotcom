@@ -3,4 +3,5 @@ dist
 es
 node_modules
 storybook-static
+src/internal/vendor
 tests/coverage

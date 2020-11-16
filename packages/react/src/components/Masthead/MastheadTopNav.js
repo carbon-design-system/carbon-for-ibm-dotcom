@@ -61,7 +61,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     } else {
       return (
         <HeaderMenuItem
-          className={selected && `${prefix}--masthead__l0-nav--selected`}
+          className={selected && `${prefix}--masthead__l0-nav--selected-item`}
           href={link.url}
           data-autoid={autoid}
           key={i}>

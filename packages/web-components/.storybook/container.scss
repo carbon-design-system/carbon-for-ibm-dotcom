@@ -11,6 +11,8 @@
 @import 'carbon-components/scss/globals/scss/css--font-face';
 @import 'carbon-components/scss/globals/grid/grid';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu-scroll';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
 
 :root {
   @include carbon--theme($carbon--theme--white, true);
@@ -47,6 +49,11 @@ body {
   line-height: 1;
 }
 
+// hide the cookie button
+#teconsent {
+  visibility: hidden;
+}
+
 // Reverts Carbon reset style of lists for docs page
 #docs-root {
   ol {
@@ -67,8 +74,18 @@ body {
 }
 
 .dds-ce-demo-devenv--container--has-grid {
-  padding: 2rem 5%;
+  padding: 1rem 0;
   align-items: stretch;
+}
+
+.dds-ce-demo-devenv--container--has-vertical-spacing-in-component {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// stylelint-disable-next-line selector-type-no-unknown
+dds-video-cta-container.bx--grid {
+  display: block;
 }
 
 // For cards/videos, we want to ensure the card/video takes up the entire width of the grid column.

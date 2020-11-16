@@ -36,23 +36,23 @@ const CardGroup = ({ cards, cta }) => {
       const { current: containerNode } = containerRef;
       if (containerNode) {
         sameHeight(
-          containerNode.getElementsByClassName(
-            `:not(.${prefix}--card__video) ${prefix}--card__heading`
+          containerNode.querySelectorAll(
+            `:not(.${prefix}--card__video) .${prefix}--card__heading`
           ),
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(
-            `:not(.${prefix}--card__video) ${prefix}--card__copy`
+          containerNode.querySelectorAll(
+            `:not(.${prefix}--card__video) .${prefix}--card__copy`
           ),
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
+          containerNode.querySelectorAll(`.${prefix}--card__eyebrow`),
           'md'
         );
         sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card--link`),
+          containerNode.querySelectorAll(`.${prefix}--card--link`),
           'md'
         );
       }

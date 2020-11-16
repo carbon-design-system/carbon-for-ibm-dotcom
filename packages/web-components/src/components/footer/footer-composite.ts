@@ -14,8 +14,12 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { LocaleList } from '../../globals/services-store/types/localeAPI';
-import { BasicLink, BasicLinkSet, Translation } from '../../globals/services-store/types/translateAPI';
+import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
+import {
+  BasicLink,
+  BasicLinkSet,
+  Translation,
+} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 /* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -49,7 +53,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   };
 
   /**
-   * Handles `dds-modal-closed` event on the locale modal.
+   * Handles `dds-expressive-modal-closed` event on the locale modal.
    */
   @HostListener('document:eventCloseModal')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -223,7 +227,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * The name of the custom event fired after this modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 }
 

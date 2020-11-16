@@ -15,7 +15,7 @@ import HostListener from 'carbon-web-components/es/globals/decorators/host-liste
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
-import { VideoData } from '../../globals/services-store/types/videoPlayerAPI';
+import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
 /* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
@@ -57,7 +57,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   private _activeVideoId?: string;
 
   /**
-   * The handle for the listener of `${ddsPrefix}-modal-closed` event.
+   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -188,7 +188,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The name of the custom event fired after the lightbox is closed upon a user gesture.
    */
   static get eventCloseLightbox() {
-    return `${ddsPrefix}-modal-closed`;
+    return `${ddsPrefix}-expressive-modal-closed`;
   }
 
   /**

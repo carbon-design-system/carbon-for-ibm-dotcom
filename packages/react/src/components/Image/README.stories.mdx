@@ -42,20 +42,24 @@ import 'yourapplication.scss';
 function App() {
   const sources = [
     {
-      src: 'https://dummyimage.com/320x160',
+      src:
+        'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
       breakpoint: 320,
     },
     {
-      src: 'https://dummyimage.com/400x400',
+      src:
+        'https://fpoimg.com/400x400?text=1:1&bg_color=ee5396&text_color=161616',
       breakpoint: 400,
     },
     {
-      src: 'https://dummyimage.com/672x672',
+      src:
+        'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
       breakpoint: 672,
     },
   ];
 
-  const defaultSrc = 'https://dummyimage.com/672x672';
+  const defaultSrc =
+    'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616';
   const alt = 'Lorem Ipsum';
   const longDescription = 'Lorem Ipsum Dolor';
 
@@ -81,6 +85,15 @@ Add the following line in your `.env` file at the root of your project.
 
 > 💡 Don't forget to import the image styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
+
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
+
+```js
+import Image from '@carbon/ibmdotcom-react/es/components/Image/Image';
+```
 
 ## Props
 

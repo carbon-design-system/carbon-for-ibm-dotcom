@@ -20,17 +20,12 @@
   $icon-size: carbon--rem(20px);
   $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
 
-  :host(#{$dds-prefix}-modal),
+  :host(#{$dds-prefix}-expressive-modal),
   #{$modal}--expressive {
     color: $text-01;
 
-    #{$modal}-close {
-      top: $offset-close-icon;
-      right: $offset-close-icon;
-    }
-
     #{$modal}-container {
-      padding: $carbon--spacing-08 $carbon--spacing-07 $carbon--spacing-07;
+      padding: $carbon--spacing-09 $carbon--spacing-07 $carbon--spacing-07;
       min-height: $carbon--spacing-07 + $icon-size + $carbon--spacing-07;
     }
 
@@ -43,20 +38,21 @@
     }
   }
 
-  :host(#{$dds-prefix}-modal-heading),
-  #{$modal}--expressive #{$modal}-content h1 {
-    @include carbon--type-style('expressive-heading-04');
-  }
-
-  :host(#{$dds-prefix}-modal)[expressive-size='full-width'],
-  #{$modal}--expressive--fullwidth {
-    #{$modal}-container {
-      padding: $carbon--spacing-07;
-    }
+  :host(#{$dds-prefix}-expressive-modal-close-button),
+  #{$modal}--expressive {
     #{$modal}-close {
       top: 0;
       right: 0;
     }
+  }
+
+  :host(#{$dds-prefix}-expressive-modal-heading),
+  #{$modal}--expressive #{$modal}-content h1 {
+    @include carbon--type-style('expressive-heading-04');
+  }
+
+  :host(#{$dds-prefix}-expressive-modal)[size='full-width'],
+  #{$modal}--expressive--fullwidth {
     @include carbon--breakpoint('md') {
       #{$modal}-container {
         width: calc(100% - #{$carbon--spacing-07});
@@ -67,9 +63,9 @@
     }
   }
 
-  :host(#{$dds-prefix}-modal[expressive-size='full-width'])
-    ::slotted(#{$dds-prefix}-modal-body),
-  :host(#{$dds-prefix}-modal[expressive-size='full-width'])
+  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
+    ::slotted(#{$dds-prefix}-expressive-modal-body),
+  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
     ::slotted(#{$dds-prefix}-lightbox-media-viewer-body),
   #{$modal}--expressive--fullwidth #{$modal}-content {
     padding-right: 0;

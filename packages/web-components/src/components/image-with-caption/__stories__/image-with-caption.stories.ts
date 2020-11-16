@@ -8,21 +8,50 @@
  */
 
 import { html } from 'lit-element';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image-with-caption';
 import readme from './README.stories.mdx';
 
+const images = {
+  '2:1': 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+  '16:9': 'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+};
+
+const srcsets = {
+  'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616': [
+    'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+    'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
+    'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+  ],
+  'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616': [
+    'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+    'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+    'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+  ],
+};
+
 export const Default = ({ parameters }) => {
   const { alt, defaultSrc, heading, copy, lightbox } = parameters?.props?.['dds-image-with-caption'] ?? {};
+  // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
+  const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
     <dds-image-with-caption
-      alt="${alt}"
-      default-src="${defaultSrc}"
-      heading="${heading}"
-      copy="${copy}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      heading="${ifNonNull(heading)}"
+      copy="${ifNonNull(copy)}"
       ?lightbox="${lightbox}"
-    ></dds-image-with-caption>
+    >
+      ${!srcset
+        ? undefined
+        : html`
+            <dds-image-item media="(min-width: 672px)" srcset="${srcset[2]}"> </dds-image-item>
+            <dds-image-item media="(min-width: 400px)" srcset="${srcset[1]}"> </dds-image-item>
+            <dds-image-item media="(min-width: 320px)" srcset="${srcset[0]}"> </dds-image-item>
+          `}
+    </dds-image-with-caption>
   `;
 };
 
@@ -32,11 +61,16 @@ export default {
     ...readme.parameters,
     knobs: {
       'dds-image-with-caption': ({ groupId }) => ({
-        alt: textNullable('Alt text', 'Image alt text', groupId),
-        defaultSrc: textNullable('Default image', 'https://dummyimage.com/672x336/ee5396/161616&text=2x1', groupId),
-        lightbox: boolean('Lightbox', true, groupId),
-        copy: textNullable('Copy', 'Lorem ipsum dolor sit amet', groupId),
-        heading: textNullable('Heading', 'This is a heading', groupId),
+        alt: textNullable('Alt text (alt)', 'Image alt text', groupId),
+        defaultSrc: select(
+          'Default image (default-src)',
+          images,
+          'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+          groupId
+        ),
+        lightbox: boolean('Lightbox (lightbox)', true, groupId),
+        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
+        heading: textNullable('Heading (heading)', 'This is a heading', groupId),
       }),
     },
   },

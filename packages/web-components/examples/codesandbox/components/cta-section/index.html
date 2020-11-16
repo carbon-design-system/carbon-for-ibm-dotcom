@@ -1,0 +1,42 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/index.js"></script>
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">"Lorem ipsum *dolor* sit amet"
+        <div class="bx--col-sm-4 bx-col-lg-12 bx--offset-lg-4">
+          <dds-cta-section>
+            <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+            <dds-cta-section-copy>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</dds-cta-section-copy>
+            <dds-button-group slot='buttons'>
+                <dds-button-group-item href="https://example.com">
+                  Primary Button
+                </dds-button-group-item>
+                <dds-button-group-item href="https://example.com">
+                  Primary button
+                </dds-button-group-item>
+              </dds-button-group>
+          </dds-cta-section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

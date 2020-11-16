@@ -175,7 +175,10 @@ const MastheadSearch = ({
      */
     const handleClickOutside = event => {
       if (ref.current && !ref.current.contains(event.target)) {
-        dispatch({ type: 'setSearchClosed' });
+        // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
+        if (state.val.length === 0) {
+          dispatch({ type: 'setSearchClosed' });
+        }
       }
     };
 
@@ -208,6 +211,14 @@ const MastheadSearch = ({
    * @param {string} newValue The new val of the input
    */
   function onChange(event, { newValue }) {
+    // emit custom event for search input onchange
+    const onSearchValueChanged = new CustomEvent('onSearchValueChanged', {
+      bubbles: true,
+      detail: { value: newValue },
+    });
+
+    event.currentTarget.dispatchEvent(onSearchValueChanged);
+
     dispatch({ type: 'setVal', payload: { val: newValue } });
   }
 
@@ -229,7 +240,25 @@ const MastheadSearch = ({
    * search field if closed.
    *
    */
-  function searchIconClick() {
+  function searchIconClick(event) {
+    // emit custom event for search icon click when search is closed
+    if (!state.isSearchOpen) {
+      const onOpenSearch = new CustomEvent('onOpenSearch', {
+        bubbles: true,
+      });
+
+      event.currentTarget.dispatchEvent(onOpenSearch);
+    }
+
+    // emit custom event for search icon click when search is open
+    if (state.isSearchOpen) {
+      const onSearchButtonClicked = new CustomEvent('onSearchButtonClicked', {
+        bubbles: true,
+      });
+
+      event.currentTarget.dispatchEvent(onSearchButtonClicked);
+    }
+
     if (state.isSearchOpen && state.val.length) {
       root.parent.location.href = getRedirect(state.val);
     } else {
@@ -251,7 +280,14 @@ const MastheadSearch = ({
   /**
    * closeBtnAction resets and sets focus after search is closed
    */
-  function closeBtnAction() {
+  function closeBtnAction(event) {
+    // emit custom event for search close button click
+    const onSearchCloseClicked = new CustomEvent('onSearchCloseClicked', {
+      bubbles: true,
+    });
+
+    event.currentTarget.dispatchEvent(onSearchCloseClicked);
+
     resetSearch();
     const searchIconRef = root.document.querySelectorAll(
       `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`

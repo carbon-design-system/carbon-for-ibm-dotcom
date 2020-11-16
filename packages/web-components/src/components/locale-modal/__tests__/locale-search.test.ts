@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import BXSearch from 'carbon-web-components/es/components/search/search.js';
+import DDSSearch from '../../search/search';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
 
@@ -96,7 +96,7 @@ describe('dds-locale-search', function() {
       );
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as DDSSearch;
       searchInputNode.dispatchEvent(
         new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'COUNTRY-B' } })
       );
@@ -125,7 +125,7 @@ describe('dds-locale-search', function() {
       );
       await Promise.resolve();
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as DDSSearch;
       searchInputNode.dispatchEvent(
         new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
       );
@@ -155,12 +155,67 @@ describe('dds-locale-search', function() {
       await Promise.resolve(); // The update cycle for `<bx-locale-search>`
       await Promise.resolve(); // The update cycle for `<dds-search>`
       const localeSearch = document.body.querySelector('dds-locale-search');
-      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as BXSearch;
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as DDSSearch;
       searchInputNode.dispatchEvent(
         new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
       );
       searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
       (searchInputNode!.shadowRoot!.querySelector('.bx--search-close') as HTMLElement).click();
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-foo"]') as HTMLElement).hidden).toBe(false);
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-bar"]') as HTMLElement).hidden).toBe(false);
+      expect((localeSearch!.querySelector('dds-locale-item[language="language-baz"]') as HTMLElement).hidden).toBe(false);
+    });
+  });
+
+  describe('Resetting the state', function() {
+    it('should reset the scroll position', async function() {
+      render(
+        template({
+          region: 'region-foo',
+          children: html`
+            <dds-locale-item language="language-foo" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-bar" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-baz" region="region-foo"></dds-locale-item>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<dds-search>`
+      const localeSearch = document.body.querySelector('dds-locale-search');
+      const spyScrollTop = spyOnProperty(
+        localeSearch!.shadowRoot!.querySelector('.bx--locale-modal__list') as HTMLElement,
+        'scrollTop',
+        'set'
+      );
+      (localeSearch as DDSLocaleSearch).reset();
+      expect(spyScrollTop).toHaveBeenCalledWith(0);
+    });
+
+    it('should clear the filter', async function() {
+      render(
+        template({
+          region: 'region-foo',
+          children: html`
+            <dds-locale-item language="language-foo" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-bar" region="region-foo"></dds-locale-item>
+            <dds-locale-item language="language-baz" region="region-foo"></dds-locale-item>
+          `,
+        }),
+        document.body
+      );
+      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<dds-search>`
+      const localeSearch = document.body.querySelector('dds-locale-search');
+      const searchInputNode = localeSearch!.shadowRoot!.querySelector('dds-search') as DDSSearch;
+      searchInputNode.dispatchEvent(
+        new CustomEvent('dds-search-input', { bubbles: true, composed: true, detail: { value: 'LANGUAGE-B' } })
+      );
+      searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
+      (localeSearch as DDSLocaleSearch).reset();
+      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<dds-search>`
+      expect(searchInputNode!.value).toBe('');
       expect((localeSearch!.querySelector('dds-locale-item[language="language-foo"]') as HTMLElement).hidden).toBe(false);
       expect((localeSearch!.querySelector('dds-locale-item[language="language-bar"]') as HTMLElement).hidden).toBe(false);
       expect((localeSearch!.querySelector('dds-locale-item[language="language-baz"]') as HTMLElement).hidden).toBe(false);

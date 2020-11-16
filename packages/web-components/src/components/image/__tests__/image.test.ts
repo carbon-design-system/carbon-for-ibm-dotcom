@@ -31,7 +31,7 @@ describe('dds-image', function() {
     it('should render with various attributes', async function() {
       render(
         template({
-          defaultSrc: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+          defaultSrc: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
         }),
         document.body

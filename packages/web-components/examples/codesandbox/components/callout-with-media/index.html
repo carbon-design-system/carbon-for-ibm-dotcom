@@ -1,0 +1,37 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      #app {
+        width: 300px;
+      }
+    </style>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <h1>Hello World! 👋</h1>
+    <dds-callout-with-media>
+      <dds-content-block-heading slot="heading">lorum ipsum dolor sit ameet</dds-content-block-heading>
+      <dds-content-item-copy>lorum ipsum dolor sit ameet</dds-content-item-copy>
+      <dds-callout-with-media-image
+        alt="Image alt text"
+        default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+        heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+      </dds-callout-with-media-image>
+    </dds-callout-with-media>
+  </body>
+</html>

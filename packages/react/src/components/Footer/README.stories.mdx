@@ -58,6 +58,14 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
 
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+
+````js
+import Footer from '@carbon/ibmdotcom-react/es/components/Footer/Footer';
+````
+
 ## Props
 
 <Props of={Footer} />
@@ -70,9 +78,9 @@ type:
 - [Tall](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
 - [Short](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
 
-### Language Dropdown
+### Language selector
 
-The option to use a language dropdown is available in lieu of the locale
+The option to use a language selector is available in lieu of the locale
 button/selector.
 
 Example implementation:
@@ -115,16 +123,17 @@ function App() {
 | `dds--footer-logo`            | Component   |
 | `dds--footer-logo__link`      | Interactive |
 | `dds--footer-locale-btn`      | Interactive |
+| `dds--privacy-cp`             | Component   |
 | `dds--legal-nav`              | Component   |
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
 | `dds--language-selector`      | Component   |
 
-## Server Side Rendering
+## Server-Side Rendering
 
-To server side render the footer, the `Translation` service call needs to be
-made to retrieve navigation links. Make sure to pass in the `lc` and `cc` values
-as shown in the example below.
+For server-side rendering of the footer, the `Translation` service call needs to
+be made to retrieve navigation links. Make sure to pass in the `lc` and `cc`
+values as shown in the example below.
 
 ```javascript
 import { TranslationAPI } from '@carbon/ibmdotcom-services';

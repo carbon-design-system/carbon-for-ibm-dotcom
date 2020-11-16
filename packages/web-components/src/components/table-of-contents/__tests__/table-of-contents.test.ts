@@ -174,7 +174,11 @@ describe('dds-table-of-contents', function() {
       render(
         template({
           children: html`
-            <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672"></dds-image>
+            <dds-image
+              slot="heading"
+              alt="Alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+            ></dds-image>
             <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
           `,
         }),
@@ -190,7 +194,11 @@ describe('dds-table-of-contents', function() {
       render(
         template({
           children: html`
-            <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672"></dds-image>
+            <dds-image
+              slot="heading"
+              alt="Alt text"
+              default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+            ></dds-image>
             <dds-horizontal-rule slot="menu-rule"></dds-horizontal-rule>
           `,
         }),
@@ -448,51 +456,6 @@ describe('dds-table-of-contents', function() {
 
     afterEach(function() {
       window.IntersectionObserver = origIntersectionObserver;
-    });
-  });
-
-  describe('Observing resize of mobile <select>', function() {
-    let origResizeObserver;
-    let origIntersectionObserver;
-
-    beforeEach(function() {
-      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-      origResizeObserver = (window as any).ResizeObserver;
-      origIntersectionObserver = window.IntersectionObserver;
-      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-      (window as any).ResizeObserver = MockResizeObserver;
-      window.IntersectionObserver = (MockIntersectionObserver as unknown) as typeof IntersectionObserver;
-    });
-
-    it('should reflect the size of the mobile <select>` to the margin of IntersectionObserver', async function() {
-      render(
-        template({
-          children: html`
-            <a name="1">Section - 1</a>
-            <a name="2">Section - 2</a>
-            <a name="3">Section - 3</a>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for the component
-      await Promise.resolve(); // The cycle where `slotchange` event is called
-      // Updating upon harvesting `<a>`s - MockIntersectionObserver instance is not registered unless an element is observed
-      await Promise.resolve();
-      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
-      MockResizeObserver.run(tableOfContents!.shadowRoot!.querySelector('.bx--tableofcontents__mobile')!, { height: 32 });
-      expect(MockIntersectionObserver.instanceOptions).toEqual([
-        {
-          rootMargin: '-32px 0px 0px 0px',
-          threshold: 1,
-        },
-      ]);
-    });
-
-    afterEach(function() {
-      window.IntersectionObserver = origIntersectionObserver;
-      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-      (window as any).ResizeObserver = origResizeObserver;
     });
   });
 

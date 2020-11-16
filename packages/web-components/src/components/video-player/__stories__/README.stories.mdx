@@ -9,15 +9,7 @@ import '../video-player';
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/video-player/video-player-container.js';
-</script>
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
 ```
 
 ### HTML
@@ -26,6 +18,34 @@ or with [JSPM](https://jspm.org)
 <dds-video-player-container id="my-video" video-id="1_9h94wo6b">
 </dds-video-player-container>
 ```
+
+## Manual usage of Kaltura API
+
+With `@carbon/ibmdotcom-services`, you can keep track of the readiness of [Kaltura API](http://player.kaltura.com/docs/api) and use it when it is ready. Here is an example of stopping the video player when it is hidden in DOM:
+
+```javascript
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
+
+// Keeps track of element resize and detect if the element of our interest is hidden
+const resizeObserver = new ResizeObserver(entries => {
+  entries.forEach(entry => {
+    const { width, height } = entry.contentRect;
+    if (width === 0 && height === 0) {
+      // Uses Kaltura API to stop the video
+      entry.target.sendNotification('doStop');
+    }
+  });
+});
+
+VideoPlayerAPI.checkScript().then(() => {
+  window.kWidget.addReadyCallback(playerId => {
+    // Observes the resize of the video player
+    resizeObserver.observe(document.getElementById(playerId));
+  });
+});
+```
+
+> 💡 We don't test `<dds-video-player>` against arbitray usage of Kaltura API. Use this technique at your own risk.
 
 ## Under the Hood
 

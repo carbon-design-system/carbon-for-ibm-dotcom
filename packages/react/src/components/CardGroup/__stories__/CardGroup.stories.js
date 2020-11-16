@@ -21,8 +21,7 @@ export default {
           cards: [
             {
               heading: 'Nunc convallis lobortis',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+              copy: 'Lorem ipsum dolor sit amet.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -77,7 +76,8 @@ const defaultCard = {
 
 const cardWithImages = {
   image: {
-    defaultSrc: 'https://dummyimage.com/1056x792/ee5396/161616&text=4:3',
+    defaultSrc:
+      'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
     alt: 'Image alt text',
   },
   eyebrow: 'Topic',

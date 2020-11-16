@@ -10,8 +10,8 @@
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
-import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
-import { USER_AUTHENTICATION_STATUS } from '../../../globals/services-store/types/profileAPI';
+import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSMastheadComposite from '../masthead-composite';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../__stories__/profile-items';
 
@@ -34,6 +34,36 @@ const navLinksFoo: MastheadLink[] = [
   {
     title: 'menu-title-foo',
     menuSections: [{ menuItems: [{ title: 'menu-item-title-bar', url: 'https://ibmdotcom-webcomponents.mybluemix.net/bar' }] }],
+  },
+];
+
+const navLinksMegaMenu: MastheadLink[] = [
+  {
+    hasMegapanel: true,
+    title: 'menu-title',
+    menuSections: [
+      {
+        menuItems: [
+          {
+            highlighted: true,
+            title: 'menu-section-1-title',
+            url: 'https://www.ibm.com',
+            megapanelContent: {
+              feature: {},
+              quickLinks: { title: '', links: [{ title: 'category-link-1', url: 'https://www.ibm.com' }] },
+            },
+          },
+          {
+            title: 'menu-section-2-title',
+            url: 'https://www.ibm.com',
+            megapanelContent: {
+              feature: {},
+              quickLinks: { title: '', links: [{ title: 'category-link-2', url: 'https://www.ibm.com' }] },
+            },
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -75,6 +105,12 @@ describe('dds-masthead-composite', function() {
       render(template({ navLinks: navLinksFoo }), document.body);
       await Promise.resolve();
       expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-left-nav')).toMatchSnapshot();
+    });
+
+    it('should render the megamenu', async function() {
+      render(template({ navLinks: navLinksMegaMenu }), document.body);
+      await Promise.resolve();
+      expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-megamenu')).toMatchSnapshot();
     });
   });
 

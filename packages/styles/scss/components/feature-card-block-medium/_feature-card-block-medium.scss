@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../internal/content-group/content-group';
 @import '../feature-card/feature-card';
@@ -14,13 +15,10 @@
   :host(#{$dds-prefix}-feature-card-block-medium) {
     color: $text-01;
     background: $ui-background;
-
-    margin-top: $carbon--layout-05;
-    margin-bottom: $carbon--layout-05;
+    margin: $carbon--layout-05 0;
 
     @include carbon--breakpoint('lg') {
-      margin-top: $carbon--layout-06;
-      margin-bottom: $carbon--layout-06;
+      margin: $carbon--layout-06 0;
     }
 
     .#{$prefix}--feature-card-block-medium__heading,
@@ -29,6 +27,16 @@
 
       display: block;
       margin-bottom: $carbon--spacing-07;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    // There is no content under `.#{$prefix}--card__heading` in feature card block medium,
+    // because `.#{$prefix}--card__heading` actually is a copy content and the heading content goes outside the card
+    .#{$prefix}--card .#{$prefix}--card__heading {
+      margin-bottom: 0;
     }
   }
 }

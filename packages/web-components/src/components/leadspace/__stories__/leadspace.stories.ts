@@ -13,7 +13,6 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import styles from './leadspace.stories.scss';
 import '../leadspace';
 import '../../image/image';
 import '../../button-group/button-group';
@@ -175,16 +174,15 @@ export default {
   title: 'Components/LeadSpace',
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid bx--no-gutter" style="width: 100%">
+      <div class="bx--grid bx--no-gutter dds-ce-demo-devenv--grid--stretch">
         ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
         title: text('title (title):', 'Lead space title', groupId),
@@ -199,20 +197,24 @@ export default {
         })),
         image: [
           {
-            src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+            src: 'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
             breakpoint: 'sm',
           },
           {
-            src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+            src: 'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
             breakpoint: 'md',
           },
           {
-            src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+            src: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
             breakpoint: 'lg',
           },
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (defaultSrc):', 'https://dummyimage.com/1056x480/ee5396/ee5396', groupId),
+        defaultSrc: text(
+          'Default image (defaultSrc):',
+          'https://fpoimg.com/1056x480?bg_color=ee5396&amp;text_color=161616',
+          groupId
+        ),
       }),
     },
   },

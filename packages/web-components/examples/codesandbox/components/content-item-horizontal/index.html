@@ -1,0 +1,49 @@
+<!--
+@license
+Copyright IBM Corp. 2020
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <style type="text/css">
+    body {
+      font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    #app {
+      width: 300px;
+    }
+  </style>
+  <script src="src/index.js"></script>
+</head>
+<body>
+<h1>Hello World! 👋</h1>
+<div id="app">
+  <dds-content-item-horizontal>
+    <span slot="eyebrow">Lorem ipsum</span>
+    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+    <dds-content-item-horizontal-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy>
+    <dds-link-list slot="cta" type="vertical">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Learn more
+      </dds-link-list-item-cta>
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="external"
+      >
+        Microservices and containers
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-item-horizontal>
+</div>
+</body>
+</html>

@@ -29,8 +29,10 @@ const SORT_ORDER = [
   'overview-getting-started--page',
   'overview-building-for-ibm-dotcom--page',
   'overview-stable-selectors--page',
+  'overview-using-server-side-template--page',
   'overview-enable-right-to-left-rtl--page',
   'overview-feature-flags--page',
+  'overview-contributing-to-the-web-components-package--page',
 ];
 
 addParameters({
@@ -56,10 +58,11 @@ addParameters({
 addDecorator((story, { parameters }) => {
   const result = story();
   const { hasMainTag } = result as any;
-  const { hasGrid } = parameters;
+  const { hasGrid, hasVerticalSpacingInComponent } = parameters;
   const classes = classMap({
     'dds-ce-demo-devenv--container': true,
     'dds-ce-demo-devenv--container--has-grid': hasGrid,
+    'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
   });
   return html`
     <style>
@@ -70,6 +73,7 @@ addDecorator((story, { parameters }) => {
       id="main-content"
       name="main-content"
       data-floating-menu-container
+      data-modal-container
       role="${hasMainTag ? 'none' : 'main'}"
       class="${classes}"
     >

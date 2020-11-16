@@ -11,8 +11,6 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import '../markdown/markdown';
 import styles from './content-block.scss';
 
 const { prefix } = settings;
@@ -106,14 +104,10 @@ class DDSContentBlock extends LitElement {
   /**
    * @returns The copy content.
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderCopy(): TemplateResult | string | void {
-    const { copy } = this;
     return html`
-      ${!copy
-        ? undefined
-        : html`
-            <dds-markdown class="${prefix}--content-block__copy" nobold .content="${ifNonNull(copy)}"></dds-markdown>
-          `}
+      <slot></slot>
     `;
   }
 
@@ -122,12 +116,6 @@ class DDSContentBlock extends LitElement {
    */
   @property({ attribute: 'complementary-style-scheme' })
   complementaryStyleScheme = CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.REGULAR;
-
-  /**
-   * The copy content.
-   */
-  @property()
-  copy = '';
 
   render() {
     const { complementaryStyleScheme, _hasComplementary: hasComplementary } = this;
@@ -152,8 +140,8 @@ class DDSContentBlock extends LitElement {
           <div class="${complementaryRowClasses}">
             <div class="${ddsPrefix}-ce--content-block__col">
               ${this._renderBody()}
-              <slot name="complementary" @slotchange="${this._handleSlotChange}"></slot>
             </div>
+            <slot name="complementary" @slotchange="${this._handleSlotChange}"></slot>
           </div>
         `;
   }

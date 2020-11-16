@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { MastheadLink } from '../../../globals/services-store/types/translateAPI';
+import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 /* eslint-disable max-len */
 
@@ -16,1009 +16,1257 @@ import { MastheadLink } from '../../../globals/services-store/types/translateAPI
  */
 const mastheadLinks: MastheadLink[] = [
   {
-    title: 'Products',
+    title: 'Products & Solutions',
+    titleEnglish: 'Products & Solutions',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
     menuSections: [
       {
-        heading: 'Explore',
+        heading: '',
         menuItems: [
           {
-            title: 'Products',
-            url: 'https://www.ibm.com/products?lnk=hpmpr&lnk2=learn',
+            title: 'Top products & platforms',
+            titleEnglish: 'Top products & platforms',
+            url: 'https://www.ibm.com/products?lnk=hpmps_bupr&lnk2=link',
+            highlighted: true,
             megapanelContent: {
-              headingTitle: 'Products',
-              headingUrl: 'https://www.ibm.com/products?lnk=hpmpr&lnk2=learn',
+              headingTitle: 'Top products & platforms',
+              headingUrl: 'https://www.ibm.com/products?lnk=hpmps_bupr',
               description: '',
               quickLinks: {
-                title: 'Find, try or buy products and services',
+                title: '',
                 links: [
                   {
-                    title: 'Free trials',
-                    url: 'https://www.ibm.com/products/trials?lnk=hpmpr&lnk2=trial&lnk=STW_US_MAST_NAV_TL&lnk2=trial_THP',
+                    title: 'Db2',
+                    titleEnglish: 'Db2',
+                    url: 'https://www.ibm.com/analytics/db2?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Current deals',
-                    url:
-                      'https://www.ibm.com/products/offers-and-discounts?lnk=hpmpr&lnk2=trial&lnk=STW_US_MAST_NAV_TL&lnk2=discount_MPDISC',
+                    title: 'Hybrid Cloud',
+                    titleEnglish: 'Hybrid Cloud',
+                    url: 'https://www.ibm.com/cloud/hybrid?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Technologies',
-                    url:
-                      'https://www.ibm.com/products/category/technology?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_CATTech',
+                    title: 'IBM Cloud',
+                    titleEnglish: 'IBM Cloud',
+                    url: 'https://www.ibm.com/cloud?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Business needs',
-                    url:
-                      'https://www.ibm.com/products/category/business?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_CATBusneeds',
+                    title: 'IBM Security',
+                    titleEnglish: 'IBM Security',
+                    url: 'https://www.ibm.com/security?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Services',
-                    url: 'https://www.ibm.com/products/services?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_VHP',
+                    title: 'IBM Sterling',
+                    titleEnglish: 'IBM Sterling',
+                    url: 'https://www.ibm.com/supply-chain/sterling?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Hardware',
-                    url: 'https://www.ibm.com/products/hardware?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_HHP',
+                    title: 'IBM Z',
+                    titleEnglish: 'IBM Z',
+                    url: 'https://www.ibm.com/it-infrastructure/z?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'Software',
-                    url: 'https://www.ibm.com/products/software?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_SHP',
+                    title: 'Red Hat',
+                    titleEnglish: 'Red Hat',
+                    url: 'https://www.ibm.com/cloud/redhat?lnk=hpmps_bupr&lnk2=learn',
                   },
                   {
-                    title: 'View all products',
-                    url: 'https://www.ibm.com/products?lnk=hpmpr&lnk2=learn&lnk=STW_US_MAST_NAV_TL&lnk2=learn_MHP',
+                    title: 'SPSS Statistics',
+                    titleEnglish: 'SPSS Statistics',
+                    url: 'https://www.ibm.com/products/spss-statistics?lnk=hpmps_bupr&lnk2=learn',
+                  },
+                  {
+                    title: 'The Weather Company',
+                    titleEnglish: 'The Weather Company',
+                    url: 'https://www.ibm.com/weather?lnk=hpmps_bupr&lnk2=learn',
+                  },
+                  {
+                    title: 'Watson',
+                    titleEnglish: 'Watson',
+                    url: 'https://www.ibm.com/watson?lnk=hpmps_bupr&lnk2=learn',
+                  },
+                  {
+                    title: 'WebSphere',
+                    titleEnglish: 'WebSphere',
+                    url: 'https://www.ibm.com/cloud/websphere-application-platform/?lnk=hpmps_bupr&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'See current deals on IBM products',
-                imageUrl: 'https://1.dam.s81c.com/m/7beb01350471aa09/original/discount_software_megamenu_600x245.jpg',
-                linkTitle: 'Take advantage of limited-time offers and discounts',
-                linkUrl:
-                  'https://www.ibm.com/products/offers-and-discounts?lnk=hpmpr&lnk2=trial&lnk=STW_US_MAST_BNR_TL&lnk2=discount_MPDISC',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/7b8ce832a78108d5/original/megamenu-pictogram-top-products-and-services.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Analytics',
-            url: 'https://www.ibm.com/analytics?lnk=hpmpr_bua',
+            title: 'Industries',
+            titleEnglish: 'Industries',
+            url: 'https://www.ibm.com/industries?lnk=hpmps_buin&lnk2=link',
+            highlighted: true,
             megapanelContent: {
-              headingTitle: 'Analytics',
-              headingUrl: 'https://www.ibm.com/analytics?lnk=hpmpr_bua',
+              headingTitle: 'Industries',
+              headingUrl: 'https://www.ibm.com/industries?lnk=hpmps_buin',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Business Analytics',
-                    url: 'https://www.ibm.com/analytics/business-analytics?lnk=hpmpr_bua',
+                    title: 'Banking & financial markets',
+                    titleEnglish: 'Banking & financial markets',
+                    url: 'https://www.ibm.com/industries/banking-financial-markets?lnk=hpmps_buin&lnk2=learn',
                   },
                   {
-                    title: 'Data Management',
-                    url: 'https://www.ibm.com/analytics/data-management?lnk=hpmpr_bua',
+                    title: 'Energy & utilities',
+                    titleEnglish: 'Energy & utilities',
+                    url: 'https://www.ibm.com/industries/energy?lnk=hpmps_buin&lnk2=learn',
                   },
                   {
-                    title: 'Data Science',
-                    url: 'https://www.ibm.com/analytics/data-science?lnk=hpmpr_bua',
+                    title: 'Government - US Federal',
+                    titleEnglish: 'Government - US Federal',
+                    url: 'https://www.ibm.com/industries/federal?lnk=hpmps_buin&lnk2=learn',
                   },
                   {
-                    title: 'Journey to AI',
-                    url: 'https://www.ibm.com/analytics/journey-to-ai?lnk=hpmpr_bua',
+                    title: 'Healthcare',
+                    titleEnglish: 'Healthcare',
+                    url: 'https://www.ibm.com/industries/healthcare?lnk=hpmps_buin&lnk2=learn',
                   },
                   {
-                    title: 'DataOps',
-                    url: 'https://www.ibm.com/analytics/dataops',
+                    title: 'Insurance',
+                    titleEnglish: 'Insurance',
+                    url: 'https://www.ibm.com/industries/insurance?lnk=hpmps_buin&lnk2=learn',
                   },
                   {
-                    title: 'Watson Studio',
-                    url: 'https://www.ibm.com/cloud/watson-studio?lnk=hpmpr_bua',
+                    title: 'Manufacturing',
+                    titleEnglish: 'Manufacturing',
+                    url: 'https://www.ibm.com/industries/manufacturing?lnk=hpmps_buin&lnk2=learn',
+                  },
+                  {
+                    title: 'Retail & consumer products',
+                    titleEnglish: 'Retail & consumer products',
+                    url: 'https://www.ibm.com/industries/retail-consumer-products?lnk=hpmps_buin&lnk2=learn',
+                  },
+                  {
+                    title: 'Telco, media & entertainment',
+                    titleEnglish: 'Telco, media & entertainment',
+                    url: 'https://www.ibm.com/industries/telecom-media-entertainment?lnk=hpmps_buin&lnk2=learn',
+                  },
+                  {
+                    title: 'Travel & transportation',
+                    titleEnglish: 'Travel & transportation',
+                    url: 'https://www.ibm.com/industries/travel-transportation?lnk=hpmps_buin&lnk2=learn',
+                  },
+                  {
+                    title: 'View all Industries',
+                    titleEnglish: 'View all Industries',
+                    url: 'https://www.ibm.com/industries?lnk=hpmps_buin&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Transform financial and operational performance',
-                imageUrl: 'https://1.dam.s81c.com/m/1ed1ab3c7cfd47ff/original/analytics_feature_panel.jpg?1=1',
-                linkTitle:
-                  'Make faster decisions when you automate your manual processes for planning, budgeting and forecasting',
-                linkUrl: 'https://www.ibm.com/analytics/integrated-planning/?lnk=hpmpr_bua',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/6cad5af285e48a89/original/megamenu-pictogram-industries.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Artificial intelligence',
+            titleEnglish: 'Artificial intelligence',
+            url: 'https://www.ibm.com/artificial-intelligence?lnk=hpmps_buai&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Artificial intelligence',
+              headingUrl: 'https://www.ibm.com/artificial-intelligence?lnk=hpmps_buai',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Customer service',
+                    titleEnglish: 'Customer service',
+                    url: 'https://www.ibm.com/watson/ai-customer-service?lnk=hpmps_buai&lnk2=learn',
+                  },
+                  {
+                    title: 'Deep learning',
+                    titleEnglish: 'Deep learning',
+                    url: 'https://www.ibm.com/cloud/deep-learning?lnk=hpmps_buai&lnk2=learn',
+                  },
+                  {
+                    title: 'Image recognition',
+                    titleEnglish: 'Image recognition',
+                    url: 'https://www.ibm.com/cloud/watson-visual-recognition?lnk=hpmps_buai&lnk2=learn',
+                  },
+                  {
+                    title: 'Platforms & APIs',
+                    titleEnglish: 'Platforms & APIs',
+                    url: 'https://www.ibm.com/watson/products-services?lnk=hpmps_buai&lnk2=learn',
+                  },
+                  {
+                    title: 'View all AI products',
+                    titleEnglish: 'View all AI products',
+                    url:
+                      'https://www.ibm.com/us-en/products/category/technology/cognitive-computing-and-AI?lnk=hpmps_buai&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/3ed6517e90739279/original/megamenu-pictogram-artificial-intelligence.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
             title: 'Automation',
-            url: 'https://www.ibm.com/automation?lnk=hpmpr_buau',
+            titleEnglish: 'Automation',
+            url: 'https://www.ibm.com/automation?lnk=hpmps_buau&lnk2=link',
             megapanelContent: {
               headingTitle: 'Automation',
-              headingUrl: 'https://www.ibm.com/automation?lnk=hpmpr_buau',
+              headingUrl: 'https://www.ibm.com/automation?lnk=hpmps_buau',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Automation Platform',
-                    url: 'https://www.ibm.com/automation/platform?lnk=hpmpr_buau',
+                    title: 'Business process automation',
+                    titleEnglish: 'Business process automation',
+                    url: 'https://www.ibm.com/automation/services?lnk=hpmps_buau&lnk2=learn',
                   },
                   {
-                    title: 'Automation Services',
-                    url: 'https://www.ibm.com/automation/services?lnk=hpmpr_buau',
+                    title: 'Business process mapping',
+                    titleEnglish: 'Business process mapping',
+                    url: 'https://www.ibm.com/automation/process-mapping?lnk=hpmps_buau&lnk2=learn',
                   },
                   {
-                    title: 'Automation Software',
-                    url: 'https://www.ibm.com/automation/software?lnk=hpmpr_buau',
+                    title: 'Business rules management',
+                    titleEnglish: 'Business rules management',
+                    url: 'https://www.ibm.com/automation/enterprise-content-management?lnk=hpmps_buau&lnk2=learn',
                   },
                   {
-                    title: 'Content Services',
-                    url: 'https://www.ibm.com/automation/enterprise-content-management?lnk=hpmpr_buau',
+                    title: 'Data capture',
+                    titleEnglish: 'Data capture',
+                    url: 'https://www.ibm.com/automation/data-capture?lnk=hpmps_buau&lnk2=learn',
                   },
                   {
-                    title: 'Data Capture',
-                    url: 'https://www.ibm.com/automation/data-capture?lnk=hpmpr_buau',
-                  },
-                  {
-                    title: 'Decision Automation',
-                    url: 'https://www.ibm.com/automation/business-rules?lnk=hpmpr_buau',
-                  },
-                  {
-                    title: 'Process Mapping',
-                    url: 'https://www.ibm.com/automation/process-mapping?lnk=hpmpr_buau',
-                  },
-                  {
-                    title: 'Robotic Process Automation',
-                    url: 'https://www.ibm.com/automation/rpa?lnk=hpmpr_buau',
-                  },
-                  {
-                    title: 'Workflow Automation',
-                    url: 'https://www.ibm.com/automation/workflow?lnk=hpmpr_buau',
+                    title: 'View all Automation products',
+                    titleEnglish: 'View all Automation products',
+                    url: 'https://www.ibm.com/automation/platform?lnk=hpmps_buau&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'The rise of Intelligent Automation',
-                imageUrl: 'https://1.cms.s81c.com/sites/default/files/2019-10-10/Automation_Leadspaces_BKGRND_Overview.png',
-                linkTitle: 'Automation is transforming how we work — what if we infuse it with AI?',
-                linkUrl: 'https://www.ibm.com/automation',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/15598df3a3519f7f/original/megamenu-pictogram-business-automation.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
             title: 'Blockchain',
-            url: 'https://www.ibm.com/blockchain?lnk=hpmpr_buau',
+            titleEnglish: 'Blockchain',
+            url: 'https://www.ibm.com/blockchain?lnk=hpmps_bubc&lnk2=link',
             megapanelContent: {
               headingTitle: 'Blockchain',
-              headingUrl: 'https://www.ibm.com/blockchain?lnk=hpmpr_buau',
+              headingUrl: 'https://www.ibm.com/blockchain?lnk=hpmps_bubc',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Blockchain Solutions',
-                    url: 'https://www.ibm.com/blockchain/solutions/?lnk=hpmpr_bubk',
+                    title: 'Blockchain platform',
+                    titleEnglish: 'Blockchain platform',
+                    url: 'https://www.ibm.com/blockchain/platform?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'Blockchain Platform',
-                    url: 'https://www.ibm.com/blockchain/platform?lnk=hpmpr_bubk',
+                    title: 'Transparent supply',
+                    titleEnglish: 'Transparent supply',
+                    url: 'https://www.ibm.com/blockchain/solutions/transparent-supply?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'Blockchain Services',
-                    url: 'https://www.ibm.com/blockchain/services?lnk=hpmpr_bubk',
+                    title: 'Blockchain for supplier management',
+                    titleEnglish: 'Blockchain for supplier management',
+                    url: 'https://www.ibm.com/blockchain/solutions/trust-your-supplier?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'IBM Food Trust',
-                    url: 'https://www.ibm.com/blockchain/solutions/food-trust?lnk=hpmpr_bubk',
+                    title: 'Blockchain for trade finance',
+                    titleEnglish: 'Blockchain for trade finance',
+                    url: 'https://www.ibm.com/blockchain/solutions/trade-finance?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'IBM World Wire',
-                    url: 'https://www.ibm.com/blockchain/solutions/world-wire?lnk=hpmpr_bubk',
+                    title: 'Blockchain for supply chain',
+                    titleEnglish: 'Blockchain for supply chain',
+                    url: 'https://www.ibm.com/blockchain/industries/supply-chain?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'Blockchain Trade Finance',
-                    url: 'https://www.ibm.com/blockchain/solutions/trade-finance?lnk=hpmpr_bubk',
+                    title: 'Blockchain for food',
+                    titleEnglish: 'Blockchain for food',
+                    url: 'https://www.ibm.com/blockchain/solutions/food-trust?lnk=hpmps_bubc&lnk2=learn',
                   },
                   {
-                    title: 'Blockchain Ecosystem',
-                    url: 'https://www.ibm.com/blockchain/ecosystem?lnk=hpmpr_bubk',
-                  },
-                  {
-                    title: 'Blockchain Supply Chain',
-                    url: 'https://www.ibm.com/blockchain/industries/supply-chain?lnk=hpmpr_bubk',
+                    title: 'View all Blockchain products',
+                    titleEnglish: 'View all Blockchain products',
+                    url: 'https://www.ibm.com/us-en/products/category/technology/blockchain?lnk=hpmps_bubc&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Transform your business and disrupt your industry with IBM Blockchain',
-                imageUrl: 'https://www.ibm.com/images/portal/G717140Y84102C99/imagem-0001.jpg',
-                linkTitle: 'What is blockchain?',
-                linkUrl: 'https://www.ibm.com/blockchain/what-is-blockchain?lnk=hpmpr_bubk',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/75dc99f23dced53/original/megamenu-pictogram-blockchain.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Cloud',
-            url: 'https://www.ibm.com/cloud/?lnk=hpmpr_bucl&lnk2=learn',
+            title: 'Business operations',
+            titleEnglish: 'Business operations',
+            url: 'https://www.ibm.com/business-operations?lnk=hpmps_buop&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Cloud',
-              headingUrl: 'https://www.ibm.com/cloud/?lnk=hpmpr_bucl&lnk2=learn',
+              headingTitle: 'Business operations',
+              headingUrl: 'https://www.ibm.com/business-operations?lnk=hpmps_buop',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'IBM Cloud',
-                    url: 'https://www.ibm.com/cloud/?lnk=hpmpr_bucl',
-                  },
-                  {
-                    title: 'IBM Cloud Paks',
-                    url: 'https://www.ibm.com/cloud/paks/?lnk=hpmpr_bucl',
-                  },
-                  {
-                    title: 'Red Hat',
-                    url: 'https://www.ibm.com/cloud/redhat?lnk=hpmpr_bucl',
-                  },
-                  {
-                    title: 'IBM Garage',
-                    url: 'https://www.ibm.com/garage?lnk=hpmpr_bucl',
-                  },
-                  {
-                    title: 'IBM Cloud Object Storage',
-                    url: 'https://www.ibm.com/cloud/object-storage?lnk=hpmpr_bucl',
-                  },
-                  {
-                    title: 'Bare metal servers',
-                    url: 'https://www.ibm.com/cloud/bare-metal-servers?lnk=hpmpr_bucl',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'A simpler path to cloud with IBM and VMware',
-                imageUrl: 'https://1.dam.s81c.com/m/52a6ddb413546b90/original/CDT_440_rollover.jpg?1=1',
-                linkTitle: 'Access to a global network of 60+ data centers and an array of cloud services',
-                linkUrl: 'https://www.ibm.com/cloud/vmware?lnk=hpmpr_bucl&lnk2=learn',
-              },
-            },
-          },
-          {
-            title: 'Internet of Things',
-            url: 'https://www.ibm.com/internet-of-things?lnk=hpmpr_iot',
-            megapanelContent: {
-              headingTitle: 'Internet of Things',
-              headingUrl: 'https://www.ibm.com/internet-of-things?lnk=hpmpr_iot',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
                     title: 'Enterprise asset management',
-                    url: 'https://www.ibm.com/internet-of-things/solutions/enterprise-asset-management?lnk=hpmpr_iot&lnk2=learn',
+                    titleEnglish: 'Enterprise asset management',
+                    url: 'https://www.ibm.com/business-operations/enterprise-asset-management?lnk=hpmps_buop&lnk2=learn',
                   },
                   {
                     title: 'Facilities management',
-                    url: 'https://www.ibm.com/internet-of-things/solutions/facilities-management?lnk=hpmpr_iot&lnk2=learn',
+                    titleEnglish: 'Facilities management',
+                    url:
+                      'https://www.ibm.com/business-operations/facilities-management/integrated-workplace-management-system?lnk=hpmps_buop&lnk2=learn',
                   },
                   {
                     title: 'Systems engineering',
-                    url: 'https://www.ibm.com/internet-of-things/solutions/systems-engineering?lnk=hpmpr_iot&lnk2=learn',
+                    titleEnglish: 'Systems engineering',
+                    url: 'https://www.ibm.com/business-operations/systems-engineering?lnk=hpmps_buop&lnk2=learn',
                   },
                   {
-                    title: 'IoT platform',
-                    url: 'https://www.ibm.com/internet-of-things/solutions/iot-platform?lnk=hpmpr_iot&lnk2=learn',
+                    title: 'Weather Business Solutions',
+                    titleEnglish: 'Weather Business Solutions',
+                    url: 'https://www.ibm.com/weather/industries?lnk=hpmps_buop&lnk2=learn',
+                  },
+                  {
+                    title: 'View all Business operations products',
+                    titleEnglish: 'View all Business operations products',
+                    url: 'https://www.ibm.com/us-en/products/category/business/business-operations?lnk=hpmps_buop&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Watson Internet of Things',
-                imageUrl: 'https://1.dam.s81c.com/m/24896629396b33ef/original/watson_iot_380x160.png',
-                linkTitle: 'See how an intelligent IoT will transform the way every person experiences the physical world',
-                linkUrl: 'https://www.ibm.com/internet-of-things?lnk=hpmpr_iot',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/5e600deb01c4ebd3/original/megamenu-pictogram-business-operations.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'IT Infrastructure',
-            url: 'https://www.ibm.com/it-infrastructure/us-en/?lnk=hpmpr_buit&lnk2=learn',
+            title: 'Cloud computing',
+            titleEnglish: 'Cloud computing',
+            url: 'https://www.ibm.com/cloud?lnk=hpmps_bucl&lnk2=link',
             megapanelContent: {
-              headingTitle: 'IT Infrastructure',
-              headingUrl: 'https://www.ibm.com/it-infrastructure/us-en/?lnk=hpmpr_buit&lnk2=learn',
+              headingTitle: 'Cloud computing',
+              headingUrl: 'https://www.ibm.com/cloud?lnk=hpmps_bucl',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Servers',
-                    url: 'https://www.ibm.com/it-infrastructure/servers?lnk=hpmpr_buit&lnk2=learn',
+                    title: 'Containers',
+                    titleEnglish: 'Containers',
+                    url: 'https://www.ibm.com/cloud/container-service/?lnk=hpmps_bucl&lnk2=learn',
                   },
                   {
-                    title: 'Storage',
-                    url: 'https://www.ibm.com/it-infrastructure/storage?lnk=hpmpr_buit&lnk2=learn',
+                    title: 'Databases',
+                    titleEnglish: 'Databases',
+                    url: 'https://www.ibm.com/cloud/databases?lnk=hpmps_bucl&lnk2=learn',
                   },
                   {
-                    title: 'Software',
-                    url: 'https://www.ibm.com/it-infrastructure/software?lnk=hpmpr_buit&lnk2=learn',
-                  },
-                  { title: '&nbsp;&nbsp;', url: '&nbsp;' },
-                  {
-                    title: 'IBM LinuxONE',
-                    url: 'https://www.ibm.com/it-infrastructure/linuxone?lnk=hpmpr_buit&lnk2=learn',
+                    title: 'DevOps',
+                    titleEnglish: 'DevOps',
+                    url: 'https://www.ibm.com/cloud/devops?lnk=hpmps_bucl&lnk2=learn',
                   },
                   {
-                    title: 'IBM Power Systems',
-                    url: 'https://www.ibm.com/it-infrastructure/power?lnk=hpmpr_buit&lnk2=learn',
+                    title: 'Hybrid Cloud',
+                    titleEnglish: 'Hybrid Cloud',
+                    url: 'https://www.ibm.com/cloud/hybrid?lnk=hpmps_bucl&lnk2=learn',
                   },
                   {
-                    title: 'IBM Spectrum Computing',
-                    url: 'https://www.ibm.com/it-infrastructure/spectrum-computing?lnk=hpmpr_buit&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Z',
-                    url: 'https://www.ibm.com/it-infrastructure/z?lnk=hpmpr_buit&lnk2=learn',
+                    title: 'View all Cloud computing products',
+                    titleEnglish: 'View all Cloud computing products',
+                    url: 'https://www.ibm.com/us-en/products/category/technology/cloud-computing?lnk=hpmps_bucl&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'The building block for next-generation IT infrastructure',
-                imageUrl:
-                  'https://www.ibm.com/images/portal/D188507U77167V28/IT-infrastructure-fly-out-home-page-380x160.jpg?1=1',
-                linkTitle: 'Discover IT optimized for your most demanding workloads',
-                linkUrl: 'https://www.ibm.com/it-infrastructure?lnk=hpmpr_buit&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/1f27aeccb7d68054/original/megamenu-pictogram-cloud-computing.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Mobile',
-            url: 'https://www.ibm.com/mobile?lnk=hpmpr_bumf&lnk2=learn',
+            title: 'Data & Analytics',
+            titleEnglish: 'Data & Analytics',
+            url: 'https://www.ibm.com/analytics?lnk=hpmps_buda&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Mobile',
-              headingUrl: 'https://www.ibm.com/mobile?lnk=hpmpr_bumf&lnk2=learn',
+              headingTitle: 'Data & Analytics',
+              headingUrl: 'https://www.ibm.com/analytics?lnk=hpmps_buda',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'CIO resources',
-                    url: 'https://www.ibm.com/thought-leadership/chief-information-officer/create/?lnk=hpmpr_bumf&lnk2=learn',
+                    title: 'Data Management',
+                    titleEnglish: 'Data Management',
+                    url: 'https://www.ibm.com/analytics/data-management?lnk=hpmps_buda&lnk2=learn',
                   },
                   {
-                    title: 'Mobile Foundation',
-                    url: 'https://www.ibm.com/cloud/mobile-foundation?lnk=hpmpr_bumf&lnk2=learn',
+                    title: 'Business intelligence',
+                    titleEnglish: 'Business intelligence',
+                    url: 'https://www.ibm.com/analytics/business-intelligence?lnk=hpmps_buda&lnk2=learn',
                   },
                   {
-                    title: 'API Connect',
-                    url: 'https://www.ibm.com/cloud/api-connect?lnk=hpmpr_bumf&lnk2=learn',
+                    title: 'Data governance',
+                    titleEnglish: 'Data governance',
+                    url: 'https://www.ibm.com/analytics/data-governance?lnk=hpmps_buda&lnk2=learn',
                   },
                   {
-                    title: 'IBM Cloudant',
-                    url: 'https://www.ibm.com/cloud/cloudant?lnk=hpmpr_bumf&lnk2=learn',
+                    title: 'Data science',
+                    titleEnglish: 'Data science',
+                    url: 'https://www.ibm.com/analytics/data-science-business-analytics?lnk=hpmps_buda&lnk2=learn',
                   },
                   {
-                    title: 'Swift@IBM',
-                    url: 'https://www.ibm.com/cloud/swift?lnk=hpmpr_bumf&lnk2=learn',
+                    title: 'View all Data & Analytics products',
+                    titleEnglish: 'View all Data & Analytics products',
+                    url: 'https://www.ibm.com/us-en/products/category/technology/analytics?lnk=hpmps_buda&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Inspire exceptional digital experiences',
-                imageUrl: 'https://www.ibm.com/images/portal/P081788Y02146I09/megamenu-380x160.jpg?1=102',
-                linkTitle: 'Can your organization deliver differentiated experiences and enable a truly digital workplace?',
-                linkUrl:
-                  'https://www.ibm.com/thought-leadership/chief-information-officer/exceptional-digital-experiences/?lnk=hpmpr_bumf&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/6d9bf0fd66e54f9a/original/megamenu-pictogram-data-analytics.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'IT infrastructure',
+            titleEnglish: 'IT infrastructure',
+            url: 'https://www.ibm.com/it-infrastructure?lnk=hpmps_buit&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'IT infrastructure',
+              headingUrl: 'https://www.ibm.com/it-infrastructure?lnk=hpmps_buit',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Data storage',
+                    titleEnglish: 'Data storage',
+                    url: 'https://www.ibm.com/it-infrastructure/storage?lnk=hpmps_buit&lnk2=learn',
+                  },
+                  {
+                    title: 'Enterprise servers',
+                    titleEnglish: 'Enterprise servers',
+                    url: 'https://www.ibm.com/it-infrastructure/servers?lnk=hpmps_buit&lnk2=learn',
+                  },
+                  {
+                    title: 'Hybrid cloud infrastructure',
+                    titleEnglish: 'Hybrid cloud infrastructure',
+                    url: 'https://www.ibm.com/it-infrastructure/solutions/hybrid-cloud?lnk=hpmps_buit&lnk2=learn',
+                  },
+                  {
+                    title: 'Secure infrastructure',
+                    titleEnglish: 'Secure infrastructure',
+                    url: 'https://www.ibm.com/it-infrastructure/solutions/security?lnk=hpmps_buit&lnk2=learn',
+                  },
+                  {
+                    title: 'Mainframes',
+                    titleEnglish: 'Mainframes',
+                    url: 'https://www.ibm.com/it-infrastructure/servers/mainframes?lnk=hpmps_buit&lnk2=learn',
+                  },
+                  {
+                    title: 'View all IT infrastructure products',
+                    titleEnglish: 'View all IT infrastructure products',
+                    url: 'https://www.ibm.com/us-en/products/category/technology/IT-infrastructure?lnk=hpmps_buit&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/18758c6b890d488e/original/megamenu-pictogram-IT-infrastructure.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
             title: 'Security',
-            url: 'https://www.ibm.com/security?lnk=hpmpr_buse',
+            titleEnglish: 'Security',
+            url: 'https://www.ibm.com/security?lnk=hpmps_buse&lnk2=link',
             megapanelContent: {
               headingTitle: 'Security',
-              headingUrl: 'https://www.ibm.com/security?lnk=hpmpr_buse',
-              description: 'Let’s drive security into the fabric of your business, together',
+              headingUrl: 'https://www.ibm.com/security?lnk=hpmps_buse',
+              description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Security and risk management',
-                    url: 'https://www.ibm.com/security/strategy-risk-management?lnk=hpmpr_buse',
+                    title: 'Data security',
+                    titleEnglish: 'Data security',
+                    url: 'https://www.ibm.com/security/data-security?lnk=hpmps_buse&lnk2=learn',
                   },
                   {
-                    title: 'Threat management',
-                    url: 'https://www.ibm.com/security/threat-management?lnk=hpmpr_buse',
+                    title: 'Identity & access management',
+                    titleEnglish: 'Identity & access management',
+                    url: 'https://www.ibm.com/security/identity-access-management?lnk=hpmps_buse&lnk2=learn',
                   },
                   {
-                    title: 'Digital trust',
-                    url: 'https://www.ibm.com/security/digital-trust?lnk=hpmpr_buse',
+                    title: 'Security information & event management',
+                    titleEnglish: 'Security information & event management',
+                    url: 'https://www.ibm.com/security/security-intelligence?lnk=hpmps_buse&lnk2=learn',
+                  },
+                  {
+                    title: 'Security orchestration, automation & response',
+                    titleEnglish: 'Security orchestration, automation & response',
+                    url: 'https://www.ibm.com/security/intelligent-orchestration?lnk=hpmps_buse',
+                  },
+                  {
+                    title: 'View all Security products',
+                    titleEnglish: 'View all Security products',
+                    url:
+                      'https://www.ibm.com/us-en/products/category/technology/security?lnk=hpmps_buse&lnk2=learn?lnk=hpmps_buse&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/335f1d6485cede0/original/megamenu-pictogram-security.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Supply chain',
+            titleEnglish: 'Supply chain',
+            url: 'https://www.ibm.com/supply-chain?lnk=hpmps_busc&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Supply chain',
+              headingUrl: 'https://www.ibm.com/supply-chain?lnk=hpmps_busc',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Supply chain visibility',
+                    titleEnglish: 'Supply chain visibility',
+                    url: 'https://www.ibm.com/supply-chain/visibility?lnk=hpmps_busc&lnk2=learn',
+                  },
+                  {
+                    title: 'Supplier collaboration',
+                    titleEnglish: 'Supplier collaboration',
+                    url: 'https://www.ibm.com/supply-chain/supplier-collaboration-solutions?lnk=hpmps_busc&lnk2=learn',
+                  },
+                  {
+                    title: 'Business process improvement',
+                    titleEnglish: 'Business process improvement',
+                    url: 'https://www.ibm.com/supply-chain/process-improvement-solutions?lnk=hpmps_busc&lnk2=learn',
+                  },
+                  {
+                    title: 'Order management and fulfillment',
+                    titleEnglish: 'Order management and fulfillment',
+                    url: 'https://www.ibm.com/supply-chain/order-management-software?lnk=hpmps_busc&lnk2=learn',
+                  },
+                  {
+                    title: 'View all Supply Chain products',
+                    titleEnglish: 'View all Supply Chain products',
+                    url: 'https://www.ibm.com/supply-chain/products?lnk=hpmps_busc&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/53c30e47cbfc167/original/megamenu-pictogram-supply-chain.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Payment plans for Products & Solutions',
+            titleEnglish: 'Payment plans for Products & Solutions',
+            url: 'https://www.ibm.com/financing?lnk=hpmps_bufi&lnk2=link',
+            highlighted: true,
+          },
+          {
+            title: 'View all products',
+            titleEnglish: 'View all products',
+            url: 'https://www.ibm.com/products?lnk=hpmps_buall&lnk2=link',
+            megaPanelViewAll: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Services & Consulting',
+    titleEnglish: 'Services & Consulting',
+    url: '',
+    hasMenu: true,
+    hasMegapanel: true,
+    menuSections: [
+      {
+        heading: '',
+        menuItems: [
+          {
+            title: 'Business process services',
+            titleEnglish: 'Business process services',
+            url: 'https://www.ibm.com/services/process?lnk=hpmsc_bups&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Business process services',
+              headingUrl: 'https://www.ibm.com/services/process?lnk=hpmsc_bups',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Artificial intelligence services',
+                    titleEnglish: 'Artificial intelligence services',
+                    url: 'https://www.ibm.com/services/artificial-intelligence?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Automation',
+                    titleEnglish: 'Automation',
+                    url: 'https://www.ibm.com/automation/services?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Big data & data platform',
+                    titleEnglish: 'Big data & data platform',
+                    url: 'https://www.ibm.com/services/big-data-services?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Business process outsourcing',
+                    titleEnglish: 'Business process outsourcing',
+                    url: 'https://www.ibm.com/services/process/outsourcing?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Edge consulting',
+                    titleEnglish: 'Edge consulting',
+                    url: 'https://www.ibm.com/services/process/edge-services?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Finance transformation',
+                    titleEnglish: 'Finance transformation',
+                    url: 'https://www.ibm.com/services/process/finance?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'IoT consulting',
+                    titleEnglish: 'IoT consulting',
+                    url: 'https://www.ibm.com/services/process/iot-consulting?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Procurement & strategic sourcing',
+                    titleEnglish: 'Procurement & strategic sourcing',
+                    url: 'https://www.ibm.com/services/process/procurement?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Risk consulting & fraud management',
+                    titleEnglish: 'Risk consulting & fraud management',
+                    url: 'https://www.ibm.com/services/process/risk?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                  {
+                    title: 'Supply chain',
+                    titleEnglish: 'Supply chain',
+                    url: 'https://www.ibm.com/services/process/supply-chain?lnk=hpmsc_bups&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/79a6c3cde7dd0665/original/megamenu-pictogram-business-process-service.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Design & business strategy',
+            titleEnglish: 'Design & business strategy',
+            url: 'https://www.ibm.com/services/ibmix/?lnk=hpmsc_budbs&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Design & business strategy',
+              headingUrl: 'https://www.ibm.com/services/ibmix/?lnk=hpmsc_bubs',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Digital strategy',
+                    titleEnglish: 'Digital strategy',
+                    url: 'https://www.ibm.com/services/business/digital?lnk=hpmsc_bubs&lnk2=learn',
+                  },
+                  {
+                    title: 'Experience strategy',
+                    titleEnglish: 'Experience strategy',
+                    url: 'https://www.ibm.com/services/ibmix/experience-strategy?lnk=hpmsc_bubs&lnk2=learn',
+                  },
+                  {
+                    title: 'Marketing platforms',
+                    titleEnglish: 'Marketing platforms',
+                    url: 'https://www.ibm.com/services/ibmix/marketing-platforms?lnk=hpmsc_bubs&lnk2=learn',
+                  },
+                  {
+                    title: 'Salesforce consulting',
+                    titleEnglish: 'Salesforce consulting',
+                    url: 'https://www.ibm.com/services/salesforce?lnk=hpmsc_bubs&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/1b7522c50ea39ca/original/megamenu-pictogram-design-business-strategy.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Hybrid multicloud services',
+            titleEnglish: 'Hybrid multicloud services',
+            url: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs?lnk=hpmsc_buhs',
+            megapanelContent: {
+              headingTitle: 'Hybrid multicloud services',
+              headingUrl: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Business continuity & resiliency',
+                    titleEnglish: 'Business continuity & resiliency',
+                    url: 'https://www.ibm.com/services/business-continuity?lnk=hpmsc_buhs&lnk2=learn',
+                  },
+                  {
+                    title: 'Cloud services',
+                    titleEnglish: 'Cloud services',
+                    url: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs&lnk2=learn',
+                  },
+                  {
+                    title: 'Network',
+                    titleEnglish: 'Network',
+                    url: 'https://www.ibm.com/services/network?lnk=hpmsc_buhs&lnk2=learn',
+                  },
+                  {
+                    title: 'Workplace services',
+                    titleEnglish: 'Workplace services',
+                    url: 'https://www.ibm.com/services/digital-workplace?lnk=hpmsc_buhs&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/5daa9dce872913ea/original/megamenu-pictogram-hybrid-multi-cloud-services.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Talent & transformation',
+            titleEnglish: 'Talent & transformation',
+            url: 'https://www.ibm.com/talent-management?lnk=hpmsc_buta&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Talent & transformation',
+              headingUrl: 'https://www.ibm.com/talent-management?lnk=hpmsc_buta',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'HR transformation',
+                    titleEnglish: 'HR transformation',
+                    url: 'https://www.ibm.com/services/process/talent/human-resources?lnk=hpmsc_buta&lnk2=learn',
+                  },
+                  {
+                    title: 'Talent acquisition',
+                    titleEnglish: 'Talent acquisition',
+                    url: 'https://www.ibm.com/talent-management/talent-acquisition?lnk=hpmsc_buta&lnk2=learn',
+                  },
+                  {
+                    title: 'Talent development',
+                    titleEnglish: 'Talent development',
+                    url: 'https://www.ibm.com/services/process/talent/development?lnk=hpmsc_buta&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/69e350b141e12bd5/original/megamenu-pictogram-talent-and-transformation.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Application services',
+            titleEnglish: 'Application services',
+            url: 'https://www.ibm.com/services/applications?lnk=hpmsc_buas&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Application services',
+              headingUrl: 'https://www.ibm.com/services/applications?lnk=hpmsc_buas',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Application development',
+                    titleEnglish: 'Application development',
+                    url: 'https://www.ibm.com/services/applications/development?lnk=hpmsc_buas&lnk2=learn',
+                  },
+                  {
+                    title: 'Application Modernization',
+                    titleEnglish: 'Application Modernization',
+                    url: 'https://www.ibm.com/services/cloud/modernize-applications?lnk=hpmsc_buas&lnk2=learn',
+                  },
+                  {
+                    title: 'Enterprise application management',
+                    titleEnglish: 'Enterprise application management',
+                    url: 'https://www.ibm.com/services/cloud/enterprise-application-management?lnk=hpmsc_buas&lnk2=learn',
+                  },
+                  {
+                    title: 'Enterprise applications strategy',
+                    titleEnglish: 'Enterprise applications strategy',
+                    url: 'https://www.ibm.com/services/applications/enterprise?lnk=hpmsc_buas&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/2b7c180c68557dcb/original/megamenu-pictogram-application-services.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Security services',
+            titleEnglish: 'Security services',
+            url: 'https://www.ibm.com/security/services?lnk=hpmsc_buse&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Security services',
+              headingUrl: 'https://www.ibm.com/security/services?lnk=hpmsc_buse',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Application security',
+                    titleEnglish: 'Application security',
+                    url: 'https://www.ibm.com/security/services/application-security-services?lnk=hpmsc_buse&lnk2=learn',
                   },
                   {
                     title: 'Cloud security',
-                    url: 'https://www.ibm.com/security/cloud?lnk=hpmpr_buse',
+                    titleEnglish: 'Cloud security',
+                    url: 'https://www.ibm.com/security/services/cloud-security-services?lnk=hpmsc_buse&lnk2=learn',
+                  },
+                  {
+                    title: 'Data security',
+                    titleEnglish: 'Data security',
+                    url: 'https://www.ibm.com/security/services/data-security?lnk=hpmsc_buse&lnk2=learn',
+                  },
+                  {
+                    title: 'Identity & access management',
+                    titleEnglish: 'Identity & access management',
+                    url: 'https://www.ibm.com/security/services/identity-access-management?lnk=hpmsc_buse&lnk2=learn',
+                  },
+                  {
+                    title: 'Managed security',
+                    titleEnglish: 'Managed security',
+                    url: 'https://www.ibm.com/security/services/managed-security-services?lnk=hpmsc_buse&lnk2=learn',
+                  },
+                  {
+                    title: 'Security governance',
+                    titleEnglish: 'Security governance',
+                    url: 'https://www.ibm.com/security/services/security-governance?lnk=hpmsc_buse&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Cost of a Data Breach study',
-                imageUrl: 'https://1.dam.s81c.com/m/164772c39e502c72/original/megamenu-cost-of-data-breach-22827-600x245.jpg',
-                linkTitle: 'An essential report on today’s security landscape',
-                linkUrl: 'https://www.ibm.com/security/data-breach?lnk=hpmpr_buse&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/6ecec25a8489cf82/original/megamenu-pictogram-security-services.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Supply Chain',
-            url: 'https://www.ibm.com/supply-chain?lnk=hpmpr_busc&lnk2=learn',
+            title: 'Services for tech support',
+            titleEnglish: 'Services for tech support',
+            url: 'https://www.ibm.com/services/technology-support?lnk=hpmsc_busv&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Supply Chain',
-              headingUrl: 'https://www.ibm.com/supply-chain?lnk=hpmpr_busc&lnk2=learn',
-              description:
-                'Explore the benefits of supply chain analytics, the foundation for applying artificial intelligence to the supply chain process',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Sterling Supply Chain',
-                    url: 'https://www.ibm.com/supply-chain?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'B2B Collaboration',
-                    url: 'https://www.ibm.com/supply-chain/collaboration?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Supply chain visibility',
-                    url: 'https://www.ibm.com/supply-chain/visibility?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Order management',
-                    url: 'https://www.ibm.com/supply-chain/order-management-software?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Blockchain for supply chain',
-                    url: 'https://www.ibm.com/blockchain/industries/supply-chain?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Retail solutions',
-                    url: 'https://www.ibm.com/industries/retail-consumer-products/supply-chain?lnk=hpmpr_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Industrial solutions',
-                    url: 'https://www.ibm.com/industries/industrial/supply-chain-solutions?lnk=hpmpr_busc',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Inventory management: a critical element of the supply chain',
-                imageUrl: 'https://1.dam.s81c.com/m/10e3f54af21a2fb5/original/ipad-in-warehouse-mm.png',
-                linkTitle:
-                  'Know where all of your inventory is so you can get the right product to the right place at the right time.',
-                linkUrl: 'https://www.ibm.com/supply-chain/inventory-management?lnk=hpmpr_busc',
-              },
-            },
-          },
-          {
-            title: 'Talent',
-            url: 'https://www.ibm.com/services/process/talent?lnk=hpmpr_buta&lnk2=learn',
-            megapanelContent: {
-              headingTitle: 'Talent Management',
-              headingUrl: 'https://www.ibm.com/talent-management?lnk=hpmpr_buta',
+              headingTitle: 'Services for tech support',
+              headingUrl: 'https://www.ibm.com/services/technology-support?lnk=hpmsc_busv',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
-                  {
-                    title: 'Watson Talent Services',
-                    url: 'https://www.ibm.com/talent-management/watson-talent-services?lnk=hpmpr_buta',
-                  },
-                  {
-                    title: 'Talent and Transformation',
-                    url: 'https://www.ibm.com/services/process/talent?lnk=hpmpr_buta',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Talent Frameworks: Enable AI-powered HR transformation',
-                imageUrl: 'https://1.dam.s81c.com/m/37d6c5711e2ae9ae/original/megamenu-marketplace-talent-22829-600x245.jpg',
-                linkTitle: 'Define the competencies and roles your business needs',
-                linkUrl: 'https://www.ibm.com/talent-management?lnk=hpmpr_buta',
-              },
-            },
-          },
-          {
-            title: 'Watson',
-            url: 'https://www.ibm.com/watson?lnk=hpmpr_buwa',
-            megapanelContent: {
-              headingTitle: 'Watson',
-              headingUrl: 'https://www.ibm.com/watson?lnk=hpmpr_buwa',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Watson Advertising',
-                    url: 'https://www.ibm.com/watson-advertising?lnk=hpmpr_buwa',
-                  },
-                  {
-                    title: 'Apps and APIs',
-                    url: 'https://www.ibm.com/watson/products-services?lnk=hpmpr_buwa',
-                  },
-                  {
-                    title: 'Watson Education',
-                    url: 'https://www.ibm.com/watson/education?lnk=hpmpr_buwa',
-                  },
-                  {
-                    title: 'Watson Talent',
-                    url: 'https://www.ibm.com/talent-management?lnk=hpmpr_buwa',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Start building your own virtual assistants in minutes',
-                imageUrl: 'https://1.dam.s81c.com/m/588399b113366e3a/original/watson_assistant_megamenu_600x245.jpg',
-                linkTitle: 'Get started free with IBM Watson Assistant',
-                linkUrl:
-                  'https://www.ibm.com/cloud/watson-assistant?lnk=hpmpr_buwa&lnk2=trial&lnk=STW_US_MAST_BNR_TL&lnk2=trial_WatAssist',
-              },
-            },
-          },
-          {
-            title: 'Watson Health',
-            url: 'https://www.ibm.com/watson-health?lnk=hpmpr_buwh',
-            megapanelContent: {
-              headingTitle: 'Watson Health',
-              headingUrl: 'https://www.ibm.com/watson-health?lnk=hpmpr_buwh',
-              description: 'Watson Health provides AI and data-driven technologies to advance health',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Employer solutions',
-                    url: 'https://www.ibm.com/watson-health/solutions/employer-benefits-management?lnk=hpmpr_buwh',
-                  },
-                  {
-                    title: 'Life sciences solutions',
-                    url: 'https://www.ibm.com/watson-health/life-sciences?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                  {
-                    title: 'Government solutions',
-                    url: 'https://www.ibm.com/watson-health/government?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                  {
-                    title: 'Health plan solutions',
-                    url: 'https://www.ibm.com/watson-health/health-plan?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                  {
-                    title: 'Imaging solutions',
-                    url: 'https://www.ibm.com/watson-health/imaging?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                  {
-                    title: 'Provider solutions',
-                    url: 'https://www.ibm.com/watson-health/provider?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                  {
-                    title: 'Watson Oncology',
-                    url: 'https://www.ibm.com/watson-health/oncology-and-genomics?lnk=hpmpr_buwh&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Micromedex with Watson',
-                imageUrl: 'https://1.dam.s81c.com/m/6f79ffef99b07bdf/original/micromedex-image-wh.jpg',
-                linkTitle:
-                  'Micromedex offers comprehensive, evidence-based clinical decision support and resources at the point of care',
-                linkUrl: 'https://www.ibm.com/us-en/marketplace/micromedex-with-watson?lnk=hpmpr_buwh&lnk2=learn',
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Services',
-    url: '',
-    hasMenu: true,
-    hasMegapanel: true,
-    menuSections: [
-      {
-        heading: '',
-        menuItems: [
-          {
-            title: 'Services',
-            url: 'https://www-935.ibm.com/services/index.html?lnk=hpmse_ts',
-            megapanelContent: {
-              headingTitle: 'Services',
-              headingUrl: 'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Application Services',
-                    url: 'https://www.ibm.com/services/applications?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Business Process and Operations',
-                    url: 'https://www.ibm.com/services/process?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Business Resiliency Services',
-                    url: 'https://www.ibm.com/services/business-continuity?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Business Strategy and Design',
-                    url: 'https://www.ibm.com/services/business?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Cloud Services',
-                    url: 'https://www.ibm.com/services/cloud?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Data and AI Services',
-                    url: 'https://www.ibm.com/analytics/services?lnk=hpmse_ts',
-                  },
-                  {
-                    title: 'Digital Workplace Services',
-                    url: 'https://www.ibm.com/services/digital-workplace?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Network Services',
-                    url: 'https://www.ibm.com/services/network?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Security Services',
-                    url: 'https://www.ibm.com/security/services?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Talent and Transformation',
-                    url: 'https://www.ibm.com/services/process/talent?lnk=hpmse_ts&lnk2=learn',
-                  },
-                  {
-                    title: 'Technology Services',
-                    url: 'https://www.ibm.com/services/technology?lnk=hpmse_ts&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'IBM Services, your Digital Reinvention ™ partner',
-                imageUrl: 'https://www.ibm.com/images/portal/U609055Q90660U49/windmills.jpg',
-                linkTitle: 'Explore all our business consulting and technology services',
-                linkUrl: 'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-              },
-            },
-          },
-          {
-            title: 'Financing',
-            url: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
-            megapanelContent: {
-              headingTitle: 'Financing',
-              headingUrl: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
-              description: 'Funding options that fit your business',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Financing solutions',
-                    url: 'https://www.ibm.com/financing/solutions/it-financing-solutions?lnk=hpmse_fin',
-                  },
-                  {
-                    title: 'Payment options',
-                    url: 'https://www.ibm.com/financing/solutions/it-financing-options?lnk=hpmse_fin',
-                  },
-                  {
-                    title: 'Services financing',
-                    url: 'https://www.ibm.com/financing/solutions/it-services-financing?lnk=hpmse_fin',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Cloud financing strategies that work for your business',
-                imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                linkTitle: 'Committed to cloud? Make the most of your cash flow.',
-                linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
-              },
-            },
-          },
-          {
-            title: 'Industry expertise',
-            url: 'https://www.ibm.com/industries?lnk=hpmse_ie&lnk2',
-            megapanelContent: {
-              headingTitle: 'Industry expertise',
-              headingUrl: 'https://www.ibm.com/industries?lnk=hpmse_ie&lnk2',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Banking',
-                    url: 'https://www.ibm.com/industries/banking-financial-markets?lnk=hpmse_ie&lnk2=learn',
-                  },
-                  {
-                    title: 'Retail',
-                    url: 'https://www.ibm.com/industries/retail-consumer-products?lnk=hpmse_ie',
-                  },
-                  {
-                    title: 'Telecom, Media, Entertainment',
-                    url: 'https://www.ibm.com/industries/telecom-media-entertainment?lnk=hpmse_ie&lnk2=learn',
-                  },
-                  {
-                    title: 'Government',
-                    url: 'https://www.ibm.com/industries/government?lnk=hpmse_ie',
-                  },
-                  {
-                    title: 'All industries',
-                    url: 'https://www.ibm.com/industries?lnk=hpmse_ie',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'Industry Insiders Roundtable',
-                imageUrl: 'https://www.ibm.com/services/image/Industry_Insiders_Roundtable_380x160.jpg',
-                linkTitle:
-                  'Five IBM experts and Business Insider CEO Henry Blodget discuss the forces transforming every industry. Even yours.',
-                linkUrl: 'https://www.ibm.com/industries?lnk=hpmse_ie',
-              },
-            },
-          },
-          {
-            title: 'Training and skills',
-            url: 'https://www.ibm.com/training/?lnk=hpmse_tr&lnk2=learn',
-            megapanelContent: {
-              headingTitle: 'Training and skills',
-              headingUrl: 'https://www.ibm.com/training/?lnk=hpmse_tr&lnk2=learn',
-              description: 'Start your learning journey, build expertise and get recognized',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Find learning',
-                    url: 'https://www.ibm.com/training/search/?lnk=hpmse_tr&lnk2=learn',
-                  },
-                  {
-                    title: 'Learning journeys',
-                    url: 'https://www.ibm.com/training/journeys/?lnk=hpmse_tr&lnk2=learn',
-                  },
-                  {
-                    title: 'Badges',
-                    url: 'https://www.ibm.com/training/badges/?lnk=hpmse_tr&lnk2=learn',
-                  },
-                  {
-                    title: 'My learning',
-                    url: 'https://www.ibm.com/training/mylearning/?lnk=hpmse_tr&lnk2=learn',
-                  },
-                  {
-                    title: 'Events',
-                    url: 'https://www.ibm.com/training/events/?lnk=hpmse_tr&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'IBM Training and Skills blog',
-                imageUrl: 'https://www.ibm.com/cloud-computing/ibmtraining_380x160.png',
-                linkTitle: 'Uncover the latest thought-provoking insights into learning and skills recognition',
-                linkUrl: 'https://www.ibm.com/blogs/ibm-training/?lnk=hpmse_tr&lnk2=learn',
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'Industries',
-    url: 'https://www.ibm.com/industries?lnk=min',
-    hasMenu: false,
-    hasMegapanel: false,
-    menuSections: [],
-  },
-  {
-    title: 'Developers',
-    url: '',
-    hasMenu: true,
-    hasMegapanel: true,
-    menuSections: [
-      {
-        heading: '',
-        menuItems: [
-          {
-            title: 'IBM Developer',
-            url: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
-            megapanelContent: {
-              headingTitle: 'IBM Developer',
-              headingUrl: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                  {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/?lnk=hpmdev_dw&lnk2=learn',
-                  },
                   {
                     title: 'Open source',
-                    url: 'https://developer.ibm.com/open/?lnk=hpmdev_dw&lnk2=learn',
+                    titleEnglish: 'Open source',
+                    url: 'https://www.ibm.com/services/technology-support/open-source?lnk=hpmsc_busv&lnk2=learn',
                   },
                   {
-                    title: 'APIs',
-                    url: 'https://developer.ibm.com/technologies/api/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'Third party & multivendor',
+                    titleEnglish: 'Third party & multivendor',
+                    url: 'https://www.ibm.com/services/technology-support/multivendor-it?lnk=hpmsc_busv&lnk2=learn',
                   },
                   {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: 'The future of open source',
-                imageUrl: 'https://1.dam.s81c.com/m/4f377d2fdd04d2a7/original/developer-open-2020-600x245.jpg',
-                linkTitle: 'See how the trends of the past decade will fuel coming innovations',
-                linkUrl: 'https://developer.ibm.com/blogs/what-5-new-innovations-will-open-source-yield-in-the-2020s/',
-              },
-            },
-          },
-          {
-            title: 'Blockchain',
-            url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-            megapanelContent: {
-              headingTitle: 'Blockchain',
-              headingUrl: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-              description: '',
-              quickLinks: {
-                title: 'Quicklinks',
-                links: [
-                  {
-                    title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                  {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                  {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'IBM warranties and maintenance',
+                    titleEnglish: 'IBM warranties and maintenance',
+                    url: 'https://www.ibm.com/services/technology-support/hardware-software?lnk=hpmsc_busv&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Blockchain 101',
-                imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
-                linkTitle: 'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform',
-                linkUrl:
-                  'https://developer.ibm.com/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/?lnk=hpmdev_dw&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/7056e2b83b04133e/original/megamenu-pictogram-services-for-tech-support.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Artificial Intelligence',
-            url: 'https://www.ibm.com/artificial-intelligence?lnk=hpmpr_buwa',
+            title: 'Payment plans for Services & Consulting',
+            titleEnglish: 'Payment plans for Services & Consulting',
+            url: 'https://www.ibm.com/financing/solutions/it-services-financing?lnk=hpmsc_bufi&lnk2=link',
+          },
+          {
+            title: 'View all services',
+            titleEnglish: 'View all services',
+            url: 'https://www.ibm.com/services?lnk=hpmsc_buall&lnk2=link',
+            megaPanelViewAll: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Learn & Support',
+    titleEnglish: 'Learn & Support',
+    url: '',
+    hasMenu: true,
+    hasMegapanel: true,
+    menuSections: [
+      {
+        heading: '',
+        menuItems: [
+          {
+            title: 'Support',
+            titleEnglish: 'Support',
+            url: 'https://www.ibm.com/support?lnk=hpmls_busu&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Artificial Intelligence',
-              headingUrl: 'https://www.ibm.com/artificial-intelligence?lnk=hpmpr_buwa',
+              headingTitle: 'Support',
+              headingUrl: 'https://www.ibm.com/support?lnk=hpmls_busu',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/artificial-intelligence/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'IBM Support',
+                    titleEnglish: 'IBM Support',
+                    url: 'https://www.ibm.com/support?lnk=hpmls_busu&lnk2=learn',
                   },
                   {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/artificial-intelligence/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'IBM Cloud Support',
+                    titleEnglish: 'IBM Cloud Support',
+                    url: 'https://www.ibm.com/cloud/support?lnk=hpmls_busu&lnk2=learn',
                   },
                   {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/artificial-intelligence/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'IBM Developer',
+                    titleEnglish: 'IBM Developer',
+                    url: 'https://developer.ibm.com/?lnk=hpmls_busu&lnk2=learn',
+                  },
+                  {
+                    title: 'IBM Community',
+                    titleEnglish: 'IBM Community',
+                    url: 'https://community.ibm.com/community/user/home?lnk=hpmls_busu&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'How well do you know AI?',
-                imageUrl: 'https://www.ibm.com/images/portal/A641528I08709V86/Beginners-guide-AI_600x245.jpg?1=2',
-                linkTitle: "A beginner's guide to artificial intelligence, machine learning, and cognitive computing",
-                linkUrl:
-                  'https://developer.ibm.com/articles/cc-beginner-guide-machine-learning-ai-cognitive/?lnk=hpmdev_dw&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/5b1abed637b01b55/original/megamenu-pictogram-support.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Containers',
-            url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+            title: 'Documentation',
+            titleEnglish: 'Documentation',
+            url: 'https://www.ibm.com/support/knowledgecenter/?lnk=hpmls_budc&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Containers',
-              headingUrl: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+              headingTitle: 'Documentation',
+              headingUrl: 'https://www.ibm.com/support/knowledgecenter/?lnk=hpmls_budc',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'All product documentation',
+                    titleEnglish: 'All product documentation',
+                    url: 'https://www.ibm.com/support/knowledgecenter?lnk=hpmls_budc&lnk2=learn',
                   },
                   {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'For products on IBM Cloud',
+                    titleEnglish: 'For products on IBM Cloud',
+                    url: 'https://cloud.ibm.com/docs?lnk=hpmls_budc&lnk2=learn',
                   },
                   {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'For use cases (IBM Redbooks)',
+                    titleEnglish: 'For use cases (IBM Redbooks)',
+                    url: 'http://www.redbooks.ibm.com/?lnk=hpmls_budc&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Make sense of Kubernetes',
-                imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
-                linkTitle: 'Deploy a simple Python application with Kubernetes',
-                linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/49d529fab45bb565/original/megamenu-pictogram-documentation.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Analytics',
-            url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+            title: 'Developer education',
+            titleEnglish: 'Developer education',
+            url: 'https://developer.ibm.com/?lnk=hpmls_bude&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Analytics',
-              headingUrl: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+              headingTitle: 'Developer education',
+              headingUrl: 'https://developer.ibm.com/?lnk=hpmls_bude',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
                     title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                  {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                  },
-                  {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                    titleEnglish: 'Code patterns',
+                    url: 'https://developer.ibm.com/patterns/?lnk=hpmls_bude&lnk2=learn',
                   },
                   {
                     title: 'Developer community',
-                    url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
+                    titleEnglish: 'Developer community',
+                    url: 'https://developer.ibm.com/community/?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'Developer events',
+                    titleEnglish: 'Developer events',
+                    url: 'https://developer.ibm.com/events/?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'Open Source @ IBM',
+                    titleEnglish: 'Open Source @ IBM',
+                    url: 'https://ibm.com/opensource?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'Technical articles',
+                    titleEnglish: 'Technical articles',
+                    url: 'https://developer.ibm.com/articles?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'Tutorials',
+                    titleEnglish: 'Tutorials',
+                    url: 'https://developer.ibm.com/tutorials/?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'Videos',
+                    titleEnglish: 'Videos',
+                    url: 'https://developer.ibm.com/videos?lnk=hpmls_bude&lnk2=learn',
+                  },
+                  {
+                    title: 'View more Developer education',
+                    titleEnglish: 'View more Developer education',
+                    url: 'https://developer.ibm.com/?lnk=hpmls_bude&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Train your data no matter where it lives',
-                imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
-                linkUrl:
-                  'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/1e651d0f7b539774/original/megamenu-pictogram-developer-education.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
           {
-            title: 'Node.js',
-            url: 'https://developer.ibm.com/technologies/node-js/?lnk=hpmdev_dw&lnk2=learn',
+            title: 'Training',
+            titleEnglish: 'Training',
+            url: 'https://www.ibm.com/training/?lnk=hpmls_butr&lnk2=link',
             megapanelContent: {
-              headingTitle: 'Node.js',
-              headingUrl: 'https://developer.ibm.com/technologies/node-js/?lnk=hpmdev_dw&lnk2=learn',
+              headingTitle: 'Training',
+              headingUrl: 'https://www.ibm.com/training/?lnk=hpmls_butr',
               description: '',
               quickLinks: {
-                title: 'Quicklinks',
+                title: '',
                 links: [
                   {
-                    title: 'Code patterns',
-                    url: 'https://developer.ibm.com/patterns/category/node-js/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'Courses',
+                    titleEnglish: 'Courses',
+                    url: 'https://www.ibm.com/training/search?q=course&lnk=hpmls_butr&lnk2=learn',
                   },
                   {
-                    title: 'Tutorials',
-                    url: 'https://developer.ibm.com/tutorials/category/node-js/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'Learning journeys',
+                    titleEnglish: 'Learning journeys',
+                    url: 'https://www.ibm.com/training/journeys?lnk=hpmls_butr&lnk2=learn',
                   },
                   {
-                    title: 'Events',
-                    url: 'https://developer.ibm.com/events/category/node-js/?lnk=hpmdev_dw&lnk2=learn',
+                    title: 'Professional certifications',
+                    titleEnglish: 'Professional certifications',
+                    url: 'https://www.ibm.com/certify?lnk=hpmls_butr&lnk2=learn',
+                  },
+                  {
+                    title: 'Digital learning subscriptions',
+                    titleEnglish: 'Digital learning subscriptions',
+                    url: 'https://www.ibm.com/training/subscriptions?lnk=hpmls_butr&lnk2=learn',
                   },
                 ],
               },
               feature: {
-                heading: 'Node.js tutorial series: an overview',
-                imageUrl: 'https://1.dam.s81c.com/m/2294a50e4637b9c0/original/NodeDotJS_600x245.jpg?1=4',
-                linkTitle: 'What should you know before you start your node journey? Start with this learning path.',
-                linkUrl:
-                  'https://developer.ibm.com/articles/learn-node-unit-1-overview-nodejs-learning-path/?lnk=hpmdev_dw&lnk2=learn',
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/5540e5627aeb2568/original/megamenu-pictogram-training.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Resources',
+            titleEnglish: 'Resources',
+            url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Resources',
+              headingUrl: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Blogs',
+                    titleEnglish: 'Blogs',
+                    url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'Case studies',
+                    titleEnglish: 'Case studies',
+                    url: 'https://www.ibm.com/case-studies?lnk=hpmls_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'Events',
+                    titleEnglish: 'Events',
+                    url: 'http://www.ibm.com/events?lnk=hpmls_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'IBM Institute for Business Value',
+                    titleEnglish: 'IBM Institute for Business Value',
+                    url: 'https://www.ibm.com/thought-leadership/institute-business-value?lnk=hpmls_bure&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/164ef3660bad78a8/original/megamenu-pictogram-resources.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'What is...',
+            titleEnglish: 'What is...',
+            url: 'https://www.ibm.com/cloud/learn?lnk=hpmls_buwi&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'What is...',
+              headingUrl: 'https://www.ibm.com/cloud/learn?lnk=hpmls_buwi',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Artificial intelligence',
+                    titleEnglish: 'Artificial intelligence',
+                    url: 'https://www.ibm.com/cloud/learn/artificial-intelligence?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Automation',
+                    titleEnglish: 'Automation',
+                    url: 'https://www.ibm.com/topics/automation?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Blockchain',
+                    titleEnglish: 'Blockchain',
+                    url: 'https://www.ibm.com/blockchain/what-is-blockchain?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Business intelligence',
+                    titleEnglish: 'Business intelligence',
+                    url: 'https://www.ibm.com/topics/business-intelligence?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Cloud computing',
+                    titleEnglish: 'Cloud computing',
+                    url: 'https://www.ibm.com/cloud/learn/cloud-computing?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Cybersecurity',
+                    titleEnglish: 'Cybersecurity',
+                    url: 'https://www.ibm.com/topics/cybersecurity?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'DevOps',
+                    titleEnglish: 'DevOps',
+                    url: 'https://www.ibm.com/cloud/learn/devops-a-complete-guide?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Hybrid Cloud',
+                    titleEnglish: 'Hybrid Cloud',
+                    url: 'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmls_buwi',
+                  },
+                  {
+                    title: 'Kubernetes',
+                    titleEnglish: 'Kubernetes',
+                    url: 'https://www.ibm.com/cloud/learn/kubernetes?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Quantum computing',
+                    titleEnglish: 'Quantum computing',
+                    url: 'https://www.ibm.com/quantum-computing/learn/what-is-quantum-computing/?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                  {
+                    title: 'Supply chain',
+                    titleEnglish: 'Supply chain',
+                    url: 'https://www.ibm.com/topics/supply-chain-management?lnk=hpmls_buwi&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/581adf40f2b008ec/original/megamenu-pictogram-what-is-_.png',
+                linkTitle: '',
+                linkUrl: '',
               },
             },
           },
@@ -1027,11 +1275,193 @@ const mastheadLinks: MastheadLink[] = [
     ],
   },
   {
-    title: 'Support',
-    url: 'https://www.ibm.com/support/home/?lnk=msu_usen',
-    hasMenu: false,
-    hasMegapanel: false,
-    menuSections: [],
+    title: 'Explore more',
+    titleEnglish: 'Explore more',
+    url: '',
+    hasMenu: true,
+    hasMegapanel: true,
+    menuSections: [
+      {
+        heading: '',
+        menuItems: [
+          {
+            title: 'Partners',
+            titleEnglish: 'Partners',
+            url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'Partners',
+              headingUrl: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Partner with us (PartnerWorld)',
+                    titleEnglish: 'Partner with us (PartnerWorld)',
+                    url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa&lnk2=learn',
+                  },
+                  {
+                    title: 'Our strategic partnerships',
+                    titleEnglish: 'Our strategic partnerships',
+                    url: 'https://www.ibm.com/alliances?lnk=hpmex_bupa&lnk2=learn',
+                  },
+                  {
+                    title: 'Payment plans for IBM Partners',
+                    titleEnglish: 'Payment plans for IBM Partners',
+                    url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/4075a8633a1137d/original/megamenu-pictogram-partners.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'IBM Research',
+            titleEnglish: 'IBM Research',
+            url: 'https://www.research.ibm.com/?lnk=hpmex_bure&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'IBM Research',
+              headingUrl: 'https://www.research.ibm.com/?lnk=hpmex_bure',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Research areas',
+                    titleEnglish: 'Research areas',
+                    url: 'https://www.research.ibm.com/?lnk=hpmex_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'Researcher directory',
+                    titleEnglish: 'Researcher directory',
+                    url: 'https://researcher.watson.ibm.com/researcher/people.php?lnk=hpmex_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'Patents',
+                    titleEnglish: 'Patents',
+                    url: 'https://www.research.ibm.com/patents/?lnk=hpmex_bure&lnk2=learn',
+                  },
+                  {
+                    title: 'Work with us',
+                    titleEnglish: 'Work with us',
+                    url: 'https://www.research.ibm.com/frontiers/?lnk=hpmex_bure&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/5e05b0b234bc3846/original/megamenu-pictogram-ibm-research.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'About IBM',
+            titleEnglish: 'About IBM',
+            url: 'https://www.ibm.com/about?lnk=hpmex_buab',
+            megapanelContent: {
+              headingTitle: 'About IBM',
+              headingUrl: 'https://www.ibm.com/about?lnk=hpmex_buab',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Annual report',
+                    titleEnglish: 'Annual report',
+                    url: 'https://www.ibm.com/annualreport/?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Career opportunities',
+                    titleEnglish: 'Career opportunities',
+                    url: 'https://www.ibm.com/employment/?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Corporate social responsibility',
+                    titleEnglish: 'Corporate social responsibility',
+                    url: 'https://www.IBM.org?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Diversity & inclusion',
+                    titleEnglish: 'Diversity & inclusion',
+                    url: 'https://www.ibm.com/employment/inclusion/?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Investor relations',
+                    titleEnglish: 'Investor relations',
+                    url: 'https://www.ibm.com/investor/?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'News & announcements',
+                    titleEnglish: 'News & announcements',
+                    url: 'http://newsroom.ibm.com?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Thought leadership',
+                    titleEnglish: 'Thought leadership',
+                    url: 'https://www.ibm.com/thought-leadership/?lnk=hpmex_buab&lnk2=learn',
+                  },
+                  {
+                    title: 'Security, privacy & trust',
+                    titleEnglish: 'Security, privacy & trust',
+                    url: 'https://www.ibm.com/trust?lnk=hpmex_buab&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: 'https://1.dam.s81c.com/m/220eb8ea8345a4d6/original/megamenu-pictogram-about-ibm.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'COVID-19',
+            titleEnglish: 'COVID-19',
+            url: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco&lnk2=link',
+            megapanelContent: {
+              headingTitle: 'COVID-19',
+              headingUrl: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Business solutions',
+                    titleEnglish: 'Business solutions',
+                    url: 'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hpmex_buco&lnk2=learn',
+                  },
+                  {
+                    title: 'Action guide',
+                    titleEnglish: 'Action guide',
+                    url:
+                      'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco&lnk2=learn',
+                  },
+                  {
+                    title: 'News',
+                    titleEnglish: 'News',
+                    url: 'https://newsroom.ibm.com/COVID-19?lnk=hpmex_buco&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
 ];
 

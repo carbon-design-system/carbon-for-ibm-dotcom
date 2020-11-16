@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.12.0...@carbon/ibmdotcom-services@1.13.0-rc.0) (2020-11-13)
+
+### Features
+
+- **locale:** introducing cache busting logic
+  ([#4325](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4325))
+  ([6275e40](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6275e40)),
+  closes
+  [#3959](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3959)
+- **Masthead:** React masthead alternate logo and tooltip options
+  ([#4401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4401))
+  ([0859a21](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0859a21)),
+  closes
+  [#3906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3906)
+- **translation:** introduce cache busting logic
+  ([#4240](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4240))
+  ([3aa6800](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3aa6800)),
+  closes
+  [#3959](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3959)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.12.0-rc.0...@carbon/ibmdotcom-services@1.12.0) (2020-10-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.11.0...@carbon/ibmdotcom-services@1.12.0-rc.0) (2020-10-09)
 
 ### Bug Fixes

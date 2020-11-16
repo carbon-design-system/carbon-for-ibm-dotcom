@@ -46,20 +46,24 @@ const heading = 'Lorem ipsum dolor sit amet';
 const mediaData = {
   sources: [
     {
-      src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+      src:
+        'http://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
       breakpoint: 320,
     },
     {
-      src: 'https://dummyimage.com/400x400/ee5396/161616&text=1x1',
+      src:
+        'http://fpoimg.com/400x400?text=1:1&bg_color=ee5396&text_color=161616',
       breakpoint: 400,
     },
     {
-      src: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+      src:
+        'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
       breakpoint: 672,
     },
   ],
   alt: 'Image alt text',
-  defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+  defaultSrc:
+    'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
 };
 
 const mediaType = 'image';
@@ -116,6 +120,15 @@ Add the following line in your `.env` file at the root of your project.
 
 > 💡 Don't forget to import the content-group-simple styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
+
+##### OPTIONAL 💡
+
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
+
+```js
+import ContentGroupSimple from '@carbon/ibmdotcom-react/es/components/ContentGroupSimple/ContentGroupSimple';
+```
 
 ## Props
 

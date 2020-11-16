@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 
 const content = () => html`
-  <div class="dds-ce-demo--table-of-contents">
+  <div class="bx--tableofcontents__contents dds-ce-demo--table-of-contents">
     <a name="8">
       <h3>
         Cras molestie condimentum

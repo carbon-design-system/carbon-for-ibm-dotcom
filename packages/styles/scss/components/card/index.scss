@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 @import '../../globals/utils/ratio-base';
@@ -18,7 +19,9 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
-  :host(#{$dds-prefix}-card-cta) {
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
     background-color: $ui-01;
     text-decoration: none;
     // display: flex;
@@ -113,10 +116,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       }
     }
 
-    .#{$prefix}--card:focus {
-      outline-color: $focus;
-    }
-
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
@@ -127,6 +126,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         @include use-carbon-productive-tokens();
         @include carbon--type-style('body-short-01');
       }
+    }
+
+    &.#{$prefix}--link:focus,
+    .#{$prefix}--link:focus {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
     }
   }
 

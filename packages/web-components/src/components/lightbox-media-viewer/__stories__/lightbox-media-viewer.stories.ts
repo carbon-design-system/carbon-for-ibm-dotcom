@@ -13,20 +13,20 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../modal/modal';
-import '../../modal/modal-close-button';
+import '../../expressive-modal/expressive-modal';
+import '../../expressive-modal/expressive-modal-close-button';
 import '../lightbox-image-viewer';
 import '../lightbox-video-player-container';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
 const images = {
-  '512 x 512 (1:1)': 'https://dummyimage.com/512x512/ee5396/161616&text=1:1',
-  '1024 x 512 (2:1)': 'https://dummyimage.com/1024x512/ee5396/161616&text=2:1',
-  '1280 x 720 (16:9)': 'https://dummyimage.com/1280x720/ee5396/161616&text=16:9',
-  '3000 x 1200 (16:9)': 'https://dummyimage.com/3000x1200/ee5396/161616&text=16:9',
-  '200 x 750 (15:4)': 'https://dummyimage.com/200x750/ee5396/161616&text=15:4',
-  '600 x 550 (12:11)': 'https://dummyimage.com/600x550/ee5396/161616&text=12:11',
+  '512 x 512 (1:1)': 'https://fpoimg.com/512x512?text=1:1&bg_color=ee5396&text_color=161616',
+  '1024 x 512 (2:1)': 'https://fpoimg.com/1024x512?text=2:1&bg_color=ee5396&text_color=161616',
+  '1280 x 720 (16:9)': 'https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616',
+  '3000 x 1200 (16:9)': 'https://fpoimg.com/3200x1200?text=16:9&bg_color=ee5396&text_color=161616',
+  '200 x 750 (15:4)': 'https://fpoimg.com/200x750?text=15:4&bg_color=ee5396&text_color=161616',
+  '600 x 550 (12:11)': 'https://fpoimg.com/600x550?text=12:11&bg_color=ee5396&text_color=161616',
 };
 
 export const Default = ({ parameters }) => {
@@ -42,13 +42,13 @@ export const Default = ({ parameters }) => {
     <style>
       ${styles}
     </style>
-    <dds-modal
+    <dds-expressive-modal
       expressive-size="full-width"
       ?open="${open}"
-      @dds-modal-beingclosed="${handleBeforeClose}"
-      @dds-modal-closed="${onClose}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
     >
-      <dds-modal-close-button></dds-modal-close-button>
+      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-lightbox-image-viewer
         alt="${ifNonNull(alt)}"
         default-src="${ifNonNull(defaultSrc)}"
@@ -56,7 +56,7 @@ export const Default = ({ parameters }) => {
         title="${ifNonNull(title)}"
       >
       </dds-lightbox-image-viewer>
-    </dds-modal>
+    </dds-expressive-modal>
   `;
 };
 
@@ -98,8 +98,8 @@ export const EmbeddedVideoPlayer = ({ parameters }) => {
       ?hide-caption="${hideCaption}"
       ?open="${open}"
       video-id="${videoId}"
-      @dds-modal-beingclosed="${handleBeforeClose}"
-      @dds-modal-closed="${onClose}"
+      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+      @dds-expressive-modal-closed="${onClose}"
     >
     </dds-lightbox-video-player-container>
   `;
@@ -127,12 +127,12 @@ export default {
       Modal: ({ groupId }) => ({
         open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
           false,
           groupId
         ),
-        onBeforeClose: action('dds-modal-beingclosed'),
-        onClose: action('dds-modal-closed'),
+        onBeforeClose: action('dds-expressive-modal-beingclosed'),
+        onClose: action('dds-expressive-modal-closed'),
       }),
     },
   },

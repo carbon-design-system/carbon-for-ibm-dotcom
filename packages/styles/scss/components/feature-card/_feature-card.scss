@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../components/image/image';
 @import '../../components/card/index';
@@ -12,20 +13,24 @@
 @import '../../globals/utils/hang';
 
 @mixin card {
-  position: absolute;
-  padding-top: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  @include carbon--breakpoint-down('md') {
+    position: absolute;
+    padding-top: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   @include carbon--breakpoint('md') {
     flex-direction: row;
+
     @include hang;
   }
 
   &:focus {
-    outline-offset: 1px;
-    outline-width: 3px;
+    outline: 2px solid $focus;
+    outline-offset: 2px;
   }
 
   .#{$prefix}--card__heading {
@@ -37,44 +42,17 @@
   .#{$prefix}--feature-card,
   :host(#{$dds-prefix}-feature-card),
   :host(#{$dds-prefix}-feature-cta) {
-    padding-top: aspect-ratio(1, 1);
     position: relative;
-    @include carbon--breakpoint('md') {
-      padding-top: aspect-ratio(2, 1);
+
+    @include carbon--breakpoint-down('md') {
+      padding-top: aspect-ratio(1, 1);
+
+      @include carbon--make-row;
     }
 
     @include carbon--breakpoint('lg') {
       margin-right: $spacing-05;
       margin-left: $spacing-05;
-    }
-
-    @include carbon--breakpoint-down('md') {
-      .#{$prefix}--card,
-      .#{$prefix}--feature-card__card {
-        @include carbon--make-row;
-
-        // `flex-wrap: wrap` comes from `@include carbon--make-row`,
-        // which may change the layout between the media and the card body from vertical to horizontal.
-        //
-        // It makes the card body invisible by being visually pushed out from the feature card UI.
-        //
-        // Such symptom is observed if the space for feature card is smaller than the width of browser viewport,
-        // e.g. when there is a notable margin/padding
-        // between the browser viewport and the Carbon grid surrounding the feature card.
-        //
-        // OTOH feature card does not seem to get any benefit from `flex-wrap: wrap` given the card body has flexible size
-        // and feature card itself explicitly changes the layout between the media and the card body from vertical to horizontal
-        // for larger breakpoint by changing `flex-direction`.
-        //
-        // Refs https://github.com/carbon-design-system/ibm-dotcom-library/issues/4171.
-        flex-wrap: nowrap;
-      }
-    }
-
-    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
-    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
-      margin-right: 0;
-      color: $inverse-link;
     }
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
@@ -95,21 +73,23 @@
       margin-bottom: $layout-03;
     }
 
+    .#{$prefix}--card__wrapper {
+      width: 100%;
+      height: aspect-ratio(2, 1);
+
+      @include carbon--breakpoint('md') {
+        width: 50%;
+        height: auto;
+      }
+    }
+
     ::slotted([slot='image']),
-    .#{$prefix}--card__wrapper,
     .#{$prefix}--image {
       width: 100%;
       height: aspect-ratio(2, 1);
 
-      // `.bx--card-wrapper` defines its `min-height`,
-      // but the height `.bx--card-wrapper` in feature card is relative to the entire size of feature card
-      // and setting `min-height` here may cause an adverse effect
-      // where some portion of card body in feature card goes outside the box of the feature card.
-      min-height: auto;
-
       @include carbon--breakpoint('md') {
         width: 50%;
-        height: aspect-ratio(1, 1);
       }
     }
   }

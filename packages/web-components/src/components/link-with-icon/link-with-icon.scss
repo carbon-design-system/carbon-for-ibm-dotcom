@@ -5,18 +5,29 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
-@import '../../globals/scss/vars';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-link-with-icon),
 :host(#{$dds-prefix}-link-list-item),
-:host(#{$dds-prefix}-text-cta) {
+:host(#{$dds-prefix}-text-cta),
+:host(#{$dds-prefix}-link-list-item-cta) {
   // Enables expressive version of type/size/component tokens in this component
   @include use-carbon-expressive-tokens();
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $disabled-02;
+  }
+
+  .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
+    margin-right: $carbon--spacing-03;
+    margin-left: 0;
+  }
+
+  .#{$prefix}--link-with-icon__icon-right ::slotted(svg[slot='icon']) {
+    margin-left: $carbon--spacing-03;
+    margin-right: 0;
   }
 }

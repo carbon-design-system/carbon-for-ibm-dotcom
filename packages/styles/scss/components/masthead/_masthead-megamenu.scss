@@ -11,24 +11,26 @@
 
   @keyframes expand {
     0% {
+      overflow-y: hidden;
       max-height: 0;
     }
     100% {
-      max-height: 100vh;
+      max-height: 100%;
     }
   }
 
   @keyframes collapse {
     0% {
-      overflow-y: auto;
       max-height: 100vh;
     }
     100% {
       max-height: 0;
-      overflow-y: hidden;
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-top-nav-menu)
+    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true']
+    + .#{$prefix}--header__menu,
   .#{$prefix}--header__nav
     .#{$prefix}--masthead__megamenu__l0-nav
     .#{$prefix}--header__menu-title[aria-expanded='true']
@@ -42,33 +44,26 @@
     box-shadow: none;
   }
 
-  .#{$prefix}--masthead__megamenu {
-    overflow-y: scroll;
-    background-color: $ui-background;
-
-    &:focus {
-      outline: none;
-    }
-
-    @include box-shadow;
-  }
-
+  :host(#{$dds-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav,
   .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
       position: fixed;
       display: block;
       visibility: hidden;
+      min-height: carbon--mini-units(40);
       margin-bottom: $layout-05;
       left: 0;
       width: 100vw;
       transition: visibility $transition--expansion $carbon--standard-easing;
     }
 
-    .#{$prefix}--header__menu-title[aria-expanded='false']
-      + .#{$prefix}--header__menu
+    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='false']
+      + .#{$prefix}--header__menu {
+      ::slotted(#{$dds-prefix}-megamenu),
       .#{$prefix}--masthead__megamenu {
-      animation: $transition--expansion motion(standard, expressive) collapse;
+        animation: $transition--expansion motion(standard, expressive) collapse;
+      }
     }
 
     .#{$prefix}--header__menu-title[aria-expanded='true']
@@ -78,19 +73,21 @@
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
-      min-height: carbon--mini-units(40);
       width: 100vw;
 
+      ::slotted(#{$dds-prefix}-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition--expansion motion(standard, expressive) expand;
       }
     }
   }
 
-  .#{$prefix}--masthead__megamenu__l0-nav
+  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
-    + .#{$prefix}--header__menu {
-    top: $l0-nav-height;
+      + .#{$prefix}--header__menu {
+      top: $l0-nav-height;
+    }
   }
 
   .#{$prefix}--masthead__megamenu__l1-nav
@@ -99,49 +96,71 @@
     top: $l1-nav-height;
   }
 
-  .#{$prefix}--masthead__megamenu__container {
-    width: 100%;
-    @include carbon--make-container;
+  :host(#{$dds-prefix}-megamenu),
+  .#{$prefix}--masthead__megamenu {
+    display: block;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    background-color: $ui-background;
 
-    .#{$prefix}--masthead__megamenu__container--row {
-      @include carbon--make-row;
+    &:focus {
+      outline: none;
+    }
 
-      flex-wrap: nowrap;
+    @include box-shadow;
+
+    .#{$prefix}--masthead__megamenu__container {
+      width: 100vw;
+      @include carbon--make-container;
+
+      .#{$prefix}--masthead__megamenu__container--row {
+        @include carbon--make-row;
+
+        flex-wrap: nowrap;
+      }
     }
   }
 
-  .#{$prefix}--masthead__megamenu__categories {
-    column-count: 4;
-    padding: 0 0 $layout-03 $layout-01;
-
-    .#{$prefix}--masthead__megamenu__container--hasHighlights & {
-      column-count: 3;
-    }
-  }
-
+  :host(#{$dds-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: flex;
     flex-direction: column;
     padding-top: $spacing-06;
     width: 100%;
-  }
 
-  .#{$prefix}--masthead__megamenu__category-group {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: $spacing-07;
-    overflow: hidden;
-    break-inside: avoid-column;
+    .#{$prefix}--masthead__megamenu__categories {
+      padding: 0 0 $layout-03 $layout-01;
+      column-count: 4;
+    }
 
-    .#{$prefix}--masthead__megamenu__categories-section & {
+    ::slotted(#{$dds-prefix}-megamenu-category-group)
+      .#{$prefix}--masthead__megamenu__category-group-shield,
+    .#{$prefix}--masthead__megamenu__category-group-shield {
       margin-left: -1rem;
+    }
+
+    .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories {
+      column-count: 3;
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-category-group),
+  .#{$prefix}--masthead__megamenu__category-group {
+    display: inline;
+
+    .#{$prefix}--masthead__megamenu__category-group-content {
+      width: 100%;
+      display: inline-block;
+      padding-bottom: $spacing-07;
+    }
+  }
+
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
   .#{$prefix}--masthead__megamenu__category-headline {
     width: 100%;
 
     p,
+    a,
     .#{$prefix}--link-with-icon {
       padding: 7px $spacing-05;
       text-decoration: none;
@@ -158,7 +177,6 @@
     svg {
       color: $link-01;
       min-width: $spacing-05;
-      align-self: flex-start;
     }
 
     &:visited,
@@ -167,6 +185,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include use-carbon-productive-tokens();
     @include type-style('body-short-01');
@@ -174,6 +193,7 @@
     color: $text-02;
     text-decoration: none;
     padding: 7px $spacing-05;
+    display: block;
 
     &:hover,
     &:active {
@@ -181,10 +201,12 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
     margin-top: auto;
     display: flex;
 
+    a,
     .#{$prefix}--link-with-icon {
       text-decoration: none;
       width: 100%;
@@ -210,6 +232,8 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-category-link) a,
+  :host(#{$dds-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-headline
     .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
@@ -228,6 +252,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: $spacing-06;
@@ -240,16 +265,20 @@
       flex-direction: column;
     }
 
+    :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
       border-bottom: carbon--rem(1px) solid $ui-03;
       column-count: 2;
       @include carbon--make-col(8, 8);
     }
-    .#{$prefix}--masthead__megamenu__container--hasHighlights
-      .#{$prefix}--masthead__megamenu__categories,
-    .#{$prefix}--masthead__megamenu__categories {
-      column-count: 2;
+
+    :host(#{$dds-prefix}-megamenu-right-navigation),
+    .#{$prefix}--masthead__megamenu__categories-section {
+      .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories,
+      .#{$prefix}--masthead__megamenu__categories {
+        column-count: 2;
+      }
     }
   }
 }

@@ -24,15 +24,7 @@ import contributing from '../../../../../../docs/contributing-license.md';
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
-```
-
-or with [JSPM](https://jspm.org)
-
-```html
-<script type="module">
-  import 'https://jspm.dev/@carbon/ibmdotcom-web-components@canary/es/components/locale-modal/locale-modal-container.js';
-</script>
+import '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container.js';
 ```
 
 ### HTML
@@ -93,52 +85,5 @@ You can populate the data automatically from `@carbon/ibmdotcom-servies` by mixi
 `<dds-locale-item>` works as a locale selection link in locale modal.
 
 <Props of="dds-region-item" />
-
-### Advanced: Manually setting the Redux Store
-
-The locale modal takes advantage of a redux store which manages the API calls made
-to fetch translation data, locale data, etc. To manually initialize the Redux
-store (e.g. integrating with your application level redux store), the underlying
-component, `<dds-locale-modal-composite>`, can be initialized instead:
-
-#### JS
-
-```javascript
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-// The default reducers, you can e.g. add your own reducer to `reducers` table
-import * as reducers from '@carbon/ibmdotcom-web-components/es/globals/services-store/reducers';
-import ConnectMixin from '@carbon/ibmdotcom-web-components/es/globals/mixins/connect';
-// The default property/action mappers
-import {
-  mapStateToProps,
-  mapDispatchToProps,
-} from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-container';
-import DDSLocaleModalComposite from '@carbon/ibmdotcom-web-components/es/components/locale-modal/locale-modal-composite';
-
-// Creates your own store
-const store = createStore(
-  combineReducers(reducers),
-  {},
-  applyMiddleware(thunkMiddleware, createLogger())
-);
-
-// Creates `<app-locale-modal-container>` custom element that wires your store to our rendering logic
-customElements.define(
-  'app-locale-modal-container',
-  class extends ConnectMixin(
-    store,
-    mapStateToProps,
-    mapDispatchToProps
-  )(DDSLocaleModalComposite) {}
-);
-```
-
-#### HTML
-
-```html
-<myapp-locale-modal-container></myapp-locale-modal-container>
-```
 
 <Description markdown={contributing} />

@@ -19,8 +19,10 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
-      <slot slot="heading">${heading}</slot>
-      ${ArrowRight20({ slot: 'footer' })}
+      <span slot="heading">${heading}</span>
+      <dds-feature-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-feature-card-footer>
     </dds-feature-card>
   `;
 };
@@ -44,7 +46,10 @@ export default {
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
-        defaultSrc: textNullable('Image src (defaultSrc):', 'https://dummyimage.com/672x672/ee5396/161616&text=1x1'),
+        defaultSrc: textNullable(
+          'Image src (defaultSrc):',
+          'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616'
+        ),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),
