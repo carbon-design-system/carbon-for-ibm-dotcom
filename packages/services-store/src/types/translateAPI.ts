@@ -13,6 +13,7 @@
  */
 export interface BasicLink {
   title: string;
+  titleEnglish?: string;
   url?: string;
 }
 
@@ -51,6 +52,7 @@ export interface MegapanelContent {
  */
 export interface MastheadMenuItem {
   title: string;
+  titleEnglish?: string;
   url?: string;
   highlighted?: boolean;
   megaPanelViewAll?: boolean;
@@ -70,6 +72,7 @@ export interface MastheadMenuSection {
  */
 export interface MastheadLink {
   title: string;
+  titleEnglish?: string;
   url?: string;
   hasMenu?: boolean;
   hasMegapanel?: boolean;
@@ -91,6 +94,21 @@ export interface MastheadProfileItem {
   url?: string;
 }
 
+/**
+ * Labels object for leaving ibm component
+ */
+export interface LeavingIBMLabels {
+  LEAVING001: string;
+  LEAVING002: string;
+  LEAVING003: string;
+}
+
+/**
+ * Misc labels
+ */
+export interface MiscLabels {
+  continueText: string;
+}
 /**
  * The translation data for ibm.com sites
  */
@@ -126,6 +144,16 @@ export interface Translation {
      */
     signedout: MastheadProfileItem[];
   };
+
+  /**
+   * Miscellaneous translations
+   */
+  misc: MiscLabels;
+
+  /**
+   * Leaving IBM translations
+   */
+  leaving: LeavingIBMLabels;
 }
 
 /**

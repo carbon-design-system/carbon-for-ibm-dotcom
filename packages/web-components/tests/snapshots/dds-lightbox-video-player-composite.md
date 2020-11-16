@@ -3,7 +3,7 @@
 #### `should render the video player`
 
 ```
-<div>
+<div style="display: contents;">
   <dds-expressive-modal
     data-autoid="dds--expressive-modal"
     expressive-size="full-width"

@@ -300,7 +300,7 @@
 ```
 <section
   class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace--white bx--leadspace__section"
-  style="background-image: url(https://dummyimage.com/1056x480/ee5396/ee5396)"
+  style="background-image: url(http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616)"
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
@@ -332,7 +332,7 @@
     >
       <img
         alt="alt text"
-        src="https://dummyimage.com/1056x480/ee5396/ee5396"
+        src="http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616"
       >
     </div>
   </div>

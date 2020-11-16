@@ -64,7 +64,7 @@ export default {
     knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
-        defaultSrc: 'https://dummyimage.com/672x336/ee5396/161616&text=2:1',
+        defaultSrc: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
         image: boolean('image', false, groupId),
         eyebrow: textNullable('Card Eyebrow (eyebrow):', 'eyebrow text', groupId),
         heading: textNullable('Card Heading (heading):', 'Lorem ipsum dolor sit amet', groupId),
