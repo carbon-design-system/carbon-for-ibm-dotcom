@@ -18,7 +18,7 @@
   }
 
   ::slotted([slot='cta']) {
-    margin-top: $carbon--spacing-07;
+    margin-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('md') {
