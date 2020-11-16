@@ -12,10 +12,12 @@
   @include cta-section--pattern;
 
   display: block;
-  padding-top: $carbon--layout-05;
+
+  @include carbon--breakpoint('md') {
+    padding-top: $carbon--layout-03;
+  }
 
   ::slotted([slot='cta']) {
-    display: block;
     margin-top: $carbon--spacing-07;
     padding-bottom: $carbon--layout-03;
 
@@ -76,7 +78,7 @@
 }
 
 :host(#{$dds-prefix}-cta-section-item-copy) {
-  display: block;
+  display: inline;
   margin-bottom: $carbon--spacing-05;
   height: carbon--rem(48px);
 
