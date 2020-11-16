@@ -1,0 +1,69 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/index.js"></script>
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+          <dds-content-block-cards>
+            <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
+            <dds-card-group slot="content">
+              <dds-card-group-item href="https://example.com">
+                <div slot="heading">Nunc convallis lobortis</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                  Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                </p>
+                <dds-card-cta-footer slot="footer">
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-card-cta-footer>
+              </dds-card-group-item>
+              <dds-card-group-item href="https://example.com">
+                <div slot="heading">Nunc convallis lobortis</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                  Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                </p>
+                <dds-card-cta-footer slot="footer">
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-card-cta-footer>
+              </dds-card-group-item>
+              <dds-card-group-item href="https://example.com">
+                <div slot="heading">Nunc convallis lobortis</div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                  Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                </p>
+                <dds-card-cta-footer slot="footer">
+                  ${ArrowRight20({ slot: 'icon' })}
+                </dds-card-cta-footer>
+              </dds-card-group-item>
+            </dds-card-group>
+            <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+              <p>${ctaCopy}</p>
+              ${ArrowRight20({ slot: 'footer' })}
+            </dds-card-cta>
+          </dds-content-block-cards>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
