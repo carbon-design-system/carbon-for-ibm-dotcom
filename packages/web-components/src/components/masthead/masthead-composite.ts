@@ -76,7 +76,6 @@ class DDSMastheadComposite extends LitElement {
 
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
     const { menuItems } = this.l1Data;
-
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
       ? html`
