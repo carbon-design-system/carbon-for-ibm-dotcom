@@ -40,7 +40,8 @@
     }
   }
 
-  .#{$prefix}--content-block__cta {
+  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
+  .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
     @include carbon--breakpoint('lg') {
       @include carbon--make-col(4, 12);
     }
