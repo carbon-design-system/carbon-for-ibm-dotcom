@@ -11,5 +11,6 @@ import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-m
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-modal-body.js';
 import '@carbon/ibmdotcom-web-components/es/components/leaving-ibm/leaving-ibm-modal-heading.js';
 import 'carbon-web-components/es/components/modal/modal-header.js';
-import 'carbon-web-components/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import 'carbon-web-components/es/components/button/button.js';
+import './index.scss';
