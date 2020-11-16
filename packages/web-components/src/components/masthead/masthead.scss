@@ -136,16 +136,8 @@
     display: block;
   }
 
-  .#{$prefix}-ce--header__divider {
-    background-color: $ui-03;
-  }
-
   &[hide-divider] .#{$prefix}--header__nav {
     padding-left: 0;
-
-    .#{$prefix}-ce--header__divider {
-      display: none;
-    }
   }
 }
 

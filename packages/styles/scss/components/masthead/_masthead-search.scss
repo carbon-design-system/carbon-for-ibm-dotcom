@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
+
 /// @access private
 @mixin masthead-top-nav-name {
   @include carbon--type-style(expressive-heading-02, true);
@@ -49,6 +51,7 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
+  :host(#{$dds-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;

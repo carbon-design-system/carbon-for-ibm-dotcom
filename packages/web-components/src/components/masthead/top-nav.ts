@@ -55,7 +55,9 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       ? html``
       : html`
           <nav class="${prefix}--header__nav">
-            ${super.render()}
+            <ul role="menubar" class="${prefix}--header__menu-bar" aria-label="${this.menuBarLabel}">
+              <slot></slot>
+            </ul>
           </nav>
         `;
   }
