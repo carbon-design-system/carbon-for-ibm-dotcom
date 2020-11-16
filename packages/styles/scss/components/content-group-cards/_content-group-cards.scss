@@ -5,12 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
+@import '../../globals/imports';
+
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
 }
 
 @mixin content-group-cards {
+  :host(#{$dds-prefix}-content-group-cards),
   .#{$prefix}--content-group-cards {
     @include themed-items;
   }
@@ -19,6 +23,7 @@
     @include carbon--make-row;
   }
 
+  :host(#{$dds-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
     margin-top: $carbon--grid-gutter--condensed / 2;
     margin-bottom: $carbon--grid-gutter--condensed / 2;
@@ -27,6 +32,9 @@
     @include carbon--breakpoint(lg) {
       @include carbon--make-col(8, 16);
     }
+
+    padding-left: $carbon--grid-gutter--condensed / 2;
+    padding-right: $carbon--grid-gutter--condensed / 2;
   }
 }
 @include exports('content-group-cards') {

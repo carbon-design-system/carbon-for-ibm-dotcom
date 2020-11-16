@@ -73,6 +73,7 @@ addDecorator((story, { parameters }) => {
       id="main-content"
       name="main-content"
       data-floating-menu-container
+      data-modal-container
       role="${hasMainTag ? 'none' : 'main'}"
       class="${classes}"
     >
