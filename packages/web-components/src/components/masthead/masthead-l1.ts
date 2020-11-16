@@ -29,7 +29,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    html`
+    return html`
       <slot name="name"></slot>
       <slot></slot>
     `

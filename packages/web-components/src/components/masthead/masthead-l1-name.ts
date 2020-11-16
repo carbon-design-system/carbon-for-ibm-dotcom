@@ -29,15 +29,21 @@ class DDSMastheadL1Name extends StableSelectorMixin(LitElement) {
 
   @property({ reflect: true })
   slot = 'name';
+
+  @property({ reflect: true })
+  url = '';
+
+  @property({ reflect: true })
+  title = '';
   
   static get stableSelector() {
       return `${ddsPrefix}--masthead__l1-name`;
   }
 
   render() {
-    html`
+    return html`
       <span class="${prefix}--masthead__l1-name-title">
-        <slot></slot>
+        <a href="${this.url}">${this.title}</a>
       </span>
     `
   }

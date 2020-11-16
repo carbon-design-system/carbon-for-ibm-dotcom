@@ -79,7 +79,7 @@ class DDSMastheadComposite extends LitElement {
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
       ? html`
-        <dds-top-nav>
+        <dds-top-nav hide-divider>
           ${ menuItems.map((elem, i) => {
             return elem.menuItems
               ? html`
@@ -139,8 +139,7 @@ class DDSMastheadComposite extends LitElement {
         ${ !title
             ? undefined
             : html`
-              <dds-masthead-l1-name>
-                <a href="${url}">${title}</a>
+              <dds-masthead-l1-name title="${title}" url="${url}">
               </dds-masthead-l1-name>
             `
         }
@@ -533,7 +532,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
-        <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+        <dds-top-nav ?hide-divider="${this.l1Data}" menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
           ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
         <dds-masthead-search-composite

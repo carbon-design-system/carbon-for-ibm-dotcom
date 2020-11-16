@@ -44,7 +44,7 @@ $search-transition-timing: 95ms;
     display: flex;
     height: 100%;
     background-color: $ui-02;
-    color: $text-04;
+    // color: $text-04;
     padding: 0 rem(12px);
     align-items: stretch;
     white-space: nowrap;
@@ -53,6 +53,10 @@ $search-transition-timing: 95ms;
       min-width: rem(208px);
       padding-left: 0;
     }
+  }
+
+  :host(#{$dds-prefix}-masthead-l1-name) span::slotted(*) {
+    color: pink;
   }
 
   .#{$prefix}--masthead__l1-name-title {
