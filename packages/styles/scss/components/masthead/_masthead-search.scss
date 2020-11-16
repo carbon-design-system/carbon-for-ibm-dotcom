@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
+
 /// @access private
 @mixin masthead-top-nav-name {
   @include carbon--type-style(expressive-heading-02, true);
@@ -16,6 +18,7 @@
   border: solid 2px transparent;
   transition: $button-transition;
   position: relative;
+  white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
@@ -48,6 +51,7 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
+  :host(#{$dds-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;
@@ -110,7 +114,6 @@
 
     &.#{$prefix}--masthead__search--active,
     &[active] {
-      position: absolute;
       z-index: 999;
       width: 100%;
       margin-left: 0;
@@ -176,6 +179,7 @@
 
     &.#{$prefix}--masthead__search--active {
       @include carbon--breakpoint-down(md) {
+        position: absolute;
         width: 100vw;
         right: (-$carbon--spacing-09);
       }

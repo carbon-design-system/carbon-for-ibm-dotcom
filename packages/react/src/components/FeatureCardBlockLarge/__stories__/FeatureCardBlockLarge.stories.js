@@ -46,27 +46,33 @@ export default {
         image: {
           sources: [
             {
-              src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+              src:
+                'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'sm',
             },
             {
-              src: 'https://dummyimage.com/400x200/ee5396/161616&text=2:1',
+              src:
+                'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'md',
             },
             {
-              src: 'https://dummyimage.com/600x600/ee5396/161616&text=1:1',
+              src:
+                'https://fpoimg.com/600x600?text=1:1&bg_color=ee5396&text_color=161616',
               breakpoint: 991,
             },
             {
-              src: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+              src:
+                'https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'lg',
             },
             {
-              src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+              src:
+                'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
               breakpoint: 'xlg',
             },
           ],
-          defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+          defaultSrc:
+            'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
         },
       }),
@@ -81,7 +87,8 @@ export default {
             src: ArrowRight20,
           },
           image: {
-            defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+            defaultSrc:
+              'https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616',
             alt: 'Image alt text',
           },
         },

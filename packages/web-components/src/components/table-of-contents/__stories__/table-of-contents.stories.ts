@@ -27,12 +27,25 @@ export const WithHeadingContent = ({ parameters }) => {
   const { menuRule } = parameters?.props?.Other ?? {};
   return html`
     <dds-table-of-contents>
-      <dds-image slot="heading" alt="Alt text" default-src="https://dummyimage.com/672x672">
-        <dds-image-item media="(min-width: 1056px)" srcset="https://dummyimage.com/672x672&amp;text=Example%20Children">
+      <dds-image
+        slot="heading"
+        alt="Alt text"
+        default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+      >
+        <dds-image-item
+          media="(min-width: 1056px)"
+          srcset="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616&amp;text=Example%20Children"
+        >
         </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="https://dummyimage.com/672x200&amp;text=Example%20Children">
+        <dds-image-item
+          media="(min-width: 672px)"
+          srcset="https://fpoimg.com/672x200?text=Example%20Children&amp;bg_color=ee5396&amp;text_color=161616"
+        >
         </dds-image-item>
-        <dds-image-item media="(min-width: 400px)" srcset="https://dummyimage.com/672x200&amp;text=Example%20Children">
+        <dds-image-item
+          media="(min-width: 400px)"
+          srcset="https://fpoimg.com/672x200?text=Example%20Children&amp;bg_color=ee5396&amp;text_color=161616"
+        >
         </dds-image-item>
       </dds-image>
       ${!menuRule
