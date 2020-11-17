@@ -443,7 +443,7 @@ class DDSMastheadComposite extends LitElement {
    * Data for l1.
    */
   @property({ attribute: false })
-  l1Data?: Object = { title: '', url: '', menuItems: [] };
+  l1Data? = { title: '', url: '', menuItems: [] };
 
   /**
    * `true` to open the search dropdown.
