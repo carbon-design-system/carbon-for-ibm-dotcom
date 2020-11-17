@@ -73,6 +73,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       newArray[index] = elem.childNodes[3].childNodes[2];
     });
 
+    // @ts-ignore
     const resizeObserver = new ResizeObserver(entries => {
       entries.forEach(entry => {
         entry.target.style.height = 'auto';
