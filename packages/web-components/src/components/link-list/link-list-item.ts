@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLinkListItem extends DDSLinkWithIcon {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'listitem');
+      this.setAttribute('role', 'link');
     }
     super.connectedCallback();
   }

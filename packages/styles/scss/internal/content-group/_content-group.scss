@@ -19,7 +19,9 @@
 @mixin content-group {
   :host(#{$dds-prefix}-content-group),
   :host(#{$dds-prefix}-content-group-simple),
+  :host(#{$dds-prefix}-content-group-cards),
   .#{$prefix}--content-group {
+    display: block;
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
 
@@ -38,6 +40,7 @@
   .#{$prefix}--content-group__title {
     @include carbon--type-style('expressive-heading-04', true);
 
+    display: block;
     margin-bottom: $carbon--spacing-07;
   }
 
