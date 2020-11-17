@@ -10,7 +10,6 @@
 import { customElement, html, internalProperty, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
@@ -67,27 +66,6 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
-
-    const childItems = (target as HTMLSlotElement).assignedNodes();
-    const newArray = new Array(childItems.length);
-
-    childItems.forEach((elem, index) => {
-      newArray[index] = { ...elem.childNodes[3].childNodes[2] };
-    });
-
-    setTimeout(() => {
-      sameHeight(newArray, 'md');
-    });
-
-    window.addEventListener(
-      'resize',
-      function() {
-        window.requestAnimationFrame(function() {
-          sameHeight(newArray, 'md');
-        });
-      },
-      true
-    );
   }
 
   /**
