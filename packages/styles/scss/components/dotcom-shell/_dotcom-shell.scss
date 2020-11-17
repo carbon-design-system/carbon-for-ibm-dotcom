@@ -17,6 +17,10 @@
     flex-direction: column;
     min-height: 100vh;
     padding-top: $carbon--layout-04;
+
+    .#{$prefix}--tableofcontents__sidebar {
+      top: 49px;
+    }
   }
 
   .#{$prefix}--dotcom-shell__content {
