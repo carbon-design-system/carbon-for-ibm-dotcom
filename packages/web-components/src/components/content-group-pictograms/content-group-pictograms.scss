@@ -6,9 +6,9 @@
 //
 
 @import 'carbon-components/scss/globals/scss/vars';
-@import '../../globals/scss/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-pictograms';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@import '@carbon/ibmdotcom-styles/scss/components/content-group-pictograms/content-group-pictograms';
 
 :host(#{$dds-prefix}-content-group-pictograms) {
   display: block;
