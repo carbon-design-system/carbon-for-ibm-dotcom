@@ -105,10 +105,8 @@ export const withVideos = ({ parameters }) => {
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group slot="content">
-        <dds-video-cta-container>
-          ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
-          ${cardGroupItemWithVideos}
-        </dds-video-cta-container>
+        ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
+        ${cardGroupItemWithVideos}
       </dds-card-group>
       <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
@@ -122,13 +120,13 @@ export default {
   title: 'Components/Content Block Cards',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+      <dds-video-cta-container class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row dds-ce-demo-devenv--grid-row">
           <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
             ${story()}
           </div>
         </div>
-      </div>
+      </dds-video-cta-container>
     `,
   ],
   parameters: {

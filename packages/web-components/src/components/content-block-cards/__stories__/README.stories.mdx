@@ -32,7 +32,7 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 
 ```html
 <dds-content-block-cards>
-  <dds-content-block-heading>${heading}</dds-content-block-heading>
+  <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
   <dds-card-group slot="content">
     <dds-card-group-item href="https://example.com">
       <div slot="heading">Nunc convallis lobortis</div>
@@ -65,8 +65,8 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
       </dds-card-cta-footer>
     </dds-card-group-item>
   </dds-card-group>
-  <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
-    <p>${ctaCopy}</p>
+  <dds-card-cta slot="cta" cta-type="local" href="https://www.ibm.com">
+    <p>Lorem ipsum dolor sit ametttt</p>
     ${ArrowRight20({ slot: 'footer' })}
   </dds-card-cta>
 </dds-content-block-cards>
