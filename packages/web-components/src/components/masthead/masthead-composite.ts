@@ -8,7 +8,6 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
@@ -48,7 +47,6 @@ import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -73,62 +71,66 @@ enum NAV_ITEMS_RENDER_TARGET {
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
-
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
     const { menuItems } = this.l1Data;
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
-      ? html`
-        <dds-top-nav hide-divider>
-          ${ menuItems.map((elem, i) => {
-            return elem.menuItems
+        ? html`
+            <dds-top-nav hide-divider>
+              ${menuItems.map((elem, i) => {
+                return elem.menuItems
+                  ? html`
+                      <dds-top-nav-menu
+                        menu-label="${elem.title}"
+                        trigger-content="${elem.title}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                      >
+                        ${elem.menuItems.map(
+                          (item, j) => html`
+                            <dds-top-nav-menu-item
+                              href="${item.url}"
+                              title="${item.title}"
+                              data-autoid="${ddsPrefix}--masthead__l1-nav--subnav-col${i}-item${j}"
+                            ></dds-top-nav-menu-item>
+                          `
+                        )}
+                      </dds-top-nav-menu>
+                    `
+                  : html`
+                      <dds-top-nav-item
+                        href="${elem.url}"
+                        title="${elem.title}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                      ></dds-top-nav-item>
+                    `;
+              })}
+            </dds-top-nav>
+          `
+        : menuItems.map((elem, i) =>
+            elem.menuItems
               ? html`
-                <dds-top-nav-menu
-                  menu-label="${elem.title}"
-                  trigger-content="${elem.title}"
-                  data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}">
-                    ${ elem.menuItems.map((item, j) => html`
-                      <dds-top-nav-menu-item
-                        href="${item.url}"
-                        title="${item.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--subnav-col${i}-item${j}"
-                      ></dds-top-nav-menu-item>
-                    `) }
-                </dds-top-nav-menu>
-              `
+                  <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
+                    ${elem.menuItems.map(
+                      (item, j) => html`
+                        <dds-left-nav-menu-item
+                          href="${item.url}"
+                          title="${item.title}"
+                          data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}"
+                        ></dds-left-nav-menu-item>
+                      `
+                    )}
+                  </dds-left-nav-menu>
+                `
               : html`
-                <dds-top-nav-item
-                  href="${elem.url}"
-                  title="${elem.title}"
-                  data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
-                ></dds-top-nav-item>
-              `;
-          }) }
-        </dds-top-nav>
-      `
-      : menuItems.map((elem, i) => 
-        elem.menuItems 
-          ? html`
-            <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
-              ${ elem.menuItems.map((item, j) => html`
-                <dds-left-nav-menu-item
-                  href="${item.url}"
-                  title="${item.title}"
-                  data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}"
-                ></dds-left-nav-menu-item>
-              `)}
-            </dds-left-nav-menu>
-          `
-          : html`
-            <dds-left-nav-item
-              href="${elem.url}"
-              title="${elem.title}"
-              data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
-            ></dds-left-nav-item>
-          `
-        );
+                  <dds-left-nav-item
+                    href="${elem.url}"
+                    title="${elem.title}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                  ></dds-left-nav-item>
+                `
+          );
     }
-    
+
     return undefined;
   }
 
@@ -136,13 +138,11 @@ class DDSMastheadComposite extends LitElement {
     const { url, title } = this.l1Data;
     return html`
       <dds-masthead-l1 slot="masthead-l1">
-        ${ !title
-            ? undefined
-            : html`
-              <dds-masthead-l1-name title="${title}" url="${url}">
-              </dds-masthead-l1-name>
-            `
-        }
+        ${!title
+          ? undefined
+          : html`
+              <dds-masthead-l1-name title="${title}" url="${url}"> </dds-masthead-l1-name>
+            `}
         ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </dds-masthead-l1>
     `;
@@ -444,7 +444,7 @@ class DDSMastheadComposite extends LitElement {
    * Data for l1.
    */
   @property({ attribute: false })
-  l1Data?: MastheadL1 = {title: '', url: ''};
+  l1Data?: MastheadL1 = { title: '', url: '' };
 
   /**
    * `true` to open the search dropdown.
@@ -518,7 +518,7 @@ class DDSMastheadComposite extends LitElement {
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
         ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${ this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined }
+        ${this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -554,9 +554,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        ${!l1Data 
-          ? undefined
-        : this._renderL1() }
+        ${!l1Data ? undefined : this._renderL1()}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
