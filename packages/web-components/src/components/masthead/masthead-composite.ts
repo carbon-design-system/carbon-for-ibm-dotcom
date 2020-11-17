@@ -12,7 +12,6 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   MastheadLink,
-  MastheadL1,
   MastheadMenuItem,
   MastheadProfileItem,
   Translation,
@@ -444,7 +443,7 @@ class DDSMastheadComposite extends LitElement {
    * Data for l1.
    */
   @property({ attribute: false })
-  l1Data?: MastheadL1 = { title: '', url: '' };
+  l1Data? = { title: '', url: '' };
 
   /**
    * `true` to open the search dropdown.
