@@ -10,6 +10,8 @@
 import { customElement, html, internalProperty, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
+
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
@@ -62,6 +64,36 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
+
+    const childItems = (target as HTMLSlotElement).assignedNodes();
+    const newArray = new Array(childItems.length);
+
+    childItems.forEach((elem, index) => {
+      /* eslint-disable-next-line prefer-destructuring */
+      newArray[index] = elem.childNodes[3].childNodes[2];
+    });
+
+    const resizeObserver = new ResizeObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.style.height = 'auto';
+      });
+
+      if (window.innerWidth >= parseFloat(breakpoints.md.width) * baseFontSize) {
+        entries.forEach(entry => {
+          entry.target.style.height = `${Math.max(
+            ...newArray.map(o => {
+              return o.clientHeight;
+            })
+          )}px`;
+        });
+      }
+    });
+
+    newArray.forEach(elem => {
+      setTimeout(() => {
+        resizeObserver.observe(elem);
+      });
+    });
   }
 
   /**
