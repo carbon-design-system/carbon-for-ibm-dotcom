@@ -51,10 +51,6 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
     super.connectedCallback();
   }
 
-  static get itemCopySelector() {
-    return `${ddsPrefix}-cta-section-item-copy`;
-  }
-
   /**
    * Handles `slotchange` event.
    *
