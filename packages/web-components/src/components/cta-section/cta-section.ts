@@ -62,7 +62,8 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
    */
   private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
     const { _contentsNode: contentsNode } = this;
-    if (contentsNode) {
+
+    if (contentsNode?.assignedNodes().length) {
       if (this._observerResizeContainer) {
         this._observerResizeContainer.disconnect();
         this._observerResizeContainer = null;
