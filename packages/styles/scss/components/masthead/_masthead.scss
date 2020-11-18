@@ -18,6 +18,8 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead-logo {
   height: 100%;
+  z-index: 1;
+  background-color: $ui-background;
 
   a {
     display: flex;
@@ -181,7 +183,26 @@ $search-transition-timing: 95ms;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
-    top: -48px;
+    @include carbon--breakpoint-up(800px) {
+      top: -48px;
+    }
+  }
+
+  .#{$prefix}--masthead--sticky__l1 + .#{$prefix}--dotcom-shell {
+    @include carbon--breakpoint-up(800px) {
+      .#{$prefix}--tableofcontents__sidebar {
+        top: 98px;
+      }
+    }
+  }
+
+  .#{$prefix}--masthead--sticky__l1.#{$prefix}--masthead--sticky
+    + .#{$prefix}--dotcom-shell {
+    .#{$prefix}--tableofcontents__sidebar {
+      @include carbon--breakpoint-up(800px) {
+        top: 48px;
+      }
+    }
   }
 
   .#{$prefix}--masthead__l0 {
@@ -228,7 +249,7 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__nav-container {
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     position: relative;
     @include carbon--breakpoint(md) {
       display: flex;
@@ -315,6 +336,7 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--header__action {
     border: 2px solid transparent;
+    background-color: $ui-background;
     > {
       svg {
         position: relative;
