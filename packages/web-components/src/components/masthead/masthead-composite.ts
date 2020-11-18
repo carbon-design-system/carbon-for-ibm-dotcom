@@ -11,6 +11,7 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
+  MastheadL1,
   MastheadLink,
   MastheadMenuItem,
   MastheadProfileItem,
@@ -71,6 +72,7 @@ enum NAV_ITEMS_RENDER_TARGET {
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
+    if (!this.l1Data) return undefined;
     const { menuItems } = this.l1Data;
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
@@ -134,6 +136,7 @@ class DDSMastheadComposite extends LitElement {
   }
 
   private _renderL1() {
+    if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
     return html`
       <dds-masthead-l1 slot="masthead-l1">
@@ -443,7 +446,7 @@ class DDSMastheadComposite extends LitElement {
    * Data for l1.
    */
   @property({ attribute: false })
-  l1Data? = { title: '', url: '', menuItems: [] };
+  l1Data?: MastheadL1;
 
   /**
    * `true` to open the search dropdown.

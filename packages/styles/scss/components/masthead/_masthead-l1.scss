@@ -8,7 +8,6 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
 @import '../../globals/vars';
 
-
 /// @access private
 /// @group dotcom ui-shell Masthead L1
 
@@ -16,7 +15,8 @@ $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
 @mixin masthead-l1 {
-  .#{$prefix}--masthead__l1, :host(#{$dds-prefix}-masthead-l1) {
+  .#{$prefix}--masthead__l1,
+  :host(#{$dds-prefix}-masthead-l1) {
     display: flex;
     max-width: 98rem;
     margin-left: auto;
@@ -40,11 +40,12 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--masthead__l1-name, :host(#{$dds-prefix}-masthead-l1-name){
+  .#{$prefix}--masthead__l1-name,
+  :host(#{$dds-prefix}-masthead-l1-name) {
     display: flex;
     height: 100%;
     background-color: $ui-02;
-    // color: $text-04;
+    color: $text-04;
     padding: 0 rem(12px);
     align-items: stretch;
     white-space: nowrap;
@@ -53,10 +54,6 @@ $search-transition-timing: 95ms;
       min-width: rem(208px);
       padding-left: 0;
     }
-  }
-
-  :host(#{$dds-prefix}-masthead-l1-name) span::slotted(*) {
-    color: pink;
   }
 
   .#{$prefix}--masthead__l1-name-title {
