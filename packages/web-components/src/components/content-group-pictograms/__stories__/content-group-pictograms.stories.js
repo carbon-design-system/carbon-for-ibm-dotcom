@@ -11,6 +11,7 @@
 import '../content-group-pictograms';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../pictogram-item/pictogram-item';
 import '../../content-item/content-item-heading';
@@ -43,24 +44,22 @@ const pictogramsItems = [
 ];
 
 export default {
-  title: 'Components/Content group pictograms',
+  title: 'Components/Content Group Pictograms',
   decorators: [
     story => html`
       <div>${story()}</div>
     `,
   ],
   parameters: {
+    ...readme.parameters,
     knobs: {
       ContentGroupPictograms: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Copy text (copy)',
-          `
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero,
-            in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vestibulum non porttitor libero, in venenatis magna.
-          `,
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
           groupId
         ),
       }),
