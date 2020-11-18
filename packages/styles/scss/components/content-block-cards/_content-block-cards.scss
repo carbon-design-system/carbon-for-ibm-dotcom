@@ -10,39 +10,45 @@
 @import '../card-group/card-group';
 
 @mixin content-block-cards {
-  .#{$prefix}--content-block-cards {
-    .#{$prefix}--content-block {
+  :host(#{$dds-prefix}-content-block-cards),
+  .#{$prefix}--content-block-cards .#{$prefix}--content-block {
+    display: block;
+    padding-top: $carbon--layout-03;
+    padding-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('md') {
       padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-05;
-
-      @include carbon--breakpoint('md') {
-        padding-top: $carbon--layout-03;
-        padding-bottom: $carbon--layout-06;
-      }
-
-      @include carbon--breakpoint('lg') {
-        padding-top: $carbon--layout-05;
-        padding-bottom: $carbon--layout-07;
-      }
+      padding-bottom: $carbon--layout-06;
     }
 
-    .#{$prefix}--content-block__heading {
-      margin-bottom: $carbon--layout-03;
+    @include carbon--breakpoint('lg') {
+      padding-top: $carbon--layout-05;
+      padding-bottom: $carbon--layout-07;
+    }
+  }
 
-      @include carbon--breakpoint('md') {
-        margin-bottom: $carbon--layout-04;
-      }
+  :host(#{$dds-prefix}-content-block-cards) ::slotted([slot='heading']),
+  .#{$prefix}--content-block-cards .#{$prefix}--content-block__heading {
+    margin-bottom: $carbon--layout-03;
 
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $carbon--layout-05;
-      }
+    @include carbon--breakpoint('md') {
+      margin-bottom: $carbon--layout-04;
     }
 
-    .#{$prefix}--content-block__cta {
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 12);
-      }
+    @include carbon--breakpoint('lg') {
+      margin-bottom: $carbon--layout-05;
     }
+  }
+
+  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
+  .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(4, 12);
+    }
+  }
+
+  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta {
+    padding: 0;
   }
 
   .#{$prefix}--content-block-cards__content {
