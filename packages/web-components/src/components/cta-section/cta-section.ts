@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, TemplateResult } from 'lit-element';
+import { customElement, html, internalProperty, query, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -38,19 +38,42 @@ const slotExistencePropertyNames = {
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
+   * Content Items nodes.
+   */
+  @query(`slot[name='content-item']`)
+  private _contentsNode?: HTMLSlotElement;
+
+  /**
    * `true` if there is CTA content.
    */
   @internalProperty()
   protected _hasFooter = false;
 
   /**
-   * Applies section attribute
+   * The observer for the resize of the content item slot
    */
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'section');
+  private _observerResizeContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * Cleans-up and creats the resize observer for the content-item slot
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    const { _contentsNode: contentsNode } = this;
+    if (contentsNode) {
+      if (this._observerResizeContainer) {
+        this._observerResizeContainer.disconnect();
+        this._observerResizeContainer = null;
+      }
+
+      if (create) {
+        setTimeout(() => {
+          this._observeResizeContainer();
+        });
+      }
     }
-    super.connectedCallback();
   }
 
   /**
@@ -64,17 +87,25 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
+  }
 
-    const childItems = (target as HTMLSlotElement).assignedNodes();
-    const newArray = new Array(childItems.length);
+  /**
+   * The observer for the resize of the content item slot
+   */
+  private _observeResizeContainer() {
+    const { _contentsNode: slotNode } = this;
 
-    childItems.forEach((elem, index) => {
+    const childItems = slotNode?.assignedNodes();
+
+    const newArray = new Array(childItems?.length);
+
+    childItems?.forEach((elem, index) => {
       /* eslint-disable-next-line prefer-destructuring */
       newArray[index] = elem.childNodes[3].childNodes[2];
     });
 
     // @ts-ignore
-    const resizeObserver = new ResizeObserver(entries => {
+    this._observerResizeContainer = new ResizeObserver(entries => {
       entries.forEach(entry => {
         entry.target.style.height = 'auto';
       });
@@ -91,10 +122,28 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
     });
 
     newArray.forEach(elem => {
-      setTimeout(() => {
-        resizeObserver.observe(elem);
-      });
+      this._observerResizeContainer.observe(elem);
     });
+  }
+
+  /**
+   * Applies section attribute
+   */
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'section');
+    }
+    super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
+    super.disconnectedCallback();
+  }
+
+  firstUpdated() {
+    this._cleanAndCreateObserverResize({ create: true });
   }
 
   /**
