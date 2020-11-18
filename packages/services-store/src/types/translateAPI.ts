@@ -94,7 +94,7 @@ export interface MastheadL1 {
 export interface MastheadL1Item {
   title: string;
   url?: string;
-  menuItems?: object[];
+  menuItems?: MastheadL1Item[];
 }
 
 /**

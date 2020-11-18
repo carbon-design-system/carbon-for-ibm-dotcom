@@ -46,6 +46,7 @@ import './left-nav-menu-item';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
+import { MastheadL1Item } from '../../../../services-store/src/types/translateAPI';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -78,7 +79,7 @@ class DDSMastheadComposite extends LitElement {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
         ? html`
             <dds-top-nav hide-divider>
-              ${menuItems.map((elem, i) => {
+              ${menuItems.map((elem: MastheadL1Item, i) => {
                 return elem.menuItems
                   ? html`
                       <dds-top-nav-menu
@@ -107,7 +108,7 @@ class DDSMastheadComposite extends LitElement {
               })}
             </dds-top-nav>
           `
-        : menuItems.map((elem, i) =>
+        : menuItems.map((elem: MastheadL1Item, i) =>
             elem.menuItems
               ? html`
                   <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
