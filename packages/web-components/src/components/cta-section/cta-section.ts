@@ -38,12 +38,6 @@ const slotExistencePropertyNames = {
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
-   * Content Items wrapper.
-   */
-  @query(`.${prefix}--content-item-wrapper`)
-  private _contentsNode?: HTMLElement;
-
-  /**
    * Content Item slot node
    */
   @query(`slot[name='content-item']`)
@@ -67,9 +61,9 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
    * @param [options.create] `true` to create the new resize observer.
    */
   private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
-    const { _contentsNode: contentsNode } = this;
+    const { _slotNode: slotNode } = this;
 
-    if (contentsNode?.children[0]?.assignedNodes().length) {
+    if (slotNode?.assignedNodes().length) {
       if (this._observerResizeContainer) {
         this._observerResizeContainer.disconnect();
         this._observerResizeContainer = null;
@@ -95,6 +89,8 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
     this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
+
+    this._cleanAndCreateObserverResize({ create: true });
   }
 
   /**
@@ -108,7 +104,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
 
     childItems?.forEach((elem, index) => {
       /* eslint-disable-next-line prefer-destructuring */
-      newArray[index] = elem.children[1];
+      newArray[index] = (elem as any).children[1];
     });
 
     newArray.forEach(entry => {
