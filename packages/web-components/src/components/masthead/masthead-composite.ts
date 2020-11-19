@@ -136,6 +136,10 @@ class DDSMastheadComposite extends LitElement {
     return undefined;
   }
 
+  /**
+   * Renders L1 menu based on l1Data
+   *
+   */
   private _renderL1() {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
