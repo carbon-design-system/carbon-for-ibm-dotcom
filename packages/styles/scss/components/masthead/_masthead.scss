@@ -70,6 +70,13 @@ $search-transition-timing: 95ms;
       height: 100%;
     }
   }
+
+  &.#{$prefix}--search-active {
+    display: none;
+    @include carbon--breakpoint(md) {
+      display: block;
+    }
+  }
 }
 
 /// @access private

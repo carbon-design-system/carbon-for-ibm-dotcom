@@ -103,6 +103,14 @@
       .#{$prefix}--header__nav-container {
         display: none;
       }
+
+      + .#{$prefix}--header__profile {
+        display: none;
+
+        @include carbon--breakpoint(md) {
+          display: flex;
+        }
+      }
     }
   }
 
@@ -193,7 +201,6 @@
       @include carbon--breakpoint-down(md) {
         position: absolute;
         width: 100vw;
-        right: (-$carbon--spacing-09);
       }
     }
 
