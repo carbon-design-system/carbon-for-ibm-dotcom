@@ -214,7 +214,7 @@ module: {
 
 ### Advanced usage for IBM.com site owners
 
-There are some other key advanced usage patterns that are suitable for IBM.com site owners. IBM.com site owners can see them at [https://ibm.biz/Bdq5q2](here).
+There are some other key advanced usage patterns that are suitable for IBM.com site owners. IBM.com site owners can see them at [here](https://ibm.biz/Bdq5q2).
 
 ## Browser support
 
