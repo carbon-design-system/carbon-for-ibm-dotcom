@@ -12,7 +12,7 @@ import readme from '../README.stories.mdx';
 
 const types = ['download', 'local', 'external', 'video'];
 const headlines = [
-  'Learn more',
+  'Learn more about Kubernetes',
   'Containerization A Complete Guide',
   'Microservices and containers',
 ];
