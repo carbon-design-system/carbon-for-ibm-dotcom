@@ -40,8 +40,8 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
    * Content Items nodes.
    */
-  @query(`slot[name='content-item']`)
-  private _contentsNode?: HTMLSlotElement;
+  @query(`.${prefix}--content-item-wrapper`)
+  private _contentsNode?: HTMLElement;
 
   /**
    * `true` if there is CTA content.
@@ -55,7 +55,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   private _observerResizeContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
   /**
-   * Cleans-up and creats the resize observer for the content-item slot
+   * Cleans-up and creats the resize observer for cta-section
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new resize observer.
@@ -63,7 +63,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
     const { _contentsNode: contentsNode } = this;
 
-    if (contentsNode?.assignedNodes().length) {
+    if (contentsNode?.children[0]?.assignedNodes().length) {
       if (this._observerResizeContainer) {
         this._observerResizeContainer.disconnect();
         this._observerResizeContainer = null;
@@ -95,10 +95,9 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
    * The observer for the resize of the content item slot
    */
   private _observeResizeContainer = () => {
-    const { _contentsNode: slotNode } = this;
+    const { _contentsNode: contentsNode } = this;
 
-    const childItems = slotNode?.assignedNodes();
-
+    const childItems = contentsNode?.children[0].assignedNodes();
     const newArray = new Array(childItems?.length);
 
     childItems?.forEach((elem, index) => {
@@ -106,26 +105,19 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       newArray[index] = elem.children[1];
     });
 
-    // @ts-ignore
-    this._observerResizeContainer = new ResizeObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.style.height = 'auto';
+    newArray.forEach(entry => {
+      entry.style.height = 'auto';
+    });
+
+    if (window.innerWidth >= parseFloat(breakpoints.md.width) * baseFontSize) {
+      newArray.forEach(entry => {
+        entry.style.height = `${Math.max(
+          ...newArray.map(o => {
+            return o.clientHeight;
+          })
+        )}px`;
       });
-
-      if (window.innerWidth >= parseFloat(breakpoints.md.width) * baseFontSize) {
-        entries.forEach(entry => {
-          entry.target.style.height = `${Math.max(
-            ...newArray.map(o => {
-              return o.clientHeight;
-            })
-          )}px`;
-        });
-      }
-    });
-
-    newArray.forEach(elem => {
-      this._observerResizeContainer.observe(elem);
-    });
+    }
   };
 
   /**
