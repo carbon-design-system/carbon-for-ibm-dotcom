@@ -13,18 +13,27 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+/* eslint-disable import/no-duplicates */
+import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
+// Above import is interface-only ref and thus code won't be brought into the build
 import '../leadspace';
+/* eslint-enable import/no-duplicates */
+
 import '../../image/image';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
+const gradientStyleSchemes = {
+  [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
+  [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
+};
+
 export const DefaultWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace theme="${ifNonNull(theme)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -39,12 +48,10 @@ export const DefaultWithNoImage = ({ parameters }) => {
 };
 
 export const DefaultWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
-      theme="${ifNonNull(theme)}"
-      ?gradient="${ifNonNull(gradient)}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
@@ -67,9 +74,8 @@ export const DefaultWithImage = ({ parameters }) => {
 
 export const Centered = ({ parameters }) => {
   const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace theme="${ifNonNull(theme)}" type="centered">
+    <dds-leadspace type="centered">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -85,10 +91,8 @@ export const Centered = ({ parameters }) => {
 
 export const CenteredWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
     <dds-leadspace
-      theme="${ifNonNull(theme)}"
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
@@ -113,9 +117,8 @@ export const CenteredWithImage = ({ parameters }) => {
 
 export const Small = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace theme="${ifNonNull(theme)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
+    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -131,15 +134,8 @@ export const Small = ({ parameters }) => {
 
 export const SmallWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return html`
-    <dds-leadspace
-      theme="${ifNonNull(theme)}"
-      ?gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-      type="small"
-    >
+    <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <span slot="title">${ifNonNull(title)}</span>
       <span slot="copy">${ifNonNull(copy)}</span>
       <dds-button-group slot="buttons">
@@ -188,6 +184,12 @@ export default {
         title: text('title (title):', 'Lead space title', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
+        gradientStyleScheme: select(
+          'Gradient style scheme (gradient-style-scheme)',
+          gradientStyleSchemes,
+          LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
+          groupId
+        ),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}, groupId),
         }).map((_, i) => ({
