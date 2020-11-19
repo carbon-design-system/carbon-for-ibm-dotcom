@@ -45,7 +45,7 @@ const StoryContent = () => html`
             between pages.
             <br />
             <br />
-            The shell was designed with maximum flexibility built in, to serve the needs of a broad range of products and users.
+            The shell was designed with maxPmum flexibility built in, to serve the needs of a broad range of products and users.
             Adopting the shell ensures compliance with IBM design standards, simplifies development efforts, and provides great
             user experiences. All IBM products built with Carbon are required to use the shell’s header.
             <br />
@@ -106,16 +106,15 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withL1 = ({ parameters }) => {
+export const withL1 = () => {
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-composite .l1Data="${l1Data}">
-    </dds-masthead-composite>
+    <dds-masthead-composite .l1Data="${l1Data}"> </dds-masthead-composite>
     ${StoryContent()}
   `;
-}
+};
 
 export default {
   title: 'Components/Masthead',

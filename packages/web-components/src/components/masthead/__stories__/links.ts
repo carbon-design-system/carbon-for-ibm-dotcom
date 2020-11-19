@@ -20,7 +20,7 @@ const l1Data: MastheadL1 = {
   menuItems: [
     {
       title: 'Lorem ipsum dolor',
-      url: 'https://example.com' 
+      url: 'https://example.com',
     },
     {
       title: 'Lorem ipsum dolor',
@@ -37,11 +37,11 @@ const l1Data: MastheadL1 = {
         {
           title: 'Lorem ipsum dolor',
           url: 'https://example.com',
-        }
-      ]
-    }
-  ]
-}
+        },
+      ],
+    },
+  ],
+};
 
 /**
  * Masthead items.
