@@ -62,7 +62,7 @@ export const Default = ({ parameters }) => {
         <dds-link-list type="default">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item-card href="https://example.com">
-            <p>Learn more</p>
+            <p>Learn more about Kubernetes</p>
             <dds-card-footer>
               ${ArrowRight20({ slot: 'icon' })}
             </dds-card-footer>
@@ -83,7 +83,7 @@ export const Default = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            <p>Learn more</p>
+            <p>Learn more about Kubernetes</p>
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-link-list-item-card-cta>
           <dds-link-list-item-card-cta
@@ -125,7 +125,7 @@ export const Horizontal = ({ parameters }) => {
         <dds-link-list type="horizontal">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -141,7 +141,7 @@ export const Horizontal = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            Learn more
+            Learn more about Kubernetes
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
@@ -183,7 +183,7 @@ export const Vertical = ({ parameters }) => {
         <dds-link-list type="vertical">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -199,7 +199,7 @@ export const Vertical = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            Learn more
+            Learn more about Kubernetes
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
@@ -227,7 +227,7 @@ export const VerticalWithCards = ({ parameters }) => {
         <dds-link-list type="vertical">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -236,7 +236,7 @@ export const VerticalWithCards = ({ parameters }) => {
         <dds-link-list type="default">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item-card href="https://example.com">
-            <p>Learn more</p>
+            <p>Learn more about Kubernetes</p>
             <dds-card-footer>
               ${ArrowRight20({ slot: 'icon' })}
             </dds-card-footer>
@@ -258,7 +258,7 @@ export const VerticalWithCards = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            Learn more
+            Learn more about Kubernetes
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
@@ -276,7 +276,7 @@ export const VerticalWithCards = ({ parameters }) => {
             cta-type="${ifNonNull(ctaType)}"
             download="${ifNonNull(download)}"
           >
-            <p>Learn more</p>
+            <p>Learn more about Kubernetes</p>
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-link-list-item-card-cta>
           <dds-link-list-item-card-cta
@@ -305,7 +305,7 @@ export const EndOfSection = ({ parameters }) => {
         <dds-link-list type="end">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item href="https://example.com">
-            Learn more ${ArrowRight20({ slot: 'icon' })}
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
           <dds-link-list-item href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -319,7 +319,7 @@ export const EndOfSection = ({ parameters }) => {
         <dds-link-list type="end">
           <span slot="heading">Tutorial</span>
           <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Learn more
+            Learn more about Kubernetes
           </dds-link-list-item-cta>
           <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
             Containerization A Complete Guide
