@@ -67,7 +67,6 @@ const mastheadLinks = [
     titleEnglish: 'Consectetur adipiscing elit',
     url: '',
     hasMenu: true,
-    hasMegapanel: true,
     menuSections: [
       {
         heading: '',
