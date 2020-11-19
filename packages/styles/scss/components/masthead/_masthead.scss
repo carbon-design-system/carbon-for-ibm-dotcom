@@ -294,6 +294,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      z-index: 0;
       background-color: $ui-01;
       + .#{$prefix}--header__menu {
         background-color: $ui-02;
