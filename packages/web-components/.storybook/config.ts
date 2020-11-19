@@ -106,6 +106,7 @@ let preservedTheme;
 
 addDecorator((story, { parameters }) => {
   const root = document.documentElement;
+  root.toggleAttribute('storybook-carbon-theme-prevent-reload', parameters['carbon-theme']?.preventReload);
   if (parameters['carbon-theme']?.disabled) {
     root.setAttribute('storybook-carbon-theme', '');
   } else {
@@ -116,7 +117,10 @@ addDecorator((story, { parameters }) => {
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute('storybook-carbon-theme', (preservedTheme = theme));
-  addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
+  // Re-rendering upon theme change causes adverse effect for some stories
+  if (!document.documentElement.hasAttribute('storybook-carbon-theme-prevent-reload')) {
+    addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
+  }
 });
 
 const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);
