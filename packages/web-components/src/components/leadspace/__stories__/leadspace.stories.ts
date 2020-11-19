@@ -177,6 +177,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { preventReload: true },
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
