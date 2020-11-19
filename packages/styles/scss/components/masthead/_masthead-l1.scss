@@ -41,6 +41,7 @@ $search-transition-timing: 95ms;
   .#{$prefix}--masthead__l1-name {
     display: flex;
     height: 100%;
+    z-index: 1;
     background-color: $ui-02;
     color: $text-04;
     padding: 0 rem(12px);
