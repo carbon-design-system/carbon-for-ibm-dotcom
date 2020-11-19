@@ -19,6 +19,8 @@
   transition: $button-transition;
   position: relative;
   white-space: nowrap;
+  z-index: 1;
+  background-color: $ui-background;
 
   &:hover {
     background-color: $hover-ui;
@@ -41,6 +43,16 @@
     height: 1.5rem;
     width: 0.0625rem;
     background-color: #dcdcdc;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: $spacing-09;
+    left: calc(-1rem - 1px);
+    background-color: $ui-background;
   }
 
   @include carbon--breakpoint-down(800px) {
@@ -96,7 +108,7 @@
 
   .#{$prefix}--header__search:not(.#{$prefix}--masthead__header--search-active) {
     @include carbon--breakpoint(md) {
-      overflow-x: auto;
+      overflow-x: visible;
     }
   }
 
