@@ -70,9 +70,10 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       }
 
       if (create) {
-        setTimeout(() => {
-          this._observeResizeContainer();
-        });
+        // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+        // @ts-ignore
+        this._observerResizeContainer = new ResizeObserver(this._observeResizeContainer);
+        this._observerResizeContainer.observe(this);
       }
     }
   }
@@ -93,7 +94,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
    * The observer for the resize of the content item slot
    */
-  private _observeResizeContainer() {
+  private _observeResizeContainer = () => {
     const { _contentsNode: slotNode } = this;
 
     const childItems = slotNode?.assignedNodes();
@@ -102,7 +103,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
 
     childItems?.forEach((elem, index) => {
       /* eslint-disable-next-line prefer-destructuring */
-      newArray[index] = elem.childNodes[3].childNodes[2];
+      newArray[index] = elem.children[1];
     });
 
     // @ts-ignore
@@ -125,7 +126,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
     newArray.forEach(elem => {
       this._observerResizeContainer.observe(elem);
     });
-  }
+  };
 
   /**
    * Applies section attribute
