@@ -38,10 +38,16 @@ const slotExistencePropertyNames = {
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
-   * Content Items nodes.
+   * Content Items wrapper.
    */
   @query(`.${prefix}--content-item-wrapper`)
   private _contentsNode?: HTMLElement;
+
+  /**
+   * Content Item slot node
+   */
+  @query(`slot[name='content-item']`)
+  private _slotNode?: HTMLSlotElement;
 
   /**
    * `true` if there is CTA content.
@@ -95,9 +101,9 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
    * The observer for the resize of the content item slot
    */
   private _observeResizeContainer = () => {
-    const { _contentsNode: contentsNode } = this;
+    const { _slotNode: slotNode } = this;
 
-    const childItems = contentsNode?.children[0].assignedNodes();
+    const childItems = slotNode?.assignedNodes();
     const newArray = new Array(childItems?.length);
 
     childItems?.forEach((elem, index) => {
@@ -109,13 +115,15 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       entry.style.height = 'auto';
     });
 
+    const maxHeight = Math.max(
+      ...newArray.map(o => {
+        return o.clientHeight;
+      })
+    );
+
     if (window.innerWidth >= parseFloat(breakpoints.md.width) * baseFontSize) {
       newArray.forEach(entry => {
-        entry.style.height = `${Math.max(
-          ...newArray.map(o => {
-            return o.clientHeight;
-          })
-        )}px`;
+        entry.style.height = `${maxHeight}px`;
       });
     }
   };
