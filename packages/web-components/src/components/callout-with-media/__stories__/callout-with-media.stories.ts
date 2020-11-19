@@ -46,6 +46,7 @@ export default {
   title: 'Components/Callout with Media',
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
     knobs: {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
