@@ -212,9 +212,9 @@ module: {
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/webpack-sass)
 
-### Using server-side template
+### Advanced usage for IBM.com site owners
 
-Please see [here](./docs/server-side-template.md).
+There are some other key advanced usage patterns that are suitable for IBM.com site owners. IBM.com site owners can see them at [https://ibm.biz/Bdq5q2](here).
 
 ## Browser support
 
