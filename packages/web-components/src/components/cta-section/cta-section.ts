@@ -40,6 +40,12 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
    * Content Item slot node
    */
+  @query(`.${prefix}--content-item-wrapper`)
+  private _contentsNode?: HTMLElement;
+
+  /**
+   * Content Item slot node
+   */
   @query(`slot[name='content-item']`)
   private _slotNode?: HTMLSlotElement;
 
@@ -73,7 +79,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
         // TODO: Wait for `.d.ts` update to support `ResizeObserver`
         // @ts-ignore
         this._observerResizeContainer = new ResizeObserver(this._observeResizeContainer);
-        this._observerResizeContainer.observe(this);
+        this._observerResizeContainer.observe(this._contentsNode);
       }
     }
   }
@@ -99,26 +105,26 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   private _observeResizeContainer = () => {
     const { _slotNode: slotNode } = this;
 
-    const childItems = slotNode?.assignedNodes();
-    const newArray = new Array(childItems?.length);
+    const { selectorCopy } = this.constructor as typeof DDSCTASection;
+    const copyNodes = slotNode?.assignedNodes().reduce((acc, node) => {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        acc.push(...(node as Element).querySelectorAll(selectorCopy));
+      }
+      return acc;
+    }, [] as any);
 
-    childItems?.forEach((elem, index) => {
-      /* eslint-disable-next-line prefer-destructuring */
-      newArray[index] = (elem as any).children[1];
-    });
-
-    newArray.forEach(entry => {
+    copyNodes?.forEach(entry => {
       entry.style.height = 'auto';
     });
 
     const maxHeight = Math.max(
-      ...newArray.map(o => {
+      ...copyNodes!.map(o => {
         return o.clientHeight;
       })
     );
 
     if (window.innerWidth >= parseFloat(breakpoints.md.width) * baseFontSize) {
-      newArray.forEach(entry => {
+      copyNodes?.forEach(entry => {
         entry.style.height = `${maxHeight}px`;
       });
     }
@@ -164,6 +170,11 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
       ${super.render()} ${this._renderFooter()}
     `;
   }
+
+  /**
+   * The selector that determines where to harvest the content items from.
+   */
+  static selectorCopy = 'dds-cta-section-item-copy';
 
   static get stableSelector() {
     return `${ddsPrefix}--cta-section`;
