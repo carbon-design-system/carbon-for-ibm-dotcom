@@ -6,3 +6,7 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/image-with-caption/image-with-caption';
+
+:host(#{$dds-prefix}-image-with-caption) {
+  outline: none;
+}
