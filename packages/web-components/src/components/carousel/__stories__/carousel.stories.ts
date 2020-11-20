@@ -8,6 +8,7 @@
  */
 
 import { html } from 'lit-element';
+import { number } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -40,25 +41,33 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = () => html`
-  <dds-carousel>
-    <dds-content-section-leading>
-      <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
-      <dds-content-section-copy>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      </dds-content-section-copy>
-      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-        Link text ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-content-section-leading>
-    ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
-  </dds-carousel>
-`;
+export const Default = ({ parameters }) => {
+  const { pageSize } = parameters?.props?.Carousel ?? {};
+  return html`
+    <dds-carousel page-size="${ifNonNull(pageSize)}">
+      <dds-content-section-leading>
+        <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+        <dds-content-section-copy>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        </dds-content-section-copy>
+        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+          Link text ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-with-icon>
+      </dds-content-section-leading>
+      ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+    </dds-carousel>
+  `;
+};
 
 export default {
   title: 'Components/Carousel',
   parameters: {
     useRawContainer: true,
     ...readme.parameters,
+    knobs: {
+      Carousel: ({ groupId }) => ({
+        pageSize: number('Page size (page-size)', null!, groupId),
+      }),
+    },
   },
 };

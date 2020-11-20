@@ -11,6 +11,7 @@ import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import styles from './carousel.scss';
@@ -59,12 +60,6 @@ class DDSCarousel extends LitElement {
   private _hasLeading = false;
 
   /**
-   * The default slot.
-   */
-  @query('slot:not([name])')
-  private _slotNode?: HTMLSlotElement;
-
-  /**
    * The observer for the resize of the scroll container.
    */
   private _observerResizeContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -73,6 +68,32 @@ class DDSCarousel extends LitElement {
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * The page size that is explicitly set.
+   */
+  @internalProperty()
+  private _pageSize?: number;
+
+  /**
+   * The page size that is automatically calculated upon viewport size
+   * via `--dds-carousel-page-size` CSS custom property.
+   * If `page-size` attribute is set, this value is ignored.
+   */
+  @internalProperty()
+  private _pageSizeAuto = 1;
+
+  /**
+   * The default slot.
+   */
+  @query('slot:not([name])')
+  private _slotNode?: HTMLSlotElement;
+
+  /**
+   * The number of total items.
+   */
+  @internalProperty()
+  private _total = 0;
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -103,12 +124,6 @@ class DDSCarousel extends LitElement {
       }
     }
   }
-
-  /**
-   * The number of total items.
-   */
-  @internalProperty()
-  private _total = 0;
 
   /**
    * Handles `click` event on the next button.
@@ -149,6 +164,7 @@ class DDSCarousel extends LitElement {
     const { pageSize, _slotNode: slotNode } = this;
     const firstNode = slotNode!.assignedNodes().find(node => node.nodeType === Node.ELEMENT_NODE);
     if (firstNode) {
+      // FIXME: Avoid "zero divided by zero" condition when `pageSize` is 1
       this._gap = (contentsBaseWidth - (firstNode as Element).getBoundingClientRect().width * pageSize) / (pageSize - 1);
     }
   };
@@ -189,7 +205,15 @@ class DDSCarousel extends LitElement {
    * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from `--dds-carousel-page-size`.
    */
   @property({ type: Number, attribute: 'page-size' })
-  pageSize = 1;
+  get pageSize() {
+    const { _pageSize: pageSize, _pageSizeAuto: pageSizeAuto } = this;
+    return pageSize ?? pageSizeAuto;
+  }
+
+  set pageSize(value: number) {
+    this._pageSize = value;
+    // Don't call `.requestUpdate()` here given we track updates via `_pageSize` and `_pageSizeAuto`
+  }
 
   /**
    * The current zero-based index of the left-most card.
@@ -212,12 +236,14 @@ class DDSCarousel extends LitElement {
   }
 
   render() {
+    const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const {
       pageSize,
       start,
       _contentsBaseWidth: contentsBaseWidth,
       _gap: gap,
       _hasLeading: hasLeading,
+      _pageSize: pageSizeExplicit,
       _total: total,
       _handleClickNextButton: handleClickNextButton,
       _handleClickPrevButton: handleClickPrevButton,
@@ -232,7 +258,10 @@ class DDSCarousel extends LitElement {
     });
     // Use another div from the host `<dds-carousel>` to reflect private state
     return html`
-      <div class="${classes}">
+      <div
+        class="${classes}"
+        style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
+      >
         <div class="${prefix}--carousel__leading-container">
           <slot name="leading" @slotchange="${handleSlotChange}"></slot>
         </div>
