@@ -371,7 +371,11 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return selectorTabbable;
+    return `
+      ${selectorTabbable},
+      ${ddsPrefix}-expressive-modal,
+      ${ddsPrefix}-expressive-modal-close-button
+    `;
   }
 
   /**
