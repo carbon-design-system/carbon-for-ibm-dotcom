@@ -72,6 +72,10 @@ enum NAV_ITEMS_RENDER_TARGET {
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
+  /**
+   * Renders the L1 Items
+   * @param target - defines the type of rendered item (top nav item / left nav item)
+   */
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
     if (!this.l1Data) return undefined;
     const { menuItems } = this.l1Data;

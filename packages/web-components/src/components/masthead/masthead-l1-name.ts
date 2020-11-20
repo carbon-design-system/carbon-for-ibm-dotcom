@@ -19,13 +19,13 @@ const { prefix } = settings;
 /**
  * Masthead.
  *
- * @element dds-masthead-l1
- * @slot brand - The left hand area.
- * @slot nav - The nav content.
- * @slot profile - The right hand area.
+ * @element dds-masthead-l1-name
  */
 @customElement(`${ddsPrefix}-masthead-l1-name`)
 class DDSMastheadL1Name extends StableSelectorMixin(LitElement) {
+  /**
+   * slot name for this component in the masthead l1
+   */
   @property({ reflect: true })
   slot = 'name';
 
