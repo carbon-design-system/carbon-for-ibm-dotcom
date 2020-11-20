@@ -189,7 +189,6 @@ export class SideNavMenu extends React.Component {
     return (
       <li className={className}>
         <button
-          // eslint-disable-next-line jsx-a11y/role-supports-aria-props
           aria-haspopup="true"
           aria-expanded={isExpanded}
           aria-selected={rest.selected ? 'true' : ''}
