@@ -1,8 +1,8 @@
 {
   "Simple": [
     {
-      "heading": "Nunc convallis lobortis convallis lobortis",
-      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "heading": "Nunc convallis lobortis Nunc convallis lobortis",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "cta": {
         "href": "https://www.example.com",
         "copy": "cta text here"
@@ -10,7 +10,7 @@
     },
     {
       "heading": "Fusce gravida eu arcu",
-      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.",
       "cta": {
         "href": "https://www.example.com",
         "copy": "cta text here"
@@ -18,7 +18,7 @@
     },
     {
       "heading": "Interdum et malesuada",
-      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.",
       "cta": {
         "href": "https://www.example.com",
         "copy": "cta text here"
@@ -26,7 +26,7 @@
     },
     {
       "heading": "Nunc convallis loborti",
-      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "cta": {
         "href": "https://www.example.com",
         "copy": "cta text here"
@@ -34,7 +34,7 @@
     },
     {
       "heading": "Nunc convallis lbortis",
-      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Aenean et ultricies est.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
       "cta": {
         "href": "https://www.example.com",
         "copy": "cta text here"

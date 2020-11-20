@@ -28,7 +28,6 @@ export default {
           iconPlacement[1],
           groupId
         ),
-        inverse: boolean('Inverse (inverse):', false, groupId),
         visited: boolean('Allow visited styles (visited):', false, groupId),
       }),
     },
@@ -36,7 +35,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { disabled, iconPlacement, inverse, visited } =
+  const { disabled, iconPlacement, visited } =
     parameters?.props?.LinkWithIcon ?? {};
   return (
     <div
@@ -48,7 +47,6 @@ export const Default = ({ parameters }) => {
       }}>
       <LinkWithIcon
         href="https://www.example.com"
-        inverse={inverse}
         {...(disabled && { disabled })}
         {...(visited && { visited })}
         iconPlacement={iconPlacement}>

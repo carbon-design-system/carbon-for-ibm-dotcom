@@ -16,21 +16,6 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
 
-// The masthead nav overflow feature made tweaks to overflow style so it can keep track of overflowed content.
-// It works with mega menu that "floats",
-// but Web Components masthead menu with classic menu style still relies on the overflow area being visible.
-:host(#{$dds-prefix}-masthead) {
-  .#{$prefix}--header__search {
-    @include carbon--breakpoint(md) {
-      overflow-x: visible;
-    }
-  }
-
-  .#{$prefix}--header__nav-container {
-    overflow-x: visible;
-  }
-}
-
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
 
@@ -126,7 +111,7 @@
 }
 
 :host(#{$dds-prefix}-top-nav) {
-  @extend :host(#{$prefix}-header-nav);
+  display: contents;
 
   @include carbon--breakpoint-up(800px) {
     display: none;
@@ -136,16 +121,8 @@
     display: block;
   }
 
-  .#{$prefix}-ce--header__divider {
-    background-color: $ui-03;
-  }
-
-  &[hide-divider] {
+  &[hide-divider] .#{$prefix}--header__nav {
     padding-left: 0;
-
-    .#{$prefix}-ce--header__divider {
-      display: none;
-    }
   }
 }
 

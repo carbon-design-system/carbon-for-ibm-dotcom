@@ -8,6 +8,7 @@
  */
 
 import { property, customElement, html, internalProperty } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
@@ -15,6 +16,7 @@ import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-list
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -49,7 +51,15 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   hideDivider = false;
 
   render() {
-    return this._hideNav ? html`` : super.render();
+    return this._hideNav
+      ? html``
+      : html`
+          <nav class="${prefix}--header__nav">
+            <ul role="menubar" class="${prefix}--header__menu-bar" aria-label="${this.menuBarLabel}">
+              <slot></slot>
+            </ul>
+          </nav>
+        `;
   }
 
   static get stableSelector() {

@@ -13,9 +13,12 @@
 
   display: block;
 
+  @include carbon--breakpoint('md') {
+    padding-top: $carbon--layout-03;
+  }
+
   ::slotted([slot='cta']) {
-    display: block;
-    margin-top: $carbon--spacing-07;
+    margin-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('md') {
@@ -75,7 +78,7 @@
 }
 
 :host(#{$dds-prefix}-cta-section-item-copy) {
-  display: block;
+  display: inline;
   margin-bottom: $carbon--spacing-05;
   height: carbon--rem(48px);
 

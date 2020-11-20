@@ -249,10 +249,7 @@ class HeaderMenu extends React.Component {
     // - href can be set to javascript:void(0), ideally this will be a button
     return (
       <li // eslint-disable-line jsx-a11y/mouse-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
-        className={cx(className, {
-          [`${prefix}--masthead__l0-nav--selected`]:
-            selected && !this.state.expanded,
-        })}
+        className={className}
         data-autoid={autoId}
         onKeyDown={this.handleMenuClose}
         onBlur={this.handleOnBlur}>
@@ -268,7 +265,7 @@ class HeaderMenu extends React.Component {
           role="menuitem"
           tabIndex={0}
           ref={this.menuLinkRef}
-          aria-selected={selected ? 'true' : ''}
+          aria-selected={selected ? 'true' : 'false'}
           {...accessibilityLabel}>
           {menuLinkName}
           <MenuContent />
