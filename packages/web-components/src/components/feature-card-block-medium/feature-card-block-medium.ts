@@ -12,7 +12,6 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
-import './feature-card-block-medium-card';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
