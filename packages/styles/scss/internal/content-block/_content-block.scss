@@ -97,11 +97,6 @@
       @include carbon--make-col(4, 8);
     }
   }
-
-  :host(#{$dds-prefix}-content-block-segmented)
-    .#{$prefix}--content-block__cta-col {
-    padding: 0;
-  }
 }
 
 @include exports('content-block') {
