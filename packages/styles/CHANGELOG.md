@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.1...@carbon/ibmdotcom-styles@1.13.0-rc.2) (2020-11-19)
+
+### Bug Fixes
+
+- **masthead:** menu-item styles
+  ([#4527](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4527))
+  ([34c16dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/34c16dc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.0...@carbon/ibmdotcom-styles@1.13.0-rc.1) (2020-11-18)
 
 ### Bug Fixes
