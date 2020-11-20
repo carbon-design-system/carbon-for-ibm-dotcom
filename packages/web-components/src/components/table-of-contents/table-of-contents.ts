@@ -126,12 +126,27 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Triggers focus on the component from parameter
+   *
+   * @param section The section receive focus
+   */
+  private _triggerFocus(section) {
+    const target = this.querySelector(`a[name="${section}"]`);
+    if (target) {
+      target.setAttribute('tabindex', '0');
+      (target as HTMLElement).focus({ preventScroll: true });
+      target.removeAttribute('tabindex');
+    }
+  }
+
+  /**
    * Handles `change` event on mobile `<select>`.
    *
    * @param event The event.
    */
   private _handleChangeSelect(event: Event) {
     this._handleUserInitiatedJump((event.target as HTMLSelectElement).value);
+    this._triggerFocus((event.target as HTMLSelectElement).value);
   }
 
   /**
@@ -144,6 +159,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     const target = event.target as HTMLAnchorElement;
     if (target.matches?.(selectorDesktopItem)) {
       this._handleUserInitiatedJump(target.dataset.target!);
+      this._triggerFocus(target.dataset.target);
       event.preventDefault();
     }
   }
