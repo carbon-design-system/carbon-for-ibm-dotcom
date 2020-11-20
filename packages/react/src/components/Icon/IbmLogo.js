@@ -6,6 +6,7 @@
  */
 
 import ConditionalWrapper from '../../internal/components/ConditionalWrapper/ConditionalWrapper';
+import cx from 'classnames';
 import MastheadLogo from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import PropTypes from 'prop-types';
@@ -18,11 +19,15 @@ const { prefix } = settings;
 /**
  * IBM Logo 8-bar component.
  */
-const IbmLogo = ({ autoid, logoData }) => {
+const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
   const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(logoData);
+  const logoClasses = cx({
+    [`${prefix}--header__logo`]: true,
+    [`${prefix}--search-active`]: isSearchActive,
+  });
 
   return (
-    <div className={`${prefix}--header__logo`}>
+    <div className={logoClasses}>
       <ConditionalWrapper
         condition={logoData && logoData.tooltip !== undefined}
         wrapper={children => (
@@ -54,6 +59,11 @@ IbmLogo.propTypes = {
    * data-autoid attribute for analytics
    */
   autoid: PropTypes.string,
+
+  /**
+   * `true` when search is active
+   */
+  isSearchActive: PropTypes.bool,
 
   /**
    * Masthead logo object

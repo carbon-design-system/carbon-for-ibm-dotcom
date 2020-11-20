@@ -7,7 +7,7 @@ assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, annawen1, oliviaflory, 
 
 <!--
 
-Hi there! 👋 Hope everything is going okay using projects from Carbon for 
+Hi there! 👋 Hope everything is going okay using projects from Carbon for
 IBM.com. It looks like you might have a question about our work, so we wanted to
 share a couple resources that you could use if you haven't tried them yet 🙂.
 
@@ -25,5 +25,7 @@ details below!
 ## Summary
 
 ## Relevant information
+
+## Name and organization
 
 <!-- Provide as much useful information as you can -->
