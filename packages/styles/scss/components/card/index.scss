@@ -12,8 +12,6 @@
 @import 'carbon-components/scss/components/tile/tile';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
-$aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
-
 @mixin card {
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
@@ -22,49 +20,33 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   :host(#{$dds-prefix}-card-cta),
   :host(#{$dds-prefix}-link-list-item-card-cta),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     background-color: $ui-01;
     text-decoration: none;
-    // display: flex;
-    // flex-direction: column;
-    height: 100%;
 
     .#{$prefix}--card__wrapper {
-      height: 100%;
-      // display: flex;
-      // flex-direction: column;
+      display: flex;
+      flex: 1;
       min-height: carbon--mini-units(20);
       justify-content: space-between;
 
-      @include ratio-base(2, 1, true);
-
-      @each $aspect-ratio in $aspect-ratios {
-        $width: nth($aspect-ratio, 1);
-        $height: nth($aspect-ratio, 2);
-
-        &.#{$prefix}--card__wrapper--aspect-ratio {
-          &.#{$prefix}--card__wrapper--aspect-ratio__#{$width}x#{$height} {
-            @include ratio-base($width, $height, true);
-          }
-        }
-      }
+      @include ratio-base(2, 1, false);
     }
 
     .#{$prefix}--card__content {
       display: flex;
       flex-direction: column;
       padding: $carbon--spacing-05;
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
     }
 
     .#{$prefix}--card__heading {
       @include carbon--type-style('expressive-heading-03');
 
-      // margin-bottom: $carbon--layout-05;
+      margin-bottom: $carbon--layout-05;
     }
 
     .#{$prefix}--card__heading,
