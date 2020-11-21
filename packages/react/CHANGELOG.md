@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.2...@carbon/ibmdotcom-react@1.13.0-rc.3) (2020-11-20)
+
+### Bug Fixes
+
+- **SideNavMenu:** remove role from li wrapper on menu item buttons
+  ([#4538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4538))
+  ([4b4f4e3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4b4f4e3)),
+  closes
+  [#4526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4526)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.1...@carbon/ibmdotcom-react@1.13.0-rc.2) (2020-11-19)
+
+### Bug Fixes
+
+- **Masthead:** change side nav menu item role to menuitem
+  ([#4530](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4530))
+  ([d30ed8e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d30ed8e)),
+  closes
+  [#4526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4526)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.0...@carbon/ibmdotcom-react@1.13.0-rc.1) (2020-11-18)
 
 ### Bug Fixes

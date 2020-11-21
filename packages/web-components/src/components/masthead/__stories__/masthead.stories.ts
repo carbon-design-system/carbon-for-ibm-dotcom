@@ -133,6 +133,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
     knobs: {
       MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
