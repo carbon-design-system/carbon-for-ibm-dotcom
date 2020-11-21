@@ -152,6 +152,7 @@ class DDSCarousel extends LitElement {
     if (!name) {
       this._total = slot.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE).length;
     }
+    this._updateGap();
   }
 
   /**
@@ -161,12 +162,7 @@ class DDSCarousel extends LitElement {
     const { contentRect } = records[records.length - 1];
     const { width: contentsBaseWidth } = contentRect;
     this._contentsBaseWidth = contentsBaseWidth;
-    const { pageSize, _slotNode: slotNode } = this;
-    const firstNode = slotNode!.assignedNodes().find(node => node.nodeType === Node.ELEMENT_NODE);
-    if (firstNode) {
-      // FIXME: Avoid "zero divided by zero" condition when `pageSize` is 1
-      this._gap = (contentsBaseWidth - (firstNode as Element).getBoundingClientRect().width * pageSize) / (pageSize - 1);
-    }
+    this._updateGap();
   };
 
   /**
@@ -191,6 +187,19 @@ class DDSCarousel extends LitElement {
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
     return formatStatus({ currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince });
+  }
+
+  /**
+   * Calculates the width between cards.
+   */
+  private _updateGap() {
+    const { _contentsNode: contentsNode, _slotNode: slotNode } = this;
+    const elems = slotNode!.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE);
+    this._gap =
+      elems.length <= 1
+        ? 0
+        : (contentsNode!.scrollWidth - elems.reduce((acc, elem) => acc + ((elem as HTMLElement).offsetWidth ?? 0), 0)) /
+          (elems.length - 1);
   }
 
   /**
