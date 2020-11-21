@@ -61,26 +61,78 @@
   }
 }
 
-// The style of legal nav deviates from the one of React, so we can make the markup simpler.
-// FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
-:host(#{$dds-prefix}-legal-nav) .#{$prefix}--legal-nav__list {
-  @include carbon--breakpoint('lg') {
-    margin-left: 25%;
+:host(#{$dds-prefix}-footer[size='micro']) {
+  ::slotted(#{$dds-prefix}-footer-nav),
+  ::slotted(#{$dds-prefix}-footer-logo) {
+    display: none;
   }
 }
 
-// The style of legal nav deviates from the one of React, so we can make the markup simpler.
-// FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
-.#{$prefix}--legal-nav__list > ul {
-  width: 100%;
+:host(#{$dds-prefix}-legal-nav[size='micro']) {
+  ::slotted(#{$dds-prefix}-legal-nav-item) {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 3rem;
+  }
+}
+
+:host(#{$dds-prefix}-locale-button[size='micro']) {
+  margin: 0;
 
   @include carbon--breakpoint('md') {
-    display: block;
-    column-count: 2;
-    column-gap: $carbon--grid-gutter;
+    margin-left: 50%;
+  }
+  @include carbon--breakpoint('lg') {
+    margin-left: 0;
+    margin-right: $carbon--spacing-05;
   }
 
-  @include carbon--breakpoint('lg') {
-    column-count: 3;
+  .bx--btn {
+    padding-top: $carbon--spacing-04;
+    padding-bottom: $carbon--spacing-04;
+  }
+
+  .bx--locale-btn {
+    max-width: 100%;
+  }
+
+  .bx--btn--secondary {
+    background-color: $ui-background;
+    margin: 0;
+
+    @include carbon--breakpoint('md') {
+      align-self: flex-end;
+      border-left: 1px solid $ui-03;
+    }
+
+    @include carbon--breakpoint('lg') {
+      margin: 0 (-$carbon--spacing-05) 0 0;
+    }
+
+    .#{$prefix}--btn--secondary,
+    .#{$prefix}--list-box,
+    .#{$prefix}--select-input {
+      background-color: $ui-background;
+      max-width: 100%;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+
+      &:active {
+        background-color: $active-ui;
+      }
+    }
+
+    .#{$prefix}--select {
+      max-width: 100%;
+    }
+
+    .#{$prefix}--text-input,
+    .#{$prefix}--list-box,
+    .#{$prefix}--select-input {
+      border-bottom: none;
+    }
   }
 }
