@@ -169,7 +169,6 @@ export const WithImage = ({ parameters }) => {
 export const WithVideo = ({ parameters }) => {
   const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  console.log(ctaCopy);
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
