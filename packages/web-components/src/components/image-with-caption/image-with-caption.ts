@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../image/image';
@@ -32,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
-class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
+class DDSImageWithCaption extends ModalRenderMixin(FocusMixin(LitElement)) {
   /**
    * `true` handles re-opening after model is closed
    *
@@ -92,6 +93,13 @@ class DDSImageWithCaption extends ModalRenderMixin(LitElement) {
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+
+  createRenderRoot() {
+    return this.attachShadow({
+      mode: 'open',
+      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+    });
+  }
 
   connectedCallback() {
     super.connectedCallback();

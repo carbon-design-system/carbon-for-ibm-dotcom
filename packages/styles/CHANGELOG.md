@@ -3,6 +3,225 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.2...@carbon/ibmdotcom-styles@1.13.0-rc.3) (2020-11-20)
+
+### Bug Fixes
+
+- **masthead:** overflow style fix
+  ([#4543](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4543))
+  ([621ee0a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/621ee0a)),
+  closes
+  [#4539](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4539)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.1...@carbon/ibmdotcom-styles@1.13.0-rc.2) (2020-11-19)
+
+### Bug Fixes
+
+- **masthead:** menu-item styles
+  ([#4527](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4527))
+  ([34c16dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/34c16dc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.0...@carbon/ibmdotcom-styles@1.13.0-rc.1) (2020-11-18)
+
+### Bug Fixes
+
+- **Masthead:** regular dropdown menu visible outside of masthead nav bar
+  ([#4510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4510))
+  ([30c6724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30c6724)),
+  closes
+  [#4504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4504)
+- **tableofcontents:** fix top positions in dotcomshell
+  ([#4508](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4508))
+  ([1938b42](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1938b42)),
+  closes
+  [#4334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4334)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.12.0...@carbon/ibmdotcom-styles@1.13.0-rc.0) (2020-11-13)
+
+### Bug Fixes
+
+- **card link:** focus styles
+  ([#4318](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4318))
+  ([597356a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/597356a))
+- **content-group-mixed:** fix pictogram item row on md breakpoint
+  ([#4282](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4282))
+  ([3d3a461](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3d3a461)),
+  closes
+  [#2560](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2560)
+- **content-item-horizontal:** fix heading styling
+  ([#4402](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4402))
+  ([dbad74b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dbad74b))
+- **feature-card:** fix icon position
+  ([#4412](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4412))
+  ([b6a2837](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b6a2837)),
+  closes
+  [#4055](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4055)
+- **feature-card:** remove redundant flex-wrap
+  ([#4176](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4176))
+  ([9988866](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9988866)),
+  closes
+  [#4171](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4171)
+- **feature-card-block-medium:** update web component layout
+  ([#4323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4323))
+  ([56d5fe3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/56d5fe3))
+- **FeatureCard:** remove unused styles
+  ([#4243](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4243))
+  ([aac402d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/aac402d))
+- **footer:** ensure IBM logo icon is visible
+  ([#4226](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4226))
+  ([81c7018](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/81c7018)),
+  closes
+  [#4224](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4224)
+- **Footer:** fix micro footer button css
+  ([#4415](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4415))
+  ([fd131e0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/fd131e0))
+- **language-selector:** update language selector to use select
+  ([#4335](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4335))
+  ([4d19fa8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d19fa8)),
+  closes
+  [#4330](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4330)
+  [#4331](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4331)
+- **linklist:** fix linklist focus styles
+  ([#4271](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4271))
+  ([d9eb6ad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d9eb6ad))
+- **masthead:** update overflow scrolling positions
+  ([#4333](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4333))
+  ([a97b079](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a97b079))
+- **Masthead:** have nav item render with selected styles in mobile nav
+  ([#4259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4259))
+  ([de0a34f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/de0a34f)),
+  closes
+  [#4076](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4076)
+- **megamenu:** added protection to fix layout problem
+  ([#4290](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4290))
+  ([301bef8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/301bef8)),
+  closes
+  [#4078](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4078)
+- **megamenu:** fix scrollbar styles
+  ([#4417](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4417))
+  ([b3e4c8d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b3e4c8d)),
+  closes
+  [#3865](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3865)
+  [#4067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4067)
+- **modal:** remove close button offset for full-width mode
+  ([#4299](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4299))
+  ([9dee28b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9dee28b)),
+  closes
+  [#4030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4030)
+- **quote:** fixed spacing for closing quote
+  ([#4288](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4288))
+  ([5ffee6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ffee6f)),
+  closes
+  [#4127](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4127)
+- **styles:** ensure dds-prefix variable is included
+  ([#4396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4396))
+  ([136245c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/136245c)),
+  closes
+  [#4394](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4394)
+- **table-of-contents:** ensure anchor is visible upon jump-to-content
+  ([#4297](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4297))
+  ([f6520d6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f6520d6)),
+  closes
+  [#4264](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4264)
+- **table-of-contents:** fix header space
+  ([#4298](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4298))
+  ([10d7de0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/10d7de0)),
+  closes
+  [#4262](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4262)
+- **table-of-contents:** support dark theme
+  ([#4213](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4213))
+  ([b123071](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b123071)),
+  closes
+  [#4214](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4214)
+
+### Features
+
+- **callout with media:** web component version
+  ([#4343](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4343))
+  ([1297c24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1297c24)),
+  closes
+  [#3747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3747)
+- **callout-quote:** web-component created
+  ([#4228](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4228))
+  ([b3bb733](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b3bb733)),
+  closes
+  [#3745](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3745)
+- **content-group-cards:** create web component
+  ([#4487](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4487))
+  ([331174b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/331174b)),
+  closes
+  [#3794](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3794)
+- **content-group-horizontal:** create web component
+  ([#4435](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4435))
+  ([513382f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/513382f)),
+  closes
+  [#3796](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3796)
+- **content-item-horizontal:** create web component
+  ([#4389](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4389))
+  ([9ed7a68](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9ed7a68))
+- **cta-section:** web component version
+  ([#4338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4338))
+  ([cfffb86](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cfffb86)),
+  closes
+  [#3749](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3749)
+  [#3368](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3368)
+- **leadspace:** leadspace web component
+  ([#4084](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4084))
+  ([2ed27c5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2ed27c5)),
+  closes
+  [#3561](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3561)
+- **leadspace-with-search:** introducing new pattern (behind feature flag)
+  ([#3987](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3987))
+  ([75b7e58](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/75b7e58))
+- **logo-grid:** web component created
+  ([#4287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4287))
+  ([4620b58](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4620b58))
+- **logo-grid:** web component created
+  ([#4371](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4371))
+  ([cbb1b5d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/cbb1b5d)),
+  closes
+  [#3780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3780)
+- **Masthead:** React masthead alternate logo and tooltip options
+  ([#4401](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4401))
+  ([0859a21](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0859a21)),
+  closes
+  [#3906](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3906)
+- **megamenu:** megamenu desktop web component
+  ([#4384](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4384))
+  ([a9707fd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9707fd)),
+  closes
+  [#3284](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3284)
+- **overflow:** add animation and update snapshots
+  ([#4305](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4305))
+  ([4019ee0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4019ee0)),
+  closes
+  [#4164](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4164)
+- **tag:** expressive theme update
+  ([#4166](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4166))
+  ([73e13a0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/73e13a0)),
+  closes
+  [#3669](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3669)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.12.0-rc.0...@carbon/ibmdotcom-styles@1.12.0) (2020-10-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

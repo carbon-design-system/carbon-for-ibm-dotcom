@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.2...@carbon/ibmdotcom-react@1.13.0-rc.3) (2020-11-20)
+
+### Bug Fixes
+
+- **SideNavMenu:** remove role from li wrapper on menu item buttons
+  ([#4538](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4538))
+  ([4b4f4e3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4b4f4e3)),
+  closes
+  [#4526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4526)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.1...@carbon/ibmdotcom-react@1.13.0-rc.2) (2020-11-19)
+
+### Bug Fixes
+
+- **Masthead:** change side nav menu item role to menuitem
+  ([#4530](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4530))
+  ([d30ed8e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d30ed8e)),
+  closes
+  [#4526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4526)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.13.0-rc.0...@carbon/ibmdotcom-react@1.13.0-rc.1) (2020-11-18)
+
+### Bug Fixes
+
+- **Masthead:** regular dropdown menu visible outside of masthead nav bar
+  ([#4510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4510))
+  ([30c6724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30c6724)),
+  closes
+  [#4504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4504)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.46.61...@carbon/ibmdotcom-react@1.13.0-rc.0) (2020-11-13)
+
+### Bug Fixes
+
+- **cardgroup:** update sameheight selectors
+  ([#4484](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4484))
+  ([0a25048](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0a25048)),
+  closes
+  [#4311](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4311)
+- **Images:** update FPO images url
+  ([#4482](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4482))
+  ([13b0181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/13b0181))
+- **masthead:** add aria-hidden to overflow nav carets
+  ([#4489](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4489))
+  ([c44b6a5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c44b6a5)),
+  closes
+  [#4182](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4182)
+
+### Features
+
+- **Masthead:** add search custom events
+  ([#4460](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4460))
+  ([a4abe4f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a4abe4f)),
+  closes
+  [#4398](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4398)
+- **megamenu:** megamenu desktop web component
+  ([#4384](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4384))
+  ([a9707fd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a9707fd)),
+  closes
+  [#3284](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/3284)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-rc.0...@carbon/ibmdotcom-react@1.12.0) (2020-10-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

@@ -79,10 +79,12 @@ export const Card = ({
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
-        {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
-        {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
-        {optionalContent(copy)}
-        {renderFooter(cta, pictogram)}
+        <div className={`${prefix}--card__content`}>
+          {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
+          {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
+          {optionalContent(copy)}
+          {renderFooter(cta, pictogram)}
+        </div>
       </div>
     </TileType>
   );
