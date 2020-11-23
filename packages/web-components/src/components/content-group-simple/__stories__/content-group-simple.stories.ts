@@ -9,6 +9,7 @@
 
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -131,7 +132,9 @@ export const Default = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
+        <dds-card-cta-footer>
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -155,7 +158,9 @@ export const WithImage = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
+        <dds-card-cta-footer>
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -163,7 +168,8 @@ export const WithImage = ({ parameters }) => {
 
 export const WithVideo = ({ parameters }) => {
   const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
+  console.log(ctaCopy);
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
@@ -179,7 +185,9 @@ export const WithVideo = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer></dds-card-cta-footer>
+        <dds-card-cta-footer>
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
