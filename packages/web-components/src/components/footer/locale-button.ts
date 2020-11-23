@@ -19,6 +19,26 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Footer size.
+ */
+export enum FOOTER_SIZE {
+  /**
+   * Regular size.
+   */
+  REGULAR = '',
+
+  /**
+   * Short size.
+   */
+  SHORT = 'short',
+
+  /**
+   * Micro size.
+   */
+  MICRO = 'micro',
+}
+
+/**
  * Locale button.
  *
  * @element dds-locale-button
@@ -29,7 +49,7 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
    * Size property to apply different styles.
    */
   @property()
-  size?: string;
+  size = FOOTER_SIZE.REGULAR;
 
   /**
    * The shadow slot this locale button should be in.

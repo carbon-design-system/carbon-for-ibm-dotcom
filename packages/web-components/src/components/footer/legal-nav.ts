@@ -18,6 +18,26 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Footer size.
+ */
+export enum FOOTER_SIZE {
+  /**
+   * Regular size.
+   */
+  REGULAR = '',
+
+  /**
+   * Short size.
+   */
+  SHORT = 'short',
+
+  /**
+   * Micro size.
+   */
+  MICRO = 'micro',
+}
+
+/**
  * Legal nav.
  *
  * @element dds-legal-nav
@@ -28,7 +48,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
    * Size property used for applying classes
    */
   @property()
-  size?: string;
+  size = FOOTER_SIZE.REGULAR;
 
   /**
    * Returns a class-name based on the type parameter type
@@ -36,7 +56,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
   protected _getTypeClass() {
     return classMap({
       [`${prefix}--legal-nav__list`]: true,
-      [`${prefix}--legal-nav__micro`]: this.size === 'micro',
+      [`${prefix}--legal-nav__micro`]: this.size === FOOTER_SIZE.MICRO,
     });
   }
 
