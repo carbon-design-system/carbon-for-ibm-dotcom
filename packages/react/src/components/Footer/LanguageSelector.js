@@ -42,8 +42,10 @@ const LanguageSelector = ({
    * @private
    */
   function _setSelectedItem(selectedItem) {
-    setSelectedItem(selectedItem);
-    callback(selectedItem);
+    const item = selectedItem !== null ? selectedItem : '';
+    setSelectedItem(item);
+    callback(item);
+
     if (selectedItem !== null) {
       setLastSelectedItem(selectedItem);
     }
@@ -83,7 +85,7 @@ const LanguageSelector = ({
         initialSelectedItem={initialSelectedItem}
         selectedItem={selectedItem}
         direction="top"
-        placeholder=""
+        placeholder={labelText}
         titleText={labelText}
       />
       <Select
