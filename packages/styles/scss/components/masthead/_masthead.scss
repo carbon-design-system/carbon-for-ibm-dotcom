@@ -70,6 +70,13 @@ $search-transition-timing: 95ms;
       height: 100%;
     }
   }
+
+  &.#{$prefix}--search-active {
+    display: none;
+    @include carbon--breakpoint(md) {
+      display: block;
+    }
+  }
 }
 
 /// @access private
@@ -294,6 +301,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      z-index: 0;
       background-color: $ui-01;
       + .#{$prefix}--header__menu {
         background-color: $ui-02;

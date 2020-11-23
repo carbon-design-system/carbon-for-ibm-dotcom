@@ -29,7 +29,7 @@ export const Default = ({ parameters }) => {
       ${logosGroup &&
         logosGroup.map(
           elem => html`
-            <dds-logo-grid-item href="${elem.href}" default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+            <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
           `
         )}
       <dds-logo-grid-link href="${ctaHref}">
