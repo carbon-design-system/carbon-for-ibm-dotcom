@@ -21,10 +21,6 @@ const image = html`
   </dds-image-with-caption>
 `;
 
-const video = html`
-  <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
-`;
-
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
@@ -49,149 +45,10 @@ describe('dds-content-block-segmented', function() {
         template({
           children: html`
             ${image}
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              ${image}
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
+            <dds-content-block-segmented-item> </dds-content-block-segmented-item>
+            <dds-content-block-complementary> </dds-content-block-complementary>
             <dds-card-cta slot="cta" cta-type="local" href="https://example.com">
               Lorem ipsum dolor
-              <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-cta>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-segmented')).toMatchSnapshot({ mode: 'shadow' });
-    });
-
-    it('should render with video attributes', async function() {
-      render(
-        template({
-          children: html`
-            ${video}
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              ${image}
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
-            <dds-card-cta slot="cta" cta-type="local" href="https://example.com">
-              Lorem ipsum dolor
-              <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-cta>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-segmented')).toMatchSnapshot({ mode: 'shadow' });
-    });
-
-    it('should render with aside element attributes', async function() {
-      render(
-        template({
-          children: html`
-            ${image}
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
-            <dds-content-block-segmented-item>
-              <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
-                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
-                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
-                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
-                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
-                sapien.</dds-content-item-copy
-              >
-              ${image}
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
-                >Lorem Ipsum dolor sit</dds-text-cta
-              >
-            </dds-content-block-segmented-item>
-            <dds-content-block-complementary>
-              <dds-link-list type="default">
-                <span slot="heading">Tutorials</span>
-                <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
-                  <p>Containerization A Complete Guide</p>
-                  <dds-card-cta-footer></dds-card-cta-footer>
-                </dds-link-list-item-card-cta>
-                <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
-                  <p>Why should you use microservices and containers</p>
-                  <dds-card-cta-footer></dds-card-cta-footer>
-                </dds-link-list-item-card-cta>
-              </dds-link-list>
-            </dds-content-block-complementary>
-            <dds-card-cta slot="cta" cta-type="local" href="https://example.com">
-              Lorem ipsum dolor
-              <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-cta>
           `,
         }),
