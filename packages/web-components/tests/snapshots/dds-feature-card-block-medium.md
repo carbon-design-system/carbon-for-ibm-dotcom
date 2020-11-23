@@ -19,19 +19,21 @@
   <slot name="image">
   </slot>
   <div class="bx--card__wrapper">
-    <p
-      class="bx--card__eyebrow"
-      hidden=""
-    >
-      <slot name="eyebrow">
+    <div class="bx--card__content">
+      <p
+        class="bx--card__eyebrow"
+        hidden=""
+      >
+        <slot name="eyebrow">
+        </slot>
+      </p>
+      <h3 class="bx--card__heading">
+        <slot>
+        </slot>
+      </h3>
+      <slot name="footer">
       </slot>
-    </p>
-    <h3 class="bx--card__heading">
-      <slot>
-      </slot>
-    </h3>
-    <slot name="footer">
-    </slot>
+    </div>
   </div>
 </div>
 
@@ -59,19 +61,21 @@
     <slot name="image">
     </slot>
     <div class="bx--card__wrapper">
-      <p
-        class="bx--card__eyebrow"
-        hidden=""
-      >
-        <slot name="eyebrow">
+      <div class="bx--card__content">
+        <p
+          class="bx--card__eyebrow"
+          hidden=""
+        >
+          <slot name="eyebrow">
+          </slot>
+        </p>
+        <h3 class="bx--card__heading">
+          <slot>
+          </slot>
+        </h3>
+        <slot name="footer">
         </slot>
-      </p>
-      <h3 class="bx--card__heading">
-        <slot>
-        </slot>
-      </h3>
-      <slot name="footer">
-      </slot>
+      </div>
     </div>
   </a>
 </div>

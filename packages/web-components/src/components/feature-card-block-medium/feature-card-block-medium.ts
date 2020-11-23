@@ -29,11 +29,13 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
     return html`
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
-        <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
-        </p>
-        <h3 class="${prefix}--card__heading">${this._renderCopy()}</h3>
-        <slot name="footer"></slot>
+        <div class="${prefix}--card__content">
+          <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
+            <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
+          </p>
+          <h3 class="${prefix}--card__heading">${this._renderCopy()}</h3>
+          <slot name="footer"></slot>
+        </div>
       </div>
     `;
   }
