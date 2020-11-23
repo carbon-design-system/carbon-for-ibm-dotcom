@@ -14,7 +14,9 @@
 @import '../../internal/content-block/content-block';
 
 @mixin leadspace-block {
+  :host(#{$dds-prefix}-leadspace-block),
   .#{$prefix}--leadspace-block {
+    ::slotted(#{$dds-prefix}-leadspace-block-content),
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: $layout-01;
@@ -28,12 +30,6 @@
 
       .#{$prefix}--image-with-caption {
         margin-bottom: 0;
-      }
-
-      .#{$prefix}--link-list {
-        padding-top: $spacing-09;
-        padding-bottom: $spacing-09;
-        max-width: carbon--mini-units(80);
       }
 
       .#{$prefix}--link-list__list__CTA {
@@ -55,11 +51,8 @@
 
         .#{$prefix}--buttongroup-item {
           margin-top: 0;
+          padding-top: 0;
         }
-      }
-      .#{$prefix}--buttongroup-item {
-        margin-top: 0;
-        padding-top: 0;
       }
     }
 
@@ -69,8 +62,13 @@
       }
     }
 
+    dds-hr,
     .#{$prefix}--hr {
       border-color: $ui-04;
+      margin-top: 0;
+    }
+
+    .#{$prefix}--content-block__cta {
       margin-top: 0;
     }
   }
@@ -92,6 +90,15 @@
 
   .#{$prefix}--leadspace-block__media {
     width: 100%;
+    max-width: carbon--mini-units(80);
+  }
+
+  :host(#{$dds-prefix}-leadspace-block-content)
+    ::slotted(#{$dds-prefix}-link-list),
+  .#{$prefix}--leadspace-block .#{$prefix}--link-list {
+    display: block;
+    padding-top: $spacing-09;
+    padding-bottom: $spacing-09;
     max-width: carbon--mini-units(80);
   }
 }
