@@ -14,4 +14,5 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/content-group-simple.js';
+import '@carbon-web-components/es/icons/arrow--right/20';
 import './index.scss';
