@@ -51,20 +51,16 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
             <div className={`${prefix}--logo-grid__row`}>
               {logosGroup.map((placeholder, index) => (
                 <div className={`${prefix}--logo-grid__col`} key={index}>
-                  <a
-                    href={placeholder.href}
-                    className={`${prefix}--logo-grid__link`}>
-                    <div
-                      className={`${prefix}--logo-grid__logo`}
-                      key={placeholder.label}>
-                      <Image
-                        defaultSrc={placeholder.imgSrc}
-                        classname={`${prefix}--logo-grid_img`}
-                        alt={placeholder.altText}
-                        longDescription={placeholder.label}
-                      />
-                    </div>
-                  </a>
+                  <div
+                    className={`${prefix}--logo-grid__logo`}
+                    key={placeholder.label}>
+                    <Image
+                      defaultSrc={placeholder.imgSrc}
+                      classname={`${prefix}--logo-grid_img`}
+                      alt={placeholder.altText}
+                      longDescription={placeholder.label}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -88,14 +84,12 @@ LogoGrid.propTypes = {
    * | `label`  | String    | Visible to screen readers, hidden from users.              |
    * | `imgSrc` | String    | Image source for logo placeholder.                         |
    * | `altText`| String    | Alternate text for logo placeholder.                       |
-   * | `href`   | String    | Url of that the logo will link to.                         |
    */
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       imgSrc: PropTypes.string,
       altText: PropTypes.string,
-      href: PropTypes.string,
     })
   ).isRequired,
   /**
