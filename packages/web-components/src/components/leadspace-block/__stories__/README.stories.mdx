@@ -26,6 +26,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block/content-blo
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-media';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-content';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-cta';
 ```
 
 ### HTML
@@ -71,10 +72,10 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace
         View all products ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
     </dds-link-list>
-    <dds-button-group>
+    <dds-leadspace-block-cta>
       <dds-button-group-item href="www.ibm.com">Click here ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
     </dds-button-group>
-  </dds-leadspace-block-content>
+  </dds-leadspace-block-cta>
 </dds-leadspace-block>
 ```
 
@@ -86,6 +87,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | ----------------------------- | ------------------------------------------ | ----------- |
 | `<dds-leadspace-block>`       | `data-autoid="dds--leadspace-block"`       | Component   |
 | `<dds-leadspace-block-media>` | `data-autoid="dds--leadspace-block-media"` | Interactive |
+| `<dds-leadspace-block-cta>`   | `data-autoid="dds--leadspace-block-cta"`   | Interactive |
 
 ## Props
 

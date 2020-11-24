@@ -17,4 +17,5 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block/content-blo
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block.js';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-media.js';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-content.js';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-cta.js';
 import './index.scss';

@@ -22,6 +22,7 @@ import '../../button-group/button-group-item';
 import '../leadspace-block';
 import '../leadspace-block-media';
 import '../leadspace-block-content';
+import '../leadspace-block-cta';
 
 import readme from './README.stories.mdx';
 
@@ -65,9 +66,9 @@ const linkList = html`
 `;
 
 const buttonCTA = html`
-  <dds-button-group>
+  <dds-leadspace-block-cta>
     <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
-  </dds-button-group>
+  </dds-leadspace-block-cta>
 `;
 
 export const Default = ({ parameters }) => {
