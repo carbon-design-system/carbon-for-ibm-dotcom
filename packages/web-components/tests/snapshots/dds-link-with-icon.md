@@ -13,7 +13,10 @@
     <slot>
     </slot>
   </span>
-  <slot name="icon">
+  <slot
+    name="icon"
+    style="display:flex;"
+  >
   </slot>
 </a>
 
@@ -30,7 +33,10 @@
     <slot>
     </slot>
   </span>
-  <slot name="icon">
+  <slot
+    name="icon"
+    style="display:flex;"
+  >
   </slot>
 </p>
 
