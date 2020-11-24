@@ -23,6 +23,7 @@
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
       role="complementary"
+      size=""
     >
       <dds-legal-nav-cookie-preferences-placeholder data-autoid="dds--privacy-cp">
       </dds-legal-nav-cookie-preferences-placeholder>
@@ -94,6 +95,7 @@
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
       role="complementary"
+      size=""
     >
       <dds-legal-nav-item
         href="https://dummy.ibm.com/foo"
