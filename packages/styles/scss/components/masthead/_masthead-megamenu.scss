@@ -224,6 +224,10 @@
         border-top: carbon--rem(1px) solid transparent;
         color: $hover-primary-text;
       }
+
+      * {
+        display: flex;
+      }
     }
 
     span {
