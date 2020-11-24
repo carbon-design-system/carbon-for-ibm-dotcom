@@ -30,15 +30,6 @@
     }
 
     .#{$prefix}--card__wrapper {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      @include carbon--breakpoint('lg') {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .#{$prefix}--card__copy {
         margin-bottom: 0;
 
@@ -56,6 +47,19 @@
       @include carbon--breakpoint('sm') {
         padding-left: $carbon--spacing-07;
         padding-right: $carbon--spacing-07;
+      }
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--card__content {
+      flex-direction: row;
+      justify-content: space-between;
+      @include carbon--breakpoint('lg') {
+        flex-direction: column;
       }
     }
 
