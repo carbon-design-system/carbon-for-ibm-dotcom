@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/role-supports-aria-props */
 /* istanbul ignore file */
 
 /**
@@ -186,13 +187,11 @@ export class SideNavMenu extends React.Component {
       [customClassName]: !!customClassName,
     });
     return (
-      <li
-        className={className}
-        role="tab"
-        aria-selected={rest.selected ? 'true' : 'false'}>
+      <li className={className}>
         <button
           aria-haspopup="true"
           aria-expanded={isExpanded}
+          aria-selected={rest.selected ? 'true' : ''}
           className={cx(`${prefix}--side-nav__submenu`, {
             [`${prefix}--masthead__side-nav--submemu--selected`]: rest.selected,
           })}

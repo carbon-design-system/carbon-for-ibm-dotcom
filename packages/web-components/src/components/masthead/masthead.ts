@@ -40,6 +40,7 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
           <slot name="profile"></slot>
         </header>
       </div>
+      <slot name="masthead-l1"></slot>
     `;
   }
 

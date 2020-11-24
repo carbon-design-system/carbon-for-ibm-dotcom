@@ -29,7 +29,7 @@ export const Default = ({ parameters }) => {
       ${logosGroup &&
         logosGroup.map(
           elem => html`
-            <dds-logo-grid-item href="${elem.href}" default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+            <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
           `
         )}
       <dds-logo-grid-link href="${ctaHref}">
@@ -46,7 +46,7 @@ export default {
     story => html`
       <div style="width: 100%" class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row">
-          <div class="bx--col-lg-8 bx--offset-lg-2 bx--col-sm-4">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
             ${story()}
           </div>
         </div>
