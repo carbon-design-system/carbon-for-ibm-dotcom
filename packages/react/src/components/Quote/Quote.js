@@ -172,6 +172,7 @@ Quote.propTypes = {
     'doubleAngle',
     'singleAngle',
     'lowHighReversedDoubleCurved',
+    'cornerBracket',
   ]),
 
   /**
