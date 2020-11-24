@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.3...@carbon/ibmdotcom-styles@1.13.0-rc.4) (2020-11-23)
+
+### Bug Fixes
+
+- **LanguageSelector:** set language selector label visibility to hidden
+  ([#4552](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4552))
+  ([8235d6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8235d6f)),
+  closes
+  [#4551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4551)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.2...@carbon/ibmdotcom-styles@1.13.0-rc.3) (2020-11-20)
 
 ### Bug Fixes
