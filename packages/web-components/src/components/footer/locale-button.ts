@@ -12,6 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import EarthFilled20 from 'carbon-web-components/es/icons/earth--filled/20.js';
+import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 
@@ -25,6 +26,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-locale-button`)
 class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
+  /**
+   * Size property to apply different styles.
+   */
+  @property()
+  size = FOOTER_SIZE.REGULAR;
+
   /**
    * The shadow slot this locale button should be in.
    */
