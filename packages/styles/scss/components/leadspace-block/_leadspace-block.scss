@@ -101,6 +101,11 @@
     padding-bottom: $spacing-09;
     max-width: carbon--mini-units(80);
   }
+
+  :host(#{$dds-prefix}-leadspace-block-content)
+    ::slotted(#{$dds-prefix}-content-block-copy) {
+    display: block;
+  }
 }
 
 @include exports('leadspace-block') {

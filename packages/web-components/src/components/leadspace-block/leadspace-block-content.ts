@@ -8,10 +8,12 @@
  */
 
 import { css, customElement, html } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -21,6 +23,23 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-leadspace-block-content`)
 class DDSLeadSpaceBlockContent extends DDSContentBlock {
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderContent() {
+    return html`
+      <div class="${prefix}--content-block__children">
+        <slot name="media"></slot>
+        <slot></slot>
+      </div>
+    `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderCopy() {
+    return html`
+      <slot name="copy"></slot>
+    `;
+  }
+
   render() {
     return html`
       <slot name="heading"></slot>

@@ -20,6 +20,7 @@ import '../../video-player/video-player-container';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import '../leadspace-block';
+import '../leadspace-block-media';
 import '../leadspace-block-content';
 
 import readme from './README.stories.mdx';
@@ -76,8 +77,9 @@ export const Default = ({ parameters }) => {
       <span slot="title">${title}</span>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        ${image} ${linkList} ${buttonCTA}
+        <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+        <dds-leadspace-block-media slot="media">${image}</dds-leadspace-block-media>
+        ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>
     </dds-leadspace-block>
   `;
@@ -90,8 +92,10 @@ export const WithVideo = ({ parameters }) => {
       <span slot="title">${title}</span>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+        <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+        <dds-leadspace-block-media slot="media"
+          ><dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container
+        ></dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>
     </dds-leadspace-block>
