@@ -165,6 +165,7 @@ Quote.propTypes = {
    * | `singleAngle`                 | ‹ ›         |
    * | `doubleAngle`                 | « »         |
    * | `lowHighReversedDoubleCurved` | „ “         |
+   * | `cornerBracket`               |「 」         |
    */
   markType: PropTypes.oneOf([
     'doubleCurved',
