@@ -33,7 +33,7 @@ const LegalNav = ({ links, type, button }) => {
       className={`${prefix}--legal-nav__container`}>
       <nav className={`${prefix}--legal-nav`}>
         <div className={`${prefix}--legal-nav__list ${listStyle}`}>
-          <ul>
+          <ul className={`${prefix}--legal-nav__holder`}>
             {links.map(({ title, url }, index) => {
               if (!title || !url) {
                 return null;

@@ -56,7 +56,7 @@
           flex-direction: row;
         }
 
-        > ul {
+        .#{$prefix}--legal-nav__holder {
           column-count: inherit;
           margin-left: 0;
           border-top: 1px solid $ui-03;
@@ -129,18 +129,18 @@
         }
       }
     }
+  }
 
-    > ul {
-      margin-left: 0;
+  .#{$prefix}--legal-nav__holder {
+    margin-left: 0;
 
-      @include carbon--breakpoint('md') {
-        column-count: 2;
-      }
+    @include carbon--breakpoint('md') {
+      column-count: 2;
+    }
 
-      @include carbon--breakpoint('lg') {
-        margin-left: 25%;
-        column-count: 3;
-      }
+    @include carbon--breakpoint('lg') {
+      margin-left: 25%;
+      column-count: 3;
     }
   }
 

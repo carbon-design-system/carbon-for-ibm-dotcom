@@ -61,6 +61,30 @@
   }
 }
 
+// The style of legal nav deviates from the one of React, so we can make the markup simpler.
+// FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+:host(#{$dds-prefix}-legal-nav):not([size='micro']) {
+  .#{$prefix}--legal-nav__list {
+    @include carbon--breakpoint('lg') {
+      margin-left: 25%;
+    }
+
+    > ul {
+      width: 100%;
+
+      @include carbon--breakpoint('md') {
+        display: block;
+        column-count: 2;
+        column-gap: $carbon--grid-gutter;
+      }
+
+      @include carbon--breakpoint('lg') {
+        column-count: 3;
+      }
+    }
+  }
+}
+
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
   ::slotted(#{$dds-prefix}-footer-logo) {
@@ -74,6 +98,26 @@
     align-items: center;
     padding: 0;
     height: 3rem;
+  }
+
+  // The style of legal nav deviates from the one of React, so we can make the markup simpler.
+  // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
+  .#{$prefix}--legal-nav__list {
+    width: 100%;
+
+    > ul {
+      border-top: 1px solid $ui-03;
+      padding: 0 1rem;
+
+      @include carbon--breakpoint('md') {
+        display: flex;
+        column-count: inherit;
+      }
+
+      @include carbon--breakpoint('lg') {
+        border-top: none;
+      }
+    }
   }
 }
 
