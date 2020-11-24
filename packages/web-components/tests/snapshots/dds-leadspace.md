@@ -6,7 +6,7 @@
 
 ```
 <section
-  class="bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -44,7 +44,7 @@
 
 ```
 <section
-  class="bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -84,7 +84,7 @@
 
 ```
 <section
-  class="bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -122,7 +122,7 @@
 
 ```
 <section
-  class="bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -162,7 +162,7 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--centered bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -207,7 +207,7 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--centered bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -254,7 +254,7 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--centered bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -299,7 +299,7 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace__section"
   style="background-image: url(http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616)"
 >
   <div class="bx--leadspace__container">
@@ -346,7 +346,7 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--productive bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -384,7 +384,7 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--productive bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -424,7 +424,7 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--productive bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">
@@ -462,7 +462,7 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace--white bx--leadspace__section"
+  class="bx--leadspace--productive bx--leadspace__section"
   style=""
 >
   <div class="bx--leadspace__container">

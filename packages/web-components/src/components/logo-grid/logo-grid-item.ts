@@ -6,7 +6,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { customElement, html, property } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './logo-grid.scss';
 import DDSImage from '../image/image';
@@ -27,16 +27,11 @@ class DDSLogoGridItem extends StableSelectorMixin(DDSImage) {
     return `${ddsPrefix}--logo-grid-item`;
   }
 
-  @property({ reflect: true })
-  href = '';
-
   render() {
     return html`
-      <a href="${this.href}" target="_blank" class="bx--logo-grid__link">
-        <div class="bx--logo-grid__logo">
-          ${super.render()}
-        </div>
-      </a>
+      <div class="bx--logo-grid__logo">
+        ${super.render()}
+      </div>
     `;
   }
 }

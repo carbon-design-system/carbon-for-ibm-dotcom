@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.3...@carbon/ibmdotcom-styles@1.13.0-rc.4) (2020-11-23)
+
+### Bug Fixes
+
+- **LanguageSelector:** set language selector label visibility to hidden
+  ([#4552](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4552))
+  ([8235d6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8235d6f)),
+  closes
+  [#4551](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4551)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.2...@carbon/ibmdotcom-styles@1.13.0-rc.3) (2020-11-20)
+
+### Bug Fixes
+
+- **masthead:** overflow style fix
+  ([#4543](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4543))
+  ([621ee0a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/621ee0a)),
+  closes
+  [#4539](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4539)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.1...@carbon/ibmdotcom-styles@1.13.0-rc.2) (2020-11-19)
+
+### Bug Fixes
+
+- **masthead:** menu-item styles
+  ([#4527](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4527))
+  ([34c16dc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/34c16dc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.13.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.13.0-rc.0...@carbon/ibmdotcom-styles@1.13.0-rc.1) (2020-11-18)
+
+### Bug Fixes
+
+- **Masthead:** regular dropdown menu visible outside of masthead nav bar
+  ([#4510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4510))
+  ([30c6724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/30c6724)),
+  closes
+  [#4504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4504)
+- **tableofcontents:** fix top positions in dotcomshell
+  ([#4508](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4508))
+  ([1938b42](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1938b42)),
+  closes
+  [#4334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4334)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.12.0...@carbon/ibmdotcom-styles@1.13.0-rc.0) (2020-11-13)
 
 ### Bug Fixes

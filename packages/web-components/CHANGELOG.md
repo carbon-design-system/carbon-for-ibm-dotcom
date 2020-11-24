@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0-rc.4](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.6.0-rc.3...@carbon/ibmdotcom-web-components@0.6.0-rc.4) (2020-11-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+# [0.6.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.6.0-rc.2...@carbon/ibmdotcom-web-components@0.6.0-rc.3) (2020-11-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+# [0.6.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.6.0-rc.1...@carbon/ibmdotcom-web-components@0.6.0-rc.2) (2020-11-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+# [0.6.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.6.0-rc.0...@carbon/ibmdotcom-web-components@0.6.0-rc.1) (2020-11-18)
+
+### Bug Fixes
+
+- **Masthead:** regular dropdown menu visible outside of masthead nav bar ([#4510](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4510)) ([30c6724](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/30c6724)), closes [#4504](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4504)
+
 # [0.6.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.46.61...@carbon/ibmdotcom-web-components@0.6.0-rc.0) (2020-11-13)
 
 ### Bug Fixes

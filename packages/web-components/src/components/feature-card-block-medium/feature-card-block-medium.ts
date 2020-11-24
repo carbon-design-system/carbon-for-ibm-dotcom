@@ -12,7 +12,6 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
-import './feature-card-block-medium-card';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,11 +29,13 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
     return html`
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
-        <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
-        </p>
-        <h3 class="${prefix}--card__heading">${this._renderCopy()}</h3>
-        <slot name="footer"></slot>
+        <div class="${prefix}--card__content">
+          <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
+            <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
+          </p>
+          <h3 class="${prefix}--card__heading">${this._renderCopy()}</h3>
+          <slot name="footer"></slot>
+        </div>
       </div>
     `;
   }
