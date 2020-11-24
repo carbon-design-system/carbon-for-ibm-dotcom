@@ -1,0 +1,75 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/index.js"></script>
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+          <dds-leadspace-block>
+            <span slot="title">LeadSpace Block Title</span>
+            <dds-leadspace-block-content>
+              <dds-content-block-heading>LeadSpace Block Heading</dds-content-block-heading>
+              <dds-content-block-copy slot="copy">LeadSpace Block Copy</dds-content-block-copy>
+              <dds-leadspace-block-media slot="media">
+                <dds-image-with-caption
+                alt="Image alt text"
+                default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+                heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                >
+                  <dds-image-item
+                    media="(min-width: 672px)"
+                    srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+                  >
+                  </dds-image-item>
+                  <dds-image-item
+                    media="(min-width: 400px)"
+                    srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+                  >
+                  </dds-image-item>
+                  <dds-image-item
+                    media="(min-width: 320px)"
+                    srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+                  >
+                  </dds-image-item>
+                </dds-image-with-caption>
+              </dds-leadspace-block-media>
+              <dds-link-list type="end">
+                <span slot="heading">Featured products</span>
+                <dds-link-list-item href="https://example.com">
+                  Services
+                </dds-link-list-item>
+                <dds-link-list-item href="https://example.com">
+                  Analytics
+                </dds-link-list-item>
+                <dds-link-list-item href="https://example.com">
+                  View all products
+                </dds-link-list-item>
+              </dds-link-list>
+              <dds-button-group>
+                <dds-button-group-item href="www.ibm.com">Click here </dds-button-group-item>
+              </dds-button-group>
+            </dds-leadspace-block-content>
+          </dds-leadspace-block>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
