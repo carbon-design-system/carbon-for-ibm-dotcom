@@ -94,6 +94,15 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
             </blockquote>
           </>
         );
+      case 'cornerBracket':
+        return (
+          <>
+            <span className={`${prefix}--quote__mark`}>「</span>
+            <blockquote className={`${prefix}--quote__copy`}>
+              {decodedCopy}」
+            </blockquote>
+          </>
+        );
     }
   };
   return (
