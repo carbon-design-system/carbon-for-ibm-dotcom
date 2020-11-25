@@ -9,16 +9,21 @@
 
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../content-block-mixed';
+import '../../image/image';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-paragraph';
+import '../../content-group/content-group-heading';
 import '../../content-group-cards/content-group-cards';
 import '../../content-group-cards/content-group-cards-item';
-import '../../content-group/content-group-heading';
 import '../../content-group-pictograms/content-group-pictograms';
-import '../../pictogram-item/pictogram-item';
+import '../../content-group-simple/content-group-simple';
 import '../../content-item/content-item-heading';
+import '../../pictogram-item/pictogram-item';
+import '../../cta/card-cta';
+import '../../cta/card-cta-footer';
 
 const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
@@ -54,6 +59,31 @@ const pictogramsItems = [
     },
   },
 ];
+
+const image = ({ heading: imageHeading } = { heading: undefined }) => html`
+  <dds-image-with-caption
+    slot="media"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    heading="${ifNonNull(imageHeading)}"
+  >
+    <dds-image-item
+      media="(min-width: 672px)"
+      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+    <dds-image-item
+      media="(min-width: 400px)"
+      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+    <dds-image-item
+      media="(min-width: 320px)"
+      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+  </dds-image-with-caption>
+`;
 
 export default {
   title: 'Components/Content Block Mixed',
@@ -153,6 +183,15 @@ export const Default = ({ parameters }) => {
           `
         )}
       </dds-content-group-pictograms>
+      <dds-content-group-simple>
+        <dds-content-group-heading>${heading}</dds-content-group-heading>
+        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        ${image({ heading })}
+        <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+          Lorem ipsum dolor sit amet
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-card-cta>
+      </dds-content-group-simple>
     </dds-content-block-mixed>
   `;
 };
