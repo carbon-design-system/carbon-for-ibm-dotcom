@@ -63,7 +63,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderIcon(): TemplateResult | string | void {
     return html`
-      <slot name="icon" style="display:flex;"></slot>
+      <slot name="icon"></slot>
     `;
   }
 
