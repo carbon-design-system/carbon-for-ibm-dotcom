@@ -94,6 +94,18 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
             </blockquote>
           </>
         );
+      case 'cornerBracket':
+        return (
+          <>
+            <span
+              className={`${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket`}>
+              「
+            </span>
+            <blockquote className={`${prefix}--quote__copy`}>
+              {decodedCopy}」
+            </blockquote>
+          </>
+        );
     }
   };
   return (
@@ -153,6 +165,7 @@ Quote.propTypes = {
    * | `singleAngle`                 | ‹ ›         |
    * | `doubleAngle`                 | « »         |
    * | `lowHighReversedDoubleCurved` | „ “         |
+   * | `cornerBracket`               |「 」         |
    */
   markType: PropTypes.oneOf([
     'doubleCurved',
@@ -160,6 +173,7 @@ Quote.propTypes = {
     'doubleAngle',
     'singleAngle',
     'lowHighReversedDoubleCurved',
+    'cornerBracket',
   ]),
 
   /**
