@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import { text } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import Download20 from 'carbon-web-components/es/icons/download/20';
 import styles from './leadspace-block.stories.scss';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
@@ -60,7 +61,7 @@ const linkList = html`
       UrbanCode ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
     <dds-link-list-item href="https://example.com">
-      View all products ${ArrowRight20({ slot: 'icon' })}
+      View all products ${Download20({ slot: 'icon' })}
     </dds-link-list-item>
   </dds-link-list>
 `;
