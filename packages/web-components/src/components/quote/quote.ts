@@ -41,6 +41,11 @@ export enum QUOTE_TYPES {
    * lowHighReversedDoubleCurved
    */
   LOW_HIGH_REVERSED_DOUBLE_CURVED = 'lowHighReversedDoubleCurved',
+
+  /**
+   * cornerBracket
+   */
+  CORNER_BRACKET = 'cornerBracket',
 }
 
 const slotExistencePropertyNames = {
@@ -67,6 +72,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
    * `singleAngle`: `‹ ›`;
    * `doubleAngle`: `« »`;
    * `lowHighReversedDoubleCurved`: `„ “`;
+   * `cornerBracket`: `「 」`;
    */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
@@ -137,6 +143,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
           <span class="${prefix}--quote__mark">„</span>
           <blockquote class="${prefix}--quote__copy">
             <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">“</span>
+          </blockquote>
+        `;
+      case QUOTE_TYPES.CORNER_BRACKET:
+        return html`
+          <span class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket">「</span>
+          <blockquote class="${prefix}--quote__copy">
+            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">」</span>
           </blockquote>
         `;
       default:
