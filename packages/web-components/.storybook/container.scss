@@ -47,6 +47,7 @@ body {
   color: $text-01;
   background-color: $ui-background;
   line-height: 1;
+  word-break: keep-all;
 }
 
 // hide the cookie button

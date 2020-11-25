@@ -44,6 +44,7 @@ body {
   background-color: $ui-background;
   color: $text-01;
   height: 100%;
+  word-break: keep-all;
 }
 
 #root,
