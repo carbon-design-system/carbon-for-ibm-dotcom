@@ -67,9 +67,6 @@
       padding-top: aspect-ratio(288px, 216px);
       position: relative;
 
-      &:hover img {
-        border: 1px $ui-04 solid;
-      }
       &:active img {
         border: 1px $ui-03 solid;
       }
@@ -99,10 +96,6 @@
 
   .#{$prefix}--logo-grid__link {
     display: block;
-
-    &:hover .#{$prefix}--logo-grid__logo {
-      box-shadow: inset 0 0 0 1px $ui-04;
-    }
 
     &:active .#{$prefix}--logo-grid__logo {
       box-shadow: inset 0 0 0 1px $ui-03;

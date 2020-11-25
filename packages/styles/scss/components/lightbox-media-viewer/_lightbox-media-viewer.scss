@@ -78,6 +78,7 @@
 
       flex-flow: column nowrap;
       width: 100%;
+      overflow-y: auto;
 
       @include carbon--breakpoint('lg') {
         flex-direction: row;

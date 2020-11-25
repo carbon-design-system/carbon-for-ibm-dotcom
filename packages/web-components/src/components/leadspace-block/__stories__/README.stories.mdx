@@ -1,0 +1,95 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# LeadSpace Block
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/leadspace-block)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/leadspace-block)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
+import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-media';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-content';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-cta';
+```
+
+### HTML
+
+```html
+<dds-leadspace-block>
+  <span slot="title">LeadSpace Block Title</span>
+  <dds-leadspace-block-content>
+    <dds-content-block-heading>LeadSpace Block Heading</dds-content-block-heading>
+    <dds-content-block-copy slot="copy">LeadSpace Block Copy</dds-content-block-copy>
+    <dds-leadspace-block-media slot="media">
+      <dds-image-with-caption
+        alt="Image alt text"
+        default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+        heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      >
+        <dds-image-item
+          media="(min-width: 672px)"
+          srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+        >
+        </dds-image-item>
+        <dds-image-item
+          media="(min-width: 400px)"
+          srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+        >
+        </dds-image-item>
+        <dds-image-item
+          media="(min-width: 320px)"
+          srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+        >
+        </dds-image-item>
+      </dds-image-with-caption>
+    </dds-leadspace-block-media>
+    <dds-link-list type="end">
+      <span slot="heading">Featured products</span>
+      <dds-link-list-item href="https://example.com">
+        Services ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+      <dds-link-list-item href="https://example.com">
+        Analytics ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+      <dds-link-list-item href="https://example.com">
+        View all products ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-list-item>
+    </dds-link-list>
+    <dds-leadspace-block-cta>
+      <dds-button-group-item href="www.ibm.com">Click here ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+    </dds-button-group>
+  </dds-leadspace-block-cta>
+</dds-leadspace-block>
+```
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector       | Compatibility selector                     | Description |
+| ----------------------------- | ------------------------------------------ | ----------- |
+| `<dds-leadspace-block>`       | `data-autoid="dds--leadspace-block"`       | Component   |
+| `<dds-leadspace-block-media>` | `data-autoid="dds--leadspace-block-media"` | Interactive |
+| `<dds-leadspace-block-cta>`   | `data-autoid="dds--leadspace-block-cta"`   | Interactive |
+
+## Props
+
+<Props of="dds-leadspace-block" />
+<Description markdown={contributing} />

@@ -29,6 +29,11 @@ export enum FOOTER_SIZE {
    * Short size.
    */
   SHORT = 'short',
+
+  /**
+   * Micro size.
+   */
+  MICRO = 'micro',
 }
 
 /**

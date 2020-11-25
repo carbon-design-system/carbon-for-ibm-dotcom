@@ -102,14 +102,16 @@ class DDSCard extends DDSLink {
     return html`
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
-        <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-          <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
-        </p>
-        <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
-          <slot name="heading" @slotchange="${handleSlotChange}"></slot>
-        </h3>
-        ${this._renderCopy()}
-        <slot name="footer"></slot>
+        <div class="${prefix}--card__content">
+          <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
+            <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
+          </p>
+          <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
+            <slot name="heading" @slotchange="${handleSlotChange}"></slot>
+          </h3>
+          ${this._renderCopy()}
+          <slot name="footer"></slot>
+        </div>
       </div>
     `;
   }
