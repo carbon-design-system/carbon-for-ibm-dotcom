@@ -11,6 +11,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import readme from './README.stories.mdx';
 import '../content-block-mixed';
 import '../../image/image';
 import '../../content-block/content-block-heading';
@@ -99,6 +100,7 @@ export default {
     `,
   ],
   parameters: {
+    ...readme.parameters,
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
