@@ -34,6 +34,7 @@
 </div>
 <slot name="complementary">
 </slot>
+
 ```
 
 ####   `should render with various attributes`
@@ -68,5 +69,6 @@
 </div>
 <slot name="complementary">
 </slot>
+
 ```
 
