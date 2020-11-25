@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 
 @mixin themed-items {
@@ -13,43 +14,55 @@
 }
 
 @mixin content-section {
+  :host(#{$dds-prefix}-content-section),
   .#{$prefix}--content-section {
-    &__grid {
-      @include carbon--make-container;
-    }
-    &__row {
-      @include carbon--make-row;
-    }
-    &__left,
-    &__children {
-      @include carbon--make-col-ready;
-    }
-    &__left {
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(4, 16);
-      }
-    }
-    &__heading {
-      margin-top: $carbon--layout-01;
-      margin-bottom: $carbon--layout-05;
+    padding: $spacing-09 $spacing-05;
+  }
 
-      @include type-style('expressive-heading-02');
-    }
-    &__children {
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(12, 16);
-      }
-    }
+  .#{$prefix}--content-section__grid {
+    @include carbon--make-container;
+  }
 
-    padding-top: $carbon--layout-01;
-    padding-bottom: $carbon--layout-05;
+  .#{$prefix}--content-section__row {
+    @include carbon--make-row;
+  }
 
-    @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-06;
+  .#{$prefix}--content-section__left,
+  .#{$prefix}--content-section__children {
+    @include carbon--make-col-ready;
+  }
+
+  .#{$prefix}--content-section__left {
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(4, 16);
+
+      padding-top: $spacing-05;
     }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-04;
-      padding-bottom: $carbon--layout-07;
+  }
+
+  :host(#{$dds-prefix}-content-section-heading),
+  .#{$prefix}--content-section__heading {
+    margin-top: 0;
+    margin-bottom: $spacing-06;
+
+    @include type-style('expressive-heading-02');
+  }
+
+  :host(#{$dds-prefix}-content-section-copy),
+  .#{$prefix}--content-section__copy {
+    @include type-style('body-short-02');
+
+    color: $text-02;
+    margin-bottom: $spacing-06;
+  }
+
+  .#{$prefix}--content-section__children {
+    margin-top: $spacing-06;
+
+    @include carbon--breakpoint(lg) {
+      @include carbon--make-col(12, 16);
+
+      margin-top: 0;
     }
   }
 

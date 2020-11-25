@@ -13,6 +13,7 @@
 @import '../../globals/vars';
 @import '../../themes/expressive/tokens';
 
+:host(#{$dds-prefix}-carousel),
 .#{$prefix}--carousel {
   @include use-carbon-expressive-tokens(
     $type-tokens: (),
@@ -28,36 +29,12 @@
     --#{$dds-prefix}-carousel-page-size: 3;
   }
 
-  display: grid;
-
-  grid-template:
-    'leading' auto
-    'body' auto
-    'navigation' auto;
-
-  @include carbon--breakpoint(lg) {
-    grid-template:
-      'body' auto
-      'navigation' auto;
-  }
-
-  &.#{$prefix}--carousel--has-leading {
-    @include carbon--breakpoint(md) {
-      grid-template:
-        'leading .' auto
-        'body body' auto
-        'navigation navigation' auto / 1fr 1fr;
-    }
-
-    @include carbon--breakpoint(lg) {
-      grid-template:
-        'leading body' auto
-        'navigation navigation' auto / 1fr 3fr;
-    }
-  }
+  display: flex;
+  flex-direction: column;
 
   overflow: hidden;
-  padding: $spacing-09;
+  margin-right: calc(-1 * #{$spacing-07});
+  padding-right: $spacing-07;
 
   ::slotted(:not([name])) {
     flex: 0 0
@@ -69,22 +46,6 @@
     height: auto;
     margin-right: $spacing-05;
     vertical-align: middle;
-  }
-
-  .#{$prefix}--carousel__leading-container {
-    display: none;
-  }
-
-  &.#{$prefix}--carousel--has-leading .#{$prefix}--carousel__leading-container {
-    display: block;
-    grid-area: leading;
-    margin-bottom: $spacing-06;
-
-    @include carbon--breakpoint(lg) {
-      margin-top: $spacing-05;
-      margin-bottom: $spacing-05;
-      margin-right: $spacing-09;
-    }
   }
 
   .#{$prefix}--carousel__scroll-container {

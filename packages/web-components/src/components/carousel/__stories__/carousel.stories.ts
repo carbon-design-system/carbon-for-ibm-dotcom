@@ -16,9 +16,9 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/card';
 import '../../card/card-footer';
+import '../../content-section/content-section';
 import '../../content-section/content-section-copy';
 import '../../content-section/content-section-heading';
-import '../../content-section/content-section-leading';
 import '../../link-with-icon/link-with-icon';
 import '../carousel';
 import readme from './README.stories.mdx';
@@ -44,18 +44,18 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 export const Default = ({ parameters }) => {
   const { pageSize } = parameters?.props?.Carousel ?? {};
   return html`
-    <dds-carousel page-size="${ifNonNull(pageSize)}">
-      <dds-content-section-leading>
-        <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
-        <dds-content-section-copy>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-        </dds-content-section-copy>
-        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-          Link text ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
-      </dds-content-section-leading>
-      ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
-    </dds-carousel>
+    <dds-content-section>
+      <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+      <dds-content-section-copy>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      </dds-content-section-copy>
+      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+        Link text ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-with-icon>
+      <dds-carousel page-size="${ifNonNull(pageSize)}">
+        ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+      </dds-carousel>
+    </dds-content-section>
   `;
 };
 

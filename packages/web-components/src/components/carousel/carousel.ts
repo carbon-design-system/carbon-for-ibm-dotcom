@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -18,13 +17,6 @@ import styles from './carousel.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * The table mapping slot name with the private property name that indicates the existence of the slot content.
- */
-const slotExistencePropertyNames = {
-  leading: '_hasLeading',
-};
 
 /**
  * Carousel.
@@ -52,12 +44,6 @@ class DDSCarousel extends LitElement {
    */
   @internalProperty()
   private _gap = 0;
-
-  /**
-   * `true` if there is a leading content.
-   */
-  @internalProperty()
-  private _hasLeading = false;
 
   /**
    * The observer for the resize of the scroll container.
@@ -147,8 +133,6 @@ class DDSCarousel extends LitElement {
   private _handleSlotChange(event: Event) {
     const slot = event.target as HTMLSlotElement;
     const { name } = slot;
-    const hasContent = slot.assignedNodes().some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name] || '_hasDefaultContent'] = hasContent;
     if (!name) {
       this._total = slot.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE).length;
     }
@@ -170,12 +154,9 @@ class DDSCarousel extends LitElement {
    */
   private _observeResizeRoot = () => {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
-    const { pageSize: oldPageSize, _contentsNode: contentsNode } = this;
+    const { _contentsNode: contentsNode } = this;
     const { defaultView: w } = this.ownerDocument;
-    const pageSize = Number(w!.getComputedStyle(contentsNode!).getPropertyValue(customPropertyPageSize));
-    if (!isNaN(pageSize) && oldPageSize !== pageSize) {
-      this.pageSize = pageSize;
-    }
+    this._pageSizeAuto = Number(w!.getComputedStyle(contentsNode!).getPropertyValue(customPropertyPageSize));
   };
 
   /**
@@ -251,7 +232,6 @@ class DDSCarousel extends LitElement {
       start,
       _contentsBaseWidth: contentsBaseWidth,
       _gap: gap,
-      _hasLeading: hasLeading,
       _pageSize: pageSizeExplicit,
       _total: total,
       _handleClickNextButton: handleClickNextButton,
@@ -261,43 +241,34 @@ class DDSCarousel extends LitElement {
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
-    const classes = classMap({
-      [`${prefix}--carousel`]: true,
-      [`${prefix}--carousel--has-leading`]: hasLeading,
-    });
     // Use another div from the host `<dds-carousel>` to reflect private state
     return html`
       <div
-        class="${classes}"
+        class="${prefix}--carousel__scroll-container"
         style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
       >
-        <div class="${prefix}--carousel__leading-container">
-          <slot name="leading" @slotchange="${handleSlotChange}"></slot>
+        <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+          <slot @slotchange="${handleSlotChange}"></slot>
         </div>
-        <div class="${prefix}--carousel__scroll-container">
-          <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
-            <slot @slotchange="${handleSlotChange}"></slot>
-          </div>
-        </div>
-        <div class="${prefix}--carousel__navigation">
-          <button
-            part="prev-button"
-            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-            ?disabled="${pagesBefore === 0}"
-            @click="${handleClickPrevButton}"
-          >
-            ${CaretLeft20()}
-          </button>
-          ${this._renderStatus()}
-          <button
-            part="next-button"
-            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-            ?disabled="${pagesSince <= 1}"
-            @click="${handleClickNextButton}"
-          >
-            ${CaretRight20()}
-          </button>
-        </div>
+      </div>
+      <div class="${prefix}--carousel__navigation">
+        <button
+          part="prev-button"
+          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+          ?disabled="${pagesBefore === 0}"
+          @click="${handleClickPrevButton}"
+        >
+          ${CaretLeft20()}
+        </button>
+        ${this._renderStatus()}
+        <button
+          part="next-button"
+          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+          ?disabled="${pagesSince <= 1}"
+          @click="${handleClickNextButton}"
+        >
+          ${CaretRight20()}
+        </button>
       </div>
     `;
   }
