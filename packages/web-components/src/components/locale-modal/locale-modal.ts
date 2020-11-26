@@ -21,6 +21,7 @@ import '../expressive-modal/expressive-modal-close-button';
 import DDSLocaleSearch from './locale-search';
 import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
+import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -91,14 +92,9 @@ class DDSLocaleModal extends DDSExpressiveModal {
   private _renderLocaleSelectorHeading() {
     const { headerTitle, _currentRegion: currentRegion, _handleClickBackButton: handleClickBackButton } = this;
     return html`
-      <button
-        part="back-button"
-        class="${prefix}--modal-header__label ${prefix}--type-delta"
-        data-autoid="${ddsPrefix}--locale-modal__region-back"
-        @click="${handleClickBackButton}"
-      >
-        ${ArrowLeft20({ class: `${prefix}--locale-modal__label-arrow` })}${headerTitle}
-      </button>
+      <dds-link-with-icon icon-placement="${ICON_PLACEMENT.LEFT}" href="#" ?disabled="false" @click="${handleClickBackButton}">
+        ${headerTitle}${ArrowLeft20({ slot: 'icon', class: `${prefix}--locale-modal__label-arrow` })}
+      </dds-link-with-icon>
       <p class="bx--modal-header__heading bx--type-beta" tabindex="0">${currentRegion}</p>
     `;
   }

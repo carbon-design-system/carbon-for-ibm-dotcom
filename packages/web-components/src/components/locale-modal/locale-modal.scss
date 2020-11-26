@@ -18,6 +18,10 @@
   #{$dds-prefix}-expressive-modal-header {
     padding: 0 20% 0 $spacing-05;
     margin-bottom: $carbon--spacing-03;
+
+    > * {
+      width: fit-content;
+    }
   }
 
   .#{$prefix}--modal-container {
@@ -37,28 +41,6 @@
       @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
         margin-top: auto;
       }
-    }
-  }
-
-  button.#{$prefix}--modal-header__label {
-    appearance: none;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    text-align: start;
-    display: inline-flex;
-
-    &:hover {
-      color: $interactive-01;
-      text-decoration: underline;
-    }
-
-    &:focus {
-      @include focus-outline('outline');
-    }
-
-    svg {
-      fill: currentColor;
     }
   }
 }
