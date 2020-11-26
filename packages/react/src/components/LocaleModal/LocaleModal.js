@@ -111,30 +111,22 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       data-autoid={`${stablePrefix}--locale-modal`}
       selectorPrimaryFocus={`.${prefix}--modal-close`}>
       {isFiltering ? (
-        ((
-          <LinkWithIcon href="https://www.example.com" iconPlacement={'left'}>
-            <span>Link text</span>
-            {<ArrowLeft20 />}
-          </LinkWithIcon>
-        ),
-        (
-          <ModalHeader
-            data-autoid={`${stablePrefix}--locale-modal__region-back`}
-            label={[
-              <LinkWithIcon href="#" iconPlacement={'left'}>
-                <span>{modalLabels.headerTitle}</span>
-                {
-                  <ArrowLeft20
-                    className={`${prefix}--locale-modal__label-arrow`}
-                    key="arrow-left"
-                  />
-                }
-              </LinkWithIcon>,
-            ]}
-            title={currentRegion}
-            className={`${prefix}--locale-modal__back`}
-          />
-        ))
+        <ModalHeader
+          data-autoid={`${stablePrefix}--locale-modal__region-back`}
+          label={[
+            <LinkWithIcon href="#" iconPlacement={'left'}>
+              <span>{modalLabels.headerTitle}</span>
+              {
+                <ArrowLeft20
+                  className={`${prefix}--locale-modal__label-arrow`}
+                  key="arrow-left"
+                />
+              }
+            </LinkWithIcon>,
+          ]}
+          title={currentRegion}
+          className={`${prefix}--locale-modal__back`}
+        />
       ) : (
         <ModalHeader
           label={[
