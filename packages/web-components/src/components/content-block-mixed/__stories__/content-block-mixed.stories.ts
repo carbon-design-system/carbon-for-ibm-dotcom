@@ -12,19 +12,6 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
-import '../content-block-mixed';
-import '../../image/image';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-paragraph';
-import '../../content-group/content-group-heading';
-import '../../content-group-cards/content-group-cards';
-import '../../content-group-cards/content-group-cards-item';
-import '../../content-group-pictograms/content-group-pictograms';
-import '../../content-group-simple/content-group-simple';
-import '../../content-item/content-item-heading';
-import '../../pictogram-item/pictogram-item';
-import '../../cta/card-cta';
-import '../../cta/card-cta-footer';
 
 const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
