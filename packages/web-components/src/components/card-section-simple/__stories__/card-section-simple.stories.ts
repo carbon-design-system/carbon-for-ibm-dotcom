@@ -71,9 +71,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    percy: {
-      skip: true,
-    },
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
