@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
+@import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
@@ -39,6 +40,11 @@
   @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
 
+  &[hasTooltip] {
+    @include tooltip--trigger('definition', top);
+    @include tooltip--placement('definition', 'bottom', 'start');
+  }
+
   // We have a style to remove extra left padding when the masthead logo is next to left nav trigger button:
   // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
   // For `md`-`lg` breakpoint it's always the case.
@@ -46,6 +52,11 @@
     @include carbon--breakpoint-between('md', 'lg') {
       padding: 0 $carbon--spacing-05;
     }
+  }
+
+  a ::slotted(svg) {
+    width: 58px;
+    height: 23px;
   }
 
   .#{$dds-prefix}-ce--header__logo--has-search-active {

@@ -18,7 +18,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibm
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, l1Data } from './links';
+import { mastheadLinks as links, l1Data, logoData } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
@@ -92,6 +92,7 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
+            .logoData="${logoData}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -111,7 +112,17 @@ export const withL1 = () => {
     <style>
       ${styles}
     </style>
-    <dds-masthead-composite .l1Data="${l1Data}"> </dds-masthead-composite>
+    <dds-masthead-composite .l1Data="${l1Data}"></dds-masthead-composite>
+    ${StoryContent()}
+  `;
+};
+
+export const withAlternateLogoAndTooltip = () => {
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <dds-masthead-composite .logoData="${logoData}" .l1Data="${l1Data}"></dds-masthead-composite>
     ${StoryContent()}
   `;
 };
