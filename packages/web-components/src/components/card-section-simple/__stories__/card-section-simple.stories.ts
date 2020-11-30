@@ -56,14 +56,6 @@ export const WithCTA = ({ parameters }) => {
   `;
 };
 
-WithCTA.story = {
-  parameters: {
-    percy: {
-      skip: true,
-    },
-  },
-};
-
 export default {
   title: 'Components/Card Section Simple',
   decorators: [
@@ -79,6 +71,9 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
