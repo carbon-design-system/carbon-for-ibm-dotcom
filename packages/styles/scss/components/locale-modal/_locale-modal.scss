@@ -25,6 +25,7 @@
     ) {
       .#{$prefix}--modal-container {
         background-color: $ui-background;
+        height: 100%;
         min-height: 80%;
 
         @media (max-height: rem(450px)) {
