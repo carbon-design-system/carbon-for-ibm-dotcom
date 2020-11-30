@@ -32,6 +32,9 @@ export default {
 
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
   },
 };
 
