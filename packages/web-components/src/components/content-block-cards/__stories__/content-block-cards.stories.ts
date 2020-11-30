@@ -82,6 +82,14 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+Default.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
+
 export const withImages = ({ parameters }) => {
   const { heading, ctaCopy, ctaType, href } = parameters?.props?.ContentBlockCards ?? {};
   return html`
