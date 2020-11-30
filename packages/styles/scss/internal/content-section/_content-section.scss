@@ -16,7 +16,8 @@
 @mixin content-section {
   :host(#{$dds-prefix}-content-section),
   .#{$prefix}--content-section {
-    padding: $spacing-09 $spacing-05;
+    padding-top: $spacing-09;
+    padding-bottom: $carbon--layout-05;
   }
 
   .#{$prefix}--content-section__grid {
