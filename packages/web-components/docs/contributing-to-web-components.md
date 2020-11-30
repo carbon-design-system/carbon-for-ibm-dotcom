@@ -31,7 +31,9 @@ what some of the things we would be looking for as part of your contribution.
 
 1. Fork this repository and clone it
 2. `yarn install`
-3. `yarn wca && yarn storybook`
+3. `yarn build`
+4. `cd packages/web-components`
+5. `yarn storybook`
 
 ## Packages
 
