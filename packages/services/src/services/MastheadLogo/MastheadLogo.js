@@ -20,9 +20,7 @@ class MastheadLogoAPI {
     if (logoData === undefined) return false;
 
     const currentTime = new Date().getTime();
-    const expireTime = logoData.expire
-      ? new Date(logoData.expire).getTime()
-      : null;
+    const expireTime = logoData.end ? new Date(logoData.end).getTime() : null;
     const isExpired = expireTime && currentTime > expireTime ? true : false;
 
     if (
