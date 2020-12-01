@@ -102,9 +102,9 @@ describe('dds-locale-modal', function() {
       (document.body.querySelector('dds-region-item') as HTMLElement).click();
       await Promise.resolve();
       const localeModal = document.body.querySelector('dds-locale-modal');
-      (localeModal!.shadowRoot!.querySelector('button.bx--modal-header__label') as HTMLElement).click();
+      (localeModal!.shadowRoot!.querySelector('dds-link-with-icon') as HTMLElement).click();
       await Promise.resolve();
-      expect(localeModal!.shadowRoot!.querySelector('button.bx--modal-header__label')).toBeNull();
+      expect(localeModal!.shadowRoot!.querySelector('dds-link-with-icon')).toBeNull();
     });
   });
 

@@ -1,0 +1,166 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <script type="module">
+      import '@carbon/ibmdotcom-web-components/es/components/card/card.js';
+      import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
+      import '@carbon/ibmdotcom-web-components/es/components/carousel/carousel.js';
+      import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-leading.js';
+      import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading.js';
+      import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-copy.js';
+    </script>
+    <style type="text/css">
+      /* Minimum setting to use IBM Plex font */
+      @font-face {
+        font-weight: 400;
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        src:
+          local('IBM Plex Sans'), local('IBMPlexSans'), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYXgKVElMYYaJe8bpLHnCwDKhdHeEw.woff) format('woff');
+        font-display: auto;
+      }
+
+      @font-face {
+        font-weight: 600;
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'), url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIFscg.woff) format('woff');
+        font-display: auto;
+      }
+
+      /* From: https://github.com/carbon-design-system/carbon/blob/v10.22.0/packages/type/scss/_reset.scss#L31-L32 */
+      body {
+        font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  </head>
+  <body>
+    <dds-carousel>
+      <dds-content-section-leading>
+        <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+        <dds-content-section-copy>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        </dds-content-section-copy>
+        <dds-link-with-icon slot="footer" href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
+          Link text
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-link-with-icon>
+      </dds-content-section-leading>
+      <dds-card href="https://example.com">
+        <span slot="heading">Lorem ipsum dolor sit amet</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        <dds-card-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
+      </dds-card>
+      <dds-card href="https://example.com">
+        <span slot="heading">Lorem ipsum dolor sit amet</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        <dds-card-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
+      </dds-card>
+      <dds-card href="https://example.com">
+        <span slot="heading">Lorem ipsum dolor sit amet</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        <dds-card-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
+      </dds-card>
+      <dds-card href="https://example.com">
+        <span slot="heading">Lorem ipsum dolor sit amet</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        <dds-card-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
+      </dds-card>
+      <dds-card href="https://example.com">
+        <span slot="heading">Lorem ipsum dolor sit amet</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        <dds-card-footer>
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
+      </dds-card>
+    </dds-carousel>
+  </body>
+</html>
