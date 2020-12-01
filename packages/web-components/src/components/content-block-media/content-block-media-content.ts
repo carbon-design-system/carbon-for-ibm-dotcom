@@ -8,13 +8,11 @@
  */
 
 import { css, customElement, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
 import DDSContentGroupSimple from '../content-group-simple/content-group-simple';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -30,25 +28,6 @@ class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroupSim
     return html`
       <slot name="media"></slot>
       <slot></slot>
-    `;
-  }
-
-  //  Overrides the media position in relation to the copy in the content group
-  //  eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
-    // Renders `<div class="bx--content-item">` directly instead of using `<dds-content-item>`
-    // because `<dds-content-block-simple>` uses only the copy content
-    return html`
-      <div class="${prefix}--content-block__children">
-        <div class="${prefix}--content-block-simple__content">
-          <div>
-            <slot name="media"></slot>
-          </div>
-          <div class="${prefix}--content-item">
-            <slot></slot>
-          </div>
-        </div>
-      </div>
     `;
   }
 
