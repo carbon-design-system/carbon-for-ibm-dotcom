@@ -116,6 +116,14 @@ export const withVideos = ({ parameters }) => {
   `;
 };
 
+withVideos.story = {
+  parameters: {
+    percy: {
+      skip: true,
+    },
+  },
+};
+
 export default {
   title: 'Components/Content Block Cards',
   decorators: [

@@ -107,22 +107,64 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withL1 = () => {
+export const withL1 = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-composite .l1Data="${l1Data}"></dds-masthead-composite>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
     ${StoryContent()}
   `;
 };
 
-export const withAlternateLogoAndTooltip = () => {
+export const withAlternateLogoAndTooltip = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-composite .logoData="${logoData}" .l1Data="${l1Data}"></dds-masthead-composite>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
+          ></dds-masthead-container>
+        `}
     ${StoryContent()}
   `;
 };
