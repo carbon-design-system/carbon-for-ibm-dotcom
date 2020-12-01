@@ -19,7 +19,7 @@
     flex-direction: column;
 
     @include carbon--breakpoint(lg) {
-      flex-direction: row;
+      flex-flow: row wrap;
     }
 
     .#{$prefix}--btn {
