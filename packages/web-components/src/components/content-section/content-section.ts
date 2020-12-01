@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, LitElement } from 'lit-element';
+import { customElement, html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,16 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-content-section`)
 class DDSContentSection extends StableSelectorMixin(LitElement) {
   /**
-   * Renders Content Section heading slot
-   */
-  protected _renderHeading() {
-    const { heading } = this;
-    return html`
-      <slot name="heading">${heading}</slot>
-    `;
-  }
-
-  /**
    * Applies section attribute
    */
   connectedCallback() {
@@ -44,18 +34,14 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
-  /**
-   * The Content Section heading.
-   */
-  @property()
-  heading = '';
-
   render() {
     return html`
       <div class="${prefix}--content-section__grid">
         <div class="${prefix}--content-section__row">
           <div class="${prefix}--content-section__left">
-            <h2 class="${prefix}--content-section__heading">${this._renderHeading()}<h2>
+            <slot name="heading"></slot>
+            <slot name="copy"></slot>
+            <slot name="footer"></slot>
           </div>
           <div class="${prefix}--content-section__children">
             <slot></slot>

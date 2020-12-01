@@ -37,10 +37,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    *
    * @param event The event.
    */
-  // private _handleSearchToggle: (event: Event) => void;
   @HostListener('parentRoot:eventToggleSearch')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleSearchToggle = (event: Event) => {
+  protected _handleSearchToggle = (event: Event) => {
     this._hideNav = (event as CustomEvent).detail.active;
   };
 
