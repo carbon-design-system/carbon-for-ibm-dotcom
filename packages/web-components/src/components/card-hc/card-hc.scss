@@ -1,0 +1,54 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/ibmdotcom-styles/scss/components/card/index';
+@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
+
+//
+// Add overriding styling to match with the card design from the HC Library.
+//
+
+.#{$prefix}--card,
+  :host(#{$dds-prefix}-card) {
+
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy {
+      @include content-width;
+    }
+
+    .#{$prefix}--card__heading {
+      @include carbon--type-style('expressive-heading-05');
+      font-weight: 300;
+      margin-bottom: $carbon--layout-03;
+    }
+
+    .#{$prefix}--card__copy {
+      @include carbon--type-style('body-long-02');
+      color: $text-02;
+      margin-bottom: $carbon--spacing-08;
+    }
+
+    .#{$prefix}--card__eyebrow {
+      @include carbon--type-style('expressive-heading-02');
+      color: $text-01;
+    }
+
+    &.#{$prefix}--card--link:hover {
+      text-decoration: none;
+    }
+}
+
+:host(#{$dds-prefix}-card-footer),
+:host(#{$dds-prefix}-card-cta-footer) {
+  .#{$dds-prefix}-ce--card__footer--static {
+    color: $link-01;
+  }
+
+  &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
+    color: $inverse-link;
+  }
+}
