@@ -1,4 +1,4 @@
-A IBM.com Design System variant that iss as easy to use as native HTML elements, with no framework tax, no framework silo.
+A `Carbon for IBM.com` variant that is as easy to use as native HTML elements, with no framework tax, no framework silo.
 
 # `@carbon/ibmdotcom-web-components`
 
