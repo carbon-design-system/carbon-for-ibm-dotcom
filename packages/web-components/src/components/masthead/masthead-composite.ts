@@ -39,6 +39,7 @@ import './megamenu-category-link';
 import './megamenu-category-group';
 import './megamenu-overlay';
 import './top-nav';
+import './top-nav-l1';
 import './top-nav-name';
 import './top-nav-item';
 import './top-nav-menu';
@@ -87,7 +88,7 @@ class DDSMastheadComposite extends LitElement {
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
         ? html`
-            <dds-top-nav hide-divider>
+            <dds-top-nav-l1>
               ${menuItems.map((elem: MastheadL1Item, i) => {
                 return elem.menuItems
                   ? html`
@@ -115,7 +116,7 @@ class DDSMastheadComposite extends LitElement {
                       ></dds-top-nav-item>
                     `;
               })}
-            </dds-top-nav>
+            </dds-top-nav-l1>
           `
         : menuItems.map((elem: MastheadL1Item, i) =>
             elem.menuItems
