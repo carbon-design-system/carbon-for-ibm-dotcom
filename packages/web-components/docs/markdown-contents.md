@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Markdown contents](#markdown-contents)
+  - [Using `<dds-content-*-copy>`](#using-dds-content--copy)
+  - [Rendering markdown on server](#rendering-markdown-on-server)
+  - [Use raw HTML](#use-raw-html)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Markdown contents
 
 In most cases, `<dds-content-*>` is used with its "copy" content. There are several ways to specify the copy content.

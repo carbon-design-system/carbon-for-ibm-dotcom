@@ -87,6 +87,7 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace {
+  ::slotted([slot='buttons']),
   .#{$prefix}--buttongroup {
     padding-top: $carbon--layout-01;
   }

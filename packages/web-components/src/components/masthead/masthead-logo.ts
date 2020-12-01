@@ -69,7 +69,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
       [`${ddsPrefix}-ce--header__logo--has-search-active`]: hasSearchActive,
     });
     return html`
-      <a aria-label="IBM logo" class="${classes}" href="${ifNonNull(href)}">${IBM8BarLogoH23()}</a>
+      <a aria-label="IBM logo" class="${classes}" href="${ifNonNull(href)}"><slot>${IBM8BarLogoH23()}</slot></a>
     `;
   }
 
