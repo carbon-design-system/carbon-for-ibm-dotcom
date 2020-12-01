@@ -113,7 +113,7 @@ describe('ContentBlockMixed', () => {
   it('should have the correct card padding top', () => {
     const content = $('.bx--card__wrapper');
     const contentPaddingTop = content.getCSSProperty('padding').value;
-    expect(contentPaddingTop).toEqual('16px');
+    expect(contentPaddingTop).toEqual('0px');
   });
 
   it('should navigate to the correct URL when clicking the card', () => {
@@ -124,7 +124,7 @@ describe('ContentBlockMixed', () => {
 
   it('should navigate to the correct URL when clicking the pictogram', () => {
     $('.bx--link.bx--link-with-icon').click();
-    expect(browser.getUrl()).toBe('https://www.ibm.com/us-en/?ar=1');
+    expect(browser.getUrl()).toBe('https://www.ibm.com/us-en?ar=1');
     browser.back();
   });
 
