@@ -8,12 +8,12 @@
 <div class="bx--content-section__grid">
   <div class="bx--content-section__row">
     <div class="bx--content-section__left">
-      <h2 class="bx--content-section__heading">
-        <slot name="heading">
-        </slot>
-      </h2>
-      <h2>
-      </h2>
+      <slot name="heading">
+      </slot>
+      <slot name="copy">
+      </slot>
+      <slot name="footer">
+      </slot>
     </div>
     <div class="bx--content-section__children">
       <slot>
@@ -30,13 +30,12 @@
 <div class="bx--content-section__grid">
   <div class="bx--content-section__row">
     <div class="bx--content-section__left">
-      <h2 class="bx--content-section__heading">
-        <slot name="heading">
-          heading-foo
-        </slot>
-      </h2>
-      <h2>
-      </h2>
+      <slot name="heading">
+      </slot>
+      <slot name="copy">
+      </slot>
+      <slot name="footer">
+      </slot>
     </div>
     <div class="bx--content-section__children">
       <slot>
