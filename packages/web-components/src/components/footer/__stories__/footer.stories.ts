@@ -70,6 +70,19 @@ export const short = ({ parameters }) => {
   return base({ parameters });
 };
 
+export const micro = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.MICRO,
+  };
+  return html`
+    <div class="micro-container">
+      ${base({ parameters })}
+    </div>
+  `;
+};
+
 export default {
   title: 'Components/Footer',
   parameters: {
