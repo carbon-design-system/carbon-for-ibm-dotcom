@@ -34,6 +34,7 @@ const slotExistencePropertyNames = {
  * @element dds-card-hc
  * @slot eyebrow - The eyebrow content.
  * @slot heading - The heading content.
+ * @slot copy - The copy content.
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
