@@ -18,7 +18,6 @@ import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
-import footerStyles from '../../footer/__stories__/footer.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
 import mastheadLinks from '../../masthead/__stories__/links';
 import mockFooterLinks from '../../footer/__stories__/links';
@@ -90,7 +89,6 @@ export const Default = ({ parameters }) => {
   return html`
     <style>
       ${mastheadStyles}
-      ${footerStyles}
     </style>
     ${useMock
       ? html`
@@ -145,6 +143,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    useRawContainer: true,
     knobs: {
       MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),
