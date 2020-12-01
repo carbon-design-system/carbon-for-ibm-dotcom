@@ -78,7 +78,7 @@ const LocaleModalCountries = ({
           modalLabels
         )
       );
-      localeText.innerHTML = modalLabels.availabilityText;
+      localeText ? (localeText.innerHTML = modalLabels.availabilityText) : '';
     };
   });
 
