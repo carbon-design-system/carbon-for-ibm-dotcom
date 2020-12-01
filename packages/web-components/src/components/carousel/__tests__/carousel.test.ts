@@ -53,31 +53,12 @@ describe('dds-carousel', function() {
       expect(document.body.querySelector('dds-carousel')).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render add a class if leading content exists', async function() {
-      render(
-        template({
-          children: html`
-            <div slot="leading"></div>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for `<dds-carousel>`
-      await Promise.resolve(); // The update cycle that fires `slotchange` event
-      await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(
-        document.body
-          .querySelector('dds-carousel')!
-          .shadowRoot!.querySelector('.bx--carousel')!
-          .classList.contains('bx--carousel--has-leading')
-      ).toBeTrue();
-    });
-
     it('should set the scroll position', async function() {
       render(template({ pageSize: 2, start: 1 }), document.body);
       await Promise.resolve();
       const carousel = document.querySelector('dds-carousel') as DDSCarousel;
-      carousel.pageSize = 2;
+      await Promise.resolve(); // Update cycle for `<dds-carousel>`
+      await Promise.resolve(); // The update cycle that fires `slotchange` event
       (carousel as any)._contentsBaseWidth = 700;
       (carousel as any)._gap = 100;
       await Promise.resolve();
@@ -313,6 +294,7 @@ describe('dds-carousel', function() {
         template({
           children: html`
             <div style="position:absolute;width:300px;height:1px"></div>
+            <div style="position:absolute;width:300px;height:1px"></div>
           `,
         }),
         document.body
@@ -320,6 +302,10 @@ describe('dds-carousel', function() {
       await Promise.resolve();
       const carousel = document.querySelector('dds-carousel') as DDSCarousel;
       pageSize = 2;
+      spyOnProperty(
+        carousel.shadowRoot!.querySelector('.bx--carousel__scroll-contents') as Element,
+        'scrollWidth'
+      ).and.returnValue(700);
       MockResizeObserver.run(document.documentElement, {});
       MockResizeObserver.run(carousel.shadowRoot!.querySelector('.bx--carousel__scroll-contents')!, { width: 700 });
       await Promise.resolve();
