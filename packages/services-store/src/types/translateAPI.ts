@@ -122,6 +122,18 @@ export interface LeavingIBMLabels {
 }
 
 /**
+ * Masthead logo tooltip
+ */
+export interface MastheadLogoData {
+  svg?: string;
+  tooltip?: string;
+  denylist: [];
+  allowlist: [];
+  end: string;
+  path: string;
+}
+
+/**
  * Misc labels
  */
 export interface MiscLabels {

@@ -8,17 +8,20 @@
  */
 
 import { html, render } from 'lit-html';
+import '../content-section';
+import '../content-section-heading';
 import '../content-section.scss';
 
-const template = heading => html`
-  <dds-content-section heading=${heading}>
+const template = () => html`
+  <dds-content-section>
+    <dds-content-section-heading>Natural Language Processing.</dds-content-section-heading>
     <p>This is a test.</p>
   </dds-content-section>
 `;
 
-describe('dds-section-content', function() {
+describe('dds-content-section', function() {
   it('renders properly', async function() {
-    await render(template('Test header'), document.body);
+    await render(template(), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-content-section')).toMatchSnapshot({ mode: 'shadow' });
   });

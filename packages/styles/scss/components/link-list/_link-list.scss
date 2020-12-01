@@ -102,10 +102,10 @@
     ::slotted(#{$dds-prefix}-link-list-item-cta),
     ::slotted(#{$dds-prefix}-link-list-item-card-cta),
     .#{$prefix}--link-list__list__CTA {
-      padding-bottom: $carbon--spacing-05;
+      margin-bottom: $carbon--spacing-05;
 
       &:last-of-type {
-        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
   }

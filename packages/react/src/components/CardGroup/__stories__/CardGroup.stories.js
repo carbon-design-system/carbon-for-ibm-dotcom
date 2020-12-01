@@ -67,6 +67,7 @@ export default {
 
 const defaultCard = {
   heading: 'Nunc convallis lobortis',
+  type: 'local',
   copy:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
   cta: {
@@ -80,6 +81,7 @@ const cardWithImages = {
       'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
     alt: 'Image alt text',
   },
+  type: 'local',
   eyebrow: 'Topic',
   heading: 'Natural language processing.',
   cta: {
