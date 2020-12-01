@@ -109,14 +109,22 @@ document.addEventListener('onSearchCloseClicked', () => {
   // do something here
 );
 
+// enter key pressed to perform search
+document.addEventListener('onSearchEnter', e => {
+  console.log(e.detail); // { value: inputValue }
+  // do something here
+);
+
 // search icon clicked to perform search
-document.addEventListener('onSearchButtonClicked', () => {
+document.addEventListener('onSearchButtonClicked', e => {
+  console.log(e.detail); // { value: inputValue }
   // do something here
 );
 
 // search input onchange
 document.addEventListener('onSearchValueChanged', e =>
   console.log(e.detail); // { value: inputValue }
+  // do something here
 );
 ```
 

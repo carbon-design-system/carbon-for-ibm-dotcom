@@ -8,6 +8,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 
 const { stablePrefix } = ddsSettings;
 
@@ -28,9 +29,27 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
     });
   }, [dispatch]);
 
+  /**
+   * emit custom event for search input enter keypress
+   */
+  const handleSearchEnter = event => {
+    if (event.key === 'Enter') {
+      const onSearchEnter = new CustomEvent('onSearchEnter', {
+        bubbles: true,
+        detail: { value: event.target.value },
+      });
+
+      event.currentTarget.dispatchEvent(onSearchEnter);
+    }
+  };
+
   useEffect(() => {
     if (isActive) {
       searchRef.current && searchRef.current.focus();
+      root.document.addEventListener('keyup', handleSearchEnter, true);
+      return () => {
+        root.document.removeEventListener('keyup', handleSearchEnter, true);
+      };
     } else resetSearch();
   }, [isActive, resetSearch]);
 
