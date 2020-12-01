@@ -1,0 +1,84 @@
+//
+// @license
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import 'carbon-components/scss/components/button/button';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/vendor/@carbon/layout/breakpoint';
+@import '../../globals/vars';
+@import '../../themes/expressive/tokens';
+
+:host(#{$dds-prefix}-carousel),
+.#{$prefix}--carousel {
+  @include use-carbon-expressive-tokens(
+    $type-tokens: (),
+    $component-tokens: ()
+  );
+  --#{$dds-prefix}-carousel-page-size: 1;
+
+  @include carbon--breakpoint(md) {
+    --#{$dds-prefix}-carousel-page-size: 2;
+  }
+
+  @include carbon--breakpoint(lg) {
+    --#{$dds-prefix}-carousel-page-size: 3;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  margin-right: calc(-1 * #{$spacing-07});
+  padding-right: $spacing-07;
+
+  ::slotted(:not([name])) {
+    flex: 0 0
+      calc(
+        (
+            100% - (var(--#{$dds-prefix}-carousel-page-size, 1) - 1) * #{$spacing-05}
+          ) / var(--#{$dds-prefix}-carousel-page-size, 1)
+      );
+    height: auto;
+    margin-right: $spacing-05;
+    vertical-align: middle;
+  }
+
+  .#{$prefix}--carousel__scroll-container {
+    grid-area: body;
+    position: relative;
+    overflow: hidden;
+    margin-right: calc(-1 * #{$spacing-09});
+  }
+
+  .#{$prefix}--carousel__scroll-contents {
+    position: relative;
+    margin-right: $spacing-09;
+    transition: left $duration--slow-01 motion(standard, productive);
+    display: flex;
+    // Achieves `sameHeight` effect for card group.
+    // The cards must have `height:auto`.
+    align-items: stretch;
+  }
+
+  .#{$prefix}--carousel__navigation {
+    grid-area: navigation;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: flex-end;
+    align-items: center;
+    gap: $spacing-05;
+    margin-top: $spacing-05;
+  }
+
+  .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
+    padding: calc((#{$container-02} - #{$icon-size-01}) / 2);
+    min-height: $container-02;
+    width: $container-02;
+    height: $container-02;
+  }
+}
