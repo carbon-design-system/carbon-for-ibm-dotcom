@@ -100,7 +100,7 @@
 
     .#{$prefix}--link-list li {
       @include carbon--breakpoint(md) {
-        padding-bottom: $carbon--spacing-05;
+        margin-bottom: $carbon--spacing-05;
       }
     }
   }
