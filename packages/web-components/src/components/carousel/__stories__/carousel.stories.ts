@@ -44,6 +44,15 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 export const Default = ({ parameters }) => {
   const { pageSize } = parameters?.props?.Carousel ?? {};
   return html`
+    <dds-carousel page-size="${ifNonNull(pageSize)}">
+      ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+    </dds-carousel>
+  `;
+};
+
+export const withContentSection = ({ parameters }) => {
+  const { pageSize } = parameters?.props?.Carousel ?? {};
+  return html`
     <dds-content-section>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
       <dds-content-section-copy>
@@ -59,10 +68,15 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+withContentSection.story = {
+  parameters: {
+    useRawContainer: true,
+  },
+};
+
 export default {
   title: 'Components/Carousel',
   parameters: {
-    useRawContainer: true,
     ...readme.parameters,
     knobs: {
       Carousel: ({ groupId }) => ({
