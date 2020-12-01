@@ -176,7 +176,7 @@ class DDSMastheadComposite extends LitElement {
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg } = this.logoData;
     return html`
-      <dds-masthead-logo ?hasTooltip="${ifNonNull(tooltip)}" aria-label="${ifNonNull(tooltip)}"
+      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;
