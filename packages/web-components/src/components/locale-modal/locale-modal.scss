@@ -18,10 +18,6 @@
   #{$dds-prefix}-expressive-modal-header {
     padding: 0 20% 0 $spacing-05;
     margin-bottom: $carbon--spacing-03;
-
-    > * {
-      width: fit-content;
-    }
   }
 
   .#{$prefix}--modal-container {
@@ -43,6 +39,10 @@
       }
     }
   }
+}
+
+:host(#{$dds-prefix}-locale-modal) #{$dds-prefix}-expressive-modal-heading {
+  width: fit-content;
 }
 
 :host(#{$dds-prefix}-locale-search) {
