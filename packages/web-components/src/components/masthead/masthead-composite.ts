@@ -8,11 +8,16 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import { nothing } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
+import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import {
   MastheadL1,
+  MastheadL1Item,
   MastheadLink,
+  MastheadLogoData,
   MastheadMenuItem,
   MastheadProfileItem,
   Translation,
@@ -47,7 +52,6 @@ import './left-nav-menu-item';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
-import { MastheadL1Item } from '../../../../services-store/src/types/translateAPI';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -75,6 +79,7 @@ enum NAV_ITEMS_RENDER_TARGET {
 class DDSMastheadComposite extends LitElement {
   /**
    * Renders the L1 Items
+   *
    * @param target - defines the type of rendered item (top nav item / left nav item)
    */
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
@@ -153,10 +158,28 @@ class DDSMastheadComposite extends LitElement {
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" url="${url}"> </dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" url="${url}"></dds-masthead-l1-name>
             `}
         ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </dds-masthead-l1>
+    `;
+  }
+
+  /**
+   * Renders masthead logo
+   *
+   */
+  private _renderLogo() {
+    if (!this.logoData)
+      return html`
+        <dds-masthead-logo></dds-masthead-logo>
+      `;
+    const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
+    const { tooltip, svg } = this.logoData;
+    return html`
+      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}"
+        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+      >
     `;
   }
 
@@ -453,6 +476,12 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * Logo data
+   */
+  @property({ attribute: false })
+  logoData?: MastheadLogoData;
+
+  /**
    * Data for l1.
    */
   @property({ attribute: false })
@@ -538,7 +567,8 @@ class DDSMastheadComposite extends LitElement {
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo></dds-masthead-logo>
+
+        ${this._renderLogo()}
         ${!brandName
           ? undefined
           : html`

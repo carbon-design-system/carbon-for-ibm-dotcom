@@ -18,7 +18,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibm
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, l1Data } from './links';
+import { mastheadLinks as links, l1Data, logoData } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
@@ -92,6 +92,7 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
+            .logoData="${logoData}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -130,6 +131,38 @@ export const withL1 = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
+    ${StoryContent()}
+  `;
+};
+
+export const withAlternateLogoAndTooltip = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
           ></dds-masthead-container>
         `}
     ${StoryContent()}
