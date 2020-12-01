@@ -9,6 +9,8 @@
   aria-label="IBM logo"
   href="https://www.ibm.com/"
 >
+  <slot>
+  </slot>
 </a>
 
 ```
@@ -20,6 +22,8 @@
   aria-label="IBM logo"
   href="https://cloud.ibm.com/"
 >
+  <slot>
+  </slot>
 </a>
 
 ```

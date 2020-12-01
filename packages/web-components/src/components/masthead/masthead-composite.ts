@@ -8,11 +8,16 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import { nothing } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
+import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import {
   MastheadL1,
+  MastheadL1Item,
   MastheadLink,
+  MastheadLogoData,
   MastheadMenuItem,
   MastheadProfileItem,
   Translation,
@@ -34,6 +39,7 @@ import './megamenu-category-link';
 import './megamenu-category-group';
 import './megamenu-overlay';
 import './top-nav';
+import './top-nav-l1';
 import './top-nav-name';
 import './top-nav-item';
 import './top-nav-menu';
@@ -46,7 +52,6 @@ import './left-nav-menu-item';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
-import { MastheadL1Item } from '../../../../services-store/src/types/translateAPI';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -74,6 +79,7 @@ enum NAV_ITEMS_RENDER_TARGET {
 class DDSMastheadComposite extends LitElement {
   /**
    * Renders the L1 Items
+   *
    * @param target - defines the type of rendered item (top nav item / left nav item)
    */
   private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
@@ -82,7 +88,7 @@ class DDSMastheadComposite extends LitElement {
     if (menuItems) {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
         ? html`
-            <dds-top-nav hide-divider>
+            <dds-top-nav-l1>
               ${menuItems.map((elem: MastheadL1Item, i) => {
                 return elem.menuItems
                   ? html`
@@ -110,7 +116,7 @@ class DDSMastheadComposite extends LitElement {
                       ></dds-top-nav-item>
                     `;
               })}
-            </dds-top-nav>
+            </dds-top-nav-l1>
           `
         : menuItems.map((elem: MastheadL1Item, i) =>
             elem.menuItems
@@ -152,10 +158,28 @@ class DDSMastheadComposite extends LitElement {
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" url="${url}"> </dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" url="${url}"></dds-masthead-l1-name>
             `}
         ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </dds-masthead-l1>
+    `;
+  }
+
+  /**
+   * Renders masthead logo
+   *
+   */
+  private _renderLogo() {
+    if (!this.logoData)
+      return html`
+        <dds-masthead-logo></dds-masthead-logo>
+      `;
+    const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
+    const { tooltip, svg } = this.logoData;
+    return html`
+      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}"
+        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+      >
     `;
   }
 
@@ -452,6 +476,12 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * Logo data
+   */
+  @property({ attribute: false })
+  logoData?: MastheadLogoData;
+
+  /**
    * Data for l1.
    */
   @property({ attribute: false })
@@ -528,7 +558,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
@@ -537,14 +567,15 @@ class DDSMastheadComposite extends LitElement {
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo></dds-masthead-logo>
+
+        ${this._renderLogo()}
         ${!brandName
           ? undefined
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
         <dds-top-nav ?hide-divider="${this.l1Data}" menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-          ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+          ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
         <dds-masthead-search-composite
           ?active="${activateSearch}"
