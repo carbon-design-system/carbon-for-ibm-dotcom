@@ -98,7 +98,7 @@ const _renderCards = (cards, containerRef, cta) => (
                 src: ArrowRight20,
               },
             }}
-            type={card.media ? 'video' : 'local'}
+            type={card.media ? 'video' : card.type ? card.type : 'local'}
           />
         </div>
       );
