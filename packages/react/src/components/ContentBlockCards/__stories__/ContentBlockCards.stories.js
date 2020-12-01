@@ -56,6 +56,9 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
+    percy: {
+      skip: true,
+    },
     knobs: {
       ContentBlockCards: ({ groupId }) => {
         const knobs = getBaseKnobs({ groupId });

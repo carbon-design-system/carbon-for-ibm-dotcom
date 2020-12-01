@@ -189,6 +189,10 @@ $search-transition-timing: 95ms;
     opacity: 1;
   }
 
+  :host(#{$dds-prefix}-megamenu-link-with-icon) {
+    @extend .#{$prefix}--link-with-icon;
+  }
+
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
     @include carbon--breakpoint-up(800px) {
       top: -48px;

@@ -13,6 +13,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-section/content-section';
+import '../../content-section/content-section-heading';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../card-section-images';
@@ -32,7 +33,8 @@ const cardGroupItemWithImages = html`
 export const Default = ({ parameters }) => {
   const { heading, cards } = parameters?.props?.CardSectionImages ?? {};
   return html`
-    <dds-card-section-images heading=${ifNonNull(heading)}>
+    <dds-card-section-images>
+      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
       <dds-card-group>${cards}</dds-card-group>
     </dds-card-section-images>
   `;
