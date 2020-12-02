@@ -39,28 +39,10 @@
       }
     }
   }
+}
 
-  button.#{$prefix}--modal-header__label {
-    appearance: none;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    text-align: start;
-    display: inline-flex;
-
-    &:hover {
-      color: $interactive-01;
-      text-decoration: underline;
-    }
-
-    &:focus {
-      @include focus-outline('outline');
-    }
-
-    svg {
-      fill: currentColor;
-    }
-  }
+:host(#{$dds-prefix}-locale-modal) #{$dds-prefix}-expressive-modal-heading {
+  width: fit-content;
 }
 
 :host(#{$dds-prefix}-locale-search) {
