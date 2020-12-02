@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import styles from '../../../../../styles/scss/components/layout/_layout.scss';
 import list from '../../../../../styles/scss/components/list/_list.scss';
+import readme from './README.stories.mdx';
 
 export const Default = () => {
   return html`
@@ -102,4 +103,7 @@ export default {
       </style>
     `,
   ],
+  parameters: {
+    ...readme.parameters,
+  },
 };
