@@ -23,7 +23,7 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-block-simple', function() {
+describe('dds-content-block-media', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
