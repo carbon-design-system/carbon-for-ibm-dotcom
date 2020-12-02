@@ -33,7 +33,8 @@ describe('dds-card-hc', function() {
         template({
           eyebrow: 'eyebrow text',
           heading: 'Lorem ipsum dolor sit amet',
-          copy: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          copy:
+            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           defaultSrc: 'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
           href: 'https://example.com',

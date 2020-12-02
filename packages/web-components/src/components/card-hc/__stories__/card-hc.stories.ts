@@ -64,7 +64,11 @@ export default {
         image: boolean('image', false, groupId),
         eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Training', groupId),
         heading: textNullable('Card Heading (heading):', 'Learn more with less data', groupId),
-        copy: textNullable('Card Copy (copy):', 'Not every business challenge has huge amounts of data behind it. This is why Watson can learn from small data sets. Its about the quality of your data, not the quantity. (549 KB)', groupId),
+        copy: textNullable(
+          'Card Copy (copy):',
+          'Not every business challenge has huge amounts of data behind it. This is why Watson can learn from small data sets. Its about the quality of your data, not the quantity. (549 KB)',
+          groupId
+        ),
         inverse: boolean('inverse', false, groupId),
         href: textNullable('Card Href (href):', 'https://example.com', groupId),
         footer: textNullable('Footer copy text (footer.copy)', '', groupId),

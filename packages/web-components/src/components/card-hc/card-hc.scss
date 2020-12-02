@@ -13,33 +13,32 @@
 //
 
 .#{$prefix}--card,
-  :host(#{$dds-prefix}-card) {
+:host(#{$dds-prefix}-card) {
+  .#{$prefix}--card__heading,
+  .#{$prefix}--card__copy {
+    @include content-width;
+  }
 
-    .#{$prefix}--card__heading,
-    .#{$prefix}--card__copy {
-      @include content-width;
-    }
+  .#{$prefix}--card__heading {
+    @include carbon--type-style('expressive-heading-05');
+    font-weight: 300;
+    margin-bottom: $carbon--layout-03;
+  }
 
-    .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-05');
-      font-weight: 300;
-      margin-bottom: $carbon--layout-03;
-    }
+  .#{$prefix}--card__copy {
+    @include carbon--type-style('body-long-02');
+    color: $text-02;
+    margin-bottom: $carbon--spacing-08;
+  }
 
-    .#{$prefix}--card__copy {
-      @include carbon--type-style('body-long-02');
-      color: $text-02;
-      margin-bottom: $carbon--spacing-08;
-    }
+  .#{$prefix}--card__eyebrow {
+    @include carbon--type-style('expressive-heading-02');
+    color: $text-01;
+  }
 
-    .#{$prefix}--card__eyebrow {
-      @include carbon--type-style('expressive-heading-02');
-      color: $text-01;
-    }
-
-    &.#{$prefix}--card--link:hover {
-      text-decoration: none;
-    }
+  &.#{$prefix}--card--link:hover {
+    text-decoration: none;
+  }
 }
 
 :host(#{$dds-prefix}-card-footer),
