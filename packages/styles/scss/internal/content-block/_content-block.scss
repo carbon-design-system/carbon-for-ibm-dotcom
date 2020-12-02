@@ -17,6 +17,7 @@
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
+  :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
     padding-top: $carbon--layout-03;
