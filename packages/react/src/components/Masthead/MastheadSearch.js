@@ -254,6 +254,7 @@ const MastheadSearch = ({
     if (state.isSearchOpen) {
       const onSearchButtonClicked = new CustomEvent('onSearchButtonClicked', {
         bubbles: true,
+        detail: { value: state.val },
       });
 
       event.currentTarget.dispatchEvent(onSearchButtonClicked);
