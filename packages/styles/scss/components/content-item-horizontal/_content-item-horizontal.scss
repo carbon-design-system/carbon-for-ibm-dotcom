@@ -100,7 +100,7 @@
 
     .#{$prefix}--link-list li {
       @include carbon--breakpoint(md) {
-        padding-bottom: $carbon--spacing-05;
+        margin-bottom: $carbon--spacing-05;
       }
     }
   }
@@ -108,6 +108,7 @@
   .#{$prefix}--content-item-horizontal__row {
     @include carbon--make-row;
 
+    width: 100%;
     min-height: 160px;
   }
 

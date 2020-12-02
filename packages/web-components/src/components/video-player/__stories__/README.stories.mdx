@@ -55,39 +55,4 @@ VideoPlayerAPI.checkScript().then(() => {
 
 <Props of="dds-video-player" />
 
-## Advanced: Custom Connect the Video Player
-
-### JS
-
-When application code opens the lightbox, it can work with our video player service API to put the video data into the video player component:
-
-```javascript
-import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer.js';
-import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player.js';
-
-...
-
-document.addEventListener('DOMContentLoaded', async event => {
-  const videoPlayer = document.getElementById('video-player');
-  const videoTarget = document.createElement('div');
-  videoTarget.id = 'video-target';
-  videoTarget.className = 'bx--video-player__video';
-  videoPlayer.appendChild(videoTarget);
-  const [videoData] = await Promise.all([
-    VideoPlayerAPI.api('1_9h94wo6b'),
-    VideoPlayerAPI.embedVideo('1_9h94wo6b', videoTarget.id, true),
-  ]);
-  const { name, description, duration } = videoData;
-  videoPlayer.name = name;
-  videoPlayer.duration = duration;
-  videoPlayer.description = description;
-});
-```
-
-### HTML
-
-```html
-<dds-video-player id="video-player"></dds-video-player>
-```
-
 <Description markdown={contributing} />

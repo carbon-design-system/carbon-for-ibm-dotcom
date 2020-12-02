@@ -61,6 +61,20 @@
     color: $text-01;
   }
 
+  .#{$prefix}--quote__mark-corner-bracket {
+    @include carbon--breakpoint('sm') {
+      left: 0.6rem;
+    }
+
+    @include carbon--breakpoint('md') {
+      left: -0.5rem;
+    }
+
+    @include carbon--breakpoint('lg') {
+      left: -1rem;
+    }
+  }
+
   .#{$prefix}--quote__source {
     @include carbon--make-col-ready;
 

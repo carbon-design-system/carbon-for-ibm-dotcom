@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property, LitElement } from 'lit-element';
+import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -38,18 +38,18 @@ export enum LEADSPACE_TYPE {
 }
 
 /**
- * Leadspace theme
+ * Gradient style scheme.
  */
-export enum LEADSPACE_THEME {
+export enum LEADSPACE_GRADIENT_STYLE_SCHEME {
   /**
-   * Carbon White theme (default)
+   * No gradient.
    */
-  WHITE = 'white',
+  NONE = '',
 
   /**
-   *  Carbon Gray 100 theme
+   * With gradient.
    */
-  G100 = 'g100',
+  WITH_GRADIENT = 'with-gradient',
 }
 
 /**
@@ -71,7 +71,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getGradientClass() {
     return classMap({
-      [`${prefix}--leadspace--gradient`]: this.gradient,
+      [`${prefix}--leadspace--gradient`]: this.gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
       [`${prefix}--leadspace__overlay`]: true,
     });
   }
@@ -84,7 +84,6 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
       [`${prefix}--leadspace--centered`]: this.type === LEADSPACE_TYPE.CENTERED,
       [`${prefix}--leadspace--centered__image`]: this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
       [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
-      [`${prefix}--leadspace--${this.theme}`]: true,
       [`${prefix}--leadspace__section`]: true,
     });
   }
@@ -149,6 +148,12 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   copy = '';
 
   /**
+   * The gradient style sceheme.
+   */
+  @property({ reflect: true, attribute: 'gradient-style-scheme' })
+  gradientStyleScheme = LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT;
+
+  /**
    * The leadspace title.
    */
   @property()
@@ -160,23 +165,42 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   type = LEADSPACE_TYPE.LEFT;
 
-  /**
-   * Carbon color theme of the Leadspace
-   */
-  @property({ reflect: true })
-  theme = LEADSPACE_THEME.WHITE;
-
-  /**
-   * `true` to hide the divider.
-   */
-  @property({ type: Boolean, reflect: true })
-  gradient = true;
-
   render() {
+    const { gradientStyleScheme, type } = this;
     return html`
       <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}">
         <div class="${prefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
+            ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
+              ? undefined
+              : svg`
+                <svg
+                  class="${prefix}--leadspace__gradient"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs>
+                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops">
+                      ${
+                        type === LEADSPACE_TYPE.CENTERED
+                          ? svg`
+                          <stop offset="0%" />
+                          <stop offset="27%" />
+                          <stop offset="53%" />
+                          <stop offset="80%" />
+                        `
+                          : svg`
+                          <stop offset="0%" />
+                          <stop offset="75%" />
+                        `
+                      }
+                    </linearGradient>
+                  </defs>
+                  <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
+                </svg>
+              `}
             <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
                 <h1 class="${prefix}--leadspace__title">${this._renderTitle()}</h1>

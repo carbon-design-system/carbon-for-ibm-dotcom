@@ -18,7 +18,7 @@ import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibm
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import links from './links';
+import { mastheadLinks as links, l1Data, logoData } from './links';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
@@ -45,7 +45,7 @@ const StoryContent = () => html`
             between pages.
             <br />
             <br />
-            The shell was designed with maximum flexibility built in, to serve the needs of a broad range of products and users.
+            The shell was designed with maxPmum flexibility built in, to serve the needs of a broad range of products and users.
             Adopting the shell ensures compliance with IBM design standards, simplifies development efforts, and provides great
             user experiences. All IBM products built with Carbon are required to use the shell’s header.
             <br />
@@ -92,6 +92,7 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
+            .logoData="${logoData}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -100,6 +101,68 @@ export const Default = ({ parameters }) => {
             brand-name="${ifNonNull(brandName)}"
             user-status="${ifNonNull(userStatus)}"
             .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
+    ${StoryContent()}
+  `;
+};
+
+export const withL1 = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
+    ${StoryContent()}
+  `;
+};
+
+export const withAlternateLogoAndTooltip = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            brand-name="${ifNonNull(brandName)}"
+            user-status="${ifNonNull(userStatus)}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .logoData="${logoData}"
           ></dds-masthead-container>
         `}
     ${StoryContent()}
@@ -123,6 +186,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
     knobs: {
       MastheadComposite: ({ groupId }) => ({
         brandName: textNullable('Brand name (brand-name)', '', groupId),

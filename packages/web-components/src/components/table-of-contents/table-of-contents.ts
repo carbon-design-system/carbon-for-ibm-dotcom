@@ -196,6 +196,12 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    */
   private _handleUserInitiatedJump(target: string) {
     this.ownerDocument.defaultView!.location.hash = target;
+    const elem = this.querySelector(`a[name="${target}"]`);
+    if (elem) {
+      elem.setAttribute('tabindex', '0');
+      (elem as HTMLElement).focus({ preventScroll: true });
+      elem.removeAttribute('tabindex');
+    }
   }
 
   /**

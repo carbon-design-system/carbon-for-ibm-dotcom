@@ -8,10 +8,16 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import { nothing } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
+import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import {
+  MastheadL1,
+  MastheadL1Item,
   MastheadLink,
+  MastheadLogoData,
   MastheadMenuItem,
   MastheadProfileItem,
   Translation,
@@ -20,6 +26,8 @@ import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdot
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import './masthead';
 import './masthead-logo';
+import './masthead-l1';
+import './masthead-l1-name';
 import './masthead-menu-button';
 import './masthead-global-bar';
 import './masthead-profile';
@@ -31,6 +39,7 @@ import './megamenu-category-link';
 import './megamenu-category-group';
 import './megamenu-overlay';
 import './top-nav';
+import './top-nav-l1';
 import './top-nav-name';
 import './top-nav-item';
 import './top-nav-menu';
@@ -68,6 +77,112 @@ enum NAV_ITEMS_RENDER_TARGET {
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends LitElement {
+  /**
+   * Renders the L1 Items
+   *
+   * @param target - defines the type of rendered item (top nav item / left nav item)
+   */
+  private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
+    if (!this.l1Data) return undefined;
+    const { menuItems } = this.l1Data;
+    if (menuItems) {
+      return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
+        ? html`
+            <dds-top-nav-l1>
+              ${menuItems.map((elem: MastheadL1Item, i) => {
+                return elem.menuItems
+                  ? html`
+                      <dds-top-nav-menu
+                        menu-label="${elem.title}"
+                        trigger-content="${elem.title}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                      >
+                        ${elem.menuItems.map(
+                          (item, j) => html`
+                            <dds-top-nav-menu-item
+                              href="${item.url}"
+                              title="${item.title}"
+                              data-autoid="${ddsPrefix}--masthead__l1-nav--subnav-col${i}-item${j}"
+                            ></dds-top-nav-menu-item>
+                          `
+                        )}
+                      </dds-top-nav-menu>
+                    `
+                  : html`
+                      <dds-top-nav-item
+                        href="${elem.url}"
+                        title="${elem.title}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                      ></dds-top-nav-item>
+                    `;
+              })}
+            </dds-top-nav-l1>
+          `
+        : menuItems.map((elem: MastheadL1Item, i) =>
+            elem.menuItems
+              ? html`
+                  <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
+                    ${elem.menuItems.map(
+                      (item, j) => html`
+                        <dds-left-nav-menu-item
+                          href="${item.url}"
+                          title="${item.title}"
+                          data-autoid="${ddsPrefix}--masthead__l1-sidenav--subnav-col${i}-item${j}"
+                        ></dds-left-nav-menu-item>
+                      `
+                    )}
+                  </dds-left-nav-menu>
+                `
+              : html`
+                  <dds-left-nav-item
+                    href="${elem.url}"
+                    title="${elem.title}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                  ></dds-left-nav-item>
+                `
+          );
+    }
+
+    return undefined;
+  }
+
+  /**
+   * Renders L1 menu based on l1Data
+   *
+   */
+  private _renderL1() {
+    if (!this.l1Data) return undefined;
+    const { url, title } = this.l1Data;
+    return html`
+      <dds-masthead-l1 slot="masthead-l1">
+        ${!title
+          ? undefined
+          : html`
+              <dds-masthead-l1-name title="${title}" url="${url}"></dds-masthead-l1-name>
+            `}
+        ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+      </dds-masthead-l1>
+    `;
+  }
+
+  /**
+   * Renders masthead logo
+   *
+   */
+  private _renderLogo() {
+    if (!this.logoData)
+      return html`
+        <dds-masthead-logo></dds-masthead-logo>
+      `;
+    const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
+    const { tooltip, svg } = this.logoData;
+    return html`
+      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}"
+        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+      >
+    `;
+  }
+
   /**
    *  Render MegaMenu content
    *
@@ -361,6 +476,18 @@ class DDSMastheadComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * Logo data
+   */
+  @property({ attribute: false })
+  logoData?: MastheadLogoData;
+
+  /**
+   * Data for l1.
+   */
+  @property({ attribute: false })
+  l1Data?: MastheadL1;
+
+  /**
    * `true` to open the search dropdown.
    */
   @property({ type: Boolean, reflect: true, attribute: 'open-search-dropdown' })
@@ -418,6 +545,7 @@ class DDSMastheadComposite extends LitElement {
       searchPlaceholder,
       unauthenticatedProfileItems,
       userStatus,
+      l1Data,
       _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
@@ -430,7 +558,8 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
-        ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -438,14 +567,15 @@ class DDSMastheadComposite extends LitElement {
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
         >
         </dds-masthead-menu-button>
-        <dds-masthead-logo></dds-masthead-logo>
+
+        ${this._renderLogo()}
         ${!brandName
           ? undefined
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
-        <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-          ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+        <dds-top-nav ?hide-divider="${this.l1Data}" menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+          ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
         </dds-top-nav>
         <dds-masthead-search-composite
           ?active="${activateSearch}"
@@ -466,6 +596,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
+        ${!l1Data ? undefined : this._renderL1()}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;

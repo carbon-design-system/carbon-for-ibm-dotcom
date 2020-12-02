@@ -18,6 +18,8 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead-logo {
   height: 100%;
+  z-index: 1;
+  background-color: $ui-background;
 
   a {
     display: flex;
@@ -66,6 +68,13 @@ $search-transition-timing: 95ms;
 
     &.#{$prefix}--tooltip--a11y {
       height: 100%;
+    }
+  }
+
+  &.#{$prefix}--search-active {
+    display: none;
+    @include carbon--breakpoint(md) {
+      display: block;
     }
   }
 }
@@ -180,6 +189,10 @@ $search-transition-timing: 95ms;
     opacity: 1;
   }
 
+  :host(#{$dds-prefix}-megamenu-link-with-icon) {
+    @extend .#{$prefix}--link-with-icon;
+  }
+
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
     @include carbon--breakpoint-up(800px) {
       top: -48px;
@@ -247,7 +260,7 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--header__nav-container {
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     position: relative;
     @include carbon--breakpoint(md) {
       display: flex;
@@ -292,6 +305,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      z-index: 0;
       background-color: $ui-01;
       + .#{$prefix}--header__menu {
         background-color: $ui-02;
@@ -334,6 +348,7 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--header__action {
     border: 2px solid transparent;
+    background-color: $ui-background;
     > {
       svg {
         position: relative;

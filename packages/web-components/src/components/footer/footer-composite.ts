@@ -204,14 +204,25 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        <dds-locale-button @click="${handleClickLocaleButton}">${langDisplay}</dds-locale-button>
-        <dds-legal-nav>
+        ${size !== FOOTER_SIZE.MICRO
+          ? html`
+              <dds-locale-button @click="${handleClickLocaleButton}">${langDisplay}</dds-locale-button>
+            `
+          : html``}
+        <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url }) => html`
               <dds-legal-nav-item href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
             `
           )}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
+          ${size === FOOTER_SIZE.MICRO
+            ? html`
+                <dds-locale-button size="${size}" slot="locale" @click="${handleClickLocaleButton}"
+                  >${langDisplay}</dds-locale-button
+                >
+              `
+            : html``}
         </dds-legal-nav>
       </dds-footer>
     `;
