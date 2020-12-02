@@ -73,7 +73,9 @@
       transform: translateZ(0);
       visibility: visible;
       margin-bottom: $layout-05;
-      width: 100vw;
+      // `100vw` in Shadow DOM causes delayed rendering bug in Safari
+      // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
+      width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
 
       ::slotted(#{$dds-prefix}-megamenu),
       .#{$prefix}--masthead__megamenu {
