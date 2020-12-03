@@ -43,6 +43,7 @@
     "upgrade-carbon": "yarn upgrade-interactive carbon-components --latest --exact"
   },
   "dependencies": {
+    "@carbon/motion": "^10.10.0",
     "axios": "^0.19.0",
     "carbon-components": "10.24.0",
     "isomorphic-dompurify": "0.4.0",
@@ -87,6 +88,7 @@
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-scss": "^2.5.0",
     "rollup-plugin-sizes": "^0.5.0",
     "rollup-plugin-terser": "^4.0.0",
     "whatwg-fetch": "^2.0.3"

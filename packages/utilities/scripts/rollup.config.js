@@ -17,6 +17,7 @@ const builtins = require('rollup-plugin-node-builtins');
 const babel = require('rollup-plugin-babel');
 const replace = require('rollup-plugin-replace');
 const { terser } = require('rollup-plugin-terser');
+const scss = require('rollup-plugin-scss');
 const sizes = require('rollup-plugin-sizes');
 
 const packageJson = require('../package.json');
@@ -81,6 +82,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
     builtins(),
+    scss(),
     ...prodSettings,
   ],
   output: {
