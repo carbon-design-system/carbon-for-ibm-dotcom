@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/motion/scss/motion.scss';
-@import '../../../../styles/scss/globals/vars';
+@import '../../globals/vars';
+@import '../../globals/imports';
 
 :root {
   --#{$dds-prefix}--delay: 400ms;
