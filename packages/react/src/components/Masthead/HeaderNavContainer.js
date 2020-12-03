@@ -203,11 +203,10 @@ const HeaderNavContainer = ({ children }) => {
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
         </div>
-        <div className={`${prefix}--header__nav-caret-right-container`}>
-          <div
-            ref={caretRightRef}
-            className={`${prefix}--header__nav-caret-right-gradient`}
-          />
+        <div
+          ref={caretRightRef}
+          className={`${prefix}--header__nav-caret-right-container`}>
+          <div className={`${prefix}--header__nav-caret-right-gradient`} />
           <button
             className={`${prefix}--header__nav-caret-right`}
             aria-label="Masthead right caret"
