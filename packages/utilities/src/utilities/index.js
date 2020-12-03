@@ -16,6 +16,7 @@ export * from './ipcinfoCookie';
 export * from './markdownToHtml';
 export * from './removeHtmlTagEntities';
 export * from './sameHeight';
+export * from './scrollIntoView';
 export * from './serialize';
 export * from './settings';
 export * from './smoothScroll';
