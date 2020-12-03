@@ -25,6 +25,54 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
+  /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * Cleans-up and creats the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._observeResizeRoot);
+      this._observerResizeRoot.observe(this.ownerDocument.documentElement);
+    }
+  }
+
+  /**
+   * The observer for the resize of the viewport.
+   */
+  private _observeResizeRoot = records => {
+    const { contentRect } = records[records.length - 1];
+    // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
+    // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
+    this.style.setProperty(`--${ddsPrefix}-ce--viewport-width`, `${contentRect.width}px`);
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
+    super.disconnectedCallback();
+  }
+
+  firstUpdated() {
+    this._cleanAndCreateObserverResize({ create: true });
+  }
+
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;

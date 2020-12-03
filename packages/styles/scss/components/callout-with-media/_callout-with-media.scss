@@ -5,6 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '../../globals/imports';
 @import '../../globals/vars';
 @import '../../internal/callout/callout';
@@ -12,8 +13,10 @@
 @mixin callout-with-media {
   :host(#{$dds-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
+    @include carbon--theme($carbon--theme--g90, true);
+
     display: block;
-    background-color: $inverse-02;
+    background-color: $ui-01;
   }
 
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
