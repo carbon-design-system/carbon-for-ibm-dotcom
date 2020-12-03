@@ -112,13 +112,14 @@
       <dds-expressive-modal-close-button size="">
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
-        <button
-          class="bx--modal-header__label bx--type-delta"
-          data-autoid="dds--locale-modal__region-back"
-          part="back-button"
+        <dds-link-with-icon
+          ?disabled="false"
+          data-autoid="dds--link-with-icon"
+          href="#"
+          icon-placement="left"
         >
           header-title-foo
-        </button>
+        </dds-link-with-icon>
         <p
           class="bx--modal-header__heading bx--type-beta"
           tabindex="0"

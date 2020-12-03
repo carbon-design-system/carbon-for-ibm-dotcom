@@ -23,7 +23,7 @@ const CalloutQuote = ({ quote }) => {
       className={`${prefix}--callout-quote`}
       data-autoid={`${stablePrefix}--callout-quote`}>
       <Callout>
-        <Quote {...quote} inverse={true} />
+        <Quote {...quote} />
       </Callout>
     </div>
   );
