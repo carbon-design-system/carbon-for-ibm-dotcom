@@ -6,6 +6,9 @@
  */
 
 import './scroll-into-view.scss';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+
+const { stablePrefix } = ddsSettings;
 
 /**
  * Utility handles fade transition for selected elements.
@@ -43,12 +46,12 @@ const scrollIntoView = (selector, delay = '400ms', iterations = true) => {
     'load',
     () => {
       const elements = document.querySelectorAll(selector);
-      const root = document.querySelector(':root');
+      const root = document.documentElement;
 
       const observer = new IntersectionObserver(function handleIntersect(
         entries
       ) {
-        root.style.setProperty('--delay', delay);
+        root.style.setProperty(`--${stablePrefix}--delay`, delay);
         entries.forEach(entry => {
           if (entry.intersectionRatio > 0) {
             entry.target.classList.remove('bx--fade-out');
