@@ -15,6 +15,7 @@ import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import EarthFilled16 from '@carbon/icons-react/es/earth--filled/16';
+import { LinkWithIcon } from '../LinkWithIcon';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleModalCountries from './LocaleModalCountries';
 import LocaleModalRegions from './LocaleModalRegions';
@@ -113,11 +114,15 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
           label={[
-            <ArrowLeft20
-              className={`${prefix}--locale-modal__label-arrow`}
-              key="arrow-left"
-            />,
-            modalLabels.headerTitle,
+            <LinkWithIcon href="#" iconPlacement={'left'}>
+              <span>{modalLabels.headerTitle}</span>
+              {
+                <ArrowLeft20
+                  className={`${prefix}--locale-modal__label-arrow`}
+                  key="arrow-left"
+                />
+              }
+            </LinkWithIcon>,
           ]}
           title={currentRegion}
           className={`${prefix}--locale-modal__back`}
