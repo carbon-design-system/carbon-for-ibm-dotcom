@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { motion } from '@carbon/motion';
+import './scroll-into-view.scss';
 
 /**
  * Utility handles fade transition for selected elements.
@@ -13,9 +13,17 @@ import { motion } from '@carbon/motion';
  * @example
  * import { scrollIntoView } from '@carbon/ibmdotcom-utilities';
  *
+ * As an example, the function can be called to target 'bx--content-block' as such:
+ *
+ * For default values of 400ms and continuous play:
+ * scrollIntoView('.bx--content-block')
+ *
+ * With custom options:
+ * scrollIntoView('.bx--content-block', '3s', false)
+ *
  * @param {*} selector menu item selector id
  * @param {string} delay in either seconds or ms for animation to play
- * @param {boolean} iterations se
+ * @param {boolean} iterations to define whether its continuous or not
  */
 
 const viewportMargin =
@@ -25,40 +33,32 @@ const viewportMargin =
   ).toString() +
   'px 0px';
 
+const options = {
+  rootMargin: viewportMargin,
+  threshold: 0,
+};
+
 const scrollIntoView = (selector, delay = '400ms', iterations = true) => {
   window.addEventListener(
     'load',
     () => {
       const elements = document.querySelectorAll(selector);
-
-      console.log(elements);
-
-      const options = {
-        rootMargin: viewportMargin,
-        threshold: 0,
-      };
+      const root = document.querySelector(':root');
 
       const observer = new IntersectionObserver(function handleIntersect(
         entries
       ) {
+        root.style.setProperty('--delay', delay);
         entries.forEach(entry => {
           if (entry.intersectionRatio > 0) {
-            entry.target.style.transitionTimingFunction = motion(
-              'entrance',
-              'expressive'
-            );
-            entry.target.style.transitionDuration = delay;
-            entry.target.style.opacity = 1;
+            entry.target.classList.remove('bx--fade-out');
+            entry.target.classList.add('bx--fade-in');
             if (!iterations) {
               observer.unobserve(entry.target);
             }
           } else {
-            entry.target.style.transitionTimingFunction = motion(
-              'exit',
-              'expressive'
-            );
-            entry.target.style.transitionDuration = delay;
-            entry.target.style.opacity = 0;
+            entry.target.classList.remove('bx--fade-in');
+            entry.target.classList.add('bx--fade-out');
           }
         });
       },
