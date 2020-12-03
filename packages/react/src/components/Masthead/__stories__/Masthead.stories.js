@@ -12,11 +12,6 @@ import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
-
-// For mocking in integration tests
-// TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
-const origGetTranslation = TranslationAPI.getTranslation;
 
 export default {
   title: 'Components|Masthead',
@@ -36,17 +31,6 @@ Default.story = {
     knobs: {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
-        const useMockData = boolean('Use mock data', inPercy());
-
-        // For mocking in integration tests
-        // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
-        TranslationAPI.getTranslation = !useMockData
-          ? origGetTranslation
-          : () =>
-              new Promise(resolve => {
-                setTimeout(resolve, 300000);
-              });
-
         const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
           ? text(
               'custom profile login url (customProfileLogin)',
@@ -56,14 +40,59 @@ Default.story = {
           : null;
 
         return {
-          navigation: select(
-            'navigation data (navigation)',
-            mastheadKnobs.navigation,
-            useMockData
-              ? mastheadKnobs.navigation.custom
-              : mastheadKnobs.navigation.default,
+          navigation: mastheadKnobs.navigation.default,
+          platform: select(
+            'platform name (platform)',
+            mastheadKnobs.platform,
+            mastheadKnobs.platform.none,
             groupId
           ),
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          customProfileLogin,
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+export const WithCustomNavigation = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithCustomNavigation.story = {
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => {
+        const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
+          ? text(
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
+          : null;
+
+        return {
+          navigation: mastheadKnobs.navigation.custom,
           platform: select(
             'platform name (platform)',
             mastheadKnobs.platform,
