@@ -4,8 +4,9 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 # `<dds-content-group-pictograms>`
 
-> The Content Group – Pictograms pattern is a variant of `<dds-content-group>`, and
-> includes a heading, copy and [Pictogram Items](http://ibmdotcom-web-components.mybluemix.net/?path=/story/components-pictogram-item--default)
+> The Content Group – Pictograms pattern is a variant of `<dds-content-group>`,
+> and includes a heading, copy and
+> [Pictogram Items](http://ibmdotcom-web-components.mybluemix.net/?path=/story/components-pictogram-item--default)
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-group-pictograms)
 > example implementation.
@@ -29,13 +30,17 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group/content-gro
 
 ```html
 <dds-content-group-pictograms>
-  <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+  <dds-content-group-heading
+    >Curabitur malesuada varius mi eu posuere</dds-content-group-heading
+  >
   <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
   <dds-pictogram-item>
-    <svg slot="pictogram"...>
+    <svg slot="pictogram" ...>
       ...
     </svg>
-    <dds-content-item-heading>Lorem ipsum dolor sit amet</dds-content-item-heading>
+    <dds-content-item-heading
+      >Lorem ipsum dolor sit amet</dds-content-item-heading
+    >
     <dds-content-item-copy>Lorem ipsum dolor sit amet</dds-content-item-copy>
     <dds-link-with-icon href="https://www.ibm.com/" slot="cta">
       Link text
@@ -49,10 +54,12 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group/content-gro
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                    | Description |
-| -----------------------------    | ----------------------------------------- | ----------- |
+| -------------------------------- | ----------------------------------------- | ----------- |
 | `<dds-content-group-pictograms>` | `data-autoid="dds--content-group-simple"` | Component   |
 | `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"` | Component   |
 | `<dds-content-item-copy>`        | `data-autoid="dds--content-item__copy"`   | Component   |
