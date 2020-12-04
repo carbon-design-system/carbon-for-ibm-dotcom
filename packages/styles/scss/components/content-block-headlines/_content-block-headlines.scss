@@ -4,8 +4,12 @@
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
 */
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../../globals/utils/hang';
 
 @mixin content-block-headlines {
+  :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
       @include carbon--breakpoint('md') {
@@ -26,7 +30,9 @@
       }
     }
 
+    :host(#{$dds-prefix}-content-block__copy),
     .#{$prefix}--content-block__copy {
+      margin-bottom: 6rem;
       p {
         margin-bottom: $carbon--layout-05;
 
@@ -57,8 +63,6 @@
     }
 
     @include carbon--breakpoint('md') {
-      border-top: 1px solid $ui-03;
-
       @include carbon--make-col(12, 12);
     }
 
@@ -67,30 +71,35 @@
     }
   }
 
-  .#{$prefix}--content-block-headlines__item {
-    &-container {
-      @include carbon--make-row;
+  .#{$prefix}--content-block-headlines__item-container {
+    @include carbon--breakpoint('md') {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+  }
 
-    @include carbon--make-col-ready;
-
+  :host(#{$dds-prefix}-content-block-headlines-item),
+  .#{$prefix}--content-block-headlines__item {
     border-top: 1px solid $ui-03;
     padding-top: $carbon--spacing-05;
     padding-bottom: $carbon--spacing-07;
 
-    h4,
-    p {
+    @include carbon--make-col-ready;
+
+    .#{$prefix}--content-block-headlines__heading,
+    .#{$prefix}--content-block-headlines__copy {
       max-width: 90%;
       color: $text-01;
     }
 
-    p {
+    .#{$prefix}--content-block-headlines__copy {
       @include carbon--type-style('body-long-02', true);
 
       margin: $carbon--spacing-05 0 0;
     }
 
-    h4 {
+    :host(#{$dds-prefix}-content-block-headlines-heading),
+    .#{$prefix}--content-block-headlines__heading {
       @include carbon--type-style('display-02', true);
     }
 
@@ -99,14 +108,12 @@
     }
 
     @include carbon--breakpoint('md') {
-      @include carbon--make-col(4, 8);
-
-      border-top: none;
       padding-top: $carbon--spacing-05;
       padding-bottom: $carbon--layout-05;
     }
   }
 }
+
 @include exports('content-block-headlines') {
   @include content-block-headlines;
 }

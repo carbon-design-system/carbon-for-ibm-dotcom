@@ -23,7 +23,6 @@ const { prefix } = settings;
  */
 const ContentBlockHeadlines = ({ heading, copy, items }) => {
   const containerRef = useRef();
-  const contentRows = chunk(items, 2);
 
   useEffect(() => {
     setSameHeight();
@@ -57,7 +56,12 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
       ref={containerRef}>
       <ContentBlock heading={heading} copy={copy} border={true}>
         <div className={`${prefix}--content-block-headlines__container`}>
-          {_renderRows(contentRows)}
+          <div className={`${prefix}--content-block-headlines__row`}>
+            <div
+              className={`${prefix}--content-block-headlines__item-container`}>
+              {renderItems(items)}
+            </div>
+          </div>
         </div>
       </ContentBlock>
     </div>
@@ -67,48 +71,28 @@ const ContentBlockHeadlines = ({ heading, copy, items }) => {
 /**
  * Renders the ContentBlockHeadlines items
  *
- * @param {Array} contentRows array of content rows
+ * @param {Array} items array of content rows
  * @private
  * @returns {*} JSX component
  */
-const _renderRows = contentRows =>
-  contentRows.map((row, index) => (
-    <div className={`${prefix}--content-block-headlines__row`} key={index}>
-      <div className={`${prefix}--content-block-headlines__item-container`}>
-        {row.map((item, index) => (
-          <div
-            className={`${prefix}--content-block-headlines__item`}
-            key={index}>
-            <h4 className={`${prefix}--content-block-headlines__headline`}>
-              {item.headline}
-            </h4>
-            <p className={`${prefix}--content-block-headlines__copy`}>
-              {item.copy}
-            </p>
-            {item.cta && <CTA {...item.cta} />}
-          </div>
-        ))}
-      </div>
-    </div>
-  ));
+function renderItems(items) {
+  const headlineItems = [];
 
-/**
- * Break out items per row
- *
- * @param {Array} array of items
- * @param {number} size number of items per row
- * @private
- * @returns {Array} array of rows
- */
-function chunk(array, size) {
-  return array.reduce((chunks, item, i) => {
-    if (i % size === 0) {
-      chunks.push([item]);
-    } else {
-      chunks[chunks.length - 1].push(item);
-    }
-    return chunks;
-  }, []);
+  items.forEach((item, index) => {
+    headlineItems.push(
+      <div className={`${prefix}--content-block-headlines__item`} key={index}>
+        <h4 className={`${prefix}--content-block-headlines__headline`}>
+          {item.headline}
+        </h4>
+        <p className={`${prefix}--content-block-headlines__copy`}>
+          {item.copy}
+        </p>
+        {item.cta && <CTA {...item.cta} />}
+      </div>
+    );
+  });
+
+  return headlineItems;
 }
 
 ContentBlockHeadlines.propTypes = {
