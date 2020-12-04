@@ -28,16 +28,6 @@
     outline: 2px solid $focus;
     outline-offset: -2px;
   }
-
-  /* stylelint-disable declaration-no-important */
-  &:nth-child(5n) {
-    margin-top: -1px !important;
-
-    @include carbon--breakpoint('md') {
-      margin-top: -3px !important;
-    }
-  }
-  /* stylelint-enable declaration-no-important */
 }
 
 :host(#{$dds-prefix}-link-list-item) {

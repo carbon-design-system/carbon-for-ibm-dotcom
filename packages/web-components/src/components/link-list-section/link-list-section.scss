@@ -6,7 +6,9 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 
 :host(#{$dds-prefix}-link-list-section) {
   display: block;
+  @extend #{$dds-prefix}-content-section;
 }

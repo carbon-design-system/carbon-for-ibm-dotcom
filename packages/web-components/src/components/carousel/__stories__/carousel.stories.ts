@@ -59,7 +59,7 @@ export const withContentSection = ({ parameters }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       </dds-content-section-copy>
       <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-        Link text ${ArrowRight20({ slot: 'icon' })}
+        Link text ${9({ slot: 'icon' })}
       </dds-link-with-icon>
       <dds-carousel page-size="${ifNonNull(pageSize)}">
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
