@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
 import { select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
@@ -15,6 +16,7 @@ import languageItems from '../../Footer/__data__/language-items.json';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import scrollIntoView from '@carbon/ibmdotcom-utilities/es/utilities/scrollIntoView/scrollIntoView';
 
 const footerTypeOptions = {
   tall: 'tall',
@@ -295,6 +297,55 @@ WithL1.story = {
         return {
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),
+          },
+        };
+      },
+    },
+  },
+};
+
+export const WithFadeAnimations = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithFadeAnimations.story = {
+  name: 'With Fade Animations',
+
+  parameters: {
+    ...readme.parameters,
+    'carbon-theme': { disabled: true },
+    knobs: {
+      escapeHTML: false,
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+
+        scrollIntoView('.bx--content-block');
+
+        const delayOptions = {
+          Default: '400ms',
+          1: '1s',
+          3: '3s',
+          5: '5s',
+        };
+        const defaultDelay = '400s';
+        let delay = select('Delay (in seconds)', delayOptions, defaultDelay);
+
+        document.querySelectorAll('.bx--content-block').forEach(e => {
+          e.style.setProperty('--dds--scroll-into-view-delay', delay);
+        });
+        return {
+          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+            type: select(
+              'Footer (footerProps): sets the type of footer (type)',
+              footerTypeOptions,
+              footerTypeOptions.tall,
+              'Footer'
+            ),
           },
         };
       },

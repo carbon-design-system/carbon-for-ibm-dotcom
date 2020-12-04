@@ -6,13 +6,35 @@
  */
 
 /**
+ * The viewport calculation for 12.5vh + 32px of the root margins.
+ *
+ * @private
+ */
+const _viewportMargin =
+  '-' +
+  (
+    Math.round(document.documentElement.clientHeight / (100 / 12.5)) + 32
+  ).toString() +
+  'px 0px';
+
+/**
+ * Intersection Observer options
+ *
+ * @private
+ */
+const _options = {
+  rootMargin: _viewportMargin,
+  threshold: 0,
+};
+
+/**
  * Utility handles fade transition for selected elements.
  *
  * @example
  * import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
  * import { scrollIntoView } from '@carbon/ibmdotcom-utilities';
  *
- * As an example, the function can be called to target 'bx--content-block' as such:
+ * As an example, the function can be called to target '.bx--content-block' as such:
  *
  * For default values of 400ms and continuous play:
  * scrollIntoView('.bx--content-block')
@@ -29,18 +51,6 @@
  * @param {*} selector menu item selector id
  * @param {boolean} iterations to define whether its continuous or not
  */
-
-const viewportMargin =
-  '-' +
-  (
-    Math.round(document.documentElement.clientHeight / (100 / 12.5)) + 32
-  ).toString() +
-  'px 0px';
-
-const options = {
-  rootMargin: viewportMargin,
-  threshold: 0,
-};
 
 const scrollIntoView = (selector, iterations = true) => {
   window.addEventListener(
@@ -63,7 +73,7 @@ const scrollIntoView = (selector, iterations = true) => {
           }
         });
       },
-      options);
+      _options);
 
       elements.forEach(e => {
         observer.observe(e);
