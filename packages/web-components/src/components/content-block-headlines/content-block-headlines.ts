@@ -10,7 +10,6 @@
 import { css, customElement, html, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-headlines.scss';
@@ -25,8 +24,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-headlines`)
 class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
-  private itemCopy;
-
   /**
    * @returns Main content
    */
@@ -37,7 +34,7 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
         <div class="${prefix}--content-block-headlines__container">
           <div class="${prefix}--content-block-headlines__row">
             <div class="${prefix}--content-block-headlines__item-container">
-              <slot @slotchange="${this._handleSlotChange}" name="content"></slot>
+              <slot name="content"></slot>
             </div>
           </div>
         </div>
@@ -55,52 +52,6 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
         <slot name="copy"></slot>
       </div>
     `;
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this._handleResize);
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('resize', this._handleResize);
-  }
-
-  /**
-   * Method called on resize, triggers the sameHeight utility
-   *
-   * @private
-   */
-  private _handleResize() {
-    this.itemCopy = document.querySelectorAll(`${ddsPrefix}-content-item-copy`);
-    if (this.itemCopy) window.requestAnimationFrame(() => sameHeight(this.itemCopy, 'md'));
-  }
-
-  /**
-   * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
-   *
-   * @protected
-   */
-  protected _handleSlotChange() {
-    // this.itemCopy = (event.target as HTMLSlotElement)
-    //   .assignedNodes({ flatten: true })
-    //   .filter(elem =>
-    //     (elem as HTMLElement).matches !== undefined
-    //       ? (elem as HTMLElement).matches((this.constructor as typeof DDSContentBlockHeadlines).itemCopySelector)
-    //       : false
-    //   );
-    // .filter(elem =>
-    // (elem as HTMLElement).localName === (this.constructor as typeof DDSContentBlockHeadlines).itemCopySelector);
-    // console.log('items', this.itemCopy);
-    setTimeout(() => {
-      this.itemCopy = document.querySelectorAll(`${ddsPrefix}-content-item-copy`);
-      sameHeight(this.itemCopy, 'md');
-    });
-  }
-
-  static get itemCopySelector() {
-    return `${ddsPrefix}-content-item-copy`;
   }
 
   static get stableSelector() {
