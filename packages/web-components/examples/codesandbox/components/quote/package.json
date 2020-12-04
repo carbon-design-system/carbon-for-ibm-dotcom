@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-web-components": "canary",
+    "carbon-web-components": "^1.7.1",
     "lit-element": "^2.2.0",
     "lit-html": "^1.1.0"
   },
