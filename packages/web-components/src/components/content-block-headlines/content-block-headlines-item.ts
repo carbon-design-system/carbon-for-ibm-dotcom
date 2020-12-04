@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html } from 'lit-element';
+import { css, customElement, html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItem from '../content-item/content-item';
@@ -22,9 +22,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-headlines-item`)
 class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
+  /**
+   * The shadow slot this headlines item should be in.
+   */
+  @property({ reflect: true })
+  slot = 'content';
+
   render() {
     return html`
-      <h4 class="bx--content-block-headlines__headline"><slot name="headline"></slot></h4>
+      <h4 class="bx--content-block-headlines__heading"><slot name="heading"></slot></h4>
       <p class="bx--content-block-headlines__copy"><slot name="copy"></slot></p>
       <slot name="cta"></slot>
     `;

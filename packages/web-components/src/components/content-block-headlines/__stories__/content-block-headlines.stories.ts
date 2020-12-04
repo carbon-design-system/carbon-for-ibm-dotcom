@@ -13,11 +13,12 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-item/content-item-copy';
 import '../content-block-headlines';
 import '../content-block-headlines-item';
+import '../content-block-headlines-heading';
 import { DDS_CONTENT_BLOCK_HEADLINES } from '../../../globals/internal/feature-flags';
 
 const contentItemRow1 = html`
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-item-headline slot="headline">25%</dds-content-item-headline>
+  <dds-content-block-headlines-item>
+    <dds-content-block-headlines-heading>25%</dds-content-block-headlines-heading>
     <dds-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent
       faster.</dds-content-item-copy
@@ -31,8 +32,8 @@ const contentItemRow1 = html`
 `;
 
 const contentItemRow2 = html`
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-item-headline slot="headline">1.34M</dds-content-item-headline>
+  <dds-content-block-headlines-item>
+    <dds-content-block-headlines-heading>1.34M</dds-content-block-headlines-heading>
     <dds-content-item-copy slot="copy">Save 1.34M per year by optimizing your time and IT expenses.</dds-content-item-copy>
     <dds-link-list slot="cta" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">

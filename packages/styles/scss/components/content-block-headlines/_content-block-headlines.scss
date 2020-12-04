@@ -86,7 +86,7 @@
 
     @include carbon--make-col-ready;
 
-    .#{$prefix}--content-block-headlines__headline,
+    .#{$prefix}--content-block-headlines__heading,
     .#{$prefix}--content-block-headlines__copy {
       max-width: 90%;
       color: $text-01;
@@ -98,8 +98,8 @@
       margin: $carbon--spacing-05 0 0;
     }
 
-    :host(#{$dds-prefix}-content-item-headline),
-    .#{$prefix}--content-block-headlines__headline {
+    :host(#{$dds-prefix}-content-block-headlines-heading),
+    .#{$prefix}--content-block-headlines__heading {
       @include carbon--type-style('display-02', true);
     }
 

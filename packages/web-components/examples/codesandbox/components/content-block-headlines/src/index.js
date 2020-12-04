@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy';
-import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines';
-import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines-item';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines-item.js';
 import './index.scss';
