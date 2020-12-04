@@ -9,9 +9,7 @@
 
 import { html } from 'lit-element';
 import { number } from '@storybook/addon-knobs';
-// Below path will be there when an application installs `carbon-web-components` package.
-// In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-// @ts-ignore
+
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/card';
@@ -20,7 +18,7 @@ import '../../content-section/content-section';
 import '../../content-section/content-section-copy';
 import '../../content-section/content-section-heading';
 import '../../link-with-icon/link-with-icon';
-import '../carousel';
+import '../../carousel/carousel';
 import readme from './README.stories.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
@@ -44,14 +42,29 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 export const Default = ({ parameters }) => {
   const { pageSize } = parameters?.props?.Carousel ?? {};
   return html`
-    <dds-carousel page-size="${ifNonNull(pageSize)}">
-      ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
-    </dds-carousel>
+    <dds-content-section>
+      <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+      <dds-content-section-copy>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      </dds-content-section-copy>
+      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+        Link text ${ArrowRight20({ slot: 'icon' })}
+      </dds-link-with-icon>
+      <dds-carousel page-size="${ifNonNull(pageSize)}">
+        ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
+      </dds-carousel>
+    </dds-content-section>
   `;
 };
 
+Default.story = {
+  parameters: {
+    useRawContainer: true,
+  },
+};
+
 export default {
-  title: 'Components/Carousel',
+  title: 'Components/Card Section - Carousel',
   parameters: {
     ...readme.parameters,
     knobs: {
