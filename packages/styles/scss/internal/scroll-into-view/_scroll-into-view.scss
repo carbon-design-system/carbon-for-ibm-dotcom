@@ -9,17 +9,17 @@
 @import '../../globals/imports';
 
 :root {
-  --#{$dds-prefix}--delay: 400ms;
+  --#{$dds-prefix}--scroll-into-view-delay: 400ms;
 }
 
 .bx--fade-in {
   transition-timing-function: carbon--motion(entrance, expressive);
-  transition-duration: var(--#{$dds-prefix}--delay);
+  transition-duration: var(--#{$dds-prefix}--scroll-into-view-delay);
   opacity: 1;
 }
 
 .bx--fade-out {
   transition-timing-function: carbon--motion(exit, expressive);
-  transition-duration: var(--#{$dds-prefix}--delay);
+  transition-duration: var(--#{$dds-prefix}--scroll-into-view-delay);
   opacity: 0;
 }

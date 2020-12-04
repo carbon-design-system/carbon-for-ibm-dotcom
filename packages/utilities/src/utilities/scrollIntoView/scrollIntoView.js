@@ -5,15 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-
-const { stablePrefix } = ddsSettings;
-
 /**
  * Utility handles fade transition for selected elements.
  *
  * @example
+ * import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
  * import { scrollIntoView } from '@carbon/ibmdotcom-utilities';
  *
  * As an example, the function can be called to target 'bx--content-block' as such:
@@ -21,11 +17,16 @@ const { stablePrefix } = ddsSettings;
  * For default values of 400ms and continuous play:
  * scrollIntoView('.bx--content-block')
  *
- * With custom options:
- * scrollIntoView('.bx--content-block', '3s', false)
+ * With 'one and done' option:
+ * scrollIntoView('.bx--content-block', false)
+ *
+ * For custom delay time, set within targeted class in the application's CSS code as such:
+ *
+ * .bx--content-block {
+ *   --#{$dds-prefix}--scroll-into-view-delay: 3s;
+ * }
  *
  * @param {*} selector menu item selector id
- * @param {string} delay in either seconds or ms for animation to play
  * @param {boolean} iterations to define whether its continuous or not
  */
 
@@ -41,17 +42,14 @@ const options = {
   threshold: 0,
 };
 
-const scrollIntoView = (selector, delay = '400ms', iterations = true) => {
+const scrollIntoView = (selector, iterations = true) => {
   window.addEventListener(
     'load',
     () => {
       const elements = document.querySelectorAll(selector);
-      const root = document.documentElement;
-
       const observer = new IntersectionObserver(function handleIntersect(
         entries
       ) {
-        root.style.setProperty(`--${stablePrefix}--delay`, delay);
         entries.forEach(entry => {
           if (entry.intersectionRatio > 0) {
             entry.target.classList.remove('bx--fade-out');
