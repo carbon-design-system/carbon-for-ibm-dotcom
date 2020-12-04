@@ -15,6 +15,7 @@
   class="bx--btn bx--btn--primary"
   href="https://example.com"
   id="button"
+  part="button"
   role="button"
 >
   <slot>
