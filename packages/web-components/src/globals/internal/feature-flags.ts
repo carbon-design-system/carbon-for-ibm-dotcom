@@ -26,3 +26,10 @@ export const DDS_FLAGS_ALL: boolean = process!.env.DDS_FLAGS_ALL === 'true' || f
  * @type {boolean}
  */
 export const DDS_CALLOUT_DATA: boolean = process!.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables Content Block - Headline
+ *
+ * @type {boolean}
+ */
+export const DDS_CONTENT_BLOCK_HEADLINES: boolean = process!.env.DDS_CONTENT_BLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
