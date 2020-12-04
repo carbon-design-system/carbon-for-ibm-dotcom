@@ -13,6 +13,8 @@ import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
+import fadeStyles from '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
+import scrollIntoView from '@carbon/ibmdotcom-utilities/es/utilities/scrollIntoView/scrollIntoView';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
@@ -33,6 +35,7 @@ const footerSizes = {
 const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
+    ${fadeStyles.cssText}
   </style>
   <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
     <div class="bx--grid">
@@ -124,6 +127,79 @@ export const Default = ({ parameters }) => {
           </dds-dotcom-shell-container>
         `}
   `;
+};
+
+export const withFadeAnimations = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
+    parameters?.props?.FooterComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-container>
+        `}
+  `;
+};
+
+withFadeAnimations.story = {
+  parameters: {
+    knobs: {
+      DotcomShell: () => {
+        scrollIntoView('h2');
+        scrollIntoView('p');
+
+        const delayOptions = {
+          Default: '400ms',
+          1: '1s',
+          3: '3s',
+          5: '5s',
+        };
+        const defaultDelay = '400s';
+        const delay = select('Delay (in seconds)', delayOptions, defaultDelay);
+
+        document.querySelectorAll('h2').forEach(e => {
+          e.style.setProperty('--dds--scroll-into-view-delay', delay);
+        });
+
+        document.querySelectorAll('p').forEach(e => {
+          e.style.setProperty('--dds--scroll-into-view-delay', delay);
+        });
+      },
+    },
+  },
 };
 
 export default {
