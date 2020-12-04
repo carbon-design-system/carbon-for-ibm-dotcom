@@ -12,6 +12,11 @@ import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+
+// For mocking in integration tests
+// TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
+const origGetTranslation = TranslationAPI.getTranslation;
 
 export default {
   title: 'Components|Masthead',
@@ -31,6 +36,17 @@ Default.story = {
     knobs: {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
+        const useMockData = boolean('Use mock data', inPercy());
+
+        // For mocking in integration tests
+        // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
+        TranslationAPI.getTranslation = !useMockData
+          ? origGetTranslation
+          : () =>
+              new Promise(resolve => {
+                setTimeout(resolve, 300000);
+              });
+
         const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
           ? text(
               'custom profile login url (customProfileLogin)',
@@ -40,7 +56,9 @@ Default.story = {
           : null;
 
         return {
-          navigation: mastheadKnobs.navigation.default,
+          navigation: useMockData
+            ? mastheadKnobs.navigation.custom
+            : mastheadKnobs.navigation.default,
           platform: select(
             'platform name (platform)',
             mastheadKnobs.platform,
