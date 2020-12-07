@@ -52,7 +52,7 @@ const slotExistencePropertyNames = {
   sourceHeading: '_hasSourceHeading',
   sourceCopy: '_hasSourceCopy',
   sourceBottomCopy: '_hasSourceBottomCopy',
-  cta: '_hasCTA',
+  footer: '_hasFooter',
 };
 
 /**
@@ -60,7 +60,7 @@ const slotExistencePropertyNames = {
  *
  * @element dds-quote
  * @slot copy - The copy content.
- * @slot cta - The footer (CTA) content.
+ * @slot footer - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
@@ -101,7 +101,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is cta.
    */
-  protected _hasCTA = false;
+  protected _hasFooter = false;
 
   /**
    * Handles `slotchange` event.
@@ -184,12 +184,12 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  protected _renderCTA() {
-    const { _hasCTA: hasCTA, _handleSlotChange: handleSlotChange } = this;
+  protected _renderFooter() {
+    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasCTA}" class="${prefix}--quote__footer">
+      <div ?hidden="${!hasFooter}" class="${prefix}--quote__footer">
         <dds-hr></dds-hr>
-        <slot name="cta" @slotchange="${handleSlotChange}"></slot>
+        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
   }
@@ -205,7 +205,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--quote__container">
         <div class="${prefix}--quote__wrapper">
-          ${this._renderQuote()} ${this._renderSource()} ${this._renderCTA()}
+          ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
         </div>
       </div>
     `;

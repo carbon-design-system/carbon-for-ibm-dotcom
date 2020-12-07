@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css, customElement } from 'lit-element';
+import { html, property, css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
@@ -22,11 +22,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cta-section-item`)
 class DDSCTASectionItem extends StableSelectorMixin(DDSContentItem) {
+  /**
+   * The shadow slot this CTA section item should be in.
+   */
+  @property({ reflect: true })
+  slot = 'items';
+
   render() {
     return html`
       <slot name="heading"></slot>
       <slot></slot>
-      <slot name="cta"></slot>
+      <slot name="footer"></slot>
     `;
   }
 

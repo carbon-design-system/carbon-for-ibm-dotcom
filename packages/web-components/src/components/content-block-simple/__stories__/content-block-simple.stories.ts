@@ -85,7 +85,7 @@ export const Default = ({ parameters }) => {
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
 };
@@ -98,7 +98,7 @@ export const WithImage = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
       <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
 };
@@ -111,7 +111,7 @@ export const WithVideo = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
 };
@@ -137,7 +137,7 @@ export const WithAsideElements = ({ parameters }) => {
           </dds-link-list-item-card-cta>
         </dds-link-list>
       </dds-content-block-complementary>
-      <dds-text-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
 };
