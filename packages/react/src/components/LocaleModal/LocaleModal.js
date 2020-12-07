@@ -114,7 +114,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
           label={[
-            <LinkWithIcon href="javascript:void(null);" iconPlacement={'left'}>
+            <LinkWithIcon href="#" iconPlacement={'left'}>
               <span>{modalLabels.headerTitle}</span>
               {
                 <ArrowLeft20
