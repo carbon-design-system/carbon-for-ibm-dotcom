@@ -1,0 +1,127 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
+
+# `<dds-content-block-headlines>`
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-headlines)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-headlines)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/content-block-headlines-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
+```
+
+### HTML
+
+```html
+<dds-content-block-headlines>
+  <dds-content-block-heading>Aliquam condimentum<</dds-content-block-heading>
+  <dds-content-block-copy slot="copy"
+    >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+    ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin.</dds-content-block-copy
+  >
+  <dds-content-block-headlines-item slot="content">
+    <dds-content-block-headlines-heading
+      >25%</dds-content-block-headlines-heading
+    >
+    <dds-content-item-copy slot="copy"
+      >Modernize mission-critical applications and infrastructure in a hybrid
+      multicloud environment up to 25 percent faster.</dds-content-item-copy
+    >
+    <dds-link-list slot="cta" type="vertical">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Link text
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-block-headlines-item>
+  <dds-content-block-headlines-item slot="content">
+    <dds-content-block-headlines-heading
+      >25%</dds-content-block-headlines-heading
+    >
+    <dds-content-item-copy slot="copy"
+      >Modernize mission-critical applications and infrastructure in a hybrid
+      multicloud environment up to 25 percent faster.</dds-content-item-copy
+    >
+    <dds-link-list slot="cta" type="vertical">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Link text
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-block-headlines-item>
+  <dds-content-block-headlines-item slot="content">
+    <dds-content-block-headlines-heading
+      >1.34M</dds-content-block-headlines-heading
+    >
+    <dds-content-item-copy slot="copy"
+      >Save 1.34M per year by optimizing your time and IT
+      expenses.</dds-content-item-copy
+    >
+    <dds-link-list slot="cta" type="vertical">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Link text
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-block-headlines-item>
+  <dds-content-block-headlines-item slot="content">
+    <dds-content-block-headlines-heading
+      >25%</dds-content-block-headlines-heading
+    >
+    <dds-content-item-copy slot="copy"
+      >Modernize mission-critical applications and infrastructure in a hybrid
+      multicloud environment up to 25 percent faster.</dds-content-item-copy
+    >
+    <dds-link-list slot="cta" type="vertical">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Link text
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-block-headlines-item>
+</dds-content-block-headlines>
+```
+
+## Props
+
+<Props of="dds-content-block-headlines" />
+<Description markdown={markdownContents} />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector              | Compatibility selector                            | Description |
+| ------------------------------------ | ------------------------------------------------- | ----------- |
+| `<dds-content-block-headlines>`      | `data-autoid="dds--content-block-headlines"`      | Component   |
+| `<dds-content-block-headlines-item>` | `data-autoid="dds--content-block-headlines-item"` | Component   |
+
+<Description markdown={contributing} />

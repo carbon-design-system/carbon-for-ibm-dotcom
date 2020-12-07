@@ -270,10 +270,7 @@ class HeaderMenu extends React.Component {
           {menuLinkName}
           <MenuContent />
         </a>
-        <ul
-          {...accessibilityLabel}
-          className={`${prefix}--header__menu`}
-          role="menu">
+        <ul {...accessibilityLabel} className={`${prefix}--header__menu`}>
           {React.Children.map(children, this._renderMenuItem)}
         </ul>
       </li>

@@ -56,14 +56,61 @@ Default.story = {
           : null;
 
         return {
-          navigation: select(
-            'navigation data (navigation)',
-            mastheadKnobs.navigation,
-            useMockData
-              ? mastheadKnobs.navigation.custom
-              : mastheadKnobs.navigation.default,
+          navigation: useMockData
+            ? mastheadKnobs.navigation.custom
+            : mastheadKnobs.navigation.default,
+          platform: select(
+            'platform name (platform)',
+            mastheadKnobs.platform,
+            mastheadKnobs.platform.none,
             groupId
           ),
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          customProfileLogin,
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};
+
+export const WithCustomNavigation = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithCustomNavigation.story = {
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => {
+        const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
+          ? text(
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
+          : null;
+
+        return {
+          navigation: mastheadKnobs.navigation.custom,
           platform: select(
             'platform name (platform)',
             mastheadKnobs.platform,
