@@ -114,7 +114,7 @@
       <dds-expressive-modal-heading>
         <dds-link-with-icon
           data-autoid="dds--link-with-icon"
-          href="javascript:void(null);"
+          href="#"
           icon-placement="left"
         >
           header-title-foo
