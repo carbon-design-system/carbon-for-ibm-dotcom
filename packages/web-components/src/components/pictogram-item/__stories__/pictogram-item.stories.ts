@@ -47,7 +47,7 @@ export const Default = ({ parameters }) => {
       </svg>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="cta">
+      <dds-link-with-icon href="${href}" slot="footer">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
     </dds-pictogram-item>

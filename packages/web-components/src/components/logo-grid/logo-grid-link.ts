@@ -6,7 +6,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { css, customElement } from 'lit-element';
+import { css, property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './logo-grid.scss';
 import DDSCardLink from '../card-link/card-link';
@@ -21,10 +21,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-logo-grid-link`)
 class DDSLogoGridLink extends StableSelectorMixin(DDSCardLink) {
-  connectedCallback() {
-    this.setAttribute('slot', 'cta');
-    super.connectedCallback();
-  }
+  /**
+   * The shadow slot this link should be in.
+   */
+  @property({ reflect: true })
+  slot = 'footer';
 
   static get stableSelector() {
     return `${ddsPrefix}--logo-grid-link`;
