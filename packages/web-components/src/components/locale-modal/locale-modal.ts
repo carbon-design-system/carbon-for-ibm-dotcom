@@ -92,7 +92,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
   private _renderLocaleSelectorHeading() {
     const { headerTitle, _currentRegion: currentRegion, _handleClickBackButton: handleClickBackButton } = this;
     return html`
-      <dds-link-with-icon icon-placement="${ICON_PLACEMENT.LEFT}" href="#" ?disabled="false" @click="${handleClickBackButton}">
+      <dds-link-with-icon icon-placement="${ICON_PLACEMENT.LEFT}" href="javascript:void(null);" @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({ slot: 'icon', class: `${prefix}--locale-modal__label-arrow` })}
       </dds-link-with-icon>
       <p class="bx--modal-header__heading bx--type-beta" tabindex="0">${currentRegion}</p>
