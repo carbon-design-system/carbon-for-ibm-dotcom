@@ -113,7 +113,6 @@
       </dds-expressive-modal-close-button>
       <dds-expressive-modal-heading>
         <dds-link-with-icon
-          ?disabled="false"
           data-autoid="dds--link-with-icon"
           href="#"
           icon-placement="left"
