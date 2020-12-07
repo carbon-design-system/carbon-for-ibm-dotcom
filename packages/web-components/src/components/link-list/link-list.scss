@@ -60,12 +60,21 @@
   }
 
   &.#{$prefix}--link-list__split {
+    @include carbon--breakpoint('sm') {
+      ::slotted(#{$dds-prefix}-link-list-item) {
+        margin-right: -$carbon--layout-01;
+      }
+    }
     @include carbon--breakpoint('md') {
       ul {
-        display: block;
-        columns: 2;
-        column-gap: $layout-03;
-        flex: 1;
+        ::slotted(#{$dds-prefix}-link-list-item) {
+          margin-left: -$carbon--layout-01;
+          margin-right: 0;
+        }
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2rem;
       }
 
       .#{$prefix}--link-list__heading {

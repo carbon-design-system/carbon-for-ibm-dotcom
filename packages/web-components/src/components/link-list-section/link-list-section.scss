@@ -11,4 +11,15 @@
 :host(#{$dds-prefix}-link-list-section) {
   display: block;
   @extend #{$dds-prefix}-content-section;
+  .#{$prefix}--content-section__children {
+    margin-top: 0;
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(8, 16);
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-content-section-heading) {
+    margin-bottom: 0;
+  }
 }
