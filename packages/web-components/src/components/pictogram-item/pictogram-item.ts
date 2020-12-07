@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-pictogram-item
  * @slot pictogram - The pictogram content.
  * @slot heading - The heading content.
- * @slot cta - The footer (CTA) content.
+ * @slot footer - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends DDSContentItem {

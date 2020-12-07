@@ -74,7 +74,7 @@ export const Default = ({ parameters }) => {
       <dds-card-group slot="content">
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
-      <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>
@@ -91,7 +91,7 @@ export const withImages = ({ parameters }) => {
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
-      <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>
@@ -108,7 +108,7 @@ export const withVideos = ({ parameters }) => {
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>
-      <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

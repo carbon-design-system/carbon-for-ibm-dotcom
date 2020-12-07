@@ -18,7 +18,7 @@ const template = (props?) => {
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-card-group>${children}</dds-card-group>
-      <dds-card-cta slot="cta" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>
