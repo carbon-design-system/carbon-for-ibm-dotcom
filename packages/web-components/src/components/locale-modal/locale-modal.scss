@@ -71,8 +71,6 @@
     @extend .#{$prefix}--tile--clickable;
     @extend .#{$prefix}--card;
 
-    padding: $carbon--spacing-05;
-
     .#{$prefix}--card__wrapper .bx--card__footer svg {
       color: $ui-05;
     }
