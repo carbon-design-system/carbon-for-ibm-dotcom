@@ -36,7 +36,7 @@ describe('dds-cta-section', function() {
           heading: 'heading-foo',
           copy: 'copy-foo',
           children: html`
-            <div slot="cta">cta-foo</div>
+            <div slot="action">action-foo</div>
             <div slot="footer">footer-foo</div>
           `,
         }),

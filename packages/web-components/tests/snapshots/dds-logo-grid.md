@@ -16,7 +16,7 @@
   hidden=""
 >
   <div class="bx--content-block__cta bx--content-block__cta-col">
-    <slot name="cta">
+    <slot name="footer">
     </slot>
   </div>
 </div>

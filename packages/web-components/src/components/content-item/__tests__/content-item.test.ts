@@ -37,7 +37,7 @@ describe('dds-content-item', function() {
           children: html`
             <dds-video-player slot="media" duration="90" name="name-foo"></dds-video-player>
             <dds-content-item-copy>copy-foo</dds-content-item-copy>
-            <dds-text-cta slot="cta" type="local">copy-foo</dds-text-cta>
+            <dds-text-cta slot="footer" type="local">copy-foo</dds-text-cta>
           `,
         }),
         document.body
