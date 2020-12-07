@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 const slotExistencePropertyNames = {
   eyebrow: '_hasEyebrow',
-  cta: '_hasCTA',
+  footer: '_hasFooter',
 };
 
 /**
@@ -38,11 +38,11 @@ class DDSContentItemHorizontal extends DDSContentItem {
   protected _hasEyebrow = false;
 
   /**
-   * Handles `slotchange` event on the CTA slot.
+   * Handles `slotchange` event on the footer slot.
    *
    * @param event The event.
    */
-  protected _handleSlotchange({ target }: Event) {
+  protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
@@ -56,12 +56,12 @@ class DDSContentItemHorizontal extends DDSContentItem {
       <div class="${prefix}--content-item-horizontal__row">
         <div class="${prefix}--content-item-horizontal__col">
           <p ?hidden="${!hasEyebrow}" class="${prefix}--content-item-horizontal__item--eyebrow">
-            <slot name="eyebrow" @slotchange="${this._handleSlotchange}"></slot>
+            <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           </p>
           <slot name="heading"></slot>
         </div>
         <div class="${prefix}--content-item-horizontal__col">
-          ${this._renderBody()}
+          ${this._renderBody()}${this._renderFooter()}
         </div>
       </div>
     `;

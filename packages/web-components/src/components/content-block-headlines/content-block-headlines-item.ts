@@ -32,7 +32,7 @@ class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
     return html`
       <h4 class="bx--content-block-headlines__heading"><slot name="heading"></slot></h4>
       <p class="bx--content-block-headlines__copy"><slot name="copy"></slot></p>
-      <slot name="cta"></slot>
+      <slot name="footer"></slot>
     `;
   }
 
