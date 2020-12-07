@@ -112,12 +112,12 @@ export const Default = ({ parameters }) => {
       </dds-content-block-segmented-item>
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta slot="cta" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
+            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
               >Lorem ipsum dolor</dds-text-cta
             >
           `
         : html`
-            <dds-card-cta slot="cta" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
+            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
               Lorem ipsum dolor
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-cta>
@@ -150,12 +150,12 @@ export const withVideo = ({ parameters }) => {
       </dds-content-block-segmented-item>
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta slot="cta" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
+            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
               >Lorem ipsum dolor</dds-text-cta
             >
           `
         : html`
-            <dds-card-cta slot="cta" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
+            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
               Lorem ipsum dolor
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-cta>
@@ -201,12 +201,12 @@ export const withAsideElements = ({ parameters }) => {
       </dds-content-block-complementary>
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta slot="cta" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
+            <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
               >Lorem ipsum dolor</dds-text-cta
             >
           `
         : html`
-            <dds-card-cta slot="cta" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
+            <dds-card-cta slot="footer" cta-type=${ctaType} href=${hrefsForType[ctaType]}>
               Lorem ipsum dolor
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-cta>
