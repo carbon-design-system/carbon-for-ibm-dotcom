@@ -13,8 +13,6 @@
 @import '../feature-card/feature-card.scss';
 
 :host(#{$dds-prefix}-feature-card-block-medium) {
-  @extend :host(#{$dds-prefix}-feature-card);
-
   display: block;
 
   @include carbon--breakpoint-down('md') {

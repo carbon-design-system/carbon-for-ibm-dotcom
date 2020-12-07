@@ -118,6 +118,7 @@ class DDSCard extends DDSLink {
 
   /**
    * The color scheme.
+   * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    */
   @property({ attribute: 'color-scheme', reflect: true })
   colorScheme = BASIC_COLOR_SCHEME.REGULAR;

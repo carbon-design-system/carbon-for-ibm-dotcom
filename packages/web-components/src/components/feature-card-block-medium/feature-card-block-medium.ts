@@ -61,16 +61,6 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
     `;
   }
 
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    const { _linkNode: linkNode } = this;
-    if (linkNode) {
-      linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.add(`${prefix}--card--inverse`);
-      linkNode.classList.add(`${prefix}--feature-card`);
-    }
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--feature-card-block-medium`;
   }
