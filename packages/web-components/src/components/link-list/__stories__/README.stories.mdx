@@ -26,12 +26,20 @@ import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link.js';
 
 ```html
 <dds-link-list>
-  <dds-link-list-item>
-
-  </dds-link-list-item>
+  <dds-link-list-item></dds-link-list-item>
   <dds-card-link href="https://example.com">
     <p>Copy text</p>
-    <svg slot="footer" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+    <svg
+      slot="footer"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
       <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
   </dds-card-link>
@@ -41,5 +49,13 @@ import '@carbon/ibmdotcom-web-components/es/components/card-link/card-link.js';
 ## Props
 
 <Props of="dds-link-list" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector | Description |
+| ----------------------- | ---------------------- | ----------- |
+| `<dds-link-list>`       | dds--link-list         | Component   |
 
 <Description markdown={contributing} />
