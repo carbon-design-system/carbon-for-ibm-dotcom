@@ -8,7 +8,6 @@
  */
 
 import { render } from 'lit-html';
-import DDSLinkList from '../link-list';
 import { Default, Horizontal, Vertical, VerticalWithCards, EndOfSection } from '../__stories__/link-list.stories';
 
 describe('dds-link-list', function() {
@@ -73,12 +72,6 @@ describe('dds-link-list', function() {
     render(EndOfSection({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
-  });
-
-  it('Tests the get methods', function() {
-    expect((DDSLinkList as typeof DDSLinkList).stableSelector).toBe('dds--link-list');
-    expect((DDSLinkList as typeof DDSLinkList).splitLayoutClass).toBe('bx--link-list__split');
-    expect((DDSLinkList as typeof DDSLinkList).linkListItemSelector).toBe('dds-link-list-item');
   });
 
   afterEach(async function() {
