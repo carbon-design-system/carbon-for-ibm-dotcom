@@ -58,9 +58,10 @@ addParameters({
 addDecorator((story, { parameters }) => {
   const result = story();
   const { hasMainTag } = result as any;
-  const { hasGrid, hasVerticalSpacingInComponent, useRawContainer } = parameters;
+  const { hasCardGroup, hasGrid, hasVerticalSpacingInComponent, useRawContainer } = parameters;
   const classes = classMap({
     'dds-ce-demo-devenv--container': !useRawContainer,
+    'dds-ce-demo-devenv--container--has-card-group': hasCardGroup,
     'dds-ce-demo-devenv--container--has-grid': hasGrid,
     'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
   });
