@@ -9,7 +9,6 @@
 import { customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-list.scss';
 
@@ -77,25 +76,6 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this._handleResize);
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('resize', this._handleResize);
-  }
-
-  /**
-   * Method called on resize, triggers the sameHeight utility
-   *
-   * @private
-   */
-  private _handleResize() {
-    if (this.childItems) window.requestAnimationFrame(() => sameHeight(this.childItems, 'md'));
-  }
-
   /**
    * Returns a class-name based on the parameter type
    *
@@ -126,7 +106,6 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     if (this.childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
       this.classList.add((this.constructor as typeof DDSLinkList).splitLayoutClass);
     }
-    sameHeight(this.childItems, 'md');
   }
 }
 
