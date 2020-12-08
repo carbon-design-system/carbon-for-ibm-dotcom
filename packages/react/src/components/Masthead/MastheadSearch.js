@@ -169,12 +169,14 @@ const MastheadSearch = ({
     /**
      * Close search when click detected outside of component.
      * This is necessary otherwise search stays open even when
-     * elements other than the close button are clicked.
+     * elements other than the close button and the
+     * profile button are clicked.
      *
-     * @param {*} event Click event outside search component
+     * @param {*} event Click event outside masthead component
      */
     const handleClickOutside = event => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      let mastheadRef = ref.current?.closest('.bx--masthead');
+      if (mastheadRef && !mastheadRef.contains(event.target)) {
         // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
         if (state.val.length === 0) {
           dispatch({ type: 'setSearchClosed' });
