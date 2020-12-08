@@ -13,6 +13,7 @@ import { number } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../card-group';
 import '../card-group-item';
+import styles from './card-group.stories.scss';
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
@@ -117,13 +118,10 @@ export default {
   title: 'Components/Card Group',
   decorators: [
     story => html`
-      <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
-      </div>
+      <style>
+        ${styles}
+      </style>
+      ${story()}
     `,
   ],
   parameters: {
