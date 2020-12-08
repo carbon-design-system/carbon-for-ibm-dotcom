@@ -73,7 +73,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const { selectorItem } = this.constructor as typeof DDSLinkList;
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
-      .filter(elem => (elem as Element)?.matches(selectorItem)) as Element[];
+      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
     if (childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
       this.classList.add((this.constructor as typeof DDSLinkList).classSplitLayout);
     }
