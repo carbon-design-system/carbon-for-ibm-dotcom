@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.13.0...@carbon/ibmdotcom-services@1.14.0-rc.0) (2020-12-04)
+
+### Bug Fixes
+
+- **translation:** support for running in node.js environment
+  ([#4573](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4573))
+  ([f6d5186](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f6d5186))
+
+### Features
+
+- **masthead:** alternative logo in web components
+  ([#4581](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4581))
+  ([e958b87](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e958b87)),
+  closes
+  [#4257](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4257)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.13.0-rc.0...@carbon/ibmdotcom-services@1.13.0) (2020-11-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

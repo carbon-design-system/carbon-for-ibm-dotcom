@@ -41,7 +41,7 @@
     >
       <dds-hr>
       </dds-hr>
-      <slot name="cta">
+      <slot name="footer">
       </slot>
     </div>
   </div>

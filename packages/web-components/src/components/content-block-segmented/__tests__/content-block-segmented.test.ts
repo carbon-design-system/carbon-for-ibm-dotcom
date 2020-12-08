@@ -47,7 +47,7 @@ describe('dds-content-block-segmented', function() {
             ${image}
             <dds-content-block-segmented-item> </dds-content-block-segmented-item>
             <dds-content-block-complementary> </dds-content-block-complementary>
-            <dds-card-cta slot="cta" cta-type="local" href="https://example.com">
+            <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
               Lorem ipsum dolor
             </dds-card-cta>
           `,

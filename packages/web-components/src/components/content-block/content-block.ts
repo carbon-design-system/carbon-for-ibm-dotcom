@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 const slotExistencePropertyNames = {
   complementary: '_hasComplementary',
-  cta: '_hasCTA',
+  footer: '_haFooter',
 };
 
 /**
@@ -44,7 +44,7 @@ export enum CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME {
  * Content block.
  *
  * @slot heading - The heading content.
- * @slot cta - The footer (CTA) content.
+ * @slot footer - The footer (CTA) content.
  * @slot complementary - The complementary (aside) content.
  * @abstract
  */
@@ -56,10 +56,10 @@ class DDSContentBlock extends LitElement {
   protected _hasComplementary = false;
 
   /**
-   * `true` if there is CTA content.
+   * `true` if there is footer content.
    */
   @internalProperty()
-  protected _hasCTA = false;
+  protected _haFooter = false;
 
   /**
    * Handles `slotchange` event.
@@ -78,12 +78,12 @@ class DDSContentBlock extends LitElement {
    * @returns The content, that may be wrapped in a Carbon grid.
    */
   protected _renderBody(): TemplateResult | string | void {
-    const { _hasCTA: hasCTA } = this;
+    const { _haFooter: hasFooter } = this;
     return html`
       ${this._renderCopy()}${this._renderContent()}
-      <div ?hidden="${!hasCTA}" class="${prefix}--content-block__cta-row">
+      <div ?hidden="${!hasFooter}" class="${prefix}--content-block__cta-row">
         <div class="${prefix}--content-block__cta ${prefix}--content-block__cta-col">
-          <slot name="cta" @slotchange="${this._handleSlotChange}"></slot>
+          <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
         </div>
       </div>
     `;

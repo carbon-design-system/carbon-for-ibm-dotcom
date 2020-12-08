@@ -26,7 +26,7 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitEle
   /**
    * Handles `slotchange` event.
    */
-  private _handleSlotchange(event: Event) {
+  private _handleSlotChange(event: Event) {
     // Finds new injected links
     const linkNodes = (event.target as HTMLSlotElement)
       .assignedNodes()
@@ -41,7 +41,7 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitEle
   }
 
   render() {
-    const { _handleSlotchange: handleSlotchange } = this;
+    const { _handleSlotChange: handleSlotchange } = this;
     return html`
       <slot @slotchange="${handleSlotchange}"></slot>
     `;
