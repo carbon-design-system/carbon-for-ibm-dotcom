@@ -176,7 +176,7 @@ const MastheadSearch = ({
      */
     const handleClickOutside = event => {
       let mastheadRef = ref.current?.closest('.bx--masthead');
-      if (ref.current && !mastheadRef.contains(event.target)) {
+      if (mastheadRef && !mastheadRef.contains(event.target)) {
         // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
         if (state.val.length === 0) {
           dispatch({ type: 'setSearchClosed' });
