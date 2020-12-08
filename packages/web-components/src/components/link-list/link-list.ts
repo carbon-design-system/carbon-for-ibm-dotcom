@@ -87,10 +87,6 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     window.removeEventListener('resize', this._handleResize);
   }
 
-  updated() {
-    sameHeight(this.childItems, 'md');
-  }
-
   /**
    * Method called on resize, triggers the sameHeight utility
    *
