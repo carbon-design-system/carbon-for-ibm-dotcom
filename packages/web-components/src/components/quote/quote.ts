@@ -18,29 +18,29 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 export enum QUOTE_TYPES {
   /**
-   * Default - doubleCurved
+   * Default - double-curved
    */
-  DEFAULT = 'doubleCurved',
+  DEFAULT = 'double-curved',
 
   /**
-   * singleCurved
+   * single-curved
    */
-  SINGLE_CURVED = 'singleCurved',
+  SINGLE_CURVED = 'single-curved',
 
   /**
-   * singleAngle
+   * single-angle
    */
-  SINGLE_ANGLE = 'singleAngle',
+  SINGLE_ANGLE = 'single-angle',
 
   /**
-   * doubleAngle
+   * double-angle
    */
-  DOUBLE_ANGLE = 'doubleAngle',
+  DOUBLE_ANGLE = 'double-angle',
 
   /**
-   * lowHighReversedDoubleCurved
+   * low-high-reversed-double-curved
    */
-  LOW_HIGH_REVERSED_DOUBLE_CURVED = 'lowHighReversedDoubleCurved',
+  LOW_HIGH_REVERSED_DOUBLE_CURVED = 'low-high-reversed-double-curved',
 
   /**
    * cornerBracket
@@ -67,11 +67,11 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines rendered quote mark style
    * styles:
-   * `doubleCurved`: `“ ”`;
-   * `singleCurved`: `‘ ’`;
-   * `singleAngle`: `‹ ›`;
-   * `doubleAngle`: `« »`;
-   * `lowHighReversedDoubleCurved`: `„ “`;
+   * `double-curved`: `“ ”`;
+   * `single-curved`: `‘ ’`;
+   * `single-angle`: `‹ ›`;
+   * `double-angle`: `« »`;
+   * `low-high-reversed-double-curved`: `„ “`;
    * `cornerBracket`: `「 」`;
    */
   @property({ reflect: true, attribute: 'mark-type' })

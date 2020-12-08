@@ -22,6 +22,7 @@ import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +34,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-image-with-caption`)
-class DDSImageWithCaption extends ModalRenderMixin(FocusMixin(LitElement)) {
+class DDSImageWithCaption extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
   /**
    * `true` handles re-opening after model is closed
    *
@@ -167,6 +168,10 @@ class DDSImageWithCaption extends ModalRenderMixin(FocusMixin(LitElement)) {
    */
   static get eventCloseModal() {
     return `${ddsPrefix}-expressive-modal-closed`;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--image-with-caption`;
   }
 
   static styles = styles;

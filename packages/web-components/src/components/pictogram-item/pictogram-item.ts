@@ -12,6 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import DDSContentItem from '../content-item/content-item';
 import styles from './pictogram-item.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot footer - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-pictogram-item`)
-class DDSPictogramItem extends DDSContentItem {
+class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
   render() {
     return html`
       <div class="${prefix}--pictogram-item__row">
@@ -39,6 +40,10 @@ class DDSPictogramItem extends DDSContentItem {
         </div>
       </div>
     `;
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--pictogram-item`;
   }
 
   static styles = styles;
