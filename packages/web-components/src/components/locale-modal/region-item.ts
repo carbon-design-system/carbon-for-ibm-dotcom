@@ -64,11 +64,13 @@ class DDSRegionItem extends HostListenerMixin(DDSLink) {
     const { invalid, name } = this;
     return html`
       <div class="${prefix}--card__wrapper">
-        <h3 class="${prefix}--card__heading">
-          <slot>${name}</slot>
-        </h3>
-        <div class="${prefix}--card__footer">
-          ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+        <div class="${prefix}--card__content">
+          <h3 class="${prefix}--card__heading">
+            <slot>${name}</slot>
+          </h3>
+          <div class="${prefix}--card__footer">
+            ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+          </div>
         </div>
       </div>
     `;

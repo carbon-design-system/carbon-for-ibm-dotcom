@@ -21,10 +21,7 @@
       This page is available in the following locations and languages
     </p>
   </div>
-  <div
-    class="bx--locale-modal__list"
-    role="listbox"
-  >
+  <div class="bx--locale-modal__list">
     <slot>
     </slot>
   </div>
@@ -51,10 +48,7 @@
       availability-label-text-foo
     </p>
   </div>
-  <div
-    class="bx--locale-modal__list"
-    role="listbox"
-  >
+  <div class="bx--locale-modal__list">
     <slot>
     </slot>
   </div>

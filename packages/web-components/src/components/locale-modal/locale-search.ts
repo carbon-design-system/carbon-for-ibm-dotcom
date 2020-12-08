@@ -205,7 +205,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
             ${hasAvailableItem ? availabilityLabelText : unavailabilityLabelText}
           </p>
         </div>
-        <div role="listbox" class="${prefix}--locale-modal__list">
+        <div class="${prefix}--locale-modal__list">
           <slot></slot>
         </div>
       </div>
