@@ -12,6 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import settings from 'carbon-components/es/globals/js/settings';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
-class DDSFeatureCardBlockMedium extends DDSFeatureCard {
+class DDSFeatureCardBlockMedium extends StableSelectorMixin(DDSFeatureCard) {
   protected _renderInner() {
     const { _hasEyebrow: hasEyebrow, _handleSlotChange: handleSlotChange } = this;
     return html`
