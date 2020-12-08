@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import DDSFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card-block-large
  */
 @customElement(`${ddsPrefix}-feature-card-block-large`)
-class DDSFeatureCardBlockLarge extends DDSFeatureCard {
+class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
   render() {
     return html`
       <div class="${prefix}--feature-card-block-large__container">
