@@ -7,17 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
 import { html, internalProperty, property, customElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
-import DDSIcon from '../icon/icon';
+import DDSLink from '../../globals/internal/link';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
+class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSLink)) {
   /**
    * Search bar opened flag.
    */
@@ -56,21 +56,20 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSIcon)) {
   @property({ reflect: true })
   slot = 'brand';
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
-    });
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderInner() {
+    return html`
+      <slot>${IBM8BarLogoH23()}</slot>
+    `;
   }
 
-  render() {
-    const { href, _hasSearchActive: hasSearchActive } = this;
-    const classes = classMap({
-      [`${ddsPrefix}-ce--header__logo--has-search-active`]: hasSearchActive,
-    });
-    return html`
-      <a aria-label="IBM logo" class="${classes}" href="${ifNonNull(href)}"><slot>${IBM8BarLogoH23()}</slot></a>
-    `;
+  updated() {
+    const { _linkNode: linkNode, _hasSearchActive: hasSearchActive } = this;
+    if (linkNode) {
+      linkNode.setAttribute('aria-label', 'IBM logo');
+      linkNode.classList.remove(`${prefix}--link`);
+      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, hasSearchActive);
+    }
   }
 
   /**
