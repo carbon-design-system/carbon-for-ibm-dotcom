@@ -8,6 +8,7 @@
 <a
   aria-label="IBM logo"
   href="https://www.ibm.com/"
+  id="link"
 >
   <slot>
   </slot>
@@ -21,6 +22,7 @@
 <a
   aria-label="IBM logo"
   href="https://cloud.ibm.com/"
+  id="link"
 >
   <slot>
   </slot>
