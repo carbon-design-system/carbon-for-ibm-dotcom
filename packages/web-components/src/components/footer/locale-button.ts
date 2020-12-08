@@ -47,7 +47,11 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
 
   render() {
     return html`
-      <button id="button" class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--locale-btn">
+      <button
+        id="button"
+        class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--locale-btn"
+        aria-label="Select geographic area"
+      >
         <slot></slot>
         ${EarthFilled20()}
       </button>
