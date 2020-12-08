@@ -19,7 +19,7 @@
 
 @mixin layout {
   .#{$prefix}--layout--sticky-mobile {
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint('lg') {
       position: sticky;
       top: 0;
       z-index: 1;
