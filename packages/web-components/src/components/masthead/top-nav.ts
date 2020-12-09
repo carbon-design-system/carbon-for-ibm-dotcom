@@ -11,7 +11,6 @@ import { property, customElement, html, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -54,7 +53,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       ? html``
       : html`
           <nav class="${prefix}--header__nav">
-            <ul role="menubar" class="${prefix}--header__menu-bar" aria-label="${ifNonNull(this.menuBarLabel)}">
+            <ul role="menubar" class="${prefix}--header__menu-bar" aria-label="${this.menuBarLabel}">
               <slot></slot>
             </ul>
           </nav>
