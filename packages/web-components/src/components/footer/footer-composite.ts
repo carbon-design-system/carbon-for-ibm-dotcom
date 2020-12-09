@@ -92,6 +92,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   _setLanguage?: (language: string) => void;
 
   /**
+   * The aria-label to use for the locale-button
+   */
+  @property()
+  buttonLabel?: string;
+
+  /**
    * The g11n collator to use for sorting contry names.
    */
   @property({ attribute: false })
@@ -187,7 +193,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   }
 
   renderLightDOM() {
-    const { langDisplay, size, links, legalLinks, _handleClickLocaleButton: handleClickLocaleButton } = this;
+    const { buttonLabel, langDisplay, size, links, legalLinks, _handleClickLocaleButton: handleClickLocaleButton } = this;
     return html`
       <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
@@ -206,7 +212,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         </dds-footer-nav>
         ${size !== FOOTER_SIZE.MICRO
           ? html`
-              <dds-locale-button @click="${handleClickLocaleButton}">${langDisplay}</dds-locale-button>
+              <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
+                >${langDisplay}</dds-locale-button
+              >
             `
           : html``}
         <dds-legal-nav size="${ifNonNull(size)}">
@@ -218,7 +226,11 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
           ${size === FOOTER_SIZE.MICRO
             ? html`
-                <dds-locale-button size="${size}" slot="locale" @click="${handleClickLocaleButton}"
+                <dds-locale-button
+                  buttonLabel="${ifNonNull(buttonLabel)}"
+                  size="${size}"
+                  slot="locale"
+                  @click="${handleClickLocaleButton}"
                   >${langDisplay}</dds-locale-button
                 >
               `

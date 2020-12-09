@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.14.0-rc.0...@carbon/ibmdotcom-react@1.14.0-rc.1) (2020-12-08)
+
+### Bug Fixes
+
+- **locale-modal:** replaced href target to avoid storybook refresh
+  ([#4647](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4647))
+  ([9ba076e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9ba076e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.14.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.48.54...@carbon/ibmdotcom-react@1.14.0-rc.0) (2020-12-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

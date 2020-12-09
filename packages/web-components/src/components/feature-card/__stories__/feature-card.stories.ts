@@ -13,6 +13,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../feature-card';
+import '../feature-card-footer';
 
 export const Default = ({ parameters }) => {
   const { heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card'] ?? {};
