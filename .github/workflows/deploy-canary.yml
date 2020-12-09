@@ -8,6 +8,8 @@ on:
 jobs:
   react:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -38,8 +40,14 @@ jobs:
           cf-app: ibmdotcom-react-canary
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/react
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   react-experimental:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -71,8 +79,14 @@ jobs:
           cf-app: ibmdotcom-react-experimental
           cf-manifest: manifest-experimental.yml
           deploy-dir: packages/react
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   react-rtl:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -104,8 +118,14 @@ jobs:
           cf-app: ibmdotcom-react-rtl
           cf-manifest: manifest-rtl.yml
           deploy-dir: packages/react
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   web-components:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -136,8 +156,14 @@ jobs:
           cf-app: ibmdotcom-web-components-canary
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   web-components-rtl:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -169,8 +195,14 @@ jobs:
           cf-app: ibmdotcom-web-components-rtl
           cf-manifest: manifest-rtl.yml
           deploy-dir: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   web-components-experimental:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -202,8 +234,14 @@ jobs:
           cf-app: ibmdotcom-web-components-experimental
           cf-manifest: manifest-experimental.yml
           deploy-dir: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   services:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -234,8 +272,14 @@ jobs:
           cf-app: ibmdotcom-services
           cf-manifest: manifest.yml
           deploy-dir: packages/services
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   utilities:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -266,8 +310,14 @@ jobs:
           cf-app: ibmdotcom-utilities
           cf-manifest: manifest.yml
           deploy-dir: packages/utilities
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   carbon-expressive:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -298,3 +348,7 @@ jobs:
           cf-app: carbon-expressive
           cf-manifest: manifest.yml
           deploy-dir: packages/styles
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
