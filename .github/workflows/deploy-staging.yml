@@ -8,6 +8,8 @@ on:
 jobs:
   react:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -38,8 +40,14 @@ jobs:
           cf-app: ibmdotcom-react-staging
           cf-manifest: manifest-staging.yml
           deploy-dir: packages/react
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   web-components:
     runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
       - name: Use Node.js 12.x
@@ -70,3 +78,7 @@ jobs:
           cf-app: ibmdotcom-web-components-staging
           cf-manifest: manifest-staging.yml
           deploy-dir: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()

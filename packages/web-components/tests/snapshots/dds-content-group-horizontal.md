@@ -22,7 +22,7 @@
     </slot>
   </div>
 </div>
-<dds-hr>
+<dds-hr data-autoid="dds--hr">
 </dds-hr>
 
 ```
@@ -47,7 +47,7 @@
     </slot>
   </div>
 </div>
-<dds-hr>
+<dds-hr data-autoid="dds--hr">
 </dds-hr>
 
 ```
