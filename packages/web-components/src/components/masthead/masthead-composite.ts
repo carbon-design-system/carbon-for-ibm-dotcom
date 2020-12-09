@@ -558,8 +558,8 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
-        ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -574,9 +574,13 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
-        <dds-top-nav ?hide-divider="${this.l1Data}" menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-          ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
-        </dds-top-nav>
+        ${l1Data
+          ? undefined
+          : html`
+              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+                ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+              </dds-top-nav>
+            `}
         <dds-masthead-search-composite
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"
