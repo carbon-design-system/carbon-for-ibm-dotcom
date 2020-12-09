@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -29,20 +28,18 @@ const ctaTypes = {
 };
 
 const cardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <div slot="heading">Nunc convallis lobortis</div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer></dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
 const cardGroupItemWithImages = html`
-  <dds-card-group-item href="https://example.com">
+  <dds-card-group-item cta-type="local" href="https://example.com">
     <dds-image
       slot="image"
       alt="Image alt text"
@@ -51,9 +48,7 @@ const cardGroupItemWithImages = html`
     </dds-image>
     <div slot="eyebrow">Topic</div>
     <div slot="heading">Natural Language Processing.</div>
-    <dds-card-cta-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-cta-footer>
+    <dds-card-cta-footer><dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
@@ -76,7 +71,7 @@ export const Default = ({ parameters }) => {
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
-        ${ArrowRight20({ slot: 'footer' })}
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-block-cards>
   `;
@@ -93,7 +88,7 @@ export const withImages = ({ parameters }) => {
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
-        ${ArrowRight20({ slot: 'footer' })}
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-block-cards>
   `;
@@ -110,7 +105,7 @@ export const withVideos = ({ parameters }) => {
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         <p>${ctaCopy}</p>
-        ${ArrowRight20({ slot: 'footer' })}
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-block-cards>
   `;
@@ -128,24 +123,20 @@ export default {
   title: 'Components/Content Block Cards',
   decorators: [
     story => html`
-      <dds-video-cta-container class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <dds-video-cta-container>
+        ${story()}
       </dds-video-cta-container>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasCardGroup: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentBlockCards: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum interdum'),
         ctaCopy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit ametttt'),
-        ctaType: select('CTA type (cta-type)', ctaTypes, null),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
         href: textNullable('Href (href):', 'https://example.com'),
       }),
     },

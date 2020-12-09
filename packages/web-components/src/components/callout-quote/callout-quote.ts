@@ -22,6 +22,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-callout-quote`)
 class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
+  static get stableSelector() {
+    return `${ddsPrefix}--callout-quote`;
+  }
+
   static styles = styles;
 }
 
