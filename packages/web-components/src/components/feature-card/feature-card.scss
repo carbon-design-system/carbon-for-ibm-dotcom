@@ -15,9 +15,7 @@
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
 
-  &:focus {
-    outline: none;
-  }
+  outline: none;
 }
 
 :host(#{$dds-prefix}-feature-card-footer),
