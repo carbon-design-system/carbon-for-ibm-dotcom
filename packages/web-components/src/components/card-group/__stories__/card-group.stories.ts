@@ -117,7 +117,7 @@ export default {
   title: 'Components/Card Group',
   parameters: {
     ...readme.parameters,
-    hasCardGroup: true,
+    hasCardGroupStandalone: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({

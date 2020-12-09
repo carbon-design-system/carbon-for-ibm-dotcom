@@ -73,7 +73,8 @@ body {
   position: relative;
 }
 
-.dds-ce-demo-devenv--container--has-card-group {
+.dds-ce-demo-devenv--container--has-card-group,
+.dds-ce-demo-devenv--container--has-card-group-standalone {
   padding: 0;
 
   @include carbon--breakpoint('md') {
@@ -85,6 +86,10 @@ body {
     margin-left: 12.5%;
     margin-right: 12.5%;
   }
+}
+
+.dds-ce-demo-devenv--container--has-card-group-standalone {
+  padding-top: calc(#{$carbon--grid-gutter} / 2);
 }
 
 .dds-ce-demo-devenv--container--has-grid {
