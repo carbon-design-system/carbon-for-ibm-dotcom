@@ -20,3 +20,10 @@
     }
   }
 }
+
+:host(#{$dds-prefix}-link-list-item-card),
+:host(#{$dds-prefix}-link-list-item-card-cta) {
+  ::slotted(#{$dds-prefix}-card-footer) {
+    margin-bottom: auto;
+  }
+}
