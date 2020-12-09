@@ -13,4 +13,9 @@
 
   padding-top: 3rem;
   padding-bottom: 10rem;
+
+  .#{$prefix}--content-section__children {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

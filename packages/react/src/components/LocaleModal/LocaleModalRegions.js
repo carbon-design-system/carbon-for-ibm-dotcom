@@ -150,14 +150,16 @@ export const addLocaleBackBtnListeners = (
         : returnButtonLabel
     );
 
-    btn.addEventListener('click', function click() {
+    btn.addEventListener('click', function click(e) {
       localeBackActive(btn, setIsFiltering, setClearResults);
       btn.removeEventListener('click', click);
+      e.preventDefault();
     });
     btn.addEventListener('keyup', function keyup(e) {
       if (e.keyCode === 32 || e.keyCode === 13) {
         localeBackActive(btn, setIsFiltering, setClearResults);
         btn.removeEventListener('keyup', keyup);
+        e.preventDefault();
       }
     });
   });

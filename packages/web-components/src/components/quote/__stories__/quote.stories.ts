@@ -32,7 +32,7 @@ export const Default = ({ parameters }) => {
       <span slot="sourceBottomCopy">
         ${sourceBottomCopy}
       </span>
-      <dds-link-with-icon slot="cta" href="https://example.com">
+      <dds-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
     </dds-quote>

@@ -22,8 +22,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
 const slotExistencePropertyNames = {
-  contentItems: '_hasContentItems',
-  linkList: '_hasLinkList',
+  action: '_hasAction',
+  items: '_hasItems',
 };
 
 /**
@@ -31,15 +31,21 @@ const slotExistencePropertyNames = {
  *
  * @element dds-cta-section
  * @slot heading - The text heading.
- * @slot buttons - The CTA Buttons.
+ * @slot action - The CTA Buttons.
  */
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   /**
-   * `true` if there is CTA content.
+   * `true` if there are CTA action in the content item area.
    */
   @internalProperty()
-  protected _hasFooter = false;
+  protected _hasAction = false;
+
+  /**
+   * `true` if there are CTA section items.
+   */
+  @internalProperty()
+  protected _hasItems = false;
 
   /**
    * Applies section attribute
@@ -56,32 +62,29 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
    *
    * @param event The event.
    */
-  private _handleSlotChange({ target }: Event) {
+  protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
       .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name] || '_hasFooter'] = hasContent;
+    this[slotExistencePropertyNames[name] || '_hasDefaultContent'] = hasContent;
   }
 
   /**
    * @returns The footer content.
    */
   protected _renderFooter(): TemplateResult | string | void {
-    const { _hasFooter: hasFooter } = this;
+    const { _hasAction: hasAction, _hasItems: hasItems } = this;
     return html`
+      <div ?hidden="${!hasAction}" class="${prefix}--content-item__cta">
+        <slot name="action" @slotchange="${this._handleSlotChange}"></slot>
+      </div>
       <slot name="link-list"></slot>
-      <div ?hidden="${!hasFooter}" class="${prefix}--helper-wrapper">
+      <div ?hidden="${!hasItems}" class="${prefix}--helper-wrapper">
         <div class="${prefix}--content-item-wrapper">
-          <slot name="content-item" @slotchange="${this._handleSlotChange}"></slot>
+          <slot name="items" @slotchange="${this._handleSlotChange}"></slot>
         </div>
       </div>
-    `;
-  }
-
-  render() {
-    return html`
-      ${super.render()} ${this._renderFooter()}
     `;
   }
 

@@ -41,9 +41,9 @@
           class="bx--quote__footer"
           hidden=""
         >
-          <dds-hr>
+          <dds-hr data-autoid="dds--hr">
           </dds-hr>
-          <slot name="cta">
+          <slot name="footer">
           </slot>
         </div>
       </div>

@@ -55,10 +55,19 @@
 :host(#{$dds-prefix}-link-list) {
   padding-bottom: 0;
 
+  .#{$prefix}--link-list__list--card,
+  .#{$prefix}--link-list__list--vertical,
   .#{$dds-prefix}-ce--link-list__list--end {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-rows: 1fr;
 
+    ::slotted(#{$dds-prefix}-link-list-item),
+    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+      display: grid;
+    }
+  }
+
+  .#{$dds-prefix}-ce--link-list__list--end {
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-cta) {
       padding: $carbon--layout-01;
