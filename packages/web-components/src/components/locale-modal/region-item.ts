@@ -76,6 +76,13 @@ class DDSRegionItem extends HostListenerMixin(DDSLink) {
     `;
   }
 
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('invalid')) {
+      this.disabled = this.invalid;
+    }
+    return true;
+  }
+
   updated(changedProperties) {
     if (changedProperties.has('name')) {
       const { name } = this;
