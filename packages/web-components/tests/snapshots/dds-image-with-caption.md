@@ -7,6 +7,7 @@
 ```
 <dds-image
   alt=""
+  data-autoid="dds--image"
   default-src=""
 >
   <slot>
@@ -26,6 +27,7 @@
 >
   <dds-image
     alt="Image alt text"
+    data-autoid="dds--image"
     default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"
   >
     <slot>
