@@ -22,16 +22,16 @@ const ButtonGroup = ({ buttons }) => {
   const groupRef = useRef(null);
 
   useEffect(() => {
-    if (buttons.length > 1) {
-      setSameHeight();
-      root.addEventListener('resize', setSameHeight);
-      return () => root.removeEventListener('resize', setSameHeight);
-    }
     if (groupRef.current) {
       groupRef.current.style.setProperty(
         `--${stablePrefix}--button-group--item-count`,
         String(buttons.length)
       );
+    }
+    if (buttons.length > 1) {
+      setSameHeight();
+      root.addEventListener('resize', setSameHeight);
+      return () => root.removeEventListener('resize', setSameHeight);
     }
   }, [buttons]);
 
