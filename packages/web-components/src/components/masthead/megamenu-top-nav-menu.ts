@@ -56,7 +56,8 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    this.style.setProperty(`--${ddsPrefix}-ce--viewport-width`, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
+    this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
   };
 
   connectedCallback() {
@@ -86,6 +87,13 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
       }
     }
+  }
+
+  /**
+   * The CSS custom property name for the live viewport width.
+   */
+  static get customPropertyViewportWidth() {
+    return `--${ddsPrefix}-ce--viewport-width`;
   }
 
   /**
