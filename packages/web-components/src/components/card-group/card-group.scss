@@ -9,17 +9,3 @@
 
 @import '@carbon/ibmdotcom-styles/scss/components/card/index';
 @import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
-
-:host(#{$dds-prefix}-card-group) {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 1fr;
-
-  @include carbon--breakpoint('md') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include carbon--breakpoint('lg') {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
