@@ -138,6 +138,12 @@ class DDSDotcomShellComposite extends LitElement {
   currentSearchResults: string[] = [];
 
   /**
+   * `true` to omit the locale switcher button.
+   */
+  @property({ attribute: 'disable-locale-button' })
+  disableLocaleButton = false;
+
+  /**
    * The throttle timeout to run query upon user input. This goes to masthead.
    */
   @property({ type: Number, attribute: 'input-timeout' })
@@ -262,6 +268,7 @@ class DDSDotcomShellComposite extends LitElement {
       brandName,
       collatorCountryName,
       currentSearchResults,
+      disableLocaleButton,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
@@ -319,6 +326,7 @@ class DDSDotcomShellComposite extends LitElement {
       pickBy(
         {
           collatorCountryName,
+          disableLocaleButton,
           language,
           langDisplay,
           legalLinks,
