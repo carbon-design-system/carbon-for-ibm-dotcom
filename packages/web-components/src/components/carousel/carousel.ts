@@ -63,7 +63,7 @@ class DDSCarousel extends LitElement {
 
   /**
    * The page size that is automatically calculated upon viewport size
-   * via `--dds-carousel-page-size` CSS custom property.
+   * via `--dds--carousel--page-size` CSS custom property.
    * If `page-size` attribute is set, this value is ignored.
    */
   @internalProperty()
@@ -191,8 +191,8 @@ class DDSCarousel extends LitElement {
 
   /**
    * Number of items per page.
-   * If `--dds-carousel-page-size` CSS custom property is set to `<div class="bx--carousel__scroll-container">`
-   * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from `--dds-carousel-page-size`.
+   * If `--dds--carousel--page-size` CSS custom property is set to `<div class="bx--carousel__scroll-container">`
+   * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from `--dds--carousel--page-size`.
    */
   @property({ type: Number, attribute: 'page-size' })
   get pageSize() {
@@ -279,7 +279,7 @@ class DDSCarousel extends LitElement {
    * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from the CSS custom property.
    */
   static get customPropertyPageSize() {
-    return `--${ddsPrefix}-carousel-page-size`;
+    return `--${ddsPrefix}--carousel--page-size`;
   }
 
   static styles = styles;
