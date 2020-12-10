@@ -77,9 +77,28 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__row,
   .#{$prefix}--card-group__cards__row {
-    @include carbon--make-row;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+
+    @include carbon--breakpoint('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include carbon--breakpoint('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .#{$prefix}--card-group__cards__row {
+    // `@include carbon--make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
+    // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
+    // but keeps it for React for backward-compatibility reason.
+    margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
+    margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
   }
 
   :host(#{$dds-prefix}-card-group),
@@ -99,17 +118,6 @@
     }
   }
 
-  .#{$prefix}--card-group__cards__col {
-    @include carbon--make-col-ready;
-
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col(4, 8);
-    }
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(1, 3);
-    }
-  }
-
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
     padding-left: $carbon--grid-gutter--condensed / 2;
@@ -125,6 +133,12 @@
     .#{$prefix}--card--inverse {
       height: 100%;
     }
+  }
+
+  .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {
+    // React version of card group has `.bx--card-group__cards__col` surrounding `.bx--card-group__card`.
+    // Ensures that the former takes the whole height of card regardless of how high the card group row ends up with.
+    height: 100%;
   }
 
   .#{$prefix}--card-group.#{$prefix}--card-group--g10 {

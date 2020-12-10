@@ -14,6 +14,8 @@
 :host(#{$dds-prefix}-feature-card),
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
+
+  outline: none;
 }
 
 :host(#{$dds-prefix}-feature-card-footer),
@@ -27,6 +29,5 @@
   .#{$dds-prefix}-ce--card__footer {
     justify-content: flex-end;
     align-items: flex-end;
-    color: $inverse-link;
   }
 }
