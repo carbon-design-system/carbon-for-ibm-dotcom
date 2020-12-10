@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/aspect-ratio';
@@ -34,7 +35,7 @@ $fcb-breakpoint-up--lg: map-get(
 
     :hover {
       .#{$prefix}--card__wrapper {
-        background: $inverse-hover-ui;
+        background: $hover-ui;
       }
     }
 
@@ -89,7 +90,9 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__wrapper {
-      background: $inverse-02;
+      @include carbon--theme($carbon--theme--g90, true);
+
+      background-color: $ui-01;
       min-height: 50%;
       height: auto;
       padding: $spacing-07 $spacing-05;
@@ -114,7 +117,6 @@ $fcb-breakpoint-up--lg: map-get(
 
       .#{$prefix}--card__eyebrow {
         margin: 0 0 $spacing-05 0;
-        color: $inverse-01;
         @include carbon--type-style('body-long-02');
       }
 
@@ -165,14 +167,13 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
   .#{$prefix}--feature-card-block-large
-    .#{$prefix}--feature-card-block-large__card.#{$prefix}--card--inverse
+    .#{$prefix}--feature-card-block-large__card.#{$prefix}--tile
     .#{$prefix}--card__cta,
   .#{$prefix}--feature-card-block-large
-    .#{$prefix}--feature-card-block-large__card.#{$prefix}--card--inverse
+    .#{$prefix}--feature-card-block-large__card.#{$prefix}--tile
     .#{$prefix}--card__cta:visited {
     margin-top: auto;
     float: none;
-    color: $inverse-link;
     width: $layout-03;
     height: $layout-03;
 

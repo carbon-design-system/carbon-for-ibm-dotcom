@@ -93,7 +93,8 @@
 }
 
 :host(#{$dds-prefix}-legal-nav[size='micro']) {
-  ::slotted(#{$dds-prefix}-legal-nav-item) {
+  ::slotted(#{$dds-prefix}-legal-nav-item),
+  ::slotted(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder) {
     display: flex;
     align-items: center;
     padding: 0;

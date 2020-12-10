@@ -37,11 +37,11 @@
     a,
     a:hover {
       color: $text-01;
-      border-left-color: $interactive-04;
+      border-left-color: $link-01;
     }
 
     &:hover {
-      border-left-color: $interactive-04;
+      border-left-color: $link-01;
     }
   }
 }
