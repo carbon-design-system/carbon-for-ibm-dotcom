@@ -19,14 +19,14 @@
     $type-tokens: (),
     $component-tokens: ()
   );
-  --#{$dds-prefix}-carousel-page-size: 1;
+  --#{$dds-prefix}--carousel--page-size: 1;
 
   @include carbon--breakpoint(md) {
-    --#{$dds-prefix}-carousel-page-size: 2;
+    --#{$dds-prefix}--carousel--page-size: 2;
   }
 
   @include carbon--breakpoint(lg) {
-    --#{$dds-prefix}-carousel-page-size: 3;
+    --#{$dds-prefix}--carousel--page-size: 3;
   }
 
   display: flex;
@@ -40,8 +40,8 @@
     flex: 0 0
       calc(
         (
-            100% - (var(--#{$dds-prefix}-carousel-page-size, 1) - 1) * #{$spacing-05}
-          ) / var(--#{$dds-prefix}-carousel-page-size, 1)
+            100% - (var(--#{$dds-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
+          ) / var(--#{$dds-prefix}--carousel--page-size, 1)
       );
     height: auto;
     margin-right: $spacing-05;
