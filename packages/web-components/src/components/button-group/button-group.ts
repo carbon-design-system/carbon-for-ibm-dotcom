@@ -50,6 +50,9 @@ class DDSButtonGroup extends LitElement {
       (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_TYPES.ALTERNATE : BUTTON_TYPES.DEFAULT);
     });
 
+    const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;
+    this.style.setProperty(customPropertyItemCount, String(childItems.length));
+
     setTimeout(() => {
       sameHeight(childItems, 'md');
     });
@@ -64,6 +67,13 @@ class DDSButtonGroup extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute('role', 'list');
+  }
+
+  /**
+   * The CSS custom property name for the live button group item cout.
+   */
+  static get customPropertyItemCount() {
+    return `--${ddsPrefix}--button-group--item-count`;
   }
 
   /**
