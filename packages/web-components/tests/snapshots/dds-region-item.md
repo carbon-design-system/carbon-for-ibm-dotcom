@@ -28,24 +28,22 @@
 ####   `should render with invalid state`
 
 ```
-<p
+<div
   class="bx--link bx--link--disabled"
   id="link"
 >
-</p>
-<div class="bx--card__wrapper">
-  <div class="bx--card__content">
-    <h3 class="bx--card__heading">
-      <slot>
-        name-foo
-      </slot>
-    </h3>
-    <div class="bx--card__footer">
+  <div class="bx--card__wrapper">
+    <div class="bx--card__content">
+      <h3 class="bx--card__heading">
+        <slot>
+          name-foo
+        </slot>
+      </h3>
+      <div class="bx--card__footer">
+      </div>
     </div>
   </div>
 </div>
-<p>
-</p>
 
 ```
 
