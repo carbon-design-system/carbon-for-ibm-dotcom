@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -17,6 +18,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
+import logosGroup from '../../logo-grid/__stories__/data/logos.json';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
 import mastheadLinks from '../../masthead/__stories__/links';
@@ -30,6 +32,97 @@ const footerSizes = {
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
 };
 
+const image = html`
+  <dds-image-with-caption
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
+    <dds-image-item
+      media="(min-width: 672px)"
+      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+    <dds-image-item
+      media="(min-width: 400px)"
+      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+    <dds-image-item
+      media="(min-width: 320px)"
+      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image-item>
+  </dds-image-with-caption>
+`;
+
+const contentBlockSegmentedItems = html`
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>A scelerisque purus semper eget duis at tellus. </dds-content-group-heading>
+    <dds-content-item-copy
+      >Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.
+    </dds-content-item-copy>
+    <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+      >Lorem Ipsum dolor sit</dds-text-cta
+    >
+  </dds-content-block-segmented-item>
+
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>A scelerisque purus semper eget duis at tellus. </dds-content-group-heading>
+    <dds-content-item-copy
+      >Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.
+    </dds-content-item-copy>
+  </dds-content-block-segmented-item>
+`;
+
+const contentBlockSegmentedItemsWithImage = html`
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>A scelerisque purus semper eget duis at tellus. </dds-content-group-heading>
+    <dds-content-item-copy
+      >Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.
+    </dds-content-item-copy>
+    ${image}
+    <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+      >Lorem Ipsum dolor sit</dds-text-cta
+    >
+  </dds-content-block-segmented-item>
+`;
+
+const contentItemHorizontal = html`
+  <dds-content-item-horizontal>
+    <span slot="eyebrow">Lorem ipsum</span>
+    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+    <dds-content-item-horizontal-copy
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy
+    >
+    <dds-link-list slot="footer" type="vertical">
+      <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Link text
+      </dds-link-list-item-cta>
+      <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        External link text
+      </dds-link-list-item-cta>
+    </dds-link-list>
+  </dds-content-item-horizontal>
+`;
+
+const cardGroupItems = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-image
+      slot="image"
+      alt="Image alt text"
+      default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
+    >
+    </dds-image>
+    <div slot="eyebrow">Topic</div>
+    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
+
 const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
@@ -38,43 +131,180 @@ const StoryContent = () => html`
     <div class="bx--grid">
       <div class="bx--row">
         <div class="bx--offset-lg-3 bx--col-lg-13">
-          <h2>
-            Purpose and function
-          </h2>
-          <p>
-            The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework
-            for the entire design system and ties the products in IBM’s portfolio together in a cohesive and elegant way. The
-            shell is the home of the topmost navigation, where users can quickly and dependably gain their bearings and move
-            between pages.
-            <br />
-            <br />
-            The shell was designed with maximum flexibility built in, to serve the needs of a broad range of products and users.
-            Adopting the shell ensures compliance with IBM design standards, simplifies development efforts, and provides great
-            user experiences. All IBM products built with Carbon are required to use the shell’s header.
-            <br />
-            <br />
-            To better understand the purpose and function of the UI shell, consider the “shell” of MacOS, which contains the Apple
-            menu, top-level navigation, and universal, OS-level controls at the top of the screen, as well as a universal dock
-            along the bottom or side of the screen. The Carbon UI shell is roughly analogous in function to these parts of the Mac
-            UI. For example, the app switcher portion of the shell can be compared to the dock in MacOS.
-          </p>
-          <h2>
-            Header responsive behavior
-          </h2>
-          <p>
-            As a header scales down to fit smaller screen sizes, headers with persistent side nav menus should have the side nav
-            collapse into “hamburger” menu. See the example to better understand responsive behavior of the header.
-          </p>
-          <h2>
-            Secondary navigation
-          </h2>
-          <p>
-            The side-nav contains secondary navigation and fits below the header. It can be configured to be either fixed-width or
-            flexible, with only one level of nested items allowed. Both links and category lists can be used in the side-nav and
-            may be mixed together. There are several configurations of the side-nav, but only one configuration should be used per
-            product section. If tabs are needed on a page when using a side-nav, then the tabs are secondary in hierarchy to the
-            side-nav.
-          </p>
+          <dds-table-of-contents>
+            <a name="1">
+              <h3>Lorem ipsum dolor sit amet</h3>
+            </a>
+            <dds-leadspace-block>
+              <span slot="title">Lorem ipsum dolor sit amet</span>
+              <dds-leadspace-block-content>
+                <dds-content-block-heading>
+                  Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
+                </dds-content-block-heading>
+                <dds-content-block-copy slot="copy"
+                  >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                  ut aliquip ex ea commodo consequat.
+                </dds-content-block-copy>
+                <dds-leadspace-block-media slot="media">
+                  <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+                </dds-leadspace-block-media>
+                <dds-link-list type="end">
+                <span slot="heading">Featured products</span>
+                <dds-link-list-item href="https://example.com">
+                  IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+                </dds-link-list-item>
+                <dds-link-list-item href="https://example.com">
+                  UrbanCode ${ArrowRight20({ slot: 'icon' })}
+                </dds-link-list-item>
+                <dds-link-list-item href="https://example.com">
+                  View all products ${ArrowRight20({ slot: 'icon' })}
+                </dds-link-list-item>
+              </dds-link-list>
+              <dds-leadspace-block-cta>
+                <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+              </dds-leadspace-block-cta>
+              </dds-leadspace-block-content>
+            </dds-leadspace-block>
+
+            <a name="2">
+              <h3>Pharetra pharetra massa massa ultricies mi quis.</h3>
+            </a>
+            <dds-content-block-segmented>
+              <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
+              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+                ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
+            </dds-content-block-segmented>
+
+            <dds-feature-card-block-large href="https://example.com">
+              <dds-image slot="image" alt="Image alt text" 
+                default-src="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+              >
+                </dds-image-item>
+                <dds-image-item
+                  media="(min-width: 991px)"
+                  srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+                >
+              </dds-image>
+              <span slot="eyebrow">scelerisque purus</span>
+              <span slot="heading">Elementum nibh tellus molestie nunc?</span>
+              <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
+              <dds-feature-card-block-large-footer>
+                ${ArrowRight20({ slot: 'icon' })}
+              </dds-feature-card-block-large-footer>
+            </dds-feature-card-block-large>
+
+            <a name="3">
+              <h3>Elementum nibh tellus molestie nunc non.</h3>
+            </a>
+
+            <dds-content-block-segmented>
+              <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
+              </dds-content-block-heading>
+              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+                ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
+                <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+                  Lorem ipsum dolor
+                  <dds-card-cta-footer></dds-card-cta-footer>
+                </dds-card-cta>
+            </dds-content-block-segmented>
+
+            <dds-callout-with-media>
+              <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
+              <dds-content-item-copy
+                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
+                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
+                Vel facilisis volutpat est velit egestas dui.
+              </dds-content-item-copy>
+              <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
+            </dds-callout-with-media>
+
+            <a name="4">
+              <h3>Tincidunt ornare massa</h3>
+            </a>
+            <dds-content-group-horizontal>
+              <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
+              ${Array.from([1, 2]).map(() => contentItemHorizontal)}
+            </dds-content-group-horizontal>
+
+            <a name="5">
+              <h3>Lobortis elementum nibh tellus</h3>
+            </a>
+            <dds-logo-grid ?hide-border="true">
+              <dds-content-block-heading>Lobortis elementum nibh tellus</dds-content-block-heading>
+              ${logosGroup &&
+                logosGroup.map(
+                  elem => html`
+                    <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
+                  `
+                )}
+              <dds-logo-grid-link href="https://example.com">
+                <p>Amet justo donec</p>
+                ${ArrowRight20({ slot: 'footer' })}
+              </dds-logo-grid-link>
+            </dds-logo-grid>
+
+            <a name="6">
+              <h3>Aliquam condimentum interdum</h3>
+            </a>
+            <dds-card-group>
+              ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
+            </dds-card-group>
+
+            <dds-callout-quote>
+              <span slot="copy">
+                Duis aute irure dolor in reprehenderit
+              </span>
+              <span slot="sourceHeading">
+                Lorem ipsum
+              </span>
+              <span slot="sourceCopy">
+                dolor sit amet
+              </span>
+              <span slot="sourceBottomCopy">
+              </span>
+              <dds-link-with-icon slot="footer" href="https://example.com">
+                Link with Icon ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-with-icon>
+            </dds-callout-quote>
+
+            <a name="7">
+              <h3>Duis aute irure dolor in reprehenderit</h3>   
+            </a>
+            <dds-cta-section>
+              <dds-content-block-heading>Take the next step</dds-content-block-heading>
+              <dds-cta-section-copy>
+                Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.
+              </dds-cta-section-copy>
+
+              <dds-button-group slot="action">
+                <dds-button-group-item href="https://example.com">
+                  Secondary Button ${ArrowRight20({ slot: 'icon' })}
+                </dds-button-group-item>
+                <dds-button-group-item href="https://example.com">
+                  Primary button ${ArrowRight20({ slot: 'icon' })}
+                </dds-button-group-item>
+              </dds-button-group>
+
+              <dds-cta-section-item>
+                <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
+                <dds-cta-section-item-copy
+                  >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+                  you.</dds-cta-section-item-copy
+                >
+                <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                  Find a partner
+                </dds-text-cta>
+              </dds-cta-section-item>
+
+              <dds-cta-section-item>
+                <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
+                <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
+                <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                  Browse tutorials
+                </dds-text-cta>
+              </dds-cta-section-item>
+            </dds-cta-section>
+          </dds-table-of-contents>
         </div>
       </div>
     </div>
