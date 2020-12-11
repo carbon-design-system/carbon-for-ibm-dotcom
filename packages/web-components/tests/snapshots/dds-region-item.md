@@ -28,9 +28,8 @@
 ####   `should render with invalid state`
 
 ```
-<a
-  class="bx--link"
-  href="#"
+<div
+  class="bx--link bx--link--disabled"
   id="link"
 >
   <div class="bx--card__wrapper">
@@ -44,7 +43,7 @@
       </div>
     </div>
   </div>
-</a>
+</div>
 
 ```
 

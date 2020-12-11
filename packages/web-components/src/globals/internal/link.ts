@@ -33,9 +33,21 @@ class DDSLink extends BXLink {
     `;
   }
 
-  render() {
+  /**
+   * @returns The disabled link content.
+   */
+  protected _renderDisabledLink() {
+    const { _classes: classes } = this;
+    return html`
+      <p id="link" class="${classes}">${this._renderInner()}</p>
+    `;
+  }
+
+  /**
+   * @returns The link content.
+   */
+  protected _renderLink() {
     const {
-      disabled,
       download,
       href,
       hreflang,
@@ -47,27 +59,28 @@ class DDSLink extends BXLink {
       _classes: classes,
       _handleClickLink: handleClickLink,
     } = this;
-    return disabled
-      ? html`
-          <p id="link" class="${classes}">${this._renderInner()}</p>
-        `
-      : html`
-          <a
-            id="link"
-            role="${ifNonNull(linkRole)}"
-            class="${classes}"
-            download="${ifNonNull(download)}"
-            href="${ifNonNull(href)}"
-            hreflang="${ifNonNull(hreflang)}"
-            ping="${ifNonNull(ping)}"
-            rel="${ifNonNull(rel)}"
-            target="${ifNonNull(target)}"
-            type="${ifNonNull(type)}"
-            @click="${handleClickLink}"
-          >
-            ${this._renderInner()}
-          </a>
-        `;
+    return html`
+      <a
+        id="link"
+        role="${ifNonNull(linkRole)}"
+        class="${classes}"
+        download="${ifNonNull(download)}"
+        href="${ifNonNull(href)}"
+        hreflang="${ifNonNull(hreflang)}"
+        ping="${ifNonNull(ping)}"
+        rel="${ifNonNull(rel)}"
+        target="${ifNonNull(target)}"
+        type="${ifNonNull(type)}"
+        @click="${handleClickLink}"
+      >
+        ${this._renderInner()}
+      </a>
+    `;
+  }
+
+  render() {
+    const { disabled } = this;
+    return disabled ? this._renderDisabledLink() : this._renderLink();
   }
 }
 
