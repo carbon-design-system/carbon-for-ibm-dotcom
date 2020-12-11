@@ -84,7 +84,7 @@ const _renderCards = (cards, containerRef, cta) => (
 CardGroup.propTypes = {
   /**
    * Array of card objects.
-   * Uses a sub-scheme of `<Card>`'s props for each items.
+   * Uses a sub-scheme of `<CTA style="card">`'s props for each items.
    *
    * Simple:
    *
@@ -103,7 +103,7 @@ CardGroup.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
+   * See [`<CTA style="card">`'s README](https://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--card#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({
@@ -140,8 +140,8 @@ CardGroup.propTypes = {
 
   /**
    * Optional CTA card for group. Always displays as last item.
-   * Uses a sub-scheme of `<Card>`'s props.
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
+   * Uses a sub-scheme of `<CTA style="card">`'s props.
+   * See [`<CTA style="card">`'s README](https://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--card#props) for full usage details.
    */
   cta: PropTypes.shape({
     heading: PropTypes.string,
