@@ -58,6 +58,16 @@ class DDSRegionItem extends HostListenerMixin(DDSLink) {
   name = '';
 
   /**
+   * @returns The disabled link content.
+   */
+  protected _renderDisabledLink() {
+    const { _classes: classes } = this;
+    return html`
+      <div id="link" class="${classes}">${this._renderInner()}</div>
+    `;
+  }
+
+  /**
    * @returns The inner content.
    */
   _renderInner() {
@@ -74,6 +84,13 @@ class DDSRegionItem extends HostListenerMixin(DDSLink) {
         </div>
       </div>
     `;
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('invalid')) {
+      this.disabled = this.invalid;
+    }
+    return true;
   }
 
   updated(changedProperties) {

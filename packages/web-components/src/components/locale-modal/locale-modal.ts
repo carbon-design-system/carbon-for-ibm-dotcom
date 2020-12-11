@@ -56,7 +56,10 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    this._currentRegion = (event.target as DDSRegionItem).name;
+    const { invalid, name } = event.target as DDSRegionItem;
+    if (!invalid) {
+      this._currentRegion = name;
+    }
   }
 
   @HostListener('eventClose')
