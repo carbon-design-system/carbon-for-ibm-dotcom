@@ -132,9 +132,7 @@ const StoryContent = () => html`
       <div class="bx--row">
         <div class="bx--offset-lg-3 bx--col-lg-13">
           <dds-table-of-contents>
-            <a name="1">
-              <h3>Lorem ipsum dolor sit amet</h3>
-            </a>
+            <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
               <span slot="title">Lorem ipsum dolor sit amet</span>
               <dds-leadspace-block-content>
@@ -166,9 +164,7 @@ const StoryContent = () => html`
               </dds-leadspace-block-content>
             </dds-leadspace-block>
 
-            <a name="2">
-              <h3>Pharetra pharetra massa massa ultricies mi quis.</h3>
-            </a>
+            <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
               <dds-content-block-copy slot="copy"></dds-content-block-copy>
@@ -193,10 +189,7 @@ const StoryContent = () => html`
               </dds-feature-card-block-large-footer>
             </dds-feature-card-block-large>
 
-            <a name="3">
-              <h3>Elementum nibh tellus molestie nunc non.</h3>
-            </a>
-
+            <a name="3" data-title="Elementum nibh tellus molestie nunc non."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
               </dds-content-block-heading>
@@ -218,17 +211,13 @@ const StoryContent = () => html`
               <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
             </dds-callout-with-media>
 
-            <a name="4">
-              <h3>Tincidunt ornare massa</h3>
-            </a>
+            <a name="4" data-title="Tincidunt ornare massa"></a>
             <dds-content-group-horizontal>
               <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
               ${Array.from([1, 2]).map(() => contentItemHorizontal)}
             </dds-content-group-horizontal>
 
-            <a name="5">
-              <h3>Lobortis elementum nibh tellus</h3>
-            </a>
+            <a name="5" data-title="Lobortis elementum nibh tellus"></a>
             <dds-logo-grid ?hide-border="true">
               <dds-content-block-heading>Lobortis elementum nibh tellus</dds-content-block-heading>
               ${logosGroup &&
@@ -243,13 +232,14 @@ const StoryContent = () => html`
               </dds-logo-grid-link>
             </dds-logo-grid>
 
-            <a name="6">
-              <h3>Aliquam condimentum interdum</h3>
-            </a>
-            <dds-card-group>
-              ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
-            </dds-card-group>
-
+            <a name="6" data-title="Aliquam condimentum interdum"></a>
+            <dds-content-block-cards>
+              <dds-content-block-heading>Aliquam condimentum interdum</dds-content-block-heading>
+              <dds-card-group slot="content">
+                ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
+              </dds-card-group>
+            </dds-content-block-cards>
+            
             <dds-callout-quote>
               <span slot="copy">
                 Duis aute irure dolor in reprehenderit
@@ -267,9 +257,7 @@ const StoryContent = () => html`
               </dds-link-with-icon>
             </dds-callout-quote>
 
-            <a name="7">
-              <h3>Duis aute irure dolor in reprehenderit</h3>   
-            </a>
+            <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
             <dds-cta-section>
               <dds-content-block-heading>Take the next step</dds-content-block-heading>
               <dds-cta-section-copy>
