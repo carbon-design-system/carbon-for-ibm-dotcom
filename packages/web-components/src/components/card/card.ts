@@ -96,6 +96,16 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
   }
 
   /**
+   * @returns The disabled link content.
+   */
+  protected _renderDisabledLink() {
+    const { _classes: classes } = this;
+    return html`
+      <div id="link" class="${classes}">${this._renderInner()}</div>
+    `;
+  }
+
+  /**
    * @returns The inner content.
    */
   protected _renderInner() {
