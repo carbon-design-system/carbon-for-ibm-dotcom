@@ -140,8 +140,8 @@ CardGroup.propTypes = {
 
   /**
    * Optional CTA card for group. Always displays as last item.
-   * Uses a sub-scheme of `<CTA style="card">`'s props.
-   * See [`<CTA style="card">`'s README](https://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--card#props) for full usage details.
+   * Uses a sub-scheme of `<Card>`'s props.
+   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
    */
   cta: PropTypes.shape({
     heading: PropTypes.string,
