@@ -24,6 +24,7 @@ $search-transition-timing: 95ms;
     height: $layout-04;
     background-color: $ui-02;
     transition-timing-function: $search-transition;
+    overflow: hidden;
 
     @include carbon--breakpoint-down(800px) {
       display: none;
