@@ -6,4 +6,6 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+// `<dds-leadspace-block-cta>` inherits `<dds-button-group>`
+@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup';
 @import '@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block';

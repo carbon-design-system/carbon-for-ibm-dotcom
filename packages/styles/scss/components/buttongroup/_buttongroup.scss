@@ -14,7 +14,8 @@
   @include button;
 
   .#{$prefix}--buttongroup,
-  :host(#{$dds-prefix}-button-group) {
+  :host(#{$dds-prefix}-button-group),
+  :host(#{$dds-prefix}-leadspace-block-cta) {
     --#{$dds-prefix}--button-group--item-count: 3;
 
     display: grid;
