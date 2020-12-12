@@ -17,11 +17,12 @@
   :host(#{$dds-prefix}-button-group) {
     --#{$dds-prefix}--button-group--item-count: 3;
 
-    display: inline-grid;
+    display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
 
     @include carbon--breakpoint(lg) {
+      display: inline-grid;
       grid-template-columns: repeat(
         var(--#{$dds-prefix}--button-group--item-count),
         1fr
