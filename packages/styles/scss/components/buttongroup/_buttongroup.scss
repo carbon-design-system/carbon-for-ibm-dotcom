@@ -14,11 +14,13 @@
   @include button;
 
   .#{$prefix}--buttongroup,
-  :host(#{$dds-prefix}-button-group) {
+  :host(#{$dds-prefix}-button-group),
+  :host(#{$dds-prefix}-leadspace-block-cta) {
     --#{$dds-prefix}--button-group--item-count: 3;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
 
     @include carbon--breakpoint(lg) {
       display: inline-grid;
@@ -26,7 +28,17 @@
         var(--#{$dds-prefix}--button-group--item-count),
         1fr
       );
-      grid-auto-rows: 1fr;
+    }
+  }
+
+  .#{$prefix}--buttongroup-item,
+  :host(#{$dds-prefix}-button-group-item) {
+    margin-top: $carbon--layout-01;
+    max-width: carbon--mini-units(40);
+    min-width: 0;
+
+    @include carbon--breakpoint(md) {
+      padding-right: $carbon--layout-01;
     }
 
     .#{$prefix}--btn {
@@ -46,17 +58,6 @@
 
     .#{$prefix}--btn--multiline {
       align-items: start;
-    }
-  }
-
-  .#{$prefix}--buttongroup-item,
-  :host(#{$dds-prefix}-button-group-item) {
-    margin-top: $carbon--layout-01;
-    max-width: carbon--mini-units(40);
-    min-width: 0;
-
-    @include carbon--breakpoint(md) {
-      padding-right: $carbon--layout-01;
     }
   }
 
