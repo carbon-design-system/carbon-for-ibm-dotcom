@@ -28,6 +28,13 @@
     height: rem(20px);
     width: rem(20px);
   }
+  .#{$prefix}--data-table tbody td {
+    &.#{$prefix}--table-column-checkbox,
+    &.#{$prefix}--table-expand {
+      padding-right: $spacing-05;
+    }
+  }
+
   .#{$prefix}--action-list .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
@@ -41,9 +48,6 @@
   .#{$prefix}--action-list .#{$prefix}--btn .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
-  }
-  th.#{$prefix}--table-expand + th.#{$prefix}--table-column-checkbox {
-    padding-left: 0.75rem;
   }
   .#{$prefix}--overflow-menu__icon {
     height: 1.25rem;
