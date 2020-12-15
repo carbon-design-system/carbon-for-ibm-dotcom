@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.14.0-rc.0...@carbon/ibmdotcom-services-store@1.14.0) (2020-12-15)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
 # [1.14.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.13.0...@carbon/ibmdotcom-services-store@1.14.0-rc.0) (2020-12-04)
 
 ### Features
