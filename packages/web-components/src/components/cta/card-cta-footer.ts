@@ -15,7 +15,8 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCardFooter from '../card/card-footer';
-import CTAMixin from './mixins/cta';
+import CTAMixin from '../../component-mixins/cta/cta';
+import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
@@ -28,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-cta-footer
  */
 @customElement(`${ddsPrefix}-card-cta-footer`)
-class DDSCardCTAFooter extends CTAMixin(DDSCardFooter) {
+class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
   protected _renderContent() {
     const { ctaType, _hasCopy: hasCopy } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {

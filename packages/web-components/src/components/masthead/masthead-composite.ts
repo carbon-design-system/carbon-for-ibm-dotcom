@@ -79,9 +79,11 @@ class DDSMastheadComposite extends LitElement {
   /**
    * Renders the L1 Items
    *
-   * @param target - defines the type of rendered item (top nav item / left nav item)
+   * @param options The options.
+   * @param [options.selectedMenuItem] The selected nav item.
+   * @param options.target The target of rendering navigation items.
    */
-  private _renderL1Items({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
+  private _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     if (!this.l1Data) return undefined;
     const { menuItems } = this.l1Data;
     if (menuItems) {
@@ -92,6 +94,7 @@ class DDSMastheadComposite extends LitElement {
                 return elem.menuItems
                   ? html`
                       <dds-top-nav-menu
+                        ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
                         menu-label="${elem.title}"
                         trigger-content="${elem.title}"
                         data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
@@ -109,6 +112,7 @@ class DDSMastheadComposite extends LitElement {
                     `
                   : html`
                       <dds-top-nav-item
+                        ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
                         href="${elem.url}"
                         title="${elem.title}"
                         data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
@@ -120,7 +124,11 @@ class DDSMastheadComposite extends LitElement {
         : menuItems.map((elem, i) =>
             elem.menuItems
               ? html`
-                  <dds-left-nav-menu title="${elem.title}" data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}">
+                  <dds-left-nav-menu
+                    ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
+                    title="${elem.title}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                  >
                     ${elem.menuItems.map(
                       (item, j) => html`
                         <dds-left-nav-menu-item
@@ -134,6 +142,7 @@ class DDSMastheadComposite extends LitElement {
                 `
               : html`
                   <dds-left-nav-item
+                    ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
                     href="${elem.url}"
                     title="${elem.title}"
                     data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
@@ -148,8 +157,11 @@ class DDSMastheadComposite extends LitElement {
   /**
    * Renders L1 menu based on l1Data
    *
+   * @param [options] The options.
+   * @param [options.selectedMenuItem] The selected nav item.
+   * @returns The L1 nav.
    */
-  private _renderL1() {
+  private _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
     return html`
@@ -159,7 +171,7 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-masthead-l1-name title="${title}" url="${url}"></dds-masthead-l1-name>
             `}
-        ${this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+        ${this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </dds-masthead-l1>
     `;
   }
@@ -291,15 +303,16 @@ class DDSMastheadComposite extends LitElement {
 
   /**
    * @param options The options.
+   * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
    */
-  private _renderNavItems({ target }: { target: NAV_ITEMS_RENDER_TARGET }) {
+  private _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     const { navLinks } = this;
     return !navLinks
       ? undefined
       : navLinks.map((link, i) => {
-          const { menuSections = [], title, url } = link;
+          const { menuSections = [], title, titleEnglish, url } = link;
           let sections;
           let mobileSections;
           if (link.hasMegapanel) {
@@ -331,6 +344,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
+                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -340,6 +354,7 @@ class DDSMastheadComposite extends LitElement {
             if (link.hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
+                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -350,6 +365,7 @@ class DDSMastheadComposite extends LitElement {
             }
             return html`
               <dds-top-nav-menu
+                ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
                 menu-label="${title}"
                 trigger-content="${title}"
                 data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -361,13 +377,18 @@ class DDSMastheadComposite extends LitElement {
           return sections.length === 0
             ? html`
                 <dds-left-nav-item
+                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
                 ></dds-left-nav-item>
               `
             : html`
-                <dds-left-nav-menu title="${title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
+                <dds-left-nav-menu
+                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                  title="${title}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                >
                   ${mobileSections}
                 </dds-left-nav-menu>
               `;
@@ -449,6 +470,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: 'menu-button-assistive-text-inactive' })
   menuButtonAssistiveTextInactive!: string;
+
+  /**
+   * The English title of the selected nav item.
+   */
+  @property({ attribute: 'selected-menu-item' })
+  selectedMenuItem!: string;
 
   /**
    * The profile items for unauthenticated state.
@@ -542,6 +569,7 @@ class DDSMastheadComposite extends LitElement {
       language,
       openSearchDropdown,
       searchPlaceholder,
+      selectedMenuItem,
       unauthenticatedProfileItems,
       userStatus,
       l1Data,
@@ -557,8 +585,8 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-left-nav-name>${brandName}</dds-left-nav-name>
             `}
-        ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
-        ${this.l1Data ? this._renderL1Items({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
+        ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -573,9 +601,13 @@ class DDSMastheadComposite extends LitElement {
           : html`
               <dds-top-nav-name>${brandName}</dds-top-nav-name>
             `}
-        <dds-top-nav ?hide-divider="${this.l1Data}" menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
-          ${this.l1Data ? undefined : this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
-        </dds-top-nav>
+        ${l1Data
+          ? undefined
+          : html`
+              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+                ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
+              </dds-top-nav>
+            `}
         <dds-masthead-search-composite
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"

@@ -104,6 +104,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   collatorCountryName = new Intl.Collator();
 
   /**
+   * `true` to omit the locale switcher button.
+   */
+  @property({ attribute: 'disable-locale-button' })
+  disableLocaleButton = false;
+
+  /**
    * The language used for query.
    */
   @property()
@@ -193,7 +199,15 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   }
 
   renderLightDOM() {
-    const { buttonLabel, langDisplay, size, links, legalLinks, _handleClickLocaleButton: handleClickLocaleButton } = this;
+    const {
+      buttonLabel,
+      disableLocaleButton,
+      langDisplay,
+      size,
+      links,
+      legalLinks,
+      _handleClickLocaleButton: handleClickLocaleButton,
+    } = this;
     return html`
       <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
@@ -210,7 +224,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${size !== FOOTER_SIZE.MICRO
+        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button

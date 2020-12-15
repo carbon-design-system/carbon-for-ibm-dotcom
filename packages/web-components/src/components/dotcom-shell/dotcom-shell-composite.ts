@@ -138,6 +138,12 @@ class DDSDotcomShellComposite extends LitElement {
   currentSearchResults: string[] = [];
 
   /**
+   * `true` to omit the locale switcher button.
+   */
+  @property({ attribute: 'disable-locale-button' })
+  disableLocaleButton = false;
+
+  /**
    * The throttle timeout to run query upon user input. This goes to masthead.
    */
   @property({ type: Number, attribute: 'input-timeout' })
@@ -208,6 +214,12 @@ class DDSDotcomShellComposite extends LitElement {
   menuButtonAssistiveTextInactive?: string;
 
   /**
+   * The English title of the selected nav item.
+   */
+  @property({ attribute: 'selected-menu-item' })
+  selectedMenuItem!: string;
+
+  /**
    * `true` to open the locale modal. This goes to footer.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
@@ -262,6 +274,7 @@ class DDSDotcomShellComposite extends LitElement {
       brandName,
       collatorCountryName,
       currentSearchResults,
+      disableLocaleButton,
       mastheadAssistiveText,
       menuBarAssistiveText,
       menuButtonAssistiveTextActive,
@@ -277,6 +290,7 @@ class DDSDotcomShellComposite extends LitElement {
       openLocaleModal,
       openSearchDropdown,
       navLinks,
+      selectedMenuItem,
       userStatus,
       _loadLangDisplay,
       _setLanguage,
@@ -302,6 +316,7 @@ class DDSDotcomShellComposite extends LitElement {
           language,
           navLinks,
           openSearchDropdown,
+          selectedMenuItem,
           userStatus,
           _loadSearchResults,
           _loadTranslation,
@@ -319,6 +334,7 @@ class DDSDotcomShellComposite extends LitElement {
       pickBy(
         {
           collatorCountryName,
+          disableLocaleButton,
           language,
           langDisplay,
           legalLinks,

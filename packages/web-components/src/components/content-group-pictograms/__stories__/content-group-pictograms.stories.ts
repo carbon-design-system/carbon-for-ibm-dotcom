@@ -15,6 +15,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../pictogram-item/pictogram-item';
 import '../../content-item/content-item-heading';
+import styles from './content-group-pictograms.stories.scss';
 
 const pictogramsItems = [
   {
@@ -47,6 +48,9 @@ export default {
   title: 'Components/Content Group Pictograms',
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div>${story()}</div>
     `,
   ],
@@ -90,7 +94,7 @@ export const Default = ({ parameters }) => {
               <g id="touch_screen">
                 <g id="touch_screen_1_">
                   <path
-                    style="fill:none;stroke:#000000;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
+                    style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
                     d="M15,29H9V10h25v19h-7
                     M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
                     l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38

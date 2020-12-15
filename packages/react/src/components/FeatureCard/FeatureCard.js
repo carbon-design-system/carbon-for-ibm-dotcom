@@ -30,7 +30,6 @@ const FeatureCard = ({ card, onClick }) => {
         data-autoid={`${stablePrefix}--feature-card`}>
         <Card
           customClassName={`${prefix}--feature-card__card`}
-          inverse={true}
           onClick={onClick}
           {...card}
         />

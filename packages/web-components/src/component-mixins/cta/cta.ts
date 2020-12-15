@@ -15,7 +15,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import Download20 from 'carbon-web-components/es/icons/download/20.js';
 import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
 import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
-import { CTA_TYPE } from '../defs';
+import { CTA_TYPE } from '../../components/cta/defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -50,25 +50,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param event The event.
      */
     _handleClickLink(event: MouseEvent) {
-      const { ctaType, disabled, href } = this;
-      if (disabled || ctaType === CTA_TYPE.VIDEO) {
-        event.preventDefault(); // Stop following the link
-      }
+      const { disabled } = this;
       if (disabled) {
+        event.preventDefault(); // Stop following the link
         event.stopPropagation(); // Stop firing `onClick`
-      } else {
-        const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
-        this.dispatchEvent(
-          new CustomEvent(eventRunAction, {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              href,
-              ctaType,
-            },
-          })
-        );
       }
     }
 
@@ -88,18 +73,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     abstract download?: string;
 
     /**
-     * The formatter for the video caption, composed with the video name and the video duration.
-     * Should be changed upon the locale the UI is rendered with.
-     */
-    abstract formatVideoCaption?: never | (({ duration, name }: { duration?: string; name?: string }) => string);
-
-    /**
-     * The formatter for the video duration.
-     * Should be changed upon the locale the UI is rendered with.
-     */
-    abstract formatVideoDuration?: never | (({ duration }: { duration?: number }) => string);
-
-    /**
      * Link `href`.
      */
     abstract href?: string;
@@ -108,21 +81,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * The link target.
      */
     abstract target?: string;
-
-    /**
-     * The video duration.
-     */
-    abstract videoDuration?: never | number;
-
-    /**
-     * The video name.
-     */
-    abstract videoName?: never | string;
-
-    /**
-     * The video thumbnail URL.
-     */
-    abstract videoThumbnailUrl?: never | string;
 
     /**
      * @returns The template for the icon.
@@ -142,22 +100,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.updated(changedProperties);
       const { ctaType, _linkNode: linkNode } = this;
-      if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
-        const { href, videoDuration } = this;
-        if (typeof videoDuration === 'undefined') {
-          const { eventRequestVideoData } = this.constructor as typeof CTAMixinImpl;
-          this.dispatchEvent(
-            new CustomEvent(eventRequestVideoData, {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-              detail: {
-                href,
-              },
-            })
-          );
-        }
-      }
       if (changedProperties.has('ctaType') || changedProperties.has('download')) {
         const { download } = this;
         if (ctaType !== CTA_TYPE.DOWNLOAD && download) {
@@ -188,20 +130,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           }
         }
       }
-    }
-
-    /**
-     * The name of the custom event fired when there is a user gesture to run the action.
-     */
-    static get eventRequestVideoData() {
-      return `${ddsPrefix}-cta-request-video-data`;
-    }
-
-    /**
-     * The name of the custom event fired when there is a user gesture to run the action.
-     */
-    static get eventRunAction() {
-      return `${ddsPrefix}-cta-run-action`;
     }
   }
 
