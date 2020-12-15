@@ -28,6 +28,8 @@
 :host(#{$dds-prefix}-leaving-ibm-modal-body) {
   @extend :host(#{$prefix}-modal-body);
 
+  padding-right: 20%;
+
   .#{$prefix}--leaving-ibm__text {
     margin-top: $spacing-07;
     color: $text-02;
