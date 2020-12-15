@@ -31,7 +31,7 @@ export default {
               alt: 'Image alt text',
             }) ||
             undefined,
-          eyebrow: text('eyebrow', 'eyebrow text', groupId),
+          eyebrow: text('eyebrow', 'Eyebrow text', groupId),
           heading: text(
             'title (required)',
             'Lorem ipsum dolor sit amet',
@@ -41,7 +41,7 @@ export default {
           inverse: boolean('inverse', false, groupId),
           cta: {
             href: text('Cta href (cta.href)', 'https://example.com', groupId),
-            copy: text('Cta copy (cta.copy)', 'Card cta text', groupId),
+            copy: text('Cta copy (cta.copy)', 'Card CTA text', groupId),
             icon: {
               src: ArrowRight20,
             },

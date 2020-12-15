@@ -8,7 +8,6 @@
  */
 import { customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import styles from './button-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -52,10 +51,6 @@ class DDSButtonGroup extends LitElement {
 
     const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;
     this.style.setProperty(customPropertyItemCount, String(childItems.length));
-
-    setTimeout(() => {
-      sameHeight(childItems, 'md');
-    });
   }
 
   render() {

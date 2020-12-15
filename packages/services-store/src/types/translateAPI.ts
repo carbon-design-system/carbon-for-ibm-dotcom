@@ -93,6 +93,7 @@ export interface MastheadL1 {
 
 export interface MastheadL1Item {
   title: string;
+  titleEnglish?: string;
   url?: string;
   menuItems?: MastheadL1Item[];
 }

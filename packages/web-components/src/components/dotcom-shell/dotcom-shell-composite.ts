@@ -214,6 +214,12 @@ class DDSDotcomShellComposite extends LitElement {
   menuButtonAssistiveTextInactive?: string;
 
   /**
+   * The English title of the selected nav item.
+   */
+  @property({ attribute: 'selected-menu-item' })
+  selectedMenuItem!: string;
+
+  /**
    * `true` to open the locale modal. This goes to footer.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
@@ -284,6 +290,7 @@ class DDSDotcomShellComposite extends LitElement {
       openLocaleModal,
       openSearchDropdown,
       navLinks,
+      selectedMenuItem,
       userStatus,
       _loadLangDisplay,
       _setLanguage,
@@ -309,6 +316,7 @@ class DDSDotcomShellComposite extends LitElement {
           language,
           navLinks,
           openSearchDropdown,
+          selectedMenuItem,
           userStatus,
           _loadSearchResults,
           _loadTranslation,
