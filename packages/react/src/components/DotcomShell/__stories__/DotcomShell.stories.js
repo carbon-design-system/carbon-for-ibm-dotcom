@@ -6,7 +6,8 @@
  */
 
 import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
-import { select, object } from '@storybook/addon-knobs';
+import './dotcom-shell.stories.scss';
+import { boolean, select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
@@ -23,6 +24,15 @@ const footerTypeOptions = {
   short: 'short',
   micro: 'micro',
 };
+
+const delayOptions = {
+  None: 'dds-devenv--scroll-into-view--delay-default',
+  '250ms': 'dds-devenv--scroll-into-view--delay-quarter-second',
+  '500ms': 'dds-devenv--scroll-into-view--delay-half-second',
+  '1s': 'dds-devenv--scroll-into-view--delay-one-second',
+};
+
+let lastDelay = 'dds-devenv--scroll-into-view--delay-default';
 
 export default {
   title: 'Components|Dotcom Shell',
@@ -304,13 +314,20 @@ WithL1.story = {
   },
 };
 
-export const WithFadeAnimations = ({ parameters }) => (
-  <Default parameters={parameters} />
-);
+export const WithFadeAnimations = ({ parameters }) => {
+  let { delay, iterations } = parameters?.props?.DotcomShell ?? {};
+
+  scrollIntoView('.bx--content-block', iterations);
+  document.querySelectorAll('.bx--content-block').forEach(e => {
+    e.classList.remove(lastDelay);
+    e.classList.add(delay);
+  });
+  lastDelay = delay;
+  return <Default parameters={parameters} />;
+};
 
 WithFadeAnimations.story = {
   name: 'With Fade Animations',
-
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
@@ -321,22 +338,9 @@ WithFadeAnimations.story = {
           Masthead: mastheadKnobs,
         } = mastheadStory.story.parameters.knobs;
         const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
-
-        scrollIntoView('.bx--content-block');
-
-        const delayOptions = {
-          Default: '400ms',
-          1: '1s',
-          3: '3s',
-          5: '5s',
-        };
-        const defaultDelay = '400s';
-        let delay = select('Delay (in seconds)', delayOptions, defaultDelay);
-
-        document.querySelectorAll('.bx--content-block').forEach(e => {
-          e.style.setProperty('--dds--scroll-into-view-delay', delay);
-        });
         return {
+          delay: select('Delay', delayOptions, delayOptions['None']),
+          iterations: boolean('Iterations', true),
           mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
           footerProps: {
             ...footerKnobs({ groupId: 'Footer' }),
