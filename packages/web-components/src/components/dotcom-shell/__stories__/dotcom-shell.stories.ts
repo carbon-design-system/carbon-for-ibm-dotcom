@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
@@ -28,11 +28,21 @@ import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
+import fadeOptions from './dotcom-shell.stories.scss';
 
 const footerSizes = {
   Default: FOOTER_SIZE.REGULAR,
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
 };
+
+const delayOptions = {
+  None: 'dds-devenv--scroll-into-view--delay-default',
+  '250ms': 'dds-devenv--scroll-into-view--delay-quarter-second',
+  '500ms': 'dds-devenv--scroll-into-view--delay-half-second',
+  '1s': 'dds-devenv--scroll-into-view--delay-one-second',
+};
+
+let lastDelay = 'dds-devenv--scroll-into-view--delay-default';
 
 const image = html`
   <dds-image-with-caption
@@ -129,6 +139,7 @@ const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
     ${fadeStyles.cssText}
+    ${fadeOptions.cssText}
   </style>
   <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
     <div class="bx--grid">
@@ -351,7 +362,16 @@ export const withFadeAnimations = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.FooterComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  const { useMock, delay, iterations } = parameters?.props.FadeOptions ?? {};
+
+  scrollIntoView('dds-table-of-contents > *', iterations);
+  document.querySelectorAll('dds-table-of-contents > *').forEach(e => {
+    e.classList.remove(lastDelay);
+    e.classList.add(delay);
+  });
+
+  lastDelay = delay;
+
   return html`
     <style>
       ${mastheadStyles}
@@ -395,27 +415,10 @@ export const withFadeAnimations = ({ parameters }) => {
 withFadeAnimations.story = {
   parameters: {
     knobs: {
-      DotcomShell: () => {
-        scrollIntoView('h2');
-        scrollIntoView('p');
-
-        const delayOptions = {
-          Default: '400ms',
-          1: '1s',
-          3: '3s',
-          5: '5s',
-        };
-        const defaultDelay = '400s';
-        const delay = select('Delay (in seconds)', delayOptions, defaultDelay);
-
-        document.querySelectorAll('h2').forEach(e => {
-          e.style.setProperty('--dds--scroll-into-view-delay', delay);
-        });
-
-        document.querySelectorAll('p').forEach(e => {
-          e.style.setProperty('--dds--scroll-into-view-delay', delay);
-        });
-      },
+      FadeOptions: () => ({
+        delay: select('Delay', delayOptions, lastDelay),
+        iterations: boolean('Iterations', true),
+      }),
     },
   },
 };
