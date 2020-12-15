@@ -28,6 +28,13 @@
     height: rem(20px);
     width: rem(20px);
   }
+  .#{$prefix}--data-table tbody td {
+    &.#{$prefix}--table-column-checkbox,
+    &.#{$prefix}--table-expand {
+      padding-right: $spacing-05;
+    }
+  }
+
   .#{$prefix}--action-list .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
