@@ -1,0 +1,8 @@
+---
+applications:
+- name: ibmdotcom-web-components-react
+  path: ./storybook-static-react
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  routes:
+    - route: ibmdotcom-web-components-react.mybluemix.net
