@@ -15,7 +15,8 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSFeatureCard from '../feature-card/feature-card';
-import CTAMixin from './mixins/cta';
+import CTAMixin from '../../component-mixins/cta/cta';
+import VideoCTAMixin from '../../component-mixins/cta/video';
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import { CTA_TYPE } from './shared-enums';
 import styles from './cta.scss';
@@ -31,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-cta
  */
 @customElement(`${ddsPrefix}-feature-cta`)
-class DDSFeatureCTA extends CTAMixin(DDSFeatureCard) {
+class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   protected _renderCopy() {
     const {
       ctaType,
