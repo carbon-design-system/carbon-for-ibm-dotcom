@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.1...@carbon/ibmdotcom-web-components@0.7.0) (2020-12-15)
+
+### Bug Fixes
+
+- **legal-nav:** align cookie preference to other nav items ([#4680](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4680)) ([678b8e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/678b8e7)), closes [#4676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4676)
+- **masthead:** avoid rendering L0 if L1 is there ([#4679](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4679)) ([9bfe360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9bfe360)), closes [#4677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4677)
+
+# [0.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.0...@carbon/ibmdotcom-web-components@0.7.0-rc.1) (2020-12-08)
+
+### Bug Fixes
+
+- **footer:** added label to locale button for better description ([#4669](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4669)) ([051a08e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/051a08e)), closes [#4667](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4667)
+- **locale-modal:** remove listbox role for accessibility ([#4670](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4670)) ([f6b0c5e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f6b0c5e)), closes [#4668](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4668)
+- **locale-modal:** replaced href target to avoid storybook refresh ([#4647](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4647)) ([9ba076e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9ba076e))
+- **LocaleModale:** region card layout ([#4637](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4637)) ([fc785a0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/fc785a0)), closes [#4628](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4628)
+
+# [0.7.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.48.54...@carbon/ibmdotcom-web-components@0.7.0-rc.0) (2020-12-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
 # [0.6.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.6.0-rc.4...@carbon/ibmdotcom-web-components@0.6.0) (2020-11-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

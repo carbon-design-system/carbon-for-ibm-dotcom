@@ -19,6 +19,7 @@ import '../../content-item/content-item';
 import '../content-block-media-content';
 import '../../card-link/card-link';
 import '../../feature-card/feature-card';
+import '../../feature-card/feature-card-footer';
 import readme from './README.stories.mdx';
 
 const heading = 'Lorem ipsum dolor sit amet.';

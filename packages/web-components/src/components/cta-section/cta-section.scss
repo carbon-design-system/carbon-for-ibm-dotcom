@@ -17,7 +17,7 @@
     padding-top: $carbon--layout-03;
   }
 
-  ::slotted([slot='cta']) {
+  ::slotted([slot='action']) {
     margin-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-03;
 
@@ -78,17 +78,10 @@
 }
 
 :host(#{$dds-prefix}-cta-section-item-copy) {
-  display: inline;
-  margin-bottom: $carbon--spacing-05;
-  height: carbon--rem(48px);
-
-  ::slotted(p) {
-    width: 100%;
-
-    @include carbon--breakpoint('md') {
-      width: 90%;
-      max-width: 32rem;
-    }
+  ::slotted(#{$dds-prefix}-content-item-paragraph) {
+    display: grid;
+    height: 100%;
+    margin-bottom: -$carbon--spacing-05;
   }
 }
 

@@ -14,18 +14,37 @@
   @include button;
 
   .#{$prefix}--buttongroup,
-  :host(#{$dds-prefix}-button-group) {
-    display: flex;
-    flex-direction: column;
+  :host(#{$dds-prefix}-button-group),
+  :host(#{$dds-prefix}-leadspace-block-cta) {
+    --#{$dds-prefix}--button-group--item-count: 3;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
 
     @include carbon--breakpoint(lg) {
-      flex-flow: row wrap;
+      display: inline-grid;
+      grid-template-columns: repeat(
+        var(--#{$dds-prefix}--button-group--item-count),
+        1fr
+      );
+    }
+  }
+
+  .#{$prefix}--buttongroup-item,
+  :host(#{$dds-prefix}-button-group-item) {
+    margin-top: $carbon--layout-01;
+    max-width: carbon--mini-units(40);
+    min-width: 0;
+
+    @include carbon--breakpoint(md) {
+      padding-right: $carbon--layout-01;
     }
 
     .#{$prefix}--btn {
       font-size: 1rem;
       position: relative;
-      width: auto;
+      width: 100%;
       height: 100%;
       word-break: break-word;
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,
@@ -42,17 +61,6 @@
     }
   }
 
-  .#{$prefix}--buttongroup-item,
-  :host(#{$dds-prefix}-button-group-item) {
-    margin-top: $carbon--layout-01;
-    max-width: carbon--mini-units(40);
-    min-width: 0;
-
-    @include carbon--breakpoint(md) {
-      padding-right: $carbon--layout-01;
-    }
-  }
-
   :host(#{$dds-prefix}-button-group-item) {
     ::slotted([slot='icon']) {
       position: absolute;
@@ -60,20 +68,6 @@
       top: 50%;
       transform: translateY(-50%);
       flex-shrink: 0;
-    }
-    .#{$prefix}--btn {
-      font-size: 1rem;
-      position: relative;
-      width: auto;
-      height: 100%;
-      word-break: break-word;
-      transition: all $duration--fast-01 motion(entrance, productive), width 0s,
-        height 0s;
-
-      .#{$prefix}--btn__icon {
-        width: auto;
-        height: auto;
-      }
     }
   }
 

@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
 const slotExistencePropertyNames = {
-  cta: '_hasCTA',
+  footer: '_hasFooter',
 };
 
 /**
@@ -29,22 +29,22 @@ const slotExistencePropertyNames = {
  * @element dds-content-item
  * @slot media - The media content.
  * @slot heading - The heading content.
- * @slot cta - The footer (CTA) content.
+ * @slot footer - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-content-item`)
 class DDSContentItem extends StableSelectorMixin(LitElement) {
   /**
-   * `true` if there is a CTA content.
+   * `true` if there is a footer content.
    */
   @internalProperty()
-  _hasCTA = false;
+  _hasFooter = false;
 
   /**
-   * Handles `slotchange` event on the CTA slot.
+   * Handles `slotchange` event.
    *
    * @param event The event.
    */
-  protected _handleSlotchange({ target }: Event) {
+  protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
@@ -55,12 +55,21 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
   /**
    * @returns The body content.
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderBody(): TemplateResult | string | void {
-    const { _hasCTA: hasCTA } = this;
     return html`
       <slot></slot>
-      <div ?hidden="${!hasCTA}" class="${prefix}--content-item__cta">
-        <slot name="cta" @slotchange="${this._handleSlotchange}"></slot>
+    `;
+  }
+
+  /**
+   * @returns The footer content.
+   */
+  protected _renderFooter(): TemplateResult | string | void {
+    const { _hasFooter: hasFooter } = this;
+    return html`
+      <div ?hidden="${!hasFooter}" class="${prefix}--content-item__cta">
+        <slot name="footer" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
   }
@@ -71,7 +80,7 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
       <div>
         <slot name="media"></slot>
       </div>
-      ${this._renderBody()}
+      ${this._renderBody()}${this._renderFooter()}
     `;
   }
 

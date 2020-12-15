@@ -11,12 +11,14 @@
   id="link"
 >
   <div class="bx--card__wrapper">
-    <h3 class="bx--card__heading">
-      <slot>
-        name-foo
-      </slot>
-    </h3>
-    <div class="bx--card__footer">
+    <div class="bx--card__content">
+      <h3 class="bx--card__heading">
+        <slot>
+          name-foo
+        </slot>
+      </h3>
+      <div class="bx--card__footer">
+      </div>
     </div>
   </div>
 </a>
@@ -26,21 +28,22 @@
 ####   `should render with invalid state`
 
 ```
-<a
-  class="bx--link"
-  href="#"
+<div
+  class="bx--link bx--link--disabled"
   id="link"
 >
   <div class="bx--card__wrapper">
-    <h3 class="bx--card__heading">
-      <slot>
-        name-foo
-      </slot>
-    </h3>
-    <div class="bx--card__footer">
+    <div class="bx--card__content">
+      <h3 class="bx--card__heading">
+        <slot>
+          name-foo
+        </slot>
+      </h3>
+      <div class="bx--card__footer">
+      </div>
     </div>
   </div>
-</a>
+</div>
 
 ```
 

@@ -127,7 +127,7 @@
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
     margin-left: 0;
-    color: $interactive-04;
+    color: $link-01;
   }
 
   :host(#{$dds-prefix}-card-footer[disabled])
@@ -145,7 +145,7 @@
 
     .#{$prefix}--card__cta__copy {
       margin-right: $carbon--spacing-03;
-      color: $interactive-04;
+      color: $link-01;
       @include carbon--type-style('body-short-02');
     }
 
@@ -212,13 +212,7 @@
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
   :host(#{$dds-prefix}-card-footer[color-scheme='inverse'])
-    .#{$prefix}--card__cta__copy,
-  :host(#{$dds-prefix}-feature-card-footer)
-    .#{$dds-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']),
-  :host(#{$dds-prefix}-feature-cta-footer)
-    .#{$dds-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']) {
+    .#{$prefix}--card__cta__copy {
     color: $inverse-link;
   }
 }

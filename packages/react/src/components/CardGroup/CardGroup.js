@@ -5,14 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -22,43 +20,6 @@ const { prefix } = settings;
  */
 const CardGroup = ({ cards, cta }) => {
   const containerRef = useRef();
-  useEffect(() => {
-    setCardHeight();
-    root.addEventListener('resize', setCardHeight);
-    return () => root.removeEventListener('resize', setCardHeight);
-  }, []);
-
-  /**
-   * Set the cards to have the same height as the bigger one
-   */
-  const setCardHeight = () => {
-    root.requestAnimationFrame(() => {
-      const { current: containerNode } = containerRef;
-      if (containerNode) {
-        sameHeight(
-          containerNode.querySelectorAll(
-            `:not(.${prefix}--card__video) .${prefix}--card__heading`
-          ),
-          'md'
-        );
-        sameHeight(
-          containerNode.querySelectorAll(
-            `:not(.${prefix}--card__video) .${prefix}--card__copy`
-          ),
-          'md'
-        );
-        sameHeight(
-          containerNode.querySelectorAll(`.${prefix}--card__eyebrow`),
-          'md'
-        );
-        sameHeight(
-          containerNode.querySelectorAll(`.${prefix}--card--link`),
-          'md'
-        );
-      }
-    });
-  };
-
   return _renderCards(cards, containerRef, cta);
 };
 
@@ -123,7 +84,7 @@ const _renderCards = (cards, containerRef, cta) => (
 CardGroup.propTypes = {
   /**
    * Array of card objects.
-   * Uses a sub-scheme of `<Card>`'s props for each items.
+   * Uses a sub-scheme of `<CTA style="card">`'s props for each items.
    *
    * Simple:
    *
@@ -142,7 +103,7 @@ CardGroup.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--static#props) for full usage details.
+   * See [`<CTA style="card">`'s README](https://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--card#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({

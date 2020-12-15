@@ -44,6 +44,7 @@
 </slot>
 <dds-image
   alt="video-name-foo"
+  data-autoid="dds--image"
   default-src="https://example.com/video-thumbnail-foo"
 >
 </dds-image>

@@ -115,20 +115,9 @@ withImagesAndCTA.story = {
 
 export default {
   title: 'Components/Card Group',
-  decorators: [
-    story => html`
-      <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
-      </div>
-    `,
-  ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
+    hasCardGroupStandalone: true,
     knobs: {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({

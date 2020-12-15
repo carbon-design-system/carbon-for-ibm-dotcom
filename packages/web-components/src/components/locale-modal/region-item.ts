@@ -58,20 +58,39 @@ class DDSRegionItem extends HostListenerMixin(DDSLink) {
   name = '';
 
   /**
+   * @returns The disabled link content.
+   */
+  protected _renderDisabledLink() {
+    const { _classes: classes } = this;
+    return html`
+      <div id="link" class="${classes}">${this._renderInner()}</div>
+    `;
+  }
+
+  /**
    * @returns The inner content.
    */
   _renderInner() {
     const { invalid, name } = this;
     return html`
       <div class="${prefix}--card__wrapper">
-        <h3 class="${prefix}--card__heading">
-          <slot>${name}</slot>
-        </h3>
-        <div class="${prefix}--card__footer">
-          ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+        <div class="${prefix}--card__content">
+          <h3 class="${prefix}--card__heading">
+            <slot>${name}</slot>
+          </h3>
+          <div class="${prefix}--card__footer">
+            ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+          </div>
         </div>
       </div>
     `;
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('invalid')) {
+      this.disabled = this.invalid;
+    }
+    return true;
   }
 
   updated(changedProperties) {

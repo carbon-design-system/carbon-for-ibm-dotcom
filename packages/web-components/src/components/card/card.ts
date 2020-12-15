@@ -11,6 +11,7 @@ import { html, property, internalProperty, customElement, TemplateResult } from 
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
@@ -37,7 +38,7 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends DDSLink {
+class DDSCard extends StableSelectorMixin(DDSLink) {
   /**
    * `true` if there is eyebrow content.
    */
@@ -95,6 +96,16 @@ class DDSCard extends DDSLink {
   }
 
   /**
+   * @returns The disabled link content.
+   */
+  protected _renderDisabledLink() {
+    const { _classes: classes } = this;
+    return html`
+      <div id="link" class="${classes}">${this._renderInner()}</div>
+    `;
+  }
+
+  /**
    * @returns The inner content.
    */
   protected _renderInner() {
@@ -118,6 +129,7 @@ class DDSCard extends DDSLink {
 
   /**
    * The color scheme.
+   * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    */
   @property({ attribute: 'color-scheme', reflect: true })
   colorScheme = BASIC_COLOR_SCHEME.REGULAR;
@@ -163,7 +175,7 @@ class DDSCard extends DDSLink {
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-footer`;
+    return `${ddsPrefix}-card`;
   }
 
   static styles = styles;

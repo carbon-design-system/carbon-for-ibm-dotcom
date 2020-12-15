@@ -31,13 +31,13 @@ describe('dds-card', function() {
     it('should render with various attributes', async function() {
       render(
         template({
-          eyebrow: 'eyebrow text',
+          eyebrow: 'Eyebrow text',
           heading: 'Lorem ipsum dolor sit amet',
           copy: '',
           defaultSrc: 'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
           alt: 'Image alt text',
           href: 'https://example.com',
-          footer: 'Card cta text',
+          footer: 'Card CTA text',
         }),
         document.body
       );

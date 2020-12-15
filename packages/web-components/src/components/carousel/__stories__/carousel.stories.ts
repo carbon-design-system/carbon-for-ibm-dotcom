@@ -50,30 +50,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withContentSection = ({ parameters }) => {
-  const { pageSize } = parameters?.props?.Carousel ?? {};
-  return html`
-    <dds-content-section>
-      <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
-      <dds-content-section-copy>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      </dds-content-section-copy>
-      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-        Link text ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-      <dds-carousel page-size="${ifNonNull(pageSize)}">
-        ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
-      </dds-carousel>
-    </dds-content-section>
-  `;
-};
-
-withContentSection.story = {
-  parameters: {
-    useRawContainer: true,
-  },
-};
-
 export default {
   title: 'Components/Carousel',
   parameters: {

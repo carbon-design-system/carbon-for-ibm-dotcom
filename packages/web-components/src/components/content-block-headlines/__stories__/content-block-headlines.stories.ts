@@ -23,7 +23,7 @@ const contentItemRow1 = html`
       >Modernize mission-critical applications and infrastructure in a hybrid multicloud environment up to 25 percent
       faster.</dds-content-item-copy
     >
-    <dds-link-list slot="cta" type="vertical">
+    <dds-link-list slot="footer" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Link text
       </dds-link-list-item-cta>
@@ -35,7 +35,7 @@ const contentItemRow2 = html`
   <dds-content-block-headlines-item>
     <dds-content-block-headlines-heading>1.34M</dds-content-block-headlines-heading>
     <dds-content-item-copy slot="copy">Save 1.34M per year by optimizing your time and IT expenses.</dds-content-item-copy>
-    <dds-link-list slot="cta" type="vertical">
+    <dds-link-list slot="footer" type="vertical">
       <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Link text
       </dds-link-list-item-cta>

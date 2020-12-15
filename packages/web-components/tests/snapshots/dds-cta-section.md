@@ -17,7 +17,7 @@
   class="bx--content-item__cta"
   hidden=""
 >
-  <slot name="cta">
+  <slot name="action">
   </slot>
 </div>
 <slot name="link-list">
@@ -27,7 +27,7 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot name="content-item">
+    <slot name="items">
     </slot>
   </div>
 </div>
@@ -46,7 +46,7 @@
 <slot>
 </slot>
 <div class="bx--content-item__cta">
-  <slot name="cta">
+  <slot name="action">
   </slot>
 </div>
 <slot name="link-list">
@@ -56,7 +56,7 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot name="content-item">
+    <slot name="items">
     </slot>
   </div>
 </div>

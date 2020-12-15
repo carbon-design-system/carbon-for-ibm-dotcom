@@ -39,7 +39,7 @@ describe('dds-content-group-horizontal', function() {
               <span slot="eyebrow">eyebrow-foo</span>
               <dds-content-item-heading>heading-foo</dds-content-item-heading>
               <dds-content-item-horizontal-copy>copy-foo</dds-content-item-horizontal-copy>
-              <dds-link-list slot="cta" type="vertical">
+              <dds-link-list slot="footer" type="vertical">
                 <dds-link-list-item-cta
                   icon-placement="${ICON_PLACEMENT.RIGHT}"
                   href="https://www.ibm.com"
