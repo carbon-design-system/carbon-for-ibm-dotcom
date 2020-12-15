@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -59,6 +60,12 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   }
 
   /**
+   * `true` if the menu should be in its active state.
+   */
+  @property({ type: Boolean, reflect: true })
+  active = false;
+
+  /**
    * The back button's text.
    */
   @property({ attribute: 'back-button-text' })
@@ -87,13 +94,17 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { backButtonText, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const { active, backButtonText, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const buttonClasses = classMap({
+      [`${prefix}--side-nav__submenu`]: true,
+      [`${prefix}--masthead__side-nav--submemu--selected`]: active,
+    });
     return html`
       <button
         type="button"
         aria-haspopup="true"
         aria-expanded="${String(Boolean(expanded))}"
-        class="${prefix}--side-nav__submenu"
+        class="${buttonClasses}"
         @click=${handleClickExpando}
       >
         <span class="${prefix}--side-nav__submenu-title">${title}</span>

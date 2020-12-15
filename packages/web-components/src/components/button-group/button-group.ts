@@ -8,7 +8,6 @@
  */
 import { customElement, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import styles from './button-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -50,9 +49,8 @@ class DDSButtonGroup extends LitElement {
       (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_TYPES.ALTERNATE : BUTTON_TYPES.DEFAULT);
     });
 
-    setTimeout(() => {
-      sameHeight(childItems, 'md');
-    });
+    const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;
+    this.style.setProperty(customPropertyItemCount, String(childItems.length));
   }
 
   render() {
@@ -64,6 +62,13 @@ class DDSButtonGroup extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute('role', 'list');
+  }
+
+  /**
+   * The CSS custom property name for the live button group item cout.
+   */
+  static get customPropertyItemCount() {
+    return `--${ddsPrefix}--button-group--item-count`;
   }
 
   /**

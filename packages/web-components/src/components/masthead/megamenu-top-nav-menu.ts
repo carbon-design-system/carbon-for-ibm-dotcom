@@ -10,8 +10,8 @@
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXHeaderMenu from 'carbon-web-components/es/components/ui-shell/header-menu.js';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-top-nav-menu
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
-class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
+class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The observer for the resize of the viewport.
    */
@@ -56,7 +56,8 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    this.style.setProperty(`--${ddsPrefix}-ce--viewport-width`, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
+    this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
   };
 
   connectedCallback() {
@@ -74,6 +75,7 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
   }
 
   updated(changedProperties) {
+    super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
@@ -86,6 +88,13 @@ class DDSMegaMenuTopNavMenu extends BXHeaderMenu {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
       }
     }
+  }
+
+  /**
+   * The CSS custom property name for the live viewport width.
+   */
+  static get customPropertyViewportWidth() {
+    return `--${ddsPrefix}-ce--viewport-width`;
   }
 
   /**

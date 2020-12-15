@@ -275,6 +275,9 @@ $search-transition-timing: 95ms;
     transition: left $transition--base motion(standard, productive);
   }
 
+  :host(#{$dds-prefix}-top-nav-item),
+  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$dds-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--header__nav {
     a.#{$prefix}--header__menu-item {
       @include masthead-top-nav-link;
@@ -303,7 +306,9 @@ $search-transition-timing: 95ms;
         border-bottom: solid 3px $interactive-01;
       }
     }
+  }
 
+  .#{$prefix}--header__nav {
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
       z-index: 0;
       background-color: $ui-01;
