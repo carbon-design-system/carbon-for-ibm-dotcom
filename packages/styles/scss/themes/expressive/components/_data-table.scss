@@ -49,9 +49,6 @@
     height: rem(20px);
     width: rem(20px);
   }
-  th.#{$prefix}--table-expand + th.#{$prefix}--table-column-checkbox {
-    padding-left: 0.75rem;
-  }
   .#{$prefix}--overflow-menu__icon {
     height: 1.25rem;
     width: 1.25rem;
