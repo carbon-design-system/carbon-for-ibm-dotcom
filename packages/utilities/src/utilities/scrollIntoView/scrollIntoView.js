@@ -66,6 +66,12 @@ let _rootObserver;
 let _innerObserver;
 
 /**
+ * Resize observer to trigger rootMargin recalculations
+ * @private
+ */
+let _resizeObserver;
+
+/**
  * Utility handles fade transition for selected elements.
  *
  * @example
@@ -98,20 +104,26 @@ const scrollIntoView = (selector, iterations = false) => {
       const elements = document.querySelectorAll(selector);
       _rootObserver = new IntersectionObserver(handleExit);
       _innerObserver = new IntersectionObserver(handleEntrance, _options);
+      _resizeObserver = new ResizeObserver(handleResize);
 
       elements.forEach(e => {
         _rootObserver.observe(e);
         _innerObserver.observe(e);
       });
-
-      window.addEventListener('resize', () => {
-        _options.rootMargin = _getViewportMargin();
-        _innerObserver = new IntersectionObserver(handleEntrance, _options);
-      });
+      _resizeObserver.observe(document.documentElement);
     },
     false
   );
 };
+
+/**
+ * Handler to add recalculated rootMargin to observer.
+ * @private
+ */
+function handleResize() {
+  _options.rootMargin = _getViewportMargin();
+  _innerObserver = new IntersectionObserver(handleEntrance, _options);
+}
 
 /**
  * Handler to add fade animation to element
@@ -127,6 +139,7 @@ function handleEntrance(entries) {
       if (!_iterations) {
         _rootObserver.unobserve(entry.target);
         _innerObserver.unobserve(entry.target);
+        _resizeObserver.unobserve(entry.target);
       }
     }
   });
