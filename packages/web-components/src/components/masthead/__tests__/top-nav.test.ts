@@ -27,6 +27,11 @@ const template = ({ width = 215 }: { width?: number } = {}) => {
         padding: 0;
       }
 
+      dds-top-nav::part(prev-button),
+      dds-top-nav::part(next-button) {
+        display: block;
+      }
+
       .dds-ce--test--scroll-content {
         width: 100px;
         flex-grow: 0;
