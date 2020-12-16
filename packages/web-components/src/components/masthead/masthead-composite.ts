@@ -15,7 +15,6 @@ import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
 import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import {
   MastheadL1,
-  MastheadL1Item,
   MastheadLink,
   MastheadLogoData,
   MastheadMenuItem,
@@ -91,7 +90,7 @@ class DDSMastheadComposite extends LitElement {
       return target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
         ? html`
             <dds-top-nav-l1>
-              ${menuItems.map((elem: MastheadL1Item, i) => {
+              ${menuItems.map((elem, i) => {
                 return elem.menuItems
                   ? html`
                       <dds-top-nav-menu
@@ -122,7 +121,7 @@ class DDSMastheadComposite extends LitElement {
               })}
             </dds-top-nav-l1>
           `
-        : menuItems.map((elem: MastheadL1Item, i) =>
+        : menuItems.map((elem, i) =>
             elem.menuItems
               ? html`
                   <dds-left-nav-menu

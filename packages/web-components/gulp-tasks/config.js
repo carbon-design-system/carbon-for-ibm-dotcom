@@ -34,6 +34,7 @@ module.exports = {
   srcDir: 'src',
   iconsDir: path.resolve(path.dirname(require.resolve('@carbon/ibmdotcom-styles/package.json')), 'icons/svg'),
   bundleDestDir: 'dist',
+  cjsDestDir: 'lib',
   jsDestDir: 'es',
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',

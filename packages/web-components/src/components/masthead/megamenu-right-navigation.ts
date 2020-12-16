@@ -12,26 +12,14 @@ import { classMap } from 'lit-html/directives/class-map';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
 
+export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
+
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * The style scheme for the right navigation.
- */
-export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
-  /**
-   * Regular style.
-   */
-  REGULAR = 'regular',
-
-  /**
-   * For left (highlighted) section layout.
-   */
-  LEFT_SECTION = 'left-section',
-}
 
 /**
  * MegaMenu right navigation section
