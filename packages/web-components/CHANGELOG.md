@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.1...@carbon/ibmdotcom-web-components@0.7.0) (2020-12-15)
+
+### Bug Fixes
+
+- **legal-nav:** align cookie preference to other nav items ([#4680](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4680)) ([678b8e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/678b8e7)), closes [#4676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4676)
+- **masthead:** avoid rendering L0 if L1 is there ([#4679](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4679)) ([9bfe360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9bfe360)), closes [#4677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4677)
+
 # [0.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.0...@carbon/ibmdotcom-web-components@0.7.0-rc.1) (2020-12-08)
 
 ### Bug Fixes
