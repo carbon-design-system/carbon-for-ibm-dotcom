@@ -14,8 +14,9 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
-import CTAMixin from './mixins/cta';
-import { CTA_TYPE } from './shared-enums';
+import CTAMixin from '../../component-mixins/cta/cta';
+import VideoCTAMixin from '../../component-mixins/cta/video';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 export { CTA_TYPE };
@@ -28,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-text-cta
  */
 @customElement(`${ddsPrefix}-text-cta`)
-class DDSTextCTA extends CTAMixin(DDSLinkWithIcon) {
+class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   /**
    * `true` if there is a non-empty default slot content.
    */

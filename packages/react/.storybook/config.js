@@ -94,7 +94,9 @@ addDecorator((story, { parameters }) => {
   return story();
 });
 
-addDecorator(story => <Container story={story} />);
+addDecorator((story, { parameters }) => (
+  <Container story={story} parameters={parameters} />
+));
 
 addons.getChannel().on(CURRENT_THEME, theme => {
   document.documentElement.setAttribute(

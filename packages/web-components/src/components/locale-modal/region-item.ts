@@ -14,7 +14,7 @@ import Error20 from 'carbon-web-components/es/icons/error/20.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLink from '../../globals/internal/link';
+import DDSLink from '../link/link';
 import styles from './locale-modal.scss';
 
 const { prefix } = settings;

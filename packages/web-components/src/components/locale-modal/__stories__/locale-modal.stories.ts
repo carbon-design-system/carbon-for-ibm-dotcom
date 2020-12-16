@@ -11,7 +11,6 @@ import { html } from 'lit-element';
 import inPercy from '@percy-io/in-percy';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../locale-modal-container';
 import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';

@@ -1,6 +1,7 @@
 *.d.ts
 dist
 es
+lib
 node_modules
 storybook-static
 storybook-static-react
