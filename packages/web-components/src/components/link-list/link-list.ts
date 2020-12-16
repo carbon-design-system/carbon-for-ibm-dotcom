@@ -10,35 +10,13 @@ import { customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { LINK_LIST_TYPE } from './defs';
 import styles from './link-list.scss';
+
+export { LINK_LIST_TYPE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Link list type
- */
-export enum LINK_LIST_TYPE {
-  /**
-   * Default
-   */
-  DEFAULT = 'default',
-
-  /**
-   * Vertical
-   */
-  VERTICAL = 'vertical',
-
-  /**
-   * Horizontal
-   */
-  HORIZONTAL = 'horizontal',
-
-  /**
-   * End of section
-   */
-  END = 'end',
-}
 
 /**
  * Link list.

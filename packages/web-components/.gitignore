@@ -1,5 +1,6 @@
 custom-elements.json
 es
+lib
 node_modules
 /src/internal/vendor
 /scss

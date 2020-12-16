@@ -12,7 +12,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../shared-enums';
+import { CTA_TYPE } from '../defs';
 import '../video-cta-container';
 import '../card-cta';
 import '../card-cta-footer';
