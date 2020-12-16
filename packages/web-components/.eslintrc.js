@@ -32,7 +32,7 @@ module.exports = {
       2,
       {
         devDependencies: true,
-        optionalDependencies: false,
+        optionalDependencies: true,
         peerDependencies: false,
       },
     ],
@@ -41,7 +41,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts', '.d.ts'],
+        extensions: ['.js', '.ts', '.tsx', '.d.ts'],
       },
     },
   },
@@ -58,15 +58,53 @@ module.exports = {
       },
     },
     {
-      files: ['**/*-react.tsx'],
+      files: ['**/*.tsx', '**/components-react/**/*-container.ts'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint', 'react'],
+      rules: {
+        'no-unused-vars': 0,
+        // TODO: See why the ESLint plugin does not work with `.tsx`
+        '@carbon/react-prop-type-comments/require-proptype-comment': 0,
+        '@typescript-eslint/no-unused-vars': 2,
+        'import/no-unresolved': [
+          2,
+          {
+            ignore: ['^./'],
+          },
+        ],
+        'jsdoc/require-param-type': 0,
+        'jsdoc/require-returns-type': 0,
+        'react/jsx-uses-react': 2,
+        'react/jsx-uses-vars': 2,
+      },
+    },
+    {
+      files: ['**/defs.ts'],
+      rules: {
+        'import/prefer-default-export': 0,
+      },
+    },
+    {
+      files: ['**/*.stories.react.tsx'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', 'react'],
       rules: {
         'no-unused-vars': 0,
         '@typescript-eslint/no-unused-vars': 2,
-        'import/no-unresolved': [2, { ignore: ['^carbon-web-components/es/(components-react|icons)/'] }],
+        'import/no-extraneous-dependencies': 0,
+        'import/no-unresolved': [
+          2,
+          {
+            ignore: [
+              '^carbon-web-components/es/(components-react|icons)/',
+              '^@carbon/ibmdotcom-web-components/es/(components-react|icons)/',
+              '/components-react/',
+            ],
+          },
+        ],
         'react/jsx-uses-react': 2,
         'react/jsx-uses-vars': 2,
+        'react/prop-types': 0,
       },
     },
     {

@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { CTA_TYPE } from '../shared-enums';
+import { CTA_TYPE } from '../defs';
 import '../card-cta';
 import '../card-cta-footer';
 

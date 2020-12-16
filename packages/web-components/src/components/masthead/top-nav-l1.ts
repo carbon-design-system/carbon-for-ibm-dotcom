@@ -13,6 +13,11 @@ import DDSTopNav from './top-nav';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * Masthead top nav for L1.
+ *
+ * @element dds-top-nav-l1
+ */
 @customElement(`${ddsPrefix}-top-nav-l1`)
 class DDSTopNavL1 extends DDSTopNav {
   // eslint-disable-next-line class-methods-use-this
