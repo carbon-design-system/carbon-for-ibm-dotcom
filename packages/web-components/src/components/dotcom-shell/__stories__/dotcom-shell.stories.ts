@@ -364,7 +364,7 @@ export const withFadeAnimations = ({ parameters }) => {
     parameters?.props?.FooterComposite ?? {};
   const { useMock, delay, iterations } = parameters?.props.FadeOptions ?? {};
 
-  scrollIntoView('dds-table-of-contents > *', iterations);
+  scrollIntoView('dds-table-of-contents > *', { iterations });
   document.querySelectorAll('dds-table-of-contents > *').forEach(e => {
     e.classList.remove(lastDelay);
     e.classList.add(delay);

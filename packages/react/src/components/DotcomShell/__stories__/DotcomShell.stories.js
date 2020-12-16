@@ -317,7 +317,7 @@ WithL1.story = {
 export const WithFadeAnimations = ({ parameters }) => {
   let { delay, iterations } = parameters?.props?.DotcomShell ?? {};
 
-  scrollIntoView('.bx--content-block', iterations);
+  scrollIntoView('.bx--content-block', { iterations });
   document.querySelectorAll('.bx--content-block').forEach(e => {
     e.classList.remove(lastDelay);
     e.classList.add(delay);
