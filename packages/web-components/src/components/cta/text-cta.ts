@@ -16,7 +16,7 @@ import {
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 export { CTA_TYPE };

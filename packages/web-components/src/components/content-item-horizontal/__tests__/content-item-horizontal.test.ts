@@ -14,7 +14,7 @@ import '../../cta/link-list-item-cta';
 import '../content-item-horizontal';
 import '../content-item-horizontal-copy';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
-import { CTA_TYPE } from '../../cta/shared-enums';
+import { CTA_TYPE } from '../../cta/defs';
 
 const template = (props?) => {
   const { children } = props ?? {};

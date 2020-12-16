@@ -3,5 +3,6 @@
 /tests/coverage
 /tests/snapshots
 es
+lib
 node_modules
 docs

@@ -23,7 +23,7 @@ import '../../content-block/content-block-complementary';
 import '../../link-list/link-list';
 import '../content-block-segmented-item';
 import '../content-block-segmented';
-import { CTA_STYLE, CTA_TYPE } from '../../cta/shared-enums';
+import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 
 const hrefsForType = {

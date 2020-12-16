@@ -17,7 +17,7 @@ import {
 import DDSCardFooter from '../card/card-footer';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
-import { CTA_TYPE } from './shared-enums';
+import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 
 const { prefix } = settings;

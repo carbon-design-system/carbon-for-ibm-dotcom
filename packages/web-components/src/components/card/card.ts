@@ -10,9 +10,9 @@
 import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { BASIC_COLOR_SCHEME } from '../../globals/shared-enums';
+import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSLink from '../../globals/internal/link';
+import DDSLink from '../link/link';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
 
@@ -181,4 +181,5 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCard;

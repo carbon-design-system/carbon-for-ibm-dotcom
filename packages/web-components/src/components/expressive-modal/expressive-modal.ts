@@ -24,8 +24,11 @@ import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
+
+export { EXPRESSIVE_MODAL_SIZE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,21 +37,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
 // eslint-disable-next-line no-bitwise
 const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
-
-/**
- * Expressive modal size.
- */
-export enum EXPRESSIVE_MODAL_SIZE {
-  /**
-   * Regular size.
-   */
-  REGULAR = '',
-
-  /**
-   * One that takes full width.
-   */
-  FULL_WIDTH = 'full-width',
-}
 
 /**
  * Tries to focus on the given elements and bails out if one of the is successful.

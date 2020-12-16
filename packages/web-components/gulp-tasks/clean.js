@@ -16,6 +16,7 @@ const config = require('./config');
 module.exports = function clean() {
   return Promise.all([
     del(config.bundleDestDir),
+    del(config.cjsDestDir),
     del(config.jsDestDir),
     del(config.sassDestDir),
     del(config.servicesStoreVendorSrcDir),

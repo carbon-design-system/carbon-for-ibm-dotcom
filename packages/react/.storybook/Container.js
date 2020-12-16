@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import cx from 'classnames';
 import React, { Component } from 'react';
 import './_container.scss';
 import { settings } from 'carbon-components';
@@ -37,11 +38,14 @@ export default class Container extends Component {
   }
 
   render() {
-    const { story } = this.props;
+    const { parameters, story } = this.props;
+    const classes = cx({
+      'storybook-proxy-story': parameters.proxy,
+    });
 
     return (
       <React.StrictMode>
-        <div data-floating-menu-container="" role="main">
+        <div data-floating-menu-container="" role="main" className={classes}>
           {story()}
         </div>
         <input
