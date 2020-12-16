@@ -96,7 +96,7 @@ let _resizeObserver;
  * @param {boolean} iterations to define whether its continuous or not
  */
 
-const scrollIntoView = (selector, iterations = false) => {
+const scrollIntoView = (selector, { iterations = false = {}) => {
   _iterations = iterations;
   window.addEventListener(
     'load',
