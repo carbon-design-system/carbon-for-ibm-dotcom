@@ -84,7 +84,7 @@ let _resizeObserver;
  * scrollIntoView('.bx--content-block')
  *
  * With 'continous play' option:
- * scrollIntoView('.bx--content-block', true)
+ * scrollIntoView('.bx--content-block', { iterations: true })
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
