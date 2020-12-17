@@ -18,3 +18,47 @@
     color: $inverse-link;
   }
 }
+
+:host(#{$dds-prefix}-card)[pictogram-position='bottom']:hover {
+  ::slotted(svg[slot='pictogram']) {
+    display: none;
+  }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    margin-bottom: 0;
+  }
+}
+
+:host(#{$dds-prefix}-card) {
+  .#{$prefix}--card__pictogram {
+    display: flex;
+
+    .#{$prefix}--card__heading {
+      margin-bottom: 0;
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &[pictogram-position='bottom'] {
+    .#{$prefix}--card__pictogram {
+      .#{$prefix}--card__heading {
+        align-items: flex-start;
+      }
+    }
+
+    .#{$prefix}--card__copy {
+      display: none;
+    }
+  }
+
+  ::slotted(svg[slot='pictogram']) {
+    color: $icon-01;
+  }
+
+  &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
+    color: $inverse-link;
+  }
+}
