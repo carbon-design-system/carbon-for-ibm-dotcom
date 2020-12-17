@@ -22,6 +22,7 @@
     .#{$prefix}--header__menu
     a.#{$prefix}--header__menu-item,
   .#{$prefix}--side-nav__submenu[aria-haspopup='true'],
+  .#{$prefix}--side-nav__submenu[aria-expanded='false'],
   .#{$prefix}--side-nav__link,
   .#{$prefix}--switcher__item,
   .#{$prefix}--switcher__item-link {
