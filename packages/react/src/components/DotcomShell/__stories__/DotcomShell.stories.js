@@ -323,6 +323,14 @@ export const WithFadeAnimations = ({ parameters }) => {
     e.classList.add(delay);
   });
   lastDelay = delay;
+
+  // Setting inline style only for demo purposes
+  scrollIntoView('.bx--logo-grid__logo', { iterations });
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.bx--logo-grid__logo').forEach((e, i) => {
+      e.style.setProperty('--dds--scroll-into-view-delay', i * 100 + 'ms');
+    });
+  });
   return <Default parameters={parameters} />;
 };
 

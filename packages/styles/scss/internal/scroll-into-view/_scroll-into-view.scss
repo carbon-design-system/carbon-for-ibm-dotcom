@@ -20,8 +20,5 @@
 }
 
 .bx--fade-out {
-  transition-timing-function: carbon--motion(exit, expressive);
-  transition-duration: $duration--slow-01;
-  transition-delay: var(--#{$dds-prefix}--scroll-into-view-delay);
   opacity: 0;
 }

@@ -369,9 +369,15 @@ export const withFadeAnimations = ({ parameters }) => {
     e.classList.remove(lastDelay);
     e.classList.add(delay);
   });
-
   lastDelay = delay;
 
+  // Setting inline style only for demo purposes
+  scrollIntoView('dds-logo-grid-item', { iterations });
+  window.addEventListener('load', () => {
+    document.querySelectorAll('dds-logo-grid-item').forEach((e, i) => {
+      e.style.setProperty('--dds--scroll-into-view-delay', `${i * 100}ms`);
+    });
+  });
   return html`
     <style>
       ${mastheadStyles}

@@ -9,10 +9,11 @@ import { breakpoints } from '@carbon/layout';
 
 /**
  * Amount of columns used for calculation.
+ *
  * @private
  */
 
-const _colSpan = 2;
+const _colSpan = 4;
 
 /**
  * The inner viewport calculation for the root margins.
@@ -60,6 +61,7 @@ let _rootObserver;
 
 /**
  * Intersection observer that watches the inner viewport.
+ *
  * @private
  */
 
@@ -67,6 +69,7 @@ let _innerObserver;
 
 /**
  * Resize observer to trigger rootMargin recalculations
+ *
  * @private
  */
 let _resizeObserver;
@@ -118,8 +121,10 @@ const scrollIntoView = (selector, { iterations = false } = {}) => {
 
 /**
  * Handler to add recalculated rootMargin to observer.
+ *
  * @private
  */
+
 function handleResize() {
   _options.rootMargin = _getViewportMargin();
   _innerObserver = new IntersectionObserver(handleEntrance, _options);
@@ -129,6 +134,7 @@ function handleResize() {
  * Handler to add fade animation to element
  * @param {*} entries observed elements
  * @private
+ *
  */
 
 function handleEntrance(entries) {
@@ -149,6 +155,7 @@ function handleEntrance(entries) {
  * Handler to remove element from view
  * @param {*} entries observed elements
  * @private
+ *
  */
 
 function handleExit(entries) {
