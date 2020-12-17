@@ -374,7 +374,7 @@ export const withFadeAnimations = ({ parameters }) => {
   // Setting inline style only for demo purposes
   scrollIntoView('dds-logo-grid-item', { iterations });
   window.addEventListener('load', () => {
-    document.querySelectorAll('dds-logo-grid-item').forEach((e, i) => {
+    document.querySelectorAll<HTMLElement>('dds-logo-grid-item').forEach((e, i) => {
       e.style.setProperty('--dds--scroll-into-view-delay', `${i * 100}ms`);
     });
   });
