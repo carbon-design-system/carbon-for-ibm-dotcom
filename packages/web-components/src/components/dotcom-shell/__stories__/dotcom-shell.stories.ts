@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import on from 'carbon-components/es/globals/js/misc/on';
 import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
@@ -28,21 +28,39 @@ import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
-import fadeOptions from './dotcom-shell.stories.scss';
 
 const footerSizes = {
   Default: FOOTER_SIZE.REGULAR,
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
 };
 
-const delayOptions = {
-  None: 'dds-devenv--scroll-into-view--delay-default',
-  '250ms': 'dds-devenv--scroll-into-view--delay-quarter-second',
-  '500ms': 'dds-devenv--scroll-into-view--delay-half-second',
-  '1s': 'dds-devenv--scroll-into-view--delay-one-second',
-};
+const elementList = [
+  'dds-content-block-heading',
+  'dds-content-block-copy',
+  'dds-video-player-container',
+  'dds-link-list',
+  'dds-leadspace-block-cta',
+  'dds-content-group-heading',
+  'dds-content-item-copy',
+  'dds-text-cta',
+  'dds-feature-card-block-large',
+  'dds-image',
+  '.bx--image__img',
+  'dds-image-with-caption',
+  'dds-card-cta',
+  'dds-callout-with-media',
+  'dds-content-item-horizontal',
+  'dds-logo-grid-item',
+  '.bx--card__CTA',
+  'dds-card-group-item',
+  'dds-callout-quote',
+  'dds-video-player',
+  'dds-cta-section-copy',
+  'dds-button-group',
+  'dds-cta-section-item',
+];
 
-let lastDelay = 'dds-devenv--scroll-into-view--delay-default';
+const delayTest = 250;
 
 const image = html`
   <dds-image-with-caption
@@ -139,7 +157,6 @@ const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
     ${fadeStyles.cssText}
-    ${fadeOptions.cssText}
   </style>
   <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
     <div class="bx--grid">
@@ -358,26 +375,34 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withFadeAnimations = ({ parameters }) => {
+function setFadeAnimation(iterations) {
+  scrollIntoView(elementList, { iterations });
+
+  window.addEventListener('load', () => {
+    // Setting inline style only for demo purposes
+    document.querySelectorAll<HTMLElement>('dds-logo-grid-item').forEach((e, i) => {
+      i %= 3; // eslint-disable-line no-param-reassign
+      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
+    });
+
+    document.querySelectorAll<HTMLElement>('dds-card-group-item').forEach((e, i) => {
+      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
+    });
+
+    document.querySelectorAll<HTMLElement>('dds-cta-section-item').forEach((e, i) => {
+      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
+    });
+  });
+}
+
+export const withFadeAnimationsContinuous = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.FooterComposite ?? {};
-  const { useMock, delay, iterations } = parameters?.props.FadeOptions ?? {};
+  const { useMock } = parameters?.props.Other ?? {};
 
-  scrollIntoView('dds-table-of-contents > *', { iterations });
-  document.querySelectorAll('dds-table-of-contents > *').forEach(e => {
-    e.classList.remove(lastDelay);
-    e.classList.add(delay);
-  });
-  lastDelay = delay;
+  setFadeAnimation(true);
 
-  // Setting inline style only for demo purposes
-  scrollIntoView('dds-logo-grid-item', { iterations });
-  window.addEventListener('load', () => {
-    document.querySelectorAll<HTMLElement>('dds-logo-grid-item').forEach((e, i) => {
-      e.style.setProperty('--dds--scroll-into-view-delay', `${i * 100}ms`);
-    });
-  });
   return html`
     <style>
       ${mastheadStyles}
@@ -418,15 +443,52 @@ export const withFadeAnimations = ({ parameters }) => {
   `;
 };
 
-withFadeAnimations.story = {
-  parameters: {
-    knobs: {
-      FadeOptions: () => ({
-        delay: select('Delay', delayOptions, lastDelay),
-        iterations: boolean('Iterations', true),
-      }),
-    },
-  },
+export const withFadeAnimationsOnce = ({ parameters }) => {
+  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
+    parameters?.props?.FooterComposite ?? {};
+  const { useMock } = parameters?.props.Other ?? {};
+
+  setFadeAnimation(false);
+
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            brand-name="${ifNonNull(brandName)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+          >
+            ${StoryContent()}
+          </dds-dotcom-shell-container>
+        `}
+  `;
 };
 
 export default {

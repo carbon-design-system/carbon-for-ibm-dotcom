@@ -6,8 +6,7 @@
  */
 
 import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
-import './dotcom-shell.stories.scss';
-import { boolean, select, object } from '@storybook/addon-knobs';
+import { select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
@@ -25,14 +24,27 @@ const footerTypeOptions = {
   micro: 'micro',
 };
 
-const delayOptions = {
-  None: 'dds-devenv--scroll-into-view--delay-default',
-  '250ms': 'dds-devenv--scroll-into-view--delay-quarter-second',
-  '500ms': 'dds-devenv--scroll-into-view--delay-half-second',
-  '1s': 'dds-devenv--scroll-into-view--delay-one-second',
-};
+const elementList = [
+  '.bx--content-block__heading',
+  '.bx--content-block__copy',
+  '.bx--leadspace-block__media',
+  '.bx--link-list',
+  '.bx--leadspace-block__cta',
+  '.bx--feature-card-block-large',
+  '.bx--content-group',
+  '.bx--image',
+  '.bx--content-block__cta',
+  '.bx--callout-with-media',
+  '.bx--content-item-horizontal__item',
+  '.bx--logo-grid__logo',
+  '.bx--card-group__cards__col',
+  '.bx--callout-quote',
+  '.bx--cta-section',
+  '.bx--cta-section__cta',
+  '.bx--content-item',
+];
 
-let lastDelay = 'dds-devenv--scroll-into-view--delay-default';
+const delayTest = 250;
 
 export default {
   title: 'Components|Dotcom Shell',
@@ -314,28 +326,44 @@ WithL1.story = {
   },
 };
 
-export const WithFadeAnimations = ({ parameters }) => {
-  let { delay, iterations } = parameters?.props?.DotcomShell ?? {};
+function setFadeAnimation(iterations) {
+  scrollIntoView(elementList, { iterations });
 
-  scrollIntoView('.bx--content-block', { iterations });
-  document.querySelectorAll('.bx--content-block').forEach(e => {
-    e.classList.remove(lastDelay);
-    e.classList.add(delay);
-  });
-  lastDelay = delay;
-
-  // Setting inline style only for demo purposes
-  scrollIntoView('.bx--logo-grid__logo', { iterations });
   window.addEventListener('load', () => {
+    // Setting inline style only for demo purposes
     document.querySelectorAll('.bx--logo-grid__logo').forEach((e, i) => {
-      e.style.setProperty('--dds--scroll-into-view-delay', i * 100 + 'ms');
+      i = i % 3;
+      e.style.setProperty(
+        '--dds--scroll-into-view-delay',
+        i * delayTest + 'ms'
+      );
     });
+
+    document.querySelectorAll('.bx--card-group__cards__col').forEach((e, i) => {
+      e.style.setProperty(
+        '--dds--scroll-into-view-delay',
+        i * delayTest + 'ms'
+      );
+    });
+
+    document
+      .querySelectorAll('.bx--content-item-wrapper > .bx--content-item')
+      .forEach((e, i) => {
+        e.style.setProperty(
+          '--dds--scroll-into-view-delay',
+          i * delayTest + 'ms'
+        );
+      });
   });
+}
+
+export const WithFadeAnimationsContinuous = ({ parameters }) => {
+  setFadeAnimation(true);
   return <Default parameters={parameters} />;
 };
 
-WithFadeAnimations.story = {
-  name: 'With Fade Animations',
+WithFadeAnimationsContinuous.story = {
+  name: 'With fade animations - continuous',
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
@@ -347,8 +375,40 @@ WithFadeAnimations.story = {
         } = mastheadStory.story.parameters.knobs;
         const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
         return {
-          delay: select('Delay', delayOptions, delayOptions['None']),
-          iterations: boolean('Iterations', true),
+          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
+          footerProps: {
+            ...footerKnobs({ groupId: 'Footer' }),
+            type: select(
+              'Footer (footerProps): sets the type of footer (type)',
+              footerTypeOptions,
+              footerTypeOptions.tall,
+              'Footer'
+            ),
+          },
+        };
+      },
+    },
+  },
+};
+
+export const WithFadeAnimationsOnce = ({ parameters }) => {
+  setFadeAnimation(false);
+  return <Default parameters={parameters} />;
+};
+
+WithFadeAnimationsOnce.story = {
+  name: 'With fade animations - once',
+  parameters: {
+    ...readme.parameters,
+    'carbon-theme': { disabled: true },
+    knobs: {
+      escapeHTML: false,
+      DotcomShell: () => {
+        const {
+          Masthead: mastheadKnobs,
+        } = mastheadStory.story.parameters.knobs;
+        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
+        return {
           mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
           footerProps: {
             ...footerKnobs({ groupId: 'Footer' }),

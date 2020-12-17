@@ -13,7 +13,7 @@ import { breakpoints } from '@carbon/layout';
  * @private
  */
 
-const _colSpan = 4;
+const _colSpan = 3;
 
 /**
  * The inner viewport calculation for the root margins.
@@ -81,13 +81,16 @@ let _resizeObserver;
  * import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
  * import { scrollIntoView } from '@carbon/ibmdotcom-utilities';
  *
- * As an example, the function can be called to target '.bx--content-block' as such:
+ * As an example, the function can be called to target all instances of the
+ * elements in a list:
+ *
+ * const list = ['.bx--content-block', 'bx--content-group'];
  *
  * For default values of 400ms and 'one and done' play:
- * scrollIntoView('.bx--content-block')
+ * scrollIntoView(list);
  *
- * With 'continous play' option:
- * scrollIntoView('.bx--content-block', { iterations: true })
+ * With 'continuous play' option:
+ * scrollIntoView(list, { iterations: true })
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
@@ -95,23 +98,26 @@ let _resizeObserver;
  *   --#{$dds-prefix}--scroll-into-view-delay: 250ms;
  * }
  *
- * @param {*} selector menu item selector id
+ * @param {*} elementList of all the elements to be targeted
  * @param {boolean} iterations to define whether its continuous or not
  */
 
-const scrollIntoView = (selector, { iterations = false } = {}) => {
+const scrollIntoView = (elementList, { iterations = false } = {}) => {
   _iterations = iterations;
+
   window.addEventListener(
     'load',
     () => {
-      const elements = document.querySelectorAll(selector);
       _rootObserver = new IntersectionObserver(handleExit);
       _innerObserver = new IntersectionObserver(handleEntrance, _options);
       _resizeObserver = new ResizeObserver(handleResize);
 
-      elements.forEach(e => {
-        _rootObserver.observe(e);
-        _innerObserver.observe(e);
+      elementList.forEach(selector => {
+        let elements = document.querySelectorAll(selector);
+        elements.forEach(e => {
+          _rootObserver.observe(e);
+          _innerObserver.observe(e);
+        });
       });
       _resizeObserver.observe(document.documentElement);
     },
@@ -123,6 +129,7 @@ const scrollIntoView = (selector, { iterations = false } = {}) => {
  * Handler to add recalculated rootMargin to observer.
  *
  * @private
+ *
  */
 
 function handleResize() {
@@ -145,7 +152,6 @@ function handleEntrance(entries) {
       if (!_iterations) {
         _rootObserver.unobserve(entry.target);
         _innerObserver.unobserve(entry.target);
-        _resizeObserver.unobserve(entry.target);
       }
     }
   });
