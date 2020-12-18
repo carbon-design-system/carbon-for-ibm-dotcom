@@ -13,7 +13,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/shared-enums';
+import { CTA_TYPE } from '../../cta/defs';
 import '../../image/image';
 import '../../cta/video-cta-container';
 import '../../cta/card-cta';

@@ -72,6 +72,12 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   currentSearchResults: string[] = [];
 
   /**
+   * The throttle timeout to run query upon user input.
+   */
+  @property({ type: Number })
+  inputTimeout!: number;
+
+  /**
    * The language used for query.
    */
   @property()

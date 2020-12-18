@@ -11,7 +11,10 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
+
+export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,21 +26,6 @@ const slotExistencePropertyNames = {
   complementary: '_hasComplementary',
   footer: '_haFooter',
 };
-
-/**
- * The style scheme for the complementary content.
- */
-export enum CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME {
-  /**
-   * Regular style.
-   */
-  REGULAR = 'regular',
-
-  /**
-   * A style with border.
-   */
-  WITH_BORDER = 'with-border',
-}
 
 // TODO: Figure out how to define a mixin type supporting abstract class
 /**

@@ -238,6 +238,44 @@ jobs:
         with:
           status: ${{ job.status }}
         if: failure()
+  web-components-react:
+    runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/web-components/.env
+        env:
+          KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
+          KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+      - name: Building @carbon/ibmdotcom-web-components react wrapper storybook
+        run: yarn build-storybook:react
+        working-directory: packages/web-components
+      - name: Deploying @carbon/ibmdotcom-web-components react wrapper storybook to IBM Cloud
+        uses: carbon-design-system/action-ibmcloud-cf@v1.3.0
+        with:
+          cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
+          cf-org: ibm-digital-design
+          cf-space: ibmdotcom-production
+          cf-region: us-south
+          cf-app: ibmdotcom-web-components-react
+          cf-manifest: manifest-react.yml
+          deploy-dir: packages/web-components
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
   services:
     runs-on: ubuntu-16.04
     env:

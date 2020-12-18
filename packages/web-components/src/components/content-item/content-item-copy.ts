@@ -15,6 +15,11 @@ import styles from './content-item.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The copy content of content item.
+ *
+ * @element dds-content-item-copy
+ */
 @customElement(`${ddsPrefix}-content-item-copy`)
 class DDSContentItemCopy extends StableSelectorMixin(DDSMarkdown) {
   protected get _customTags() {

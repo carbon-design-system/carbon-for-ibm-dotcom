@@ -11,42 +11,13 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
+
+export { QUOTE_TYPES };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-export enum QUOTE_TYPES {
-  /**
-   * Default - double-curved
-   */
-  DEFAULT = 'double-curved',
-
-  /**
-   * single-curved
-   */
-  SINGLE_CURVED = 'single-curved',
-
-  /**
-   * single-angle
-   */
-  SINGLE_ANGLE = 'single-angle',
-
-  /**
-   * double-angle
-   */
-  DOUBLE_ANGLE = 'double-angle',
-
-  /**
-   * low-high-reversed-double-curved
-   */
-  LOW_HIGH_REVERSED_DOUBLE_CURVED = 'low-high-reversed-double-curved',
-
-  /**
-   * cornerBracket
-   */
-  CORNER_BRACKET = 'cornerBracket',
-}
 
 const slotExistencePropertyNames = {
   sourceHeading: '_hasSourceHeading',
@@ -72,7 +43,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
    * `single-angle`: `‹ ›`;
    * `double-angle`: `« »`;
    * `low-high-reversed-double-curved`: `„ “`;
-   * `cornerBracket`: `「 」`;
+   * `corner-bracket`: `「 」`;
    */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;

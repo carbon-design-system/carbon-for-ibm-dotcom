@@ -18,7 +18,7 @@ import '../../content-item/content-item-heading';
 import '../../link-list/link-list';
 import '../../cta/link-list-item-cta';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
-import { CTA_TYPE } from '../../cta/shared-enums';
+import { CTA_TYPE } from '../../cta/defs';
 
 const types = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
