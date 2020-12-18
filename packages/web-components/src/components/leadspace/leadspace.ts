@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The LeadSpace component.
  *
  * @element dds-leadspace
- * @csspart leadspace The first DOM node inside the shadow-root
+ * @csspart section The first DOM node inside the shadow-root
  */
 @customElement(`${ddsPrefix}-leadspace`)
 class DDSLeadSpace extends StableSelectorMixin(LitElement) {
