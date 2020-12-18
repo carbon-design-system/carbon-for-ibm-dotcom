@@ -8,6 +8,7 @@
 <a
   class="bx--footer__link bx--link"
   id="link"
+  part="link"
 >
   <slot>
   </slot>
@@ -21,6 +22,7 @@
 <a
   class="bx--footer__link bx--link"
   id="link"
+  part="link"
 >
   <slot>
     title-text-foo
