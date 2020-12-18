@@ -21,7 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Feature Card.
  *
  * @element dds-feature-card
- * @csspart feature-card-link The <a /> tag wrapping the feature card
  */
 @customElement(`${ddsPrefix}-feature-card`)
 class DDSFeatureCard extends DDSCard {
@@ -31,7 +30,6 @@ class DDSFeatureCard extends DDSCard {
     if (linkNode) {
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.add(`${prefix}--feature-card`);
-      linkNode.setAttribute('part', 'feature-card-link');
     }
   }
 
