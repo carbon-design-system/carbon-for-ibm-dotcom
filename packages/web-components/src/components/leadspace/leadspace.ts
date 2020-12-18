@@ -137,7 +137,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   render() {
     const { gradientStyleScheme, type } = this;
     return html`
-      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="leadspace">
+      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="section">
         <div class="${prefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
