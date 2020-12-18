@@ -16,6 +16,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
+import { PICTOGRAM_POSITION } from '../defs';
 
 export const Default = ({ parameters }) => {
   const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
@@ -46,8 +47,8 @@ const iconPlacement = {
 };
 
 const pictogramPlacements = {
-  top: 'top',
-  bottom: 'bottom',
+  [PICTOGRAM_POSITION.TOP]: PICTOGRAM_POSITION.TOP,
+  [PICTOGRAM_POSITION.BOTTOM]: PICTOGRAM_POSITION.BOTTOM,
 };
 
 export const Pictogram = ({ parameters }) => {

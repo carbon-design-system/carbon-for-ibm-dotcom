@@ -15,6 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLink from '../../globals/internal/link';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
+import { PICTOGRAM_POSITION } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -129,12 +130,12 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
           <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
             <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
           </p>
-          ${this.pictogramPosition === 'top'
+          ${this.pictogramPosition === PICTOGRAM_POSITION.TOP
             ? html`
                 <slot name="pictogram" @slotchange="${handleSlotChange}"></slot>
               `
             : ''}
-          ${this.pictogramPosition !== 'top' || !hasPictogram
+          ${this.pictogramPosition !== PICTOGRAM_POSITION.TOP || !hasPictogram
             ? html`
                 <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
                   <span>
@@ -143,14 +144,14 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
                 </h3>
               `
             : null}
-          ${this.pictogramPosition === 'bottom' ? this._renderCopy() : ''}
+          ${this.pictogramPosition === PICTOGRAM_POSITION.BOTTOM ? this._renderCopy() : ''}
           <slot name="footer"></slot>
-          ${this.pictogramPosition === 'bottom'
+          ${this.pictogramPosition === PICTOGRAM_POSITION.BOTTOM
             ? html`
                 <slot name="pictogram" @slotchange="${handleSlotChange}"></slot>
               `
             : ''}
-          ${hasPictogram && this.pictogramPosition === 'top'
+          ${hasPictogram && this.pictogramPosition === PICTOGRAM_POSITION.TOP
             ? html`
                 <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
                   <span>
@@ -181,7 +182,7 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
    * Pictogram position
    */
   @property({ attribute: 'pictogram-position', reflect: true })
-  pictogramPosition = 'top';
+  pictogramPosition = PICTOGRAM_POSITION.TOP;
 
   createRenderRoot() {
     return this.attachShadow({
