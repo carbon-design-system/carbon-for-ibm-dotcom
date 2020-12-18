@@ -24,6 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The LeadSpace component.
  *
  * @element dds-leadspace
+ * @csspart leadspace The first DOM node inside the shadow-root
  */
 @customElement(`${ddsPrefix}-leadspace`)
 class DDSLeadSpace extends StableSelectorMixin(LitElement) {
@@ -136,7 +137,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   render() {
     const { gradientStyleScheme, type } = this;
     return html`
-      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}">
+      <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="leadspace">
         <div class="${prefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
