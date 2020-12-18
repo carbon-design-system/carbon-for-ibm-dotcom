@@ -13,6 +13,8 @@ import BXLink from 'carbon-web-components/es/components/link/link.js';
 
 /**
  * Link.
+ *
+ * @csspart link The link element displayed as an <a /> tag (regular link) or <p /> (disabled link)
  */
 class DDSLink extends BXLink {
   @query('#link')
@@ -39,7 +41,7 @@ class DDSLink extends BXLink {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <p id="link" class="${classes}">${this._renderInner()}</p>
+      <p id="link" part="link" class="${classes}">${this._renderInner()}</p>
     `;
   }
 
@@ -64,6 +66,7 @@ class DDSLink extends BXLink {
         id="link"
         role="${ifNonNull(linkRole)}"
         class="${classes}"
+        part="link"
         download="${ifNonNull(download)}"
         href="${ifNonNull(href)}"
         hreflang="${ifNonNull(hreflang)}"
