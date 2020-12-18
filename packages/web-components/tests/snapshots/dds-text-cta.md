@@ -8,6 +8,7 @@
 <a
   class="bx--link bx--link-with-icon bx--link-with-icon__icon-right"
   id="link"
+  part="link"
 >
   <span>
     <slot>
@@ -26,6 +27,7 @@
   class="bx--link bx--link-with-icon bx--link-with-icon__icon-right"
   href="#"
   id="link"
+  part="link"
 >
   <span>
     <slot>

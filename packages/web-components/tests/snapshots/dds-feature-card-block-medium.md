@@ -57,6 +57,7 @@
     class="bx--card bx--card--link bx--feature-card bx--tile bx--tile--clickable"
     href="https://example.com"
     id="link"
+    part="link"
   >
     <slot name="image">
     </slot>
