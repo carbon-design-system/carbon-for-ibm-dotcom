@@ -6,6 +6,7 @@
  */
 
 import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
+import './dotcom-shell.stories.scss';
 import { select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
@@ -43,8 +44,6 @@ const elementList = [
   '.bx--cta-section__cta',
   '.bx--content-item',
 ];
-
-const delayTest = 250;
 
 export default {
   title: 'Components|Dotcom Shell',
@@ -326,39 +325,8 @@ WithL1.story = {
   },
 };
 
-function setFadeAnimation(iterations) {
-  scrollIntoView(elementList, { iterations });
-
-  window.addEventListener('load', () => {
-    // Setting inline style only for demo purposes
-    document.querySelectorAll('.bx--logo-grid__logo').forEach((e, i) => {
-      i = i % 3;
-      e.style.setProperty(
-        '--dds--scroll-into-view-delay',
-        i * delayTest + 'ms'
-      );
-    });
-
-    document.querySelectorAll('.bx--card-group__cards__col').forEach((e, i) => {
-      e.style.setProperty(
-        '--dds--scroll-into-view-delay',
-        i * delayTest + 'ms'
-      );
-    });
-
-    document
-      .querySelectorAll('.bx--content-item-wrapper > .bx--content-item')
-      .forEach((e, i) => {
-        e.style.setProperty(
-          '--dds--scroll-into-view-delay',
-          i * delayTest + 'ms'
-        );
-      });
-  });
-}
-
 export const WithFadeAnimationsContinuous = ({ parameters }) => {
-  setFadeAnimation(true);
+  scrollIntoView(elementList, { iterations: true });
   return <Default parameters={parameters} />;
 };
 
@@ -392,7 +360,7 @@ WithFadeAnimationsContinuous.story = {
 };
 
 export const WithFadeAnimationsOnce = ({ parameters }) => {
-  setFadeAnimation(false);
+  scrollIntoView(elementList, { iterations: false });
   return <Default parameters={parameters} />;
 };
 

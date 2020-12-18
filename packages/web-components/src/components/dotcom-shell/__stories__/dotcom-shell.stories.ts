@@ -16,6 +16,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import inPercy from '@percy-io/in-percy';
 import fadeStyles from '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
 import scrollIntoView from '@carbon/ibmdotcom-utilities/es/utilities/scrollIntoView/scrollIntoView';
+import fadeOptions from './dotcom-shell.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
@@ -59,8 +60,6 @@ const elementList = [
   'dds-button-group',
   'dds-cta-section-item',
 ];
-
-const delayTest = 250;
 
 const image = html`
   <dds-image-with-caption
@@ -157,6 +156,7 @@ const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
     ${fadeStyles.cssText}
+    ${fadeOptions.cssText}
   </style>
   <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
     <div class="bx--grid">
@@ -375,33 +375,13 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-function setFadeAnimation(iterations) {
-  scrollIntoView(elementList, { iterations });
-
-  window.addEventListener('load', () => {
-    // Setting inline style only for demo purposes
-    document.querySelectorAll<HTMLElement>('dds-logo-grid-item').forEach((e, i) => {
-      i %= 3; // eslint-disable-line no-param-reassign
-      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
-    });
-
-    document.querySelectorAll<HTMLElement>('dds-card-group-item').forEach((e, i) => {
-      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
-    });
-
-    document.querySelectorAll<HTMLElement>('dds-cta-section-item').forEach((e, i) => {
-      e.style.setProperty('--dds--scroll-into-view-delay', `${i * delayTest}ms`);
-    });
-  });
-}
-
 export const withFadeAnimationsContinuous = ({ parameters }) => {
   const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props.Other ?? {};
 
-  setFadeAnimation(true);
+  scrollIntoView(elementList, { iterations: true });
 
   return html`
     <style>
@@ -449,8 +429,7 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props.Other ?? {};
 
-  setFadeAnimation(false);
-
+  scrollIntoView(elementList, { iterations: false });
   return html`
     <style>
       ${mastheadStyles}
