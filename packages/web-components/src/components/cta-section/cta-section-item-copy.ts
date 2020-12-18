@@ -15,6 +15,11 @@ import styles from './cta-section.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The copy content of CTA section item.
+ *
+ * @element dds-cta-section-item-copy
+ */
 @customElement(`${ddsPrefix}-cta-section-item-copy`)
 class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemCopy) {
   render() {

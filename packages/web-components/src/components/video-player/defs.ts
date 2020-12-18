@@ -7,18 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/* eslint-disable import/prefer-default-export */
 /**
- * Basic color scheme for components.
+ * Video player's content state.
  */
-export enum BASIC_COLOR_SCHEME {
+export enum VIDEO_PLAYER_CONTENT_STATE {
   /**
-   * Regular color scheme.
+   * A state showing thumbnail.
    */
-  REGULAR = '',
+  THUMBNAIL = 'thumbnail',
 
   /**
-   * Inverse color scheme.
+   * A state showing/playing the video.
    */
-  INVERSE = 'inverse',
+  VIDEO = 'video',
 }

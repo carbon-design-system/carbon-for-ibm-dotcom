@@ -17,25 +17,13 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+import { VIDEO_PLAYER_CONTENT_STATE } from './defs';
 import styles from './video-player.scss';
+
+export { VIDEO_PLAYER_CONTENT_STATE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Video player's content state.
- */
-export enum VIDEO_PLAYER_CONTENT_STATE {
-  /**
-   * A state showing thumbnail.
-   */
-  THUMBNAIL = 'thumbnail',
-
-  /**
-   * A state showing/playing the video.
-   */
-  VIDEO = 'video',
-}
 
 /**
  * Video player.

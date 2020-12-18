@@ -10,84 +10,12 @@
 import { property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT } from './defs';
 import styles from './horizontal-rule.scss';
 
+export { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT };
+
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Type of the HR
- */
-export enum HR_TYPE {
-  /**
-   * solid type of hr
-   */
-  SOLID = 'solid',
-
-  /**
-   * dashed/dotted type of hr
-   */
-  DASHED = 'dashed',
-}
-
-/**
- * Length of the HR
- */
-export enum HR_SIZE {
-  /**
-   * fluid length of hr, takes full width of the grid
-   */
-  FLUID = 'fluid',
-
-  /**
-   * Small length of hr
-   */
-  SMALL = 'small',
-
-  /**
-   * Medium length of hr
-   */
-  MEDIUM = 'medium',
-
-  /**
-   * Large length of hr
-   */
-  LARGE = 'large',
-}
-
-/**
- * Contrast of the HR
- */
-export enum HR_CONTRAST {
-  /**
-   * medium-contrast of hr
-   */
-  MEDIUM_CONTRAST = 'medium-contrast',
-
-  /**
-   * low-contrast of hr
-   */
-  LOW_CONTRAST = 'low-contrast',
-
-  /**
-   * high-contrast of hr
-   */
-  HIGH_CONTRAST = 'high-contrast',
-}
-
-/**
- * Weight of the HR
- */
-export enum HR_WEIGHT {
-  /**
-   * thin weight of hr
-   */
-  THIN = 'thin',
-
-  /**
-   * thick weight of hr
-   */
-  THICK = 'thick',
-}
 
 /**
  * Horizontal Rule
