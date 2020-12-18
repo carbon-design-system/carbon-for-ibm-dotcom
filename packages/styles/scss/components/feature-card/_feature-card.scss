@@ -41,7 +41,9 @@
   .#{$prefix}--feature-card {
     @include carbon--breakpoint-down('md') {
       @include carbon--make-row;
+    }
 
+    @include carbon--breakpoint('md') {
       .#{$prefix}--card {
         @include hang;
       }
