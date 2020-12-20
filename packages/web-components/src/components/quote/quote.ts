@@ -143,13 +143,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     return html`
       <div ?hidden="${!hasSourceHeading || !hasSourceCopy}" class="${prefix}--quote__source">
         <p class="${prefix}--quote__source-heading">
-          <slot @slotchange="${handleSlotChange}" name="sourceHeading"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-heading"></slot>
         </p>
         <p class="${prefix}--quote__source-body">
-          <slot @slotchange="${handleSlotChange}" name="sourceCopy"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-copy"></slot>
         </p>
         <p ?hidden="${!hasSourceBottomCopy}" class="${prefix}--quote__source-optional-copy">
-          <slot @slotchange="${handleSlotChange}" name="sourceBottomCopy"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-bottom-copy"></slot>
         </p>
       </div>
     `;

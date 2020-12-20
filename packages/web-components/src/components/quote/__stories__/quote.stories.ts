@@ -23,13 +23,13 @@ export const Default = ({ parameters }) => {
       <span slot="copy">
         ${copy}
       </span>
-      <span slot="sourceHeading">
+      <span slot="source-heading">
         ${sourceHeading}
       </span>
-      <span slot="sourceCopy">
+      <span slot="source-copy">
         ${sourceCopy}
       </span>
-      <span slot="sourceBottomCopy">
+      <span slot="source-bottom-copy">
         ${sourceBottomCopy}
       </span>
       <dds-link-with-icon slot="footer" href="https://example.com">
