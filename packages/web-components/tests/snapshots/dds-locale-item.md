@@ -8,6 +8,7 @@
 <a
   class="bx--link"
   id="link"
+  part="link"
 >
   <div class="bx--locale-modal__locales__name">
     country-foo
