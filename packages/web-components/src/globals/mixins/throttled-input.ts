@@ -11,6 +11,8 @@ import throttle from 'lodash-es/throttle';
 import on from 'carbon-components/es/globals/js/misc/on';
 import Handle from '../internal/handle';
 
+import { Constructor } from '../defs';
+
 /**
  * @param Base The base class.
  * @returns A mix-in that handles `input` event and makes throtted calls to `_handleThrottledInput`.

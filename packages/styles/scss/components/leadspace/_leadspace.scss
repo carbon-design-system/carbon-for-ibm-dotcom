@@ -98,10 +98,7 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      @include carbon--breakpoint(lg) {
-        height: 100%;
-      }
+      height: 100%;
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -121,6 +118,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__container {
       position: relative;
+      height: 100%;
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -133,6 +131,7 @@ $btn-min-width: 26;
       padding-top: $spacing-05;
       padding-bottom: $spacing-05;
       z-index: 1;
+      height: 100%;
       width: 100%;
       max-width: none;
     }

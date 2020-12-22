@@ -9,6 +9,7 @@
 import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { Constructor } from '../../globals/defs';
 import styles from './callout.scss';
 
 const { prefix } = settings;
