@@ -8,6 +8,7 @@
  */
 
 import { Dispatch, Store, AnyAction } from 'redux';
+import { Constructor } from '../defs';
 import Handle from '../internal/handle';
 
 /**
