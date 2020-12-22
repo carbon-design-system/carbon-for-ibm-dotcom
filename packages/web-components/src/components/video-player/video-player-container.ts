@@ -16,6 +16,7 @@ import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store'
 import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
 import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
+import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoPlayerComposite from './video-player-composite';
 
