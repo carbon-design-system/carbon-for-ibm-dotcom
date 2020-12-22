@@ -8,6 +8,7 @@
  */
 
 import { render, TemplateResult } from 'lit-html';
+import { Constructor } from '../defs';
 
 /**
  * @param elem The starting element.
