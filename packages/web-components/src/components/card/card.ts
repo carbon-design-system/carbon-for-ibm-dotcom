@@ -75,11 +75,15 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
    * Handles `slotchange` event.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    const { pictogramPosition: currentPictogramPosition } = this;
+    const { dataset, name } = target as HTMLSlotElement;
+    const { pictogramPosition } = dataset;
+    if (!pictogramPosition || pictogramPosition === currentPictogramPosition) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    }
   }
 
   /**
@@ -132,7 +136,11 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
           </p>
           ${this.pictogramPosition === PICTOGRAM_POSITION.TOP
             ? html`
-                <slot name="pictogram" @slotchange="${handleSlotChange}"></slot>
+                <slot
+                  name="pictogram"
+                  data-pictogram-position="${PICTOGRAM_POSITION.TOP}"
+                  @slotchange="${handleSlotChange}"
+                ></slot>
               `
             : ''}
           ${this.pictogramPosition !== PICTOGRAM_POSITION.TOP || !hasPictogram
@@ -144,11 +152,14 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
                 </h3>
               `
             : null}
-          ${this.pictogramPosition === PICTOGRAM_POSITION.BOTTOM ? this._renderCopy() : ''}
-          <slot name="footer"></slot>
+          ${this.pictogramPosition === PICTOGRAM_POSITION.BOTTOM || !hasPictogram ? this._renderCopy() : ''}
           ${this.pictogramPosition === PICTOGRAM_POSITION.BOTTOM
             ? html`
-                <slot name="pictogram" @slotchange="${handleSlotChange}"></slot>
+                <slot
+                  name="pictogram"
+                  data-pictogram-position="${PICTOGRAM_POSITION.BOTTOM}"
+                  @slotchange="${handleSlotChange}"
+                ></slot>
               `
             : ''}
           ${hasPictogram && this.pictogramPosition === PICTOGRAM_POSITION.TOP
@@ -160,6 +171,7 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
                 </h3>
               `
             : null}
+          <slot name="footer"></slot>
         </div>
       </div>
     `;
