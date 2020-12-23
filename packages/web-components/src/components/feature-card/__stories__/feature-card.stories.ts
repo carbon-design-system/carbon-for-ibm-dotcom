@@ -32,12 +32,8 @@ export default {
   title: 'Components/Feature Card',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
+        ${story()}
       </div>
     `,
   ],
