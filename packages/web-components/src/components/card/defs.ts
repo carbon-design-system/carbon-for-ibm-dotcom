@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export enum PICTOGRAM_POSITION {
+export enum PICTOGRAM_PLACEMENT {
   /**
    * Top pictogram
    */
@@ -18,4 +18,4 @@ export enum PICTOGRAM_POSITION {
   BOTTOM = 'bottom',
 }
 
-export default PICTOGRAM_POSITION;
+export default PICTOGRAM_PLACEMENT;

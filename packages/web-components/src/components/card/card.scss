@@ -19,7 +19,7 @@
   }
 }
 
-:host(#{$dds-prefix}-card)[pictogram-position='bottom']:hover {
+:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:hover {
   ::slotted(svg[slot='pictogram']) {
     display: none;
   }
@@ -42,7 +42,7 @@
     }
   }
 
-  &[pictogram-position='bottom'] {
+  &[pictogram-placement='bottom'] {
     .#{$prefix}--card__pictogram {
       .#{$prefix}--card__heading {
         align-items: flex-start;

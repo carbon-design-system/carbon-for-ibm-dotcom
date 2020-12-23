@@ -16,7 +16,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
-import { PICTOGRAM_POSITION } from '../defs';
+import { PICTOGRAM_PLACEMENT } from '../defs';
 
 export const Default = ({ parameters }) => {
   const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
@@ -47,8 +47,8 @@ const iconPlacement = {
 };
 
 const pictogramPlacements = {
-  [PICTOGRAM_POSITION.TOP]: PICTOGRAM_POSITION.TOP,
-  [PICTOGRAM_POSITION.BOTTOM]: PICTOGRAM_POSITION.BOTTOM,
+  [PICTOGRAM_PLACEMENT.TOP]: PICTOGRAM_PLACEMENT.TOP,
+  [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
 export const Pictogram = ({ parameters }) => {
@@ -56,7 +56,7 @@ export const Pictogram = ({ parameters }) => {
   return html`
     <dds-card
       color-scheme=${inverse ? 'inverse' : ''}
-      pictogram-position="${pictogramPlacement}"
+      pictogram-placement="${pictogramPlacement}"
       href=${ifNonNull(href || undefined)}
     >
       <span slot="eyebrow">${eyebrow}</span>
