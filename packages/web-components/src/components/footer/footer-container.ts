@@ -36,6 +36,7 @@ import {
   LocaleModalContainerActions,
 } from '../locale-modal/locale-modal-container';
 import DDSFooterComposite from './footer-composite';
+import languageList from './__stories__/language-list';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -100,6 +101,7 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
       localeList: !language ? undefined : localeLists?.[language],
       links: !language ? undefined : translations?.[language]?.footerMenu,
       legalLinks: !language ? undefined : translations?.[language]?.footerThin,
+      langList: languageList
     },
     value => value !== undefined
   );

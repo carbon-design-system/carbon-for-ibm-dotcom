@@ -35,6 +35,8 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
+import './language-selector';
+import './language-selector-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -114,6 +116,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    */
   @property()
   language?: string;
+
+  @property({ attribute: false })
+  langList?;
 
   /**
    * The language to show in the UI.
@@ -203,11 +208,15 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       buttonLabel,
       disableLocaleButton,
       langDisplay,
+      langList,
       size,
       links,
       legalLinks,
       _handleClickLocaleButton: handleClickLocaleButton,
     } = this;
+
+    console.log(JSON.stringify(langList))
+    
     return html`
       <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
@@ -224,13 +233,23 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO
+        ${/**!disableLocaleButton && size !== FOOTER_SIZE.MICRO
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
-          : html``}
+        : html``*/
+      
+      html`
+        <dds-language-selector langList="${JSON.stringify(langList)}">
+          ${langList?.map(
+            ({ text: language }) => html`
+              <dds-language-selector-item hover="false">${ifNonNull(language)}</dds-language-selector-item>
+            `
+          )}
+        </dds-language-selector>  
+      `}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url }) => html`

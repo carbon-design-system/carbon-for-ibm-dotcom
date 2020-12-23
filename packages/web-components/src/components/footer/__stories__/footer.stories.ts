@@ -13,14 +13,20 @@ import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
 import '../footer-container';
+
+import '../language-selector';
+import mockLangList from './language-list';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 
 export const base = ({ parameters }) => {
-  const { langDisplay, language, size, legalLinks, links, localeList } = parameters?.props?.FooterComposite ?? {};
+  const { langDisplay, language, size, langList, legalLinks, links, localeList } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
+
+  console.log(langList)
+
   return html`
     ${useMock
       ? html`
@@ -28,6 +34,7 @@ export const base = ({ parameters }) => {
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
+            languageList="${ifNonNull(langList)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -39,6 +46,7 @@ export const base = ({ parameters }) => {
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
+            languageList="${ifNonNull(langList)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -53,6 +61,7 @@ export const Default = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
+    langList: mockLangList
   };
   return base({ parameters });
 };
@@ -79,6 +88,15 @@ export const micro = ({ parameters }) => {
   `;
 };
 
+export const test = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.REGULAR,
+  };
+  return base({ parameters });
+}
+
 export default {
   title: 'Components/Footer',
   parameters: {
@@ -90,6 +108,7 @@ export default {
       return {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
+          langList: mockLangList,
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,
