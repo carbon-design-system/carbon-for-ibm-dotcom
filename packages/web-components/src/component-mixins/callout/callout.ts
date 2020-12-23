@@ -8,6 +8,7 @@
  */
 import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
+import { Constructor } from '../../globals/defs';
 
 const { prefix } = settings;
 
