@@ -32,6 +32,9 @@ const slotExistencePropertyNames = {
  * @element dds-quote
  * @slot copy - The copy content.
  * @slot footer - The footer (CTA) content.
+ * @slot source-heading - The heading content of the quote source.
+ * @slot source-copy - The copy content of the quote source.
+ * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
