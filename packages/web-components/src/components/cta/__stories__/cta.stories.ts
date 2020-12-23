@@ -106,8 +106,7 @@ export const Card = ({ parameters }) => {
 
 Card.story = {
   parameters: {
-    colExtraClasses: 'bx--col-md-4 bx--col-lg-4',
-    useGridForCard: true,
+    hasGrid: true,
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
       CardCTAFooter: ({ groupId }) => {
@@ -154,8 +153,7 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
-    colExtraClasses: 'bx--col-lg-8 bx--offset-lg-4',
-    useGridForCard: true,
+    hasGrid: true,
     knobs: {
       FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
       FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
@@ -167,24 +165,19 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { colExtraClasses = 'bx--col-lg-8', useGridForCard } = parameters ?? {};
+      const { hasGrid } = parameters;
       const classes = classMap({
-        'bx--grid': true,
-        'dds-ce-demo-devenv--grid--stretch': useGridForCard,
+        'dds-ce-demo-devenv--simple-grid': hasGrid,
+        'dds-ce-demo-devenv--simple-grid--card': hasGrid,
       });
       return html`
         <dds-video-cta-container class="${classes}">
-          <div class="bx--row dds-ce-demo-devenv--grid-row">
-            <div class="bx--col-sm-4 ${colExtraClasses}">
-              ${story()}
-            </div>
-          </div>
+          ${story()}
         </dds-video-cta-container>
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
   },
 };

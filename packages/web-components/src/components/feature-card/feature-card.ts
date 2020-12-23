@@ -29,7 +29,7 @@ class DDSFeatureCard extends DDSCard {
     const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.add(`${prefix}--feature-card`);
+      linkNode.classList.add(`${prefix}--feature-card__card`);
     }
   }
 
