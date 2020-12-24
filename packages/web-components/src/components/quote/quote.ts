@@ -20,9 +20,9 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const slotExistencePropertyNames = {
-  sourceHeading: '_hasSourceHeading',
-  sourceCopy: '_hasSourceCopy',
-  sourceBottomCopy: '_hasSourceBottomCopy',
+  'source-heading': '_hasSourceHeading',
+  'source-copy': '_hasSourceCopy',
+  'source-bottom-copy': '_hasSourceBottomCopy',
   footer: '_hasFooter',
 };
 

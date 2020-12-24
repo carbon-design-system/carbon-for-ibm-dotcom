@@ -73,9 +73,9 @@ export default {
           groupId
         ),
         quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
-        sourceHeading: textNullable('Source Heading(sourceHeading)', 'Lorem ipsum dolor sit amet', groupId),
-        sourceCopy: textNullable('Source Copy(sourceCopy)', 'consectetur adipiscing elit', groupId),
-        sourceBottomCopy: textNullable('Source Copy(sourceBottomCopy)', 'IBM Cloud', groupId),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet', groupId),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit', groupId),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
         inverse: boolean('Inverse (inverse)', false, groupId),
       }),
     },
