@@ -244,13 +244,13 @@ const StoryContent = () => html`
               <span slot="copy">
                 Duis aute irure dolor in reprehenderit
               </span>
-              <span slot="sourceHeading">
+              <span slot="source-heading">
                 Lorem ipsum
               </span>
-              <span slot="sourceCopy">
+              <span slot="source-copy">
                 dolor sit amet
               </span>
-              <span slot="sourceBottomCopy">
+              <span slot="source-bottom-copy">
               </span>
               <dds-link-with-icon slot="footer" href="https://example.com">
                 Link with Icon ${ArrowRight20({ slot: 'icon' })}
