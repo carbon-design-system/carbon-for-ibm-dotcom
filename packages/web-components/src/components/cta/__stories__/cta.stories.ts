@@ -14,6 +14,7 @@ import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../defs';
 import '../video-cta-container';
+import '../button-cta';
 import '../card-cta';
 import '../card-cta-footer';
 import '../feature-cta';
@@ -70,6 +71,39 @@ Text.story = {
   parameters: {
     knobs: {
       TextCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          copy,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+        };
+      },
+    },
+  },
+};
+
+export const Button = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.ButtonCTA ?? {};
+  return html`
+    <div>
+      <dds-button-group>
+        <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+        <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+      </dds-button-group>
+    </div>
+  `;
+};
+
+Button.story = {
+  parameters: {
+    knobs: {
+      ButtonCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', types, null, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
         const download =
