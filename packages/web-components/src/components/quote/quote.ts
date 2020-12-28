@@ -20,9 +20,9 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 const slotExistencePropertyNames = {
-  sourceHeading: '_hasSourceHeading',
-  sourceCopy: '_hasSourceCopy',
-  sourceBottomCopy: '_hasSourceBottomCopy',
+  'source-heading': '_hasSourceHeading',
+  'source-copy': '_hasSourceCopy',
+  'source-bottom-copy': '_hasSourceBottomCopy',
   footer: '_hasFooter',
 };
 
@@ -32,6 +32,9 @@ const slotExistencePropertyNames = {
  * @element dds-quote
  * @slot copy - The copy content.
  * @slot footer - The footer (CTA) content.
+ * @slot source-heading - The heading content of the quote source.
+ * @slot source-copy - The copy content of the quote source.
+ * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
@@ -143,13 +146,13 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     return html`
       <div ?hidden="${!hasSourceHeading || !hasSourceCopy}" class="${prefix}--quote__source">
         <p class="${prefix}--quote__source-heading">
-          <slot @slotchange="${handleSlotChange}" name="sourceHeading"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-heading"></slot>
         </p>
         <p class="${prefix}--quote__source-body">
-          <slot @slotchange="${handleSlotChange}" name="sourceCopy"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-copy"></slot>
         </p>
         <p ?hidden="${!hasSourceBottomCopy}" class="${prefix}--quote__source-optional-copy">
-          <slot @slotchange="${handleSlotChange}" name="sourceBottomCopy"></slot>
+          <slot @slotchange="${handleSlotChange}" name="source-bottom-copy"></slot>
         </p>
       </div>
     `;
