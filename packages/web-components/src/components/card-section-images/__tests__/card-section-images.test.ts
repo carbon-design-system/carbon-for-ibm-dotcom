@@ -10,6 +10,8 @@
 import { html, render } from 'lit-html';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../card-section-images';
 
 const template = (props?) => {
@@ -41,8 +43,8 @@ describe('dds-card-section-images', function() {
                 default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3"
               >
               </dds-image>
-              <div slot="eyebrow">Topic</div>
-              <div slot="heading">Natural Language Processing.</div>
+              <dds-card-eyebrow>Topic</dds-card-eyebrow>
+              <dds-card-heading>Natural Language Processing.</dds-card-heading>
               <dds-card-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
               </dds-card-footer>

@@ -9,27 +9,15 @@
 </slot>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
-    <p
-      class="bx--card__eyebrow"
-      hidden=""
-    >
-      <slot name="eyebrow">
-      </slot>
-    </p>
+    <slot name="eyebrow">
+    </slot>
     <slot
       data-pictogram-placement="top"
       name="pictogram"
     >
     </slot>
-    <h3
-      class="bx--card__heading"
-      hidden=""
-    >
-      <span>
-        <slot name="heading">
-        </slot>
-      </span>
-    </h3>
+    <slot name="heading">
+    </slot>
     <div
       class="bx--card__copy"
       hidden=""
@@ -51,27 +39,15 @@
 </slot>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
-    <p
-      class="bx--card__eyebrow"
-      hidden=""
-    >
-      <slot name="eyebrow">
-      </slot>
-    </p>
+    <slot name="eyebrow">
+    </slot>
     <slot
       data-pictogram-placement="top"
       name="pictogram"
     >
     </slot>
-    <h3
-      class="bx--card__heading"
-      hidden=""
-    >
-      <span>
-        <slot name="heading">
-        </slot>
-      </span>
-    </h3>
+    <slot name="heading">
+    </slot>
     <div class="bx--card__copy">
       <slot>
       </slot>
