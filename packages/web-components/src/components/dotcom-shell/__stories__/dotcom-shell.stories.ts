@@ -183,8 +183,8 @@ const StoryContent = () => html`
                   srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
                 >
               </dds-image>
-              <span slot="eyebrow">scelerisque purus</span>
-              <span slot="heading">Elementum nibh tellus molestie nunc?</span>
+              <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
+              <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
               <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
               <dds-feature-card-block-large-footer>
                 ${ArrowRight20({ slot: 'icon' })}

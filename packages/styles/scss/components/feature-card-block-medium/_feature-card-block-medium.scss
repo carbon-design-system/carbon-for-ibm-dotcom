@@ -22,11 +22,16 @@
     }
 
     .#{$prefix}--feature-card-block-medium__heading,
-    ::slotted(#{$dds-prefix}-feature-card-block-medium-heading) {
+    ::slotted(#{$dds-prefix}-card-heading) {
       @include carbon--type-style('expressive-heading-04', true);
 
       display: block;
       margin-bottom: $carbon--spacing-07;
+    }
+
+    ::slotted(#{$dds-prefix}-card-heading) {
+      width: auto;
+      max-width: none;
     }
 
     &:focus {

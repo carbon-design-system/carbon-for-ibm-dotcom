@@ -25,6 +25,16 @@ class DDSCardHeading extends LitElement {
   @property({ reflect: true })
   slot = 'heading';
 
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'heading');
+    }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '3');
+    }
+    super.connectedCallback();
+  }
+
   render() {
     return html`
       <slot></slot>
