@@ -16,6 +16,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
+import '../card-eyebrow';
+import '../card-heading';
 import { PICTOGRAM_PLACEMENT } from '../defs';
 
 export const Default = ({ parameters }) => {
@@ -27,8 +29,8 @@ export const Default = ({ parameters }) => {
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
-      <span slot="eyebrow">${eyebrow}</span>
-      <span slot="heading">${heading}</span>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+      <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
             <p>${copy}</p>
@@ -59,8 +61,8 @@ export const Pictogram = ({ parameters }) => {
       pictogram-placement="${pictogramPlacement}"
       href=${ifNonNull(href || undefined)}
     >
-      <span slot="eyebrow">${eyebrow}</span>
-      <span slot="heading">${heading}</span>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+      <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
             <p>${copy}</p>
@@ -98,7 +100,11 @@ export default {
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
-        ${story()}
+        <div class="bx--row dds-ce-demo-devenv--grid-row">
+          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-12 bx--col-xlg-8 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],

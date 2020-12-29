@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';

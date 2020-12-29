@@ -5,13 +5,8 @@
 ####   `should render with minimum attributes`
 
 ```
-<h3
-  class="bx--feature-card-block-medium__heading"
-  hidden=""
->
-  <slot name="heading">
-  </slot>
-</h3>
+<slot name="heading">
+</slot>
 <div
   class="bx--feature-card"
   data-autoid="dds--feature-card"
@@ -20,13 +15,8 @@
   </slot>
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
-      <p
-        class="bx--card__eyebrow"
-        hidden=""
-      >
-        <slot name="eyebrow">
-        </slot>
-      </p>
+      <slot name="eyebrow">
+      </slot>
       <h3 class="bx--card__heading">
         <slot>
         </slot>
@@ -42,13 +32,8 @@
 ####   `should render with various attributes`
 
 ```
-<h3
-  class="bx--feature-card-block-medium__heading"
-  hidden=""
->
-  <slot name="heading">
-  </slot>
-</h3>
+<slot name="heading">
+</slot>
 <div
   class="bx--feature-card"
   data-autoid="dds--feature-card"
@@ -63,13 +48,8 @@
     </slot>
     <div class="bx--card__wrapper">
       <div class="bx--card__content">
-        <p
-          class="bx--card__eyebrow"
-          hidden=""
-        >
-          <slot name="eyebrow">
-          </slot>
-        </p>
+        <slot name="eyebrow">
+        </slot>
         <h3 class="bx--card__heading">
           <slot>
           </slot>

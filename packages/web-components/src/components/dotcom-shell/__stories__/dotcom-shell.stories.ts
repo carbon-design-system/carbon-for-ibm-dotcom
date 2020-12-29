@@ -25,6 +25,8 @@ import mastheadLinks from '../../masthead/__stories__/links';
 import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import readme from './README.stories.mdx';
 
 const footerSizes = {
@@ -115,8 +117,8 @@ const cardGroupItems = html`
       default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
@@ -181,8 +183,8 @@ const StoryContent = () => html`
                   srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
                 >
               </dds-image>
-              <span slot="eyebrow">scelerisque purus</span>
-              <span slot="heading">Elementum nibh tellus molestie nunc?</span>
+              <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
+              <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
               <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
               <dds-feature-card-block-large-footer>
                 ${ArrowRight20({ slot: 'icon' })}

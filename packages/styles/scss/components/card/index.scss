@@ -62,14 +62,6 @@
       margin-bottom: $carbon--spacing-07;
     }
 
-    .#{$prefix}--card__eyebrow {
-      @include use-carbon-productive-tokens();
-      @include carbon--type-style('body-short-01');
-
-      margin-bottom: $carbon--spacing-03;
-      color: $text-02;
-    }
-
     .#{$prefix}--card:focus,
     .#{$prefix}--card:visited,
     .#{$prefix}--card:active {
@@ -115,6 +107,15 @@
       outline: 2px solid $focus;
       outline-offset: -2px;
     }
+  }
+
+  :host(#{$dds-prefix}-card-eyebrow),
+  .#{$prefix}--card__eyebrow {
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style('body-short-01');
+
+    margin-bottom: $carbon--spacing-03;
+    color: $text-02;
   }
 
   .#{$prefix}--card .#{$prefix}--card__cta,
@@ -200,6 +201,25 @@
 
     &:hover {
       background-color: $inverse-hover-ui;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-heading) {
+    @include carbon--type-style('expressive-heading-03');
+    @include content-width;
+
+    color: $text-01;
+    margin-bottom: $carbon--layout-05;
+  }
+
+  :host(#{$dds-prefix}-card)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+    ::slotted(#{$dds-prefix}-card-eyebrow) {
+      color: $text-03;
+    }
+
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $inverse-01;
     }
   }
 

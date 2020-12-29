@@ -9,6 +9,7 @@
 
 import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/content-block-cards.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta-footer.js';
