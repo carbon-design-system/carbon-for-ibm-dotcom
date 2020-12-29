@@ -32,7 +32,8 @@
     outline-offset: 2px;
   }
 
-  .#{$prefix}--card__heading {
+  .#{$prefix}--card__heading,
+  ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
   }
 }

@@ -17,6 +17,7 @@ import '../../content-item/content-item-heading';
 import '../../content-item/content-item-copy';
 import '../../content-item/content-item';
 import '../content-block-media-content';
+import '../../card/card-heading';
 import '../../card-link/card-link';
 import '../../feature-card/feature-card';
 import '../../feature-card/feature-card-footer';
@@ -165,7 +166,7 @@ export const Default = () => {
           alt="Feature card image"
           default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
         ></dds-image>
-        <span slot="heading">Consectetur adipisicing elit</span>
+        <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
         <dds-feature-card-footer>
           ${ArrowRight20({ slot: 'icon' })}
         </dds-feature-card-footer>

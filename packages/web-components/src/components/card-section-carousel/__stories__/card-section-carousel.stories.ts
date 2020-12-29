@@ -14,6 +14,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/card';
 import '../../card/card-footer';
+import '../../card/card-heading';
 import '../../content-section/content-section';
 import '../../content-section/content-section-copy';
 import '../../content-section/content-section-heading';
@@ -31,7 +32,7 @@ const copyOdd = `
 
 const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
-    <span slot="heading">${heading}</span>
+    <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
     <dds-card-footer>
       ${ArrowRight20({ slot: 'icon' })}

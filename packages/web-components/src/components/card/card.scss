@@ -34,7 +34,7 @@
   .#{$prefix}--card__pictogram {
     display: flex;
 
-    .#{$prefix}--card__heading {
+    ::slotted(#{$dds-prefix}-card-heading) {
       margin-bottom: 0;
       flex: 1;
       display: flex;
@@ -44,7 +44,7 @@
 
   &[pictogram-placement='bottom'] {
     .#{$prefix}--card__pictogram {
-      .#{$prefix}--card__heading {
+      ::slotted(#{$dds-prefix}-card-heading) {
         align-items: flex-start;
       }
     }
