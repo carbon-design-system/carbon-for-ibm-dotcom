@@ -7,7 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/**
- * Constructor type. Used for defining mix-ins.
- */
-type Constructor<T> = new (...args: any[]) => T;
+export enum PICTOGRAM_PLACEMENT {
+  /**
+   * Top pictogram
+   */
+  TOP = 'top',
+  /**
+   * Bottom pictogram
+   */
+  BOTTOM = 'bottom',
+}
+
+export default PICTOGRAM_PLACEMENT;

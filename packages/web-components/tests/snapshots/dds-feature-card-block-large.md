@@ -17,12 +17,19 @@
         <slot name="eyebrow">
         </slot>
       </p>
+      <slot
+        data-pictogram-placement="top"
+        name="pictogram"
+      >
+      </slot>
       <h3
         class="bx--card__heading"
         hidden=""
       >
-        <slot name="heading">
-        </slot>
+        <span>
+          <slot name="heading">
+          </slot>
+        </span>
       </h3>
       <div
         class="bx--card__copy"
@@ -44,9 +51,10 @@
 ```
 <div class="bx--feature-card-block-large__container">
   <a
-    class="bx--card bx--card--link bx--feature-card-block-large bx--tile bx--tile--clickable"
+    class="bx--card bx--card--link bx--feature-card-block-large bx--feature-card__card bx--tile bx--tile--clickable"
     href="https://example.com"
     id="link"
+    part="link"
   >
     <slot name="image">
     </slot>
@@ -59,12 +67,19 @@
           <slot name="eyebrow">
           </slot>
         </p>
+        <slot
+          data-pictogram-placement="top"
+          name="pictogram"
+        >
+        </slot>
         <h3
           class="bx--card__heading"
           hidden=""
         >
-          <slot name="heading">
-          </slot>
+          <span>
+            <slot name="heading">
+            </slot>
+          </span>
         </h3>
         <div
           class="bx--card__copy"

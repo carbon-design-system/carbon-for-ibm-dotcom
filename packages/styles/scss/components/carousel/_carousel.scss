@@ -33,6 +33,7 @@
   flex-direction: column;
 
   overflow: hidden;
+  width: calc(100% + #{$spacing-07});
   margin-right: calc(-1 * #{$spacing-07});
   padding-right: $spacing-07;
 

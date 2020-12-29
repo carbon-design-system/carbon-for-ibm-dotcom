@@ -16,12 +16,19 @@
       <slot name="eyebrow">
       </slot>
     </p>
+    <slot
+      data-pictogram-placement="top"
+      name="pictogram"
+    >
+    </slot>
     <h3
       class="bx--card__heading"
       hidden=""
     >
-      <slot name="heading">
-      </slot>
+      <span>
+        <slot name="heading">
+        </slot>
+      </span>
     </h3>
     <div
       class="bx--card__copy"
@@ -51,12 +58,19 @@
       <slot name="eyebrow">
       </slot>
     </p>
+    <slot
+      data-pictogram-placement="top"
+      name="pictogram"
+    >
+    </slot>
     <h3
       class="bx--card__heading"
       hidden=""
     >
-      <slot name="heading">
-      </slot>
+      <span>
+        <slot name="heading">
+        </slot>
+      </span>
     </h3>
     <div
       class="bx--card__copy"

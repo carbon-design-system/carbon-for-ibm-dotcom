@@ -54,9 +54,10 @@
   data-autoid="dds--feature-card"
 >
   <a
-    class="bx--card bx--card--link bx--feature-card bx--tile bx--tile--clickable"
+    class="bx--card bx--card--link bx--feature-card__card bx--tile bx--tile--clickable"
     href="https://example.com"
     id="link"
+    part="link"
   >
     <slot name="image">
     </slot>

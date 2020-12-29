@@ -9,6 +9,7 @@
   class="bx--link"
   href="about:blank"
   id="link"
+  part="link"
 >
   <div class="bx--card__wrapper">
     <div class="bx--card__content">

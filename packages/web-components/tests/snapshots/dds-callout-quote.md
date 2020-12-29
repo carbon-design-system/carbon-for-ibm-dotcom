@@ -22,18 +22,18 @@
           hidden=""
         >
           <p class="bx--quote__source-heading">
-            <slot name="sourceHeading">
+            <slot name="source-heading">
             </slot>
           </p>
           <p class="bx--quote__source-body">
-            <slot name="sourceCopy">
+            <slot name="source-copy">
             </slot>
           </p>
           <p
             class="bx--quote__source-optional-copy"
             hidden=""
           >
-            <slot name="sourceBottomCopy">
+            <slot name="source-bottom-copy">
             </slot>
           </p>
         </div>
