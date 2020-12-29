@@ -8,4 +8,6 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/card/card.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-eyebrow.js';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';

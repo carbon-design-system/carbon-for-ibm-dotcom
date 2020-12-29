@@ -12,6 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../card/card-heading';
 import readme from './README.stories.mdx';
 
 const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -113,7 +114,9 @@ export const Default = ({ parameters }) => {
         <dds-content-group-heading>${cardsGroupHeading}</dds-content-group-heading>
         <p slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <dds-content-group-cards-item href="www.ibm.com">
-          <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+          <dds-card-heading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+          </dds-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua.
@@ -123,7 +126,9 @@ export const Default = ({ parameters }) => {
           </dds-card-footer>
         </dds-content-group-cards-item>
         <dds-content-group-cards-item href="www.ibm.com">
-          <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+          <dds-card-heading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+          </dds-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua.
