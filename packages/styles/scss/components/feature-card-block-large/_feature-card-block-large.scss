@@ -107,7 +107,9 @@ $fcb-breakpoint-up--lg: map-get(
 
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
-      .#{$prefix}--card__copy {
+      .#{$prefix}--card__copy,
+      ::slotted(#{$dds-prefix}-card-eyebrow),
+      ::slotted(#{$dds-prefix}-card-heading) {
         width: 100%;
         max-width: carbon--rem(480px);
         @include carbon--breakpoint('md') {
@@ -115,12 +117,14 @@ $fcb-breakpoint-up--lg: map-get(
         }
       }
 
-      .#{$prefix}--card__eyebrow {
+      .#{$prefix}--card__eyebrow,
+      ::slotted(#{$dds-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
         @include carbon--type-style('body-long-02');
       }
 
-      .#{$prefix}--card__heading {
+      .#{$prefix}--card__heading,
+      ::slotted(#{$dds-prefix}-card-heading) {
         @include carbon--type-style('expressive-heading-04', true);
 
         margin-bottom: $spacing-07;
