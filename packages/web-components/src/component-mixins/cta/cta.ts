@@ -50,7 +50,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @param event The event.
      */
-    _handleClickLink(event: MouseEvent) {
+    _handleClick(event: MouseEvent) {
       const { disabled } = this;
       if (disabled) {
         event.preventDefault(); // Stop following the link

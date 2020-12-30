@@ -40,7 +40,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @param event The event.
      */
-    _handleClickLink(event: MouseEvent) {
+    _handleClick(event: MouseEvent) {
       const { ctaType, disabled, href } = this;
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link
