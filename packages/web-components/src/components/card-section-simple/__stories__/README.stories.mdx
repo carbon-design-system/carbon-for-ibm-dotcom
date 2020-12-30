@@ -17,11 +17,10 @@ Here's a quick example to get you started.
 ##### JS
 
 ```javascript
-
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-section-simple/card-section-simple.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item.js';
-
 ```
 
 ### HTML
@@ -30,7 +29,7 @@ import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-ite
 <dds-card-section-simple heading="Aliquam condimentum interdum">
   <dds-card-group>
     <dds-card-group-item href="https://example.com">
-      <div slot="heading">Nunc convallis lobortis</div>
+      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
         Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
