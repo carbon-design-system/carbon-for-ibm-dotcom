@@ -23,7 +23,7 @@ class DDSLink extends BXLink {
   /**
    * Handles `click` event on the `<a>`.
    */
-  protected _handleClickLink() {} // eslint-disable-line class-methods-use-this
+  protected _handleClick() {} // eslint-disable-line class-methods-use-this
 
   /**
    * @returns The inner content.
@@ -49,18 +49,7 @@ class DDSLink extends BXLink {
    * @returns The link content.
    */
   protected _renderLink() {
-    const {
-      download,
-      href,
-      hreflang,
-      linkRole,
-      ping,
-      rel,
-      target,
-      type,
-      _classes: classes,
-      _handleClickLink: handleClickLink,
-    } = this;
+    const { download, href, hreflang, linkRole, ping, rel, target, type, _classes: classes, _handleClick: handleClick } = this;
     return html`
       <a
         id="link"
@@ -74,7 +63,7 @@ class DDSLink extends BXLink {
         rel="${ifNonNull(rel)}"
         target="${ifNonNull(target)}"
         type="${ifNonNull(type)}"
-        @click="${handleClickLink}"
+        @click="${handleClick}"
       >
         ${this._renderInner()}
       </a>
