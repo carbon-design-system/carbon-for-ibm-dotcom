@@ -16,6 +16,19 @@
 /// @group checkbox-expressive
 @mixin checkbox-expressive {
   .#{$prefix}--checkbox-label {
+    &::before {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &::after {
+      top: -0.6rem;
+      bottom: 0;
+      left: 0.275rem;
+      margin: auto;
+    }
+
     padding-top: 0;
   }
 }
