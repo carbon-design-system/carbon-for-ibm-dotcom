@@ -14,13 +14,14 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-section/content-section';
 import '../../content-section/content-section-heading';
+import '../../card/card-heading';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../card-section-simple';
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -49,7 +50,7 @@ export const WithCTA = ({ parameters }) => {
       <dds-card-group>
         ${cards}
         <dds-card-group-item href="https://example.com" color-scheme="inverse">
-          <div slot="heading">Top level card link</div>
+          <dds-card-heading>Top level card link</dds-card-heading>
           <dds-card-footer slot="footer" color-scheme="inverse">
             ${ArrowRight20({ slot: 'icon' })}
           </dds-card-footer>

@@ -9,6 +9,7 @@
 
 import { html, render } from 'lit-html';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import '../../card/card-heading';
 import '../content-group-cards';
 import '../content-group-cards-item';
 
@@ -36,9 +37,9 @@ describe('dds-content-group-cards', function() {
             <dds-content-group-heading>heading-foo</dds-content-group-heading>
             <p>copy-foo</p>
             <dds-content-group-cards-item href="https://www.example.com">
-              <span slot="heading"
-                >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span
-              >
+              <dds-card-heading>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+              </dds-card-heading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua.

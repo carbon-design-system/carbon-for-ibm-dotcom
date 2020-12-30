@@ -13,14 +13,16 @@ import '../../image/image';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../feature-card-block-medium';
 
 export const Default = ({ parameters }) => {
   const { copy, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
   return html`
     <dds-feature-card-block-medium href=${ifNonNull(href || undefined)}>
-      <span slot="heading">${heading}</span>
-      <span slot="eyebrow">${eyebrow}</span>
+      <dds-card-heading>${heading}</dds-card-heading>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
       ${copy}
       <dds-feature-card-footer>
