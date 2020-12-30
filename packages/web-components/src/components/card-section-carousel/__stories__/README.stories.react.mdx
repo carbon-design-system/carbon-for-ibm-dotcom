@@ -12,6 +12,8 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card.js';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading.js';
 import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel.js';
 import DDSContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-leading.js';
 import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading.js';
@@ -30,14 +32,14 @@ function App() {
       </DDSLinkWithIcon>
       <DDSCarousel>
         <DDSCard href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
-          <span slot="heading">Lorem ipsum dolor sit amet</span>
+          <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
           </DDSCardFooter>
         </DDSCard>
         <DDSCard href="https://www.ibm.com/standards/web/carbon-for-ibm-dotcom">
-          <span slot="heading">Lorem ipsum dolor sit amet</span>
+          <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
           <DDSCardFooter>
