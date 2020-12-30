@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
-import MockLayoutObserver from '../../../../tests/utils/mock-layout-observer';
+import MockIntersectionObserver from '../../../../tests/utils/mock-intersection-observer';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 /* eslint-disable import/no-duplicates */
 import DDSTableOfContents from '../table-of-contents';
@@ -23,38 +23,6 @@ const template = (props?) => {
     <dds-table-of-contents>${children}</dds-table-of-contents>
   `;
 };
-
-/**
- * A mock version of `IntersectionObserver`.
- */
-class MockIntersectionObserver extends MockLayoutObserver {
-  /**
-   * The instances.
-   */
-  protected static _instances = new Set<MockIntersectionObserver>();
-
-  /**
-   * Triggers the callbacks on an element.
-   *
-   * @param elem The element.
-   * @param isIntersecting `true` to mark the element as intersecting.
-   */
-  static run(elem: Element, isIntersecting: boolean) {
-    this._instances.forEach(instance => {
-      if (instance._callback && instance._targets.has(elem)) {
-        instance._callback(
-          [
-            {
-              isIntersecting,
-              target: elem,
-            } as IntersectionObserverEntry,
-          ],
-          (instance as unknown) as IntersectionObserver
-        );
-      }
-    });
-  }
-}
 
 describe('dds-table-of-contents', function() {
   const events = new EventManager();
