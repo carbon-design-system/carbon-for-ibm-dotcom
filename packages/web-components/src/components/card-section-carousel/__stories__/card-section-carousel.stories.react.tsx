@@ -41,7 +41,7 @@ const copyOdd = `
 
 const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
   <DDSCard href={href}>
-    <DDSCardHeading slot="heading">{heading}</DDSCardHeading>
+    <DDSCardHeading>{heading}</DDSCardHeading>
     {copy}
     <DDSCardFooter>
       <ArrowRight20 slot="icon" />
