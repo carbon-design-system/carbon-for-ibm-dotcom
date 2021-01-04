@@ -209,7 +209,7 @@ const StoryContent = () => html`
             </dds-content-block-segmented>
 
             <dds-callout-with-media>
-              <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
+              <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-item-copy
                 >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
                 In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 

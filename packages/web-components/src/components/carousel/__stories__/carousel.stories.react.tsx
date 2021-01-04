@@ -15,6 +15,8 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // @ts-ignore
 import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 // @ts-ignore
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+// @ts-ignore
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // @ts-ignore
 import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
@@ -30,7 +32,7 @@ const copyOdd = `
 
 const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
   <DDSCard href={href}>
-    <span slot="heading">{heading}</span>
+    <DDSCardHeading>{heading}</DDSCardHeading>
     {copy}
     <DDSCardFooter>
       <ArrowRight20 slot="icon" />
