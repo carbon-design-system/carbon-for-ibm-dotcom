@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,13 @@
 'use strict';
 
 const gulp = require('gulp');
-const { servicesStoreESSrcDir, servicesStoreVendorSrcDir, servicesStoreVendorESDstDir } = require('./config');
+const {
+  servicesStoreCJSSrcDir,
+  servicesStoreESSrcDir,
+  servicesStoreVendorSrcDir,
+  servicesStoreVendorCJSDstDir,
+  servicesStoreVendorESDstDir,
+} = require('./config');
 
 /**
  * Generates `src/internal/vendor` contents.
@@ -24,6 +30,12 @@ const servicesStoreVendorSrc = () =>
 const servicesStoreVendorESDst = () =>
   gulp.src([`${servicesStoreESSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorESDstDir));
 
+/**
+ * Generate `lib/internal/vendor` contents.
+ */
+const servicesStoreVendorCJSDst = () =>
+  gulp.src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js']).pipe(gulp.dest(servicesStoreVendorCJSDstDir));
+
 module.exports = {
-  servicesStore: gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorESDst),
+  servicesStore: gulp.parallel(servicesStoreVendorSrc, servicesStoreVendorCJSDst, servicesStoreVendorESDst),
 };
