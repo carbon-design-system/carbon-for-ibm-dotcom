@@ -8,6 +8,7 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group.js';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item.js';

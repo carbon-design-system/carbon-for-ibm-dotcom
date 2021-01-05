@@ -14,11 +14,14 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
 import '../../image/image';
+import '../../cta/link-list-item-card-cta';
 import '../../cta/text-cta';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 import '../../content-item/content-item-copy';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
+import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
 import '../content-block-simple';
 
 const ctaTypes = {
@@ -126,7 +129,7 @@ export const WithAsideElements = ({ parameters }) => {
       ${image}
       <dds-content-block-complementary>
         <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
             <p>Containerization A Complete Guide</p>
             <dds-card-cta-footer></dds-card-cta-footer>

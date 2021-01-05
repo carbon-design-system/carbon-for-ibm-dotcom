@@ -17,6 +17,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
@@ -61,7 +62,7 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace
       </dds-image-with-caption>
     </dds-leadspace-block-media>
     <dds-link-list type="end">
-      <span slot="heading">Featured products</span>
+      <dds-link-list-heading>Featured products</dds-link-list-heading>
       <dds-link-list-item href="https://example.com">
         Services ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>
