@@ -16,6 +16,7 @@ import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
 import '../../image-with-caption/image-with-caption';
 import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
 import '../../video-player/video-player-container';
 import '../../button-group/button-group';
@@ -53,7 +54,7 @@ const image = html`
 
 const linkList = html`
   <dds-link-list type="end">
-    <span slot="heading">Featured products</span>
+    <dds-link-list-heading>Featured products</dds-link-list-heading>
     <dds-link-list-item href="https://example.com">
       IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>

@@ -68,7 +68,8 @@
     }
   }
 
-  .#{$prefix}--link-list__heading {
+  .#{$prefix}--link-list__heading,
+  :host(#{$dds-prefix}-link-list-heading) {
     margin-bottom: $carbon--spacing-05;
 
     @include carbon--type-style('expressive-heading-02');
