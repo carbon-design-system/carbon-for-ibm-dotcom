@@ -21,6 +21,7 @@ import '../../cta/text-cta';
 import '../../video-player/video-player-container';
 import '../../content-block/content-block-complementary';
 import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
 import '../content-block-segmented-item';
 import '../content-block-segmented';
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
@@ -188,7 +189,7 @@ export const withAsideElements = ({ parameters }) => {
       </dds-content-block-segmented-item>
       <dds-content-block-complementary>
         <dds-link-list type="default">
-          <span slot="heading">${heading}</span>
+          <dds-link-list-heading>${heading}</dds-link-list-heading>
           <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
             <p>Containerization A Complete Guide</p>
             <dds-card-cta-footer></dds-card-cta-footer>

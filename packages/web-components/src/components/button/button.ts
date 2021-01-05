@@ -57,6 +57,11 @@ class DDSBtn extends FocusMixin(LitElement) {
   }
 
   /**
+   * Handles `click` event on the button.
+   */
+  protected _handleClick() {} // eslint-disable-line class-methods-use-this
+
+  /**
    * Handles `slotchange` event.
    */
   protected _handleSlotChange({ target }: Event) {
@@ -177,7 +182,20 @@ class DDSBtn extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { autofocus, disabled, download, href, hreflang, linkRole, ping, rel, target, type, _classes: classes } = this;
+    const {
+      autofocus,
+      disabled,
+      download,
+      href,
+      hreflang,
+      linkRole,
+      ping,
+      rel,
+      target,
+      type,
+      _classes: classes,
+      _handleClick: handleClick,
+    } = this;
     if (href) {
       return disabled
         ? this._renderDisabledLink()
@@ -194,6 +212,7 @@ class DDSBtn extends FocusMixin(LitElement) {
               rel="${ifNonNull(rel)}"
               target="${ifNonNull(target)}"
               type="${ifNonNull(type)}"
+              @click="${handleClick}"
             >
               ${this._renderInner()}
             </a>
@@ -207,6 +226,7 @@ class DDSBtn extends FocusMixin(LitElement) {
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
         type="${ifNonNull(type)}"
+        @click="${handleClick}"
       >
         ${this._renderInner()}
       </button>

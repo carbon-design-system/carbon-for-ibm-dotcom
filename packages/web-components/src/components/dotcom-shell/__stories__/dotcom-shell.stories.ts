@@ -27,6 +27,9 @@ import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
+import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
+import '../../link-list/link-list-item';
 import readme from './README.stories.mdx';
 
 const footerSizes = {
@@ -149,20 +152,22 @@ const StoryContent = () => html`
                   <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
                 </dds-leadspace-block-media>
                 <dds-link-list type="end">
-                <span slot="heading">Featured products</span>
-                <dds-link-list-item href="https://example.com">
-                  IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-                <dds-link-list-item href="https://example.com">
-                  UrbanCode ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-                <dds-link-list-item href="https://example.com">
-                  View all products ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-              </dds-link-list>
-              <dds-leadspace-block-cta>
-                <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
-              </dds-leadspace-block-cta>
+                  <dds-link-list-heading>Featured products</dds-link-list-heading>
+                  <dds-link-list-item href="https://example.com">
+                    IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                  <dds-link-list-item href="https://example.com">
+                    UrbanCode ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                  <dds-link-list-item href="https://example.com">
+                    View all products ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                </dds-link-list>
+                <dds-leadspace-block-cta>
+                  <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({
+                    slot: 'icon',
+                  })}</dds-button-group-item>
+                </dds-leadspace-block-cta>
               </dds-leadspace-block-content>
             </dds-leadspace-block>
 
@@ -204,7 +209,7 @@ const StoryContent = () => html`
             </dds-content-block-segmented>
 
             <dds-callout-with-media>
-              <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
+              <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-item-copy
                 >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
                 In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
