@@ -77,6 +77,7 @@
       outline: 1px solid $focus;
     }
   }
+
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-text-cta) {
     &:focus {
