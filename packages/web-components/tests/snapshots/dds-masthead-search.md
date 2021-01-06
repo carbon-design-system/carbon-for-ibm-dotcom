@@ -71,6 +71,7 @@
   <div
     aria-expanded="true"
     aria-haspopup="listbox"
+    aria-label="IBM search field"
     aria-owns="result-list"
     class="react-autosuggest__container react-autosuggest__suggestions-container--open"
     role="combobox"
