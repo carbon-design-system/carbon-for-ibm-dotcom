@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -101,7 +101,7 @@ export function mapStateToProps(state: FooterContainerState): FooterContainerSta
       localeList: !language ? undefined : localeLists?.[language],
       links: !language ? undefined : translations?.[language]?.footerMenu,
       legalLinks: !language ? undefined : translations?.[language]?.footerThin,
-      langList: languageList
+      langList: languageList,
     },
     value => value !== undefined
   );
