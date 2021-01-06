@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector';
-import './language-selector-item';
+import 'carbon-web-components/es/components/combo-box/combo-box-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -94,6 +94,13 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   _setLanguage?: (language: string) => void;
 
   /**
+   * The placeholder for `setLanguage()` Redux action that may be mixed in.
+   *
+   * @internal
+   */
+  _languageCallback?: (e) => void;
+
+  /**
    * The aria-label to use for the locale-button
    */
   @property()
@@ -110,6 +117,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    */
   @property({ attribute: 'disable-locale-button' })
   disableLocaleButton = false;
+
+  /**
+   * `true` to enable language selector.
+   */
+  @property({ attribute: 'enable-language-selector' })
+  enableLanguageSelector = false;
 
   /**
    * The language used for query.
@@ -207,18 +220,17 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
     const {
       buttonLabel,
       disableLocaleButton,
+      enableLanguageSelector,
       langDisplay,
       langList,
       size,
       links,
       legalLinks,
       _handleClickLocaleButton: handleClickLocaleButton,
+      _languageCallback: languageCallback,
     } = this;
-
-    console.log(JSON.stringify(langList))
-    
     return html`
-      <dds-footer size="${ifNonNull(size)}">
+      <dds-footer size="${ifNonNull(size)}" enableLanguageSelector="${enableLanguageSelector}">
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav>
           ${links?.map(
@@ -233,23 +245,26 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${/**!disableLocaleButton && size !== FOOTER_SIZE.MICRO
+        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO && !enableLanguageSelector
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
-        : html``*/
-      
-      html`
-        <dds-language-selector langList="${JSON.stringify(langList)}">
-          ${langList?.map(
-            ({ text: language }) => html`
-              <dds-language-selector-item hover="false">${ifNonNull(language)}</dds-language-selector-item>
-            `
-          )}
-        </dds-language-selector>  
-      `}
+          : html`
+              <dds-language-selector
+                trigger-content="Choose a language"
+                size="xl"
+                value="English"
+                @bx-combo-box-selected="${languageCallback}"
+              >
+                ${langList?.map(
+                  ({ text: language }) => html`
+                    <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
+                  `
+                )}
+              </dds-language-selector>
+            `}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url }) => html`
