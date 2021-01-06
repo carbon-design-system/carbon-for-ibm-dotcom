@@ -12,6 +12,7 @@
 // Carbon component theming
 @import 'components/accordion';
 @import 'components/button';
+@import 'components/checkbox';
 @import 'components/code-snippet';
 @import 'components/combo-box';
 @import 'components/content-switcher';
@@ -56,6 +57,7 @@
   // Component mixins
   @include accordion-expressive;
   @include button-expressive;
+  @include checkbox-expressive;
   @include code-snippet-expressive;
   @include combo-box-expressive;
   @include content-switcher-expressive;
