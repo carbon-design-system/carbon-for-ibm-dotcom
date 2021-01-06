@@ -11,6 +11,8 @@ import { html, property, customElement, query } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXComboBox from 'carbon-web-components/es/components/combo-box/combo-box.js';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import { FOOTER_SIZE } from './footer';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
@@ -23,14 +25,19 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-language-selector
  */
 @customElement(`${ddsPrefix}-language-selector`)
-class DDSLanguageSelector extends BXComboBox {
-  @property()
-  lastValidLang = 'English';
+class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
+  /**
+   * Property that saves the last valid language to use on reset cases.
+   */
+
+  @property({ attribute: 'last-valid-lang' })
+  lastValidLang;
 
   /**
    * Size property to apply different styles.
    */
-  @property()
+
+  @property({ attribute: 'footer-size' })
   footerSize = FOOTER_SIZE.REGULAR;
 
   /**
@@ -53,10 +60,12 @@ class DDSLanguageSelector extends BXComboBox {
    * @param e MouseEvent
    */
 
-  protected _handleOutsideClick = e => {
+  @HostListener('document:click')
+  protected _handleClickOutside = e => {
     if (!this.contains(e.target as Node)) {
       this._filterInputValue = this.lastValidLang;
       this.filterInputNode.value = this.lastValidLang;
+      this.open = false;
       this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
     }
   };
@@ -122,7 +131,7 @@ class DDSLanguageSelector extends BXComboBox {
   }
 
   render() {
-    document.addEventListener('click', this._handleOutsideClick);
+    this.lastValidLang = this.value;
     return html`
       ${super.render()}
     `;

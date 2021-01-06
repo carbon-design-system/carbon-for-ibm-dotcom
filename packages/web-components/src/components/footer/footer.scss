@@ -159,16 +159,16 @@
     margin-right: $carbon--spacing-05;
   }
 
-  .bx--btn {
+  .#{$prefix}--btn {
     padding-top: $carbon--spacing-04;
     padding-bottom: $carbon--spacing-04;
   }
 
-  .bx--locale-btn {
+  .#{$prefix}--locale-btn {
     max-width: 100%;
   }
 
-  .bx--btn--secondary {
+  .#{$prefix}--btn--secondary {
     background-color: $ui-background;
     margin: 0;
 
@@ -210,19 +210,30 @@
 
 :host(#{$dds-prefix}-language-selector) {
   position: relative;
-  order: 1;
 
-  width: 18.75%;
   height: $carbon--spacing-09;
   margin: $carbon--spacing-05 0;
 
   outline: none;
 
-  .bx--combo-box {
+  @include carbon--breakpoint('sm') {
+    width: auto;
+  }
+
+  @include carbon--breakpoint('md') {
+    width: 33%;
+  }
+
+  @include carbon--breakpoint('lg') {
+    order: 1;
+    flex: 0 0 18.75%;
+  }
+
+  .#{$prefix}--combo-box {
     bottom: $carbon--spacing-05;
   }
 
-  .bx--list-box__menu {
+  .#{$prefix}--list-box__menu {
     position: absolute;
     top: auto;
     bottom: $carbon--spacing-08;

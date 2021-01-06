@@ -21,8 +21,18 @@ import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
 export const base = ({ parameters }) => {
-  const { langDisplay, language, size, langList, legalLinks, links, localeList, enableLanguageSelector } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    langDisplay,
+    language,
+    size,
+    langList,
+    legalLinks,
+    links,
+    localeList,
+    enableLanguageSelector,
+    languageSelectorLabel,
+    selectedLanguage,
+  } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
 
   return html`
@@ -39,7 +49,9 @@ export const base = ({ parameters }) => {
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
-            .enableLanguageSelector="${enableLanguageSelector}"
+            ?enable-language-selector="${enableLanguageSelector}"
+            language-selector-label="${languageSelectorLabel}"
+            selected-language="${selectedLanguage}"
           >
           </dds-footer-composite>
         `
@@ -52,7 +64,9 @@ export const base = ({ parameters }) => {
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
-            .enableLanguageSelector="${enableLanguageSelector}"
+            ?enable-language-selector="${enableLanguageSelector}"
+            language-selector-label="${languageSelectorLabel}"
+            selected-language="${selectedLanguage}"
           >
           </dds-footer-container>
         `}
@@ -75,6 +89,8 @@ export const defaultLanguageOnly = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     enableLanguageSelector: true,
+    languageSelectorLabel: 'Choose a language',
+    selectedLanguage: 'English',
   };
   return base({ parameters });
 };
@@ -95,6 +111,8 @@ export const shortDefaultLanguageOnly = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     enableLanguageSelector: true,
+    languageSelectorLabel: 'Choose a language',
+    selectedLanguage: 'English',
   };
   return html`
     <div class="micro-container">

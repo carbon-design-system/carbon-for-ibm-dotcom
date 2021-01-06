@@ -121,7 +121,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   /**
    * `true` to enable language selector.
    */
-  @property({ attribute: 'enable-language-selector' })
+  @property({ type: Boolean, attribute: 'enable-language-selector' })
   enableLanguageSelector = false;
 
   /**
@@ -138,6 +138,18 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    */
   @property({ attribute: 'lang-display' })
   langDisplay?: string;
+
+  /**
+   * The placeholder label for language selector.
+   */
+  @property({ attribute: 'language-selector-label' })
+  languageSelectorLabel?: string;
+
+  /**
+   * The initial selected language in the selector.
+   */
+  @property({ attribute: 'selected-language' })
+  selectedLanguage?: string;
 
   /**
    * The legal nav links.
@@ -223,14 +235,23 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       enableLanguageSelector,
       langDisplay,
       langList,
+      languageSelectorLabel,
+      selectedLanguage,
       size,
       links,
       legalLinks,
       _handleClickLocaleButton: handleClickLocaleButton,
       _languageCallback: languageCallback,
     } = this;
+
+    console.log(languageSelectorLabel);
     return html`
-      <dds-footer size="${ifNonNull(size)}" enableLanguageSelector="${enableLanguageSelector}">
+      <dds-footer
+        size="${ifNonNull(size)}"
+        enableLanguageSelector="${enableLanguageSelector}"
+        languageSelectorLabel="${languageSelectorLabel}"
+        selectedLanguage="${selectedLanguage}"
+      >
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav>
           ${links?.map(
@@ -253,9 +274,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           : html`
               <dds-language-selector
-                trigger-content="Choose a language"
+                trigger-content="${languageSelectorLabel}"
                 size="xl"
-                value="English"
+                value="${selectedLanguage}"
                 @bx-combo-box-selected="${languageCallback}"
               >
                 ${langList?.map(
