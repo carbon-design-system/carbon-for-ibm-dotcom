@@ -17,7 +17,7 @@ const template = (props?) => {
   const { copy, heading, children } = props ?? {};
   return html`
     <dds-callout-with-media .copy="${ifNonNull(copy)}">
-      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${children}
     </dds-callout-with-media>
   `;

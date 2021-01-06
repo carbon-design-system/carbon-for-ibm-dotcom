@@ -15,6 +15,9 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../button-group/button-group-item';
+import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
+import '../../link-list/link-list-item';
 import '../cta-section';
 import '../cta-section-copy';
 import '../cta-section-item';
@@ -102,7 +105,7 @@ export const WithLinkList = ({ parameters }) => {
       </dds-button-group>
 
       <dds-link-list slot="link-list" type="end">
-        <span slot="heading">More ways to explore DevOps</span>
+        <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
         <dds-link-list-item href="https://example.com">
           Events ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>

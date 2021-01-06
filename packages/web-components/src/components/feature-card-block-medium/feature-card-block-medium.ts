@@ -26,14 +26,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
 class DDSFeatureCardBlockMedium extends StableSelectorMixin(DDSFeatureCard) {
   protected _renderInner() {
-    const { _hasEyebrow: hasEyebrow, _handleSlotChange: handleSlotChange } = this;
     return html`
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper">
         <div class="${prefix}--card__content">
-          <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-            <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
-          </p>
+          <slot name="eyebrow"></slot>
           <h3 class="${prefix}--card__heading">${this._renderCopy()}</h3>
           <slot name="footer"></slot>
         </div>
@@ -51,11 +48,8 @@ class DDSFeatureCardBlockMedium extends StableSelectorMixin(DDSFeatureCard) {
   }
 
   render() {
-    const { _hasHeading: hasHeading, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <h3 ?hidden="${!hasHeading}" class="${prefix}--feature-card-block-medium__heading">
-        <slot name="heading" @slotchange="${handleSlotChange}"></slot>
-      </h3>
+      <slot name="heading"></slot>
       <div class="${prefix}--feature-card" data-autoid="${ddsPrefix}--feature-card">
         ${super.render()}
       </div>

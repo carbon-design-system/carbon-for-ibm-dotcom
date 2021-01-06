@@ -9,20 +9,15 @@
 </slot>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
-    <p
-      class="bx--card__eyebrow"
-      hidden=""
+    <slot name="eyebrow">
+    </slot>
+    <slot
+      data-pictogram-placement="top"
+      name="pictogram"
     >
-      <slot name="eyebrow">
-      </slot>
-    </p>
-    <h3
-      class="bx--card__heading"
-      hidden=""
-    >
-      <slot name="heading">
-      </slot>
-    </h3>
+    </slot>
+    <slot name="heading">
+    </slot>
     <div
       class="bx--card__copy"
       hidden=""
@@ -50,20 +45,15 @@
 </dds-image>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
-    <p
-      class="bx--card__eyebrow"
-      hidden=""
+    <slot name="eyebrow">
+    </slot>
+    <slot
+      data-pictogram-placement="top"
+      name="pictogram"
     >
-      <slot name="eyebrow">
-      </slot>
-    </p>
-    <h3
-      class="bx--card__heading"
-      hidden=""
-    >
-      <slot name="heading">
-      </slot>
-    </h3>
+    </slot>
+    <slot name="heading">
+    </slot>
     <div class="bx--card__copy">
       <slot>
       </slot>
@@ -83,6 +73,7 @@
   class="bx--card__footer bx--link bx--link-with-icon bx--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"
+  part="link"
 >
   <span class="bx--card__cta__copy">
     <slot>
