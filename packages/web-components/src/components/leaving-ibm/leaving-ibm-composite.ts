@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -99,7 +99,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
         </bx-modal-header>
         <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <span slot="supplemental">${leavingIbmCopy?.LEAVING003}</span>
+          <dds-leaving-ibm-modal-supplemental>${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental>
         </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
           <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="${href}" kind="primary">${leavingIbmButtonLabel}</bx-btn>
