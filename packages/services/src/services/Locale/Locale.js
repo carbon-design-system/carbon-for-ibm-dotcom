@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import root from 'window-or-global';
 const _host =
   (process &&
     (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
-  'https://www.ibm.com';
+  'https://1.www.s81c.com';
 
 /**
  * Sets the default location if nothing is returned
