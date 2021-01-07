@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -195,7 +195,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    this.ownerDocument.defaultView!.location.hash = target;
+    this.ownerDocument!.defaultView!.location.hash = target;
     const elem = this.querySelector(`a[name="${target}"]`);
     if (elem) {
       elem.setAttribute('tabindex', '0');

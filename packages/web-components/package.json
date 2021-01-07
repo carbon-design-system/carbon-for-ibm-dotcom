@@ -234,7 +234,7 @@
     "through2": "^3.0.0",
     "ts-loader": "^6.0.0",
     "tsickle": "^0.37.0",
-    "typescript": "~3.9.0",
+    "typescript": "~3.7.0",
     "web-component-analyzer": "^1.0.0",
     "webpack": "^4.28.0"
   },
