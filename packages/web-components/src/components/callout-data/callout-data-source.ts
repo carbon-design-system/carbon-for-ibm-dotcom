@@ -18,7 +18,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-callout-data-source
  */
 @customElement(`${ddsPrefix}-callout-data-source`)
-class DDSCalloutDataCopy extends LitElement {
+class DDSCalloutDataSource extends LitElement {
   /**
    * The shadow slot this source content should be in.
    */
@@ -35,4 +35,4 @@ class DDSCalloutDataCopy extends LitElement {
   static styles = styles;
 }
 
-export default DDSCalloutDataCopy;
+export default DDSCalloutDataSource;
