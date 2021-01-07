@@ -13,6 +13,7 @@ import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibm
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
+import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
