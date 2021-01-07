@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,16 +37,18 @@ const iconOptions = {
 
 export const Default = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-cta-section-copy>${copy}</dds-cta-section-copy>
 
       <dds-button-group slot="action">
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Secondary Button ${renderIcon}
         </dds-button-group-item>
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Primary button ${renderIcon}
         </dds-button-group-item>
       </dds-button-group>
@@ -56,16 +58,18 @@ export const Default = ({ parameters }) => {
 
 export const WithContentItems = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
 
       <dds-button-group slot="action">
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Secondary Button ${renderIcon}
         </dds-button-group-item>
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Primary button ${renderIcon}
         </dds-button-group-item>
       </dds-button-group>
@@ -90,16 +94,18 @@ export const WithContentItems = ({ parameters }) => {
 
 export const WithLinkList = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
   return html`
     <dds-cta-section>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
 
       <dds-button-group slot="action">
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Secondary Button ${renderIcon}
         </dds-button-group-item>
-        <dds-button-group-item href="https://example.com">
+        <dds-button-group-item target="${target}" href="https://example.com">
           Primary button ${renderIcon}
         </dds-button-group-item>
       </dds-button-group>
