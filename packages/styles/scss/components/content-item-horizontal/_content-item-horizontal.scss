@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,6 +38,7 @@
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow,
   .#{$prefix}--content-item-horizontal__item--heading,
   .#{$prefix}--content-item-horizontal__item--copy {
@@ -46,6 +47,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow {
     color: $text-05;
     padding-bottom: $spacing-03;
