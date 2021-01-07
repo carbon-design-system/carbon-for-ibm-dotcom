@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,6 +30,9 @@
     }
 
     .#{$prefix}--card__wrapper {
+      padding-left: $carbon--spacing-07;
+      padding-right: $carbon--spacing-07;
+
       .#{$prefix}--card__copy {
         margin-bottom: 0;
 
@@ -44,9 +47,9 @@
         @include carbon--type-style('body-short-02');
       }
 
-      @include carbon--breakpoint('sm') {
-        padding-left: $carbon--spacing-07;
-        padding-right: $carbon--spacing-07;
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       &::before,
@@ -170,9 +173,8 @@
       min-height: 0;
 
       .#{$prefix}--card__wrapper {
-        padding-left: 1rem;
-        padding-right: 1rem;
         min-height: 0;
+        padding: 0;
 
         @include carbon--breakpoint('lg') {
           min-height: 116px;
