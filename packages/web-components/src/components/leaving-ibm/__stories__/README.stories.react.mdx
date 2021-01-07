@@ -1,6 +1,7 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import LeavingIbmComposite from '../../../components-react/leaving-ibm/leaving-ibm-composite';
+import filterDocgenInfoProps from '../../../../.storybook/react/filterDocgenInfoProps';
 
 # Leaving IBM
 
@@ -33,7 +34,7 @@ function App() {
 
 ### `<DDSLeavingIbmContainer>`
 
-<Props of={LeavingIbmComposite} />
+<Props of={filterDocgenInfoProps(LeavingIbmComposite)} />
 
 ## Stable selectors
 
