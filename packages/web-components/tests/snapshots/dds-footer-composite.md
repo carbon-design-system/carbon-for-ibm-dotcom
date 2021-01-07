@@ -5,7 +5,11 @@
 ####   `should render minimum attributes`
 
 ```
-<dds-footer-composite size="">
+<dds-footer-composite
+  language-selector-label="undefined"
+  selected-language="undefined"
+  size=""
+>
   <dds-footer
     data-autoid="dds--footer"
     role="footer"
@@ -39,6 +43,8 @@
 <dds-footer-composite
   lang-display="lang-display-foo"
   language="ko-KR"
+  language-selector-label="undefined"
+  selected-language="undefined"
   size=""
 >
   <dds-footer

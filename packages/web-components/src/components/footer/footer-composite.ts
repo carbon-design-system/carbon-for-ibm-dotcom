@@ -130,8 +130,13 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   @property()
   language?: string;
 
-  @property({ attribute: false })
-  langList?;
+  /**
+   * Placeholder list of languages to populate language selector
+   *
+   * @internal
+   */
+  @property({ attribute: 'lang-list' })
+  langList?: string;
 
   /**
    * The language to show in the UI.
@@ -244,14 +249,10 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       _languageCallback: languageCallback,
     } = this;
 
-    console.log(languageSelectorLabel);
+    const parsedList = !langList ? undefined : JSON.parse(langList as string);
+
     return html`
-      <dds-footer
-        size="${ifNonNull(size)}"
-        enableLanguageSelector="${enableLanguageSelector}"
-        languageSelectorLabel="${languageSelectorLabel}"
-        selectedLanguage="${selectedLanguage}"
-      >
+      <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav>
           ${links?.map(
@@ -275,11 +276,10 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           : html`
               <dds-language-selector
                 trigger-content="${languageSelectorLabel}"
-                size="xl"
                 value="${selectedLanguage}"
                 @bx-combo-box-selected="${languageCallback}"
               >
-                ${langList?.map(
+                ${parsedList?.map(
                   ({ text: language }) => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
                   `

@@ -9,7 +9,7 @@
 
 import { html, property, customElement, query } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXComboBox from 'carbon-web-components/es/components/combo-box/combo-box.js';
+import BXComboBox, { DROPDOWN_SIZE } from 'carbon-web-components/es/components/combo-box/combo-box.js';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
@@ -20,18 +20,24 @@ import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Language selector
+ * Language selector component.
+ * The API for language selection is still subject to change.
  *
  * @element dds-language-selector
+ * @internal
  */
 @customElement(`${ddsPrefix}-language-selector`)
 class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
   /**
    * Property that saves the last valid language to use on reset cases.
+   * @private
    */
 
   @property({ attribute: 'last-valid-lang' })
   lastValidLang;
+
+  @property()
+  size = DROPDOWN_SIZE.EXTRA_LARGE;
 
   /**
    * Size property to apply different styles.

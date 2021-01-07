@@ -45,7 +45,7 @@ export const base = ({ parameters }) => {
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
-            languageList="${ifNonNull(langList)}"
+            lang-list="${ifNonNull(langList)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -60,7 +60,7 @@ export const base = ({ parameters }) => {
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
-            languageList="${ifNonNull(langList)}"
+            lang-list="${ifNonNull(JSON.stringify(langList))}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
@@ -146,7 +146,7 @@ export default {
       return {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
-          langList: !useMock ? undefined : mockLangList,
+          langList: mockLangList,
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,
