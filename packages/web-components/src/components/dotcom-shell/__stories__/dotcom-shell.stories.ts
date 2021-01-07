@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,11 @@ import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
+import '../../leadspace-block/leadspace-block';
+import '../../leadspace-block/leadspace-block-content';
+import '../../leadspace-block/leadspace-block-cta';
+import '../../leadspace-block/leadspace-block-heading';
+import '../../leadspace-block/leadspace-block-media';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
@@ -139,7 +144,7 @@ const StoryContent = () => html`
           <dds-table-of-contents>
             <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
-              <span slot="title">Lorem ipsum dolor sit amet</span>
+              <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
               <dds-leadspace-block-content>
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
