@@ -11,8 +11,10 @@
 @import '../../components/link-with-icon/link-with-icon';
 
 @mixin quote {
+
   .#{$prefix}--quote,
   :host(#{$dds-prefix}-quote) {
+    display: block;
     background: $ui-background;
     padding-bottom: $layout-05;
 
@@ -22,7 +24,11 @@
     }
   }
 
-  .#{$prefix}--quote__container {
+  :host(#{$dds-prefix}-quote).#{$prefix}--quote__inverse {
+    background: red;
+  }
+
+  .#{$prefix}--quote .#{$prefix}--quote__container {
     @include carbon--make-row;
   }
 
@@ -47,10 +53,12 @@
   .#{$prefix}--quote__mark {
     @include carbon--type-style('quotation-01', true);
     @include carbon--font-family('serif');
+
     @include carbon--breakpoint-down('md') {
       // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
       left: 1.4rem;
     }
+
     @include carbon--breakpoint('md') {
       @include carbon--type-style('quotation-02', true);
     }
@@ -102,6 +110,7 @@
   }
 
   .#{$prefix}--quote__inverse {
+
     .#{$prefix}--link-with-icon__container .#{$prefix}--link,
     ::slotted(#{$dds-prefix}-link-with-icon) {
       color: $inverse-link;
@@ -110,6 +119,7 @@
 
   .#{$prefix}--quote__mark-closing {
     margin-left: -0.25rem;
+
     @include carbon--breakpoint('md') {
       margin-left: -0.5rem;
     }

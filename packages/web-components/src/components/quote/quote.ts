@@ -11,10 +11,11 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { QUOTE_TYPES } from './defs';
+import { QUOTE_TYPES, COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
+import { string } from 'prop-types';
 
-export { QUOTE_TYPES };
+export { QUOTE_TYPES, COLOR_SCHEMES };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -54,8 +55,8 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines if the inverse class is included
    */
-  @property({ reflect: true, type: Boolean })
-  inverse = false;
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEMES.DEFAULT;
 
   /**
    * `true` if there is source heading.
@@ -169,9 +170,9 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('inverse')) {
-      const { inverse } = this;
-      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
+    if (changedProperties.has('colorScheme')) {
+      const { colorScheme } = this;
+      this.classList.toggle(`${prefix}--quote__inverse`, colorScheme === COLOR_SCHEMES.INVERSE);
     }
   }
 
