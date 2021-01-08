@@ -129,7 +129,7 @@ export const Default = ({ parameters }) => {
           </dds-content-item>
         `
       )}
-      <dds-card-cta slot="footer" cta-type=${ifNonNull(ctaType)} href=${ifNonNull(href)}>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
@@ -153,7 +153,7 @@ export const WithImage = ({ parameters }) => {
           </dds-content-item>
         `
       )}
-      <dds-card-cta slot="footer" cta-type=${ifNonNull(ctaType)} href=${ifNonNull(href)}>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
@@ -177,7 +177,7 @@ export const WithVideo = ({ parameters }) => {
           </dds-content-item>
         `
       )}
-      <dds-card-cta slot="footer" cta-type=${ifNonNull(ctaType)} href=${ifNonNull(href)}>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
