@@ -35,6 +35,10 @@ import '../../leadspace-block/leadspace-block-media';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
+import '../../quote/quote';
+import '../../quote/quote-source-bottom-copy';
+import '../../quote/quote-source-copy';
+import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
 
 const footerSizes = {
@@ -253,17 +257,13 @@ const StoryContent = () => html`
             </dds-content-block-cards>
             
             <dds-callout-quote>
-              <span slot="copy">
-                Duis aute irure dolor in reprehenderit
-              </span>
-              <span slot="source-heading">
+              Duis aute irure dolor in reprehenderit
+              <dds-quote-source-heading>
                 Lorem ipsum
-              </span>
-              <span slot="source-copy">
+              </dds-quote-source-heading>
+              <dds-quote-source-copy>
                 dolor sit amet
-              </span>
-              <span slot="source-bottom-copy">
-              </span>
+              </dds-quote-source-copy>
               <dds-link-with-icon slot="footer" href="https://example.com">
                 Link with Icon ${ArrowRight20({ slot: 'icon' })}
               </dds-link-with-icon>
