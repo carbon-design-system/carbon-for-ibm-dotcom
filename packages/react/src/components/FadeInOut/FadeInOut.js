@@ -10,6 +10,7 @@ import { breakpoints } from '@carbon/layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
+
 /**
  * Utility handles fade transition for selected elements.
  *
@@ -20,28 +21,27 @@ const { prefix } = settings;
  * As an example, the function can be called to target all instances of the
  * elements in a list:
  *
- * const list = ['.bx--content-block', 'bx--content-group'];
+ * const list = '.bx--content-block, .bx--content-group';
  *
  * For default values of 400ms and 'one and done' play:
- * <FadeInOut elementList={elementList} />
+ * <FadeInOut selectorTargets={selectorTargets} />
  *
  * With 'continuous play' option:
- * <FadeInOut elementList={elementList} iterations={true} />
+ * <FadeInOut selectorTargets={selectorTargets} keepAnimations={true} />
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
  * .bx--content-block {
- *   --#{$dds-prefix}--scroll-into-view-delay: 250ms;
+ *   --#{$dds-prefix}--fade-in-out-delay: 250ms;
  * }
  *
  */
-const FadeInOut = ({ elementList, iterations }) => {
+const FadeInOut = ({ selectorTargets, keepAnimations }) => {
   /**
    * Amount of columns used for calculation.
    *
    * @private
    */
-
   const _colSpan = 3;
 
   /**
@@ -49,7 +49,6 @@ const FadeInOut = ({ elementList, iterations }) => {
    *
    * @private
    */
-
   function _getViewportMargin() {
     return (
       '-' +
@@ -62,13 +61,20 @@ const FadeInOut = ({ elementList, iterations }) => {
   }
 
   /**
+   * Saved list of elements to observe to avoid calling querySelectorAll
+   * more than once.
+   *
+   * @private
+   */
+  const _elements = [];
+
+  /**
    * Intersection Observer options
    *
    * @private
    */
-
   const _options = {
-    rootMargin: _getViewportMargin(),
+    rootMargin: '0px',
     threshold: 0,
   };
 
@@ -77,7 +83,6 @@ const FadeInOut = ({ elementList, iterations }) => {
    *
    * @private
    */
-
   const _rootObserver = useRef(null);
 
   /**
@@ -85,7 +90,6 @@ const FadeInOut = ({ elementList, iterations }) => {
    *
    * @private
    */
-
   const _innerObserver = useRef(null);
 
   /**
@@ -100,16 +104,14 @@ const FadeInOut = ({ elementList, iterations }) => {
    */
   useEffect(() => {
     _rootObserver.current = new IntersectionObserver(handleExit);
-    _innerObserver.current = new IntersectionObserver(handleEntrance, _options);
     _resizeObserver.current = new ResizeObserver(handleResize);
 
-    elementList.forEach(selector => {
-      let elements = document.querySelectorAll(selector);
-      elements.forEach(e => {
-        _rootObserver.current.observe(e);
-        _innerObserver.current.observe(e);
+    if (selectorTargets) {
+      document.querySelectorAll(selectorTargets).forEach(item => {
+        _rootObserver?.current.observe(item);
+        _elements.push(item);
       });
-    });
+    }
     _resizeObserver.current.observe(document.documentElement);
 
     return () => {
@@ -120,57 +122,64 @@ const FadeInOut = ({ elementList, iterations }) => {
       _innerObserver.current = null;
       _resizeObserver.current = null;
     };
-  }, [elementList, _options, handleEntrance, handleResize]);
+  }, [selectorTargets, _elements, _options, handleEntrance, handleResize]);
 
   /**
-   * Handler to add recalculated rootMargin to observer.
+   * Handler to add recalculated rootMargin to a new instance of
+   * inner observer after clearing old one first.
    *
    * @private
    *
    */
-
   const handleResize = useCallback(() => {
     _options.rootMargin = _getViewportMargin();
+
+    if (_innerObserver.current) {
+      _innerObserver.current.disconnect();
+      _innerObserver.current = null;
+    }
+
     _innerObserver.current = new IntersectionObserver(handleEntrance, _options);
-  }, [_options, _innerObserver, handleEntrance]);
+    _elements.forEach(item => {
+      _innerObserver?.current.observe(item);
+    });
+  }, [_options, _elements, _innerObserver, handleEntrance]);
 
   /**
    * Handler to add fade animation to element
    *
-   * @param {*} entries observed elements
+   * @param {*} records observed elements
    * @private
    *
    */
-
   const handleEntrance = useCallback(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.intersectionRatio > 0) {
-          entry.target.classList.remove(`${prefix}--fade-out`);
-          entry.target.classList.add(`${prefix}--fade-in`);
-          if (!iterations) {
-            _rootObserver.current.unobserve(entry.target);
-            _innerObserver.current.unobserve(entry.target);
+    records => {
+      records.forEach(({ intersectionRatio, target }) => {
+        if (intersectionRatio > 0) {
+          target.classList.remove(`${prefix}--fade-out`);
+          target.classList.add(`${prefix}--fade-in`);
+          if (!keepAnimations) {
+            _rootObserver.current.unobserve(target);
+            _innerObserver.current.unobserve(target);
           }
         }
       });
     },
-    [iterations, _rootObserver, _innerObserver]
+    [keepAnimations, _rootObserver, _innerObserver]
   );
 
   /**
    * Handler to remove element from view
    *
-   * @param {*} entries observed elements
+   * @param {*} records observed elements
    * @private
    *
    */
-
-  function handleExit(entries) {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio == 0) {
-        entry.target.classList.remove(`${prefix}--fade-in`);
-        entry.target.classList.add(`${prefix}--fade-out`);
+  function handleExit(records) {
+    records.forEach(({ intersectionRatio, target }) => {
+      if (intersectionRatio == 0) {
+        target.classList.remove(`${prefix}--fade-in`);
+        target.classList.add(`${prefix}--fade-out`);
       }
     });
   }
@@ -181,12 +190,12 @@ FadeInOut.propTypes = {
   /**
    * List of elements to be targeted
    */
-  elementList: PropTypes.arrayOf(PropTypes.string),
+  selectorTargets: PropTypes.string,
 
   /**
    * Boolean to define if animation is continuous
    */
-  iterations: PropTypes.bool,
+  keepAnimations: PropTypes.bool,
 };
 
 export default FadeInOut;

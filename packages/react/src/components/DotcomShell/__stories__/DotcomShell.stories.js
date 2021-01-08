@@ -25,25 +25,25 @@ const footerTypeOptions = {
   micro: 'micro',
 };
 
-const elementList = [
-  '.bx--content-block__heading',
-  '.bx--content-block__copy',
-  '.bx--leadspace-block__media',
-  '.bx--link-list',
-  '.bx--leadspace-block__cta',
-  '.bx--feature-card-block-large',
-  '.bx--content-group',
-  '.bx--image',
-  '.bx--content-block__cta',
-  '.bx--callout-with-media',
-  '.bx--content-item-horizontal__item',
-  '.bx--logo-grid__logo',
-  '.bx--card-group__cards__col',
-  '.bx--callout-quote',
-  '.bx--cta-section',
-  '.bx--cta-section__cta',
-  '.bx--content-item',
-];
+const selectorTargets = `
+  .bx--content-block__heading,
+  .bx--content-block__copy,
+  .bx--leadspace-block__media,
+  .bx--link-list,
+  .bx--leadspace-block__cta,
+  .bx--feature-card-block-large,
+  .bx--content-group,
+  .bx--image,
+  .bx--content-block__cta,
+  .bx--callout-with-media,
+  .bx--content-item-horizontal__item,
+  .bx--logo-grid__logo,
+  .bx--card-group__cards__col,
+  .bx--callout-quote,
+  .bx--cta-section,
+  .bx--cta-section__cta,
+  .bx--content-item
+`;
 
 export default {
   title: 'Components|Dotcom Shell',
@@ -332,7 +332,7 @@ export const WithFadeAnimationsContinuous = ({ parameters }) => {
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
           <Content />
-          <FadeInOut elementList={elementList} iterations={true} />
+          <FadeInOut selectorTargets={selectorTargets} keepAnimations={true} />
         </div>
       </main>
     </DotcomShell>
@@ -346,7 +346,7 @@ export const WithFadeAnimationsOnce = ({ parameters }) => {
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
           <Content />
-          <FadeInOut elementList={elementList} iterations={false} />
+          <FadeInOut selectorTargets={selectorTargets} keepAnimations={false} />
         </div>
       </main>
     </DotcomShell>
