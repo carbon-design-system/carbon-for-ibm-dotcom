@@ -18,6 +18,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace.js';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace/leadspace-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group.js';
@@ -28,8 +29,8 @@ import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group
 
 ```html
 <dds-leadspace alt="alt text" default-src="www.example.com">
-  <span slot="title">LeadSpace title</span>
-  <span slot="copy">LeadSpace copy</span>
+  <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+  LeadSpace copy
   <dds-button-group slot="buttons">
     ${buttons.map( elem => html`
     <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
