@@ -21,20 +21,20 @@
       margin: $carbon--layout-06 0;
     }
 
-    ::slotted(#{$dds-prefix}-card-heading) {
-      width: auto;
-      max-width: none;
-    }
-
     &:focus {
       outline: none;
     }
+  }
 
-    // There is no content under `.#{$prefix}--card__heading` in feature card block medium,
-    // because `.#{$prefix}--card__heading` actually is a copy content and the heading content goes outside the card
-    .#{$prefix}--card .#{$prefix}--card__heading {
-      margin-bottom: 0;
-    }
+  // There is no content under `.#{$prefix}--card__heading` in feature card block medium,
+  // because `.#{$prefix}--card__heading` actually is a copy content and the heading content goes outside the card
+  .#{$prefix}--feature-card-block-medium
+    .#{$prefix}--card
+    .#{$prefix}--card__heading,
+  :host(#{$dds-prefix}-feature-card-block-medium)
+    .#{$prefix}--card
+    ::slotted(#{$dds-prefix}-card-heading) {
+    margin-bottom: 0;
   }
 
   .#{$prefix}--feature-card-block-medium__heading,
