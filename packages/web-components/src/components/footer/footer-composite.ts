@@ -94,13 +94,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   _setLanguage?: (language: string) => void;
 
   /**
-   * The placeholder for `setLanguage()` Redux action that may be mixed in.
-   *
-   * @internal
-   */
-  _languageCallback?: (e) => void;
-
-  /**
    * The aria-label to use for the locale-button
    */
   @property()
@@ -246,7 +239,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       links,
       legalLinks,
       _handleClickLocaleButton: handleClickLocaleButton,
-      _languageCallback: languageCallback,
     } = this;
     return html`
       <dds-footer size="${ifNonNull(size)}">
@@ -271,11 +263,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
               >
             `
           : html`
-              <dds-language-selector
-                trigger-content="${languageSelectorLabel}"
-                value="${selectedLanguage}"
-                @bx-combo-box-selected="${languageCallback}"
-              >
+              <dds-language-selector trigger-content="${languageSelectorLabel}" value="${selectedLanguage}">
                 ${langList?.map(
                   language => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
