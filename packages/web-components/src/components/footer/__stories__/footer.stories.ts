@@ -21,18 +21,8 @@ import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
 export const base = ({ parameters }) => {
-  const {
-    langDisplay,
-    language,
-    size,
-    langList,
-    legalLinks,
-    links,
-    localeList,
-    enableLanguageSelector,
-    languageSelectorLabel,
-    selectedLanguage,
-  } = parameters?.props?.FooterComposite ?? {};
+  const { langDisplay, language, size, langList, legalLinks, links, localeList, languageSelectorLabel, selectedLanguage } =
+    parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
 
   return html`
@@ -49,7 +39,6 @@ export const base = ({ parameters }) => {
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
-            ?enable-language-selector="${enableLanguageSelector}"
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
           >
@@ -64,7 +53,6 @@ export const base = ({ parameters }) => {
             .legalLinks="${ifNonNull(legalLinks)}"
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
-            ?enable-language-selector="${enableLanguageSelector}"
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
           >
@@ -78,7 +66,6 @@ export const Default = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
-    enableLanguageSelector: false,
   };
   return base({ parameters });
 };
@@ -88,9 +75,9 @@ export const defaultLanguageOnly = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
-    enableLanguageSelector: true,
     languageSelectorLabel: 'Choose a language',
     selectedLanguage: 'English',
+    langList: mockLangList,
   };
   return base({ parameters });
 };
@@ -100,7 +87,6 @@ export const short = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
-    enableLanguageSelector: false,
   };
   return base({ parameters });
 };
@@ -110,9 +96,9 @@ export const shortDefaultLanguageOnly = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
-    enableLanguageSelector: true,
     languageSelectorLabel: 'Choose a language',
     selectedLanguage: 'English',
+    langList: mockLangList,
   };
   return html`
     <div class="micro-container">
@@ -126,7 +112,6 @@ export const micro = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
-    enableLanguageSelector: false,
   };
   return html`
     <div class="micro-container">
@@ -146,7 +131,6 @@ export default {
       return {
         FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
-          langList: mockLangList,
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockLinks,
           localeList: !useMock ? undefined : mockLocaleList,

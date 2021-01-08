@@ -112,12 +112,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   disableLocaleButton = false;
 
   /**
-   * `true` to enable language selector.
-   */
-  @property({ type: Boolean, attribute: 'enable-language-selector' })
-  enableLanguageSelector = false;
-
-  /**
    * The language used for query.
    */
   @property()
@@ -139,12 +133,16 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
 
   /**
    * The placeholder label for language selector.
+   *
+   * @internal
    */
   @property({ attribute: 'language-selector-label' })
   languageSelectorLabel?: string;
 
   /**
    * The initial selected language in the selector.
+   *
+   * @internal
    */
   @property({ attribute: 'selected-language' })
   selectedLanguage?: string;
@@ -230,7 +228,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
     const {
       buttonLabel,
       disableLocaleButton,
-      enableLanguageSelector,
       langDisplay,
       langList,
       languageSelectorLabel,
@@ -256,7 +253,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO && !enableLanguageSelector
+        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO && !langList
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
