@@ -190,6 +190,8 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
     }
 
     if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
       this._resizeObserver = new ResizeObserver(this.handleResize.bind(this));
     }
   }
