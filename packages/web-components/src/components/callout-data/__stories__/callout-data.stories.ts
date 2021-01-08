@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,9 @@
 import { html } from 'lit-element';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../callout-data';
+import '../callout-data-copy';
+import '../callout-data-heading';
+import '../callout-data-source';
 import readme from './README.stories.mdx';
 import { DDS_CALLOUT_DATA } from '../../../globals/internal/feature-flags';
 
@@ -20,13 +23,13 @@ export const Default = !DDS_CALLOUT_DATA
 
       return html`
         <dds-callout-data>
-          <span slot="data">${data}</span>
-          <span slot="copy">
+          <dds-callout-data-heading>${data}</dds-callout-data-heading>
+          <dds-callout-data-copy>
             ${copy}
-          </span>
-          <span slot="source">
+          </dds-callout-data-copy>
+          <dds-callout-data-source>
             ${source}
-          </span>
+          </dds-callout-data-source>
         </dds-callout-data>
       `;
     };
