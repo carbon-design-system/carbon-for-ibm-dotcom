@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,6 +18,7 @@ import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../leadspace';
 /* eslint-enable import/no-duplicates */
+import '../leadspace-heading';
 
 import '../../image/image';
 import '../../button-group/button-group';
@@ -34,8 +35,8 @@ export const DefaultWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
@@ -55,8 +56,8 @@ export const DefaultWithImage = ({ parameters }) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
@@ -76,8 +77,8 @@ export const Centered = ({ parameters }) => {
   const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace type="centered">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
@@ -98,8 +99,8 @@ export const CenteredWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
     >
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
@@ -119,8 +120,8 @@ export const Small = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
@@ -136,8 +137,8 @@ export const SmallWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
       <dds-button-group slot="buttons">
         ${buttons.map(
           elem => html`
