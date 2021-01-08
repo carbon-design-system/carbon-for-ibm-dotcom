@@ -66,6 +66,7 @@ export const Default = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
+    langList: '',
   };
   return base({ parameters });
 };
@@ -87,6 +88,7 @@ export const short = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
+    langList: '',
   };
   return base({ parameters });
 };
