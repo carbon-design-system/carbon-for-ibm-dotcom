@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@ import './dotcom-shell.stories.scss';
 import { select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
+import FadeInOut from '../../FadeInOut/FadeInOut';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
@@ -17,7 +18,6 @@ import languageItems from '../../Footer/__data__/language-items.json';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import scrollIntoView from '@carbon/ibmdotcom-utilities/es/utilities/scrollIntoView/scrollIntoView';
 
 const footerTypeOptions = {
   tall: 'tall',
@@ -326,69 +326,29 @@ WithL1.story = {
 };
 
 export const WithFadeAnimationsContinuous = ({ parameters }) => {
-  scrollIntoView(elementList, { iterations: true });
-  return <Default parameters={parameters} />;
-};
-
-WithFadeAnimationsContinuous.story = {
-  name: 'With fade animations - continuous',
-  parameters: {
-    ...readme.parameters,
-    'carbon-theme': { disabled: true },
-    knobs: {
-      escapeHTML: false,
-      DotcomShell: () => {
-        const {
-          Masthead: mastheadKnobs,
-        } = mastheadStory.story.parameters.knobs;
-        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
-        return {
-          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
-          footerProps: {
-            ...footerKnobs({ groupId: 'Footer' }),
-            type: select(
-              'Footer (footerProps): sets the type of footer (type)',
-              footerTypeOptions,
-              footerTypeOptions.tall,
-              'Footer'
-            ),
-          },
-        };
-      },
-    },
-  },
+  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
+  return (
+    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
+      <main id="main-content">
+        <div style={{ paddingTop: '6rem' }}>
+          <Content />
+          <FadeInOut elementList={elementList} iterations={true} />
+        </div>
+      </main>
+    </DotcomShell>
+  );
 };
 
 export const WithFadeAnimationsOnce = ({ parameters }) => {
-  scrollIntoView(elementList, { iterations: false });
-  return <Default parameters={parameters} />;
-};
-
-WithFadeAnimationsOnce.story = {
-  name: 'With fade animations - once',
-  parameters: {
-    ...readme.parameters,
-    'carbon-theme': { disabled: true },
-    knobs: {
-      escapeHTML: false,
-      DotcomShell: () => {
-        const {
-          Masthead: mastheadKnobs,
-        } = mastheadStory.story.parameters.knobs;
-        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
-        return {
-          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
-          footerProps: {
-            ...footerKnobs({ groupId: 'Footer' }),
-            type: select(
-              'Footer (footerProps): sets the type of footer (type)',
-              footerTypeOptions,
-              footerTypeOptions.tall,
-              'Footer'
-            ),
-          },
-        };
-      },
-    },
-  },
+  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
+  return (
+    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
+      <main id="main-content">
+        <div style={{ paddingTop: '6rem' }}>
+          <Content />
+          <FadeInOut elementList={elementList} iterations={false} />
+        </div>
+      </main>
+    </DotcomShell>
+  );
 };

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,11 +15,11 @@ import contentStyles from 'carbon-components/scss/components/ui-shell/_content.s
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import fadeStyles from '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
-import scrollIntoView from '@carbon/ibmdotcom-utilities/es/utilities/scrollIntoView/scrollIntoView';
 import fadeOptions from './dotcom-shell.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
+import '../../fade-in-out/fade-in-out';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
 import logosGroup from '../../logo-grid/__stories__/data/logos.json';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
@@ -380,9 +380,6 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props.Other ?? {};
-
-  scrollIntoView(elementList, { iterations: true });
-
   return html`
     <style>
       ${mastheadStyles}
@@ -420,6 +417,7 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
+    <dds-fade-in-out .elementList="${elementList}" iterations="true"></dds-fade-in-out>
   `;
 };
 
@@ -429,7 +427,6 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props.Other ?? {};
 
-  scrollIntoView(elementList, { iterations: false });
   return html`
     <style>
       ${mastheadStyles}
@@ -467,6 +464,7 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
+    <dds-fade-in-out .elementList="${elementList}"></dds-fade-in-out>
   `;
 };
 
