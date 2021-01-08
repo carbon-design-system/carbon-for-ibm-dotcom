@@ -1,20 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement, internalProperty, html, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -53,20 +51,18 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   /**
    * Render the Leadspace Block title
    */
-  protected _renderTitle() {
+  protected _renderHeading() {
     const { _hasTitle: hasTitle } = this;
     return html`
       <div ?hidden="${!hasTitle}">
-        <h1 data-autoid="${ddsPrefix}--leadspace-block__title" class="${prefix}--leadspace-block__title">
-          <slot name="title" @slotchange="${this._handleSlotChange}"></slot>
-        </div>
+        <slot name="heading" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
   }
 
   render() {
     return html`
-      ${this._renderTitle()}
+      ${this._renderHeading()}
       <slot></slot>
       <dds-hr></dds-hr>
     `;

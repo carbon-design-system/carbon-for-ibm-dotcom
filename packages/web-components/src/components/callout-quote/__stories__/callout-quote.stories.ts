@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,6 +13,9 @@ import '../callout-quote';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../../quote/quote';
+import '../../quote/quote-source-bottom-copy';
+import '../../quote/quote-source-copy';
+import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
 
 const types = {
@@ -28,18 +31,16 @@ export const Default = ({ parameters }) => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.CalloutQuote ?? {};
   return html`
     <dds-callout-quote mark-type="${quoteMark}">
-      <span slot="copy">
-        ${copy}
-      </span>
-      <span slot="source-heading">
+      ${copy}
+      <dds-quote-source-heading>
         ${sourceHeading}
-      </span>
-      <span slot="source-copy">
+      </dds-quote-source-heading>
+      <dds-quote-source-copy>
         ${sourceCopy}
-      </span>
-      <span slot="source-bottom-copy">
+      </dds-quote-source-copy>
+      <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </span>
+      </dds-quote-source-bottom-copy>
       <dds-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>

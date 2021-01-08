@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,7 +65,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--leadspace__row">
         <p data-autoid="${ddsPrefix}--leadspace__desc" class="${prefix}--leadspace__desc">
-          <slot name="copy">${copy}</slot>
+          <slot>${copy}</slot>
         </p>
       </div>
     `;
@@ -74,10 +74,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   /**
    * Renders Leadspace title slot
    */
-  protected _renderTitle() {
+  protected _renderHeading() {
     const { title } = this;
     return html`
-      <slot name="title">${title}</slot>
+      <slot name="heading">${title}</slot>
     `;
   }
 
@@ -172,7 +172,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               `}
             <div class="${prefix}--leadspace--content__container">
               <div class="${prefix}--leadspace__row">
-                <h1 class="${prefix}--leadspace__title">${this._renderTitle()}</h1>
+                ${this._renderHeading()}
               </div>
               <div class="${prefix}--leadspace__content">
                 ${this._renderCopy()}
