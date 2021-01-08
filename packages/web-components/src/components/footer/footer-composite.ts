@@ -136,7 +136,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * @internal
    */
   @property({ attribute: false })
-  langList?: any[];
+  langList?: string[];
 
   /**
    * The language to show in the UI.
@@ -277,7 +277,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                 @bx-combo-box-selected="${languageCallback}"
               >
                 ${langList?.map(
-                  ({ text: language }) => html`
+                  language => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
                   `
                 )}

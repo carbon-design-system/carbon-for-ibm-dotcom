@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, query } from 'lit-element';
+import { html, property, customElement, query, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXComboBox, { DROPDOWN_SIZE } from 'carbon-web-components/es/components/combo-box/combo-box.js';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import { FOOTER_SIZE } from './footer';
+import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 
@@ -30,11 +30,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
   /**
    * Property that saves the last valid language to use on reset cases.
-   * @private
    */
 
-  @property({ attribute: 'last-valid-lang' })
-  lastValidLang;
+  @internalProperty()
+  _lastValidLang?: string;
 
   @property()
   size = DROPDOWN_SIZE.EXTRA_LARGE;
@@ -44,7 +43,7 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
    */
 
   @property({ attribute: 'footer-size' })
-  footerSize = FOOTER_SIZE.REGULAR;
+  footerSize = LANGUAGE_SELECTOR_STYLE_SCHEME.REGULAR;
 
   /**
    * The `<input>` for filtering.
@@ -69,8 +68,8 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
   @HostListener('document:click')
   protected _handleClickOutside = e => {
     if (!this.contains(e.target as Node)) {
-      this._filterInputValue = this.lastValidLang;
-      this.filterInputNode.value = this.lastValidLang;
+      this._filterInputValue = this._lastValidLang as string;
+      this.filterInputNode.value = this._lastValidLang as string;
       this.open = false;
       this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
     }
@@ -104,7 +103,7 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
       (item as BXComboBoxItem).highlighted = false;
       (item as BXComboBoxItem).selected = false;
     });
-    this.lastValidLang = this._filterInputValue;
+    this._lastValidLang = this._filterInputValue;
     this._filterInputValue = '';
     this.filterInputNode.focus();
     this.open = false;
@@ -131,13 +130,13 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
       this.open = false;
       this.requestUpdate();
     }
-    this.lastValidLang = item?.textContent as string;
+    this._lastValidLang = item?.textContent as string;
     (item as BXComboBoxItem).selected = true;
     super._handleUserInitiatedSelectItem(item);
   }
 
   render() {
-    this.lastValidLang = this.value;
+    this._lastValidLang = this.value;
     return html`
       ${super.render()}
     `;
