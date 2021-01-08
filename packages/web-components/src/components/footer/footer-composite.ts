@@ -135,8 +135,8 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    *
    * @internal
    */
-  @property({ attribute: 'lang-list' })
-  langList?: string;
+  @property({ attribute: false })
+  langList?: any[];
 
   /**
    * The language to show in the UI.
@@ -248,9 +248,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       _handleClickLocaleButton: handleClickLocaleButton,
       _languageCallback: languageCallback,
     } = this;
-
-    const parsedList = !langList ? undefined : JSON.parse(langList as string);
-
     return html`
       <dds-footer size="${ifNonNull(size)}">
         <dds-footer-logo></dds-footer-logo>
@@ -279,7 +276,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                 value="${selectedLanguage}"
                 @bx-combo-box-selected="${languageCallback}"
               >
-                ${parsedList?.map(
+                ${langList?.map(
                   ({ text: language }) => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
                   `
