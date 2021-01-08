@@ -37,30 +37,10 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
   private _lastValidLang?: string;
 
   /**
-   * Property that specifies the ComboBox to have size xl
-   *
-   * @internal
-   */
-  @property()
-  size = DROPDOWN_SIZE.EXTRA_LARGE;
-
-  /**
-   * Size property to apply different styles.
-   */
-  @property({ attribute: 'style-scheme' })
-  styleScheme = LANGUAGE_SELECTOR_STYLE_SCHEME.REGULAR;
-
-  /**
    * The `<input>` for filtering.
    */
   @query('input')
   private _filterInputNode!: HTMLInputElement;
-
-  /**
-   * The shadow slot this language-selector should be in.
-   */
-  @property({ reflect: true })
-  slot = 'language-selector';
 
   /**
    * Reverts input value to last chosen valid language.
@@ -134,6 +114,27 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
     super._handleUserInitiatedSelectItem(item);
   }
 
+  /**
+   * Property that specifies the ComboBox to have size xl
+   *
+   * @internal
+   */
+  @property()
+  size = DROPDOWN_SIZE.EXTRA_LARGE;
+
+  /**
+   * Size property to apply different styles.
+   */
+  @property({ attribute: 'style-scheme' })
+  styleScheme = LANGUAGE_SELECTOR_STYLE_SCHEME.REGULAR;
+
+  /**
+   * The shadow slot this language-selector should be in.
+   */
+  @property({ reflect: true })
+  slot = 'language-selector';
+
+  // @ts-ignore
   updated(changedProperties) {
     const { _listBoxNode: listBoxNode } = this;
     if (listBoxNode) {
