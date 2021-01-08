@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -247,8 +247,17 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     super.disconnectedCallback();
   }
 
-  firstUpdated() {
-    this._cleanAndCreateIntersectionObserverContainer({ create: true });
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('_hideNav')) {
+      this._cleanAndCreateIntersectionObserverContainer();
+    }
+    return true;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('_hideNav')) {
+      this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    }
   }
 
   render() {
