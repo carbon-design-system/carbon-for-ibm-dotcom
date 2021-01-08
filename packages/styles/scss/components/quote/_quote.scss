@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,6 @@
 @import '../../components/link-with-icon/link-with-icon';
 
 @mixin quote {
-
   .#{$prefix}--quote,
   :host(#{$dds-prefix}-quote) {
     display: block;
@@ -25,7 +24,16 @@
   }
 
   :host(#{$dds-prefix}-quote).#{$prefix}--quote__inverse {
-    background: red;
+    background: $inverse-02;
+    color: $inverse-01;
+
+    ::slotted(#{$dds-prefix}-link-with-icon) {
+      color: $inverse-link;
+    }
+
+    .#{$prefix}--quote__mark {
+      color: $inverse-01;
+    }
   }
 
   .#{$prefix}--quote .#{$prefix}--quote__container {
@@ -110,7 +118,6 @@
   }
 
   .#{$prefix}--quote__inverse {
-
     .#{$prefix}--link-with-icon__container .#{$prefix}--link,
     ::slotted(#{$dds-prefix}-link-with-icon) {
       color: $inverse-link;
