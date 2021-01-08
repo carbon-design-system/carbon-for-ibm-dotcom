@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,6 +22,7 @@ import '../../video-player/video-player-container';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import '../leadspace-block';
+import '../leadspace-block-heading';
 import '../leadspace-block-media';
 import '../leadspace-block-content';
 import '../leadspace-block-cta';
@@ -77,7 +78,7 @@ export const Default = ({ parameters }) => {
   const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
-      <span slot="title">${title}</span>
+      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
@@ -92,7 +93,7 @@ export const WithVideo = ({ parameters }) => {
   const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
-      <span slot="title">${title}</span>
+      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
