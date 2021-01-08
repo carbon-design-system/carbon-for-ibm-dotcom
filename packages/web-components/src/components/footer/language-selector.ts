@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
 import { property, customElement, query, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXComboBox, { DROPDOWN_SIZE } from 'carbon-web-components/es/components/combo-box/combo-box.js';
@@ -19,7 +18,6 @@ import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
  * Language selector component.
@@ -136,10 +134,7 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
 
   // @ts-ignore
   updated(changedProperties) {
-    const { _listBoxNode: listBoxNode } = this;
-    if (listBoxNode) {
-      listBoxNode.classList.add(`${prefix}--combo-box`);
-    }
+    super.updated();
     if (changedProperties.has('value')) {
       this._lastValidLang = this.value;
     }
