@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2020
+ * Copyright IBM Corp. 2019, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Callout Data.
  *
  * @element dds-callout-data
- * @slot data - The data content.
+ * @slot heading - The heading (data) content.
  * @slot copy - The copy content.
  * @slot source - The source content.
  */
@@ -30,12 +30,12 @@ class DDSCalloutData extends LitElement {
       <div class="${prefix}--callout__container">
         <div class="${prefix}--callout__column">
           <div class="${prefix}--callout__content">
-            <h4 class="${prefix}--callout-data__data"><slot name="data"></slot></h4>
-            <p class="${prefix}--callout-data__copy"><slot name="copy"></slot></p>
+            <slot name="heading"></slot>
+            <slot name="copy"></slot>
           </div>
         </div>
       </div>
-      <p class="${prefix}--callout-data__source"><slot name="source"></slot></p>
+      <slot name="source"></slot>
     `;
   }
 

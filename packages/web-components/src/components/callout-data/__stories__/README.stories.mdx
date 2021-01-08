@@ -18,19 +18,22 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-source.js';
 ```
 
 ### HTML
 
 ```html
 <dds-callout-data>
-  <span slot="data">51%</span>
-  <span slot="copy">
+  <dds-callout-data-heading>51%</dds-callout-data-heading>
+  <dds-callout-data-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-  </span>
-  <span slot="source">
+  </dds-callout-data-copy>
+  <dds-callout-data-source>
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-  </span>
+  </dds-callout-data-source>
 </dds-callout-data>
 ```
 
