@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,14 +21,6 @@
       margin: $carbon--layout-06 0;
     }
 
-    .#{$prefix}--feature-card-block-medium__heading,
-    ::slotted(#{$dds-prefix}-card-heading) {
-      @include carbon--type-style('expressive-heading-04', true);
-
-      display: block;
-      margin-bottom: $carbon--spacing-07;
-    }
-
     ::slotted(#{$dds-prefix}-card-heading) {
       width: auto;
       max-width: none;
@@ -43,6 +35,14 @@
     .#{$prefix}--card .#{$prefix}--card__heading {
       margin-bottom: 0;
     }
+  }
+
+  .#{$prefix}--feature-card-block-medium__heading,
+  ::slotted(#{$dds-prefix}-feature-card-block-medium-block-heading) {
+    @include carbon--type-style('expressive-heading-04', true);
+
+    display: block;
+    margin-bottom: $carbon--spacing-07;
   }
 }
 @include exports('feature-card-block-medium') {
