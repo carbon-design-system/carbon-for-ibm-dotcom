@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<slot name="heading">
+<slot name="block-heading">
 </slot>
 <div
   class="bx--feature-card"
@@ -13,14 +13,21 @@
 >
   <slot name="image">
   </slot>
+  <slot name="image">
+  </slot>
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
       <slot name="eyebrow">
       </slot>
-      <h3 class="bx--card__heading">
-        <slot>
-        </slot>
-      </h3>
+      <slot
+        data-pictogram-placement="top"
+        name="pictogram"
+      >
+      </slot>
+      <slot name="heading">
+      </slot>
+      <slot>
+      </slot>
       <slot name="footer">
       </slot>
     </div>
@@ -32,7 +39,7 @@
 ####   `should render with various attributes`
 
 ```
-<slot name="heading">
+<slot name="block-heading">
 </slot>
 <div
   class="bx--feature-card"
@@ -46,14 +53,21 @@
   >
     <slot name="image">
     </slot>
+    <slot name="image">
+    </slot>
     <div class="bx--card__wrapper">
       <div class="bx--card__content">
         <slot name="eyebrow">
         </slot>
-        <h3 class="bx--card__heading">
-          <slot>
-          </slot>
-        </h3>
+        <slot
+          data-pictogram-placement="top"
+          name="pictogram"
+        >
+        </slot>
+        <slot name="heading">
+        </slot>
+        <slot>
+        </slot>
         <slot name="footer">
         </slot>
       </div>
