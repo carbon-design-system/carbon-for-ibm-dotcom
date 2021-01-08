@@ -9,7 +9,7 @@
       “
     </span>
     <blockquote class="bx--quote__copy">
-      <slot name="copy">
+      <slot>
       </slot>
       <span class="bx--quote__mark-closing">
         ”
@@ -19,21 +19,12 @@
       class="bx--quote__source"
       hidden=""
     >
-      <p class="bx--quote__source-heading">
-        <slot name="source-heading">
-        </slot>
-      </p>
-      <p class="bx--quote__source-body">
-        <slot name="source-copy">
-        </slot>
-      </p>
-      <p
-        class="bx--quote__source-optional-copy"
-        hidden=""
-      >
-        <slot name="source-bottom-copy">
-        </slot>
-      </p>
+      <slot name="source-heading">
+      </slot>
+      <slot name="source-copy">
+      </slot>
+      <slot name="source-bottom-copy">
+      </slot>
     </div>
     <div
       class="bx--quote__footer"
