@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,16 +10,16 @@ dds-logo-grid-item,
 dds-card-group-item,
 dds-cta-section-item {
   &:nth-of-type(3n) {
-    --dds--scroll-into-view-delay: 0;
+    --dds--fade-in-out-delay: 0;
   }
   &:nth-of-type(3n + 1) {
-    --dds--scroll-into-view-delay: 250ms;
+    --dds--fade-in-out-delay: 250ms;
   }
   &:nth-of-type(3n + 2) {
-    --dds--scroll-into-view-delay: 500ms;
+    --dds--fade-in-out-delay: 500ms;
   }
   &:nth-of-type(3n + 3) {
-    --dds--scroll-into-view-delay: 750ms;
+    --dds--fade-in-out-delay: 750ms;
   }
 }
 /* stylelint-enable selector-type-no-unknown */

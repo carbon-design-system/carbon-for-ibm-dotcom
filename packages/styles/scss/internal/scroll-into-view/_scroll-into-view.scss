@@ -9,13 +9,13 @@
 @import '../../globals/imports';
 
 :root {
-  --#{$dds-prefix}--scroll-into-view-delay: 0s;
+  --#{$dds-prefix}--fade-in-out-delay: 0s;
 }
 
 .#{$prefix}--fade-in {
   transition-timing-function: carbon--motion(entrance, expressive);
   transition-duration: $duration--slow-01;
-  transition-delay: var(--#{$dds-prefix}--scroll-into-view-delay);
+  transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
   opacity: 1;
 }
 

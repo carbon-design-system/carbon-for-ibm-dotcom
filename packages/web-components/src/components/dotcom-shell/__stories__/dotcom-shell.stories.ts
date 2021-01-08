@@ -35,31 +35,30 @@ const footerSizes = {
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
 };
 
-const elementList = [
-  'dds-content-block-heading',
-  'dds-content-block-copy',
-  'dds-video-player-container',
-  'dds-link-list',
-  'dds-leadspace-block-cta',
-  'dds-content-group-heading',
-  'dds-content-item-copy',
-  'dds-text-cta',
-  'dds-feature-card-block-large',
-  'dds-image',
-  '.bx--image__img',
-  'dds-image-with-caption',
-  'dds-card-cta',
-  'dds-callout-with-media',
-  'dds-content-item-horizontal',
-  'dds-logo-grid-item',
-  '.bx--card__CTA',
-  'dds-card-group-item',
-  'dds-callout-quote',
-  'dds-video-player',
-  'dds-cta-section-copy',
-  'dds-button-group',
-  'dds-cta-section-item',
-];
+const selectorTargets = `dds-content-block-heading,
+   dds-content-block-copy,
+   dds-video-player-container,
+   dds-link-list,
+   dds-leadspace-block-cta,
+   dds-content-group-heading,
+   dds-content-item-copy,
+   dds-text-cta,
+   dds-feature-card-block-large,
+   dds-image,
+   .bx--image__img,
+   dds-image-with-caption,
+   dds-card-cta,
+   dds-callout-with-media,
+   dds-content-item-horizontal,
+   dds-logo-grid-item,
+   .bx--card__CTA,
+   dds-card-group-item,
+   dds-callout-quote,
+   dds-video-player,
+   dds-cta-section-copy,
+   dds-button-group,
+   dds-cta-section-item
+`;
 
 const image = html`
   <dds-image-with-caption
@@ -417,7 +416,7 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out .elementList="${elementList}" iterations="true"></dds-fade-in-out>
+    <dds-fade-in-out .selectorTargets="${selectorTargets}" keep-animation="true"></dds-fade-in-out>
   `;
 };
 
@@ -464,7 +463,7 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out .elementList="${elementList}"></dds-fade-in-out>
+    <dds-fade-in-out .selectorTargets="${selectorTargets}"></dds-fade-in-out>
   `;
 };
 
