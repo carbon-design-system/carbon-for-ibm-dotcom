@@ -6,3 +6,9 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/quote/quote';
+
+:host(#{$dds-prefix}-quote-source-bottom-copy),
+:host(#{$dds-prefix}-quote-source-copy),
+:host(#{$dds-prefix}-quote-source-heading) {
+  display: block;
+}

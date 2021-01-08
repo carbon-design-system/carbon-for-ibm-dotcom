@@ -102,16 +102,19 @@
     padding-bottom: $carbon--layout-04;
   }
 
+  :host(#{$dds-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
     padding-left: 1rem;
     @include carbon--type-style(expressive-heading-02, true);
   }
 
+  :host(#{$dds-prefix}-quote-source-copy),
   .#{$prefix}--quote__source-body {
     padding-left: 1rem;
     @include carbon--type-style(body-long-02, true);
   }
 
+  :host(#{$dds-prefix}-quote-source-bottom-copy),
   .#{$prefix}--quote__source-optional-copy {
     padding-left: 1rem;
     @include carbon--type-style(body-long-02, true);

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,6 +11,9 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { QUOTE_TYPES, COLOR_SCHEMES } from '../quote';
+import '../quote-source-bottom-copy';
+import '../quote-source-copy';
+import '../quote-source-heading';
 import '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -20,18 +23,16 @@ export const Default = ({ parameters }) => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = parameters?.props?.Quote ?? {};
   return html`
     <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
-      <span slot="copy">
-        ${copy}
-      </span>
-      <span slot="source-heading">
+      ${copy}
+      <dds-quote-source-heading>
         ${sourceHeading}
-      </span>
-      <span slot="source-copy">
+      </dds-quote-source-heading>
+      <dds-quote-source-copy>
         ${sourceCopy}
-      </span>
-      <span slot="source-bottom-copy">
+      </dds-quote-source-copy>
+      <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </span>
+      </dds-quote-source-bottom-copy>
       <dds-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
