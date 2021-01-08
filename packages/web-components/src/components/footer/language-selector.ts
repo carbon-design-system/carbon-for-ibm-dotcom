@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, customElement, query, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXComboBox, { DROPDOWN_SIZE } from 'carbon-web-components/es/components/combo-box/combo-box.js';
@@ -18,6 +19,7 @@ import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Language selector component.
@@ -33,7 +35,7 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
    */
 
   @internalProperty()
-  _lastValidLang?: string;
+  private _lastValidLang?: string;
 
   @property()
   size = DROPDOWN_SIZE.EXTRA_LARGE;
@@ -42,15 +44,15 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
    * Size property to apply different styles.
    */
 
-  @property({ attribute: 'footer-size' })
-  footerSize = LANGUAGE_SELECTOR_STYLE_SCHEME.REGULAR;
+  @property({ attribute: 'style-scheme' })
+  styleScheme = LANGUAGE_SELECTOR_STYLE_SCHEME.REGULAR;
 
   /**
    * The `<input>` for filtering.
    */
 
   @query('input')
-  private filterInputNode!: HTMLInputElement;
+  private _filterInputNode!: HTMLInputElement;
 
   /**
    * The shadow slot this language-selector should be in.
@@ -66,10 +68,10 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
    */
 
   @HostListener('document:click')
-  protected _handleClickOutside = e => {
-    if (!this.contains(e.target as Node)) {
+  protected _handleClickOutside = (event: MouseEvent) => {
+    if (!this.contains(event.target as Node)) {
       this._filterInputValue = this._lastValidLang as string;
-      this.filterInputNode.value = this._lastValidLang as string;
+      this._filterInputNode.value = this._lastValidLang as string;
       this.open = false;
       this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
     }
@@ -82,12 +84,12 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
 
   protected _handleInput() {
     const items = this.querySelectorAll((this.constructor as typeof BXComboBox).selectorItem);
-    const index = !this.filterInputNode.value ? -1 : findIndex(items, this._testItemWithQueryText, this);
+    const index = !this._filterInputNode.value ? -1 : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
       if (i === index) item.scrollIntoView();
       (item as BXComboBoxItem).highlighted = i === index;
     });
-    const { filterInputNode: filterInput } = this;
+    const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
     this.open = true;
     this.requestUpdate(); // If the only change is to `_filterInputValue`, auto-update doesn't happen
@@ -105,7 +107,7 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
     });
     this._lastValidLang = this._filterInputValue;
     this._filterInputValue = '';
-    this.filterInputNode.focus();
+    this._filterInputNode.focus();
     this.open = false;
     this.requestUpdate();
   }
@@ -136,10 +138,17 @@ class DDSLanguageSelector extends HostListenerMixin(BXComboBox) {
   }
 
   render() {
-    this._lastValidLang = this.value;
     return html`
       ${super.render()}
     `;
+  }
+
+  updated() {
+    const { _listBoxNode: listBoxNode } = this;
+    if (listBoxNode) {
+      listBoxNode.classList.add(`${prefix}--combo-box`);
+    }
+    this._lastValidLang = this.value;
   }
 
   static get stableSelector() {

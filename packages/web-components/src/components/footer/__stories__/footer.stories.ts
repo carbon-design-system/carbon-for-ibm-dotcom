@@ -50,8 +50,8 @@ export const base = ({ parameters }) => {
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
             ?enable-language-selector="${enableLanguageSelector}"
-            language-selector-label="${languageSelectorLabel}"
-            selected-language="${selectedLanguage}"
+            language-selector-label="${ifNonNull(languageSelectorLabel)}"
+            selected-language="${ifNonNull(selectedLanguage)}"
           >
           </dds-footer-composite>
         `
@@ -65,8 +65,8 @@ export const base = ({ parameters }) => {
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
             ?enable-language-selector="${enableLanguageSelector}"
-            language-selector-label="${languageSelectorLabel}"
-            selected-language="${selectedLanguage}"
+            language-selector-label="${ifNonNull(languageSelectorLabel)}"
+            selected-language="${ifNonNull(selectedLanguage)}"
           >
           </dds-footer-container>
         `}
