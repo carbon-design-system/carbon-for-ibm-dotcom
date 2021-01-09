@@ -14,10 +14,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -25,7 +23,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -53,10 +51,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -64,7 +60,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -94,10 +90,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -105,7 +99,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -133,10 +127,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -144,7 +136,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -174,10 +166,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -185,7 +175,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -220,10 +210,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -231,7 +219,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -268,10 +256,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -279,7 +265,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -314,10 +300,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -325,7 +309,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -362,10 +346,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -373,7 +355,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -401,10 +383,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -412,7 +392,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -442,10 +422,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -453,7 +431,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
@@ -481,10 +459,8 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -492,7 +468,7 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>

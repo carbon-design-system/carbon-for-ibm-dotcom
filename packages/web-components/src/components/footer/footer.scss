@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -9,6 +9,9 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
 @import 'carbon-components/scss/globals/scss/vars';
 @import 'carbon-components/scss/components/accordion/accordion';
+@import 'carbon-components/scss/components/combo-box/combo-box';
+@import 'carbon-components/scss/components/form/form';
+@import 'carbon-components/scss/components/text-input/text-input';
 @import 'carbon-components/scss/components/link/link';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
@@ -27,6 +30,7 @@
 :host(#{$dds-prefix}-footer-nav-group),
 :host(#{$dds-prefix}-footer-nav),
 :host(#{$dds-prefix}-locale-button),
+:host(#{$dds-prefix}-language-selector),
 .#{$prefix}--legal-nav {
   // Overrides productive type tokens set by `g90` theme zoning
   @include use-carbon-expressive-tokens();
@@ -61,6 +65,27 @@
   }
 }
 
+:host(#{$dds-prefix}-footer[size='short']) {
+  ::slotted(#{$dds-prefix}-language-selector) {
+    display: block;
+    margin-top: 0;
+
+    @include carbon--breakpoint('sm') {
+      width: 100%;
+    }
+
+    @include carbon--breakpoint('md') {
+      flex: 0 0 50%;
+      margin-left: 25%;
+    }
+
+    @include carbon--breakpoint('lg') {
+      flex: 0 0 25%;
+      margin-left: 62.5%;
+    }
+  }
+}
+
 // The style of legal nav deviates from the one of React, so we can make the markup simpler.
 // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
 :host(#{$dds-prefix}-legal-nav):not([size='micro']) {
@@ -87,7 +112,8 @@
 
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
-  ::slotted(#{$dds-prefix}-footer-logo) {
+  ::slotted(#{$dds-prefix}-footer-logo),
+  ::slotted(#{$dds-prefix}-language-selector) {
     display: none;
   }
 }
@@ -133,16 +159,16 @@
     margin-right: $carbon--spacing-05;
   }
 
-  .bx--btn {
+  .#{$prefix}--btn {
     padding-top: $carbon--spacing-04;
     padding-bottom: $carbon--spacing-04;
   }
 
-  .bx--locale-btn {
+  .#{$prefix}--locale-btn {
     max-width: 100%;
   }
 
-  .bx--btn--secondary {
+  .#{$prefix}--btn--secondary {
     background-color: $ui-background;
     margin: 0;
 
@@ -179,5 +205,38 @@
     .#{$prefix}--select-input {
       border-bottom: none;
     }
+  }
+}
+
+:host(#{$dds-prefix}-language-selector) {
+  position: relative;
+
+  height: $carbon--spacing-09;
+  margin: $carbon--spacing-05 0;
+
+  outline: none;
+
+  @include carbon--breakpoint('sm') {
+    width: auto;
+  }
+
+  @include carbon--breakpoint('md') {
+    width: 33%;
+  }
+
+  @include carbon--breakpoint('lg') {
+    order: 1;
+    flex: 0 0 18.75%;
+  }
+
+  .#{$prefix}--combo-box {
+    bottom: $carbon--spacing-05;
+  }
+
+  .#{$prefix}--list-box__menu {
+    position: absolute;
+    top: auto;
+    bottom: $carbon--spacing-08;
+    max-height: 13.5rem;
   }
 }
