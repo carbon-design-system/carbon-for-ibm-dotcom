@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 import { html, render } from 'lit-html';
 import '../../content-item-horizontal/content-item-horizontal';
 import '../../content-item-horizontal/content-item-horizontal-copy';
+import '../../content-item-horizontal/content-item-horizontal-eyebrow';
 import '../content-group-horizontal';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
@@ -36,7 +37,7 @@ describe('dds-content-group-horizontal', function() {
         template({
           children: html`
             <dds-content-item-horizontal>
-              <span slot="eyebrow">eyebrow-foo</span>
+              <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
               <dds-content-item-heading>heading-foo</dds-content-item-heading>
               <dds-content-item-horizontal-copy>copy-foo</dds-content-item-horizontal-copy>
               <dds-link-list slot="footer" type="vertical">
