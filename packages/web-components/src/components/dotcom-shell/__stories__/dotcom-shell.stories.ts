@@ -30,9 +30,18 @@ import '../../card/card-heading';
 import '../../content-item-horizontal/content-item-horizontal';
 import '../../content-item-horizontal/content-item-horizontal-copy';
 import '../../content-item-horizontal/content-item-horizontal-eyebrow';
+import '../../leadspace-block/leadspace-block';
+import '../../leadspace-block/leadspace-block-content';
+import '../../leadspace-block/leadspace-block-cta';
+import '../../leadspace-block/leadspace-block-heading';
+import '../../leadspace-block/leadspace-block-media';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
+import '../../quote/quote';
+import '../../quote/quote-source-bottom-copy';
+import '../../quote/quote-source-copy';
+import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
 
 const footerSizes = {
@@ -142,7 +151,7 @@ const StoryContent = () => html`
           <dds-table-of-contents>
             <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
-              <span slot="title">Lorem ipsum dolor sit amet</span>
+              <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
               <dds-leadspace-block-content>
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
@@ -251,17 +260,13 @@ const StoryContent = () => html`
             </dds-content-block-cards>
             
             <dds-callout-quote>
-              <span slot="copy">
-                Duis aute irure dolor in reprehenderit
-              </span>
-              <span slot="source-heading">
+              Duis aute irure dolor in reprehenderit
+              <dds-quote-source-heading>
                 Lorem ipsum
-              </span>
-              <span slot="source-copy">
+              </dds-quote-source-heading>
+              <dds-quote-source-copy>
                 dolor sit amet
-              </span>
-              <span slot="source-bottom-copy">
-              </span>
+              </dds-quote-source-copy>
               <dds-link-with-icon slot="footer" href="https://example.com">
                 Link with Icon ${ArrowRight20({ slot: 'icon' })}
               </dds-link-with-icon>
