@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,6 @@
 
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -132,9 +131,7 @@ export const Default = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -158,9 +155,7 @@ export const WithImage = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -184,9 +179,7 @@ export const WithVideo = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -219,11 +212,11 @@ export default {
         heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
       }),
       CardCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, null, groupId);
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
         return {
           copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
           ctaType,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
         };
       },
     },
