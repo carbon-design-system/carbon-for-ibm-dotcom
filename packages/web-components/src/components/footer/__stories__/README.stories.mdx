@@ -51,4 +51,42 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | `<dds-legal-nav>`        | `data-autoid="dds--legal-nav"`         | Component   |
 | `<dds-legal-nav-cookie-preferences-placeholder>` | `data-autoid="dds--privacy-cp"`        | Component   |
 
+### Language selector
+
+The option to use a language selector is available in lieu of the locale
+button/selector.
+
+The following attributes are needed:
+
+| Attribute                | Description                            |
+| ------------------------ | -------------------------------------- |
+| `language-selector-label`| `The input box placeholder`            |
+| `selected-language`      | `The initial selected language`        |
+| `localeList`             | `Object containing available languages`|
+
+Example implementation:
+
+```javascript
+const languageList = [
+  { id: 'da', text: 'Danish / Dansk' },
+  { id: 'nl', text: 'Dutch / Nederlands' },
+  { id: 'en', text: 'English' },
+];
+
+```
+
+```html
+<dds-footer-container
+	language="${ifNonNull(language)}"
+	lang-display="${ifNonNull(langDisplay)}"
+	size="${ifNonNull(size)}"
+  .localeList="${ifNonNull(languageList)}"
+	.legalLinks="${ifNonNull(legalLinks)}"
+	.links="${ifNonNull(links)}"
+	.localeList="${ifNonNull(localeList)}"
+	language-selector-label="${ifNonNull(languageSelectorLabel)}"
+	selected-language="${ifNonNull(selectedLanguage)}"
+>
+</dds-footer-container>
+```
 <Description markdown={contributing} />
