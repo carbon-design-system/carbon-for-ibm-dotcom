@@ -1,0 +1,74 @@
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+.dds-ce-demo-devenv--simple-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include carbon--breakpoint('md') {
+    grid-template-columns: repeat(8, 1fr);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @include carbon--breakpoint('lg') {
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  @include carbon--breakpoint('max') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: calc((100% - 99rem) / 2);
+    margin-right: calc((100% - 99rem) / 2);
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid-gutter {
+  column-gap: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include carbon--breakpoint('md') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include carbon--breakpoint('max') {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid-gutter--narrow {
+  column-gap: 1rem;
+  padding-right: 1rem;
+
+  @include carbon--breakpoint('md') {
+    padding-right: 2rem;
+  }
+
+  @include carbon--breakpoint('max') {
+    padding-right: 2.5rem;
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid-gutter--condensed {
+  column-gap: 0.0625rem;
+  padding-right: 0.125rem;
+
+  @include carbon--breakpoint('md') {
+    padding-right: 1.125rem;
+  }
+
+  @include carbon--breakpoint('max') {
+    padding-right: 1.625rem;
+  }
+}

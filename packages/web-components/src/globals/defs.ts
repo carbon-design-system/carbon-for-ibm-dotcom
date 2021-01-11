@@ -36,3 +36,8 @@ export enum ICON_PLACEMENT {
    */
   RIGHT = 'right',
 }
+
+/**
+ * Constructor type. Used for defining mix-ins.
+ */
+export type Constructor<T> = new (...args: any[]) => T;

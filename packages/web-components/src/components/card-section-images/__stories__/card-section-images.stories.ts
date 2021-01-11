@@ -12,6 +12,8 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../../content-section/content-section';
 import '../../content-section/content-section-heading';
 import '../../card-group/card-group';
@@ -22,8 +24,8 @@ const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>

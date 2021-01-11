@@ -13,6 +13,7 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu-scroll';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/index';
+@import './simple-grid';
 
 :root {
   @include carbon--theme($carbon--theme--white, true);
@@ -71,6 +72,32 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+.dds-ce-demo-devenv--simple-grid--callout,
+.dds-ce-demo-devenv--simple-grid--card,
+.dds-ce-demo-devenv--simple-grid--card-group {
+  > * {
+    grid-column: 1 / span 4;
+
+    @include carbon--breakpoint('md') {
+      grid-column: 1 / span 8;
+    }
+  }
+}
+
+@include carbon--breakpoint('lg') {
+  .dds-ce-demo-devenv--simple-grid--callout > * {
+    grid-column: 5 / span 12;
+  }
+
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 5 / span 8;
+  }
+
+  .dds-ce-demo-devenv--simple-grid--card-group > * {
+    grid-column: 3 / span 12;
+  }
 }
 
 .dds-ce-demo-devenv--container--has-card-group,

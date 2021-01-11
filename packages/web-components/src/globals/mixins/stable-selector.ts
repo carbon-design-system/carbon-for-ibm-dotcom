@@ -7,6 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Constructor } from '../defs';
+
 /**
  * @param Base The base class.
  * @returns A mix-in that sets its defined stable selector.

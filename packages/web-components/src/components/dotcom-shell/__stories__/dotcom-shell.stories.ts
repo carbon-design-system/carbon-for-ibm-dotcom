@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,23 @@ import mastheadLinks from '../../masthead/__stories__/links';
 import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
+import '../../content-item-horizontal/content-item-horizontal';
+import '../../content-item-horizontal/content-item-horizontal-copy';
+import '../../content-item-horizontal/content-item-horizontal-eyebrow';
+import '../../leadspace-block/leadspace-block';
+import '../../leadspace-block/leadspace-block-content';
+import '../../leadspace-block/leadspace-block-cta';
+import '../../leadspace-block/leadspace-block-heading';
+import '../../leadspace-block/leadspace-block-media';
+import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
+import '../../link-list/link-list-item';
+import '../../quote/quote';
+import '../../quote/quote-source-bottom-copy';
+import '../../quote/quote-source-copy';
+import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
 
 const footerSizes = {
@@ -90,7 +107,7 @@ const contentBlockSegmentedItemsWithImage = html`
 
 const contentItemHorizontal = html`
   <dds-content-item-horizontal>
-    <span slot="eyebrow">Lorem ipsum</span>
+    <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
     <dds-content-item-horizontal-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
@@ -115,8 +132,8 @@ const cardGroupItems = html`
       default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
@@ -134,7 +151,7 @@ const StoryContent = () => html`
           <dds-table-of-contents>
             <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
-              <span slot="title">Lorem ipsum dolor sit amet</span>
+              <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
               <dds-leadspace-block-content>
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
@@ -147,20 +164,22 @@ const StoryContent = () => html`
                   <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
                 </dds-leadspace-block-media>
                 <dds-link-list type="end">
-                <span slot="heading">Featured products</span>
-                <dds-link-list-item href="https://example.com">
-                  IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-                <dds-link-list-item href="https://example.com">
-                  UrbanCode ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-                <dds-link-list-item href="https://example.com">
-                  View all products ${ArrowRight20({ slot: 'icon' })}
-                </dds-link-list-item>
-              </dds-link-list>
-              <dds-leadspace-block-cta>
-                <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
-              </dds-leadspace-block-cta>
+                  <dds-link-list-heading>Featured products</dds-link-list-heading>
+                  <dds-link-list-item href="https://example.com">
+                    IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                  <dds-link-list-item href="https://example.com">
+                    UrbanCode ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                  <dds-link-list-item href="https://example.com">
+                    View all products ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-list-item>
+                </dds-link-list>
+                <dds-leadspace-block-cta>
+                  <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({
+                    slot: 'icon',
+                  })}</dds-button-group-item>
+                </dds-leadspace-block-cta>
               </dds-leadspace-block-content>
             </dds-leadspace-block>
 
@@ -181,8 +200,8 @@ const StoryContent = () => html`
                   srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
                 >
               </dds-image>
-              <span slot="eyebrow">scelerisque purus</span>
-              <span slot="heading">Elementum nibh tellus molestie nunc?</span>
+              <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
+              <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
               <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
               <dds-feature-card-block-large-footer>
                 ${ArrowRight20({ slot: 'icon' })}
@@ -202,7 +221,7 @@ const StoryContent = () => html`
             </dds-content-block-segmented>
 
             <dds-callout-with-media>
-              <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
+              <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-item-copy
                 >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
                 In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
@@ -241,17 +260,13 @@ const StoryContent = () => html`
             </dds-content-block-cards>
             
             <dds-callout-quote>
-              <span slot="copy">
-                Duis aute irure dolor in reprehenderit
-              </span>
-              <span slot="sourceHeading">
+              Duis aute irure dolor in reprehenderit
+              <dds-quote-source-heading>
                 Lorem ipsum
-              </span>
-              <span slot="sourceCopy">
+              </dds-quote-source-heading>
+              <dds-quote-source-copy>
                 dolor sit amet
-              </span>
-              <span slot="sourceBottomCopy">
-              </span>
+              </dds-quote-source-copy>
               <dds-link-with-icon slot="footer" href="https://example.com">
                 Link with Icon ${ArrowRight20({ slot: 'icon' })}
               </dds-link-with-icon>

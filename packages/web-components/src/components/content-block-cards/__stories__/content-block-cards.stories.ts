@@ -14,6 +14,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 import '../content-block-cards';
 import '../../content-block/content-block-heading';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../../cta/card-cta-footer';
@@ -29,7 +31,7 @@ const ctaTypes = {
 
 const cardGroupItem = html`
   <dds-card-group-item cta-type="local" href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -46,8 +48,8 @@ const cardGroupItemWithImages = html`
       default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-cta-footer><dds-card-cta-footer>
   </dds-card-group-item>
 `;

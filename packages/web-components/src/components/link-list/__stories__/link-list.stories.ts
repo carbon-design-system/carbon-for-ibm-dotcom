@@ -19,6 +19,7 @@ import '../../cta/link-list-item-cta';
 import '../../cta/link-list-item-card-cta';
 import '../../card/card-footer';
 import '../link-list';
+import '../link-list-heading';
 import '../link-list-item';
 import '../link-list-item-card';
 import readme from './README.stories.mdx';
@@ -60,7 +61,7 @@ export const Default = ({ parameters }) => {
   return !ctaType
     ? html`
         <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card href="https://example.com">
             <p>Learn more about Kubernetes</p>
             <dds-card-footer>
@@ -77,7 +78,7 @@ export const Default = ({ parameters }) => {
       `
     : html`
         <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
@@ -123,7 +124,7 @@ export const Horizontal = ({ parameters }) => {
   return !ctaType
     ? html`
         <dds-link-list type="horizontal">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
@@ -134,7 +135,7 @@ export const Horizontal = ({ parameters }) => {
       `
     : html`
         <dds-link-list type="horizontal">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
@@ -181,7 +182,7 @@ export const Vertical = ({ parameters }) => {
   return !ctaType
     ? html`
         <dds-link-list type="vertical">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
@@ -192,7 +193,7 @@ export const Vertical = ({ parameters }) => {
       `
     : html`
         <dds-link-list type="vertical">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
@@ -225,7 +226,7 @@ export const VerticalWithCards = ({ parameters }) => {
   return !ctaType
     ? html`
         <dds-link-list type="vertical">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
@@ -234,7 +235,7 @@ export const VerticalWithCards = ({ parameters }) => {
           </dds-link-list-item>
         </dds-link-list>
         <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card href="https://example.com">
             <p>Learn more about Kubernetes</p>
             <dds-card-footer>
@@ -251,7 +252,7 @@ export const VerticalWithCards = ({ parameters }) => {
       `
     : html`
         <dds-link-list type="vertical">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifNonNull(href)}"
@@ -270,7 +271,7 @@ export const VerticalWithCards = ({ parameters }) => {
           </dds-link-list-item-cta>
         </dds-link-list>
         <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card-cta
             href="${ifNonNull(href)}"
             cta-type="${ifNonNull(ctaType)}"
@@ -303,7 +304,7 @@ export const EndOfSection = ({ parameters }) => {
   return !ctaType
     ? html`
         <dds-link-list type="end">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </dds-link-list-item>
@@ -317,7 +318,7 @@ export const EndOfSection = ({ parameters }) => {
       `
     : html`
         <dds-link-list type="end">
-          <span slot="heading">Tutorial</span>
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
             Learn more about Kubernetes
           </dds-link-list-item-cta>

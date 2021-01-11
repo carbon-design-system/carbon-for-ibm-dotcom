@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,11 +16,13 @@ import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
 import '../../image-with-caption/image-with-caption';
 import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
 import '../../video-player/video-player-container';
 import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import '../leadspace-block';
+import '../leadspace-block-heading';
 import '../leadspace-block-media';
 import '../leadspace-block-content';
 import '../leadspace-block-cta';
@@ -53,7 +55,7 @@ const image = html`
 
 const linkList = html`
   <dds-link-list type="end">
-    <span slot="heading">Featured products</span>
+    <dds-link-list-heading>Featured products</dds-link-list-heading>
     <dds-link-list-item href="https://example.com">
       IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
@@ -76,7 +78,7 @@ export const Default = ({ parameters }) => {
   const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
-      <span slot="title">${title}</span>
+      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
@@ -91,7 +93,7 @@ export const WithVideo = ({ parameters }) => {
   const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return html`
     <dds-leadspace-block>
-      <span slot="title">${title}</span>
+      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
         <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>

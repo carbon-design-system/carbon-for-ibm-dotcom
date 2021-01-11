@@ -12,6 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../card/card-heading';
 import '../feature-card';
 import '../feature-card-footer';
 
@@ -20,7 +21,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
       <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
-      <span slot="heading">${heading}</span>
+      <dds-card-heading>${heading}</dds-card-heading>
       <dds-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
       </dds-feature-card-footer>
@@ -32,12 +33,8 @@ export default {
   title: 'Components/Feature Card',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
+        ${story()}
       </div>
     `,
   ],

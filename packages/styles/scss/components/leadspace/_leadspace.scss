@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,6 +60,7 @@ $btn-min-width: 26;
     background-color: $ui-background;
   }
 
+  ::slotted(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc {
     color: $text-01;
@@ -98,10 +99,7 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      @include carbon--breakpoint(lg) {
-        height: 100%;
-      }
+      height: 100%;
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -121,6 +119,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__container {
       position: relative;
+      height: 100%;
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -133,21 +132,16 @@ $btn-min-width: 26;
       padding-top: $spacing-05;
       padding-bottom: $spacing-05;
       z-index: 1;
+      height: 100%;
       width: 100%;
       max-width: none;
     }
 
-    .#{$prefix}--leadspace__title {
-      padding-top: 0;
-      margin-bottom: $spacing-09;
-      padding-left: 1rem;
-      width: 95%;
-      z-index: 1;
-      @include carbon--type-style(display-01, true);
-    }
-
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-      @include carbon--type-style(expressive-heading-06, true);
+    .#{$prefix}--leadspace--productive {
+      ::slotted(#{$dds-prefix}-leadspace-heading),
+      .#{$prefix}--leadspace__title {
+        @include carbon--type-style(expressive-heading-06, true);
+      }
     }
 
     .#{$prefix}--leadspace__desc {
@@ -182,6 +176,7 @@ $btn-min-width: 26;
         height: 100%;
       }
 
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
 
@@ -214,6 +209,7 @@ $btn-min-width: 26;
         height: auto;
       }
 
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
       }
@@ -223,8 +219,11 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 16);
       }
 
-      .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-        @include carbon--make-col(7, 16);
+      .#{$prefix}--leadspace--productive {
+        ::slotted(#{$dds-prefix}-leadspace-heading),
+        .#{$prefix}--leadspace__title {
+          @include carbon--make-col(7, 16);
+        }
       }
     }
 
@@ -288,12 +287,14 @@ $btn-min-width: 26;
         @include carbon--type-style(expressive-heading-03, true);
       }
 
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         margin-bottom: 0;
         @include carbon--type-style(expressive-heading-05, true);
       }
 
       .#{$prefix}--leadspace__desc,
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
         padding-top: $carbon--layout-03;
@@ -320,6 +321,7 @@ $btn-min-width: 26;
           @include carbon--make-col(4, 8);
         }
 
+        ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
         .#{$prefix}--leadspace__desc {
           max-width: carbon--mini-units(80);
@@ -340,6 +342,7 @@ $btn-min-width: 26;
       }
 
       @include carbon--breakpoint(lg) {
+        ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title {
           padding-top: $carbon--layout-05;
         }
@@ -410,6 +413,16 @@ $btn-min-width: 26;
         stop-opacity: 0;
       }
     }
+  }
+
+  :host(#{$dds-prefix}-leadspace-heading),
+  .#{$prefix}--leadspace__title {
+    padding-top: 0;
+    margin-bottom: $spacing-09;
+    padding-left: 1rem;
+    width: 95%;
+    z-index: 1;
+    @include carbon--type-style(display-01, true);
   }
 }
 
