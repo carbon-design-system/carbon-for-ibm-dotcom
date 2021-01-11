@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -20,6 +20,17 @@
 }
 
 :host(#{$dds-prefix}-card)[pictogram-placement='bottom']:hover {
+  ::slotted(svg[slot='pictogram']) {
+    display: none;
+  }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    margin-bottom: 0;
+  }
+}
+
+:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:focus {
   ::slotted(svg[slot='pictogram']) {
     display: none;
   }
