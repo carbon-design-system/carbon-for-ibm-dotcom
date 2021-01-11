@@ -132,7 +132,11 @@ function getChangelog(pkgName, folder) {
       fixes[fixName].push(fixSubject);
     }
 
-    if (commit.startsWith('chore(')) {
+    if (
+      commit.startsWith('chore(') ||
+      commit.startsWith('docs(') ||
+      commit.startsWith('test(')
+    ) {
       const choreName = _getCommitName(commitParse);
       const choreSubject = _getCommitSubject(commitParse);
 
