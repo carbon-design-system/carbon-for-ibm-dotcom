@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,6 +65,34 @@ function getCommits(folder) {
 }
 
 /**
+ * Returns the name from the commit string
+ *
+ * @param {string} str Commit string
+ * @returns {string} commit name
+ * @private
+ */
+function _getCommitName(str) {
+  return str
+    .substring(str.indexOf('(') + 1, str.indexOf('):'))
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * Returns the subject from the commit string
+ *
+ * @param {string} str Commit string
+ * @returns {string} commit subject
+ * @private
+ */
+function _getCommitSubject(str) {
+  return str
+    .substring(str.indexOf('):') + 2, str.length)
+    .trim()
+    .toLowerCase();
+}
+
+/**
  * Gets the changelog content
  *
  * @param {string} pkgName Package name
@@ -76,41 +104,72 @@ function getChangelog(pkgName, folder) {
   let changelog = `## ${pkgName}\n`;
 
   // Stores the list of features
-  const features = [];
+  const features = {};
 
   // Stores the list of fixes
-  const fixes = [];
+  const fixes = {};
+
+  // Stores the list of chores
+  const chores = {};
 
   const commitsArray = getCommits(folder);
 
   commitsArray.forEach(commit => {
     const commitParse = commit.replace(delimiter, '');
     if (commit.startsWith('feat(')) {
-      const pushFeat = commitParse
-        .replace('feat(', '- **')
-        .replace('):', '**: ');
-      features.push(`${pushFeat}\n`);
+      const featName = _getCommitName(commitParse);
+      const featSubject = _getCommitSubject(commitParse);
+
+      features[featName] = features[featName] || [];
+      features[featName].push(featSubject);
     }
+
     if (commit.startsWith('fix(')) {
-      const pushFeat = commitParse
-        .replace('fix(', '- **')
-        .replace('):', '**: ');
-      fixes.push(`${pushFeat}\n`);
+      const fixName = _getCommitName(commitParse);
+      const fixSubject = _getCommitSubject(commitParse);
+
+      fixes[fixName] = fixes[fixName] || [];
+      fixes[fixName].push(fixSubject);
+    }
+
+    if (commit.startsWith('chore(')) {
+      const choreName = _getCommitName(commitParse);
+      const choreSubject = _getCommitSubject(commitParse);
+
+      chores[choreName] = chores[choreName] || [];
+      chores[choreName].push(choreSubject);
     }
   });
 
-  if (features.length) {
+  if (Object.keys(features).length) {
     changelog += `### Features\n`;
-    features.forEach(feature => {
-      changelog += feature;
+    Object.keys(features).forEach(featureName => {
+      changelog += `- **${featureName}**\n`;
+      features[featureName].forEach(feature => {
+        changelog += `  - ${feature}\n`;
+      });
     });
     changelog += '\n';
   }
 
-  if (fixes.length) {
+  if (Object.keys(fixes).length) {
     changelog += `### Fixes\n`;
-    fixes.forEach(fix => {
-      changelog += fix;
+    Object.keys(fixes).forEach(fixName => {
+      changelog += `- **${fixName}**\n`;
+      fixes[fixName].forEach(fix => {
+        changelog += `  - ${fix}\n`;
+      });
+    });
+    changelog += '\n';
+  }
+
+  if (Object.keys(chores).length) {
+    changelog += `### Housekeeping\n`;
+    Object.keys(chores).forEach(choreName => {
+      changelog += `- **${choreName}**\n`;
+      chores[choreName].forEach(chore => {
+        changelog += `  - ${chore}\n`;
+      });
     });
     changelog += '\n';
   }
