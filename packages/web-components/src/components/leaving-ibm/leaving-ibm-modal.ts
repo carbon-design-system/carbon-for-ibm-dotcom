@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
-import BXModal from 'carbon-web-components/es/components/modal/modal.js';
+import { property, customElement } from 'lit-element';
+import BXModal, { MODAL_SIZE } from 'carbon-web-components/es/components/modal/modal.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -60,6 +60,12 @@ class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
     }
   };
 
+  /**
+   * Modal size.
+   */
+  @property({ reflect: true })
+  size = MODAL_SIZE.SMALL;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'dialog');
@@ -81,4 +87,5 @@ class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
   }
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLeavingIbmModal;
