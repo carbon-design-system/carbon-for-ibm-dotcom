@@ -6,13 +6,8 @@
 
 ```
 <div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
-  >
-    <slot name="title">
-    </slot>
-  </h1>
+  <slot name="heading">
+  </slot>
 </div>
 <slot>
 </slot>
@@ -25,13 +20,8 @@
 
 ```
 <div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
-  >
-    <slot name="title">
-    </slot>
-  </h1>
+  <slot name="heading">
+  </slot>
 </div>
 <slot>
 </slot>
@@ -46,13 +36,8 @@
 
 ```
 <div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
-  >
-    <slot name="title">
-    </slot>
-  </h1>
+  <slot name="heading">
+  </slot>
 </div>
 <slot>
 </slot>
@@ -65,13 +50,8 @@
 
 ```
 <div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
-  >
-    <slot name="title">
-    </slot>
-  </h1>
+  <slot name="heading">
+  </slot>
 </div>
 <slot>
 </slot>
