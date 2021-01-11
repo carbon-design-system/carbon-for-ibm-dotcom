@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,6 +49,7 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
           <slot name="brand"></slot>
           <slot></slot>
           <slot name="locale-button"></slot>
+          <slot name="language-selector"></slot>
         </div>
       </section>
       <slot name="legal-nav"></slot>
