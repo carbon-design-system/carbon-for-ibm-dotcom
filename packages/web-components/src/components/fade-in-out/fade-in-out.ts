@@ -16,6 +16,12 @@ import { forEach } from '../../globals/internal/collection-helpers';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Amount of columns used for calculation.
+ */
+
+const _colSpan = 3;
+
+/**
  * Function component that handles fade transition for selected elements.
  *
  * @example
@@ -44,38 +50,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-fade-in-out`)
 class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   /**
-   * The CSS selector that selects all fade in-out target elements.
-   */
-  @property({ attribute: 'selectorTargets' })
-  selectorTargets?: string;
-
-  /**
-   * Iteration boolean for continuous play option.
-   *
-   * `true` to keep fade in/out behavior during the entire component lifecycle,
-   * `false` to do it only once.
-   *
-   */
-  @property({ type: Boolean, attribute: 'keep-animation' })
-  keepAnimation = false;
-
-  /**
-   * Amount of columns used for calculation.
-   *
-   * @private
-   */
-
-  private _colSpan = 3;
-
-  /**
-   * Saved list of elements to observe to avoid calling querySelectorAll
-   * more than once.
-   *
-   * @private
-   */
-  private _elements: HTMLElement[] = [];
-
-  /**
    * Intersection Observer that watches outer viewport.
    *
    * @private
@@ -97,28 +71,36 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   private _resizeObserver: any | null = null;
 
   /**
-   * Intersection Observer options
+   * Root margin option for inner observer.
    *
    * @private
    */
-  private _options = {
-    rootMargin: '0px',
-    threshold: 0,
-  };
+  private _rootMargin?: string;
 
   /**
    * The inner viewport calculation for the root margins.
    *
+   * This calculation is done to retrieve the best fitting top and bottom
+   * margin for the fade animation to trigger/remove from elements in a
+   * user's screen.
+   *
+   * The resulting value is the optimal point where a user's attention will be
+   * grabbed by the animation without restricting their view and perception of
+   * the adopting website. The displayed elements will keep the user's attention
+   * for a longer time as they scroll down the website.
+   *
    * @private
    */
+  // eslint-disable-next-line class-methods-use-this
   private _getViewportMargin() {
-    return `-${((document.documentElement.clientHeight * this._colSpan) / breakpoints.max.columns).toString()}px 0px`;
+    return `-${((document.documentElement.clientHeight * _colSpan) / breakpoints.max.columns).toString()}px 0px`;
   }
 
   /**
    * Cleans observers upon update or exit, and creates new instances if needed.
    *
-   * @param {boolean} create to create new observer instances
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new intersection observer.
    */
   private _cleanAndCreateObservers({ create }: { create?: boolean } = {}) {
     this._cleanAndCreateRootObserver();
@@ -131,12 +113,11 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
 
       const { selectorTargets } = this;
       if (selectorTargets) {
-        forEach(document.querySelectorAll(selectorTargets), item => {
+        forEach(this.ownerDocument!.querySelectorAll(selectorTargets), item => {
           this._rootObserver?.observe(item);
-          this._elements.push(item as HTMLElement);
         });
       }
-      this._resizeObserver.observe(document.documentElement);
+      this._resizeObserver.observe(this.ownerDocument!.documentElement);
     }
   }
 
@@ -169,11 +150,14 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
       this._innerObserver = null;
     }
 
-    if (create && this._elements) {
-      this._innerObserver = new IntersectionObserver(this._handleEntrance.bind(this), this._options);
-      this._elements.forEach(item => {
-        this._innerObserver?.observe(item);
-      });
+    if (create) {
+      this._innerObserver = new IntersectionObserver(this._handleEntrance.bind(this), { rootMargin: this._rootMargin });
+      const { selectorTargets } = this;
+      if (selectorTargets) {
+        forEach(this.ownerDocument!.querySelectorAll(selectorTargets), item => {
+          this._innerObserver?.observe(item);
+        });
+      }
     }
   }
 
@@ -202,7 +186,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
    * @private
    */
   private handleResize() {
-    this._options.rootMargin = this._getViewportMargin();
+    this._rootMargin = this._getViewportMargin();
     this._cleanAndCreateInnerObserver({ create: true });
   }
 
@@ -241,6 +225,22 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
       }
     });
   }
+
+  /**
+   * Iteration boolean for continuous play option.
+   *
+   * `true` to keep fade in/out behavior during the entire component lifecycle,
+   * `false` to do it only once.
+   *
+   */
+  @property({ type: Boolean, attribute: 'keep-animation' })
+  keepAnimation = false;
+
+  /**
+   * The CSS selector that selects all fade in-out target elements.
+   */
+  @property({ attribute: 'selector-targets' })
+  selectorTargets?: string;
 
   connectedCallback() {
     super.connectedCallback();

@@ -12,6 +12,13 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 /**
+ * Amount of columns used for calculation.
+ *
+ * @private
+ */
+const _colSpan = 3;
+
+/**
  * Utility handles fade transition for selected elements.
  *
  * @example
@@ -38,14 +45,16 @@ const { prefix } = settings;
  */
 const FadeInOut = ({ selectorTargets, keepAnimations }) => {
   /**
-   * Amount of columns used for calculation.
-   *
-   * @private
-   */
-  const _colSpan = 3;
-
-  /**
    * The inner viewport calculation for the root margins.
+   *
+   * This calculation is done to retrieve the best fitting top and bottom
+   * margin for the fade animation to trigger/remove from elements in a
+   * user's screen.
+   *
+   * The resulting value is the optimal point where a user's attention will be
+   * grabbed by the animation without restricting their view and perception of
+   * the adopting website. The displayed elements will keep the user's attention
+   * for a longer time as they scroll down the website.
    *
    * @private
    */
@@ -61,22 +70,11 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
   }
 
   /**
-   * Saved list of elements to observe to avoid calling querySelectorAll
-   * more than once.
+   * Root margin for Inner Observer.
    *
    * @private
    */
-  const _elements = [];
-
-  /**
-   * Intersection Observer options
-   *
-   * @private
-   */
-  const _options = {
-    rootMargin: '0px',
-    threshold: 0,
-  };
+  const _rootMargin = useRef(null);
 
   /**
    * Intersection Observer that watches outer viewport.
@@ -109,7 +107,6 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
     if (selectorTargets) {
       document.querySelectorAll(selectorTargets).forEach(item => {
         _rootObserver?.current.observe(item);
-        _elements.push(item);
       });
     }
     _resizeObserver.current.observe(document.documentElement);
@@ -122,7 +119,7 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
       _innerObserver.current = null;
       _resizeObserver.current = null;
     };
-  }, [selectorTargets, _elements, _options, handleEntrance, handleResize]);
+  }, [selectorTargets, handleEntrance, handleResize]);
 
   /**
    * Handler to add recalculated rootMargin to a new instance of
@@ -132,18 +129,22 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
    *
    */
   const handleResize = useCallback(() => {
-    _options.rootMargin = _getViewportMargin();
+    _rootMargin.current = _getViewportMargin();
 
     if (_innerObserver.current) {
       _innerObserver.current.disconnect();
       _innerObserver.current = null;
     }
 
-    _innerObserver.current = new IntersectionObserver(handleEntrance, _options);
-    _elements.forEach(item => {
-      _innerObserver?.current.observe(item);
+    _innerObserver.current = new IntersectionObserver(handleEntrance, {
+      rootMargin: _rootMargin.current,
     });
-  }, [_options, _elements, _innerObserver, handleEntrance]);
+    if (selectorTargets) {
+      document.querySelectorAll(selectorTargets).forEach(item => {
+        _innerObserver?.current.observe(item);
+      });
+    }
+  }, [_rootMargin, _innerObserver, selectorTargets, handleEntrance]);
 
   /**
    * Handler to add fade animation to element

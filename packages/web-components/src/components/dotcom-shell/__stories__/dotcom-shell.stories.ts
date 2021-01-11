@@ -416,7 +416,7 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out .selectorTargets="${selectorTargets}" keep-animation="true"></dds-fade-in-out>
+    <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="true"></dds-fade-in-out>
   `;
 };
 
@@ -463,7 +463,7 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out .selectorTargets="${selectorTargets}"></dds-fade-in-out>
+    <dds-fade-in-out selector-targets="${selectorTargets}"></dds-fade-in-out>
   `;
 };
 
