@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,9 @@
 
 import { select, text, boolean } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import img320_1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
+import img480_16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import img720_16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import { LinkList } from '../../../components/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -27,24 +30,20 @@ const image = {
   image: {
     sources: [
       {
-        src:
-          'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+        src: img320_1x1,
         breakpoint: 320,
       },
       {
-        src:
-          'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+        src: img480_16x9,
         breakpoint: 400,
       },
       {
-        src:
-          'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+        src: img720_16x9,
         breakpoint: 672,
       },
     ],
     alt: 'Image alt text',
-    defaultSrc:
-      'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+    defaultSrc: img720_16x9,
   },
 };
 

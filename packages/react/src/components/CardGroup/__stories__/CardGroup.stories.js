@@ -1,11 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import CardGroup from '../CardGroup';
+import img1312_4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
 import { number } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -77,8 +78,7 @@ const defaultCard = {
 
 const cardWithImages = {
   image: {
-    defaultSrc:
-      'https://fpoimg.com/1056x792?text=4:3&bg_color=ee5396&text_color=161616',
+    defaultSrc: img1312_4x3,
     alt: 'Image alt text',
   },
   type: 'local',

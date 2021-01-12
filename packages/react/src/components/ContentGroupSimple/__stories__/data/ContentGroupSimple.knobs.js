@@ -1,22 +1,26 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+import img320_16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
+import img480_16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
+import img720_16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
 
 /**
  * Knobs for CustomGroupSimple
  *
  * type {{}}
  */
-
 const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
 Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
 nulla quis, *consequat* libero. Here are
 some common categories:
 
-Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
+Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget
+dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
 
 - [list item link](https://www.ibm.com)
   1. list item 1a
@@ -36,24 +40,20 @@ const ContentGroupSimpleKnobs = {
       image: {
         sources: [
           {
-            src:
-              'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
+            src: img320_16x9,
             breakpoint: 320,
           },
           {
-            src:
-              'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
+            src: img480_16x9,
             breakpoint: 400,
           },
           {
-            src:
-              'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+            src: img720_16x9,
             breakpoint: 672,
           },
         ],
         alt: 'Image alt text',
-        defaultSrc:
-          'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+        defaultSrc: img720_16x9,
       },
     },
     video: {
