@@ -17,6 +17,7 @@ import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-footer';
 import 'carbon-web-components/es/components/button/button';
 import styles from './leaving-ibm.scss';
 
@@ -62,7 +63,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   language?: string;
 
   /**
-   * `true` to open the search dropdown.
+   * `true` to open the modal.
    */
   @property({ type: Boolean, reflect: true })
   open = false;
@@ -93,7 +94,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <dds-leaving-ibm-modal open="${open}" size="sm">
+      <dds-leaving-ibm-modal open="${open}">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
           <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
