@@ -88,6 +88,8 @@
       type="text"
     >
     <div
+      aria-live="assertive"
+      aria-relevant="additions text"
       class="react-autosuggest__suggestions-container"
       id="result-list"
     >
