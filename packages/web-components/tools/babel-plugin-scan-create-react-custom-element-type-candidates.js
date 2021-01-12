@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,21 @@
 
 'use strict';
 
-const { dirname, isAbsolute, relative, resolve } = require('path');
+const { dirname, isAbsolute, normalize, relative, resolve, sep } = require('path');
+
+function isExternal(source) {
+  if (source[0] === '.') {
+    return false;
+  }
+  const tokens = normalize(source).split(sep);
+  const moduleName = tokens.slice(0, source[0] === '@' ? 2 : 1).join(sep);
+  try {
+    require.resolve(`${moduleName}/package.json`);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function createMetadataVisitor() {
   const resolveModule = (dir, source) => {
@@ -81,10 +95,12 @@ function createMetadataVisitor() {
       const { file } = context;
       if (source) {
         const { value: sourceValue } = source;
-        const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-        const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
-        if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
-          context.dependencies.add(resolved);
+        if (!isExternal(sourceValue)) {
+          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
+          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
+            context.dependencies.add(resolved);
+          }
         }
       }
     },
@@ -94,10 +110,12 @@ function createMetadataVisitor() {
       const { file } = context;
       if (source) {
         const { value: sourceValue } = source;
-        const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-        const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
-        if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
-          context.dependencies.add(resolved);
+        if (!isExternal(sourceValue)) {
+          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
+          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
+            context.dependencies.add(resolved);
+          }
         }
       } else {
         const leadingComments = path.get('leadingComments');
@@ -114,10 +132,12 @@ function createMetadataVisitor() {
       const { file } = context;
       if (source) {
         const { value: sourceValue } = source;
-        const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
-        const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
-        if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
-          context.dependencies.add(resolved);
+        if (!isExternal(sourceValue)) {
+          const resolved = resolveModule(dirname(file.opts.filename), sourceValue);
+          const relativeTarget = relative(resolve(__dirname, '../src'), resolved);
+          if (!isAbsolute(relativeTarget) && !relativeTarget.startsWith('..')) {
+            context.dependencies.add(resolved);
+          }
         }
       }
     },
@@ -144,7 +164,7 @@ module.exports = function generateCreateReactCustomElementType(api, { candidates
 
         if (context.isCandidate) {
           candidates.add(file.opts.filename);
-          if (context.parentDescriptorSource) {
+          if (context.parentDescriptorSource && !isExternal(context.parentDescriptorSource)) {
             candidates.add(resolve(dirname(file.opts.filename), context.parentDescriptorSource));
           }
           // eslint-disable-next-line no-restricted-syntax
