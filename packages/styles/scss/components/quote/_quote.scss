@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-quote) {
     background: $ui-background;
     padding-bottom: $layout-05;
+    display: block;
 
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
@@ -47,10 +48,12 @@
   .#{$prefix}--quote__mark {
     @include carbon--type-style('quotation-01', true);
     @include carbon--font-family('serif');
+
     @include carbon--breakpoint-down('md') {
       // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
       left: 1.4rem;
     }
+
     @include carbon--breakpoint('md') {
       @include carbon--type-style('quotation-02', true);
     }
@@ -113,6 +116,7 @@
 
   .#{$prefix}--quote__mark-closing {
     margin-left: -0.25rem;
+
     @include carbon--breakpoint('md') {
       margin-left: -0.5rem;
     }
@@ -124,6 +128,15 @@
 
     ::slotted(#{$dds-prefix}-link-with-icon) {
       margin-left: 1rem;
+    }
+  }
+
+  :host(#{$dds-prefix}-quote)[inverse] {
+    background: $inverse-02;
+    color: $inverse-01;
+
+    .#{$prefix}--quote__mark {
+      color: $inverse-01;
     }
   }
 }
