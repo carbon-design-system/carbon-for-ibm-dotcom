@@ -93,4 +93,4 @@ const ContentGroupSimpleKnobs = {
   },
 };
 
-module.exports = ContentGroupSimpleKnobs;
+export default ContentGroupSimpleKnobs;
