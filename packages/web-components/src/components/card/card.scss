@@ -63,6 +63,13 @@
     }
 
     .#{$prefix}--card__copy {
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
+
       display: none;
     }
   }
