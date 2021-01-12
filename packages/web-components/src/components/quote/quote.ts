@@ -157,13 +157,6 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('inverse')) {
-      const { inverse } = this;
-      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
-    }
-  }
-
   render() {
     return html`
       <div class="${prefix}--quote__container">
