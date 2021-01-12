@@ -156,7 +156,7 @@ const StoryContent = () => html`
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
                 </dds-content-block-heading>
-                <dds-content-block-copy slot="copy"
+                <dds-content-block-copy
                   >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
                   ut aliquip ex ea commodo consequat.
                 </dds-content-block-copy>
@@ -186,12 +186,12 @@ const StoryContent = () => html`
             <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+              <dds-content-block-copy></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
             </dds-content-block-segmented>
 
             <dds-feature-card-block-large href="https://example.com">
-              <dds-image slot="image" alt="Image alt text" 
+              <dds-image slot="image" alt="Image alt text"
                 default-src="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
               >
                 </dds-image-item>
@@ -212,7 +212,7 @@ const StoryContent = () => html`
             <dds-content-block-segmented>
               <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
               </dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+              <dds-content-block-copy></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
                 <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
                   Lorem ipsum dolor
@@ -223,8 +223,8 @@ const StoryContent = () => html`
             <dds-callout-with-media>
               <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-item-copy
-                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
-                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
+                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
+                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
                 Vel facilisis volutpat est velit egestas dui.
               </dds-content-item-copy>
               <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
@@ -258,7 +258,7 @@ const StoryContent = () => html`
                 ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
               </dds-card-group>
             </dds-content-block-cards>
-            
+
             <dds-callout-quote>
               Duis aute irure dolor in reprehenderit
               <dds-quote-source-heading>
