@@ -6,19 +6,19 @@
  */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
-import img1312_16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
-import img1312_2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
-import img1584_16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
-import img720_1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
+import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
+import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
 import LightboxMediaViewer from '../LightboxMediaViewer';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 const images = {
-  '720 x 720 (1:1)': img720_1x1,
-  '1312 x 656 (2:1)': img1312_2x1,
-  '1312 x 738 (16:9)': img1312_16x9,
-  '1584 x 738 (16:9)': img1584_16x9,
+  '720 x 720 (1:1)': imgLg1x1,
+  '1312 x 656 (2:1)': imgXlg2x1,
+  '1312 x 738 (16:9)': imgXlg16x9,
+  '1584 x 738 (16:9)': imgMax16x9,
 };
 
 export default {
@@ -63,7 +63,7 @@ Default.story = {
       default: {
         LightboxMediaViewer: {
           media: {
-            src: img1312_16x9,
+            src: imgXlg16x9,
             alt: 'Image alt text',
             title: 'Curabitur malesuada varius mi eu posuere',
             description:

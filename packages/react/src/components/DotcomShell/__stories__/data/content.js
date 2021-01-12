@@ -21,15 +21,15 @@ import {
 } from '../../../../index';
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import img1312_4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
-import img320_16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
-import img320_16x9_2 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
-import img320_1x1 from '../../../../../../storybook-images/assets/320/fpo--1x1--320x320--001.jpg';
-import img480_16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
-import img480_16x9_2 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
-import img720_16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
-import img720_16x9_2 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
-import img720_1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--003.jpg';
+import imgLg16x9_2 from '../../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgMd16x9 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--003.jpg';
+import imgMd16x9_2 from '../../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--003.jpg';
+import imgSm16x9_2 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
+import imgSm1x1 from '../../../../../../storybook-images/assets/320/fpo--1x1--320x320--001.jpg';
+import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
 import React from 'react';
 
 /**
@@ -144,7 +144,7 @@ const Content = () => (
           },
         }}
         image={{
-          defaultSrc: img720_1x1,
+          defaultSrc: imgLg1x1,
           alt: 'Image alt text',
         }}
       />
@@ -165,20 +165,20 @@ const Content = () => (
               image: {
                 sources: [
                   {
-                    src: img320_16x9,
+                    src: imgSm16x9,
                     breakpoint: 320,
                   },
                   {
-                    src: img480_16x9,
+                    src: imgMd16x9,
                     breakpoint: 400,
                   },
                   {
-                    src: img720_16x9,
+                    src: imgLg16x9,
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
-                defaultSrc: img720_16x9,
+                defaultSrc: imgLg16x9,
               },
             },
             cta: {
@@ -196,20 +196,20 @@ const Content = () => (
               image: {
                 sources: [
                   {
-                    src: img320_16x9_2,
+                    src: imgSm16x9_2,
                     breakpoint: 320,
                   },
                   {
-                    src: img480_16x9_2,
+                    src: imgMd16x9_2,
                     breakpoint: 400,
                   },
                   {
-                    src: img720_16x9_2,
+                    src: imgLg16x9_2,
                     breakpoint: 672,
                   },
                 ],
                 alt: 'Image alt text',
-                defaultSrc: img720_16x9_2,
+                defaultSrc: imgLg16x9_2,
               },
             },
           },
@@ -290,37 +290,37 @@ const Content = () => (
         logosGroup={[
           {
             title: 'Company A',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company B',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company C',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company D',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company E',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
           {
             title: 'Company F',
-            imgSrc: img320_1x1,
+            imgSrc: imgSm1x1,
             altText: 'Image alt text',
             href: 'http://example.com/',
           },
@@ -335,7 +335,7 @@ const Content = () => (
         cards={[
           {
             image: {
-              defaultSrc: img1312_4x3,
+              defaultSrc: imgXlg4x3,
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -346,7 +346,7 @@ const Content = () => (
           },
           {
             image: {
-              defaultSrc: img1312_4x3,
+              defaultSrc: imgXlg4x3,
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',
@@ -357,7 +357,7 @@ const Content = () => (
           },
           {
             image: {
-              defaultSrc: img1312_4x3,
+              defaultSrc: imgXlg4x3,
               alt: 'Image alt text',
             },
             eyebrow: 'Topic',

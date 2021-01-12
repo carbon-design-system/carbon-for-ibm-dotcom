@@ -7,9 +7,9 @@
 
 import { boolean, text } from '@storybook/addon-knobs';
 import ImageWithCaption from '../ImageWithCaption';
-import img320_2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--004.jpg';
-import img480_2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--004.jpg';
-import img720_2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--004.jpg';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--004.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--004.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--004.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -24,20 +24,20 @@ export default {
         image: {
           sources: [
             {
-              src: img320_2x1,
+              src: imgSm2x1,
               breakpoint: 'sm',
             },
             {
-              src: img480_2x1,
+              src: imgMd2x1,
               breakpoint: 'md',
             },
             {
-              src: img720_2x1,
+              src: imgLg2x1,
               breakpoint: 'lg',
             },
           ],
           alt: 'image with caption image',
-          defaultSrc: img720_2x1,
+          defaultSrc: imgLg2x1,
         },
         copy: text(
           'Copy (copy):',

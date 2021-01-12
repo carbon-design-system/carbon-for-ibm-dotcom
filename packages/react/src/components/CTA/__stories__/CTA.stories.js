@@ -7,7 +7,7 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTA from '../CTA';
-import img720_1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
@@ -66,7 +66,7 @@ const miscCTAData = {
           },
         },
         image: {
-          defaultSrc: img720_1x1,
+          defaultSrc: imgLg1x1,
           alt: 'Image alt text',
         },
       },
@@ -264,7 +264,7 @@ FeatureCard.story = {
               },
             },
             image: {
-              defaultSrc: img720_1x1,
+              defaultSrc: imgLg1x1,
               alt: 'Image alt text',
             },
           },

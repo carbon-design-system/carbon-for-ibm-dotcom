@@ -7,7 +7,7 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCard from '../FeatureCard';
-import img720_1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
@@ -28,7 +28,7 @@ export default {
           image: {
             defaultSrc: text(
               'Image src (image.defaultSrc):',
-              img720_1x1,
+              imgLg1x1,
               groupId
             ),
             alt: text('Image alt text (image.alt):', 'Image alt text', groupId),
@@ -52,7 +52,7 @@ export default {
           card: {
             heading: 'Explore AI use cases in all industries',
             image: {
-              defaultSrc: img720_1x1,
+              defaultSrc: imgLg1x1,
               alt: 'Image alt text',
             },
             cta: {

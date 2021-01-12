@@ -7,7 +7,7 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCardBlockMedium from '../FeatureCardBlockMedium';
-import img720_1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
@@ -31,7 +31,7 @@ export default {
             groupId
           ),
           image: {
-            defaultSrc: text('Image src (defaultSrc):', img720_1x1, groupId),
+            defaultSrc: text('Image src (defaultSrc):', imgLg1x1, groupId),
             alt: text('Image alt text (alt):', 'Image alt text', groupId),
           },
           cta: {
@@ -57,7 +57,7 @@ export default {
               },
             },
             image: {
-              defaultSrc: img720_1x1,
+              defaultSrc: imgLg1x1,
               alt: 'Image alt text',
             },
           },

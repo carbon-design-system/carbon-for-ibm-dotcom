@@ -6,11 +6,11 @@
  */
 
 import CardSectionImages from '../CardSectionImages';
-import img1312_16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import img1312_1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--001.jpg';
-import img1312_2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--003.jpg';
-import img1312_3x2 from '../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
-import img1312_4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
+import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
+import imgXlg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--001.jpg';
+import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--003.jpg';
+import imgXlg3x2 from '../../../../../storybook-images/assets/1312/fpo--3x2--874--004.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--002.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
@@ -18,7 +18,7 @@ import { text } from '@storybook/addon-knobs';
 const cards = [
   {
     image: {
-      defaultSrc: img1312_1x1,
+      defaultSrc: imgXlg1x1,
       alt: 'Image alt text',
     },
     eyebrow: 'Topic',
@@ -29,7 +29,7 @@ const cards = [
   },
   {
     image: {
-      defaultSrc: img1312_4x3,
+      defaultSrc: imgXlg4x3,
       alt: 'Image alt text',
     },
     eyebrow: 'Blog',
@@ -40,7 +40,7 @@ const cards = [
   },
   {
     image: {
-      defaultSrc: img1312_2x1,
+      defaultSrc: imgXlg2x1,
       alt: 'Image alt text',
     },
     eyebrow: 'Topic',
@@ -51,7 +51,7 @@ const cards = [
   },
   {
     image: {
-      defaultSrc: img1312_3x2,
+      defaultSrc: imgXlg3x2,
       alt: 'Image alt text',
     },
     eyebrow: 'Blog',
@@ -62,7 +62,7 @@ const cards = [
   },
   {
     image: {
-      defaultSrc: img1312_16x9,
+      defaultSrc: imgXlg16x9,
       alt: 'Image alt text',
     },
     eyebrow: 'Topic',

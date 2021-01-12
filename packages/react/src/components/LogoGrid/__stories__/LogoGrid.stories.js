@@ -6,7 +6,7 @@
  */
 
 import { boolean, text } from '@storybook/addon-knobs';
-import img480_4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
 import LogoGrid from '../LogoGrid';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -14,47 +14,47 @@ import readme from '../README.stories.mdx';
 const logos = [
   {
     label: 'Company A',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company B',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company C',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company D',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company E',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company F',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company G',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company H',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
   {
     label: 'Company I',
-    imgSrc: img480_4x3,
+    imgSrc: imgMd4x3,
     altText: 'Image alt text',
   },
 ];

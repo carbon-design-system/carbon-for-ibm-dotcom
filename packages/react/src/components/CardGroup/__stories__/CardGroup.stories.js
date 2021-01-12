@@ -6,7 +6,7 @@
  */
 
 import CardGroup from '../CardGroup';
-import img1312_4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--001.jpg';
 import { number } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -78,7 +78,7 @@ const defaultCard = {
 
 const cardWithImages = {
   image: {
-    defaultSrc: img1312_4x3,
+    defaultSrc: imgXlg4x3,
     alt: 'Image alt text',
   },
   type: 'local',

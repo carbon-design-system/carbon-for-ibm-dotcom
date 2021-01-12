@@ -9,7 +9,7 @@ import { select, text, boolean } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
-import img720_1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
 import { LinkList } from '../../../components/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -30,7 +30,7 @@ const ctaProps = {
     },
     heading: 'Consectetur adipisicing elit',
     image: {
-      defaultSrc: img720_1x1,
+      defaultSrc: imgLg1x1,
       alt: 'Image alt text',
     },
   },

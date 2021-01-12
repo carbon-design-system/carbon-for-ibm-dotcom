@@ -10,7 +10,7 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import Bee from '@carbon/pictograms-react/lib/bee';
 import { Card } from '../';
 import { DDS_CARD_WITH_PICTOGRAM } from '../../../internal/FeatureFlags';
-import img720_2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -27,7 +27,7 @@ export default {
         return {
           image:
             (boolean('image', false, groupId) && {
-              defaultSrc: img720_2x1,
+              defaultSrc: imgLg2x1,
               alt: 'Image alt text',
             }) ||
             undefined,
