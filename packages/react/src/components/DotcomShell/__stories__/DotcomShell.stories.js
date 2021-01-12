@@ -331,8 +331,9 @@ export const WithFadeAnimationsContinuous = ({ parameters }) => {
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
-          <Content />
-          <FadeInOut selectorTargets={selectorTargets} keepAnimations={true} />
+          <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
+            <Content />
+          </FadeInOut>
         </div>
       </main>
     </DotcomShell>
@@ -352,8 +353,9 @@ export const WithFadeAnimationsOnce = ({ parameters }) => {
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
-          <Content />
-          <FadeInOut selectorTargets={selectorTargets} keepAnimations={false} />
+          <FadeInOut selectorTargets={selectorTargets}>
+            <Content />
+          </FadeInOut>
         </div>
       </main>
     </DotcomShell>

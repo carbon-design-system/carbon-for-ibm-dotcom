@@ -398,7 +398,9 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           >
-            ${StoryContent()}
+            <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="${true}">
+              ${StoryContent()}
+            </dds-fade-in-out>
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -413,10 +415,11 @@ export const withFadeAnimationsContinuous = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
           >
-            ${StoryContent()}
+            <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="${true}">
+              ${StoryContent()}
+            </dds-fade-in-out>
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="true"></dds-fade-in-out>
   `;
 };
 
@@ -445,7 +448,9 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           >
-            ${StoryContent()}
+            <dds-fade-in-out selector-targets="${selectorTargets}">
+              ${StoryContent()}
+            </dds-fade-in-out>
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -460,10 +465,11 @@ export const withFadeAnimationsOnce = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
           >
-            ${StoryContent()}
+            <dds-fade-in-out selector-targets="${selectorTargets}">
+              ${StoryContent()}
+            </dds-fade-in-out>
           </dds-dotcom-shell-container>
         `}
-    <dds-fade-in-out selector-targets="${selectorTargets}"></dds-fade-in-out>
   `;
 };
 

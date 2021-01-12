@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { breakpoints } from '@carbon/layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -31,10 +31,14 @@ const _colSpan = 3;
  * const list = '.bx--content-block, .bx--content-group';
  *
  * For default values of 400ms and 'one and done' play:
- * <FadeInOut selectorTargets={selectorTargets} />
+ * <FadeInOut selectorTargets={selectorTargets}>
+ *   // some content
+ * </FadeInOut>
  *
  * With 'continuous play' option:
- * <FadeInOut selectorTargets={selectorTargets} keepAnimations={true} />
+ * <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
+ *   // some content
+ * </FadeInOut>
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
@@ -43,38 +47,13 @@ const _colSpan = 3;
  * }
  *
  */
-const FadeInOut = ({ selectorTargets, keepAnimations }) => {
+const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
   /**
-   * The inner viewport calculation for the root margins.
-   *
-   * This calculation is done to retrieve the best fitting top and bottom
-   * margin for the fade animation to trigger/remove from elements in a
-   * user's screen.
-   *
-   * The resulting value is the optimal point where a user's attention will be
-   * grabbed by the animation without restricting their view and perception of
-   * the adopting website. The displayed elements will keep the user's attention
-   * for a longer time as they scroll down the website.
+   * Outer div component ref for using with query selector.
    *
    * @private
    */
-  function _getViewportMargin() {
-    return (
-      '-' +
-      (
-        (document.documentElement.clientHeight * _colSpan) /
-        breakpoints.max.columns
-      ).toString() +
-      'px 0px'
-    );
-  }
-
-  /**
-   * Root margin for Inner Observer.
-   *
-   * @private
-   */
-  const _rootMargin = useRef(null);
+  const _componentRef = useRef(null);
 
   /**
    * Intersection Observer that watches outer viewport.
@@ -105,7 +84,7 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
     _resizeObserver.current = new ResizeObserver(handleResize);
 
     if (selectorTargets) {
-      document.querySelectorAll(selectorTargets).forEach(item => {
+      _componentRef.current.querySelectorAll(selectorTargets).forEach(item => {
         _rootObserver?.current.observe(item);
       });
     }
@@ -119,32 +98,42 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
       _innerObserver.current = null;
       _resizeObserver.current = null;
     };
-  }, [selectorTargets, handleEntrance, handleResize]);
+  }, [_componentRef, selectorTargets, handleEntrance, handleResize]);
 
   /**
    * Handler to add recalculated rootMargin to a new instance of
    * inner observer after clearing old one first.
    *
-   * @private
+   * The calculation is done to retrieve the best fitting top and bottom
+   * margin for the fade animation to trigger/remove from elements in a
+   * user's screen.
    *
+   * The resulting value is the optimal point where a user's attention will be
+   * grabbed by the animation without restricting their view and perception of
+   * the adopting website. The displayed elements will keep the user's attention
+   * for a longer time as they scroll down the website.
+   *
+   * @private
    */
   const handleResize = useCallback(() => {
-    _rootMargin.current = _getViewportMargin();
-
     if (_innerObserver.current) {
       _innerObserver.current.disconnect();
       _innerObserver.current = null;
     }
 
     _innerObserver.current = new IntersectionObserver(handleEntrance, {
-      rootMargin: _rootMargin.current,
+      rootMargin: `-${(
+        (document.documentElement.clientHeight * _colSpan) /
+        breakpoints.max.columns
+      ).toString()}px 0px`,
     });
+
     if (selectorTargets) {
-      document.querySelectorAll(selectorTargets).forEach(item => {
+      _componentRef.current.querySelectorAll(selectorTargets).forEach(item => {
         _innerObserver?.current.observe(item);
       });
     }
-  }, [_rootMargin, _innerObserver, selectorTargets, handleEntrance]);
+  }, [_componentRef, _innerObserver, selectorTargets, handleEntrance]);
 
   /**
    * Handler to add fade animation to element
@@ -184,10 +173,19 @@ const FadeInOut = ({ selectorTargets, keepAnimations }) => {
       }
     });
   }
-  return null;
+
+  return <div ref={_componentRef}>{children}</div>;
 };
 
 FadeInOut.propTypes = {
+  /**
+   * Component(s) to render within the component
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+
   /**
    * List of elements to be targeted
    */

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import { breakpoints } from '@carbon/layout';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -34,10 +34,14 @@ const _colSpan = 3;
  * const list = 'bx--content-block, bx--content-group';
  *
  * For default values of 400ms and 'one and done' play:
- * <dds-fade-in-out selectorTargets="${selectorTargets}"/>
+ * <dds-fade-in-out selectorTargets="${selectorTargets}">
+ *  // some content
+ * </dds-fade-in-out>
  *
  * With 'continuous play' option:
- * <dds-fade-in-out selectorTargets="${selectorTargets}" iterations="true"/>
+ * <dds-fade-in-out selectorTargets="${selectorTargets}" iterations="true">
+ *   // some content
+ * </dds-fade-in-out>
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
@@ -71,32 +75,6 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   private _resizeObserver: any | null = null;
 
   /**
-   * Root margin option for inner observer.
-   *
-   * @private
-   */
-  private _rootMargin?: string;
-
-  /**
-   * The inner viewport calculation for the root margins.
-   *
-   * This calculation is done to retrieve the best fitting top and bottom
-   * margin for the fade animation to trigger/remove from elements in a
-   * user's screen.
-   *
-   * The resulting value is the optimal point where a user's attention will be
-   * grabbed by the animation without restricting their view and perception of
-   * the adopting website. The displayed elements will keep the user's attention
-   * for a longer time as they scroll down the website.
-   *
-   * @private
-   */
-  // eslint-disable-next-line class-methods-use-this
-  private _getViewportMargin() {
-    return `-${((document.documentElement.clientHeight * _colSpan) / breakpoints.max.columns).toString()}px 0px`;
-  }
-
-  /**
    * Cleans observers upon update or exit, and creates new instances if needed.
    *
    * @param [options] The options.
@@ -113,7 +91,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
 
       const { selectorTargets } = this;
       if (selectorTargets) {
-        forEach(this.ownerDocument!.querySelectorAll(selectorTargets), item => {
+        forEach(this.querySelectorAll(selectorTargets), item => {
           this._rootObserver?.observe(item);
         });
       }
@@ -143,18 +121,19 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new intersection observer.
+   * @param [options.viewportMargin] recalculated margin value for the observer
    */
-  private _cleanAndCreateInnerObserver({ create }: { create?: boolean } = {}) {
+  private _cleanAndCreateInnerObserver({ create, viewportMargin }: { create?: boolean; viewportMargin?: string } = {}) {
     if (this._innerObserver) {
       this._innerObserver.disconnect();
       this._innerObserver = null;
     }
 
     if (create) {
-      this._innerObserver = new IntersectionObserver(this._handleEntrance.bind(this), { rootMargin: this._rootMargin });
+      this._innerObserver = new IntersectionObserver(this._handleEntrance.bind(this), { rootMargin: viewportMargin });
       const { selectorTargets } = this;
       if (selectorTargets) {
-        forEach(this.ownerDocument!.querySelectorAll(selectorTargets), item => {
+        forEach(this.querySelectorAll(selectorTargets), item => {
           this._innerObserver?.observe(item);
         });
       }
@@ -176,18 +155,29 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
-      this._resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+      this._resizeObserver = new ResizeObserver(this._handleResize.bind(this));
     }
   }
 
   /**
-   * Handler to add recalculated rootMargin to observer.
+   * Handler to add recalculated rootMargin to observer upon resize.
+   *
+   * This calculation is done to retrieve the best fitting top and bottom
+   * margin for the fade animation to trigger/remove from elements in a
+   * user's screen.
+   *
+   * The resulting value is the optimal point where a user's attention will be
+   * grabbed by the animation without restricting their view and perception of
+   * the adopting website. The displayed elements will keep the user's attention
+   * for a longer time as they scroll down the website.
    *
    * @private
    */
-  private handleResize() {
-    this._rootMargin = this._getViewportMargin();
-    this._cleanAndCreateInnerObserver({ create: true });
+  private _handleResize() {
+    this._cleanAndCreateInnerObserver({
+      create: true,
+      viewportMargin: `-${((document.documentElement.clientHeight * _colSpan) / breakpoints.max.columns).toString()}px 0px`,
+    });
   }
 
   /**
@@ -201,6 +191,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
       if (intersectionRatio > 0) {
         target.classList.remove('bx--fade-out');
         target.classList.add('bx--fade-in');
+        console.log(this.keepAnimation);
         if (!this.keepAnimation) {
           this._rootObserver?.unobserve(target);
           this._innerObserver?.unobserve(target);
@@ -250,6 +241,12 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   disconnectedCallback() {
     this._cleanAndCreateObservers();
     super.disconnectedCallback();
+  }
+
+  render() {
+    return html`
+      <slot></slot>
+    `;
   }
 }
 
