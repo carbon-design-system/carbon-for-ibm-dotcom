@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,6 +35,8 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
+import './language-selector';
+import 'carbon-web-components/es/components/combo-box/combo-box-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -116,10 +118,34 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   language?: string;
 
   /**
+   * Placeholder list of languages to populate language selector
+   *
+   * @internal
+   */
+  @property({ attribute: false })
+  langList?: string[];
+
+  /**
    * The language to show in the UI.
    */
   @property({ attribute: 'lang-display' })
   langDisplay?: string;
+
+  /**
+   * The placeholder label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'language-selector-label' })
+  languageSelectorLabel?: string;
+
+  /**
+   * The initial selected language in the selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'selected-language' })
+  selectedLanguage?: string;
 
   /**
    * The legal nav links.
@@ -203,6 +229,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       buttonLabel,
       disableLocaleButton,
       langDisplay,
+      langList,
+      languageSelectorLabel,
+      selectedLanguage,
       size,
       links,
       legalLinks,
@@ -224,13 +253,21 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO
+        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO && !langList
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
-          : html``}
+          : html`
+              <dds-language-selector trigger-content="${languageSelectorLabel}" value="${selectedLanguage}">
+                ${langList?.map(
+                  language => html`
+                    <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
+                  `
+                )}
+              </dds-language-selector>
+            `}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url }) => html`

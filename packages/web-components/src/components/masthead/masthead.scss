@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -131,7 +131,6 @@
 :host(#{$dds-prefix}-top-nav),
 :host(#{$dds-prefix}-top-nav-l1) {
   display: none;
-  overflow: hidden;
 
   @include carbon--breakpoint(800px) {
     flex: 1;
@@ -174,6 +173,14 @@
   }
 }
 
+:host(#{$dds-prefix}-top-nav) {
+  overflow: hidden;
+}
+
+:host(#{$dds-prefix}-top-nav-l1) {
+  overflow: visible;
+}
+
 :host(#{$dds-prefix}-top-nav-item) {
   @extend :host(#{$prefix}-header-nav-item);
 }
@@ -211,6 +218,7 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
+    transform: scale(1.25);
   }
 
   a.#{$prefix}--header__menu-item {

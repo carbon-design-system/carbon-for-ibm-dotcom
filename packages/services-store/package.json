@@ -4,9 +4,11 @@
   "version": "1.14.0",
   "description": "Redux store for Carbon for IBM.com Services",
   "license": "Apache-2.0",
-  "main": "es/store.js",
+  "main": "lib/store.js",
+  "browser": "es/store.js",
   "exports": {
     "./es/": "./es/",
+    "./lib/": "./lib/",
     "./package.json": "./package.json"
   },
   "files": [
@@ -39,10 +41,11 @@
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.14.0",
     "@carbon/ibmdotcom-utilities": "1.14.0",
-    "carbon-components": "10.25.0",
+    "carbon-components": "10.26.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "window-or-global": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -53,6 +56,7 @@
     "@babel/preset-modules": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
+    "async-done": "^1.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.0.0",
@@ -78,7 +82,7 @@
     "redux-mock-store": "^1.5.0",
     "strip-comments": "^1.0.0",
     "through2": "^3.0.0",
-    "typescript": "~3.9.0"
+    "typescript": "~3.7.0"
   },
   "prettier": {
     "jsxBracketSameLine": true,
