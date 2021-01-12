@@ -339,6 +339,13 @@ export const WithFadeAnimationsContinuous = ({ parameters }) => {
   );
 };
 
+WithFadeAnimationsContinuous.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
 export const WithFadeAnimationsOnce = ({ parameters }) => {
   const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
   return (
@@ -351,4 +358,11 @@ export const WithFadeAnimationsOnce = ({ parameters }) => {
       </main>
     </DotcomShell>
   );
+};
+
+WithFadeAnimationsOnce.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
 };
