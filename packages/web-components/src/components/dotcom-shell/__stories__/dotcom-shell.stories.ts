@@ -27,6 +27,11 @@ import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
+/* eslint-disable import/no-duplicates */
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../../content-block/content-block-copy';
+/* eslint-enable import/no-duplicates */
 import '../../content-item-horizontal/content-item-horizontal';
 import '../../content-item-horizontal/content-item-horizontal-copy';
 import '../../content-item-horizontal/content-item-horizontal-eyebrow';
@@ -156,7 +161,7 @@ const StoryContent = () => html`
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
                 </dds-content-block-heading>
-                <dds-content-block-copy slot="copy"
+                <dds-content-block-copy
                   >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
                   ut aliquip ex ea commodo consequat.
                 </dds-content-block-copy>
@@ -186,7 +191,7 @@ const StoryContent = () => html`
             <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+              <dds-content-block-copy></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
             </dds-content-block-segmented>
 
@@ -212,7 +217,7 @@ const StoryContent = () => html`
             <dds-content-block-segmented>
               <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
               </dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
+              <dds-content-block-copy></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
                 <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
                   Lorem ipsum dolor
@@ -222,11 +227,11 @@ const StoryContent = () => html`
 
             <dds-callout-with-media>
               <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
-              <dds-content-item-copy
+              <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
                 >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
                 In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
                 Vel facilisis volutpat est velit egestas dui.
-              </dds-content-item-copy>
+              </dds-content-block-copy>
               <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
             </dds-callout-with-media>
 
@@ -254,7 +259,7 @@ const StoryContent = () => html`
             <a name="6" data-title="Aliquam condimentum interdum"></a>
             <dds-content-block-cards>
               <dds-content-block-heading>Aliquam condimentum interdum</dds-content-block-heading>
-              <dds-card-group slot="content">
+              <dds-card-group>
                 ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
               </dds-card-group>
             </dds-content-block-cards>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,11 @@ import '../../image/image';
 import '../../cta/link-list-item-card-cta';
 import '../../cta/text-cta';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-import '../../content-item/content-item-copy';
+/* eslint-disable import/no-duplicates */
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../../content-block/content-block-copy';
+/* eslint-enable import/no-duplicates */
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
 import '../../link-list/link-list';
@@ -87,7 +91,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -100,7 +104,7 @@ export const WithImage = ({ parameters }) => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -112,7 +116,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
@@ -125,7 +129,7 @@ export const WithAsideElements = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-complementary>
         <dds-link-list type="default">
