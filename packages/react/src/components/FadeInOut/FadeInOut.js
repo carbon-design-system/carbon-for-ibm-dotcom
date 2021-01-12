@@ -16,7 +16,7 @@ const { prefix } = settings;
  *
  * @private
  */
-const _colSpan = 3;
+const colSpan = 3;
 
 /**
  * Utility handles fade transition for selected elements.
@@ -53,52 +53,52 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
    *
    * @private
    */
-  const _componentRef = useRef(null);
+  const componentRef = useRef(null);
 
   /**
    * Intersection Observer that watches outer viewport.
    *
    * @private
    */
-  const _rootObserver = useRef(null);
+  const rootObserver = useRef(null);
 
   /**
    * Intersection observer that watches the inner viewport.
    *
    * @private
    */
-  const _innerObserver = useRef(null);
+  const innerObserver = useRef(null);
 
   /**
    * Resize observer to trigger rootMargin recalculations
    *
    * @private
    */
-  const _resizeObserver = useRef(null);
+  const resizeObserver = useRef(null);
 
   /**
    * Create observers upon render and update.
    */
   useEffect(() => {
-    _rootObserver.current = new IntersectionObserver(handleExit);
-    _resizeObserver.current = new ResizeObserver(handleResize);
+    rootObserver.current = new IntersectionObserver(handleExit);
+    resizeObserver.current = new ResizeObserver(handleResize);
 
     if (selectorTargets) {
-      _componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
-        _rootObserver?.current.observe(item);
+      componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
+        rootObserver?.current.observe(item);
       });
     }
-    _resizeObserver.current.observe(document.documentElement);
+    resizeObserver.current.observe(document.documentElement);
 
     return () => {
-      _rootObserver.current.disconnect();
-      _innerObserver.current.disconnect();
-      _resizeObserver.current.disconnect();
-      _rootObserver.current = null;
-      _innerObserver.current = null;
-      _resizeObserver.current = null;
+      rootObserver.current.disconnect();
+      innerObserver.current.disconnect();
+      resizeObserver.current.disconnect();
+      rootObserver.current = null;
+      innerObserver.current = null;
+      resizeObserver.current = null;
     };
-  }, [_componentRef, selectorTargets, handleEntrance, handleResize]);
+  }, [componentRef, selectorTargets, handleEntrance, handleResize]);
 
   /**
    * Handler to add recalculated rootMargin to a new instance of
@@ -116,24 +116,24 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
    * @private
    */
   const handleResize = useCallback(() => {
-    if (_innerObserver.current) {
-      _innerObserver.current.disconnect();
-      _innerObserver.current = null;
+    if (innerObserver.current) {
+      innerObserver.current.disconnect();
+      innerObserver.current = null;
     }
 
-    _innerObserver.current = new IntersectionObserver(handleEntrance, {
+    innerObserver.current = new IntersectionObserver(handleEntrance, {
       rootMargin: `-${(
-        (document.documentElement.clientHeight * _colSpan) /
+        (document.documentElement.clientHeight * colSpan) /
         breakpoints.max.columns
       ).toString()}px 0px`,
     });
 
     if (selectorTargets) {
-      _componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
-        _innerObserver?.current.observe(item);
+      componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
+        innerObserver?.current.observe(item);
       });
     }
-  }, [_componentRef, _innerObserver, selectorTargets, handleEntrance]);
+  }, [componentRef, innerObserver, selectorTargets, handleEntrance]);
 
   /**
    * Handler to add fade animation to element
@@ -149,13 +149,13 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
           target.classList.remove(`${prefix}--fade-out`);
           target.classList.add(`${prefix}--fade-in`);
           if (!keepAnimations) {
-            _rootObserver.current.unobserve(target);
-            _innerObserver.current.unobserve(target);
+            rootObserver.current.unobserve(target);
+            innerObserver.current.unobserve(target);
           }
         }
       });
     },
-    [keepAnimations, _rootObserver, _innerObserver]
+    [keepAnimations, rootObserver, innerObserver]
   );
 
   /**
@@ -174,7 +174,7 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
     });
   }
 
-  return <div ref={_componentRef}>{children}</div>;
+  return <div ref={componentRef}>{children}</div>;
 };
 
 FadeInOut.propTypes = {

@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Amount of columns used for calculation.
  */
 
-const _colSpan = 3;
+const colSpan = 3;
 
 /**
  * Function component that handles fade transition for selected elements.
@@ -177,7 +177,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
     this._cleanAndCreateInnerObserver({
       create: true,
       viewportMargin: `-${(
-        (this.ownerDocument!.documentElement.clientHeight * _colSpan) /
+        (this.ownerDocument!.documentElement.clientHeight * colSpan) /
         breakpoints.max.columns
       ).toString()}px 0px`,
     });
