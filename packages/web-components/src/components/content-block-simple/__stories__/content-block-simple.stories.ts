@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,9 +51,9 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
   Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   - [list item](https://www.ibm.com)
-    1. list item 1a
+    - list item 1a
   1. list item 2
-    - list item 2a
+    1. list item 2a
 `;
 
 // TODO: Replace with <dds-image-with-caption>
