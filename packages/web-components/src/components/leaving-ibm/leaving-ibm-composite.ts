@@ -13,6 +13,7 @@ import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibm
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
+import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
@@ -100,7 +101,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
         </bx-modal-header>
         <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <span slot="supplemental">${leavingIbmCopy?.LEAVING003}</span>
+          <dds-leaving-ibm-modal-supplemental>${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental>
         </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
           <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="${href}" kind="primary">${leavingIbmButtonLabel}</bx-btn>

@@ -10,12 +10,10 @@
 import { customElement, html, property } from 'lit-element';
 import BXModalBody from 'carbon-web-components/es/components/modal/modal-body.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import 'carbon-web-components/es/components/link/link';
 import styles from './leaving-ibm.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -35,9 +33,7 @@ class DDSLeavingIbmModalBody extends BXModalBody {
     const { href } = this;
     return html`
       <p><slot></slot></p>
-      <p class="${prefix}--leaving-ibm__text">
-        <slot name="supplemental"></slot>
-      </p>
+      <slot name="supplemental"></slot>
       <bx-link href="${ifNonNull(href)}">${!href ? href : new URL(href).hostname}</bx-link>
     `;
   }
