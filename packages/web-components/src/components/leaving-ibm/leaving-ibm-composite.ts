@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,9 +13,11 @@ import { LeavingIBMLabels, Translation } from '../../internal/vendor/@carbon/ibm
 import './leaving-ibm-modal';
 import './leaving-ibm-modal-body';
 import './leaving-ibm-modal-heading';
+import './leaving-ibm-modal-supplemental';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import 'carbon-web-components/es/components/modal/modal-header';
 import 'carbon-web-components/es/components/modal/modal-close-button';
+import 'carbon-web-components/es/components/modal/modal-footer';
 import 'carbon-web-components/es/components/button/button';
 import styles from './leaving-ibm.scss';
 
@@ -61,7 +63,7 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   language?: string;
 
   /**
-   * `true` to open the search dropdown.
+   * `true` to open the modal.
    */
   @property({ type: Boolean, reflect: true })
   open = false;
@@ -92,14 +94,14 @@ class DDSLeavingIbmComposite extends ModalRenderMixin(LitElement) {
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <dds-leaving-ibm-modal open="${open}" size="sm">
+      <dds-leaving-ibm-modal open="${open}">
         <bx-modal-header>
           <bx-modal-close-button></bx-modal-close-button>
           <dds-leaving-ibm-modal-heading>${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading>
         </bx-modal-header>
         <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <span slot="supplemental">${leavingIbmCopy?.LEAVING003}</span>
+          <dds-leaving-ibm-modal-supplemental>${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental>
         </dds-leaving-ibm-modal-body>
         <bx-modal-footer>
           <bx-btn data-autoid="${ddsPrefix}--leaving-ibm-cta" href="${href}" kind="primary">${leavingIbmButtonLabel}</bx-btn>

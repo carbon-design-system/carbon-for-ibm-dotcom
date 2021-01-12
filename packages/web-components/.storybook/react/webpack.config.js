@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ const babelPluginCreateReactCustomElementType = require('../../tools/babel-plugi
 const deepReplace = require('../../../../tasks/deep-replace');
 const configure = require('../webpack.config');
 
-const regexComponentsReactPath = /(@carbon[\\/]ibmdotcom-web-components[\\/]es|packages[\\/]web-components[\\/](es|src))[\\/]components-react[\\/](.*?)(\.[jt]s)?$/;
+const regexComponentsReactPath = /(@carbon[\\/]ibmdotcom-web-components[\\/]es|packages[\\/]web-components[\\/](es|src))[\\/]components-react[\\/](?!(.*-(composite|container)))(.*?)(\.[jt]sx?)?$/;
 const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
 const mkdirpAsync = promisify(mkdirp);
@@ -75,15 +75,18 @@ class CreateReactCustomElementTypeProxyPlugin {
           /[\\/]packages[\\/]web-components[\\/]es[\\/](components|globals)[\\/](.*?)(\.[jt]s)?$/i,
           '/packages/web-components/src/$1/$2'
         )
-        .replace(/[\\/](es|src)[\\/]components-react[\\/](.*)[\\/](defs|(.*)-connect)(\.[jt]s)?$/i, '/src/components/$2/$3');
+        .replace(
+          /[\\/]packages[\\/]web-components[\\/](es|src)[\\/]components-react[\\/](.*)[\\/](defs|(.*)-connect)(\.[jt]s)?$/i,
+          '/packages/web-components/src/components/$2/$3'
+        );
       const tokens = regexComponentsReactPath.exec(request.path);
       if (!tokens) {
         // Bails if the request is not of the React wrapper module
         callback();
         return;
       }
-      const src = path.resolve(__dirname, '../../src/components', `${tokens[3]}.ts`);
-      const dst = path.resolve(__dirname, '../../es/components-react', `${tokens[3]}.js`);
+      const src = path.resolve(__dirname, '../../src/components', `${tokens[5]}.ts`);
+      const dst = path.resolve(__dirname, '../../es/components-react', `${tokens[5]}.js`);
       (process.env.NODE_ENV === 'production' ? Promise.resolve() : buildReactCustomElementTypeOnTheFly(dst, src)).then(() => {
         request.path = dst;
         callback();
@@ -117,7 +120,7 @@ module.exports = ({ config, mode }) => {
   );
   massagedConfig.module.rules.unshift({
     test: /components-react/i,
-    exclude: [/node_modules/i],
+    exclude: [/node_modules/i, /-(composite|container)/i],
     use: [
       {
         loader: 'babel-loader',
@@ -136,6 +139,27 @@ module.exports = ({ config, mode }) => {
         },
       },
       require.resolve('../../tools/react-docgen-custom-element-type-loader'),
+    ],
+  });
+  massagedConfig.module.rules.unshift({
+    test: /components-react\/.*\/.*-composite/i,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-modules', '@babel/preset-react'],
+          plugins: [
+            '@babel/plugin-proposal-object-rest-spread',
+            '@babel/plugin-proposal-class-properties',
+            [
+              'babel-plugin-react-docgen',
+              {
+                DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+              },
+            ],
+          ],
+        },
+      },
     ],
   });
   return massagedConfig;

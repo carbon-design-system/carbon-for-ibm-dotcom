@@ -218,6 +218,7 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
+    transform: scale(1.25);
   }
 
   a.#{$prefix}--header__menu-item {
