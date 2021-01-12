@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-copy`)
 class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (!this.hasAttribute('slot')) {
+      this.setAttribute('slot', 'copy');
+    }
+  }
+
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-block-paragraph`);
