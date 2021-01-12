@@ -27,6 +27,9 @@ import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
+import '../../content-item-horizontal/content-item-horizontal';
+import '../../content-item-horizontal/content-item-horizontal-copy';
+import '../../content-item-horizontal/content-item-horizontal-eyebrow';
 import '../../leadspace-block/leadspace-block';
 import '../../leadspace-block/leadspace-block-content';
 import '../../leadspace-block/leadspace-block-cta';
@@ -104,7 +107,7 @@ const contentBlockSegmentedItemsWithImage = html`
 
 const contentItemHorizontal = html`
   <dds-content-item-horizontal>
-    <span slot="eyebrow">Lorem ipsum</span>
+    <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
     <dds-content-item-horizontal-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
