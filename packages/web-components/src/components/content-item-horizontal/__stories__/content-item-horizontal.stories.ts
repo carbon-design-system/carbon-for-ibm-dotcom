@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../content-item-horizontal';
 import '../content-item-horizontal-copy';
+import '../content-item-horizontal-eyebrow';
 import '../../content-item/content-item-heading';
 import '../../link-list/link-list';
 import '../../cta/link-list-item-cta';
@@ -30,7 +31,7 @@ export const Default = ({ parameters }) => {
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal>
-      <span slot="eyebrow">${eyebrow}</span>
+      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
       <dds-link-list slot="footer" type="vertical">
