@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,15 +37,15 @@ describe('React SSR example', () => {
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
-  it('should handle paging', async () => {
-    await page.waitForSelector('dds-card:nth-of-type(1)', {
+  it('should handle closing', async () => {
+    await page.waitForSelector('dds-leaving-ibm-modal', {
       visible: true,
     });
-    const nextButton = await page.evaluateHandle(() =>
-      document.querySelector('dds-carousel').shadowRoot.querySelector('button[part="next-button"]')
+    const closeButton = await page.evaluateHandle(() =>
+      document.querySelector('bx-modal-close-button').shadowRoot.querySelector('button[part="button"]')
     );
-    await nextButton.click();
-    await page.waitForSelector('dds-card:nth-of-type(1)', {
+    await closeButton.click();
+    await page.waitForSelector('dds-leaving-ibm-modal', {
       visible: false,
     });
   });
