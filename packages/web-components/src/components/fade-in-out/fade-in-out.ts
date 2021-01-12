@@ -176,7 +176,10 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   private _handleResize() {
     this._cleanAndCreateInnerObserver({
       create: true,
-      viewportMargin: `-${((document.documentElement.clientHeight * _colSpan) / breakpoints.max.columns).toString()}px 0px`,
+      viewportMargin: `-${(
+        (this.ownerDocument!.documentElement.clientHeight * _colSpan) /
+        breakpoints.max.columns
+      ).toString()}px 0px`,
     });
   }
 

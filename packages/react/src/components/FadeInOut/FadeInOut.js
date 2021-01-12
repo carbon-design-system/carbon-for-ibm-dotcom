@@ -84,7 +84,7 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
     _resizeObserver.current = new ResizeObserver(handleResize);
 
     if (selectorTargets) {
-      _componentRef.current.querySelectorAll(selectorTargets).forEach(item => {
+      _componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
         _rootObserver?.current.observe(item);
       });
     }
@@ -129,7 +129,7 @@ const FadeInOut = ({ children, selectorTargets, keepAnimations }) => {
     });
 
     if (selectorTargets) {
-      _componentRef.current.querySelectorAll(selectorTargets).forEach(item => {
+      _componentRef.current?.querySelectorAll(selectorTargets).forEach(item => {
         _innerObserver?.current.observe(item);
       });
     }
