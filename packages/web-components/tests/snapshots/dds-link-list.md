@@ -3,10 +3,8 @@
 #### `Renders Default`
 
 ```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
+<slot name="heading">
+</slot>
 <ul
   class="bx--link-list__list bx--link-list__list--card"
   name="list"
@@ -20,10 +18,8 @@
 #### `Renders Horizontal`
 
 ```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
+<slot name="heading">
+</slot>
 <ul
   class="bx--link-list__list bx--link-list__list--horizontal"
   name="list"
@@ -37,10 +33,8 @@
 #### `Renders Vertical`
 
 ```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
+<slot name="heading">
+</slot>
 <ul
   class="bx--link-list__list bx--link-list__list--vertical"
   name="list"
@@ -54,10 +48,8 @@
 #### `Renders Vertical with cards`
 
 ```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
+<slot name="heading">
+</slot>
 <ul
   class="bx--link-list__list bx--link-list__list--vertical"
   name="list"
@@ -71,10 +63,8 @@
 #### `Renders End of section`
 
 ```
-<h4 class="bx--link-list__heading">
-  <slot name="heading">
-  </slot>
-</h4>
+<slot name="heading">
+</slot>
 <ul
   class="bx--link-list__list dds-ce--link-list__list--end"
   name="list"
