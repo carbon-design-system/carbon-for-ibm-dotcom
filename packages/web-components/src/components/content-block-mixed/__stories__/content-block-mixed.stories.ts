@@ -8,6 +8,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../../content-group/content-group-copy';
+import '../../content-item/content-item-copy';
 import '../../card/card-heading';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
@@ -98,7 +100,6 @@ export const Default = ({ parameters }) => {
       <dds-content-block-paragraph>${groupCopy}</dds-content-block-paragraph>
       <dds-content-group-cards>
         <dds-content-group-heading>${cardsGroupHeading}</dds-content-group-heading>
-        <p slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <dds-content-group-cards-item href="www.ibm.com">
           <dds-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
@@ -126,7 +127,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-cards>
       <dds-content-group-pictograms>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
             <dds-pictogram-item>
@@ -166,7 +167,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-pictograms>
       <dds-content-group-simple>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${image({ heading })}
         <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
           Lorem ipsum dolor sit amet

@@ -18,6 +18,7 @@ import '../../cta/video-cta-container';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 import readme from './README.stories.mdx';
@@ -68,7 +69,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
@@ -84,7 +85,7 @@ export const withImages = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
@@ -101,7 +102,7 @@ export const withVideos = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>

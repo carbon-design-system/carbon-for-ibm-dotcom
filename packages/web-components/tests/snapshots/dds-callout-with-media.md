@@ -9,13 +9,21 @@
   <div class="bx--callout__content">
     <slot name="heading">
     </slot>
-    <div class="bx--content-block__children">
+    <slot name="copy">
+    </slot>
+    <div
+      class="bx--content-block__children"
+      hidden=""
+    >
       <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
+        <div
+          class="bx--content-item"
+          hidden=""
+        >
           <slot>
           </slot>
         </div>
-        <div>
+        <div hidden="">
           <slot name="media">
           </slot>
         </div>
@@ -44,13 +52,21 @@
   <div class="bx--callout__content">
     <slot name="heading">
     </slot>
-    <div class="bx--content-block__children">
+    <slot name="copy">
+    </slot>
+    <div
+      class="bx--content-block__children"
+      hidden=""
+    >
       <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
+        <div
+          class="bx--content-item"
+          hidden=""
+        >
           <slot>
           </slot>
         </div>
-        <div>
+        <div hidden="">
           <slot name="media">
           </slot>
         </div>
@@ -79,13 +95,21 @@
   <div class="bx--callout__content">
     <slot name="heading">
     </slot>
-    <div class="bx--content-block__children">
+    <slot name="copy">
+    </slot>
+    <div
+      class="bx--content-block__children"
+      hidden=""
+    >
       <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
+        <div
+          class="bx--content-item"
+          hidden=""
+        >
           <slot>
           </slot>
         </div>
-        <div>
+        <div hidden="">
           <slot name="media">
           </slot>
         </div>

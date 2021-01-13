@@ -72,7 +72,7 @@ export const Default = ({ parameters }) => {
       <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+        <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media">${image}</dds-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </dds-leadspace-block-content>
@@ -87,7 +87,7 @@ export const WithVideo = ({ parameters }) => {
       <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
       <dds-leadspace-block-content>
         <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+        <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-leadspace-block-media slot="media"
           ><dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container
         ></dds-leadspace-block-media>

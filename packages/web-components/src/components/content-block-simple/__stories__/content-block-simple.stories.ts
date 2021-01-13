@@ -10,17 +10,20 @@
 import '../../image/image';
 import '../../cta/link-list-item-card-cta';
 import '../../cta/text-cta';
-import '../../content-item/content-item-copy';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
+// eslint-disable-next-line import/no-duplicates
+import '../../content-block/content-block-copy';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../content-block-simple';
-
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
+// eslint-disable-next-line import/no-duplicates
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import { CTA_TYPE } from '../../cta/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -75,7 +78,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -88,7 +91,7 @@ export const WithImage = ({ parameters }) => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
   `;
@@ -100,7 +103,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
     </dds-content-block-simple>
@@ -113,7 +116,7 @@ export const WithAsideElements = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-complementary>
         <dds-link-list type="default">
