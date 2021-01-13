@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ const template = (props?) => {
   return html`
     <dds-content-block-segmented>
       <dds-content-block-heading>heading-foo</dds-content-block-heading>
-      <dds-content-block-copy slot="copy">copy-foo</dds-content-block-copy>
+      <dds-content-block-copy>copy-foo</dds-content-block-copy>
       ${children}
     </dds-content-block-segmented>
   `;

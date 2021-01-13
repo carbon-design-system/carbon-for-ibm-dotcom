@@ -196,7 +196,7 @@ const StoryContent = () => html`
             </dds-content-block-segmented>
 
             <dds-feature-card-block-large href="https://example.com">
-              <dds-image slot="image" alt="Image alt text" 
+              <dds-image slot="image" alt="Image alt text"
                 default-src="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
               >
                 </dds-image-item>
@@ -228,8 +228,8 @@ const StoryContent = () => html`
             <dds-callout-with-media>
               <dds-content-block-heading>Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
-                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
+                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
+                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
                 Vel facilisis volutpat est velit egestas dui.
               </dds-content-block-copy>
               <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
@@ -263,7 +263,7 @@ const StoryContent = () => html`
                 ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
               </dds-card-group>
             </dds-content-block-cards>
-            
+
             <dds-callout-quote>
               Duis aute irure dolor in reprehenderit
               <dds-quote-source-heading>
