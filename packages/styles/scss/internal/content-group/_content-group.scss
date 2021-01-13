@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,11 +45,13 @@
   }
 
   :host(#{$dds-prefix}-content-group-heading),
+  :host(#{$dds-prefix}-content-group-copy),
   .#{$prefix}--content-group__title,
   .#{$prefix}--content-group__copy {
     @include content-width;
   }
 
+  :host(#{$dds-prefix}-content-group-copy),
   .#{$prefix}--content-group__copy {
     margin-bottom: $layout-04;
 
