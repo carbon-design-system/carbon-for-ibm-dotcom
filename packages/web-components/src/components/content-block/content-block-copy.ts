@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement } from 'lit-element';
+import { css, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
@@ -23,14 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-copy`)
 class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
-  connectedCallback() {
-    super.connectedCallback();
-
-    if (!this.hasAttribute('slot')) {
-      this.setAttribute('slot', 'copy');
-    }
-  }
-
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-block-paragraph`);
@@ -44,6 +36,12 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
       },
     });
   }
+
+  /**
+   * The default slot for all content-block-copy use cases.
+   */
+  @property({ reflect: true })
+  slot = 'copy';
 
   static get stableSelector() {
     return `${ddsPrefix}--content-block__copy`;
