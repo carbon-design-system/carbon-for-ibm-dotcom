@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html, property } from 'lit-element';
+import { html, css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItem from '../content-item/content-item';
@@ -22,12 +22,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-headlines-item`)
 class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
-  /**
-   * The shadow slot this headlines item should be in.
-   */
-  @property({ reflect: true })
-  slot = 'content';
-
   render() {
     return html`
       <h4 class="bx--content-block-headlines__heading"><slot name="heading"></slot></h4>

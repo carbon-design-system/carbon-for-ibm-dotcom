@@ -7,11 +7,18 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-block__children">
-  <slot name="content">
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
+  <slot>
   </slot>
+  <div hidden="">
+    <slot name="media">
+    </slot>
+  </div>
 </div>
 <div
   class="bx--content-block__cta-row"
@@ -32,11 +39,18 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-block__children">
-  <slot name="content">
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
+  <slot>
   </slot>
+  <div hidden="">
+    <slot name="media">
+    </slot>
+  </div>
 </div>
 <div
   class="bx--content-block__cta-row"

@@ -7,10 +7,13 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-group__children bx--content-group__col">
-  <div>
+<div
+  class="bx--content-group__children bx--content-group__col"
+  hidden=""
+>
+  <div hidden="">
     <slot name="media">
     </slot>
   </div>
@@ -26,6 +29,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 
@@ -34,10 +39,13 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-group__children bx--content-group__col">
-  <div>
+<div
+  class="bx--content-group__children bx--content-group__col"
+  hidden=""
+>
+  <div hidden="">
     <slot name="media">
     </slot>
   </div>
@@ -50,6 +58,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 
