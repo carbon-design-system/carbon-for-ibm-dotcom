@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,30 +22,25 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
-  @property({ attribute: 'hide-border', reflect: true, type: Boolean })
-  hideBorder = false;
-
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody() {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div class="bx--content-block__children">
+      <div ?hidden="${!hasContent && !hasMedia}" class="bx--content-block__children">
         <div class="bx--logo-grid__row">
-          <slot></slot>
+          ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
     `;
   }
+
+  @property({ attribute: 'hide-border', reflect: true, type: Boolean })
+  hideBorder = false;
 
   render() {
     return html`
       <slot name="heading"></slot>
       ${this._renderBody()}
     `;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy() {
-    return '';
   }
 
   static get stableSelector() {

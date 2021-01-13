@@ -18,6 +18,7 @@ Here's a quick example to get you started.
 ##### JS
 
 ```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
@@ -30,17 +31,13 @@ import '@carbon/ibmdotcom-web-components/es/components/content-group/content-gro
 
 ```html
 <dds-content-group-pictograms>
-  <dds-content-group-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-group-heading
-  >
-  <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+  <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+  <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
   <dds-pictogram-item>
     <svg slot="pictogram" ...>
       ...
     </svg>
-    <dds-content-item-heading
-      >Lorem ipsum dolor sit amet</dds-content-item-heading
-    >
+    <dds-content-item-heading>Lorem ipsum dolor sit amet</dds-content-item-heading>
     <dds-content-item-copy>Lorem ipsum dolor sit amet</dds-content-item-copy>
     <dds-link-with-icon href="https://www.ibm.com/" slot="footer">
       Link text
@@ -61,6 +58,7 @@ to see how Web Components selector and `data-autoid` should be used.
 | Web Components selector          | Compatibility selector                    | Description |
 | -------------------------------- | ----------------------------------------- | ----------- |
 | `<dds-content-group-pictograms>` | `data-autoid="dds--content-group-simple"` | Component   |
+| `<dds-content-group-copy>`       | `data-autoid="dds--content-group__copy"`  | Component   |
 | `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"` | Component   |
 | `<dds-content-item-copy>`        | `data-autoid="dds--content-item__copy"`   | Component   |
 

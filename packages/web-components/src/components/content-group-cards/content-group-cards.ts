@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,28 +26,13 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-group-cards`)
 class DDSContentGroupCards extends StableSelectorMixin(DDSContentGroup) {
-  /**
-   * @returns The copy content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy(): TemplateResult | string | void {
+  protected _renderInnerBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div class="${prefix}--content-group__copy">
-        <slot></slot>
-      </div>
-    `;
-  }
-
-  /**
-   * @returns The main content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
-    return html`
-      <div class="${prefix}--content-group__children ${prefix}--content-group__col">
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-group__children ${prefix}--content-group__col">
         <div class="${prefix}--content-group-cards-group ${prefix}--grid--condensed">
           <div class="${prefix}--content-group-cards__row">
-            <slot name="content"></slot>
+            ${this._renderContent()}${this._renderMedia()}
           </div>
         </div>
       </div>

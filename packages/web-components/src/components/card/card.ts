@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2020
+ * Copyright IBM Corp. 2019, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,9 +10,9 @@
 import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSLink from '../link/link';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
@@ -38,7 +38,7 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(DDSLink) {
+class DDSCard extends StableSelectorMixin(BXLink) {
   /**
    * `true` if there is image content.
    */

@@ -7,17 +7,18 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-block__copy">
-  <slot name="copy">
-  </slot>
-</div>
-<div class="bx--content-block__children">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <div class="bx--content-block-segmented__media">
-    <div>
+    <div hidden="">
       <slot name="media">
       </slot>
     </div>
-    <div>
+    <div hidden="">
       <slot>
       </slot>
     </div>
@@ -42,17 +43,18 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-block__copy">
-  <slot name="copy">
-  </slot>
-</div>
-<div class="bx--content-block__children">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <div class="bx--content-block-segmented__media">
-    <div>
+    <div hidden="">
       <slot name="media">
       </slot>
     </div>
-    <div>
+    <div hidden="">
       <slot>
       </slot>
     </div>
