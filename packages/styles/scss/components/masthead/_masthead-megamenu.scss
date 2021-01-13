@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -131,8 +131,9 @@
     width: 100%;
 
     .#{$prefix}--masthead__megamenu__categories {
-      padding: 0 0 $layout-03 $layout-01;
+      padding: 0 0 $layout-03 0;
       column-count: 4;
+      column-gap: 0;
     }
 
     ::slotted(#{$dds-prefix}-megamenu-category-group)
