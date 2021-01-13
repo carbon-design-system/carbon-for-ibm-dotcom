@@ -10,6 +10,7 @@
 @import 'carbon-components/scss/globals/scss/vars';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/combo-box/combo-box';
+@import 'carbon-components/scss/components/select/select';
 @import 'carbon-components/scss/components/form/form';
 @import 'carbon-components/scss/components/text-input/text-input';
 @import 'carbon-components/scss/components/link/link';
@@ -30,7 +31,8 @@
 :host(#{$dds-prefix}-footer-nav-group),
 :host(#{$dds-prefix}-footer-nav),
 :host(#{$dds-prefix}-locale-button),
-:host(#{$dds-prefix}-language-selector),
+:host(#{$dds-prefix}-language-selector-desktop),
+:host(#{$dds-prefix}-language-selector-mobile),
 .#{$prefix}--legal-nav {
   // Overrides productive type tokens set by `g90` theme zoning
   @include use-carbon-expressive-tokens();
@@ -66,22 +68,26 @@
 }
 
 :host(#{$dds-prefix}-footer[size='short']) {
-  ::slotted(#{$dds-prefix}-language-selector) {
-    display: block;
+  ::slotted(#{$dds-prefix}-language-selector-desktop) {
     margin-top: 0;
-
-    @include carbon--breakpoint('sm') {
-      width: 100%;
-    }
-
-    @include carbon--breakpoint('md') {
-      flex: 0 0 50%;
-      margin-left: 25%;
-    }
 
     @include carbon--breakpoint('lg') {
       flex: 0 0 25%;
       margin-left: 62.5%;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-language-selector-mobile) {
+    display: block;
+    margin-top: 0;
+
+    @include carbon--breakpoint('md') {
+      position: absolute;
+      right: 1rem;
+    }
+
+    @include carbon--breakpoint('lg') {
+      display: none;
     }
   }
 }
@@ -113,7 +119,7 @@
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
   ::slotted(#{$dds-prefix}-footer-logo),
-  ::slotted(#{$dds-prefix}-language-selector) {
+  ::slotted(#{$dds-prefix}-language-selector-desktop) {
     display: none;
   }
 }
@@ -208,20 +214,37 @@
   }
 }
 
-:host(#{$dds-prefix}-language-selector) {
+:host(#{$dds-prefix}-language-selector-mobile),
+:host(#{$dds-prefix}-language-selector-desktop) {
   position: relative;
-
   height: $carbon--spacing-09;
-  margin: $carbon--spacing-05 0;
-
   outline: none;
+}
 
-  @include carbon--breakpoint('sm') {
-    width: auto;
+:host(#{$dds-prefix}-language-selector-mobile) {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .#{$prefix}--select-input {
+    width: 100%;
+    max-width: 100%;
   }
 
   @include carbon--breakpoint('md') {
-    width: 33%;
+    max-width: 20rem;
+    margin-bottom: 2rem;
+  }
+
+  @include carbon--breakpoint('lg') {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-language-selector-desktop) {
+  margin: $carbon--spacing-05 0;
+
+  @include carbon--breakpoint-down('lg') {
+    display: none;
   }
 
   @include carbon--breakpoint('lg') {

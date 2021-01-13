@@ -35,8 +35,10 @@ import './locale-button';
 import './legal-nav';
 import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
-import './language-selector';
+import './language-selector-desktop';
+import './language-selector-mobile';
 import 'carbon-web-components/es/components/combo-box/combo-box-item';
+import 'carbon-web-components/es/components/select/select-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -260,13 +262,20 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
               >
             `
           : html`
-              <dds-language-selector trigger-content="${languageSelectorLabel}" value="${selectedLanguage}">
+              <dds-language-selector-desktop trigger-content="${languageSelectorLabel}" value="${selectedLanguage}">
                 ${langList?.map(
                   language => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
                   `
                 )}
-              </dds-language-selector>
+              </dds-language-selector-desktop>
+              <dds-language-selector-mobile value="${selectedLanguage}" placeholder="${selectedLanguage}">
+                ${langList?.map(
+                  language => html`
+                    <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"></bx-select-item>
+                  `
+                )}
+              </dds-language-selector-mobile>
             `}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
