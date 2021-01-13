@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -94,7 +94,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-segmented>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+      <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-segmented-item>
         <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
@@ -132,7 +132,7 @@ export const withVideo = ({ parameters }) => {
   return html`
     <dds-content-block-segmented>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+      <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${video}
       <dds-content-block-segmented-item>
         <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
@@ -170,7 +170,7 @@ export const withAsideElements = ({ parameters }) => {
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
-      <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+      <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
       <dds-content-block-segmented-item>
         <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
