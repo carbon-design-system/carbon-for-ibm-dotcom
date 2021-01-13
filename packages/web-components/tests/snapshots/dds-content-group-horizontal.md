@@ -7,11 +7,18 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-block__children">
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <slot>
   </slot>
+  <div hidden="">
+    <slot name="media">
+    </slot>
+  </div>
 </div>
 <div
   class="bx--content-block__cta-row"
@@ -22,6 +29,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 <dds-hr data-autoid="dds--hr">
 </dds-hr>
 
@@ -32,11 +41,18 @@
 ```
 <slot name="heading">
 </slot>
-<slot>
+<slot name="copy">
 </slot>
-<div class="bx--content-block__children">
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <slot>
   </slot>
+  <div hidden="">
+    <slot name="media">
+    </slot>
+  </div>
 </div>
 <div
   class="bx--content-block__cta-row"
@@ -47,6 +63,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 <dds-hr data-autoid="dds--hr">
 </dds-hr>
 

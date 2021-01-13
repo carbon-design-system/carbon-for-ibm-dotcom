@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -99,6 +99,11 @@ class DDSCardFooter extends DDSLinkWithIcon {
 
   updated() {
     super.updated();
+
+    if (!this.hasAttribute('aria-hidden')) {
+      this.setAttribute('aria-hidden', 'true');
+    }
+
     const { iconPlacement, _staticNode: staticNode, _linkNode: linkNode } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);

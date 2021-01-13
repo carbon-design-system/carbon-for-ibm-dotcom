@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css, customElement } from 'lit-element';
+import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,27 +25,26 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-simple`)
 class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody() {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     // Renders `<div class="bx--content-item">` directly instead of using `<dds-content-item>`
     // because `<dds-content-block-simple>` uses only the copy content
     return html`
-      <div class="${prefix}--content-block__children">
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
         <div class="${prefix}--content-block-simple__content">
-          <div class="${prefix}--content-item">
-            <slot></slot>
-          </div>
-          <div>
-            <slot name="media"></slot>
-          </div>
+          ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy() {
-    return '';
+  protected _renderContent(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasContent}" class="${prefix}--content-item">
+        <slot @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
   }
 
   static get stableSelector() {
