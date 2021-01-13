@@ -41,6 +41,7 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   }
 
   /**
+   * The default slot for all content-block-copy use cases.
    * The content size.
    */
   @property({ reflect: true })
