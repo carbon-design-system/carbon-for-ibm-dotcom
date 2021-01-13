@@ -219,9 +219,11 @@ export const filterLocale = (
   const resultsElement = document.querySelector(`.${prefix}--sr-only`);
   const resultsCount = localeItems.length - localeItemsHidden.length;
 
-  resultsElement.innerHTML = `${resultsCount} ${
-    resultsCount == 1 ? 'result' : 'results'
-  } found.`;
+  if (resultsElement) {
+    resultsElement.innerHTML = `${resultsCount} ${
+      resultsCount == 1 ? 'result' : 'results'
+    } found.`;
+  }
 };
 
 export default LocaleModalCountries;
