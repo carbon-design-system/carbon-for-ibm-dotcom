@@ -272,7 +272,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
               <dds-language-selector-mobile value="${selectedLanguage}" placeholder="${selectedLanguage}">
                 ${langList?.map(
                   language => html`
-                    <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"></bx-select-item>
+                    <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
+                      >${ifNonNull(language)}</bx-select-item
+                    >
                   `
                 )}
               </dds-language-selector-mobile>
