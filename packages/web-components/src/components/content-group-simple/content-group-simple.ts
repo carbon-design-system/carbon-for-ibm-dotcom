@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css, customElement } from 'lit-element';
+import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -21,18 +21,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Simple version of content group.
  *
  * @element dds-content-group-simple
- * @slot media - The media content.
  */
 @customElement(`${ddsPrefix}-content-group-simple`)
 class DDSContentGroupSimple extends StableSelectorMixin(DDSContentGroup) {
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div class="${prefix}--content-group__children ${prefix}--content-group__col">
-        <div>
-          <slot name="media"></slot>
-        </div>
-        <slot></slot>
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-group__children ${prefix}--content-group__col">
+        ${this._renderMedia()}${this._renderContent()}
       </div>
     `;
   }

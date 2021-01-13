@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, css, customElement, TemplateResult } from 'lit-element';
+import { html, css, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,33 +25,18 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
 class DDSContentBlockSegmented extends StableSelectorMixin(DDSContentBlock) {
-  /**
-   * @returns The main content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody() {
+    const { _hasContent: hasContent, _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div class="${prefix}--content-block__children">
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
         <div class="${prefix}--content-block-segmented__media">
-          <div>
-            <slot name="media"></slot>
+          <div ?hidden="${!hasMedia}">
+            <slot name="media" @slotchange="${handleSlotChange}"></slot>
           </div>
-          <div>
-            <slot></slot>
+          <div ?hidden="${!hasContent}">
+            <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
-      </div>
-    `;
-  }
-
-  /**
-   * @returns The copy content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy(): TemplateResult | string | void {
-    return html`
-      <div class="${prefix}--content-block__copy">
-        <slot name="copy"></slot>
       </div>
     `;
   }
