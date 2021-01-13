@@ -17,6 +17,7 @@ import '../../image/image';
 import '../../cta/video-cta-container';
 import '../../cta/card-cta';
 import '../../cta/card-cta-footer';
+import '../../content-group/content-group-copy';
 import '../../content-group/content-group-heading';
 import '../../content-item/content-item';
 import '../../content-item/content-item-heading';
@@ -120,7 +121,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
@@ -143,7 +144,7 @@ export const WithImage = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${image({ heading: groupHeading })}
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
@@ -167,7 +168,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`

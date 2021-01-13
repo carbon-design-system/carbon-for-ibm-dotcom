@@ -205,10 +205,6 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      .#{$prefix}--image {
-        height: auto;
-      }
-
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);

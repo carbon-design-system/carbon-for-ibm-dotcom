@@ -7,12 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, property } from 'lit-element';
+import { css, property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
+import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
+
+export { CONTENT_BLOCK_COPY_SIZE };
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -39,6 +42,13 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
 
   /**
    * The default slot for all content-block-copy use cases.
+   * The content size.
+   */
+  @property({ reflect: true })
+  size = CONTENT_BLOCK_COPY_SIZE.REGULAR;
+
+  /**
+   * The shadow slot this copy content should be in.
    */
   @property({ reflect: true })
   slot = 'copy';

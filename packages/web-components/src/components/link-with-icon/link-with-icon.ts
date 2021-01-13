@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, customElement, TemplateResult, property } from 'lit-element';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSLink from '../link/link';
 import styles from './link-with-icon.scss';
 
 export { ICON_PLACEMENT };
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
-class DDSLinkWithIcon extends StableSelectorMixin(DDSLink) {
+class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   /**
    * Icon placement(right (default) | left)
    */
