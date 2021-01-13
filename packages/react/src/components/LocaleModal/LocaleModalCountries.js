@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -88,7 +88,7 @@ const LocaleModalCountries = ({
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
           placeHolderText={modalLabels.searchPlaceholder}
-          labelText={modalLabels.searchLabel}
+          labelText={`${modalLabels.searchLabel}. Note: Location/Language will be dynamically updated as you provide the input`}
           closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
           tabIndex="0"
@@ -98,6 +98,10 @@ const LocaleModalCountries = ({
         </p>
       </div>
       <ul className={`${prefix}--locale-modal__list`} ref={localList}>
+        <p
+          className={`${prefix}--sr-only`}
+          role="status"
+          aria-live="assertive"></p>
         {regionList?.map(
           region =>
             currentRegion === region.name &&
@@ -208,6 +212,16 @@ export const filterLocale = (
     localeItems.length === localeItemsHidden.length
       ? modalLabels.unavailabilityText
       : modalLabels.availabilityText;
+
+  /**
+   *  Reflect number of results in the accessibility readout
+   */
+  const resultsElement = document.querySelector(`.${prefix}--sr-only`);
+  const resultsCount = localeItems.length - localeItemsHidden.length;
+
+  resultsElement.innerHTML = `${resultsCount} ${
+    resultsCount == 1 ? 'result' : 'results'
+  } found.`;
 };
 
 export default LocaleModalCountries;
