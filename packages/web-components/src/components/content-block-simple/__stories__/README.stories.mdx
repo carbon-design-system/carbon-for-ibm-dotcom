@@ -22,7 +22,7 @@ Here's a quick example to get you started.
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/content-block-simple.js';
 ```
@@ -32,7 +32,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/cont
 ```html
 <dds-content-block-simple>
   <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
-  <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+  <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
   <dds-image
     slot="media"
     alt="Image alt text"
@@ -61,7 +61,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
 | `<dds-content-block-simple>`  | `data-autoid="dds--content-block-simple"`   | Component   |
+| `<dds-content-block-copy>`    | `data-autoid="dds--content-block__copy"`    | Component   |
 | `<dds-content-block-heading>` | `data-autoid="dds--content-block__heading"` | Component   |
-| `<dds-content-item-copy>`     | `data-autoid="dds--content-item__copy"`     | Component   |
 
 <Description markdown={contributing} />

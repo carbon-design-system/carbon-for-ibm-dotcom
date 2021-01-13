@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,14 +24,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-segmented-item`)
 class DDSContentBlockSegmentedItem extends StableSelectorMixin(DDSContentGroup) {
-  /**
-   * @returns The main content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
+  protected _renderInnerBody(): TemplateResult | string | void {
     return html`
-      <div class="${prefix}--content-block-segmented__media">
-        <slot name="media"></slot>
+      ${this._renderContent()}${this._renderMedia()}
+    `;
+  }
+
+  protected _renderMedia(): TemplateResult | string | void {
+    const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasMedia}" class="${prefix}--content-block-segmented__media">
+        <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
   }
