@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import { QUOTE_TYPES } from '../quote';
+import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
 import '../quote-source-bottom-copy';
 import '../quote-source-copy';
 import '../quote-source-heading';
@@ -20,9 +20,9 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, inverse } = parameters?.props?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = parameters?.props?.Quote ?? {};
   return html`
-    <dds-quote ?inverse="${inverse}" mark-type="${quoteMark}">
+    <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
       ${copy}
       <dds-quote-source-heading>
         ${sourceHeading}
@@ -47,6 +47,11 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
   [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
+};
+
+const colorSchemes = {
+  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
+  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
 };
 
 export default {
@@ -77,7 +82,7 @@ export default {
         sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet', groupId),
         sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit', groupId),
         sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
-        inverse: boolean('Inverse (inverse)', false, groupId),
+        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular, groupId),
       }),
     },
   },

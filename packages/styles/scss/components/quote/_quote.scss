@@ -131,7 +131,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-quote)[inverse] {
+  :host(#{$dds-prefix}-quote)[color-scheme='inverse'] {
     background: $inverse-02;
     color: $inverse-01;
 
