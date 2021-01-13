@@ -246,6 +246,7 @@ class DDSMastheadSearch extends BXDropdown {
       open,
       redirectUrl,
       searchLabel,
+      _assistiveStatusText: assistiveStatusText,
       _handleClickInner: handleClickInner,
       _handleKeydownInner: handleKeydownInner,
       _handleKeypressInner: handleKeypressInner,
@@ -276,18 +277,16 @@ class DDSMastheadSearch extends BXDropdown {
           @keypress="${handleKeypressInner}"
         >
           ${this._renderTriggerContent()}
-          <div
-            id="result-list"
-            class="react-autosuggest__suggestions-container"
-            aria-live="assertive"
-            aria-relevant="additions text"
-          >
+          <div id="result-list" class="react-autosuggest__suggestions-container">
             <ul role="listbox" class="${ddsPrefix}-ce--masthead__search__list react-autosuggest__suggestions-list">
               <slot></slot>
             </ul>
           </div>
         </div>
       </form>
+      <div class="${prefix}--assistive-text" role="status" aria-live="assertive" aria-relevant="additions text">
+        ${assistiveStatusText}
+      </div>
     `;
   }
 
