@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,7 +97,6 @@ const Masthead = ({
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
-  const [logo, setlogo] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
     signedout: [],
@@ -111,7 +110,6 @@ const Masthead = ({
         if (!unmounted) {
           setMastheadData(pageData.mastheadNav.links);
           setProfileData(pageData.profileMenu);
-          setlogo(pageData?.logo);
         }
       } catch (error) {
         console.error('Error populating masthead data:', error);
@@ -235,7 +233,7 @@ const Masthead = ({
                 )}
 
                 <IbmLogo
-                  logoData={logo}
+                  logoData={mastheadProps.mastheadLogo}
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                   isSearchActive={isSearchActive}
                 />
