@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,32 +24,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-headlines`)
 class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
-  /**
-   * @returns Main content
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
+  protected _renderInnerBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div class="${prefix}--content-block__children">
+      <div ?hidden="${!hasContent}" class="${prefix}--content-block__children">
         <div class="${prefix}--content-block-headlines__container">
           <div class="${prefix}--content-block-headlines__row">
             <div class="${prefix}--content-block-headlines__item-container">
-              <slot name="content"></slot>
+              <slot @slotchange="${handleSlotChange}"></slot>
             </div>
           </div>
         </div>
-      </div>
-    `;
-  }
-
-  /**
-   * @returns The copy content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy(): TemplateResult | string | void {
-    return html`
-      <div class="${prefix}--content-block__copy">
-        <slot name="copy"></slot>
       </div>
     `;
   }

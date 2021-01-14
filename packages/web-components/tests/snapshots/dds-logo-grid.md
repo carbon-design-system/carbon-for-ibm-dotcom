@@ -5,10 +5,19 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-block__children">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <div class="bx--logo-grid__row">
     <slot>
     </slot>
+    <div hidden="">
+      <slot name="media">
+      </slot>
+    </div>
   </div>
 </div>
 <div

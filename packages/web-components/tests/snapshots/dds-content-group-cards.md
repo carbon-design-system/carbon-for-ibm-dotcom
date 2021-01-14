@@ -7,15 +7,20 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-group__copy">
-  <slot>
-  </slot>
-</div>
-<div class="bx--content-group__children bx--content-group__col">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-group__children bx--content-group__col"
+  hidden=""
+>
   <div class="bx--content-group-cards-group bx--grid--condensed">
     <div class="bx--content-group-cards__row">
-      <slot name="content">
+      <slot>
       </slot>
+      <div hidden="">
+        <slot name="media">
+        </slot>
+      </div>
     </div>
   </div>
 </div>
@@ -28,6 +33,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 
@@ -36,15 +43,20 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-group__copy">
-  <slot>
-  </slot>
-</div>
-<div class="bx--content-group__children bx--content-group__col">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-group__children bx--content-group__col"
+  hidden=""
+>
   <div class="bx--content-group-cards-group bx--grid--condensed">
     <div class="bx--content-group-cards__row">
-      <slot name="content">
+      <slot>
       </slot>
+      <div hidden="">
+        <slot name="media">
+        </slot>
+      </div>
     </div>
   </div>
 </div>
@@ -57,6 +69,8 @@
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 

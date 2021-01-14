@@ -1,20 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { css, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-cards.scss';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -24,18 +22,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-cards`)
 class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
-  /**
-   * @returns The main content.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
-    return html`
-      <div class="${prefix}--content-block__children">
-        <slot name="content"></slot>
-      </div>
-    `;
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--content-block-cards`;
   }
