@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,7 @@ import '../../content-item/content-item-heading';
 import '../../content-item/content-item-copy';
 import '../../content-item/content-item';
 import '../content-block-media-content';
+import '../../card/card-heading';
 import '../../card-link/card-link';
 import '../../feature-card/feature-card';
 import '../../feature-card/feature-card-footer';
@@ -35,10 +36,11 @@ const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit.
   Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit.
   Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
   - [list item](https://www.ibm.com)
-    1. list item 1a
+    - list item 1a
   1. list item 2
-    - list item 2a
+    1. list item 2a
 `;
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
@@ -165,7 +167,7 @@ export const Default = () => {
           alt="Feature card image"
           default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
         ></dds-image>
-        <span slot="heading">Consectetur adipisicing elit</span>
+        <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
         <dds-feature-card-footer>
           ${ArrowRight20({ slot: 'icon' })}
         </dds-feature-card-footer>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,8 +52,13 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
-    if (childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
-      this.classList.add((this.constructor as typeof DDSLinkList).classSplitLayout);
+
+    if (this.type === LINK_LIST_TYPE.END) {
+      childItems.forEach(item => item.classList.add(`${prefix}--link-list-item__end`));
+
+      if (childItems.length > 3) {
+        this.classList.add((this.constructor as typeof DDSLinkList).classSplitLayout);
+      }
     }
   }
 
@@ -65,7 +70,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <h4 class="${prefix}--link-list__heading"><slot name="heading"></slot></h4>
+      <slot name="heading"></slot>
       <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>

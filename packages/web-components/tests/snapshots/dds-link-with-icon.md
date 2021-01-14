@@ -8,6 +8,7 @@
 <a
   class="bx--link bx--link-with-icon"
   id="link"
+  part="link"
 >
   <span>
     <slot>
@@ -25,6 +26,7 @@
 <p
   class="bx--link bx--link--disabled bx--link-with-icon"
   id="link"
+  part="link"
 >
   <span>
     <slot>

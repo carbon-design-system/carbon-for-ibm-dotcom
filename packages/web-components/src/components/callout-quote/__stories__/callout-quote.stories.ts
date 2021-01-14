@@ -1,34 +1,46 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import '../callout-quote';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { QUOTE_TYPES } from '../../quote/quote';
+import '../../quote/quote-source-bottom-copy';
+import '../../quote/quote-source-copy';
+import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
 
+const types = {
+  [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
+  [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
+  [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
+  [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
+};
+
 export const Default = ({ parameters }) => {
-  const { copy, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.CalloutQuote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.CalloutQuote ?? {};
   return html`
-    <dds-callout-quote>
-      <span slot="copy">
-        ${copy}
-      </span>
-      <span slot="sourceHeading">
+    <dds-callout-quote mark-type="${quoteMark}">
+      ${copy}
+      <dds-quote-source-heading>
         ${sourceHeading}
-      </span>
-      <span slot="sourceCopy">
+      </dds-quote-source-heading>
+      <dds-quote-source-copy>
         ${sourceCopy}
-      </span>
-      <span slot="sourceBottomCopy">
+      </dds-quote-source-copy>
+      <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </span>
+      </dds-quote-source-bottom-copy>
       <dds-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
@@ -49,9 +61,10 @@ export default {
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
           groupId
         ),
-        sourceHeading: textNullable('Source Heading(sourceHeading)', 'Lorem ipsum dolor sit amet', groupId),
-        sourceCopy: textNullable('Source Copy(sourceCopy)', 'consectetur adipiscing elit', groupId),
-        sourceBottomCopy: textNullable('Source Copy(sourceBottomCopy)', 'IBM Cloud', groupId),
+        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet', groupId),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit', groupId),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
       }),
     },
     decorators: [

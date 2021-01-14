@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,9 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../content-group/content-group-copy';
+import '../../content-item/content-item-copy';
+import '../../card/card-heading';
 import readme from './README.stories.mdx';
 
 const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -111,9 +114,10 @@ export const Default = ({ parameters }) => {
       <dds-content-block-paragraph>${groupCopy}</dds-content-block-paragraph>
       <dds-content-group-cards>
         <dds-content-group-heading>${cardsGroupHeading}</dds-content-group-heading>
-        <p slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <dds-content-group-cards-item href="www.ibm.com">
-          <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+          <dds-card-heading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+          </dds-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua.
@@ -123,7 +127,9 @@ export const Default = ({ parameters }) => {
           </dds-card-footer>
         </dds-content-group-cards-item>
         <dds-content-group-cards-item href="www.ibm.com">
-          <span slot="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</span>
+          <dds-card-heading>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+          </dds-card-heading>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua.
@@ -135,7 +141,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-cards>
       <dds-content-group-pictograms>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
             <dds-pictogram-item>
@@ -175,7 +181,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-pictograms>
       <dds-content-group-simple>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${image({ heading })}
         <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
           Lorem ipsum dolor sit amet

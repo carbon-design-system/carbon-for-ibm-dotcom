@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 import '../content-block-cards';
 import '../../content-block/content-block-heading';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../../cta/card-cta-footer';
@@ -29,7 +31,7 @@ const ctaTypes = {
 
 const cardGroupItem = html`
   <dds-card-group-item cta-type="local" href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -46,8 +48,8 @@ const cardGroupItemWithImages = html`
       default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-cta-footer><dds-card-cta-footer>
   </dds-card-group-item>
 `;
@@ -66,7 +68,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
@@ -82,7 +84,7 @@ export const withImages = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
@@ -99,7 +101,7 @@ export const withVideos = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -47,7 +47,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
-    const footer = this.ownerDocument.createElement(`${ddsPrefix}-footer-composite`);
+    const footer = this.ownerDocument!.createElement(`${ddsPrefix}-footer-composite`);
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
   }
@@ -56,7 +56,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the masthead contents.
    */
   private _createMastheadRenderRoot() {
-    const masthead = this.ownerDocument.createElement(`${ddsPrefix}-masthead-composite`);
+    const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
   }

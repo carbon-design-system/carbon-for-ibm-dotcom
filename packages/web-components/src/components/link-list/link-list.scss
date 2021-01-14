@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,21 +12,17 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
 @import '../../globals/scss/box-sizing';
 
+:host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item),
 :host(#{$dds-prefix}-link-list-item-cta) {
   display: block;
 
   .#{$prefix}--link {
     cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &:focus {
-    outline: 2px solid $focus;
-    outline-offset: -2px;
+    outline: none;
   }
 }
 

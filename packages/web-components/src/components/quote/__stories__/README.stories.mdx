@@ -18,25 +18,26 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/quote/quote.js';
+import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-bottom-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon.js';
 ```
 
 ### HTML
 
 ```html
-<dds-quote inverse mark-type="doubleCurved">
-  <span slot="copy">
-    This is the main quote
-  </span>
-  <span slot="sourceHeading">
+<dds-quote inverse mark-type="double-curved">
+  This is the main quote
+  <dds-quote-source-heading>
     This is the first line of source
-  </span>
-  <span slot="sourceCopy">
+  </dds-quote-source-heading>
+  <dds-quote-source-copy>
     This is the second line of source
-  </span>
-  <span slot="sourceBottomCopy">
+  </dds-quote-source-copy>
+  <dds-quote-source-bottom-copy>
     This is the third line of source
-  </span>
+  </dds-quote-source-bottom-copy>
   <dds-link-with-icon slot="footer" href="https://example.com">
     Link with Icon
     <svg

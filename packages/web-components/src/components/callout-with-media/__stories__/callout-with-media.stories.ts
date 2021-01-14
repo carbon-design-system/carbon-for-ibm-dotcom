@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,11 @@ import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import styles from './callout-with-media.stories.scss';
 import '../../content-block/content-block-heading';
-import '../../content-item/content-item-copy';
+/* eslint-disable import/no-duplicates */
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+// Above import is interface-only ref and thus code won't be brought into the build
+import '../../content-block/content-block-copy';
+/* eslint-enable import/no-duplicates */
 import '../callout-with-media';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
@@ -35,8 +39,8 @@ export const Default = ({ parameters }) => {
   const { copy, heading, mediaType } = parameters?.props?.CalloutWithMedia ?? {};
   return html`
     <dds-callout-with-media>
-      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;

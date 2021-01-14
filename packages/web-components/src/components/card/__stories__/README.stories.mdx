@@ -18,14 +18,16 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/card/card.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-eyebrow.js';
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 ```
 
 ### HTML
 
 ```html
 <dds-card href="https://example.com">
-  <span slot="eyebrow">Eyebrow text</span>
-  <span slot="heading">Lorem ipsum dolor sit amet</span>
+  <dds-card-eyebrow>Eyebrow text</dds-card-eyebrow>
+  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
   <dds-card-footer slot="footer">
     Card CTA text
     <svg
@@ -42,6 +44,43 @@ import '@carbon/ibmdotcom-web-components/es/components/card/card.js';
       <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
   </dds-card-footer>
+</dds-card>
+```
+
+## Card with pictogram
+
+```html
+<dds-card
+  color-scheme=${inverse ? 'inverse' : ''}
+  pictogram-placement="${pictogramPlacement}"
+  href="https://example.com"
+>
+  <dds-card-eyebrow>Eyebrow text</dds-card-eyebrow>
+  <dds-card-heading>Lorem ipsum dolor</dds-card-heading>
+  <p>Copy to be shown on hover if the pictogram placement is bottom</p>
+  <svg
+    slot="pictogram"
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    stroke="currentColor"
+    data-autoid="dds--card__pictogram"
+    aria-label="Pictogram description"
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
+    role="img"
+    class="bx--card__pictogram"
+  >
+    <path
+      fill="none"
+      stroke-linejoin="round"
+      stroke-miterlimit="10"
+      stroke-width=".72"
+      d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+    >
+    </path>
+  </svg>
 </dds-card>
 ```
 

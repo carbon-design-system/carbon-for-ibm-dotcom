@@ -17,6 +17,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
 import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
@@ -24,6 +25,7 @@ import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-heading';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-media';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-content';
 import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-cta';
@@ -33,10 +35,10 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace
 
 ```html
 <dds-leadspace-block>
-  <span slot="title">LeadSpace Block Title</span>
+  <dds-leadspace-block-heading>LeadSpace Block Title</dds-leadspace-block-heading>
   <dds-leadspace-block-content>
     <dds-content-block-heading>LeadSpace Block Heading</dds-content-block-heading>
-    <dds-content-block-copy slot="copy">LeadSpace Block Copy</dds-content-block-copy>
+    <dds-content-block-copy>LeadSpace Block Copy</dds-content-block-copy>
     <dds-leadspace-block-media slot="media">
       <dds-image-with-caption
         alt="Image alt text"
@@ -61,7 +63,7 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace
       </dds-image-with-caption>
     </dds-leadspace-block-media>
     <dds-link-list type="end">
-      <span slot="heading">Featured products</span>
+      <dds-link-list-heading>Featured products</dds-link-list-heading>
       <dds-link-list-item href="https://example.com">
         Services ${ArrowRight20({ slot: 'icon' })}
       </dds-link-list-item>

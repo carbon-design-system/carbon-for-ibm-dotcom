@@ -11,12 +11,14 @@ import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { number } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../card-group';
 import '../card-group-item';
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -35,8 +37,8 @@ const cardGroupItemWithImages = html`
       default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
@@ -56,7 +58,7 @@ export const withCTA = ({ parameters }) => {
     <dds-card-group>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
-        <div slot="heading">Top level card link</div>
+        <dds-card-heading>Top level card link</dds-card-heading>
         <dds-card-footer slot="footer" color-scheme="inverse">
           ${ArrowRight20({ slot: 'icon' })}
         </dds-card-footer>
@@ -91,7 +93,7 @@ export const withImagesAndCTA = ({ parameters }) => {
     <dds-card-group>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
-        <div slot="heading">Top level card link</div>
+        <dds-card-heading>Top level card link</dds-card-heading>
         <dds-card-footer slot="footer" color-scheme="inverse">
           ${ArrowRight20({ slot: 'icon' })}
         </dds-card-footer>

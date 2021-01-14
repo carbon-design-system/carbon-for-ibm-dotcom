@@ -12,6 +12,8 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../../image/image';
 import '../feature-card-block-large';
 import '../feature-card-block-large-footer';
@@ -47,8 +49,8 @@ export const Default = ({ parameters }) => {
         >
         </dds-image-item>
       </dds-image>
-      <span slot="eyebrow">${eyebrow}</span>
-      <span slot="heading">${heading}</span>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+      <dds-card-heading>${heading}</dds-card-heading>
       <p>${copy}</p>
       <dds-feature-card-block-large-footer>
         ${ArrowRight20({ slot: 'icon' })}

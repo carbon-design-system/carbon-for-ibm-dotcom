@@ -15,6 +15,8 @@ Here's a quick example to get you started.
 ```javascript
 import '@carbon/ibmdotcom-web-components/content-block-mixed.js';
 import '@carbon/ibmdotcom-web-components/image/image.js';
+import '@carbon/ibmdotcom-web-components/card/card-heading.js';
+import '@carbon/ibmdotcom-web-components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/content-block/content-block-heading.js';
 import '@carbon/ibmdotcom-web-components/content-block/content-block-paragraph.js';
 import '@carbon/ibmdotcom-web-components/content-group/content-group-heading.js';
@@ -23,6 +25,7 @@ import '@carbon/ibmdotcom-web-components/content-group-cards/content-group-cards
 import '@carbon/ibmdotcom-web-components/content-group-pictograms/content-group-pictograms.js';
 import '@carbon/ibmdotcom-web-components/content-group-simple/content-group-simple.js';
 import '@carbon/ibmdotcom-web-components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/pictogram-item/pictogram-item.js';
 import '@carbon/ibmdotcom-web-components/cta/card-cta.js';
 import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
@@ -42,7 +45,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
     <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
     <dds-card-group slot="content">
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -55,7 +58,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
       </dds-card-group-item>
 
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -68,7 +71,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
       </dds-card-group-item>
 
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -90,7 +93,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 
   <dds-content-group-pictograms>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
     <dds-pictogram-item>
       <svg slot="pictogram"...>
         ...
@@ -108,7 +111,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 
   <dds-content-group-simple>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
     <dds-image-with-caption
       slot="media"
       alt="Image alt text"
@@ -147,6 +150,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
 | `<dds-content-block-mixed>`   | `data-autoid="dds--content-block-mixed"`    | Component   |
+| `<dds-content-block-copy>`    | `data-autoid="dds--content-block__copy"`    | Component   |
 | `<dds-content-block-heading>` | `data-autoid="dds--content-block__heading"` | Component   |
 | `<dds-content-item-copy>`     | `data-autoid="dds--content-item__copy"`     | Component   |
 

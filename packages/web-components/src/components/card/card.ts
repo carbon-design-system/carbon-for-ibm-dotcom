@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2020
+ * Copyright IBM Corp. 2019, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,12 @@
 import { html, property, internalProperty, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSLink from '../link/link';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
+import { PICTOGRAM_PLACEMENT } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,9 +24,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
  */
 const slotExistencePropertyNames = {
-  eyebrow: '_hasEyebrow',
-  heading: '_hasHeading',
   image: '_hasImage',
+  pictogram: '_hasPictogram',
 };
 
 /**
@@ -38,19 +38,7 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(DDSLink) {
-  /**
-   * `true` if there is eyebrow content.
-   */
-  @internalProperty()
-  protected _hasEyebrow = false;
-
-  /**
-   * `true` if there is heading content.
-   */
-  @internalProperty()
-  protected _hasHeading = false;
-
+class DDSCard extends StableSelectorMixin(BXLink) {
   /**
    * `true` if there is image content.
    */
@@ -64,14 +52,24 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
   protected _hasCopy = false;
 
   /**
+   * `true` if there is a pictogram.
+   */
+  @internalProperty()
+  protected _hasPictogram = false;
+
+  /**
    * Handles `slotchange` event.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    const { pictogramPlacement: currentPictogramPlacement } = this;
+    const { dataset, name } = target as HTMLSlotElement;
+    const { pictogramPlacement } = dataset;
+    if (!pictogramPlacement || pictogramPlacement === currentPictogramPlacement) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    }
   }
 
   /**
@@ -109,18 +107,41 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _hasEyebrow: hasEyebrow, _hasHeading: hasHeading, _handleSlotChange: handleSlotChange } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } = this;
     return html`
       ${this._renderImage()}
-      <div class="${prefix}--card__wrapper">
+      <div class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''}">
         <div class="${prefix}--card__content">
-          <p ?hidden="${!hasEyebrow}" class="${prefix}--card__eyebrow">
-            <slot name="eyebrow" @slotchange="${handleSlotChange}"></slot>
-          </p>
-          <h3 ?hidden="${!hasHeading}" class="${prefix}--card__heading">
-            <slot name="heading" @slotchange="${handleSlotChange}"></slot>
-          </h3>
-          ${this._renderCopy()}
+          <slot name="eyebrow"></slot>
+          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+            ? html`
+                <slot
+                  name="pictogram"
+                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
+                  @slotchange="${handleSlotChange}"
+                ></slot>
+              `
+            : ''}
+          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
+            ? html`
+                <slot name="heading"></slot>
+              `
+            : null}
+          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM || !hasPictogram ? this._renderCopy() : ''}
+          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
+            ? html`
+                <slot
+                  name="pictogram"
+                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
+                  @slotchange="${handleSlotChange}"
+                ></slot>
+              `
+            : ''}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+            ? html`
+                <slot name="heading"></slot>
+              `
+            : null}
           <slot name="footer"></slot>
         </div>
       </div>
@@ -139,6 +160,12 @@ class DDSCard extends StableSelectorMixin(DDSLink) {
    */
   @property()
   href = '';
+
+  /**
+   * Pictogram placement
+   */
+  @property({ attribute: 'pictogram-placement', reflect: true })
+  pictogramPlacement = PICTOGRAM_PLACEMENT.TOP;
 
   createRenderRoot() {
     return this.attachShadow({

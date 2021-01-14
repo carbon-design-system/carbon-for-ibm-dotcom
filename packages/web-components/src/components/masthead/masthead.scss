@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -25,6 +25,14 @@
   width: mini-units(6);
   height: mini-units(6);
 
+  @include carbon--breakpoint('md') {
+    display: block;
+  }
+
+  @include carbon--breakpoint(800px) {
+    display: none;
+  }
+
   .#{$dds-prefix}-ce--header__menu-trigger__container {
     display: contents;
   }
@@ -45,12 +53,10 @@
     @include tooltip--placement('definition', 'bottom', 'start');
   }
 
-  // We have a style to remove extra left padding when the masthead logo is next to left nav trigger button:
-  // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.8.0/packages/styles/scss/components/masthead/_masthead-leftnav.scss#L41-L47
-  // For `md`-`lg` breakpoint it's always the case.
+  // Ensures that IBM logo gets the padding of "wider screen" mode if we use nav pager
   a {
-    @include carbon--breakpoint-between('md', 'lg') {
-      padding: 0 $carbon--spacing-05;
+    @include carbon--breakpoint(800px) {
+      padding: 0 $carbon--spacing-07;
     }
   }
 
@@ -124,21 +130,55 @@
 
 :host(#{$dds-prefix}-top-nav),
 :host(#{$dds-prefix}-top-nav-l1) {
-  display: contents;
+  display: none;
+
+  @include carbon--breakpoint(800px) {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+  }
 
   .#{$prefix}--header__nav {
     @include carbon--breakpoint(800px) {
-      display: none;
-    }
-
-    @include carbon--breakpoint('lg') {
       display: block;
+      position: absolute;
     }
   }
 
   &[hide-divider] .#{$prefix}--header__nav {
     padding-left: 0;
   }
+
+  .#{$dds-prefix}-ce--header__nav-content-container {
+    flex: 1;
+    position: relative;
+  }
+
+  .#{$prefix}--header__nav-caret-left-container,
+  .#{$prefix}--header__nav-caret-right-container {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .#{$prefix}--header__nav-caret-left,
+  .#{$prefix}--header__nav-caret-right {
+    position: relative;
+  }
+
+  .#{$dds-prefix}-ce--header__nav-caret-container--hidden {
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
+:host(#{$dds-prefix}-top-nav) {
+  overflow: hidden;
+}
+
+:host(#{$dds-prefix}-top-nav-l1) {
+  overflow: visible;
 }
 
 :host(#{$dds-prefix}-top-nav-item) {
@@ -178,6 +218,7 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
+    transform: scale(1.25);
   }
 
   a.#{$prefix}--header__menu-item {
@@ -206,7 +247,7 @@
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down(800px) {
       visibility: inherit;
       width: mini-units(32);
       transition: visibility 0.11s step-start 0s, width 0.11s cubic-bezier(0.2, 0, 1, 0.9) 0s;
@@ -278,34 +319,37 @@
   @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
-    @extend .#{$prefix}--side-nav__overlay-active;
-
-    position: fixed;
-
-    // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
-    top: 0;
-    left: 0;
-    z-index: calc(#{z('header')} - 1);
-    clip-path: polygon(
-        mini-units(6) 0,
-        100% 0,
-        100% 100%,
-        0 100%,
-        0 calc(#{mini-units(6)} + 1px),
-        mini-units(6) calc(#{mini-units(6)} + 1px)
-      )
-      #{'/*rtl:polygon(
-      0 0,
-      calc(100% - ' + mini-units(6) + ') 0,
-      calc(100% - ' + mini-units(6) + ') calc(' +
-      mini-units(6) + ' + 1px),
-      100% calc(' + mini-units(6) + ' + 1px),
-      100% 100%,
-      0 100%
-    )*/'};
-
-    @include carbon--breakpoint-down(md) {
+    @include carbon--breakpoint-down(800px) {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
       background-color: $ui-background;
+      opacity: 1;
+      transition: opacity $transition--expansion $carbon--standard-easing,
+        background-color $transition--expansion $carbon--standard-easing;
+
+      // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
+      top: 0;
+      left: 0;
+      z-index: calc(#{z('header')} - 1);
+      clip-path: polygon(
+          mini-units(6) 0,
+          100% 0,
+          100% 100%,
+          0 100%,
+          0 calc(#{mini-units(6)} + 1px),
+          mini-units(6) calc(#{mini-units(6)} + 1px)
+        )
+        #{'/*rtl:polygon(
+        0 0,
+        calc(100% - ' + mini-units(6) + ') 0,
+        calc(100% - ' + mini-units(6) +
+        ') calc(' + mini-units(6) + ' + 1px),
+        100% calc(' + mini-units(6) +
+        ' + 1px),
+        100% 100%,
+        0 100%
+      )*/'};
     }
   }
 }
