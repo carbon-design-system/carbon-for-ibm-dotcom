@@ -101,7 +101,7 @@ const StoryContent = () => html`
           <dds-table-of-contents>
             <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
-              <span slot="title">Lorem ipsum dolor sit amet</span>
+              <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
               <dds-leadspace-block-content>
                 <dds-content-block-heading>
                   Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
