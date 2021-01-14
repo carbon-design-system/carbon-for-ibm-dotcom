@@ -27,7 +27,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -64,7 +64,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -103,7 +103,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -140,7 +140,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -179,7 +179,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -223,7 +223,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -269,7 +269,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -313,7 +313,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -359,7 +359,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -396,7 +396,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -435,7 +435,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -472,7 +472,7 @@
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
