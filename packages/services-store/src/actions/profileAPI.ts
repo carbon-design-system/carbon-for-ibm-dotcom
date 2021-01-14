@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,8 +40,8 @@ export type ProfileAPIActions = ReturnType<typeof setMonitorUserStatusError> | R
  * @returns A Redux action that monitors user authentication status.
  */
 export function monitorUserStatus(): ThunkAction<void, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
-  return dispatch => {
-    ProfileAPI.monitorUserStatus((error: Error, status: UserStatus) => {
+  return async dispatch => {
+    await ProfileAPI.monitorUserStatus((error: Error, status: UserStatus) => {
       if (error) {
         dispatch(setMonitorUserStatusError(error));
       } else {
