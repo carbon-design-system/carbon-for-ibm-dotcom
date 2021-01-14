@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
 @import '../../globals/scss/box-sizing';
 
+:host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item),
 :host(#{$dds-prefix}-link-list-item-cta) {
   display: block;
@@ -19,17 +20,18 @@
   .#{$prefix}--link {
     cursor: pointer;
   }
-
-  &:focus {
-    outline: none;
-  }
 }
 
 :host(#{$dds-prefix}-link-list-item) {
+  outline: none;
+
   .#{$prefix}--link {
     > span {
       flex: 1;
     }
+
+    // TODO: See if there is a better solution than an internal custom property
+    padding: var(--#{$dds-prefix}--link-list-item--anchor-padding, 0);
   }
 }
 
@@ -55,39 +57,41 @@
   .#{$dds-prefix}-ce--link-list__list--end {
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-cta) {
-      padding: $carbon--layout-01;
       border-top: 1px solid $ui-03;
       border-bottom: 1px solid $ui-03;
       margin-top: -1px;
       margin-left: -$carbon--layout-01;
+      --#{$dds-prefix}--link-list-item--anchor-padding: #{$carbon--spacing-05};
     }
   }
 
-  &.#{$prefix}--link-list__split {
+  .#{$dds-prefix}-ce--link-list__heading__wrapper {
+    display: contents;
+  }
+
+  @include carbon--breakpoint('md') {
+    .#{$dds-prefix}-ce--link-list__heading--split ::slotted(#{$dds-prefix}-link-list-heading) {
+      width: 33.3%;
+      padding-right: 10%;
+    }
+  }
+
+  .#{$dds-prefix}-ce--link-list__list--split {
     @include carbon--breakpoint('sm') {
       ::slotted(#{$dds-prefix}-link-list-item) {
         margin-right: -$carbon--layout-01;
       }
     }
+
     @include carbon--breakpoint('md') {
-      ul {
-        ::slotted(#{$dds-prefix}-link-list-item) {
-          margin-left: -$carbon--layout-01;
-          margin-right: 0;
-        }
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 2rem;
-      }
-
-      .#{$prefix}--link-list__heading {
-        width: 33.3%;
-        padding-right: 10%;
-      }
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2rem;
 
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
+        margin-left: -$carbon--layout-01;
+        margin-right: 0;
       }
     }
   }

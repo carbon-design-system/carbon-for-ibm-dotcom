@@ -6,7 +6,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { customElement, html, LitElement, property } from 'lit-element';
+
+import { classMap } from 'lit-html/directives/class-map';
+import { internalProperty, customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -27,20 +29,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends StableSelectorMixin(LitElement) {
   /**
-   * Returns a class-name based on the parameter type
+   * `true` to use "split mode" layout for `type="end"`.
+   * Should happen if there are more than three child items slotted in.
    */
-  private ulClasses() {
-    switch (this.type) {
-      case LINK_LIST_TYPE.HORIZONTAL:
-        return `${prefix}--link-list__list--horizontal`;
-      case LINK_LIST_TYPE.VERTICAL:
-        return `${prefix}--link-list__list--vertical`;
-      case LINK_LIST_TYPE.END:
-        return `${ddsPrefix}-ce--link-list__list--end`;
-      default:
-        return `${prefix}--link-list__list--card`;
-    }
-  }
+  @internalProperty()
+  private _useSplitLayoutForEndType = false;
 
   /**
    * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
@@ -52,14 +45,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
-
-    if (this.type === LINK_LIST_TYPE.END) {
-      childItems.forEach(item => item.classList.add(`${prefix}--link-list-item__end`));
-
-      if (childItems.length > 3) {
-        this.classList.add((this.constructor as typeof DDSLinkList).classSplitLayout);
-      }
-    }
+    this._useSplitLayoutForEndType = childItems.length > 3;
   }
 
   /**
@@ -69,19 +55,28 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   type = LINK_LIST_TYPE.DEFAULT;
 
   render() {
+    const { type, _useSplitLayoutForEndType: useSplitLayoutForEndType } = this;
+    const headingClasses = classMap({
+      [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
+      [`${ddsPrefix}-ce--link-list__heading--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
+    });
+    const listTypeClasses =
+      {
+        [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
+        [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
+        [LINK_LIST_TYPE.END]: `${ddsPrefix}-ce--link-list__list--end`,
+      }[type] ?? `${prefix}--link-list__list--card`;
+    const listClasses = classMap({
+      [`${prefix}--link-list__list`]: true,
+      [listTypeClasses]: true,
+      [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
+    });
     return html`
-      <h4 class="${prefix}--link-list__heading"><slot name="heading"></slot></h4>
-      <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
+      <div class="${headingClasses}"><slot name="heading"></slot></div>
+      <ul name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
-  }
-
-  /**
-   * The CSS class for the "split layout".
-   */
-  static get classSplitLayout() {
-    return `${prefix}--link-list__split`;
   }
 
   /**

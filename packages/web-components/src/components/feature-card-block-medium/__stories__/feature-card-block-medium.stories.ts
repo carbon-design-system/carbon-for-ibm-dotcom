@@ -7,16 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import '../../image/image';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
+import '../../image/image';
 import '../feature-card-block-medium';
 import '../feature-card-block-medium-block-heading';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--001.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
   const { blockHeading, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card-block-medium'] ?? {};
@@ -57,10 +58,7 @@ export default {
           'How is artificial intelligence used today in your industry?'
         ),
         heading: textNullable('Card heading (heading):', 'Explore AI use cases in all industries'),
-        defaultSrc: textNullable(
-          'Image src (default-src):',
-          'https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616'
-        ),
+        defaultSrc: textNullable('Image src (default-src):', imgLg1x1),
         eyebrow: textNullable('Card eyebrow (eyebrow):', 'Explore AI use cases in all industries'),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
