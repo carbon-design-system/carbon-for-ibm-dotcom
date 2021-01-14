@@ -119,7 +119,8 @@
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
   ::slotted(#{$dds-prefix}-footer-logo),
-  ::slotted(#{$dds-prefix}-language-selector-desktop) {
+  ::slotted(#{$dds-prefix}-language-selector-desktop),
+  ::slotted(#{$dds-prefix}-language-selector-mobile) {
     display: none;
   }
 }
