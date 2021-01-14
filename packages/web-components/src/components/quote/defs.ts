@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,4 +37,16 @@ export enum QUOTE_TYPES {
    * corner-bracket
    */
   CORNER_BRACKET = 'corner-bracket',
+}
+
+export enum QUOTE_COLOR_SCHEMES {
+  /**
+   * Regular Scheme
+   */
+  REGULAR = 'regular',
+
+  /**
+   * Inverse Scheme
+   */
+  INVERSE = 'inverse',
 }
