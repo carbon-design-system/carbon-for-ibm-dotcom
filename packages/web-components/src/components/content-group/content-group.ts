@@ -32,10 +32,10 @@ class DDSContentGroup extends DDSContentBlock {
   }
 
   protected _renderInnerBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
+    const { _hasContent: hasContent, _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-group__children ${prefix}--content-group__col">
-        <slot></slot>
+        <slot @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
   }
