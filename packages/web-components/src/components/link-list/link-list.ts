@@ -72,7 +72,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
       [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
     });
     return html`
-      <h4 class="${headingClasses}"><slot name="heading"></slot></h4>
+      <slot name="heading"></slot>
       <ul name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>

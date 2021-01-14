@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,7 +80,11 @@ export const Card = ({
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
         <div className={`${prefix}--card__content`}>
-          {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
+          {eyebrow && (
+            <p className={`${prefix}--card__eyebrow`} aria-hidden={true}>
+              {eyebrow}
+            </p>
+          )}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
           {optionalContent(copy)}
           {renderFooter(cta, pictogram)}
@@ -121,7 +125,9 @@ function renderFooter(cta, pictogram) {
           [`${prefix}--card__footer__copy`]: cta?.copy,
         })}>
         {cta?.copy && !pictogram && (
-          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
+          <span className={`${prefix}--card__cta__copy`} aria-hidden={true}>
+            {cta?.copy}
+          </span>
         )}
         {cta?.icon?.src && !pictogram && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />

@@ -7,15 +7,16 @@
 ```
 <slot name="heading">
 </slot>
-<div class="bx--content-block__copy">
-  <slot name="copy">
-  </slot>
-</div>
-<div class="bx--content-block__children">
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-block__children"
+  hidden=""
+>
   <div class="bx--content-block-headlines__container">
     <div class="bx--content-block-headlines__row">
       <div class="bx--content-block-headlines__item-container">
-        <slot name="content">
+        <slot>
         </slot>
       </div>
     </div>

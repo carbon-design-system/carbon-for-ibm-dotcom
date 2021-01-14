@@ -12,6 +12,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
 @import '../../globals/scss/box-sizing';
 
+:host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item),
 :host(#{$dds-prefix}-link-list-item-cta) {
   display: block;
