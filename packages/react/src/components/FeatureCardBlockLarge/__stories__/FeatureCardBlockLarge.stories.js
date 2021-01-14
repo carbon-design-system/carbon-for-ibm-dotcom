@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,11 @@
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCardBlockLarge from '../FeatureCardBlockLarge';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgMax1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--005.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
+import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--005.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
@@ -46,33 +51,27 @@ export default {
         image: {
           sources: [
             {
-              src:
-                'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+              src: imgSm2x1,
               breakpoint: 'sm',
             },
             {
-              src:
-                'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
+              src: imgMd2x1,
               breakpoint: 'md',
             },
             {
-              src:
-                'https://fpoimg.com/600x600?text=1:1&bg_color=ee5396&text_color=161616',
+              src: imgLg1x1,
               breakpoint: 991,
             },
             {
-              src:
-                'https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616',
+              src: imgXlg2x1,
               breakpoint: 'lg',
             },
             {
-              src:
-                'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
+              src: imgMax1x1,
               breakpoint: 'xlg',
             },
           ],
-          defaultSrc:
-            'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
+          defaultSrc: imgXlg2x1,
           alt: 'Image alt text',
         },
       }),
@@ -87,8 +86,7 @@ export default {
             src: ArrowRight20,
           },
           image: {
-            defaultSrc:
-              'https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616',
+            defaultSrc: imgXlg2x1,
             alt: 'Image alt text',
           },
         },

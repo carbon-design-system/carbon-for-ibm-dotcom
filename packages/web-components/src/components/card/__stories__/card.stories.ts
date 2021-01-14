@@ -1,24 +1,26 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import '../card-footer';
 import '../../image/image';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../card';
 import '../card-eyebrow';
+import '../card-footer';
 import '../card-heading';
+import { boolean, select } from '@storybook/addon-knobs';
+
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--003.jpg';
 import { PICTOGRAM_PLACEMENT } from '../defs';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
   const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
@@ -114,7 +116,7 @@ export default {
     knobs: {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
-        defaultSrc: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+        defaultSrc: imgLg2x1,
         image: boolean('image', false, groupId),
         eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Eyebrow text', groupId),
         heading: textNullable('Card Heading (heading):', 'Lorem ipsum dolor sit amet', groupId),

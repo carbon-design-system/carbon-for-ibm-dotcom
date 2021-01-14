@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,6 +8,8 @@
 import { text, boolean } from '@storybook/addon-knobs';
 import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import styles from './TableOfContents.stories.scss';
@@ -15,24 +17,20 @@ import TableOfContents from '../TableOfContents';
 
 const sources = [
   {
-    src:
-      'https://fpoimg.com/672x200?text=Example%20Logo&bg_color=ee5396&text_color=161616',
+    src: imgLg4x3,
     breakpoint: 400,
   },
   {
-    src:
-      'https://fpoimg.com/672x200?text=Example%20Logo&bg_color=ee5396&text_color=161616',
+    src: imgLg4x3,
     breakpoint: 672,
   },
   {
-    src:
-      'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616&text=Example%20Children',
+    src: imgLg1x1,
     breakpoint: 1056,
   },
 ];
 
-const defaultSrc =
-  'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616';
+const defaultSrc = imgLg1x1;
 const alt = 'Lorem Ipsum';
 const longDescription = 'Lorem Ipsum Dolor';
 

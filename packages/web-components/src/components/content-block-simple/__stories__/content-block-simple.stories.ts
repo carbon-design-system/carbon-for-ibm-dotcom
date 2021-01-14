@@ -7,26 +7,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/defs';
 import '../../image/image';
 import '../../cta/link-list-item-card-cta';
 import '../../cta/text-cta';
-import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-/* eslint-disable import/no-duplicates */
-import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
-// Above import is interface-only ref and thus code won't be brought into the build
-import '../../content-block/content-block-copy';
-/* eslint-enable import/no-duplicates */
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
+// eslint-disable-next-line import/no-duplicates
+import '../../content-block/content-block-copy';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../content-block-simple';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
+// eslint-disable-next-line import/no-duplicates
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import { CTA_TYPE } from '../../cta/defs';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -62,26 +65,10 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
 
 // TODO: Replace with <dds-image-with-caption>
 const image = html`
-  <dds-image
-    slot="media"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-  >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image>
 `;
 
