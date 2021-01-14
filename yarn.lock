@@ -9422,6 +9422,14 @@ carbon-web-components@1.11.0:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"
 
+carbon-web-components@1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.11.1.tgz#51cffaf8ccfbf4e70ebc4af0d5442a720b0f35a6"
+  integrity sha512-XRcFn80Q7ph4UnPfgagOqxQOo+k+EyW2KVjVd44lPo629LjP9MuqDhwKmZs1ADtN2v8uKckdRA+Uude65P2yew==
+  dependencies:
+    "@babel/runtime" "^7.8.0"
+    lodash-es "^4.17.0"
+
 cardinal@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/cardinal/-/cardinal-2.1.1.tgz#7cc1055d822d212954d07b085dea251cc7bc5505"
