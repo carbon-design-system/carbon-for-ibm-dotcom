@@ -5,25 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 import axios from 'axios';
-import root from 'window-or-global';
 
 /**
  * @constant {string | string} Host for the profile status API call
  * @private
  */
-const _host = (process && process.env.PROFILE_HOST) || 'https://login.ibm.com';
-
-/**
- * @constant {string | string} CORS proxy for lower environment calls
- * @private
- */
-const _proxy =
-  root.location?.host === 'www.ibm.com'
-    ? ''
-    : // Optional chaining operator in `process.env.ENVVAR` does not work in some build systems, notably Parcel
-      (process &&
-        (process.env.REACT_APP_CORS_PROXY || process.env.CORS_PROXY)) ||
-      '';
+const _host =
+  (process && process.env.PROFILE_HOST) || 'https://prepiam.ice.ibmcloud.com';
 
 /**
  * @constant {string | string} API version
@@ -37,7 +25,7 @@ const _version = (process && process.env.PROFILE_VERSION) || 'v1';
  * @type {string}
  * @private
  */
-const _endpoint = `${_proxy}${_host}/${_version}/mgmt/idaas/user/status/`;
+const _endpoint = `${_host}/${_version}/mgmt/idaas/user/status/`;
 
 /**
  * Profile API class with methods for checking user authentication for ibm.com
