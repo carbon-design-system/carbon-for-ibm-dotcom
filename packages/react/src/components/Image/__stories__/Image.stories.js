@@ -1,11 +1,14 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import Image from '../Image';
+import img320 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--001.jpg';
+import img480 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--001.jpg';
+import img960 from '../../../../../storybook-images/assets/960/fpo--2x1--960x480--001.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -22,27 +25,20 @@ export default {
       Image: ({ groupId }) => ({
         image: [
           {
-            src:
-              'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+            src: img320,
             breakpoint: 'sm',
           },
           {
-            src:
-              'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
+            src: img480,
             breakpoint: 'md',
           },
           {
-            src:
-              'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+            src: img960,
             breakpoint: 'lg',
           },
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text(
-          'Default image (defaultSrc):',
-          'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
-          groupId
-        ),
+        defaultSrc: text('Default image (defaultSrc):', img960, groupId),
       }),
     },
   },

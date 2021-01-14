@@ -31,7 +31,7 @@ import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group
 <dds-leadspace alt="alt text" default-src="www.example.com">
   <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
   LeadSpace copy
-  <dds-button-group slot="buttons">
+  <dds-button-group slot="action">
     ${buttons.map( elem => html`
     <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
     ` )}

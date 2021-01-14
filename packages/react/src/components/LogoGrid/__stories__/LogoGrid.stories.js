@@ -1,15 +1,63 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { boolean, text } from '@storybook/addon-knobs';
+import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
 import LogoGrid from '../LogoGrid';
-import logos from './data/logos.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
+
+const logos = [
+  {
+    label: 'Company A',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company B',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company C',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company D',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company E',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company F',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company G',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company H',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+  {
+    label: 'Company I',
+    imgSrc: imgMd4x3,
+    altText: 'Image alt text',
+  },
+];
 
 export default {
   title: 'Components|LogoGrid',

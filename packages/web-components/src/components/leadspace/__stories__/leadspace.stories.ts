@@ -26,6 +26,8 @@ import '../../button-group/button-group-item';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+
 const gradientStyleSchemes = {
   [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
@@ -37,7 +39,7 @@ export const DefaultWithNoImage = ({ parameters }) => {
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -58,16 +60,16 @@ export const DefaultWithImage = ({ parameters }) => {
     >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
           `
         )}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
@@ -79,7 +81,7 @@ export const Centered = ({ parameters }) => {
     <dds-leadspace type="centered">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -101,16 +103,16 @@ export const CenteredWithImage = ({ parameters }) => {
     >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
           `
         )}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
@@ -122,7 +124,7 @@ export const Small = ({ parameters }) => {
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -139,16 +141,16 @@ export const SmallWithImage = ({ parameters }) => {
     <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
           `
         )}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
@@ -201,24 +203,20 @@ export default {
         })),
         image: [
           {
-            src: 'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'sm',
           },
           {
-            src: 'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'md',
           },
           {
-            src: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'lg',
           },
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text(
-          'Default image (defaultSrc):',
-          'https://fpoimg.com/1056x480?bg_color=ee5396&amp;text_color=161616',
-          groupId
-        ),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),
     },
   },

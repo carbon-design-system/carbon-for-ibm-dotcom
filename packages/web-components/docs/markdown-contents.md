@@ -1,5 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 ## Table of Contents
 
 - [Markdown contents](#markdown-contents)
@@ -19,9 +20,9 @@ In most cases, `<dds-content-*>` is used with its "copy" content. There are seve
 
 Given the nature of child text node, some extra caution is required to use child text node as the markdown content:
 
-* After-initialization change of markdown content via child text node is not supported.
-* Don't put any extra whitespace, e.g. line feeds, between the start/end tag and the markdown content.
-* HTML-escape the content as needed.
+- After-initialization change of markdown content via child text node is not supported.
+- Don't put any extra whitespace, e.g. line feeds, between the start/end tag and the markdown content.
+- HTML-escape the content as needed.
 
 ### Rendering markdown on server
 
@@ -51,9 +52,9 @@ nulla quis, *consequat* libero. Here are
 some common categories:
 
 - [list item](https://www.ibm.com)
-  1. list item 1a
+  - list item 1a
 1. list item 2
-  - list item 2a
+  1. list item 2a
   {{{{/markdown}}}}
 </div>
 ```
@@ -73,8 +74,8 @@ Another way to define the "copy" content is using raw HTML:
 ```html
 <div class="bx--content-item__copy">
   <p>
-    Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-    Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:
+    Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+    hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:
   </p>
   <ul class="bx--list--unordered">
     <li class="bx--list__item">
