@@ -240,6 +240,7 @@ class DDSMastheadSearch extends BXDropdown {
     // IE falls back to the old behavior.
     nextItem.scrollIntoView({ block: 'nearest' });
 
+    // @ts-ignore: TS does not believe nextItem has a text object
     const nextItemText = nextItem.text;
     if (nextItemText) {
       this._assistiveStatusText = nextItemText;
