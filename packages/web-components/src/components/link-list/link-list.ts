@@ -57,7 +57,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   render() {
     const { type, _useSplitLayoutForEndType: useSplitLayoutForEndType } = this;
     const headingClasses = classMap({
-      [`${prefix}--link-list__heading`]: true,
+      [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
       [`${ddsPrefix}-ce--link-list__heading--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
     });
     const listTypeClasses =
@@ -72,7 +72,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
       [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
     });
     return html`
-      <slot name="heading"></slot>
+      <div class="${headingClasses}"><slot name="heading"></slot></div>
       <ul name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>

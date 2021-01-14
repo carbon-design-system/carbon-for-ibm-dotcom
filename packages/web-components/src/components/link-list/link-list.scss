@@ -65,8 +65,12 @@
     }
   }
 
+  .#{$dds-prefix}-ce--link-list__heading__wrapper {
+    display: contents;
+  }
+
   @include carbon--breakpoint('md') {
-    .#{$dds-prefix}-ce--link-list__heading--split {
+    .#{$dds-prefix}-ce--link-list__heading--split ::slotted(#{$dds-prefix}-link-list-heading) {
       width: 33.3%;
       padding-right: 10%;
     }
