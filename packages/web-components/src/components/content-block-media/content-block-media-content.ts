@@ -1,18 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html } from 'lit-element';
+import { html, css, customElement, TemplateResult } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
 import DDSContentGroupSimple from '../content-group-simple/content-group-simple';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -22,12 +24,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-media-content`)
 class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroupSimple) {
-  //  Overrides the media position in relation to another slotted components
-  //  eslint-disable-next-line class-methods-use-this
-  protected _renderCopy() {
+  protected _renderInnerBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
+    // Moves media content out of `<div class="bx--content-block__children">`
     return html`
-      <slot name="media"></slot>
-      <slot></slot>
+      ${this._renderMedia()}
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
+        ${this._renderContent()}
+      </div>
     `;
   }
 

@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,8 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../pictogram-item/pictogram-item';
+import '../../content-group/content-group-copy';
+import '../../content-item/content-item-copy';
 import '../../content-item/content-item-heading';
 import styles from './content-group-pictograms.stories.scss';
 
@@ -76,7 +78,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-group-pictograms>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${pictogramsItems.map(
         ({ heading, copy, linkWithIcon }) => html`
           <dds-pictogram-item>

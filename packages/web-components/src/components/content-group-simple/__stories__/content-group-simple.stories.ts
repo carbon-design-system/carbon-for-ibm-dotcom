@@ -7,20 +7,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/defs';
 import '../../image/image';
 import '../../cta/video-cta-container';
 import '../../cta/card-cta';
 import '../../cta/card-cta-footer';
+import '../../content-group/content-group-copy';
 import '../../content-group/content-group-heading';
 import '../../content-item/content-item';
 import '../../content-item/content-item-heading';
 import '../content-group-simple';
+
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CTA_TYPE } from '../../cta/defs';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -61,10 +67,11 @@ const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit.
   Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit.
   Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
   - [list item](https://www.ibm.com)
-    1. list item 1a
+    - list item 1a
   1. list item 2
-    - list item 2a
+    1. list item 2a
 `;
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
@@ -90,27 +97,10 @@ const items = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image-with-caption
-    slot="media"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    heading="${ifNonNull(imageHeading)}"
-  >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+  <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image-with-caption>
 `;
 
@@ -120,7 +110,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
@@ -143,7 +133,7 @@ export const WithImage = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${image({ heading: groupHeading })}
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
@@ -167,7 +157,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`

@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html } from 'lit-element';
+import { css, customElement, html, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentBlock from '../content-block/content-block';
@@ -23,20 +23,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-leadspace-block-content`)
 class DDSLeadSpaceBlockContent extends DDSContentBlock {
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div class="${prefix}--content-block__children">
-        <slot name="media"></slot>
-        <slot></slot>
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
+        ${this._renderMedia()}${this._renderContent()}
       </div>
-    `;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy() {
-    return html`
-      <slot name="copy"></slot>
     `;
   }
 

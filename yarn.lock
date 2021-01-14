@@ -9414,18 +9414,10 @@ carbon-icons@7.0.7:
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
 
-carbon-web-components@1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.10.0.tgz#4fc0206845c090c9a3f28273c9868e62d2fd94dd"
-  integrity sha512-PzG6oh8vSjBfqG/aibP3eogaTWhut+j4H7AbVvVEy+/dQ5gIVDThjLLEyv3npwc2e/9TU1bzws4M54A/kz/5Fg==
-  dependencies:
-    "@babel/runtime" "^7.8.0"
-    lodash-es "^4.17.0"
-
-carbon-web-components@1.10.1:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.10.1.tgz#af8e5aaa8711e5ee45cf7ffea3ccd577dd10cd9b"
-  integrity sha512-dj5AcY4227YzpZe+kAvgFpCchTQPYiUOT/XjlV1o/myS45ciWEdaNsW2+CKyYLFmJKtu0gg0XDdVlSwdGskBTw==
+carbon-web-components@1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/carbon-web-components/-/carbon-web-components-1.11.1.tgz#51cffaf8ccfbf4e70ebc4af0d5442a720b0f35a6"
+  integrity sha512-XRcFn80Q7ph4UnPfgagOqxQOo+k+EyW2KVjVd44lPo629LjP9MuqDhwKmZs1ADtN2v8uKckdRA+Uude65P2yew==
   dependencies:
     "@babel/runtime" "^7.8.0"
     lodash-es "^4.17.0"
