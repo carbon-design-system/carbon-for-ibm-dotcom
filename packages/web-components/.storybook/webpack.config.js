@@ -21,9 +21,14 @@ module.exports = ({ config, mode }) => {
   if (mode === 'PRODUCTION') {
     config.optimization = {
       ...config.optimization,
+      splitChunks: {
+        chunks: 'all',
+        minSize: 30 * 1024,
+        maxSize: 1024 * 1024,
+      },
       minimizer: [
         new TerserPlugin({
-          sourceMap: true,
+          sourceMap: useStyleSourceMap,
           terserOptions: {
             mangle: false,
           },
@@ -106,7 +111,7 @@ module.exports = ({ config, mode }) => {
               [
                 'babel-plugin-emotion',
                 {
-                  sourceMap: true,
+                  sourceMap: useStyleSourceMap,
                   autoLabel: true,
                 },
               ],
