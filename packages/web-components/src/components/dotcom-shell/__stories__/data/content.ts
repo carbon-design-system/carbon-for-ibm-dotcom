@@ -62,7 +62,7 @@ const contentBlockSegmentedItemsWithImage = html`
 
 const contentItemHorizontal = html`
   <dds-content-item-horizontal>
-    <span slot="eyebrow">Lorem ipsum</span>
+    <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
     <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
     <dds-content-item-horizontal-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
