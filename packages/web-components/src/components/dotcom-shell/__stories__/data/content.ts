@@ -114,7 +114,7 @@ const StoryContent = () => html`
                   <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
                 </dds-leadspace-block-media>
                 <dds-link-list type="end">
-                <span slot="heading">Featured products</span>
+                <dds-link-list-heading>Featured products</dds-link-list-heading>
                 <dds-link-list-item href="https://example.com">
                   IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
                 </dds-link-list-item>
