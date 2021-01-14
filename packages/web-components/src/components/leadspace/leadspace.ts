@@ -24,6 +24,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The LeadSpace component.
  *
  * @element dds-leadspace
+ * @slot action The action (CTA) content.
+ * @slot image The image content.
  * @csspart section The first DOM node inside the shadow-root
  */
 @customElement(`${ddsPrefix}-leadspace`)
@@ -176,7 +178,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
               <div class="${prefix}--leadspace__content">
                 ${this._renderCopy()}
-                <slot name="buttons"></slot>
+                <slot name="action"></slot>
               </div>
             </div>
           </div>

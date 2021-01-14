@@ -39,7 +39,7 @@ export const DefaultWithNoImage = ({ parameters }) => {
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -60,7 +60,7 @@ export const DefaultWithImage = ({ parameters }) => {
     >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -81,7 +81,7 @@ export const Centered = ({ parameters }) => {
     <dds-leadspace type="centered">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -103,7 +103,7 @@ export const CenteredWithImage = ({ parameters }) => {
     >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -124,7 +124,7 @@ export const Small = ({ parameters }) => {
     <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
@@ -141,7 +141,7 @@ export const SmallWithImage = ({ parameters }) => {
     <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
-      <dds-button-group slot="buttons">
+      <dds-button-group slot="action">
         ${buttons.map(
           elem => html`
             <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
