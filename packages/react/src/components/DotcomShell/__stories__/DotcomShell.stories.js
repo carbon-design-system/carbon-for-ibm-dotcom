@@ -5,12 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
-import './dotcom-shell.stories.scss';
 import { select, object } from '@storybook/addon-knobs';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
-import FadeInOut from '../../FadeInOut/FadeInOut';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
@@ -24,26 +21,6 @@ const footerTypeOptions = {
   short: 'short',
   micro: 'micro',
 };
-
-const selectorTargets = `
-  .bx--content-block__heading,
-  .bx--content-block__copy,
-  .bx--leadspace-block__media,
-  .bx--link-list,
-  .bx--leadspace-block__cta,
-  .bx--feature-card-block-large,
-  .bx--content-group,
-  .bx--image,
-  .bx--content-block__cta,
-  .bx--callout-with-media,
-  .bx--content-item-horizontal__item,
-  .bx--logo-grid__logo,
-  .bx--card-group__cards__col,
-  .bx--callout-quote,
-  .bx--cta-section,
-  .bx--cta-section__cta,
-  .bx--content-item
-`;
 
 export default {
   title: 'Components|Dotcom Shell',
@@ -322,49 +299,5 @@ WithL1.story = {
         };
       },
     },
-  },
-};
-
-export const WithFadeAnimationsContinuous = ({ parameters }) => {
-  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
-  return (
-    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
-      <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
-            <Content />
-          </FadeInOut>
-        </div>
-      </main>
-    </DotcomShell>
-  );
-};
-
-WithFadeAnimationsContinuous.story = {
-  // to avoid jest errors with Intersection Observer
-  parameters: {
-    storyshots: { disable: true },
-  },
-};
-
-export const WithFadeAnimationsOnce = ({ parameters }) => {
-  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
-  return (
-    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
-      <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <FadeInOut selectorTargets={selectorTargets}>
-            <Content />
-          </FadeInOut>
-        </div>
-      </main>
-    </DotcomShell>
-  );
-};
-
-WithFadeAnimationsOnce.story = {
-  // to avoid jest errors with Intersection Observer
-  parameters: {
-    storyshots: { disable: true },
   },
 };

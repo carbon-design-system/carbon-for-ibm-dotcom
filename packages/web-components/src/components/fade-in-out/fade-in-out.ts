@@ -39,7 +39,7 @@ const colSpan = 3;
  * </dds-fade-in-out>
  *
  * With 'continuous play' option:
- * <dds-fade-in-out selectorTargets="${selectorTargets}" iterations="true">
+ * <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="true">
  *   // some content
  * </dds-fade-in-out>
  *
@@ -194,7 +194,6 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
       if (intersectionRatio > 0) {
         target.classList.remove('bx--fade-out');
         target.classList.add('bx--fade-in');
-        console.log(this.keepAnimation);
         if (!this.keepAnimation) {
           this._rootObserver?.unobserve(target);
           this._innerObserver?.unobserve(target);
@@ -231,7 +230,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   keepAnimation = false;
 
   /**
-   * The CSS selector that selects all fade in-out target elements.
+   * The CSS selector string that selects all fade in-out target elements.
    */
   @property({ attribute: 'selector-targets' })
   selectorTargets?: string;
