@@ -1,20 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import { number } from '@storybook/addon-knobs';
-import readme from './README.stories.mdx';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
 import '../card-group';
 import '../card-group-item';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import { html } from 'lit-element';
+import { number } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
+import readme from './README.stories.mdx';
 
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
@@ -31,12 +33,7 @@ const defaultCardGroupItem = html`
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image
-      slot="image"
-      alt="Image alt text"
-      default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image>
+    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
