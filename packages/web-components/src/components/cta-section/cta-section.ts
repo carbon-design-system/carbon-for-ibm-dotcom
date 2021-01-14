@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
-import DDSContentItem from '../content-item/content-item';
+import DDSContentBlock from '../content-block/content-block';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 const slotExistencePropertyNames = {
   action: '_hasAction',
-  items: '_hasItems',
+  'link-list': '_hasLinkList',
 };
 
 /**
@@ -34,7 +34,7 @@ const slotExistencePropertyNames = {
  * @slot action - The CTA Buttons.
  */
 @customElement(`${ddsPrefix}-cta-section`)
-class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
+class DDSCTASection extends StableSelectorMixin(DDSContentBlock) {
   /**
    * `true` if there are CTA action in the content item area.
    */
@@ -42,10 +42,28 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   protected _hasAction = false;
 
   /**
-   * `true` if there are CTA section items.
+   * `true` if there is a link list.
    */
   @internalProperty()
-  protected _hasItems = false;
+  protected _hasLinkList = false;
+
+  /**
+   * Handles `slotchange` event.
+   *
+   * @param event The event.
+   */
+  protected _handleSlotChange(event: Event) {
+    const { target } = event;
+    const { name } = target as HTMLSlotElement;
+    if (!slotExistencePropertyNames[name]) {
+      super._handleSlotChange(event);
+      return;
+    }
+    const hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+    this[slotExistencePropertyNames[name]] = hasContent;
+  }
 
   /**
    * Applies section attribute
@@ -58,34 +76,59 @@ class DDSCTASection extends StableSelectorMixin(DDSContentItem) {
   }
 
   /**
-   * Handles `slotchange` event.
-   *
-   * @param event The event.
+   * @returns The actions (CTA) content.
    */
-  protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name] || '_hasDefaultContent'] = hasContent;
+  protected _renderActions(): TemplateResult | string | void {
+    const { _hasAction: hasAction, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasAction}" class="${prefix}--content-item__cta">
+        <slot name="action" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The main content.
+   */
+  protected _renderContent(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <div ?hidden="${!hasContent}" class="${prefix}--helper-wrapper">
+        <div class="${prefix}--content-item-wrapper">
+          <slot @slotchange="${handleSlotChange}"></slot>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * @returns The main content.
+   */
+  protected _renderInnerBody(): TemplateResult | string | void {
+    // Note: The media content in `<dds-cta-section>` is not supported at the time of writing this code
+    return html`
+      ${this._renderActions()}${this._renderLinkList()}${this._renderContent()}
+    `;
+  }
+
+  /**
+   * @returns The link list content.
+   */
+  protected _renderLinkList(): TemplateResult | string | void {
+    const { _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
+    `;
   }
 
   /**
    * @returns The footer content.
    */
+  // eslint-disable-next-line class-methods-use-this
   protected _renderFooter(): TemplateResult | string | void {
-    const { _hasAction: hasAction, _hasItems: hasItems } = this;
-    return html`
-      <div ?hidden="${!hasAction}" class="${prefix}--content-item__cta">
-        <slot name="action" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
-      <slot name="link-list"></slot>
-      <div ?hidden="${!hasItems}" class="${prefix}--helper-wrapper">
-        <div class="${prefix}--content-item-wrapper">
-          <slot name="items" @slotchange="${this._handleSlotChange}"></slot>
-        </div>
-      </div>
-    `;
+    // Note: The CTA content of `<dds-cta-section>` is rendered above the main content, instead of as a footer.
+    // The slot name reflects that (`action`)
+    return undefined;
   }
 
   static get stableSelector() {
