@@ -45,7 +45,6 @@
     "@babel/runtime": "^7.5.0",
     "@carbon/ibmdotcom-utilities": "1.14.0",
     "axios": "^0.21.1",
-    "jsonp": "^0.2.1",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
