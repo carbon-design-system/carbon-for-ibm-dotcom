@@ -88,7 +88,7 @@ const LocaleModalCountries = ({
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
           placeHolderText={modalLabels.searchPlaceholder}
-          labelText={`${modalLabels.searchLabel}. Note: Location/Language will be dynamically updated as you provide the input`}
+          labelText={modalLabels.searchLabel}
           closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
           tabIndex="0"
@@ -99,7 +99,7 @@ const LocaleModalCountries = ({
       </div>
       <ul className={`${prefix}--locale-modal__list`} ref={localList}>
         <p
-          className={`${prefix}--sr-only`}
+          className={`${prefix}--assistive-text`}
           role="status"
           aria-live="assertive"></p>
         {regionList?.map(
@@ -216,7 +216,7 @@ export const filterLocale = (
   /**
    *  Reflect number of results in the accessibility readout
    */
-  const resultsElement = document.querySelector(`.${prefix}--sr-only`);
+  const resultsElement = document.querySelector(`.${prefix}--assistive-text`);
   const resultsCount = localeItems.length - localeItemsHidden.length;
 
   if (resultsElement) {
