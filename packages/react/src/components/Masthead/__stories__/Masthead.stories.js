@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -234,6 +234,59 @@ WithL1.story = {
             ),
             navigationL1: mastheadKnobs.navigation.custom,
           },
+        };
+      },
+    },
+  },
+};
+
+export const WithAlternateLogo = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} />
+);
+
+WithAlternateLogo.story = {
+  name: 'With logo data',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => {
+        const useMockData = boolean('Use mock data', inPercy());
+
+        return {
+          navigation: select(
+            'navigation data (navigation)',
+            mastheadKnobs.navigation,
+            useMockData
+              ? mastheadKnobs.navigation.custom
+              : mastheadKnobs.navigation.default,
+            groupId
+          ),
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
+          mastheadLogo: select(
+            'masthead logo data (mastheadLogo)',
+            mastheadKnobs.mastheadLogo,
+            mastheadKnobs.mastheadLogo.defaultNoTooltip,
+            groupId
+          ),
         };
       },
     },

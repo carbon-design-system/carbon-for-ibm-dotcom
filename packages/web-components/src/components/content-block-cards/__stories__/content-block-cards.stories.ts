@@ -1,17 +1,12 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
 import '../content-block-cards';
 import '../../content-block/content-block-heading';
 import '../../card/card-eyebrow';
@@ -20,8 +15,14 @@ import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -45,7 +46,7 @@ const cardGroupItemWithImages = html`
     <dds-image
       slot="image"
       alt="Image alt text"
-      default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
+      default-src="${imgLg4x3}"
     >
     </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
@@ -68,7 +69,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
@@ -84,7 +85,7 @@ export const withImages = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
@@ -101,7 +102,7 @@ export const withVideos = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>

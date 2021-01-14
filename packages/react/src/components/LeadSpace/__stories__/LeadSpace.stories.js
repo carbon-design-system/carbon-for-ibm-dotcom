@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,6 +9,9 @@ import { boolean, number, select, text } from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import LeadSpace from '../LeadSpace';
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--001.jpg';
+import leadspaceImg2 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import leadspaceImg3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--003.jpg';
 import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -28,10 +31,19 @@ const iconOptions = {
 
 const images = {
   sources: [
-    { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
-    { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+    { src: leadspaceImg, breakpoint: 'sm' },
+    { src: leadspaceImg, breakpoint: 'md' },
   ],
-  defaultSrc: 'https://picsum.photos/id/1076/1056/480',
+  defaultSrc: leadspaceImg,
+  alt: 'lead space image',
+};
+
+const imagesSmall = {
+  sources: [
+    { src: leadspaceImg2, breakpoint: 'sm' },
+    { src: leadspaceImg2, breakpoint: 'md' },
+  ],
+  defaultSrc: leadspaceImg2,
   alt: 'lead space image',
 };
 
@@ -199,16 +211,15 @@ export const CenteredWithImage = ({ parameters }) => {
       image={{
         sources: [
           {
-            src: 'https://fpoimg.com/320x370?bg_color=ee5396&text_color=161616',
+            src: leadspaceImg3,
             breakpoint: 'sm',
           },
           {
-            src: 'https://fpoimg.com/672x400?bg_color=ee5396&text_color=161616',
+            src: leadspaceImg3,
             breakpoint: 'md',
           },
         ],
-        defaultSrc:
-          'https://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
+        defaultSrc: leadspaceImg3,
         alt: 'lead space image',
       }}
     />
@@ -372,7 +383,7 @@ SmallWithImage.story = {
             groupId
           ),
           gradient: boolean('gradient overlay (gradient)', true, groupId),
-          image: images,
+          image: imagesSmall,
           buttons,
         };
       },

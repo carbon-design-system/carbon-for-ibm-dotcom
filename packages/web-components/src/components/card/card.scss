@@ -50,6 +50,20 @@
       flex: 1;
       display: flex;
       align-items: flex-end;
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
+    }
+    ::slotted(#{$dds-prefix}-card-eyebrow) {
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
     }
   }
 
@@ -61,12 +75,25 @@
     }
 
     .#{$prefix}--card__copy {
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
+
       display: none;
     }
   }
 
   ::slotted(svg[slot='pictogram']) {
     color: $icon-01;
+    @include carbon--breakpoint('md') {
+      margin-left: 0;
+    }
+    @include carbon--breakpoint('sm') {
+      margin-left: $carbon--layout-01;
+    }
   }
 
   &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {

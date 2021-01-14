@@ -2,18 +2,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+import '../../content-group/content-group-copy';
+import '../../content-item/content-item-copy';
+import '../../card/card-heading';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../card/card-heading';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--001.jpg';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
@@ -51,27 +56,10 @@ const pictogramsItems = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image-with-caption
-    slot="media"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    heading="${ifNonNull(imageHeading)}"
-  >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+  <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image-with-caption>
 `;
 
@@ -112,7 +100,6 @@ export const Default = ({ parameters }) => {
       <dds-content-block-paragraph>${groupCopy}</dds-content-block-paragraph>
       <dds-content-group-cards>
         <dds-content-group-heading>${cardsGroupHeading}</dds-content-group-heading>
-        <p slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <dds-content-group-cards-item href="www.ibm.com">
           <dds-card-heading>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
@@ -140,7 +127,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-cards>
       <dds-content-group-pictograms>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
             <dds-pictogram-item>
@@ -180,7 +167,7 @@ export const Default = ({ parameters }) => {
       </dds-content-group-pictograms>
       <dds-content-group-simple>
         <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${image({ heading })}
         <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
           Lorem ipsum dolor sit amet
