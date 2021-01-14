@@ -1,23 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
 import '../logo-grid';
 import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { boolean } from '@storybook/addon-knobs';
-import logos from './data/logos.json';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-
+import { html } from 'lit-element';
+import logos from './data/logos.js';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
   const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } = parameters?.props?.LogoGrid ?? {};

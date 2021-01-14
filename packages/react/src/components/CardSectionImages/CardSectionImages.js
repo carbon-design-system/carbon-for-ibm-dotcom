@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,7 +66,7 @@ CardSectionImages.propTypes = {
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
    * See example
-   * [card data](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/CardGroup/__stories__/data/cards.json).
+   * [card data](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react/src/components/CardGroup/__stories__/data/cards.js).
    */
   cards: PropTypes.arrayOf(
     PropTypes.exact({

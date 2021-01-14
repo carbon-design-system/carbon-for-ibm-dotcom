@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,13 +20,16 @@ import '../lightbox-video-player-container';
 import styles from './lightbox-media-viewer.stories.scss';
 import readme from './README.stories.mdx';
 
+import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--002.jpg';
+import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--1312x656--002.jpg';
+import imgMax16x9 from '../../../../../storybook-images/assets/1584/fpo--16x9--1312x738--002.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
+
 const images = {
-  '512 x 512 (1:1)': 'https://fpoimg.com/512x512?text=1:1&bg_color=ee5396&text_color=161616',
-  '1024 x 512 (2:1)': 'https://fpoimg.com/1024x512?text=2:1&bg_color=ee5396&text_color=161616',
-  '1280 x 720 (16:9)': 'https://fpoimg.com/1280x720?text=16:9&bg_color=ee5396&text_color=161616',
-  '3000 x 1200 (16:9)': 'https://fpoimg.com/3200x1200?text=16:9&bg_color=ee5396&text_color=161616',
-  '200 x 750 (15:4)': 'https://fpoimg.com/200x750?text=15:4&bg_color=ee5396&text_color=161616',
-  '600 x 550 (12:11)': 'https://fpoimg.com/600x550?text=12:11&bg_color=ee5396&text_color=161616',
+  '720 x 720 (1:1)': imgLg1x1,
+  '1312 x 656 (2:1)': imgXlg2x1,
+  '1312 x 738 (16:9)': imgXlg16x9,
+  '1584 x 738 (16:9)': imgMax16x9,
 };
 
 export const Default = ({ parameters }) => {
@@ -65,7 +68,7 @@ Default.story = {
     knobs: {
       LightboxImageViewer: ({ groupId }) => ({
         alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
-        defaultSrc: select('Image (default-src)', images, images['1280 x 720 (16:9)'], groupId),
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
         description: textNullable(
           'Description (description)',
           `
