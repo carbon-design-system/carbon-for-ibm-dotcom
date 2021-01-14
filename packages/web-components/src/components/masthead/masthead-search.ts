@@ -16,6 +16,7 @@ import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
 
@@ -211,6 +212,39 @@ class DDSMastheadSearch extends BXDropdown {
    */
   private _redirect(target) {
     this.ownerDocument!.defaultView!.location.assign(target);
+  }
+
+  /**
+   * Navigate through dropdown items.
+   * @param direction `-1` to navigate backward, `1` to navigate forward.
+   */
+  protected _navigate(direction: number) {
+    const constructor = this.constructor as typeof DDSMastheadSearch;
+    const items = this.querySelectorAll(constructor.selectorItem);
+    const highlightedItem = this.querySelector(constructor.selectorItemHighlighted);
+    const highlightedIndex = indexOf(items, highlightedItem!);
+    let nextIndex = highlightedIndex + direction;
+    if (nextIndex < 0) {
+      nextIndex = items.length - 1;
+    }
+    if (nextIndex >= items.length) {
+      nextIndex = 0;
+    }
+    forEach(items, (item, i) => {
+      (item as BXDropdownItem).highlighted = i === nextIndex;
+    });
+
+    const nextItem = items[nextIndex];
+    // Using `{ block: 'nearest' }` to prevent scrolling unless scrolling is absolutely necessary.
+    // `scrollIntoViewOptions` seems to work in latest Safari despite of MDN/caniuse table.
+    // IE falls back to the old behavior.
+    nextItem.scrollIntoView({ block: 'nearest' });
+
+    const nextItemText = nextItem.text;
+    if (nextItemText) {
+      this._assistiveStatusText = nextItemText;
+    }
+    this.requestUpdate();
   }
 
   /**
