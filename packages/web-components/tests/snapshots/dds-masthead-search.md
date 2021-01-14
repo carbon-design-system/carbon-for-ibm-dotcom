@@ -88,8 +88,6 @@
       type="text"
     >
     <div
-      aria-live="assertive"
-      aria-relevant="additions text"
       class="react-autosuggest__suggestions-container"
       id="result-list"
     >
@@ -103,6 +101,13 @@
     </div>
   </div>
 </form>
+<div
+  aria-live="assertive"
+  aria-relevant="additions text"
+  class="bx--assistive-text"
+  role="status"
+>
+</div>
 <div class="bx--header__search--actions">
   <button
     aria-label="perform-search-button-assistive-text-foo"
