@@ -18,7 +18,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
-import logosGroup from '../../logo-grid/__stories__/data/logos.json';
+import logosGroup from '../../logo-grid/__stories__/data/logos.js';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
 import mastheadLinks from '../../masthead/__stories__/links';
@@ -48,6 +48,11 @@ import '../../quote/quote-source-bottom-copy';
 import '../../quote/quote-source-copy';
 import '../../quote/quote-source-heading';
 import readme from './README.stories.mdx';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
+import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
 const footerSizes = {
   Default: FOOTER_SIZE.REGULAR,
@@ -57,24 +62,12 @@ const footerSizes = {
 const image = html`
   <dds-image-with-caption
     alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image-with-caption>
 `;
 
@@ -131,12 +124,7 @@ const contentItemHorizontal = html`
 
 const cardGroupItems = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image
-      slot="image"
-      alt="Image alt text"
-      default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image>
+    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
@@ -197,12 +185,12 @@ const StoryContent = () => html`
 
             <dds-feature-card-block-large href="https://example.com">
               <dds-image slot="image" alt="Image alt text"
-                default-src="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+                default-src="${imgLg1x1}"
               >
                 </dds-image-item>
                 <dds-image-item
                   media="(min-width: 991px)"
-                  srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
+                  srcset="${imgLg1x1}"
                 >
               </dds-image>
               <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>

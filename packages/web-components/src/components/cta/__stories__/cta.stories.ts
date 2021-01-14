@@ -1,18 +1,12 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../defs';
 import '../video-cta-container';
 import '../button-cta';
 import '../card-cta';
@@ -20,7 +14,15 @@ import '../card-cta-footer';
 import '../feature-cta';
 import '../feature-cta-footer';
 import '../text-cta';
+import { classMap } from 'lit-html/directives/class-map';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CTA_TYPE } from '../defs';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -168,12 +170,7 @@ export const Feature = ({ parameters }) => {
   return html`
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
       ${copy}
-      <dds-image
-        slot="image"
-        alt="Image alt text"
-        default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
-      >
-      </dds-image>
+      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
