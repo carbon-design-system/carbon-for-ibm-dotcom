@@ -25,7 +25,7 @@ const colSpan = 3;
  * Function component that handles fade transition for selected elements.
  *
  * @example
- * import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
+ * import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
  * import '@carbon/ibmdotcom-web-components/es/components/fade-in-out/fade-in-out.js';
  *
  * As an example, the function can be called to target all instances of the

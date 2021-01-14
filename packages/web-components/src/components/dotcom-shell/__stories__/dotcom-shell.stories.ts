@@ -24,11 +24,7 @@ import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
-/* eslint-disable import/no-duplicates */
-import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
-// Above import is interface-only ref and thus code won't be brought into the build
 import '../../content-block/content-block-copy';
-/* eslint-enable import/no-duplicates */
 import '../../content-item-horizontal/content-item-horizontal';
 import '../../content-item-horizontal/content-item-horizontal-copy';
 import '../../content-item-horizontal/content-item-horizontal-eyebrow';

@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './styles.scss';
 import '@carbon/ibmdotcom-web-components/es/components/fade-in-out/fade-in-out.js';
-import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';

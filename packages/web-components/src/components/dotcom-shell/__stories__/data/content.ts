@@ -159,8 +159,8 @@ const StoryContent = () => html`
                   srcset="https://fpoimg.com/600x600?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
                 >
               </dds-image>
-              <span slot="eyebrow">scelerisque purus</span>
-              <span slot="heading">Elementum nibh tellus molestie nunc?</span>
+              <dds-card-eyebrow>scelerisque purus</dds-card-eyebrow>
+              <dds-card-heading>Elementum nibh tellus molestie nunc?</dds-card-heading>
               <p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbu tristique.</p>
               <dds-feature-card-block-large-footer>
                 ${ArrowRight20({ slot: 'icon' })}
@@ -219,21 +219,20 @@ const StoryContent = () => html`
             </dds-content-block-cards>
             
             <dds-callout-quote>
-              <span slot="copy">
-                Duis aute irure dolor in reprehenderit
-              </span>
-              <span slot="sourceHeading">
-                Lorem ipsum
-              </span>
-              <span slot="sourceCopy">
-                dolor sit amet
-              </span>
-              <span slot="sourceBottomCopy">
-              </span>
-              <dds-link-with-icon slot="footer" href="https://example.com">
-                Link with Icon ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-callout-quote>
+              Duis aute irure dolor in reprehenderit
+            <dds-quote-source-heading>
+              Lorem ipsum dolor sit amet
+            </dds-quote-source-heading>
+            <dds-quote-source-copy>
+              consectetur adipiscing elit
+            </dds-quote-source-copy>
+            <dds-quote-source-bottom-copy>
+              IBM Cloud
+            </dds-quote-source-bottom-copy>
+            <dds-link-with-icon slot="footer" href="https://example.com">
+              Link with Icon ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-callout-quote>
 
             <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
             <dds-cta-section>

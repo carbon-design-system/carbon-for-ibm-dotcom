@@ -23,7 +23,7 @@ const colSpan = 3;
  *
  * @example
  * import { FadeInOut } from '@carbon/ibmdotcom-react';
- * import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
+ * import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
  *
  * As an example, the function can be called to target all instances of the
  * elements in a list:

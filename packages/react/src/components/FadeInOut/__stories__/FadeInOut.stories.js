@@ -5,23 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-styles/scss/internal/scroll-into-view/_scroll-into-view.scss';
+import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
 import './fade-in-out.stories.scss';
 
 import Content from '../../DotcomShell/__stories__/data/content';
 import DotcomShell from '../../DotcomShell/DotcomShell';
 import FadeInOut from '../FadeInOut';
-import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
-import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { select } from '@storybook/addon-knobs';
-
-const footerTypeOptions = {
-  tall: 'tall',
-  short: 'short',
-  micro: 'micro',
-};
 
 const selectorTargets = `
   .bx--content-block__heading,
@@ -49,34 +40,12 @@ export default {
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },
-    knobs: {
-      escapeHTML: false,
-      DotcomShell: () => {
-        const {
-          Masthead: mastheadKnobs,
-        } = mastheadStory.story.parameters.knobs;
-        const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
-        return {
-          mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
-          footerProps: {
-            ...footerKnobs({ groupId: 'Footer' }),
-            type: select(
-              'Footer (footerProps): sets the type of footer (type)',
-              footerTypeOptions,
-              footerTypeOptions.tall,
-              'Footer'
-            ),
-          },
-        };
-      },
-    },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
+export const Default = () => {
   return (
-    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
+    <DotcomShell>
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
           <FadeInOut selectorTargets={selectorTargets}>
@@ -95,10 +64,9 @@ Default.story = {
   },
 };
 
-export const WithContinuousAnimations = ({ parameters }) => {
-  const { mastheadProps, footerProps } = parameters?.props?.DotcomShell ?? {};
+export const WithContinuousAnimations = () => {
   return (
-    <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
+    <DotcomShell>
       <main id="main-content">
         <div style={{ paddingTop: '6rem' }}>
           <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
