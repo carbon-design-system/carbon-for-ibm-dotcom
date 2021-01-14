@@ -10,7 +10,7 @@
 import { property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXSelect from 'carbon-web-components/es/components/select/select.js';
-import { DROPDOWN_SIZE } from 'carbon-web-components/es/components/dropdown/dropdown.js';
+import { INPUT_SIZE } from 'carbon-web-components/es/components/input/input';
 import styles from './footer.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,7 +30,7 @@ class DDSLanguageSelectorMobile extends BXSelect {
    * @internal
    */
   @property()
-  size = DROPDOWN_SIZE.EXTRA_LARGE;
+  size = INPUT_SIZE.EXTRA_LARGE;
 
   /**
    * The shadow slot this language-selector should be in.
