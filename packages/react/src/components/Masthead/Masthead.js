@@ -88,7 +88,7 @@ const Masthead = ({
     (async () => {
       const status = await ProfileAPI.getUserStatus();
       if (!unmounted) {
-        setStatus(status.user === 'Authenticated');
+        setStatus(status.user !== 'Unauthenticated');
       }
     })();
     return () => {

@@ -13,10 +13,7 @@ import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import { MastheadLink, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import {
-  USER_AUTHENTICATION_STATUS,
-  ProfileAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
+import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
@@ -68,7 +65,7 @@ export interface MastheadContainerStateProps extends MastheadSearchContainerStat
   /**
    * The user authentication status.
    */
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus?: string;
 }
 
 /**

@@ -21,7 +21,6 @@ import {
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import './masthead';
 import './masthead-logo';
@@ -529,7 +528,7 @@ class DDSMastheadComposite extends LitElement {
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus?: 'Unauthenticated';
 
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
@@ -575,7 +574,7 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
       _loadSearchResults: loadSearchResults,
     } = this;
-    const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
+    const authenticated = userStatus !== 'Unauthenticated';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>

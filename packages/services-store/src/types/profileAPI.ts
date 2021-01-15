@@ -8,28 +8,13 @@
  */
 
 /**
- * The user authentication status.
- */
-export enum USER_AUTHENTICATION_STATUS {
-  /**
-   * Authenticated.
-   */
-  AUTHENTICATED = 'Authenticated',
-
-  /**
-   * Unauthenticated.
-   */
-  UNAUTHENTICATED = 'Unauthenticated',
-}
-
-/**
  * The user authentication status, etc.
  */
 export interface UserStatus {
   /**
    * The user authentication status.
    */
-  user: USER_AUTHENTICATION_STATUS;
+  user: string;
 }
 
 /**

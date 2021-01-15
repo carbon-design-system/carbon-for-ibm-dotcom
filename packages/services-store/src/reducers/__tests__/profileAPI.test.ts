@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { USER_AUTHENTICATION_STATUS, PROFILE_API_ACTION, ProfileAPIState } from '../../types/profileAPI';
+import { PROFILE_API_ACTION, ProfileAPIState } from '../../types/profileAPI';
 import { ProfileAPIActions } from '../../actions/profileAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../profileAPI';
 
 describe('Redux reducers for `ProfileAPI`', () => {
   it('should return the state unmodified for unknown action', () => {
-    const state = { status: { user: USER_AUTHENTICATION_STATUS.AUTHENTICATED } };
+    const state = { status: { user: 'test.user@ibm.com' } };
     expect(reducer(state, {} as ProfileAPIActions)).toEqual(state);
   });
 
@@ -36,11 +36,11 @@ describe('Redux reducers for `ProfileAPI`', () => {
       convertValue(
         reducer({} as ProfileAPIState, {
           type: PROFILE_API_ACTION.SET_USER_STATUS,
-          status: { user: USER_AUTHENTICATION_STATUS.AUTHENTICATED },
+          status: { user: 'test.user@ibm.com' },
         })
       )
     ).toEqual({
-      status: { user: USER_AUTHENTICATION_STATUS.AUTHENTICATED },
+      status: { user: 'test.user@ibm.com' },
     });
   });
 });
