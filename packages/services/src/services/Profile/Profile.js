@@ -48,6 +48,7 @@ class ProfileAPI {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
+        withCredentials: true,
       })
       .then(response => response.data);
   }
