@@ -30,6 +30,7 @@ const LocaleModalCountries = ({
   currentRegion,
   ...modalLabels
 }) => {
+  const componentRef = useRef(null);
   const localList = useRef(null);
   useEffect(() => {
     localList.current.scrollTop = 0;
@@ -55,7 +56,8 @@ const LocaleModalCountries = ({
         localeFilter,
         localeHidden,
         localeText,
-        modalLabels
+        modalLabels,
+        componentRef
       )
     );
 
@@ -75,7 +77,8 @@ const LocaleModalCountries = ({
           localeFilter,
           localeHidden,
           localeText,
-          modalLabels
+          modalLabels,
+          componentRef
         )
       );
       localeText ? (localeText.innerHTML = modalLabels.availabilityText) : '';
@@ -83,7 +86,7 @@ const LocaleModalCountries = ({
   });
 
   return (
-    <div className={`${prefix}--locale-modal__filter`}>
+    <div ref={componentRef} className={`${prefix}--locale-modal__filter`}>
       <div className={`${prefix}--locale-modal__search`}>
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
@@ -177,7 +180,8 @@ export const filterLocale = (
   localeFilter,
   localeHidden,
   localeText,
-  modalLabels
+  modalLabels,
+  componentRef
 ) => {
   const localeItems = document.querySelectorAll(
     `.${prefix}--locale-modal__list a:not(.${prefix}--locale-modal__locales-filtered)`
@@ -216,7 +220,7 @@ export const filterLocale = (
   /**
    *  Reflect number of results in the accessibility readout
    */
-  const resultsElement = document.querySelector(
+  const resultsElement = componentRef.current.querySelector(
     `.${prefix}--locale-modal__list .${prefix}--assistive-text`
   );
 
