@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotc
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { monitorUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
+import { getUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
 import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
 import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
@@ -79,7 +79,7 @@ export type MastheadContainerActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
-  | ReturnType<typeof monitorUserStatus>;
+  | ReturnType<typeof getUserStatus>;
 
 /**
  * @param state The Redux state for masthead.
@@ -117,7 +117,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
-      _monitorUserStatus: monitorUserStatus,
+      _getUserStatus: getUserStatus,
       _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`

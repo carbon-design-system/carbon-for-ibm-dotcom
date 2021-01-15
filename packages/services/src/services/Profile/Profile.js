@@ -51,28 +51,6 @@ class ProfileAPI {
       })
       .then(response => response.data);
   }
-
-  /**
-   * Monitors user status (authenticated or unauthenticated)
-   *
-   * @example
-   * import { ProfileAPI } from '@carbon/ibmdotcom-services';
-   *
-   * function monitorUserStatus() {
-   *   ProfileAPI.monitorUserStatus((err, status) => {
-   *     console.log('The new login status:', status.user);
-   *   });
-   * }
-   */
-  static async monitorUserStatus(callback) {
-    return await axios
-      .get(_endpoint, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-      .then(callback);
-  }
 }
 
 export default ProfileAPI;

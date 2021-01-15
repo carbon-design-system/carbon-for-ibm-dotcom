@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -410,11 +410,11 @@ class DDSMastheadComposite extends LitElement {
   _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
+   * The placeholder for `getUserStatus()` Redux action that will be mixed in.
    *
    * @internal
    */
-  _monitorUserStatus?: () => void;
+  _getUserStatus?: () => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
@@ -542,7 +542,7 @@ class DDSMastheadComposite extends LitElement {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
-    this._monitorUserStatus?.();
+    this._getUserStatus?.();
   }
 
   updated(changedProperties) {

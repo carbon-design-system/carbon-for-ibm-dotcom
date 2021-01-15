@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,12 +22,12 @@ describe('Redux reducers for `ProfileAPI`', () => {
     expect(
       convertValue(
         reducer({} as ProfileAPIState, {
-          type: PROFILE_API_ACTION.SET_ERROR_MONITOR_USER_STATUS,
+          type: PROFILE_API_ACTION.SET_ERROR_REQUEST_USER_STATUS,
           error: new Error('error-user-status'),
         })
       )
     ).toEqual({
-      errorMonitorUserStatus: 'error-user-status',
+      errorGetUserStatus: 'error-user-status',
     });
   });
 

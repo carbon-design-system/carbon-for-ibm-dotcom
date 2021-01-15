@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { PROFILE_API_ACTION, ProfileAPIState } from '../types/profileAPI';
-import { setMonitorUserStatusError, setUserStatus, ProfileAPIActions } from '../actions/profileAPI';
+import { setErrorRequestUserStatus, setUserStatus, ProfileAPIActions } from '../actions/profileAPI';
 
 /**
  * @param state The state for profile API.
@@ -17,11 +17,11 @@ import { setMonitorUserStatusError, setUserStatus, ProfileAPIActions } from '../
  */
 export default function reducer(state: ProfileAPIState = {}, action: ProfileAPIActions): ProfileAPIState {
   switch (action.type) {
-    case PROFILE_API_ACTION.SET_ERROR_MONITOR_USER_STATUS: {
-      const { error: errorMonitorUserStatus } = action as ReturnType<typeof setMonitorUserStatusError>;
+    case PROFILE_API_ACTION.SET_ERROR_REQUEST_USER_STATUS: {
+      const { error: errorGetUserStatus } = action as ReturnType<typeof setErrorRequestUserStatus>;
       return {
         ...state,
-        errorMonitorUserStatus,
+        errorGetUserStatus,
       };
     }
     case PROFILE_API_ACTION.SET_USER_STATUS: {

@@ -16,10 +16,22 @@ import { UserStatus, PROFILE_API_ACTION, ProfileAPIState } from '../types/profil
  * @returns A Redux action to set the state that the JSONP call for user authentication status failed.
  * @private
  */
-export function setMonitorUserStatusError(error: Error) {
+export function setErrorRequestUserStatus(error: Error) {
   return {
-    type: PROFILE_API_ACTION.SET_ERROR_MONITOR_USER_STATUS,
+    type: PROFILE_API_ACTION.SET_ERROR_REQUEST_USER_STATUS,
     error,
+  };
+}
+
+/**
+ * @param status The promise of the REST call for  user status that is in progress.
+ * @returns A Redux action to set the state that the REST call for user status is in progress.
+ * @private
+ */
+export function setRequestUserStatusInProgress(status: Promise<UserStatus>) {
+  return {
+    type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
+    status,
   };
 }
 
@@ -34,19 +46,24 @@ export function setUserStatus(status: UserStatus) {
   };
 }
 
-export type ProfileAPIActions = ReturnType<typeof setMonitorUserStatusError> | ReturnType<typeof setUserStatus>;
+export type ProfileAPIActions =
+  | ReturnType<typeof setErrorRequestUserStatus>
+  | ReturnType<typeof setRequestUserStatusInProgress>
+  | ReturnType<typeof setUserStatus>;
 
 /**
- * @returns A Redux action that monitors user authentication status.
+ * @returns A Redux action that gets user authentication status.
  */
-export function monitorUserStatus(): ThunkAction<void, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
+export function getUserStatus(): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
   return async dispatch => {
-    await ProfileAPI.monitorUserStatus((error: Error, status: UserStatus) => {
-      if (error) {
-        dispatch(setMonitorUserStatusError(error));
-      } else {
-        dispatch(setUserStatus(status));
-      }
-    });
+    const promiseStatus: Promise<UserStatus> = ProfileAPI.getUserStatus();
+    dispatch(setRequestUserStatusInProgress(promiseStatus));
+    try {
+      dispatch(setUserStatus(await promiseStatus));
+    } catch (error) {
+      dispatch(setErrorRequestUserStatus(error));
+      throw error;
+    }
+    return promiseStatus;
   };
 }
