@@ -10,8 +10,7 @@ import axios from 'axios';
  * @constant {string | string} Host for the profile status API call
  * @private
  */
-const _host =
-  (process && process.env.PROFILE_HOST) || 'https://prepiam.ice.ibmcloud.com';
+const _host = (process && process.env.PROFILE_HOST) || 'https://login.ibm.com';
 
 /**
  * @constant {string | string} API version
