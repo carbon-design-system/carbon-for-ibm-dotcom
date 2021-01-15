@@ -220,16 +220,18 @@ export const filterLocale = (
   /**
    *  Reflect number of results in the accessibility readout
    */
-  const resultsElement = componentRef.current.querySelector(
-    `.${prefix}--locale-modal__list .${prefix}--assistive-text`
-  );
+  if (componentRef) {
+    const resultsElement = componentRef.current.querySelector(
+      `.${prefix}--locale-modal__list .${prefix}--assistive-text`
+    );
 
-  const resultsCount = localeItems.length - localeItemsHidden.length;
+    const resultsCount = localeItems.length - localeItemsHidden.length;
 
-  if (resultsElement) {
-    resultsElement.textContent = `${resultsCount} ${
-      resultsCount == 1 ? 'result' : 'results'
-    } found.`;
+    if (resultsElement) {
+      resultsElement.textContent = `${resultsCount} ${
+        resultsCount == 1 ? 'result' : 'results'
+      } found.`;
+    }
   }
 };
 
