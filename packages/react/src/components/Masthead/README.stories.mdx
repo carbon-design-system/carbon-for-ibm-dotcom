@@ -126,6 +126,12 @@ document.addEventListener('onSearchValueChanged', e =>
   console.log(e.detail); // { value: inputValue }
   // do something here
 );
+
+// disables search redirect onClick and onEnter
+document.addEventListener('onSearchNoRedirect', e =>
+  console.log(e.detail); // { value: inputValue }
+  // do something here
+);
 ```
 
 ## Props
@@ -198,6 +204,17 @@ const platformData = {
 };
 
 <Masthead platform={platformData} navigation="default" />;
+```
+
+## searchNoRedirect
+
+This will disable the default redirecting of the search component as well as emit
+the `onSearchNoRedirect` [custom event](#custom-events).
+> Note that unless a custom redirect action is
+provided in the event, the search will do nothing except list search suggestions.
+
+```javascript
+<Masthead navigation="default" searchNoRedirect />;
 ```
 
 ## customProfileLogin
