@@ -8,6 +8,17 @@
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/content-block-segmented';
 
 :host(#{$dds-prefix}-content-block-segmented) {
+  ::slotted(:not([slot])) {
+    display: block;
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: $carbon--layout-06;
+      margin-bottom: $carbon--layout-06;
+    }
+  }
+
   ::slotted(#{$dds-prefix}-content-block-complementary) {
     @include carbon--breakpoint-down('lg') {
       margin: $layout-05 0;

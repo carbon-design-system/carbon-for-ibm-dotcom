@@ -15,7 +15,8 @@
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-content-block-copy),
 :host(#{$dds-prefix}-content-block-heading),
-:host(#{$dds-prefix}-content-block-complementary) {
+:host(#{$dds-prefix}-content-block-complementary),
+:host(#{$dds-prefix}-content-block-paragraph) {
   display: block;
 }
 
@@ -34,12 +35,52 @@
   }
 }
 
-:host(#{$dds-prefix}-content-block-complementary) {
-  @include dds--make-col(1, 3);
-}
+.#{$prefix}--content-layout {
+  ::slotted([slot='copy']),
+  ::slotted([slot='heading']),
+  ::slotted([slot='media']) {
+    margin-left: $carbon--spacing-05;
+    margin-right: $carbon--spacing-05;
+  }
 
-:host(#{$dds-prefix}-content-block-paragraph) {
-  display: block;
+  ::slotted([slot='complementary']) {
+    grid-area: complementary;
+    margin-top: $layout-05;
+    margin-bottom: $layout-05;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  ::slotted([slot='footer']) {
+    margin-top: $carbon--layout-04;
+
+    @include carbon--breakpoint('md') {
+      width: 50%;
+      margin-top: $carbon--layout-05;
+    }
+  }
+
+  ::slotted([slot='heading']) {
+    grid-area: heading;
+  }
+
+  ::slotted([slot='media']) {
+    margin-top: $carbon--spacing-07;
+  }
+
+  // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` so we don't need to set margin here
+  ::slotted(#{$dds-prefix}-link-list) {
+    margin-left: $carbon--spacing-05;
+    margin-right: $carbon--spacing-05;
+  }
+
+  ::slotted(#{$dds-prefix}-video-player-container) {
+    // Ensures the margin gets effective
+    display: block;
+  }
 }
 
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version

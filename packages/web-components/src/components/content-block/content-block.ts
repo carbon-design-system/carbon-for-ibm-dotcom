@@ -25,6 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const slotExistencePropertyNames = {
   complementary: '_hasComplementary',
   copy: '_hasCopy',
+  heading: '_hasHeading',
   footer: '_hasFooter',
   media: '_hasMedia',
 };
@@ -52,6 +53,12 @@ class DDSContentBlock extends LitElement {
    */
   @internalProperty()
   protected _hasContent = false;
+
+  /**
+   * `true` if there is heading content.
+   */
+  @internalProperty()
+  protected _hasHeading = false;
 
   /**
    * `true` if there is copy content.
