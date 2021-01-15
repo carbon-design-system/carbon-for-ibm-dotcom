@@ -1,26 +1,11 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-/**
- * The user authentication status.
- */
-export enum USER_AUTHENTICATION_STATUS {
-  /**
-   * Authenticated.
-   */
-  AUTHENTICATED = 'Authenticated',
-
-  /**
-   * Unauthenticated.
-   */
-  UNAUTHENTICATED = 'Unauthenticated',
-}
 
 /**
  * The user authentication status, etc.
@@ -29,7 +14,7 @@ export interface UserStatus {
   /**
    * The user authentication status.
    */
-  user: USER_AUTHENTICATION_STATUS;
+  user: string;
 }
 
 /**
@@ -37,9 +22,13 @@ export interface UserStatus {
  */
 export enum PROFILE_API_ACTION {
   /**
-   * One to set the state that the JSONP call for user authentication status failed.
+   * One to set the state that the REST call for user status is in progress or not.
    */
-  SET_ERROR_MONITOR_USER_STATUS = 'SET_ERROR_MONITOR_USER_STATUS',
+  SET_REQUEST_USER_STATUS_IN_PROGRESS = 'SET_REQUEST_USER_STATUS_IN_PROGRESS',
+  /**
+   * One to set the state that the call user authentication status failed.
+   */
+  SET_ERROR_REQUEST_USER_STATUS = 'SET_ERROR_REQUEST_USER_STATUS',
 
   /**
    * One to set the given user authentication status.
@@ -52,9 +41,9 @@ export enum PROFILE_API_ACTION {
  */
 export interface ProfileAPIState {
   /**
-   * The error from the JSONP call for the user authentication status.
+   * The error from the call for the user authentication status.
    */
-  errorMonitorUserStatus?: Error;
+  errorGetUserStatus?: Error;
 
   /**
    * The user authentication status.
