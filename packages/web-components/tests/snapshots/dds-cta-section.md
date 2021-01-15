@@ -7,11 +7,7 @@
 ```
 <slot name="heading">
 </slot>
-<div>
-  <slot name="media">
-  </slot>
-</div>
-<slot>
+<slot name="copy">
 </slot>
 <div
   class="bx--content-item__cta"
@@ -27,10 +23,12 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot name="items">
+    <slot>
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 
@@ -39,11 +37,7 @@
 ```
 <slot name="heading">
 </slot>
-<div>
-  <slot name="media">
-  </slot>
-</div>
-<slot>
+<slot name="copy">
 </slot>
 <div class="bx--content-item__cta">
   <slot name="action">
@@ -56,10 +50,12 @@
   hidden=""
 >
   <div class="bx--content-item-wrapper">
-    <slot name="items">
+    <slot>
     </slot>
   </div>
 </div>
+<slot name="complementary">
+</slot>
 
 ```
 

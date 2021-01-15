@@ -1,0 +1,24 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/vars';
+@import '../../globals/imports';
+
+:root {
+  --#{$dds-prefix}--fade-in-out-delay: 0s;
+}
+
+.#{$prefix}--fade-in {
+  transition-timing-function: carbon--motion(entrance, expressive);
+  transition-duration: $duration--slow-01;
+  transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
+  opacity: 1;
+}
+
+.#{$prefix}--fade-out {
+  opacity: 0;
+}

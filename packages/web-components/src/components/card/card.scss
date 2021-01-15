@@ -29,6 +29,18 @@
     margin-bottom: 0;
   }
 }
+
+:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:focus {
+  ::slotted(svg[slot='pictogram']) {
+    display: none;
+  }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    margin-bottom: 0;
+  }
+}
+
 :host(#{$dds-prefix}-card) {
   .#{$prefix}--card__pictogram {
     display: flex;
