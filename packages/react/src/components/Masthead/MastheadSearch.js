@@ -206,10 +206,14 @@ const MastheadSearch = ({
   }
 
   // Custom event emitted when search does not redirect to default url
-  const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
-    bubbles: true,
-    detail: { value: state.val },
-  });
+  function onSearchNoRedirect(event, val) {
+    const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
+      bubbles: true,
+      detail: { value: val },
+    });
+
+    event.currentTarget.dispatchEvent(onSearchNoRedirect);
+  }
 
   /**
    * When the input field changes, we set the new val to our state
@@ -225,7 +229,6 @@ const MastheadSearch = ({
     });
 
     event.currentTarget.dispatchEvent(onSearchValueChanged);
-
     dispatch({ type: 'setVal', payload: { val: newValue } });
   }
 
@@ -239,7 +242,7 @@ const MastheadSearch = ({
       case 'Enter': {
         // Disables Enter key if searchNoRirect is true
         if (rest.searchNoRedirect) {
-          event.currentTarget.dispatchEvent(onSearchNoRedirect);
+          onSearchNoRedirect(event, state.val);
           event.preventDefault();
         }
       }
@@ -287,7 +290,7 @@ const MastheadSearch = ({
 
     if (state.isSearchOpen && state.val.length) {
       if (rest.searchNoRedirect) {
-        event.currentTarget.dispatchEvent(onSearchNoRedirect);
+        onSearchNoRedirect(event, state.val);
       } else {
         root.parent.location.href = getRedirect(state.val);
       }
@@ -427,6 +430,7 @@ const MastheadSearch = ({
    */
   function onSuggestionSelected(event, { suggestionValue }) {
     if (rest.searchNoRedirect) {
+      onSearchNoRedirect(event, suggestionValue);
       event.preventDefault();
     } else {
       root.parent.location.href = getRedirect(suggestionValue);
