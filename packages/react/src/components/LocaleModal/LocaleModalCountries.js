@@ -216,11 +216,14 @@ export const filterLocale = (
   /**
    *  Reflect number of results in the accessibility readout
    */
-  const resultsElement = document.querySelector(`.${prefix}--assistive-text`);
+  const resultsElement = document.querySelector(
+    `.${prefix}--locale-modal__list .${prefix}--assistive-text`
+  );
+
   const resultsCount = localeItems.length - localeItemsHidden.length;
 
   if (resultsElement) {
-    resultsElement.innerHTML = `${resultsCount} ${
+    resultsElement.textContent = `${resultsCount} ${
       resultsCount == 1 ? 'result' : 'results'
     } found.`;
   }
