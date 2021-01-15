@@ -35,7 +35,7 @@ describe('Redux actions for `ProfileAPI`', () => {
   });
 
   it('dispatches the action to monitor user authentication status', () => {
-    ProfileAPI.monitorUserStatus.mockImplementation(callback => {
+    ProfileAPI.getUserStatus.mockImplementation(callback => {
       callback(null, { user: 'test.user@ibm.com' });
       callback(null, { user: 'Unauthenticated' });
     });
@@ -54,8 +54,8 @@ describe('Redux actions for `ProfileAPI`', () => {
   });
 
   it('dispatches the action of error in monitoring user authentication status', () => {
-    ProfileAPI.monitorUserStatus.mockImplementation(callback => {
-      callback(new Error('error-monitoruserstatus'));
+    ProfileAPI.getUserStatus.mockImplementation(callback => {
+      callback(new Error('error-getuserstatus'));
     });
     const store = mockStore();
     store.dispatch(getUserStatus());
