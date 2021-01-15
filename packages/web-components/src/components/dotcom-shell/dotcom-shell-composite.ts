@@ -260,7 +260,7 @@ class DDSDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: 'Unauthenticated';
+  userStatus = 'Unauthenticated';
 
   update(changedProperties) {
     super.update(changedProperties);

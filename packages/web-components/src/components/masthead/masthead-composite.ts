@@ -528,7 +528,7 @@ class DDSMastheadComposite extends LitElement {
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: 'Unauthenticated';
+  userStatus = 'Unauthenticated';
 
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
@@ -574,6 +574,7 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
       _loadSearchResults: loadSearchResults,
     } = this;
+    console.log('userStatus', userStatus);
     const authenticated = userStatus !== 'Unauthenticated';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     return html`
