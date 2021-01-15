@@ -41,6 +41,12 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(BXComboBox) {
   private _filterInputNode!: HTMLInputElement;
 
   /**
+   * The selection button.
+   */
+  @query('#selection-button')
+  private _selectionButtonNode!: HTMLButtonElement;
+
+  /**
    * Reverts input value to last chosen valid language.
    *
    * @param event the event
@@ -131,6 +137,11 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(BXComboBox) {
    */
   @property({ reflect: true })
   slot = 'language-selector';
+
+  firstUpdated() {
+    this._listBoxNode.setAttribute('role', 'edit combo');
+    this._selectionButtonNode.setAttribute('aria-label', 'Clear input selection');
+  }
 
   // @ts-ignore
   updated(changedProperties) {
