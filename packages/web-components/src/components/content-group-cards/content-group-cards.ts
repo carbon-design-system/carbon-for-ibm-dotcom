@@ -21,8 +21,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Content group cards.
  *
  * @element dds-content-group-cards
- * @slot copy - The copy
- * @slot content - The card items content
  */
 @customElement(`${ddsPrefix}-content-group-cards`)
 class DDSContentGroupCards extends StableSelectorMixin(DDSContentGroup) {
