@@ -25,3 +25,23 @@
     }
   }
 }
+
+:host(#{$dds-prefix}-content-block-segmented-item) ::slotted(*) {
+  margin-left: $carbon--spacing-05;
+  margin-right: $carbon--spacing-05;
+}
+
+// TODO: Consider applying this rule in general
+:host(#{$dds-prefix}-content-block-segmented-item) {
+  ::slotted(#{$dds-prefix}-content-item-copy) {
+    @include carbon--breakpoint('md') {
+      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+    }
+  }
+}
+
+.#{$dds-prefix}-ce--content-layout--with-adjacent-heading-content ::slotted([slot='heading']) {
+  // In this condition, given the heading content and child content are in different grid area, both margins will be in effect.
+  // Uses the margin of child content and cancels one of the heading to get the right margin.
+  margin-bottom: 0;
+}
