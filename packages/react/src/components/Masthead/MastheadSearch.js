@@ -205,7 +205,12 @@ const MastheadSearch = ({
     rest.isSearchActive(state.isSearchOpen);
   }
 
-  // Custom event emitted when search does not redirect to default url
+  /**
+   * Custom event emitted when search does not redirect to default url
+   *
+   * @param {event} event The callback event
+   * @param {string} val The new val of the input
+   */
   function onSearchNoRedirect(event, val) {
     const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
       bubbles: true,
