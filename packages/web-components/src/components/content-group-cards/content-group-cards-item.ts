@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property } from 'lit-element';
+import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCard from '../card/card';
 import styles from './content-group-cards.scss';
 
@@ -20,12 +21,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-group-card-item
  */
 @customElement(`${ddsPrefix}-content-group-cards-item`)
-class DDSContentGroupCardsItem extends DDSCard {
-  /**
-   * The shadow slot the Content Group Card Item should be in.
-   */
-  @property({ reflect: true })
-  slot = 'content';
+class DDSContentGroupCardsItem extends StableSelectorMixin(DDSCard) {
+  static get stableSelector() {
+    return `${ddsPrefix}--content-group-cards-item`;
+  }
 
   static styles = styles;
 }

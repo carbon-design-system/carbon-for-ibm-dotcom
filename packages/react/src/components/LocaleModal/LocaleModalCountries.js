@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,6 +30,7 @@ const LocaleModalCountries = ({
   currentRegion,
   ...modalLabels
 }) => {
+  const componentRef = useRef(null);
   const localList = useRef(null);
   useEffect(() => {
     localList.current.scrollTop = 0;
@@ -55,7 +56,8 @@ const LocaleModalCountries = ({
         localeFilter,
         localeHidden,
         localeText,
-        modalLabels
+        modalLabels,
+        componentRef
       )
     );
 
@@ -75,7 +77,8 @@ const LocaleModalCountries = ({
           localeFilter,
           localeHidden,
           localeText,
-          modalLabels
+          modalLabels,
+          componentRef
         )
       );
       localeText ? (localeText.innerHTML = modalLabels.availabilityText) : '';
@@ -83,7 +86,7 @@ const LocaleModalCountries = ({
   });
 
   return (
-    <div className={`${prefix}--locale-modal__filter`}>
+    <div ref={componentRef} className={`${prefix}--locale-modal__filter`}>
       <div className={`${prefix}--locale-modal__search`}>
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
@@ -98,6 +101,10 @@ const LocaleModalCountries = ({
         </p>
       </div>
       <ul className={`${prefix}--locale-modal__list`} ref={localList}>
+        <p
+          className={`${prefix}--assistive-text`}
+          role="status"
+          aria-live="assertive"></p>
         {regionList?.map(
           region =>
             currentRegion === region.name &&
@@ -173,7 +180,8 @@ export const filterLocale = (
   localeFilter,
   localeHidden,
   localeText,
-  modalLabels
+  modalLabels,
+  componentRef
 ) => {
   const localeItems = document.querySelectorAll(
     `.${prefix}--locale-modal__list a:not(.${prefix}--locale-modal__locales-filtered)`
@@ -208,6 +216,23 @@ export const filterLocale = (
     localeItems.length === localeItemsHidden.length
       ? modalLabels.unavailabilityText
       : modalLabels.availabilityText;
+
+  /**
+   *  Reflect number of results in the accessibility readout
+   */
+  if (componentRef) {
+    const resultsElement = componentRef.current.querySelector(
+      `.${prefix}--locale-modal__list .${prefix}--assistive-text`
+    );
+
+    const resultsCount = localeItems.length - localeItemsHidden.length;
+
+    if (resultsElement) {
+      resultsElement.textContent = `${resultsCount} ${
+        resultsCount == 1 ? 'result' : 'results'
+      } found.`;
+    }
+  }
 };
 
 export default LocaleModalCountries;

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -30,6 +30,17 @@
   }
 }
 
+:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:focus {
+  ::slotted(svg[slot='pictogram']) {
+    display: none;
+  }
+
+  .#{$prefix}--card__copy {
+    display: flex;
+    margin-bottom: 0;
+  }
+}
+
 :host(#{$dds-prefix}-card) {
   .#{$prefix}--card__pictogram {
     display: flex;
@@ -39,6 +50,20 @@
       flex: 1;
       display: flex;
       align-items: flex-end;
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
+    }
+    ::slotted(#{$dds-prefix}-card-eyebrow) {
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
     }
   }
 
@@ -50,12 +75,25 @@
     }
 
     .#{$prefix}--card__copy {
+      @include carbon--breakpoint('md') {
+        padding-left: 0;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-left: $carbon--spacing-05;
+      }
+
       display: none;
     }
   }
 
   ::slotted(svg[slot='pictogram']) {
     color: $icon-01;
+    @include carbon--breakpoint('md') {
+      margin-left: 0;
+    }
+    @include carbon--breakpoint('sm') {
+      margin-left: $carbon--layout-01;
+    }
   }
 
   &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
