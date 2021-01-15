@@ -25,6 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const slotExistencePropertyNames = {
   complementary: '_hasComplementary',
   copy: '_hasCopy',
+  heading: '_hasHeading',
   footer: '_hasFooter',
   media: '_hasMedia',
 };
