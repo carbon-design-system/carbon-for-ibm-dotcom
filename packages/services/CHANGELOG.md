@@ -1,5 +1,27 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.15.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.14.0...@carbon/ibmdotcom-services@1.15.0-rc.0) (2021-01-16)
+
+
+### Bug Fixes
+
+* **Footer:** swap out translation host default endpoint for FF ([#4848](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4848)) ([38caaf9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/38caaf9)), closes [#4737](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4737)
+
+
+### Features
+
+* **profile:** change profile api endpoint ([#4909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4909)) ([e9cffaa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e9cffaa)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4701)
+* **web-components:** add React wrapper ([#4678](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4678)) ([2838e4c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2838e4c)), closes [#4251](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4251)
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

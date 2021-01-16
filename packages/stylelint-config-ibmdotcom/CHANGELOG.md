@@ -1,5 +1,21 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/stylelint-config-ibmdotcom@1.7.0...@carbon/stylelint-config-ibmdotcom@1.8.0-rc.0) (2021-01-16)
+
+
+### Features
+
+* **WebComponents:** add Web Components package ([#2820](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2820)) ([6372912](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6372912)), closes [#2810](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/2810)
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
