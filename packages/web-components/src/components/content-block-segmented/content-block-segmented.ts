@@ -23,7 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Simple version of content block.
  *
  * @element dds-content-block-segmented
- * @slot media - The media content.
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
 class DDSContentBlockSegmented extends DDSContentBlockSimple {

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.14.0...@carbon/ibmdotcom-services-store@1.15.0-rc.0) (2021-01-16)
+
+
+### Features
+
+* **masthead:** introduce active state of nav items ([#4721](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4721)) ([de880d5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/de880d5)), closes [#4712](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4712)
+* **profile:** change profile api endpoint ([#4909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4909)) ([e9cffaa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/e9cffaa)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4701)
+
+
+
+
+
 # [1.14.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.14.0-rc.0...@carbon/ibmdotcom-services-store@1.14.0) (2020-12-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store
