@@ -1,5 +1,22 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.15.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.14.0...@carbon/ibmdotcom-utilities@1.15.0-rc.0) (2021-01-16)
+
+
+### Features
+
+* **fade-in-out:** introducing new components ([#4608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4608)) ([0b6a05a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0b6a05a)), closes [#4281](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4281)
+* **web-components:** add React wrapper ([#4678](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4678)) ([2838e4c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2838e4c)), closes [#4251](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4251)
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
