@@ -86,7 +86,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   const { localeAPI, translateAPI, profileAPI, searchAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
-  const { status } = profileAPI ?? {};
+  const { request } = profileAPI ?? {};
   const { currentSearchQueryString, searchResults } = searchAPI ?? {};
   let currentSearchResults;
   for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
@@ -97,7 +97,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
-      userStatus: status?.user,
+      userStatus: request?.user,
       currentSearchResults: currentSearchResults ?? [],
     },
     value => value !== undefined
