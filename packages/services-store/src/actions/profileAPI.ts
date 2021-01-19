@@ -24,14 +24,14 @@ export function setErrorRequestUserStatus(error: Error) {
 }
 
 /**
- * @param status The promise of the REST call for  user status that is in progress.
+ * @param request The promise of the REST call for  user status that is in progress.
  * @returns A Redux action to set the state that the REST call for user status is in progress.
  * @private
  */
-export function setRequestUserStatusInProgress(status: Promise<UserStatus>) {
+export function setRequestUserStatusInProgress(request: Promise<UserStatus>) {
   return {
     type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
-    status,
+    request,
   };
 }
 

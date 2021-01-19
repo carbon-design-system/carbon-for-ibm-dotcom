@@ -13,7 +13,7 @@ import thunk, { ThunkDispatch } from 'redux-thunk';
 import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile.js';
 import { UNAUTHENTICATED_STATUS, PROFILE_API_ACTION, ProfileAPIState } from '../../types/profileAPI';
 import convertValue from '../../../tests/utils/convert-value';
-import { setUserStatus } from '../profileAPI';
+import { loadUserStatus, setUserStatus } from '../profileAPI';
 
 jest.mock('@carbon/ibmdotcom-services/es/services/Profile/Profile');
 
@@ -29,7 +29,7 @@ describe('Redux actions for `ProfileAPI`', () => {
     expect(store.getActions()).toEqual([
       {
         type: PROFILE_API_ACTION.SET_USER_STATUS,
-        status: { user: 'test.user@ibm.com' },
+        request: { user: 'test.user@ibm.com' },
       },
     ]);
   });
@@ -37,7 +37,7 @@ describe('Redux actions for `ProfileAPI`', () => {
   it('dispatches the action to get user authentication status', async () => {
     ProfileAPI.getUserStatus.mockResolvedValue({ user: UNAUTHENTICATED_STATUS });
     const store = mockStore();
-    await store.dispatch(ProfileAPI.getUserStatus());
+    await store.dispatch(loadUserStatus());
     expect(convertValue(store.getActions())).toEqual([
       {
         type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
@@ -45,18 +45,26 @@ describe('Redux actions for `ProfileAPI`', () => {
       },
       {
         type: PROFILE_API_ACTION.SET_USER_STATUS,
-        status: { user: UNAUTHENTICATED_STATUS },
+        request: { user: UNAUTHENTICATED_STATUS },
       },
     ]);
   });
 
-  it('dispatches the action of error in monitoring user authentication status', () => {
-    ProfileAPI.getUserStatus.mockImplementation(callback => {
-      callback(new Error('error-getuserstatus'));
-    });
+  it('dispatches the action of error in monitoring user authentication status', async () => {
+    ProfileAPI.getUserStatus.mockRejectedValue(new Error('error-getuserstatus'));
     const store = mockStore();
-    store.dispatch(ProfileAPI.getUserStatus());
+    let caught;
+    try {
+      await store.dispatch(loadUserStatus());
+    } catch (error) {
+      caught = error;
+    }
+    expect(caught?.message).toBe('error-getuserstatus');
     expect(convertValue(store.getActions())).toEqual([
+      {
+        type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
+        request: 'PROMISE',
+      },
       {
         type: PROFILE_API_ACTION.SET_ERROR_REQUEST_USER_STATUS,
         error: 'error-getuserstatus',
