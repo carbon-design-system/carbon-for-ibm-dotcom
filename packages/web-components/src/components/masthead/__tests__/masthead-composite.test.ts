@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,6 @@ import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSMastheadComposite from '../masthead-composite';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from '../__stories__/profile-items';
 
@@ -79,7 +78,7 @@ describe('dds-masthead-composite', function() {
     });
 
     it('should render authenticated state', async function() {
-      render(template({ userStatus: USER_AUTHENTICATION_STATUS.AUTHENTICATED }), document.body);
+      render(template({ userStatus: 'test.user@ibm.com' }), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector('dds-masthead-composite');
       expect(mastheadComposite!.querySelector('dds-masthead-global-bar')).toMatchSnapshot();
