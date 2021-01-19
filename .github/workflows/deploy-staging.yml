@@ -66,6 +66,7 @@ jobs:
         env:
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
           KALTURA_UICONF_ID: ${{ secrets.KALTURA_UICONF_ID }}
+          PROFILE_HOST: ${{ secrets.PROFILE_HOST }}
       - name: Building @carbon/ibmdotcom-web-components (staging) storybook
         run: yarn build-storybook
         working-directory: packages/web-components
