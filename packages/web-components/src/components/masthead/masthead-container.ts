@@ -19,7 +19,7 @@ import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotc
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { getUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
+import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
 import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
 import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
@@ -76,7 +76,7 @@ export type MastheadContainerActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
-  | ReturnType<typeof getUserStatus>;
+  | ReturnType<typeof loadUserStatus>;
 
 /**
  * @param state The Redux state for masthead.
@@ -114,7 +114,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
-      _getUserStatus: getUserStatus,
+      _loadUserStatus: loadUserStatus,
       _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`

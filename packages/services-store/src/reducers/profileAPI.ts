@@ -25,10 +25,10 @@ export default function reducer(state: ProfileAPIState = {}, action: ProfileAPIA
       };
     }
     case PROFILE_API_ACTION.SET_USER_STATUS: {
-      const { status } = action as ReturnType<typeof setUserStatus>;
+      const { request } = action as ReturnType<typeof setUserStatus>;
       return {
         ...state,
-        status,
+        request,
       };
     }
     default:

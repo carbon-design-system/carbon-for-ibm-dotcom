@@ -36,13 +36,13 @@ export function setRequestUserStatusInProgress(status: Promise<UserStatus>) {
 }
 
 /**
- * @param status The user authentication status from the JSONP call.
+ * @param request The user authentication status from the JSONP call.
  * @returns A Redux action to set the given user authentication status.
  */
-export function setUserStatus(status: UserStatus) {
+export function setUserStatus(request: UserStatus) {
   return {
     type: PROFILE_API_ACTION.SET_USER_STATUS,
-    status,
+    request,
   };
 }
 
@@ -52,9 +52,9 @@ export type ProfileAPIActions =
   | ReturnType<typeof setUserStatus>;
 
 /**
- * @returns A Redux action that gets user authentication status.
+ * @returns A Redux action that sends a REST call for user authentication status.
  */
-export function getUserStatus(): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
+export function loadUserStatus(): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
   return async dispatch => {
     const promiseStatus: Promise<UserStatus> = ProfileAPI.getUserStatus();
     dispatch(setRequestUserStatusInProgress(promiseStatus));
