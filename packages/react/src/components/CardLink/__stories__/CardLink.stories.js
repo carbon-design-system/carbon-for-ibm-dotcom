@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -56,11 +56,15 @@ export const Default = ({ parameters }) => {
   const { card, disabled } = parameters?.props?.CardLink ?? {};
 
   return (
-    <div className="bx--grid bx--grid--condensed">
-      <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
-          <CardLink card={card} disabled={disabled} />
-        </div>
+    <div
+      style={{
+        paddingTop: 1 + `rem`,
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}>
+      <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--no-gutter">
+        <CardLink card={card} disabled={disabled} />
       </div>
     </div>
   );
