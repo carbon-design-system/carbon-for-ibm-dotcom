@@ -61,6 +61,9 @@ Default.story = {
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
+    percy: {
+      skip: true,
+    },
   },
 };
 
@@ -82,5 +85,8 @@ WithContinuousAnimations.story = {
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
+    percy: {
+      skip: true,
+    },
   },
 };
