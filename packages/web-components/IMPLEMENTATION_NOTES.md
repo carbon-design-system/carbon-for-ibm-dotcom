@@ -39,7 +39,7 @@ Some components in UI components category [above](#categories-of-components) ext
 
 ### Usage of Sass
 
-Most components has the following to define CSS:
+Most components have the following to define CSS:
 
 ```typescript
 import styles from './some-component.scss';
