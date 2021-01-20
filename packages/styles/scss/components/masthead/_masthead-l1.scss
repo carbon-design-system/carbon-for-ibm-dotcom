@@ -26,7 +26,12 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     overflow: visible;
 
-    @include carbon--breakpoint-down(800px) {
+    // Exclude the target breakpoint itself (800px) by subtracting .02.
+    // This has been addressed in Carbon core, but only for breakpoint
+    // keywords, i.e. 'md', 'lg'.
+    // The calculation is not applied to numeric values.
+    // https://github.com/carbon-design-system/carbon/blob/master/packages/layout/scss/_breakpoint.scss#L172
+    @include carbon--breakpoint-down(799.98px) {
       display: none;
     }
 
