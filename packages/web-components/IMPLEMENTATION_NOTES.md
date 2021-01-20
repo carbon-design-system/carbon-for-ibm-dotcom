@@ -61,7 +61,7 @@ The above custom toolchain allows us to use Sass for our components, as well as 
 
 ### Styles in Shadow DOM
 
-One of the greatest features in Web Components is that CSS is isolated within components, thanks to Shadow DOM. Component CSS doesn't affect application CSS, or vice versa. This allows user to do gradual migration from `v18` design assets from Carbon for IBM.com design assets, for example.
+One of the greatest features in Web Components is that CSS is isolated within components, thanks to Shadow DOM. Component CSS doesn't affect application CSS, or vice versa. This allows users to gradually migrate from `v18` design assets to Carbon for IBM.com design assets, for example.
 
 Style isolation within component causes challenges in implementing component styles, in some cases. One of the biggest challenge is a component that requires different style if it's put in another component's child.
 
