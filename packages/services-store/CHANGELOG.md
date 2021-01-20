@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.15.0-rc.0...@carbon/ibmdotcom-services-store@1.15.0-rc.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* **profile:** update profile requx actions, types, and reducers naming and unit tests ([#4926](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4926)) ([c824634](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/c824634)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/4701)
+
+
+
+
+
 # [1.15.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.14.0...@carbon/ibmdotcom-services-store@1.15.0-rc.0) (2021-01-16)
 
 
