@@ -54,7 +54,7 @@ class DDSSomeComponent extends LitElement {
 
 There are several things behind the scene of that.
 
-- In Storybook environment, in addition to `sass-loader`/`postcss-loader`/`style-loader` chains, we use a [custom WebPack loader](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/tools/css-result-loader.js) that generates `lit-html`'s [CSS tagged template](https://lit-element.polymer-project.org/guide/styles#add-styles) from the generated CSS.
+- In Storybook environments, in addition to `sass-loader`/`postcss-loader`/`style-loader` chains, we use a [custom WebPack loader](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/tools/css-result-loader.js) that generates `lit-html`'s [CSS tagged template](https://lit-element.polymer-project.org/guide/styles#add-styles) from the generated CSS.
 - For production build, we [generate `.css.js` file](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/gulp-tasks/build.js#L79-L88) that exports `lit-html`'s [CSS tagged template](https://lit-element.polymer-project.org/guide/styles#add-styles) with the CSS compiled from the Sass code. The [`import` path is changed to refer to such generated `.css.js` file](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/tools/babel-plugin-resource-js-paths.js#L24-L26).
 
 Above custom toolchain allows us to use Sass for our components, as well as to put Sass/CSS code in a separate location from the component code.
