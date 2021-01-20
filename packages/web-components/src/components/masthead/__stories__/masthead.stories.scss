@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -22,12 +22,16 @@
   }
 }
 
-.bx--content.dds-ce-demo-devenv--ui-shell-content {
-  h2 {
-    margin: 30px 0;
+.bx--content {
+  padding: 6rem 0 2rem;
 
-    &:first-of-type {
-      margin-top: 0;
+  &.dds-ce-demo-devenv--ui-shell-content {
+    h2 {
+      margin: 30px 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
     }
   }
 }
