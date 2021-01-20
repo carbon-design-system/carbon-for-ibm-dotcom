@@ -1,14 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -40,10 +39,9 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </DDSCard>
 );
 
-export const Default = ({ parameters }) => {
-  const { pageSize } = parameters?.props?.Carousel ?? {};
+export const Default = () => {
   return (
-    <DDSCarousel pageSize={pageSize}>
+    <DDSCarousel>
       <Card />
       <Card copy={copyOdd} />
       <Card />
@@ -57,10 +55,5 @@ export default {
   title: 'Components/Carousel',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        pageSize: number('Page size (pageSize)', null!, groupId),
-      }),
-    },
   },
 };
