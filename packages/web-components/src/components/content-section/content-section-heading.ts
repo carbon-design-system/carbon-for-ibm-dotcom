@@ -27,6 +27,9 @@ class DDSContentSectionHeading extends LitElement {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
     }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '3');
+    }
     super.connectedCallback();
   }
 
