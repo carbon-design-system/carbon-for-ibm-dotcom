@@ -14,7 +14,7 @@ import reducer from '../profileAPI';
 
 describe('Redux reducers for `ProfileAPI`', () => {
   it('should return the state unmodified for unknown action', () => {
-    const state = { status: { user: 'test.user@ibm.com' } };
+    const state = { request: { user: 'test.user@ibm.com' } };
     expect(reducer(state, {} as ProfileAPIActions)).toEqual(state);
   });
 
@@ -36,11 +36,11 @@ describe('Redux reducers for `ProfileAPI`', () => {
       convertValue(
         reducer({} as ProfileAPIState, {
           type: PROFILE_API_ACTION.SET_USER_STATUS,
-          status: { user: 'test.user@ibm.com' },
+          request: { user: 'test.user@ibm.com' },
         })
       )
     ).toEqual({
-      status: { user: 'test.user@ibm.com' },
+      request: { user: 'test.user@ibm.com' },
     });
   });
 });
