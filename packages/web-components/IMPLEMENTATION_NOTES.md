@@ -67,7 +67,7 @@ Style isolation within component causes challenges in implementing component sty
 
 Style defined in the shadow DOM can define the style of the direct child with [`::slotted()` pseudo element](https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted), but [cannot define the style of the descendants](https://github.com/WICG/webcomponents/issues/745).
 
-There are a couple approaches `@carbon/ibmdotcom-web-components` chooses from depending on what best suits the use case:
+There are several approaches `@carbon/ibmdotcom-web-components` to choose from depending on what best suits the use case:
 
 1. Create an inherited class with different style applied (e.g. [`<dds-callout-quote>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/callout-quote/callout-quote.ts) that extends `<dds-quote>`)
 2. Use CSS custom properties (as they are inherited to descendant DOM elements). An example is [seen in `<dds-link-list>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/components/link-list/link-list.scss#L34). It may not be a good idea to use this approach if we end up with many custom properties, though
