@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.51.51...@carbon/ibmdotcom-web-components@0.8.0-rc.0) (2021-01-16)
+
+### Features
+
+- **profile:** change profile api endpoint ([#4909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4909)) ([e9cffaa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e9cffaa)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4701)
+
 # [0.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.1...@carbon/ibmdotcom-web-components@0.7.0) (2020-12-15)
 
 ### Bug Fixes

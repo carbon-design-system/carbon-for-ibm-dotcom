@@ -208,10 +208,6 @@
 :host(#{$dds-prefix}-masthead-profile-item) {
   @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
-  a.#{$prefix}--header__menu-item[role='menuitem']:hover {
-    background-color: transparent;
-    color: $text-01;
-  }
 }
 
 :host(#{$dds-prefix}-top-nav-item),
@@ -225,7 +221,7 @@
     transform: scale(1.25);
   }
 
-  a.#{$prefix}--header__menu-item {
+  a.#{$prefix}--header__menu-item[role='menuitem'] {
     @include masthead-top-nav-link;
 
     &:hover {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,7 @@ import {
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import './masthead';
 import './masthead-logo';
@@ -410,11 +410,11 @@ class DDSMastheadComposite extends LitElement {
   _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in.
+   * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
    *
    * @internal
    */
-  _monitorUserStatus?: () => void;
+  _loadUserStatus?: () => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in.
@@ -529,7 +529,7 @@ class DDSMastheadComposite extends LitElement {
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus = UNAUTHENTICATED_STATUS;
 
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
@@ -542,7 +542,7 @@ class DDSMastheadComposite extends LitElement {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
-    this._monitorUserStatus?.();
+    this._loadUserStatus?.();
   }
 
   updated(changedProperties) {
@@ -575,7 +575,7 @@ class DDSMastheadComposite extends LitElement {
       l1Data,
       _loadSearchResults: loadSearchResults,
     } = this;
-    const authenticated = userStatus === USER_AUTHENTICATION_STATUS.AUTHENTICATED;
+    const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>

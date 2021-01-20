@@ -18,7 +18,7 @@ import {
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
@@ -90,11 +90,11 @@ class DDSDotcomShellComposite extends LitElement {
   _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in. This goes to masthead.
+   * The placeholder for `loadUserStatus()` Redux action that will be mixed in. This goes to masthead.
    *
    * @internal
    */
-  _monitorUserStatus?: () => void;
+  _loadUserStatus?: () => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in. This goes to masthead.
@@ -261,7 +261,7 @@ class DDSDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus = UNAUTHENTICATED_STATUS;
 
   update(changedProperties) {
     super.update(changedProperties);
@@ -296,7 +296,7 @@ class DDSDotcomShellComposite extends LitElement {
       _setLanguage,
       _loadLocaleList,
       _loadTranslation,
-      _monitorUserStatus,
+      _loadUserStatus,
       _loadSearchResults,
     } = this;
     Object.assign(
@@ -320,7 +320,7 @@ class DDSDotcomShellComposite extends LitElement {
           userStatus,
           _loadSearchResults,
           _loadTranslation,
-          _monitorUserStatus,
+          _loadUserStatus,
           _setLanguage,
         },
         value => value !== undefined
