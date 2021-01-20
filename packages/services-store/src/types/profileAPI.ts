@@ -18,6 +18,11 @@ export interface UserStatus {
 }
 
 /**
+ * Unauthenticated user status
+ */
+export const UNAUTHENTICATED_STATUS = 'Unauthenticated';
+
+/**
  * The Redux action ID for `ProfileAPI`.
  */
 export enum PROFILE_API_ACTION {
@@ -48,5 +53,5 @@ export interface ProfileAPIState {
   /**
    * The user authentication status.
    */
-  status?: UserStatus;
+  request?: UserStatus;
 }
