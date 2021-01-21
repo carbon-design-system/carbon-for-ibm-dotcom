@@ -9,6 +9,14 @@
 
 - [Categories of components](#categories-of-components)
 - [Carbon core library](#carbon-core-library)
+- [Component CSS](#component-css)
+  - [Usage of Sass](#usage-of-sass)
+  - [Styles in Shadow DOM](#styles-in-shadow-dom)
+- [Rendering target](#rendering-target)
+  - [Composite components](#composite-components)
+  - [Components rendering modal](#components-rendering-modal)
+- [CTA components](#cta-components)
+  - [Video CTA](#video-cta)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -99,7 +107,18 @@ There are some common behaviors in CTA components, that is implemented by [`CTAM
 - [Changing `target` attribute of `<a>` for `external` CTA type](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/cta.ts#L123-L132)
 - [Turn the link to a pseudo one for `video` CTA type](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/cta.ts#L113-L122)
 
+### Video CTA
+
 `video` CTA type requires more features, which is implemented by [`VideoCTAMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/video.ts). Every CTA component but `<dds-feature-cta-footer>` supports `video` CTA type (at the point of `v1.15.0`) and thus extend `VideoCTAMixin`. `VideoCTAMixin` implements the following:
 
-- Send an event (`dds-cta-request-video-data`) when user clicks on CTA so that the lightbox video player code can launch the light box
-- (Video caption/duration/thumbnail)
+- Send an event (`dds-cta-run-action`) when user clicks on CTA
+- Send an event (`dds-cta-request-video-data`) when the CTA type is `video` and video info (caption, duration and thumbmail) hasn't been loaded yet
+
+Those events are handled by [`<dds-video-cta-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-container.ts):
+
+| Event                        | Behind-the-scene logic of `<dds-video-cta-container>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dds-cta-run-action`         | Launches the light box, by [setttng `_activeVideoId` private property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L102) and [using it to trigger opening the modal](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L157). `_activeVideoId` should be cleared once user closes the light box.                                                                                                                                                |
+| `dds-cta-request-video-data` | [Loads the video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L84) via [Redux store](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/videoPlayerAPI.ts#L63-L84), and [updates `event.target` with the loaded video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L87-L88). `event.target` should be a CTA component as CTA component is the one firing the event. |
+
+Only one instance of `<dds-video-cta-container>` is needed in an application, as long as it contains all CTA components like [what's seen as the CTA story's Storybook decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/__stories__/cta.stories.ts#L176-L182). Such separation of concern between `<dds-*-cta>` and `<dds-video-cta-container>` keeps `<dds-*-cta>` lightweight and simple.
