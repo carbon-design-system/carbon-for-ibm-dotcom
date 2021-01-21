@@ -94,14 +94,6 @@
       padding: 0;
     }
 
-    .#{$prefix}--card__video {
-      .#{$prefix}--card__footer span {
-        color: $text-02;
-        @include use-carbon-productive-tokens();
-        @include carbon--type-style('body-short-01');
-      }
-    }
-
     &.#{$prefix}--link:focus,
     .#{$prefix}--link:focus {
       outline: 2px solid $focus;
