@@ -161,6 +161,9 @@ export default {
   parameters: {
     ...readme.parameters,
     useRawContainer: true,
+    percy: {
+      skip: true,
+    },
     props: (() => {
       // Lets `<dds-masthead-container>` load the nav links and lets `<dds-footer-container>` load the footer links
       const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
