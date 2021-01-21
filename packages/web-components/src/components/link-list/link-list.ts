@@ -14,6 +14,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE } from './defs';
 import styles from './link-list.scss';
+import DDSLinkListItem, { LINK_LIST_ITEM_TYPE } from './link-list-item';
 
 export { LINK_LIST_TYPE };
 
@@ -36,6 +37,13 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   private _useSplitLayoutForEndType = false;
 
   /**
+   * `true` to use three column layout for `type="end"`
+   *  Should happen if there are more than 6 child items slotted in.
+   */
+  @internalProperty()
+  private _useThreeColumnLayoutForEndType = false;
+
+  /**
    * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
    *
    * @private
@@ -45,7 +53,13 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
-    this._useSplitLayoutForEndType = childItems.length > 3;
+    this._useSplitLayoutForEndType = childItems.length > 3 && childItems.length < 7;
+    this._useThreeColumnLayoutForEndType = childItems.length >= 7;
+    if (this.type === LINK_LIST_TYPE.END) {
+      childItems.forEach(elem => {
+        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
+    }
   }
 
   /**
@@ -55,7 +69,11 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   type = LINK_LIST_TYPE.DEFAULT;
 
   render() {
-    const { type, _useSplitLayoutForEndType: useSplitLayoutForEndType } = this;
+    const {
+      type,
+      _useSplitLayoutForEndType: useSplitLayoutForEndType,
+      _useThreeColumnLayoutForEndType: useThreeColumnLayoutForEndType,
+    } = this;
     const headingClasses = classMap({
       [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
       [`${ddsPrefix}-ce--link-list__heading--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
@@ -70,6 +88,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
       [`${prefix}--link-list__list`]: true,
       [listTypeClasses]: true,
       [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
+      [`${ddsPrefix}-ce--link-list__list--three-columns`]: type === LINK_LIST_TYPE.END && useThreeColumnLayoutForEndType,
     });
     return html`
       <div class="${headingClasses}"><slot name="heading"></slot></div>
