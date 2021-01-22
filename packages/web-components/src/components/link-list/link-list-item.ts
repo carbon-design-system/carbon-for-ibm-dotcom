@@ -25,6 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-link-list-item`)
 class DDSLinkListItem extends DDSLinkWithIcon {
+  /**
+   * Defines the style of the link-list-item: `default` or `end`
+   */
   @property({ reflect: true })
   type = LINK_LIST_ITEM_TYPE.DEFAULT;
 
