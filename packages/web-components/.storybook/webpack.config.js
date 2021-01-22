@@ -155,7 +155,7 @@ module.exports = ({ config, mode }) => {
     },
     {
       test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
-      loader: 'url-loader',
+      loader: 'file-loader',
     }
   );
 
