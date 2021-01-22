@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,12 @@ export default {
   title: 'Components/Card Link',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
-        ${story()}
+      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
