@@ -7,3 +7,4 @@ lib
 node_modules
 docs
 storybook-static-react
+CHANGELOG.md

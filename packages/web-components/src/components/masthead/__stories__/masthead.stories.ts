@@ -14,17 +14,17 @@ import contentStyles from 'carbon-components/scss/components/ui-shell/_content.s
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { USER_AUTHENTICATION_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, l1Data, logoData } from './links';
+import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
-  [`Authenticated (${USER_AUTHENTICATION_STATUS.AUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.AUTHENTICATED,
-  [`Unauthenticated (${USER_AUTHENTICATION_STATUS.UNAUTHENTICATED})`]: USER_AUTHENTICATION_STATUS.UNAUTHENTICATED,
+  [`Authenticated`]: 'test.user@ibm.com',
+  [`Unauthenticated`]: UNAUTHENTICATED_STATUS,
 };
 
 const StoryContent = () => html`

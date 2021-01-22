@@ -25,6 +25,7 @@ packages/services/node_modules
 
 # services-store
 packages/services-store/es
+packages/services-store/lib
 
 # styles
 packages/styles/dist

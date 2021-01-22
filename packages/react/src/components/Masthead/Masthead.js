@@ -88,7 +88,7 @@ const Masthead = ({
     (async () => {
       const status = await ProfileAPI.getUserStatus();
       if (!unmounted) {
-        setStatus(status.user === 'Authenticated');
+        setStatus(status.user !== 'Unauthenticated');
       }
     })();
     return () => {
@@ -251,15 +251,10 @@ const Masthead = ({
                   )}
                   {hasSearch && (
                     <MastheadSearch
+                      {...mastheadProps}
                       searchOpenOnload={isSearchActive}
                       placeHolderText={placeHolderText}
                       navType={navType}
-                      {...(mastheadProps.customTypeaheadApi
-                        ? {
-                            customTypeaheadApi:
-                              mastheadProps.customTypeaheadApi,
-                          }
-                        : {})}
                       isSearchActive={handleSearchActive}
                     />
                   )}
