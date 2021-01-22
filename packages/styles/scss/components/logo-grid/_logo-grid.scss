@@ -48,10 +48,6 @@
       @include carbon--breakpoint('md') {
         @include carbon--make-col(1, 3);
       }
-
-      .#{$prefix}--card__heading {
-        @include carbon--type-style('productive-heading-01');
-      }
     }
 
     a.#{$prefix}--card__CTA {
@@ -131,6 +127,13 @@
 
   :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
     fill: $link-01;
+  }
+
+  :host(#{$dds-prefix}-logo-grid-link) ::slotted(#{$dds-prefix}-card-heading),
+  .#{$prefix}--logo-grid
+    .#{$prefix}--content-block__cta
+    .#{$prefix}--card__heading {
+    @include carbon--type-style('productive-heading-01');
   }
 }
 @include exports('logo-grid') {
