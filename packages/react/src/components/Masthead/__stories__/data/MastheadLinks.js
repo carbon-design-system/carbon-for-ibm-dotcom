@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -344,6 +344,7 @@ const mastheadLinks = [
   },
   {
     title: 'Sed cursus ante dapibus diam',
+    titleEnglish: 'Sed cursus ante dapibus diam',
     url: 'https://www.ibm.com/support/home/?lnk=msu_usen',
     hasMenu: false,
     hasMegapanel: false,
