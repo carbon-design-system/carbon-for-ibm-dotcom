@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.15.0-rc.1...@carbon/ibmdotcom-styles@1.15.0-rc.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* **Masthead:** make sure last selected menu item has selected styles in mobile nav ([#4973](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4973)) ([c52aff6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c52aff6)), closes [#4971](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4971)
+
+
+
+
+
 # [1.15.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.15.0-rc.0...@carbon/ibmdotcom-styles@1.15.0-rc.1) (2021-01-20)
 
 
