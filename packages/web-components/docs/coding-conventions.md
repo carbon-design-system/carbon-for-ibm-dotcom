@@ -35,6 +35,7 @@
 - [Private properties](#private-properties)
 - [Preferring class inheritance pattern over React composition pattern](#preferring-class-inheritance-pattern-over-react-composition-pattern)
 - [Limiting components that works with complex data](#limiting-components-that-works-with-complex-data)
+- [Optimizing layout query](#optimizing-layout-query)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -568,3 +569,13 @@ But there are certain kind of components that have to work with complex data, wh
 
 - **Container components**: Ones that manage application-level states and/or do data fetching/storing. The elements has `<dds-*-container>` naming rule. Container components may work with dedicated state manager like Redux (often recommended).
 - **Leaf components**: Ones that represents user interface/interaction. Most of our components are in this category.
+
+## Optimizing layout query
+
+`onscroll` and `onresize` event handlers fire as user scrolls and resizes the window, respectively. The event handlers of those event tend to query for layout of DOM elements that is known as [expensive](https://gist.github.com/paulirish/5d52fb081b3570c81e3a). To avoid excessive  number of calls with such heavy thing [debouncing/throttling/caching, etc. are known as old best practices](https://felixgerschau.com/javascript-event-loop-call-stack/#event-loop), but doing the right thing with it, especially determining when is the right timing to query for layout, is very hard.
+
+`@carbon/ibmdotcom-web-components` codebase uses [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) and [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) as new best practices. Those APIs leverages browser's layout information it calculates at the right timing so that application doesn't need to run another query that may not be at the right timing.
+
+Make sure not missing [lifecycle management](#lifecycle-management). For example, we don't want to keep observing intersection of DOM elements that are no longer there inside `<body>`, like ones that are removed as routing happens. An example of lifecycle management code can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/src/components/masthead/top-nav.ts#L109-L136), which is called from `connectedCallback()` and `disconnectedCallback()`.
+
+> 💡 Creating `IntersectionObserver`/`ResizeObserver` may require waiting for the target DOM to be created. Leverage `lit-element`'s lifecycle methods, e.g. [`firstUpdated()`](https://lit-element.polymer-project.org/guide/lifecycle#firstupdated)/[`updated()`](https://lit-element.polymer-project.org/guide/lifecycle#updated), for that.
