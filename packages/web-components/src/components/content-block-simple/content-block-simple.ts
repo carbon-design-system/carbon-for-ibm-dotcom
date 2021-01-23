@@ -7,11 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Part } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map';
 import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlock from '../content-block/content-block';
+import DDSContentBlock, { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block/content-block';
 import styles from './content-block-simple.scss';
 
 const { prefix } = settings;
@@ -24,24 +26,68 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-simple`)
 class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
-  protected _renderInnerBody() {
-    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
-    // Renders `<div class="bx--content-item">` directly instead of using `<dds-content-item>`
-    // because `<dds-content-block-simple>` uses only the copy content
+  /**
+   * The CSS class list for the container (grid) node.
+   */
+  protected _getContainerClasses(): string | ((part: Part) => void) {
+    const { complementaryStyleScheme, _hasComplementary: hasComplementary } = this;
+    return classMap({
+      [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-complementary`]: hasComplementary,
+      [`${prefix}--layout--border`]:
+        hasComplementary && complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+    });
+  }
+
+  /**
+   * @returns The non-header, non-complementary contents.
+   */
+  protected _renderBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
-        <div class="${prefix}--content-block-simple__content">
-          ${this._renderContent()}${this._renderMedia()}
-        </div>
+      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
+        ${super._renderBody()}
       </div>
     `;
   }
 
-  protected _renderContent(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
+  /**
+   * @returns The media content.
+   */
+  protected _renderMedia(): TemplateResult | string | void {
+    const { _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasContent}" class="${prefix}--content-item">
-        <slot @slotchange="${handleSlotChange}"></slot>
+      <slot name="media" @slotchange="${handleSlotChange}"></slot>
+    `;
+  }
+
+  protected _renderInnerBody() {
+    return html`
+      ${this._renderContent()}${this._renderMedia()}
+    `;
+  }
+
+  protected _renderContent(): TemplateResult | string | void {
+    const { _handleSlotChange: handleSlotChange } = this;
+    return html`
+      <slot @slotchange="${handleSlotChange}"></slot>
+    `;
+  }
+
+  protected _renderFooter(): TemplateResult | string | void {
+    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
+    // TODO: See if we can remove the surrounding `<div>`
+    return html`
+      <div ?hidden="${!hasFooter}">
+        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <div class="${this._getContainerClasses()}">
+        ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;
   }
