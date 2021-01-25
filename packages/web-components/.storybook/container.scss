@@ -1,7 +1,7 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -79,8 +79,16 @@ body {
 .dds-ce-demo-devenv--simple-grid--card-group {
   > * {
     grid-column: 1 / span 4;
+  }
+}
 
-    @include carbon--breakpoint('md') {
+@include carbon--breakpoint('md') {
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 1 / span 3;
+  }
+  .dds-ce-demo-devenv--simple-grid--callout,
+  .dds-ce-demo-devenv--simple-grid--card-group {
+    > * {
       grid-column: 1 / span 8;
     }
   }
@@ -92,11 +100,17 @@ body {
   }
 
   .dds-ce-demo-devenv--simple-grid--card > * {
-    grid-column: 5 / span 8;
+    grid-column: 1 / span 6;
   }
 
   .dds-ce-demo-devenv--simple-grid--card-group > * {
     grid-column: 3 / span 12;
+  }
+}
+
+@include carbon--breakpoint('xlg') {
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 1 / span 4;
   }
 }
 
