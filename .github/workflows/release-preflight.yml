@@ -1,0 +1,37 @@
+name: release-preflight
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+
+jobs:
+  react:
+    runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
+      - name: Install dependencies
+        run: yarn install --offline
+      - name: Build project
+        run: yarn build
+      - name: Run checks
+        run: |
+          yarn ci-check
+          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
+          yarn lint
+          yarn lint:styles
+      - name: Run checks (web components)
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()

@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
-    "ci-check": "npm run format:diff && yarn lint:license",
+    "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
     "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
     "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
     "doctoc": "doctoc --title '## Table of Contents' docs",
