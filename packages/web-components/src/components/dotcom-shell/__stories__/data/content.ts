@@ -130,7 +130,6 @@ const StoryContent = () => html`
             <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
             </dds-content-block-segmented>
 
@@ -156,7 +155,6 @@ const StoryContent = () => html`
             <dds-content-block-segmented>
               <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
               </dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
                 <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
                   Lorem ipsum dolor
