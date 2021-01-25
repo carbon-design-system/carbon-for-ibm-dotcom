@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,6 +37,7 @@ const MastheadLeftNav = ({
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
+    const selected = rest.selectedMenuItem === link.titleEnglish;
     if (link.hasMenu || link.hasMegaPanel) {
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
       const dataTitle = link.titleEnglish
@@ -54,7 +55,7 @@ const MastheadLeftNav = ({
               backButtonText={backButtonText}
               key={i}
               autoid={autoid}
-              selected={rest.selectedMenuItem === link.titleEnglish}
+              selected={selected}
               navType={rest.navType}
               dataTitle={dataTitle}>
               {renderNavSections(
@@ -84,7 +85,7 @@ const MastheadLeftNav = ({
           backButtonText={backButtonText}
           key={i}
           autoid={autoid}
-          selected={rest.selectedMenuItem === link.titleEnglish}
+          selected={selected}
           navType={rest.navType}
           dataTitle={dataTitle}>
           {renderNavSections(
@@ -102,8 +103,7 @@ const MastheadLeftNav = ({
             <SideNavLink
               href={link.url}
               className={
-                rest.selected &&
-                `${prefix}--masthead__side-nav--submemu--selected`
+                selected && `${prefix}--masthead__side-nav--submemu--selected`
               }
               data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
               key={i}>
@@ -127,8 +127,7 @@ const MastheadLeftNav = ({
         <SideNavLink
           href={link.url}
           className={
-            rest.selectedMenuItem === link.titleEnglish &&
-            `${prefix}--masthead__side-nav--submemu--selected`
+            selected && `${prefix}--masthead__side-nav--submemu--selected`
           }
           data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
           key={i}>

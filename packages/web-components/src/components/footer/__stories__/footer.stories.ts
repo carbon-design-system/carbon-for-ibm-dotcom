@@ -21,8 +21,18 @@ import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
 export const base = ({ parameters }) => {
-  const { langDisplay, language, size, langList, legalLinks, links, localeList, languageSelectorLabel, selectedLanguage } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    langDisplay,
+    language,
+    size,
+    langList,
+    legalLinks,
+    links,
+    localeList,
+    clearSelectionLabel,
+    languageSelectorLabel,
+    selectedLanguage,
+  } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
 
   return html`
@@ -40,6 +50,7 @@ export const base = ({ parameters }) => {
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
+            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
           >
           </dds-footer-composite>
@@ -54,6 +65,7 @@ export const base = ({ parameters }) => {
             .links="${ifNonNull(links)}"
             .localeList="${ifNonNull(localeList)}"
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
+            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
           >
           </dds-footer-container>
@@ -77,6 +89,7 @@ export const defaultLanguageOnly = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     languageSelectorLabel: 'Choose a language',
+    clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
     langList: mockLangList,
   };
@@ -99,6 +112,7 @@ export const shortDefaultLanguageOnly = ({ parameters }) => {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     languageSelectorLabel: 'Choose a language',
+    clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
     langList: mockLangList,
   };
