@@ -179,19 +179,17 @@ export const withAsideElements = ({ parameters }) => {
           >Lorem Ipsum dolor sit</dds-text-cta
         >
       </dds-content-block-segmented-item>
-      <dds-content-block-complementary>
-        <dds-link-list type="default">
-          <dds-link-list-heading>${heading}</dds-link-list-heading>
-          <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
-            <p>Containerization A Complete Guide</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-          <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
-            <p>Why should you use microservices and containers</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-        </dds-link-list>
-      </dds-content-block-complementary>
+      <dds-link-list type="default" slot="complementary">
+        <dds-link-list-heading>${heading}</dds-link-list-heading>
+        <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
+          <p>Containerization A Complete Guide</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+        <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
+          <p>Why should you use microservices and containers</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+      </dds-link-list>
       ${ctaStyle === 'text'
         ? html`
             <dds-text-cta slot="footer" cta-type=${ctaType} icon-placement="right" href=${hrefsForType[ctaType]}
@@ -210,7 +208,7 @@ export const withAsideElements = ({ parameters }) => {
 
 withAsideElements.story = {
   parameters: {
-    gridLargeColumnClass: 'bx--col-lg-12 bx--offset-lg-4',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
       ContentBlockSimple: () => ({
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
@@ -230,12 +228,8 @@ export default {
   title: 'Components/Content Block Segmented',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class=" bx--col-sm-4 ${parameters.gridLargeColumnClass}">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
@@ -243,7 +237,7 @@ export default {
     ...readme.parameters,
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
-    gridLargeColumnClass: 'bx--col-lg-8',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     knobs: {
       ContentBlockSimple: () => ({
         heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),

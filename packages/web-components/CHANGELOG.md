@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.0.0-rc.1...@carbon/ibmdotcom-web-components@1.0.0-rc.2) (2021-01-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.0.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.8.0-rc.0...@carbon/ibmdotcom-web-components@1.0.0-rc.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* **content-block-mixed:** fixed pictogram color on g90 and g100 theme ([#4949](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4949)) ([1dc940f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1dc940f)), closes [#4933](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4933)
+* **profile:** update profile requx actions, types, and reducers naming and unit tests ([#4926](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4926)) ([c824634](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/c824634)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4701)
+* **TOC:** update mobile sticky styles ([#4953](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4953)) ([9cd1900](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9cd1900))
+
+
+
+
+
 # [0.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.51.51...@carbon/ibmdotcom-web-components@0.8.0-rc.0) (2021-01-16)
 
 ### Features

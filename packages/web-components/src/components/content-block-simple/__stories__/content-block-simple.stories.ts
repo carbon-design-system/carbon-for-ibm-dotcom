@@ -9,7 +9,7 @@
 
 import '../../image/image';
 import '../../cta/link-list-item-card-cta';
-import '../../cta/text-cta';
+import '../../cta/card-cta';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
 // eslint-disable-next-line import/no-duplicates
@@ -79,7 +79,10 @@ export const Default = ({ parameters }) => {
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -92,7 +95,10 @@ export const WithImage = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -105,7 +111,10 @@ export const WithVideo = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -118,27 +127,28 @@ export const WithAsideElements = ({ parameters }) => {
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${image}
-      <dds-content-block-complementary>
-        <dds-link-list type="default">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
-            <p>Containerization A Complete Guide</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
-            <p>Why should you use microservices and containers</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-        </dds-link-list>
-      </dds-content-block-complementary>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-link-list type="default" slot="complementary">
+        <dds-link-list-heading>Tutorial</dds-link-list-heading>
+        <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
+          <p>Containerization A Complete Guide</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+        <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+          <p>Why should you use microservices and containers</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+      </dds-link-list>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
 
 WithAsideElements.story = {
   parameters: {
-    gridLargeColumnClass: 'bx--col-lg-12',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
   },
 };
 
@@ -146,12 +156,8 @@ export default {
   title: 'Components/Content block simple',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 ${parameters.gridLargeColumnClass} bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
@@ -159,7 +165,7 @@ export default {
     ...readme.parameters,
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
-    gridLargeColumnClass: 'bx--col-lg-8',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
         complementaryStyleScheme: select(
