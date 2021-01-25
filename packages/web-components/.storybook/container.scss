@@ -67,15 +67,11 @@ body {
 }
 
 .dds-ce-demo-devenv--container {
-  padding: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-
-  @include carbon--breakpoint('lg') {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 .dds-ce-demo-devenv--simple-grid--callout,
