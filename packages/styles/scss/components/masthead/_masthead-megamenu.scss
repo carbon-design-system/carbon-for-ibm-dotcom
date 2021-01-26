@@ -153,7 +153,7 @@
     @include type-style('body-short-01');
 
     color: $text-02;
-    padding: 0 $spacing-05 rem(10px);
+    padding: rem(6px) $spacing-05 rem(10px);
   }
 
   :host(#{$dds-prefix}-megamenu-category-group),
@@ -281,7 +281,7 @@
   :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
-    padding-top: $spacing-06;
+    padding-top: rem(18px);
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
   }
