@@ -223,7 +223,10 @@ class DDSMastheadComposite extends LitElement {
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
-                <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
+                ${sections[0]?.heading &&
+                  html`
+                    <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
+                  `}
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
