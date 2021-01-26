@@ -9,6 +9,16 @@
 
 - [Categories of components](#categories-of-components)
 - [Carbon core library](#carbon-core-library)
+- [Component CSS](#component-css)
+  - [Usage of Sass](#usage-of-sass)
+  - [Styles in Shadow DOM](#styles-in-shadow-dom)
+- [Rendering target](#rendering-target)
+  - [Composite components](#composite-components)
+  - [Components rendering modal](#components-rendering-modal)
+- [CTA components](#cta-components)
+- [Container components](#container-components)
+  - [Triggering action dispatcher](#triggering-action-dispatcher)
+- [Masthead search](#masthead-search)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -16,11 +26,11 @@
 
 There are three categories of components in `@carbon/ibmdotcom-web-components`:
 
-| State                | Description                                                                                                                                                                                                                                                  |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| UI components        | Components that define the user interface. Most components are in this category.                                                                                                                                                                             |
-| Composite components | Components that render UI components from object structure given via property. An example is `<dds-masthead-composite>` that renders top/left navs from `navLinks` property as an object. Components in this category should have `<*-composite>` tag names. |
-| Container components | Inheritances of composite components that connects to `@carbon/ibmdotcom-service`.                                                                                                                                                                           |
+| State                                         | Description                                                                                                                                                                                                                                                  |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| UI components                                 | Components that define the user interface. Most components are in this category.                                                                                                                                                                             |
+| Composite components                          | Components that render UI components from object structure given via property. An example is `<dds-masthead-composite>` that renders top/left navs from `navLinks` property as an object. Components in this category should have `<*-composite>` tag names. |
+| [Container components](#container-components) | Inheritances of composite components that connects to `@carbon/ibmdotcom-service`.                                                                                                                                                                           |
 
 ## Carbon core library
 
@@ -103,3 +113,59 @@ There are some common behaviors in CTA components, that is implemented by [`CTAM
 
 - Send an event (`dds-cta-request-video-data`) when user clicks on CTA so that the lightbox video player code can launch the light box
 - (Video caption/duration/thumbnail)
+
+## Container components
+
+Container components are inheritances of composite components that connects to `@carbon/ibmdotcom-service`. Connecting to `@carbon/ibmdotcom-service` is done via a Redux store, [`@carbon/ibmdotcom-services-store`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1.13.0/packages/services-store). Connecting to `@carbon/ibmdotcom-services-store` is done by [`ConnectMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/connect.ts) that has a similar feature set to [`react-redux`](https://react-redux.js.org).
+
+Similar to `react-redux`, `ConnectMixin` uses two callbacks:
+
+| Callback                                                                                                                                                                                                                                                                                  | Description                                                                                                                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`mapStateToProps()`](https://react-redux.js.org/api/connect#mapstatetoprops-state-ownprops--object) ([Example](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/footer/footer-container.ts#L89-L106))                   | Defines how React state maps to the properties in container components. Updates in those properties will cause re-rendering container component. |
+| [`mapDispatchToProps()`](https://react-redux.js.org/api/connect#mapdispatchtoprops-object--dispatch-ownprops--object) ([Example](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/footer/footer-container.ts#L108-L126)) | Creates Redux action dispatchers from action creators, and maps them to properties in container components.                                      |
+
+And container components are created by `ConnectMixin` like:
+
+```typescript
+@customElement(`${ddsPrefix}-footer-container`)
+class DDSFooterContainer extends ConnectMixin(store, mapStateToProps, mapDispatchToProps)(DDSFooterComposite) {}
+```
+
+As seen in above example, one notable difference of `ConnectMixin` from `react-redux` is that the created class (container component) is tied to `store` at the time of creating the class, whereas `react-redux` lets application specify what `store` to use via [`<Provider>`](https://react-redux.js.org/api/provider). This is because `<Provider>` relies on [React context](https://reactjs.org/docs/context.html), a React-specific paradigm.
+
+### Triggering action dispatcher
+
+Many container components in `@carbon/ibmdotcom-web-components` loads data from `@carbon/ibmdotcom-services` at the time of creation. `lit-element`'s [`firstUpdated()`](https://lit-element.polymer-project.org/guide/lifecycle#firstupdated) lifecycle method is used for that purpose, like:
+
+```javascript
+firstUpdated() {
+  const { language } = this;
+  if (language) {
+    this._setLanguage?.(language);
+  }
+  this._loadLangDisplay?.(language);
+  this._loadTranslation?.(language);
+}
+```
+
+`_setLanguage()`, `_loadLangDisplay()` and `_loadTranslation()` are Redux action dispatchers defined at [`mapDispatchToProps()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/footer/footer-container.ts#L108-L126), that maps to [`setLanguage()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/localeAPI.ts#L38-L47), [`loadLangDisplay()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/localeAPI.ts#L166-L194) and [`loadTranslation()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/translateAPI.ts#L64-L92) Redux actions, respectively.
+
+`setLanguage()` sets currently used language to use for the display language and the translation data. `loadLangDisplay()` loads the display language. `loadTranslation()` loads the translation data.
+
+See [the implementation notes for the Redux store](../services-store/IMPLEMENTATION_NOTES.md) for more details on what happens behind the scene of Redux store.
+
+## Masthead search
+
+The search box feature in masthead consists of two things:
+
+| Component                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`<dds-masthead-search>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search.ts)                     | The search box UI.                                                                                                                                                                                                                                                                                        |
+| [`<dds-masthead-search-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts) | The component to load and render search results. Unless masthead search feature is used stand-alone, `<dds-masthead-container>` [plays this role](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-container.ts#L104). |
+
+`<dds-masthead-search>` fires `dds-masthead-search-input` event when user types in the input box. `<dds-masthead-search-composite>`, the underlying component behind `<dds-masthead-search-container>`, [runs](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L43-L46) [`loadSearchResults()`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/searchAPI.ts#L93-L120) Redux action upon [`dds-masthead-search-input`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L139) event.
+
+`<dds-masthead-search-composite>` uses [`ThrottledInputMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/throttled-input.ts) to throttle `dds-masthead-search-input` event. `ThrottledInputMixin` calls `_handleThrottledInput()` method, throttled, as the event defined by `eventInput` static method is fired.
+
+`<dds-masthead-search-container>` [intersects the search query with the table of loaded search results](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L64-L70) and [sets `currentSearchResults` property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L72), which is [rendered as `<dds-masthead-search-item>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L118-L123).
