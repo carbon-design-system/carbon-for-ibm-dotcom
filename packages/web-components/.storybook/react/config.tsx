@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,8 +43,9 @@ addParameters({
 addDecorator((story, { parameters }) => {
   const result = story();
   const { hasMainTag } = result as any;
-  const { hasGrid, hasVerticalSpacingInComponent } = parameters;
-  const classes = cx('dds-ce-demo-devenv--container', {
+  const { hasGrid, hasVerticalSpacingInComponent, useRawContainer } = parameters;
+  const classes = cx({
+    'dds-ce-demo-devenv--container': !useRawContainer,
     'dds-ce-demo-devenv--container--has-grid': hasGrid,
     'dds-ce-demo-devenv--container--has-vertical-spacing-in-component': hasVerticalSpacingInComponent,
   });
