@@ -126,14 +126,14 @@ export default {
   title: 'Components/Content Block Cards',
   decorators: [
     story => html`
-      <dds-video-cta-container>
+      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-cards">
         ${story()}
       </dds-video-cta-container>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasCardGroup: true,
+    hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentBlockCards: () => ({
