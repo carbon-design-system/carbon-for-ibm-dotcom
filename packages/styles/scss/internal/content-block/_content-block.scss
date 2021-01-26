@@ -63,6 +63,13 @@
         'body body' auto
         'footer .' auto / 1fr 1fr;
     }
+
+    &.#{$prefix}--layout--border {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .#{$prefix}--content-layout--with-complementary {
