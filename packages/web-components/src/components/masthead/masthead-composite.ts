@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
+import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
@@ -36,6 +37,8 @@ import './megamenu-top-nav-menu';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
 import './megamenu-category-group';
+import './megamenu-category-group-copy';
+import './megamenu-link-with-icon';
 import './megamenu-overlay';
 import './top-nav';
 import './top-nav-l1';
@@ -220,14 +223,29 @@ class DDSMastheadComposite extends LitElement {
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
+                <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
                     <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
-                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                      <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
+                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
                         return html`
-                          <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
-                          </dds-megamenu-category-link>
+                          ${highlightedLink
+                            ? html`
+                                <dds-megamenu-link-with-icon
+                                  data-autoid="${autoid}-item${key}"
+                                  href="${url}"
+                                  style-scheme="category-sublink"
+                                  title="${title}"
+                                >
+                                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
+                                </dds-megamenu-link-with-icon>
+                              `
+                            : html`
+                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                                </dds-megamenu-category-link>
+                              `}
                         `;
                       })}
                     </dds-megamenu-category-group>
