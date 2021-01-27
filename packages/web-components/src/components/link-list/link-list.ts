@@ -64,6 +64,11 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
 
   /**
    * The link list type.
+   * possible values are:
+   * default - Vertically stacked card-like links
+   * vertical - Vertically stacked inline links
+   * horizontal - Horizontaly stacked inline links
+   * end - End of section variant - Inline links stacked up to three columns based on the quantity of links
    */
   @property({ reflect: true })
   type = LINK_LIST_TYPE.DEFAULT;
