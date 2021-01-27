@@ -55,6 +55,12 @@ class DDSContentBlock extends LitElement {
   protected _hasContent = false;
 
   /**
+   * `true` if there is heading content.
+   */
+  @internalProperty()
+  protected _hasHeading = false;
+
+  /**
    * `true` if there is copy content.
    */
   @internalProperty()
