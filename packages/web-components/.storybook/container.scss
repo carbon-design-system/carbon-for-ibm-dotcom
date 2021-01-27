@@ -67,7 +67,7 @@ body {
 }
 
 .dds-ce-demo-devenv--container {
-  padding: 3em;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,8 +81,18 @@ body {
 .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary {
   > * {
     grid-column: 1 / span 4;
+  }
+}
 
-    @include carbon--breakpoint('md') {
+@include carbon--breakpoint('md') {
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 1 / span 3;
+  }
+  .dds-ce-demo-devenv--simple-grid--callout,
+  .dds-ce-demo-devenv--simple-grid--card-group,
+  .dds-ce-demo-devenv--simple-grid--content-layout,
+  .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary {
+    > * {
       grid-column: 1 / span 8;
     }
   }
@@ -93,7 +103,10 @@ body {
     grid-column: 5 / span 12;
   }
 
-  .dds-ce-demo-devenv--simple-grid--card,
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 1 / span 6;
+  }
+
   .dds-ce-demo-devenv--simple-grid--content-layout {
     > * {
       grid-column: 5 / span 8;
@@ -106,6 +119,12 @@ body {
 
   .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary > * {
     grid-column: 5 / span 12;
+  }
+}
+
+@include carbon--breakpoint('xlg') {
+  .dds-ce-demo-devenv--simple-grid--card > * {
+    grid-column: 1 / span 4;
   }
 }
 
