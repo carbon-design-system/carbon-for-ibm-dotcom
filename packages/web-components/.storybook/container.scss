@@ -78,7 +78,8 @@ body {
 .dds-ce-demo-devenv--simple-grid--card,
 .dds-ce-demo-devenv--simple-grid--card-group,
 .dds-ce-demo-devenv--simple-grid--content-layout,
-.dds-ce-demo-devenv--simple-grid--content-layout--with-complementary {
+.dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
+.dds-ce-demo-devenv--simple-grid--content-section {
   > * {
     grid-column: 1 / span 4;
   }
@@ -91,7 +92,8 @@ body {
   .dds-ce-demo-devenv--simple-grid--callout,
   .dds-ce-demo-devenv--simple-grid--card-group,
   .dds-ce-demo-devenv--simple-grid--content-layout,
-  .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary {
+  .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
+  .dds-ce-demo-devenv--simple-grid--content-section {
     > * {
       grid-column: 1 / span 8;
     }
@@ -111,6 +113,10 @@ body {
     > * {
       grid-column: 5 / span 8;
     }
+  }
+
+  .dds-ce-demo-devenv--simple-grid--content-section > * {
+    grid-column: 1 / span 16;
   }
 
   .dds-ce-demo-devenv--simple-grid--card-group > * {
