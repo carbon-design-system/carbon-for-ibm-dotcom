@@ -7,11 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Part } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map';
 import { html, css, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlock from '../content-block/content-block';
+import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block/content-block';
+import DDSContentBlockSimple from '../content-block-simple/content-block-simple';
 import styles from './content-block-segmented.scss';
 
 const { prefix } = settings;
@@ -23,20 +25,28 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-block-segmented
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
-class DDSContentBlockSegmented extends StableSelectorMixin(DDSContentBlock) {
+class DDSContentBlockSegmented extends DDSContentBlockSimple {
+  protected _getContainerClasses(): string | ((part: Part) => void) {
+    const {
+      complementaryStyleScheme,
+      _hasComplementary: hasComplementary,
+      _hasContent: hasContent,
+      _hasCopy: hasCopy,
+      _hasHeading: hasHeading,
+      _hasMedia: hasMedia,
+    } = this;
+    return classMap({
+      [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-complementary`]: hasComplementary,
+      [`${ddsPrefix}-ce--content-layout--with-adjacent-heading-content`]: hasHeading && hasContent && !hasCopy && !hasMedia,
+      [`${prefix}--layout--border`]:
+        hasComplementary && complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+    });
+  }
+
   protected _renderInnerBody() {
-    const { _hasContent: hasContent, _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
-        <div class="${prefix}--content-block-segmented__media">
-          <div ?hidden="${!hasMedia}">
-            <slot name="media" @slotchange="${handleSlotChange}"></slot>
-          </div>
-          <div ?hidden="${!hasContent}">
-            <slot @slotchange="${handleSlotChange}"></slot>
-          </div>
-        </div>
-      </div>
+      ${this._renderMedia()}${this._renderContent()}
     `;
   }
 

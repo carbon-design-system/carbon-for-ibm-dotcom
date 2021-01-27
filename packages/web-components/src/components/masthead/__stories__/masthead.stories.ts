@@ -18,12 +18,13 @@ import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, l1Data, logoData } from './links';
+import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
   [`Authenticated`]: 'test.user@ibm.com',
-  [`Unauthenticated`]: 'Unauthenticated',
+  [`Unauthenticated`]: UNAUTHENTICATED_STATUS,
 };
 
 const StoryContent = () => html`

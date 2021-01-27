@@ -33,7 +33,7 @@ export enum LINK_LIST_TYPE {
 }
 
 /**
- * Link list item type
+ * Link list item type. Should mirror `LINK_LIST_TYPE` of parent `<dds-link-list>`.
  */
 export enum LINK_LIST_ITEM_TYPE {
   /**
