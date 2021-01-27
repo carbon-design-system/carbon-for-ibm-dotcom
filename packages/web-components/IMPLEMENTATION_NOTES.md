@@ -15,7 +15,13 @@
 - [Rendering target](#rendering-target)
   - [Composite components](#composite-components)
   - [Components rendering modal](#components-rendering-modal)
-- [CTA components](#cta-components)
+- [CTA components](#cta-components)<<<<<<< implnotes-video-player
+  - [Video CTA](#video-cta)
+- [React integration](#react-integration)
+  - [React wrapper generator](#react-wrapper-generator)
+  - [Build procedure to generate React wrapper](#build-procedure-to-generate-react-wrapper)
+    - [Limited components to generate React wrapper](#limited-components-to-generate-react-wrapper)
+  - [Non-React APIs for React integration](#non-react-apis-for-react-integration)
 - [Container components](#container-components)
   - [Triggering action dispatcher](#triggering-action-dispatcher)
 - [Masthead search](#masthead-search)
@@ -109,10 +115,87 @@ There are some common behaviors in CTA components, that is implemented by [`CTAM
 - [Changing `target` attribute of `<a>` for `external` CTA type](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/cta.ts#L123-L132)
 - [Turn the link to a pseudo one for `video` CTA type](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/cta.ts#L113-L122)
 
+### Video CTA
+
 `video` CTA type requires more features, which is implemented by [`VideoCTAMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.0/packages/web-components/src/component-mixins/cta/video.ts). Every CTA component but `<dds-feature-cta-footer>` supports `video` CTA type (at the point of `v1.15.0`) and thus extend `VideoCTAMixin`. `VideoCTAMixin` implements the following:
+
+- Send an event (`dds-cta-run-action`) when user clicks on CTA
+- Send an event (`dds-cta-request-video-data`) when the CTA type is `video` and video info (caption, duration and thumbmail) hasn't been loaded yet
+
+Those events are handled by [`<dds-video-cta-container>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-container.ts):
+
+| Event                        | Behind-the-scene logic of `<dds-video-cta-container>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dds-cta-run-action`         | Launches the light box, by [setttng `_activeVideoId` private property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L102) and [using it to trigger opening the modal](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L157). `_activeVideoId` should be cleared once user closes the light box.                                                                                                                                                |
+| `dds-cta-request-video-data` | [Loads the video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L84) via [Redux store](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/services-store/src/actions/videoPlayerAPI.ts#L63-L84), and [updates `event.target` with the loaded video info](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/video-cta-composite.ts#L87-L88). `event.target` should be a CTA component as CTA component is the one firing the event. |
+
+Only one instance of `<dds-video-cta-container>` is needed in an application, as long as it contains all CTA components like [what's seen as the CTA story's Storybook decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/cta/__stories__/cta.stories.ts#L176-L182). Such separation of concern between `<dds-*-cta>` and `<dds-video-cta-container>` keeps `<dds-*-cta>` lightweight and simple.
 
 - Send an event (`dds-cta-request-video-data`) when user clicks on CTA so that the lightbox video player code can launch the light box
 - (Video caption/duration/thumbnail)
+
+## React integration
+
+While Angular/Vue require limited/no change in application to use Web Components, React has some problems with Web Components support. React heavily relies on its knowledge with regard to how intrinsic HTML elements work.
+
+For example, if you have `<dds-foo custom-boolean={true}>`, the DOM becomes `<dds-foo custom-boolean="true">` that is different from how `<button disabled={true}>` is rendered to DOM, which is, `<button disabled>` (empty string in `disabled` attribute value).
+
+Another example is `<dds-foo onFoo={handleFoo}>` that doesn't attach an event handler, whereas `<div onClick={handleClick}>` does.
+
+### React wrapper generator
+
+Web Components community [made React core team aware of above issue](https://github.com/facebook/react/issues/11347), and created a [proposal](https://github.com/reactjs/rfcs/pull/15) to address that.
+
+`carbon-web-components` library implements a variant of the proposal, with [`createReactCustomElementType()` function](https://github.com/carbon-design-system/carbon-web-components/blob/v1.11.0/src/globals/wrappers/createReactCustomElementType.ts). Below example create a React component, `BXDropdown`, from `<bx-dropdown>` custom element:
+
+```javascript
+import createCustomElementType, { booleanSerializer } from 'carbon-web-components/es/globals/wrappers/createCustomElementType';
+
+const BXDropdown = createCustomElementType('bx-dropdown', {
+  disabled: {
+    serialize: booleanSerializer,
+  },
+  helperText: {
+    attribute: 'helper-text',
+  },
+  onBeforeSelect: {
+    event: 'bx-dropdown-beingselected',
+  },
+});
+```
+
+We call React components that `createCustomElementType()` creates, e.g. `<BXDropdown>`, _React wrappers_. React wrapper provides the following enhancement over directly using `<bx-dropdown>` in JSX:
+
+- `<BXDropdown disabled={true}>` yeilds to `<bx-dropdown disabled>` and `<BXDropdown disabled={false}>` causes `disabled` attribute removed from `<bx-dropdown>`.
+- `<BXDropdown helperText="The helper text">` yields to `<bx-dropdown helper-text="The helper text">`.
+- `<BXDropdown onBeforeSelect={handleBeforeSelect}>` attaches `bx-dropdown-beingselected` event to `<bx-dropdown>`.
+
+### Build procedure to generate React wrapper
+
+`carbon-web-components` as well as `@carbon/ibmdotcom-web-components` have a build procedure to generate the React wrapper using `createReactCustomElementType`. It uses a [Babel plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/tools/babel-plugin-create-react-custom-element-type.js) that transforms the original custom element type code to a corresponding React wrapper, by looking at `lit-element`'s `@property` decorator and `eventXXX` static properties in the custom element class. The build procedure can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L159-L170).
+
+There is [another Babel plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/tools/babel-plugin-create-react-custom-element-type-def.js) that transforms the original custom element type code to a corresponding TypeScript definition to above React wrapper, leveraging the same `@property` and `eventXXX` in the custom element class. The build procedure can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L385-L397).
+
+#### Limited components to generate React wrapper
+
+At the point of `v1.15.0` release, we decided that we generate React wrappers only for components without pure-React counterpart, for example, `<dds-carousel>` and `<dds-leaving-ibm-modal>`.
+
+Those kind of components should have `/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */` annotation at the default export. Such annotation is read by a [Babel plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/tools/babel-plugin-scan-create-react-custom-element-type-candidates.js) so the build procedure can [harvest the list of files to generate React wrappers for](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L126-L148).
+
+### Non-React APIs for React integration
+
+There are a couple of types of non-React APIs that application can use with React integration code:
+
+- Constant/enum definitions, e.g. `PICTOGRAM_PLACEMENT` for `<dds-card>`
+- `mapStateToProps()`/`mapDispatchToProps()` for Redux integration
+
+Because of non-React nature, the implementation is identical to the original Web Components code, while we want to make them available to React users. Therefore, we create modules in `es/components-react` directory that proxies to one in `es/components`, like:
+
+```javascript
+export * from '../../components/card/defs.js';
+```
+
+The build procedure can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L257-L282).
 
 ## Container components
 
