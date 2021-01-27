@@ -51,6 +51,7 @@ import './left-nav-name';
 import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
+import './left-nav-menu-category-heading';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
@@ -296,6 +297,10 @@ class DDSMastheadComposite extends LitElement {
     });
 
     return html`
+      ${sections[0]?.heading &&
+        html`
+          <dds-left-nav-menu-category-heading>${sections[0]?.heading}</dds-left-nav-menu-category-heading>
+        `}
       ${menu.map((item, i) => {
         return item.megapanelContent?.quickLinks?.links
           ? html`
@@ -395,6 +400,7 @@ class DDSMastheadComposite extends LitElement {
               </dds-top-nav-menu>
             `;
           }
+          console.log('link here', link);
           return sections.length === 0
             ? html`
                 <dds-left-nav-item
