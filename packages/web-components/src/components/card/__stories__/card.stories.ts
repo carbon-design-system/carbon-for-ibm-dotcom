@@ -102,11 +102,7 @@ export default {
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-md-3 bx--col-lg-12 bx--col-xlg-8 bx--no-gutter">
-            ${story()}
-          </div>
-        </div>
+        ${story()}
       </div>
     `,
   ],

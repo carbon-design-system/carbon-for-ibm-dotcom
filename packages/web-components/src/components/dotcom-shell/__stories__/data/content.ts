@@ -7,7 +7,6 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import contentStyles from 'carbon-components/scss/components/ui-shell/_content.scss';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 
 import imgSm16x9 from '../../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
@@ -91,9 +90,6 @@ const cardGroupItems = html`
 `;
 
 const StoryContent = () => html`
-  <style type="text/css">
-    ${contentStyles.cssText}
-  </style>
   <main class="bx--content dds-ce-demo-devenv--ui-shell-content">
     <div class="bx--grid">
       <div class="bx--row">
@@ -134,7 +130,6 @@ const StoryContent = () => html`
             <a name="2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
             <dds-content-block-segmented>
               <dds-content-block-heading>Pharetra pharetra massa massa ultricies mi quis.</dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItems)}
             </dds-content-block-segmented>
 
@@ -160,7 +155,6 @@ const StoryContent = () => html`
             <dds-content-block-segmented>
               <dds-content-block-heading>Elementum nibh tellus molestie nunc non.
               </dds-content-block-heading>
-              <dds-content-block-copy slot="copy"></dds-content-block-copy>
                 ${Array.from([1, 2]).map(() => contentBlockSegmentedItemsWithImage)}
                 <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
                   Lorem ipsum dolor
@@ -171,8 +165,8 @@ const StoryContent = () => html`
             <dds-callout-with-media>
               <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
               <dds-content-item-copy
-                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. 
-                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. 
+                >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
+                In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
                 Vel facilisis volutpat est velit egestas dui.
               </dds-content-item-copy>
               <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
@@ -206,7 +200,7 @@ const StoryContent = () => html`
                 ${Array.from([1, 2, 3]).map(() => cardGroupItems)}
               </dds-card-group>
             </dds-content-block-cards>
-            
+
             <dds-callout-quote>
               Duis aute irure dolor in reprehenderit
             <dds-quote-source-heading>

@@ -102,6 +102,14 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   buttonLabel?: string;
 
   /**
+   * The clear button label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'clear-selection-label' })
+  clearSelectionLabel?: string;
+
+  /**
    * The g11n collator to use for sorting contry names.
    */
   @property({ attribute: false })
@@ -229,6 +237,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   renderLightDOM() {
     const {
       buttonLabel,
+      clearSelectionLabel,
       disableLocaleButton,
       langDisplay,
       langList,
@@ -262,7 +271,11 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
               >
             `
           : html`
-              <dds-language-selector-desktop trigger-content="${languageSelectorLabel}" value="${selectedLanguage}">
+              <dds-language-selector-desktop
+                trigger-content="${languageSelectorLabel}"
+                value="${selectedLanguage}"
+                clear-selection-label="${clearSelectionLabel}"
+              >
                 ${langList?.map(
                   language => html`
                     <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>

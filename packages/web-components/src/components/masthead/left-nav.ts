@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
+import DDSLeftNavMenu from './left-nav-menu';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -116,8 +117,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const { expanded, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
       if (expanded) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [startSentinelNode, endSentinelNode]);
-      } else if (this._hFocusWrap) {
-        this._hFocusWrap = this._hFocusWrap.release();
+      } else {
+        const { selectorNavItemsExpanded } = this.constructor as typeof DDSLeftNav;
+
+        this.querySelectorAll(selectorNavItemsExpanded).forEach(ddsLeftNavMenu => {
+          (ddsLeftNavMenu as DDSLeftNavMenu).expanded = false;
+        });
+
+        if (this._hFocusWrap) {
+          this._hFocusWrap = this._hFocusWrap.release();
+        }
       }
     }
   }
@@ -142,6 +151,13 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   static get selectorNavItems() {
     return `${ddsPrefix}-left-nav-item,${ddsPrefix}-left-nav-menu,${ddsPrefix}-left-nav-menu-item`;
+  }
+
+  /**
+   * A selector that will return expanded nav menus.
+   */
+  static get selectorNavItemsExpanded() {
+    return `${ddsPrefix}-left-nav-menu[expanded]`;
   }
 
   /**
