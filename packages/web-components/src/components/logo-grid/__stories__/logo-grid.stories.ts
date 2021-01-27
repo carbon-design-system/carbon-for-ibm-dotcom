@@ -11,6 +11,7 @@ import '../logo-grid';
 import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
+import '../../card/card-heading';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
@@ -32,7 +33,7 @@ export const Default = ({ parameters }) => {
           `
         )}
       <dds-logo-grid-link href="${ctaHref}">
-        <p>${ctaCopy}</p>
+        <dds-card-heading>${ctaCopy}</dds-card-heading>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-logo-grid-link>
     </dds-logo-grid>
