@@ -52,6 +52,8 @@ import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
+import './left-nav-menu-item-highlighted';
+import './left-nav-menu-highlighted';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
@@ -199,12 +201,13 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   *  Render MegaMenu content
+   * Sorts highlighted and regular menu items in separate arrays
+   * and returns view all link
    *
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMegaMenu(sections) {
+  private _getHighlightedMenuItems(sections) {
     const highlightedItems: MastheadMenuItem[] = [];
     let viewAllLink;
     const menu: MastheadMenuItem[] = [];
@@ -217,6 +220,18 @@ class DDSMastheadComposite extends LitElement {
       }
       return menu.push(item);
     });
+
+    return { viewAllLink, highlightedItems, menu };
+  }
+
+  /**
+   *  Render MegaMenu content
+   *
+   * @param sections menu section data object
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _renderMegaMenu(sections) {
+    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
     return html`
@@ -290,18 +305,43 @@ class DDSMastheadComposite extends LitElement {
    */
   // eslint-disable-next-line class-methods-use-this
   private _renderMobileMegaMenu(sections) {
-    const menu: MastheadMenuItem[] = [];
-
-    sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
-      return menu.push(item);
-    });
+    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+    const menuItems = viewAllLink ? menu.concat(viewAllLink) : menu;
 
     return html`
       ${sections[0]?.heading &&
         html`
           <dds-left-nav-menu-category-heading>${sections[0]?.heading}</dds-left-nav-menu-category-heading>
         `}
-      ${menu.map((item, i) => {
+      ${highlightedItems.map((item, i) => {
+        return item.megapanelContent?.quickLinks?.links.length !== 0
+          ? html`
+              <dds-left-nav-menu-highlighted
+                highlighted=${ifNonNull(item.highlighted)}
+                title="${item.title}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+              >
+                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
+                  return html`
+                    <dds-left-nav-menu-item
+                      href="${url}"
+                      title="${title}"
+                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${j}-item${j}"
+                    ></dds-left-nav-menu-item>
+                  `;
+                })}
+              </dds-left-nav-menu-highlighted>
+            `
+          : html`
+              <dds-left-nav-menu-item-highlighted
+                highlighted=${ifNonNull(item.highlighted)}
+                href="${item.url}"
+                title="${item.title}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
+              ></dds-left-nav-menu-item-highlighted>
+            `;
+      })}
+      ${menuItems.map((item, i) => {
         return item.megapanelContent?.quickLinks?.links
           ? html`
               <dds-left-nav-menu title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
@@ -400,7 +440,6 @@ class DDSMastheadComposite extends LitElement {
               </dds-top-nav-menu>
             `;
           }
-          console.log('link here', link);
           return sections.length === 0
             ? html`
                 <dds-left-nav-item
