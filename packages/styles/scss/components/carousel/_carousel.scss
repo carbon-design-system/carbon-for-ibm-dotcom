@@ -39,7 +39,6 @@
   margin-right: calc(
     -1 * var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
   );
-  padding-left: $spacing-05;
   padding-right: calc(
     #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
   );
