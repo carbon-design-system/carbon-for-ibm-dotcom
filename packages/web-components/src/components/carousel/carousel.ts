@@ -135,14 +135,14 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       this.start = 0;
     }
 
-    if (oldContains && currentContains && currentChildIndex < this._total) {
+    if (currentContains && oldContains) {
       // going forwards, change page if focused card is the first on the next page
-      if (oldChildIndex < currentChildIndex && currentChildIndex !== 0 && targetPageIndex === 0) {
-        this._handleClickNextButton();
+      if (targetPageIndex === 0) {
+        this.start = currentChildIndex;
 
         // going backwards, change page if focused card is the last on the previous page
-      } else if (currentChildIndex < oldChildIndex && targetPageIndex === this.pageSize - 1) {
-        this._handleClickPrevButton();
+      } else if (currentChildIndex < oldChildIndex) {
+        this.start = Math.max(this.start - this.pageSize, 0);
       }
     }
   };
