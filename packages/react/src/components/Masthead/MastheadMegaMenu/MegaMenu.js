@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,6 +11,9 @@ import NavigationGroup from './NavigationGroup';
 import PropTypes from 'prop-types';
 import React from 'react';
 import RightNavigation from './RightNavigation';
+import settings from 'carbon-components/es/globals/js/settings';
+
+const { prefix } = settings;
 
 /**
  * Masthead megamenu component.
@@ -28,21 +31,32 @@ const MegaMenu = ({ data, ...rest }) => {
 
   const hasHighlights = highlightedItems.length !== 0;
 
+  const heading = data.menuSections[0]?.heading;
+
   return (
     <NavigationGroup>
       {hasHighlights && (
         <LeftNavigation>
+          {heading && (
+            <p className={`${prefix}--masthead__megamenu__copy`}>{heading}</p>
+          )}
           {highlightedItems.map((item, i) => (
             <CategoryGroup
               autoid={rest.autoid}
               index={i}
               href={item.url}
               title={item.title}>
+              {item.megapanelContent?.description && (
+                <p className={`${prefix}--masthead__megamenu__copy`}>
+                  {item.megapanelContent?.description}
+                </p>
+              )}
               {item.megapanelContent?.quickLinks?.links.map(
-                ({ title, url }, key) => (
+                ({ title, url, highlightedLink }, key) => (
                   <CategoryLink
                     href={url}
                     title={title}
+                    highlighted={highlightedLink}
                     autoid={`${rest.autoid}-list${i}`}
                     index={key}
                   />
