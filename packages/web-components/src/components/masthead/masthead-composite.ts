@@ -316,11 +316,7 @@ class DDSMastheadComposite extends LitElement {
       ${highlightedItems.map((item, i) => {
         return item.megapanelContent?.quickLinks?.links.length !== 0
           ? html`
-              <dds-left-nav-menu-highlighted
-                highlighted=${ifNonNull(item.highlighted)}
-                title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
-              >
+              <dds-left-nav-menu-highlighted title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
                   return html`
                     <dds-left-nav-menu-item
@@ -334,7 +330,6 @@ class DDSMastheadComposite extends LitElement {
             `
           : html`
               <dds-left-nav-menu-item-highlighted
-                highlighted=${ifNonNull(item.highlighted)}
                 href="${item.url}"
                 title="${item.title}"
                 data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
