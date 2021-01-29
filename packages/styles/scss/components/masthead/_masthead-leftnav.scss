@@ -274,6 +274,10 @@
     }
   }
 
+  :host(#{$dds-prefix}-left-nav-menu[highlighted]):last-of-type {
+    border-bottom: 1px solid $ui-04;
+  }
+
   .#{$prefix}--masthead__side-nav--submemu--selected {
     border-left: 3px solid $interactive-01;
 
