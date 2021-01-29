@@ -1,16 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement } from 'lit-element';
+import { css, customElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
+
+import { LINK_LIST_ITEM_TYPE } from './defs';
+
+export { LINK_LIST_ITEM_TYPE };
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,6 +25,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-link-list-item`)
 class DDSLinkListItem extends DDSLinkWithIcon {
+  /**
+   * Defines the style of the link-list-item: `default` or `end`
+   */
+  @property({ reflect: true })
+  type = LINK_LIST_ITEM_TYPE.DEFAULT;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
