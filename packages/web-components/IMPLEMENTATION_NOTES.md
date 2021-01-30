@@ -15,7 +15,7 @@
 - [Rendering target](#rendering-target)
   - [Composite components](#composite-components)
   - [Components rendering modal](#components-rendering-modal)
-- [CTA components](#cta-components)<<<<<<< implnotes-video-player
+- [CTA components](#cta-components)
   - [Video CTA](#video-cta)
 - [React integration](#react-integration)
   - [React wrapper generator](#react-wrapper-generator)
@@ -25,6 +25,7 @@
 - [Container components](#container-components)
   - [Triggering action dispatcher](#triggering-action-dispatcher)
 - [Masthead search](#masthead-search)
+- [Vendor directory](#vendor-directory)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -201,6 +202,9 @@ The build procedure can be found at [here](https://github.com/carbon-design-syst
 
 Container components are inheritances of composite components that connects to `@carbon/ibmdotcom-service`. Connecting to `@carbon/ibmdotcom-service` is done via a Redux store, [`@carbon/ibmdotcom-services-store`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1.13.0/packages/services-store). Connecting to `@carbon/ibmdotcom-services-store` is done by [`ConnectMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/connect.ts) that has a similar feature set to [`react-redux`](https://react-redux.js.org).
 
+> 💡 `import`s of `@carbon/ibmdotcom-services-store` is slightly different from one of regular NPM packages.
+> See [vendor directory](#vendor-directory) section for more details.
+
 Similar to `react-redux`, `ConnectMixin` uses two callbacks:
 
 | Callback                                                                                                                                                                                                                                                                                  | Description                                                                                                                                      |
@@ -252,3 +256,15 @@ The search box feature in masthead consists of two things:
 `<dds-masthead-search-composite>` uses [`ThrottledInputMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/throttled-input.ts) to throttle `dds-masthead-search-input` event. `ThrottledInputMixin` calls `_handleThrottledInput()` method, throttled, as the event defined by `eventInput` static method is fired.
 
 `<dds-masthead-search-container>` [intersects the search query with the table of loaded search results](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L64-L70) and [sets `currentSearchResults` property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-container.ts#L72), which is [rendered as `<dds-masthead-search-item>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/components/masthead/masthead-search-composite.ts#L118-L123).
+
+## Vendor directory
+
+`@carbon/ibmdotcom-services-store` is a private package that is not published to NPM. Putting it to `package.json` will break application because it won't be found.
+
+To solve the problem, [build process](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/vendor.js) of `@carbon/ibmdotcom-web-components` copies the build artifact of `@carbon/ibmdotcom-services-store` to `packages/web-components/src/internal/vendor/@carbon/ibmdotcom-services-store` as well as to `packages/web-components/es/internal/vendor/@carbon/ibmdotcom-services-store`. The former is used for our development. The latter is for application, being as [part of `@carbon/ibmdotcom-web-components` package](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/es/internal/vendor/@carbon/ibmdotcom-services-store/).
+
+The `import`s of `@carbon/ibmdotcom-services-store` code in `@carbon/ibmdotcom-web-components` codebase refer to those copies, instead of to `@carbon/ibmdotcom-services-store` package, like below:
+
+```javascript
+import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
+```
