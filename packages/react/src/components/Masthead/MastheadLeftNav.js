@@ -87,6 +87,7 @@ const MastheadLeftNav = ({
           autoid={autoid}
           selected={selected}
           navType={rest.navType}
+          heading={link.menuSections[0]?.heading}
           dataTitle={dataTitle}>
           {renderNavSections(
             link.menuSections,
@@ -180,17 +181,29 @@ const preventOutFocus = (target, isSideNavExpanded) => {
 function renderNavSections(sections, backButtonText, autoid, navType) {
   const sectionItems = [];
   sections.forEach(section => {
-    section.menuItems.forEach((item, j) => {
-      const dataAutoId = `${autoid}-list${j}`;
+    // get count of highlighted menu items in order to set last highlighted item's classname
+    let highlightedCount = 0;
+    const menu = [];
+
+    section.menuItems.forEach(item => {
+      if (item.highlighted) return highlightedCount++;
+      return menu.push(item);
+    });
+
+    section.menuItems.forEach((item, k) => {
+      const dataAutoId = `${autoid}-list${k}`;
       if (item.megapanelContent) {
         sectionItems.push(
           <SideNavMenuWithBackFoward
             title={item.title}
             titleUrl={item.url}
+            lastHighlighted={
+              highlightedCount !== 0 && k + 1 === highlightedCount
+            }
             backButtonText={backButtonText}
             autoid={dataAutoId}
             navType={navType}
-            key={j}>
+            key={k}>
             {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
             <button
               className={`${prefix}--masthead__focus`}
@@ -213,18 +226,15 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
           </SideNavMenuItem>
         );
       }
-
-      if (j === section.menuItems.length - 1) {
-        sectionItems.push(
-          <button
-            className={`${prefix}--masthead__focus`}
-            onFocus={e => {
-              preventOutFocus(e.target.parentElement.querySelector('a'), true);
-            }}
-            aria-hidden={true}></button>
-        );
-      }
     });
+    sectionItems.push(
+      <button
+        className={`${prefix}--masthead__focus`}
+        onFocus={e => {
+          preventOutFocus(e.target.parentElement.querySelector('a'), true);
+        }}
+        aria-hidden={true}></button>
+    );
   });
 
   return sectionItems;

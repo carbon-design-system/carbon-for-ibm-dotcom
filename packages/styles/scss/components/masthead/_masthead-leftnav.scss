@@ -256,6 +256,7 @@
     }
   }
 
+  .#{$prefix}--masthead__side-nav--submemu-heading,
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-long-01');
 
@@ -264,6 +265,14 @@
     padding: $spacing-02 0;
     margin: 0 $spacing-05;
     border-bottom: 1px solid $ui-03;
+  }
+
+  .#{$prefix}--masthead__side-nav__last-highlighted {
+    border-bottom: 1px solid $ui-04;
+
+    .#{$prefix}--side-nav__submenu::after {
+      content: none;
+    }
   }
 
   :host(#{$dds-prefix}-left-nav-menu-item-highlighted):last-of-type a,
