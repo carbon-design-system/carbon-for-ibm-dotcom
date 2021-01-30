@@ -1,18 +1,8 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards';
-
-:host(#{$dds-prefix}-content-block-cards) {
-  padding-left: calc(#{$carbon--grid-gutter} / 2);
-  padding-right: calc(#{$carbon--grid-gutter} / 2);
-
-  .#{$prefix}--content-block__children {
-    margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
-    margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
-  }
-}
