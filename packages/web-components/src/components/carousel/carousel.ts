@@ -121,23 +121,24 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    */
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocus = async ({ target }: FocusEvent) => {
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
     const currentContains = target !== this && this.contains(target as DDSCard);
+    const oldContains = target !== this && !this.contains(relatedTarget as DDSCard);
     const currentCardIndex = Array.from(this.children).indexOf(target as HTMLElement);
 
     // reset to first page if tabbing back into the carousel after previously moving pages
-    if (currentContains && currentCardIndex === 0) {
+    if (currentContains && oldContains) {
       this.start = 0;
     }
 
     if (currentContains) {
       // going forwards, change page depending on card index
       if (currentCardIndex >= this.start + this.pageSize) {
-        this.start = Math.min(currentCardIndex, this._total + 1 - this.pageSize);
+        this.start = currentCardIndex - (currentCardIndex % this.pageSize);
 
         // going backwards, change page depending on card index
       } else if (currentCardIndex < this.start) {
-        this.start = currentCardIndex + 1 - this.pageSize;
+        this.start = Math.max(currentCardIndex + 1 - this.pageSize, 0);
       }
     }
   };
