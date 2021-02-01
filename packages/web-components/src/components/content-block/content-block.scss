@@ -95,6 +95,12 @@
   }
 }
 
+.#{$prefix}--content-layout--card-group ::slotted([slot='footer']) {
+  @include carbon--breakpoint('lg') {
+    width: calc(100% / 3);
+  }
+}
+
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version
 .#{$dds-prefix}-ce--content-block__col {
   @include dds--make-col(2, 3);

@@ -52,8 +52,6 @@ import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
-import './left-nav-menu-item-highlighted';
-import './left-nav-menu-highlighted';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
@@ -306,40 +304,25 @@ class DDSMastheadComposite extends LitElement {
   // eslint-disable-next-line class-methods-use-this
   private _renderMobileMegaMenu(sections) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
-    const menuItems = viewAllLink ? menu.concat(viewAllLink) : menu;
+    const menuItems = highlightedItems.concat(menu);
+    if (viewAllLink) {
+      menuItems.push(viewAllLink);
+    }
 
     return html`
       ${sections[0]?.heading &&
         html`
           <dds-left-nav-menu-category-heading>${sections[0]?.heading}</dds-left-nav-menu-category-heading>
         `}
-      ${highlightedItems.map((item, i) => {
+      ${menuItems.map((item, i) => {
+        const lastHighlighted = i + 1 === highlightedItems.length;
         return item.megapanelContent?.quickLinks?.links.length !== 0
           ? html`
-              <dds-left-nav-menu-highlighted title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
-                  return html`
-                    <dds-left-nav-menu-item
-                      href="${url}"
-                      title="${title}"
-                      data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${j}-item${j}"
-                    ></dds-left-nav-menu-item>
-                  `;
-                })}
-              </dds-left-nav-menu-highlighted>
-            `
-          : html`
-              <dds-left-nav-menu-item-highlighted
-                href="${item.url}"
+              <dds-left-nav-menu
+                ?last-highlighted=${lastHighlighted}
                 title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
-              ></dds-left-nav-menu-item-highlighted>
-            `;
-      })}
-      ${menuItems.map((item, i) => {
-        return item.megapanelContent?.quickLinks?.links
-          ? html`
-              <dds-left-nav-menu title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+              >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
                   return html`
                     <dds-left-nav-menu-item
@@ -353,6 +336,7 @@ class DDSMastheadComposite extends LitElement {
             `
           : html`
               <dds-left-nav-menu-item
+                ?last-highlighted=${lastHighlighted}
                 href="${item.url}"
                 title="${item.title}"
                 data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"

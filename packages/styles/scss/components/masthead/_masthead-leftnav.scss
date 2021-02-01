@@ -267,19 +267,20 @@
     border-bottom: 1px solid $ui-03;
   }
 
-  .#{$prefix}--masthead__side-nav__last-highlighted {
+  .#{$prefix}--masthead__side-nav__last-highlighted,
+  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted]),
+  :host(#{$dds-prefix}-left-nav-menu[last-highlighted]) {
     border-bottom: 1px solid $ui-04;
-
-    .#{$prefix}--side-nav__submenu::after {
-      content: none;
-    }
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-item-highlighted):last-of-type a,
-  :host(#{$dds-prefix}-left-nav-menu-highlighted):last-of-type button {
-    border-bottom: 1px solid $ui-04;
+  :host(#{$dds-prefix}-left-nav-menu-item[last-highlighted])
+    .#{$prefix}--side-nav__link[role='menuitem']::after {
+    border-bottom: none;
+  }
 
-    &::after {
+  .#{$prefix}--masthead__side-nav__last-highlighted,
+  :host(#{$dds-prefix}-left-nav-menu[last-highlighted]) {
+    .#{$prefix}--side-nav__submenu::after {
       content: none;
     }
   }
