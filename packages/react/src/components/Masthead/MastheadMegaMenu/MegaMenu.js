@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,7 +35,7 @@ const MegaMenu = ({ data, ...rest }) => {
           {highlightedItems.map((item, i) => (
             <CategoryGroup
               autoid={rest.autoid}
-              index={i}
+              key={i}
               href={item.url}
               title={item.title}>
               {item.megapanelContent?.quickLinks?.links.map(
@@ -44,7 +44,7 @@ const MegaMenu = ({ data, ...rest }) => {
                     href={url}
                     title={title}
                     autoid={`${rest.autoid}-list${i}`}
-                    index={key}
+                    key={key}
                   />
                 )
               )}
