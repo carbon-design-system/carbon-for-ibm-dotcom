@@ -316,7 +316,7 @@ class DDSMastheadComposite extends LitElement {
         `}
       ${menuItems.map((item, i) => {
         const lastHighlighted = i + 1 === highlightedItems.length;
-        return item.megapanelContent?.quickLinks?.links.length !== 0
+        return item.megapanelContent?.quickLinks?.links
           ? html`
               <dds-left-nav-menu
                 ?last-highlighted=${lastHighlighted}
