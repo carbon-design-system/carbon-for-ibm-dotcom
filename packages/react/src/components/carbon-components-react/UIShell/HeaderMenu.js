@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -289,7 +289,7 @@ class HeaderMenu extends React.Component {
    */
   _renderMenuItem = (item, index) => {
     return React.cloneElement(item, {
-      ref: this.handleItemRef(index),
+      refs: this.handleItemRef(index),
       role: 'none',
     });
   };
