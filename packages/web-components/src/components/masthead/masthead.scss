@@ -275,11 +275,6 @@
     border-bottom: 1px solid $ui-03;
     text-decoration: none;
     color: $text-01;
-    flex-direction: row;
-
-    &::after {
-      content: none;
-    }
 
     @include carbon--type-style(expressive-heading-02, true);
   }

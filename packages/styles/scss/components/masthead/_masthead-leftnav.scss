@@ -332,6 +332,14 @@
       content: none;
     }
   }
+
+  .#{$prefix}--side-nav__submenu-platform {
+    flex-direction: row;
+
+    &::after {
+      content: none;
+    }
+  }
 }
 
 @include exports('masthead-sidenav') {
