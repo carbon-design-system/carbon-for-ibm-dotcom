@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -68,7 +68,6 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
   const background = image && {
     backgroundImage: `url(${image.defaultSrc})`,
   };
-
   return (
     <div
       data-autoid={`${stablePrefix}--leadspace`}
@@ -133,20 +132,18 @@ LeadSpace.propTypes = {
    * Object with different ratio options for corresponding breakpoints.
    * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
    */
-  image: PropTypes.shape(
-    PropTypes.shape({
-      classname: PropTypes.string,
-      sources: PropTypes.arrayOf(
-        PropTypes.shape({
-          src: PropTypes.string,
-          breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        })
-      ),
-      defaultSrc: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-      longDescription: PropTypes.string,
-    })
-  ),
+  image: PropTypes.shape({
+    classname: PropTypes.string,
+    sources: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      })
+    ),
+    defaultSrc: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    longDescription: PropTypes.string,
+  }),
 
   /**
    * Color theme of LeadSpace. Choose from:
