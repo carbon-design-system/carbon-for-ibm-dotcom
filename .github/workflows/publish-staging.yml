@@ -1,0 +1,34 @@
+name: publish-staging (Trigger staging environments to update)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-16.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Deploy NextJS Staging
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: carbon-design-system/carbon-for-ibm-dotcom-nextjs-test
+          token: ${{ secrets.GH_DISPATCH_TOKEN }}
+          event-type: deploy-staging
+      - name: Deploy Web Components HTML Staging
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: carbon-design-system/carbon-for-ibm-dotcom-web-components-test
+          token: ${{ secrets.GH_DISPATCH_TOKEN }}
+          event-type: deploy-staging
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
