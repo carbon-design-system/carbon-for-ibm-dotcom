@@ -43,7 +43,7 @@ const MegaMenu = ({ data, ...rest }) => {
           {highlightedItems.map((item, i) => (
             <CategoryGroup
               autoid={rest.autoid}
-              index={i}
+              key={i}
               href={item.url}
               title={item.title}>
               {item.megapanelContent?.description && (
@@ -58,7 +58,7 @@ const MegaMenu = ({ data, ...rest }) => {
                     title={title}
                     highlighted={highlightedLink}
                     autoid={`${rest.autoid}-list${i}`}
-                    index={key}
+                    key={key}
                   />
                 )
               )}
