@@ -127,7 +127,7 @@
   .#{$prefix}--masthead__megamenu__categories-section {
     display: flex;
     flex-direction: column;
-    padding-top: $spacing-06;
+    padding-top: rem(18px);
     width: 100%;
 
     .#{$prefix}--masthead__megamenu__categories {
@@ -147,6 +147,15 @@
     }
   }
 
+  :host(#{$dds-prefix}-megamenu-category-group-copy) {
+    display: block;
+    @include use-carbon-productive-tokens();
+    @include type-style('body-short-01');
+
+    color: $text-02;
+    padding: rem(6px) $spacing-05 rem(10px);
+  }
+
   :host(#{$dds-prefix}-megamenu-category-group),
   .#{$prefix}--masthead__megamenu__category-group {
     display: inline;
@@ -155,6 +164,12 @@
       width: 100%;
       display: inline-block;
       padding-bottom: $spacing-07;
+    }
+
+    ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
+      color: $text-01;
+      margin-top: rem(-6px);
+      padding: 0 $spacing-05 1px $spacing-05;
     }
   }
 
@@ -165,7 +180,7 @@
     p,
     a,
     .#{$prefix}--link-with-icon {
-      padding: 7px $spacing-05;
+      padding: 6px $spacing-05;
       text-decoration: none;
       width: 100%;
     }
@@ -174,7 +189,7 @@
     p {
       color: $text-01;
       @include use-carbon-productive-tokens();
-      @include type-style('productive-heading-01');
+      @include type-style('expressive-heading-01');
     }
 
     svg {
@@ -191,16 +206,25 @@
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include use-carbon-productive-tokens();
-    @include type-style('body-short-01');
+    @include type-style('body-long-01');
 
     color: $text-02;
     text-decoration: none;
-    padding: 7px $spacing-05;
+    padding: 6px $spacing-05;
     display: block;
 
     &:hover,
     &:active {
       color: $text-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
+    @include use-carbon-productive-tokens();
+    @include type-style('body-short-01');
+
+    a {
+      padding: 7px $spacing-05;
     }
   }
 
@@ -258,7 +282,7 @@
   :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
-    padding-top: $spacing-06;
+    padding-top: rem(18px);
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
   }
@@ -273,6 +297,7 @@
       border-right: none;
       border-bottom: carbon--rem(1px) solid $ui-03;
       column-count: 2;
+      column-gap: 0;
       @include carbon--make-col(8, 8);
     }
 
