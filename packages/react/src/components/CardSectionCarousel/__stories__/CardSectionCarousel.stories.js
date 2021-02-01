@@ -27,7 +27,7 @@ export const Default = () => {
       This component is maintined in{' '}
       <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
       <a
-        class="bx--link"
+        className="bx--link"
         target="_blank"
         href="http://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-card-section-carousel--default">
         React wrapper

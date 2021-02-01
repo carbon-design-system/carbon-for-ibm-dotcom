@@ -40,7 +40,8 @@ export default {
 
 export const Default = ({ parameters }) => {
   const { heading, cards } = parameters?.props?.CardSectionSimple ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
   return <CardSectionSimple heading={heading} theme={theme} cards={cards} />;
 };
 
