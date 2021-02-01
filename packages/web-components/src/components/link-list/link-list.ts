@@ -68,9 +68,12 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
+
     if (this._childItems.length > 3) {
       if (this._childItems.length < 7) this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
       else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+    } else {
+      this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
     }
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach(elem => {
@@ -119,6 +122,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
+    console.log(this.type);
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach(elem => {
         (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
@@ -130,7 +134,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    * A selector selecting the child items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-link-list-item`;
+    return `${ddsPrefix}-link-list-item, ${ddsPrefix}-link-list-item-cta`;
   }
 
   static get stableSelector() {
