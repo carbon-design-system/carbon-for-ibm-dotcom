@@ -26,6 +26,7 @@
   - [Triggering action dispatcher](#triggering-action-dispatcher)
 - [Masthead search](#masthead-search)
 - [Vendor directory](#vendor-directory)
+- [RTL support](#rtl-support)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -268,3 +269,19 @@ The `import`s of `@carbon/ibmdotcom-services-store` code in `@carbon/ibmdotcom-w
 ```javascript
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 ```
+
+## RTL support
+
+While [CSS logical properties and values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) will allow us to support LTR and RTL in one codebase, there are several key properties that are not yet supported by some browsers, for example, [`inset-inline-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start).
+
+We could use `dir` attribute selector, but it causes problems with selector specifity between direction-specific CSS rulesets vs. non-direction-specific CSS rulesets.
+
+To cope with the problem, `@carbon/ibmdotcom-web-components` generates seprate CSS for LTR and RTL with its build process.
+
+The build process for the NPM package [generates RTL version of CSS files](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L80) [as `*.rtl.css.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L90), in addition to the LTR version. It also [generates RTL version of pre-built bundle](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L65-L67) [as `ibmdotcom-web-components-dotcom-shell.rtl.min.js`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/gulp-tasks/build.js#L120).
+
+The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL` environment variable to determine the [`dir` attribute of `<html>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/config.ts#L24-L26) as well as to [choose LTR/RTL version of CSS build](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/webpack.config.js#L136) to use.
+
+Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
+
+How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
