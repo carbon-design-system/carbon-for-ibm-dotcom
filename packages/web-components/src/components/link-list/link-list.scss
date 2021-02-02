@@ -22,12 +22,14 @@
   }
 }
 
-:host(#{$dds-prefix}-link-list-item) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
+:host(#{$dds-prefix}-link-list-item) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']),
+:host(#{$dds-prefix}-link-list-item-cta) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
   min-width: 20px;
   min-height: 20px;
 }
 
-:host(#{$dds-prefix}-link-list-item)[type='end'] {
+:host(#{$dds-prefix}-link-list-item)[type='end'],
+:host(#{$dds-prefix}-link-list-item-cta)[type='end'] {
   outline: none;
 
   &:hover {
