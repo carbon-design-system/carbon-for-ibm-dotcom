@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -107,9 +107,11 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         class="${buttonClasses}"
         @click=${handleClickExpando}
       >
-        <span class="${prefix}--side-nav__submenu-title">${title}</span>
-        <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-          ${ChevronDown20()}
+        <div class="${prefix}--side-nav__submenu-content">
+          <span class="${prefix}--side-nav__submenu-title">${title}</span>
+          <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
+            ${ChevronDown20()}
+          </div>
         </div>
       </button>
       <ul class="${prefix}--side-nav__menu" role="menu">
