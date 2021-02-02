@@ -1,0 +1,78 @@
+//
+// @license
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+.dds-ce-demo-devenv--simple-grid--carousel > * {
+  grid-column: 1 / span 4;
+
+  @include carbon--breakpoint('md') {
+    grid-column: 1 / span 8;
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid--carousel--full-16 {
+  > * {
+    @include carbon--breakpoint('lg') {
+      grid-column: 1 / span 16;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-carousel {
+    @include carbon--breakpoint(lg) {
+      --dds--carousel--page-size: 4;
+    }
+  }
+}
+
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-carousel.dds-ce-demo-devenv--carousel--full-16--large {
+  --dds--carousel--page-size: 1;
+
+  @include carbon--breakpoint(lg) {
+    --dds--carousel--page-size: 2;
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid--carousel--right-12 {
+  > * {
+    @include carbon--breakpoint('lg') {
+      grid-column: 5 / span 12;
+    }
+  }
+}
+
+.dds-ce-demo-devenv--simple-grid--carousel--center-8 {
+  > * {
+    @include carbon--breakpoint('lg') {
+      grid-column: 5 / span 8;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-type-no-unknown */
+  dds-carousel {
+    /* The unit is required to correctly calculate the margin/padding for page overflow UI */
+    /* stylelint-disable-next-line length-zero-no-unit */
+    --dds--carousel--overflow-hint-size: 0rem;
+
+    @include carbon--breakpoint(md) {
+      --dds--carousel--page-size: 1;
+    }
+
+    @include carbon--breakpoint(lg) {
+      --dds--carousel--page-size: 2;
+    }
+  }
+}
+
+/* stylelint-disable-next-line selector-type-no-unknown */
+dds-carousel.dds-ce-demo-devenv--carousel--center-8--large {
+  --dds--carousel--page-size: 1;
+}
