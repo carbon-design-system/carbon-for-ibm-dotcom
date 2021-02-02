@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,7 @@ export default {
       skip: true,
     },
     proxy: true,
+    useRawContainer: true,
   },
 };
 
@@ -26,7 +27,7 @@ export const Default = () => {
       This component is maintined in{' '}
       <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
       <a
-        class="bx--link"
+        className="bx--link"
         target="_blank"
         href="http://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-card-section-carousel--default">
         React wrapper
