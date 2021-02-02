@@ -105,6 +105,8 @@
       href="https://www.ibm.com"
       title="menu-section-1-title"
     >
+      <dds-megamenu-category-group-copy>
+      </dds-megamenu-category-group-copy>
       <dds-megamenu-category-link
         data-autoid="dds--masthead__l0-nav-list0-item0"
         href="https://www.ibm.com"
