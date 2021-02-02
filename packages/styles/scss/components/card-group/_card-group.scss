@@ -128,6 +128,9 @@
 
     &:last-of-type {
       padding-right: 0;
+      a {
+        padding-right: $carbon--grid-gutter--condensed / 2;
+      }
     }
 
     .#{$prefix}--card--inverse {
@@ -138,7 +141,7 @@
   .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {
     // React version of card group has `.bx--card-group__cards__col` surrounding `.bx--card-group__card`.
     // Ensures that the former takes the whole height of card regardless of how high the card group row ends up with.
-    height: 99.5%;
+    height: 100%;
   }
 
   .#{$prefix}--card-group.#{$prefix}--card-group--g10 {
