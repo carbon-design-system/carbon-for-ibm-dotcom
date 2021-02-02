@@ -122,7 +122,6 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    console.log(this.type);
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach(elem => {
         (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
