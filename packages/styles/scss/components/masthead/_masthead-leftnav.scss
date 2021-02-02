@@ -51,6 +51,12 @@
       }
     }
 
+    &.#{$prefix}--masthead__header--search-active {
+      @include carbon--breakpoint-down('md') {
+        display: none;
+      }
+    }
+
     @include carbon--breakpoint-between('md', 'lg') {
       + .#{$prefix}--header__logo {
         a {
