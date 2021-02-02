@@ -1,0 +1,28 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+
+:host(#{$dds-prefix}-promo-group) {
+  display: block;
+  padding-top: $carbon--layout-05;
+  padding-bottom: $carbon--layout-07;
+
+  .#{$prefix}--content-section__left {
+    padding-top: 0;
+  }
+
+  .#{$prefix}--promo-group__heading {
+    margin-bottom: $carbon--layout-05;
+  }
+
+  .#{$prefix}--promo-group__items {
+    margin-left: -#{$carbon--spacing-05};
+  }
+
+}
