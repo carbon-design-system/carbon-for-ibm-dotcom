@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
               <CTA
                 style={linkStyle}
                 {...cta}
-                disableImage={true}
+                disableImage
                 {...(iconPlacement &&
                   linkStyle === 'text' && { iconPlacement })}
               />
@@ -56,7 +56,7 @@ LinkList.propTypes = {
   /**
    * Describes heading of LinkList.
    */
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
 
   /**
    * Describes the list of CTA.
