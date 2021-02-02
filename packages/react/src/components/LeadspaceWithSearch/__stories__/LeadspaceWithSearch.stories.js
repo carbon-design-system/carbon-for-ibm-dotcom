@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ export default !DDS_LEADSPACE_WITH_SEARCH
               groupId
             ),
             searchProps: {
-              placeHolder: {
+              placeholder: {
                 mobile: text(
                   'Mobile placeholder (searchProps.placeHolder.mobile):',
                   'Search keywords',
