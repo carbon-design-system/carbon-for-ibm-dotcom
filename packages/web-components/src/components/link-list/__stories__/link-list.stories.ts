@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -335,6 +335,82 @@ export const EndOfSection = ({ parameters }) => {
 EndOfSection.story = {
   parameters: {
     colLgClass: 'bx--col-lg-6',
+    knobs: Default.story.parameters.knobs,
+  },
+};
+
+export const EndOfSectionThreeColumns = ({ parameters }) => {
+  const { ctaType, download, href } = parameters?.props?.LinkListItem ?? {};
+  return !ctaType
+    ? html`
+        <dds-link-list type="end">
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
+          <dds-link-list-item href="https://example.com">
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+          <dds-link-list-item href="https://example.com">
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-list-item>
+        </dds-link-list>
+      `
+    : html`
+        <dds-link-list type="end">
+          <dds-link-list-heading>Tutorial</dds-link-list-heading>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Learn more about Kubernetes
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Containerization Guide
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Microservices and containers
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Learn more about Kubernetes
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Containerization Guide
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Microservices and containers
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Learn more about Kubernetes
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Containerization Guide
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Microservices and containers
+          </dds-link-list-item-cta>
+        </dds-link-list>
+      `;
+};
+
+EndOfSectionThreeColumns.story = {
+  parameters: {
+    colLgClass: 'bx--col-lg-12',
     knobs: Default.story.parameters.knobs,
   },
 };

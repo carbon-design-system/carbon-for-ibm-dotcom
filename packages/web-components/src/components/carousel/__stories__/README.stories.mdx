@@ -89,6 +89,29 @@ import '@carbon/ibmdotcom-web-components/es/components/content-section/content-s
 </dds-carousel>
 ```
 
+### SCSS
+
+While `<dds-carousel>` has `page-size` attribute, `<dds-carousel>` also looks at `--dds--carousel--page-size` CSS custom property to determine the number of cards per page.
+This is useful for setting different number of cards for different breakpoints.
+
+```scss
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+dds-carousel {
+  --dds--carousel--page-size: 1;
+
+  @include carbon--breakpoint(md) {
+    --dds--carousel--page-size: 2;
+  }
+
+  @include carbon--breakpoint(lg) {
+    --dds--carousel--page-size: 3;
+  }
+}
+```
+
+Another CSS custom property `<dds-carousel>` looks at is `--dds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at the next page as a hint of page overflow will be hidden.
+
 ## Props
 
 <Props of="dds-carousel" />

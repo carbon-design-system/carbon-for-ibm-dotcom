@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,6 +58,10 @@ const SideNavMenuWithBackForward = ({
       autoid={rest.autoid}
       selected={rest.selected}
       title={title}
+      className={
+        rest.lastHighlighted &&
+        `${prefix}--masthead__side-nav__last-highlighted`
+      }
       onToggle={handleToggle}
       ref={refSideNavMenu}
       dataTitle={rest.dataTitle}>
@@ -85,6 +89,11 @@ const SideNavMenuWithBackForward = ({
         <li className={`${prefix}--masthead__side-nav--submemu-title`}>
           {title}
         </li>
+      )}
+      {rest.heading && (
+        <p className={`${prefix}--masthead__side-nav--submemu-heading`}>
+          {rest.heading}
+        </p>
       )}
       {children}
     </SideNavMenu>

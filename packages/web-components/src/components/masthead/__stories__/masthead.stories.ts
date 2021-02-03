@@ -17,7 +17,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, l1Data, logoData } from './links';
+import { mastheadLinks as links, customLinks, l1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { authenticatedProfileItems, unauthenticatedProfileItems } from './profile-items';
 import readme from './README.stories.mdx';
@@ -105,6 +105,24 @@ export const Default = ({ parameters }) => {
             .navLinks="${navLinks}"
           ></dds-masthead-container>
         `}
+    ${StoryContent()}
+  `;
+};
+
+export const WithCustomData = ({ parameters }) => {
+  const { brandName, selectedMenuItem, userStatus } = parameters?.props?.MastheadComposite ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <dds-masthead-composite
+      brand-name="${ifNonNull(brandName)}"
+      selected-menu-item="${ifNonNull(selectedMenuItem)}"
+      user-status="${ifNonNull(userStatus)}"
+      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      .navLinks="${customLinks}"
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+    ></dds-masthead-composite>
     ${StoryContent()}
   `;
 };
