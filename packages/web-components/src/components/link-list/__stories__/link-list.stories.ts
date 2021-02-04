@@ -386,24 +386,24 @@ export const EndOfSectionThreeColumns = ({ parameters }) => {
           <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
             Microservices and containers
           </dds-link-list-item-cta>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Learn more about Kubernetes
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Containerization Guide
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Microservices and containers
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Learn more about Kubernetes
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Containerization Guide
+          </dds-link-list-item-cta>
+          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
+            Microservices and containers
+          </dds-link-list-item-cta>
         </dds-link-list>
       `;
 };
