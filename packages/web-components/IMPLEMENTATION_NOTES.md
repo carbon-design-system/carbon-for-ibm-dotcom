@@ -294,3 +294,13 @@ The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL`
 Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
 
 How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
+
+## Storybook CSF integration
+
+Storybook introduced a new story format in `5.x` timeframe, called Component Story Format (CSF). It makes stories an ECMAScript import, that is great for reusing stories.
+
+Unfortunately, knobs still require imperative API embedded in stories, which means as soon as we define knobs in stories any code calling stories depends on such knobs.
+
+To make sure that we can reuse stories for unit tests without depending on knobs, we define knobs somewhere outside stories, which is, in story parameters (`parameters.knobs`), like [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L116-L146). Such `parameters.knobs` is evaluated in a [global story decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/decorator-knobs.ts) and put into `parameters.props`, so that stories can refer to like [this](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L26).
+
+In this way, test can specify its own `parameters.props`, without being interfered by knobs. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__tests__/card.test.ts#L14-L21).
