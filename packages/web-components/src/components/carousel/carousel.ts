@@ -135,7 +135,10 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
     if (currentContains) {
       // going forwards, change page depending on card index
       if (currentCardIndex >= this.start + this.pageSize) {
-        this.start = currentCardIndex - (currentCardIndex % this.pageSize);
+        const nextStart = currentCardIndex - (currentCardIndex % this.pageSize);
+        const pageOffset = this.start % this.pageSize;
+
+        this.start = nextStart + pageOffset;
 
         // going backwards, change page depending on card index
       } else if (currentCardIndex < this.start) {
