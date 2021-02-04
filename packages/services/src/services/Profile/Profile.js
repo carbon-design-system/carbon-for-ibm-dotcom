@@ -50,7 +50,11 @@ class ProfileAPI {
         },
         withCredentials: true,
       })
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(error => {
+        console.log('Failed Profile Network Call', error);
+        return { user: 'Unauthenticated' };
+      });
   }
 }
 
