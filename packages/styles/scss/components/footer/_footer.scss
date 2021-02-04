@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,6 +41,10 @@
   :host(#{$dds-prefix}-footer[size='micro']),
   .#{$prefix}--footer--micro {
     padding-top: 0;
+
+    .#{$prefix}--legal-nav {
+      border-top: 0;
+    }
   }
 
   :host(#{$dds-prefix}-footer-nav-item),

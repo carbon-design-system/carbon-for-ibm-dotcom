@@ -66,7 +66,7 @@
   }
 
   .#{$dds-prefix}-ce--header__logo--has-search-active {
-    @include carbon--breakpoint-down('lg') {
+    @include carbon--breakpoint-down('md') {
       display: none;
     }
   }
@@ -275,6 +275,11 @@
     border-bottom: 1px solid $ui-03;
     text-decoration: none;
     color: $text-01;
+    flex-direction: row;
+
+    &::after {
+      content: none;
+    }
 
     @include carbon--type-style(expressive-heading-02, true);
   }
@@ -286,22 +291,35 @@
 
 :host(#{$dds-prefix}-left-nav-item) {
   @extend :host(#{$prefix}-side-nav-link);
-
-  border-bottom: 1px solid $ui-03;
 }
 
 :host(#{$dds-prefix}-left-nav-menu) {
   @extend :host(#{$prefix}-side-nav-menu);
-
-  border-bottom: 1px solid $ui-03;
 }
 
 :host(#{$dds-prefix}-left-nav-menu-item) {
   @extend :host(#{$prefix}-side-nav-menu-item);
+}
 
-  a.#{$prefix}--side-nav__link[role='menuitem'] {
-    padding-left: $carbon--spacing-05;
-    height: carbon--mini-units(6);
+:host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
+:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link[role='menuitem'],
+:host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
+:host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link[role='menuitem'] {
+  display: flex;
+  flex-direction: column;
+  padding-left: $carbon--spacing-05;
+  height: carbon--mini-units(6);
+  width: 100%;
+
+  .#{$prefix}--side-nav__link-text {
+    align-self: end;
+    margin-top: auto;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    margin-top: auto;
     border-bottom: 1px solid $ui-03;
   }
 }

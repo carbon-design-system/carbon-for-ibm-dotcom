@@ -60,7 +60,7 @@
 
   :host(#{$dds-prefix}-callout-data-source),
   .#{$prefix}--callout-data__source {
-    @include carbon--type-style('body-short-01', true);
+    @include carbon--type-style('caption-01');
 
     width: 90%;
     max-width: carbon--mini-units(80);

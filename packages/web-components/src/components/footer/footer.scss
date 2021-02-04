@@ -134,6 +134,10 @@
     height: 3rem;
   }
 
+  .#{$prefix}--legal-nav {
+    border-top: 0;
+  }
+
   // The style of legal nav deviates from the one of React, so we can make the markup simpler.
   // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
   .#{$prefix}--legal-nav__list {

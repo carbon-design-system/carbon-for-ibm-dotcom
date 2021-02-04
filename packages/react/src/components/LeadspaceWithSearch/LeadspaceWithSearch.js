@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,25 +19,27 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
   const leadspaceContainer = useRef(null);
 
   useEffect(() => {
-    if (leadspaceContainer) {
-      const { current } = leadspaceContainer;
-      const observer = new ResizeObserver(entries => {
-        for (const entry of entries) {
-          const CARBON_MD_BREAKPOINT = 672;
-          const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
-          const { desktop, mobile } = searchProps.placeHolder;
+    leadspaceContainer.current = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        const CARBON_MD_BREAKPOINT = 672;
+        const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];
+        const { desktop, mobile } = searchProps.placeholder;
 
-          if (leadspaceWidth > CARBON_MD_BREAKPOINT || !mobile) {
-            setSearchplaceHolder(desktop);
-          }
-          if (leadspaceWidth <= CARBON_MD_BREAKPOINT && mobile) {
-            setSearchplaceHolder(mobile);
-          }
+        if (leadspaceWidth > CARBON_MD_BREAKPOINT || !mobile) {
+          setSearchplaceHolder(desktop);
         }
-      });
-      observer?.observe(current);
-    }
-  }, [searchProps.placeHolder]);
+        if (leadspaceWidth <= CARBON_MD_BREAKPOINT && mobile) {
+          setSearchplaceHolder(mobile);
+        }
+      }
+    });
+    leadspaceContainer.current.observe(document.documentElement);
+
+    return () => {
+      leadspaceContainer.current.disconnect();
+      leadspaceContainer.current = null;
+    };
+  }, [searchProps.placeholder]);
 
   return heading ? (
     <section
@@ -84,17 +86,17 @@ LeadspaceWithSearch.propTypes = {
    * Any other functions and properties passed down to this will be applyed to the [Search component](https://www.carbondesignsystem.com/components/search/usage/).
    *
    */
-  searchProps: {
+  searchProps: PropTypes.shape({
     /**
      * The Leadspace With Search accepts two placeholders. One for mobile view and another for desktop. Both are optional. If you do not provide, it will be set to "Search".
      */
-    placeHolder: PropTypes.shape({
+    placeholder: PropTypes.shape({
       mobile: PropTypes.string,
       desktop: PropTypes.string,
     }),
     labelText: PropTypes.string,
     ...Search.propTypes,
-  },
+  }),
 };
 
 LeadspaceWithSearch.defaultProps = {

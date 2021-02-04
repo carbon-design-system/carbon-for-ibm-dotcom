@@ -211,12 +211,13 @@ const Masthead = ({
                 data-autoid={`${stablePrefix}--masthead`}>
                 <SkipToContent />
 
-                {(mastheadL1Data || navigation) && !isSearchActive && (
+                {(mastheadL1Data || navigation) && (
                   <HeaderMenuButton
                     aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
                     data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
+                    className={headerSearchClasses}
                   />
                 )}
 

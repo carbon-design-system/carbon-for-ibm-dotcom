@@ -117,8 +117,7 @@
           margin-right: $carbon--spacing-03;
         }
 
-        @include use-carbon-productive-tokens();
-        @include carbon--type-style(body-short-01, true);
+        @include carbon--type-style('caption-01');
       }
 
       .#{$prefix}--modal-header__heading {
@@ -259,8 +258,7 @@
     padding: $carbon--spacing-05;
     min-height: $carbon--spacing-09;
 
-    @include use-carbon-productive-tokens();
-    @include carbon--type-style(heading-01, true);
+    @include carbon--type-style(heading-02);
   }
 
   .#{$prefix}--locale-modal__list {

@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
+import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
@@ -36,6 +37,8 @@ import './megamenu-top-nav-menu';
 import './megamenu-left-navigation';
 import './megamenu-category-link';
 import './megamenu-category-group';
+import './megamenu-category-group-copy';
+import './megamenu-link-with-icon';
 import './megamenu-overlay';
 import './top-nav';
 import './top-nav-l1';
@@ -48,6 +51,7 @@ import './left-nav-name';
 import './left-nav-item';
 import './left-nav-menu';
 import './left-nav-menu-item';
+import './left-nav-menu-category-heading';
 import './left-nav-overlay';
 import './masthead-search-composite';
 import styles from './masthead.scss';
@@ -195,12 +199,13 @@ class DDSMastheadComposite extends LitElement {
   }
 
   /**
-   *  Render MegaMenu content
+   * Sorts highlighted and regular menu items in separate arrays
+   * and returns view all link
    *
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMegaMenu(sections) {
+  private _getHighlightedMenuItems(sections) {
     const highlightedItems: MastheadMenuItem[] = [];
     let viewAllLink;
     const menu: MastheadMenuItem[] = [];
@@ -214,20 +219,50 @@ class DDSMastheadComposite extends LitElement {
       return menu.push(item);
     });
 
+    return { viewAllLink, highlightedItems, menu };
+  }
+
+  /**
+   *  Render MegaMenu content
+   *
+   * @param sections menu section data object
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _renderMegaMenu(sections) {
+    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu>
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
+                ${sections[0]?.heading &&
+                  html`
+                    <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
+                  `}
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
                     <dds-megamenu-category-group data-autoid="${autoid}" href="${item.url}" title="${item.title}">
-                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                      <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
+                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
                         return html`
-                          <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
-                          </dds-megamenu-category-link>
+                          ${highlightedLink
+                            ? html`
+                                <dds-megamenu-link-with-icon
+                                  data-autoid="${autoid}-item${key}"
+                                  href="${url}"
+                                  style-scheme="category-sublink"
+                                  title="${title}"
+                                >
+                                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
+                                </dds-megamenu-link-with-icon>
+                              `
+                            : html`
+                                <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${url}">
+                                </dds-megamenu-category-link>
+                              `}
                         `;
                       })}
                     </dds-megamenu-category-group>
@@ -268,17 +303,26 @@ class DDSMastheadComposite extends LitElement {
    */
   // eslint-disable-next-line class-methods-use-this
   private _renderMobileMegaMenu(sections) {
-    const menu: MastheadMenuItem[] = [];
-
-    sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
-      return menu.push(item);
-    });
+    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+    const menuItems = highlightedItems.concat(menu);
+    if (viewAllLink) {
+      menuItems.push(viewAllLink);
+    }
 
     return html`
-      ${menu.map((item, i) => {
+      ${sections[0]?.heading &&
+        html`
+          <dds-left-nav-menu-category-heading>${sections[0]?.heading}</dds-left-nav-menu-category-heading>
+        `}
+      ${menuItems.map((item, i) => {
+        const lastHighlighted = i + 1 === highlightedItems.length;
         return item.megapanelContent?.quickLinks?.links
           ? html`
-              <dds-left-nav-menu title="${item.title}" data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}">
+              <dds-left-nav-menu
+                ?last-highlighted=${lastHighlighted}
+                title="${item.title}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+              >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
                   return html`
                     <dds-left-nav-menu-item
@@ -292,6 +336,7 @@ class DDSMastheadComposite extends LitElement {
             `
           : html`
               <dds-left-nav-menu-item
+                ?last-highlighted=${lastHighlighted}
                 href="${item.url}"
                 title="${item.title}"
                 data-autoid="${ddsPrefix}--masthead__l0-sidenav--subnav-col${i}-item${i}"
