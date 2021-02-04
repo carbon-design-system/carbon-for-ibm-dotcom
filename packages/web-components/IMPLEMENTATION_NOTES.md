@@ -351,7 +351,7 @@ There are a couple of common ways to simulate a user action. The easiest one is 
 
 #### Inspecting a DOM element or a component property
 
-We can simply grab component DOM to see a property is correct or its shadow DOM content is in correct. An example of the former can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L204-L206). An example of the latter can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L127-L129).
+We can simply grab a component DOM to see whether its property or shadow DOM content is correct. An example of the former can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L204-L206). An example of the latter can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L127-L129).
 
 #### Seeing if a particular method has been called or a particular event has been fired
 
