@@ -359,7 +359,7 @@ To see if a particular method has been called or a particular event has been fir
 
 ### Defining mocks
 
-The core notion of unit tests is running tests in an isolated environment, so that minimum factors come into play wrt whether the tests pass or fail. [Mocks](https://en.wikipedia.org/wiki/Mock_object) are very useful to achieve that.
+The core notion of unit tests is running tests in an isolated environment, so that minimal factors affect whether the tests pass or fail. [Mocks](https://en.wikipedia.org/wiki/Mock_object) are very useful to achieve that.
 
 An example of setting mocks via Jasmine API can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer-container.test.ts#L25-L39). An example of manually setting mocks can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L35-L44).
 
