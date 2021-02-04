@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({ style, type, customClassName, ...otherProps }) => {
+const CTA = ({ style, type, customClassName, videoLabel, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
@@ -41,10 +41,11 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     renderLightBox,
     openLightBox,
     videoTitle,
+    videoLabel,
     ...otherProps,
   };
 
-  const ariaLabel = otherProps?.copy ?? videoTitle[0].title;
+  const ariaLabel = type.includes('video') ? videoLabel : otherProps?.copy;
   const ariaProps = style === 'card' && {
     'aria-label': ariaLabel,
     role: 'region',
@@ -125,6 +126,12 @@ CTA.propTypes = {
    * Custom classname from parent.
    */
   customClassName: PropTypes.string,
+
+  /**
+   * Aria label to convey video playback upon interaction.
+   * Default label is in English, can be overridden by passing in a translated label.
+   */
+  videoLabel: PropTypes.string,
 };
 
 CTA.defaultProps = {
@@ -132,6 +139,7 @@ CTA.defaultProps = {
   type: 'default',
   copy: '',
   href: '',
+  videoLabel: 'Plays video',
 };
 
 export default CTA;
