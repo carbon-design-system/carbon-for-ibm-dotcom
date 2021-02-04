@@ -63,6 +63,54 @@
         'body body' auto
         'footer .' auto / 1fr 1fr;
     }
+
+    // Most slotted contents have margins aligning to Carbon grid gutters.
+    // Note: Child contents define their margin by their own
+    ::slotted([slot]) {
+      margin-left: $carbon--spacing-05;
+      margin-right: $carbon--spacing-05;
+    }
+
+    // Cards and link lists are the exceptions of above
+    // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` and add `<dds-link-list>` here
+    ::slotted(#{$dds-prefix}-card[slot]),
+    ::slotted(#{$dds-prefix}-card-cta[slot]) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    ::slotted([slot='complementary']) {
+      grid-area: complementary;
+      margin-top: $layout-05;
+      margin-bottom: $layout-05;
+
+      @include carbon--breakpoint('lg') {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    ::slotted([slot='footer']) {
+      margin-top: $carbon--layout-04;
+
+      @include carbon--breakpoint('md') {
+        width: 50%;
+        margin-top: $carbon--layout-05;
+      }
+    }
+
+    ::slotted([slot='heading']) {
+      grid-area: heading;
+    }
+
+    ::slotted([slot='media']) {
+      margin-top: $carbon--spacing-07;
+    }
+
+    ::slotted(#{$dds-prefix}-video-player-container) {
+      // Ensures the margin gets effective
+      display: block;
+    }
   }
 
   .#{$prefix}--content-layout--with-complementary {
