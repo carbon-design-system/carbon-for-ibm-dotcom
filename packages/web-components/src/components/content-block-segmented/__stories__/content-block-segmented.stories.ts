@@ -82,7 +82,7 @@ const contentItemCopy =
   'elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.';
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSimple ?? {};
+  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -120,7 +120,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const withVideo = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSimple ?? {};
+  const { heading, copy, ctaStyle, ctaType } = parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -158,7 +158,7 @@ export const withVideo = ({ parameters }) => {
 };
 
 export const withAsideElements = ({ parameters }) => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSimple ?? {};
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
@@ -210,7 +210,7 @@ withAsideElements.story = {
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
     knobs: {
-      ContentBlockSimple: () => ({
+      ContentBlockSegmented: () => ({
         heading: textNullable('Link list heading (heading)', 'Tutorials'),
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
@@ -239,7 +239,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     knobs: {
-      ContentBlockSimple: () => ({
+      ContentBlockSegmented: () => ({
         heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
         copy: textNullable(
           'copy',
