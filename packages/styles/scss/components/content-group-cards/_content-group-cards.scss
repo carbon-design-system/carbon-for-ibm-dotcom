@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,6 +21,9 @@
 
   .#{$prefix}--content-group-cards__row {
     @include carbon--make-row;
+
+    margin-left: 0;
+    margin-right: 0;
   }
 
   :host(#{$dds-prefix}-content-group-cards-item),
