@@ -212,6 +212,46 @@ export * from '../../components/card/defs.js';
 
 The build procedure can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L257-L282).
 
+### React SSR integration
+
+With `12.16.3` or higher version of Node, the React wrappers can be server-side rendered.
+
+Running our component code in Node causes JavaScript error because:
+
+- Web Components spec is based on HTMLElement, a spec on browser
+- `lit-html` and `lit-element` ships only their ESM code
+
+To avoid such JavaScript error, we leverage [conditional mapping](https://github.com/jkrems/proposal-pkg-exports#2-conditional-mapping) feature that was introduced in Node `12.16.3`, that allows us to write something like below in `package.json`:
+
+```json
+"exports": {
+  "./es/components-react/": {
+    "node": "./lib/components-react-node/",
+    "default": "./es/components-react/"
+  }
+}
+```
+
+It makes `import` or `require()` behave like:
+
+| `import` or `require()`                                                     | File loaded in browser                      | File loaded in Node                               |
+| --------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------- |
+| `@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead.js` | `/es/components-react/masthead/masthead.js` | `/lib/components-react-node/masthead/masthead.js` |
+
+And the file loaded in browser (browser version) and the file loaded in Node (Node version) have the following differences, so Node version won't cause JavaScript error by running ESM or browser-specific code:
+
+| Item                                       | Browser version | Node version |
+| ------------------------------------------ | --------------- | ------------ |
+| Module format                              | ESM             | CommonJS     |
+| Loads Web Components implementation module | Yes             | No           |
+| Loads `lit-html` and `lit-element`         | Yes             | No           |
+
+### Composite/container components for React
+
+React wrappers for composite components renders Web Components of leaf components, instead of the Web Componets version of composite component. Doing so ensures React SSR works for REST API calls, reducing network round-trips that is the key benefit of React SSR. An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
+
+React wrappers for container components uses official Redux integration library, `react-redux`. Doing so allows application of Redux store to be scoped, leveraging [React's context feature](https://reactjs.org/docs/context.html). An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-container.ts).
+
 ## Container components
 
 Container components are inheritances of composite components that connects to `@carbon/ibmdotcom-service`. Connecting to `@carbon/ibmdotcom-service` is done via a Redux store, [`@carbon/ibmdotcom-services-store`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/v1.13.0/packages/services-store). Connecting to `@carbon/ibmdotcom-services-store` is done by [`ConnectMixin`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.13.0/packages/web-components/src/globals/mixins/connect.ts) that has a similar feature set to [`react-redux`](https://react-redux.js.org).
