@@ -64,6 +64,13 @@
         'footer .' auto / 1fr 1fr;
     }
 
+    &.#{$prefix}--layout--border {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     // Most slotted contents have margins aligning to Carbon grid gutters.
     // Note: Child contents define their margin by their own
     ::slotted([slot]) {
