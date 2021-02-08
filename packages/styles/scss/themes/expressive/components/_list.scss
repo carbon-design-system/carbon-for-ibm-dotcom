@@ -1,0 +1,28 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+
+//-----------------------------
+// Ordered List (Expressive)
+//-----------------------------
+
+/// Ordered list styles (expressive)
+/// @access private
+/// @group list-expressive
+
+@mixin list-expressive {
+  .#{$prefix}--list--ordered:not(.#{$prefix}--list--nested) {
+    > .#{$prefix}--list__item {
+      &::before {
+        left: auto;
+        right: 100%;
+        margin-right: $carbon--spacing-02;
+      }
+    }
+  }
+}
