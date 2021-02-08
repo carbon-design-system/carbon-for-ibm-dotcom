@@ -17,7 +17,7 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({ style, type, customClassName, videoLabel, ...otherProps }) => {
+const CTA = ({ style, type, customClassName, ariaLabel, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
@@ -41,13 +41,15 @@ const CTA = ({ style, type, customClassName, videoLabel, ...otherProps }) => {
     renderLightBox,
     openLightBox,
     videoTitle,
-    videoLabel,
+    ariaLabel,
     ...otherProps,
   };
 
-  const ariaLabel = type.includes('video') ? videoLabel : otherProps?.copy;
-  const ariaProps = style === 'card' && {
-    'aria-label': ariaLabel,
+  const label = `${otherProps?.copy}${
+    ariaLabel ? ariaLabel : CTALogic.getDefaultLabel(type)
+  }`;
+  const ariaProps = style === ('card' || 'text') && {
+    'aria-label': label,
     role: 'region',
   };
 
@@ -129,9 +131,9 @@ CTA.propTypes = {
 
   /**
    * Aria label to convey video playback upon interaction.
-   * Default label is in English, can be overridden by passing in a translated label.
+   * Default label is in English, can be overridden by passing in a custom translated label.
    */
-  videoLabel: PropTypes.string,
+  ariaLabel: PropTypes.string,
 };
 
 CTA.defaultProps = {
@@ -139,7 +141,6 @@ CTA.defaultProps = {
   type: 'default',
   copy: '',
   href: '',
-  videoLabel: 'Plays video',
 };
 
 export default CTA;

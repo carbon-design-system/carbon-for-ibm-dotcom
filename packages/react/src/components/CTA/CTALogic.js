@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,6 +44,25 @@ class CTALogic {
       }
       default:
         return [];
+    }
+  }
+
+  /**
+   * Gets the default aria label if translated label isn't provided.
+   *
+   * @param {string} type cta type { download | external | video }
+   * @returns {string} default type aria label
+   */
+  static getDefaultLabel(type) {
+    switch (type) {
+      case 'download':
+        return ' - This link downloads a file';
+      case 'external':
+        return ' - This link opens in a new tab';
+      case 'video':
+        return ' - This link plays a video';
+      default:
+        return '';
     }
   }
 
