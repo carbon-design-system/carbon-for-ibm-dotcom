@@ -13,6 +13,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import DDSCard from '../card/card';
 import styles from './carousel.scss';
 
 const { prefix } = settings;
@@ -26,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-carousel`)
-class DDSCarousel extends LitElement {
+class DDSCarousel extends HostListenerMixin(LitElement) {
   /**
    * The scrolling contents node.
    */
@@ -110,6 +113,39 @@ class DDSCarousel extends LitElement {
       }
     }
   }
+
+  /**
+   * Handles card focus throughout pages.
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
+    const currentContains = target !== this && this.contains(target as DDSCard);
+    const oldNotContains = target !== this && !this.contains(relatedTarget as DDSCard);
+    const currentCardIndex = Array.from(this.children).indexOf(target as HTMLElement);
+
+    // keep current page if tabbing back into the carousel after previously moving pages
+    if (currentContains && oldNotContains && currentCardIndex === 0) {
+      (this.children[this.start] as HTMLElement).focus();
+      return;
+    }
+
+    if (currentContains) {
+      // going forwards, change page depending on card index
+      if (currentCardIndex >= this.start + this.pageSize) {
+        const nextStart = currentCardIndex - (currentCardIndex % this.pageSize);
+        const pageOffset = this.start % this.pageSize;
+
+        this.start = nextStart + pageOffset;
+
+        // going backwards, change page depending on card index
+      } else if (currentCardIndex < this.start) {
+        this.start = Math.max(currentCardIndex + 1 - this.pageSize, 0);
+      }
+    }
+  };
 
   /**
    * Handles `click` event on the next button.
