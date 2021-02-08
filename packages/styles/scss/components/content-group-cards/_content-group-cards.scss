@@ -21,9 +21,6 @@
 
   .#{$prefix}--content-group-cards__row {
     @include carbon--make-row;
-
-    margin-left: 0;
-    margin-right: 0;
   }
 
   :host(#{$dds-prefix}-content-group-cards-item),

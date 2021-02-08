@@ -139,6 +139,10 @@
 
   .#{$prefix}--content-layout__body {
     grid-area: body;
+    .bx--content-group-cards__row {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
