@@ -11,9 +11,11 @@
   class="bx--side-nav__submenu"
   type="button"
 >
-  <span class="bx--side-nav__submenu-title">
-  </span>
-  <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
+  <div class="bx--side-nav__submenu-content">
+    <span class="bx--side-nav__submenu-title">
+    </span>
+    <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
+    </div>
   </div>
 </button>
 <ul
@@ -50,10 +52,12 @@
   class="bx--side-nav__submenu"
   type="button"
 >
-  <span class="bx--side-nav__submenu-title">
-    title-foo
-  </span>
-  <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
+  <div class="bx--side-nav__submenu-content">
+    <span class="bx--side-nav__submenu-title">
+      title-foo
+    </span>
+    <div class="bx--side-nav__icon bx--side-nav__icon--small bx--side-nav__submenu-chevron">
+    </div>
   </div>
 </button>
 <ul

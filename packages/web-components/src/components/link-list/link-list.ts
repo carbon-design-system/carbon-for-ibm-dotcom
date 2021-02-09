@@ -14,11 +14,29 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE } from './defs';
 import styles from './link-list.scss';
+import DDSLinkListItem, { LINK_LIST_ITEM_TYPE } from './link-list-item';
 
 export { LINK_LIST_TYPE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+export enum END_TYPE_LAYOUT {
+  /**
+   * Default layout | 1 - 3 items
+   */
+  DEFAULT = 'default',
+
+  /**
+   * Two Columns - Split layout | 4 - 6 items
+   */
+  TWO_COLUMNS = 'two-columns',
+
+  /**
+   * Tree Columns Layout | 7 + items
+   */
+  THREE_COLUMNS = 'three-columns',
+}
 
 /**
  * Link list.
@@ -29,11 +47,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends StableSelectorMixin(LitElement) {
   /**
-   * `true` to use "split mode" layout for `type="end"`.
-   * Should happen if there are more than three child items slotted in.
+   * Defines the layout for the end layout - based on END_TYPE_LAYOUT
    */
   @internalProperty()
-  private _useSplitLayoutForEndType = false;
+  private _endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+
+  /**
+   * Child items
+   */
+  @internalProperty()
+  private _childItems: Element[] = [];
 
   /**
    * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
@@ -42,23 +65,40 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    */
   private _handleSlotChange(event: Event) {
     const { selectorItem } = this.constructor as typeof DDSLinkList;
-    const childItems = (event.target as HTMLSlotElement)
+    this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
-    this._useSplitLayoutForEndType = childItems.length > 3;
+
+    if (this._childItems.length > 3) {
+      if (this._childItems.length < 7) this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
+      else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+    } else {
+      this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+    }
+    if (this.type === LINK_LIST_TYPE.END) {
+      this._childItems.forEach(elem => {
+        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
+    }
   }
 
   /**
    * The link list type.
+   * possible values are:
+   * default - Vertically stacked card-like links;
+   * vertical - Vertically stacked inline links;
+   * horizontal - Horizontaly stacked inline links;
+   * end - End of section variant - Inline links stacked up to three columns based on the quantity of links;
    */
   @property({ reflect: true })
   type = LINK_LIST_TYPE.DEFAULT;
 
   render() {
-    const { type, _useSplitLayoutForEndType: useSplitLayoutForEndType } = this;
+    const { type, _endTypeLayout: endTypeLayout } = this;
     const headingClasses = classMap({
       [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
-      [`${ddsPrefix}-ce--link-list__heading--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
+      [`${ddsPrefix}-ce--link-list__heading--split`]:
+        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
     const listTypeClasses =
       {
@@ -69,7 +109,9 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const listClasses = classMap({
       [`${prefix}--link-list__list`]: true,
       [listTypeClasses]: true,
-      [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && useSplitLayoutForEndType,
+      [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+      [`${ddsPrefix}-ce--link-list__list--three-columns`]:
+        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
       <div class="${headingClasses}"><slot name="heading"></slot></div>
@@ -79,11 +121,19 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     `;
   }
 
+  updated() {
+    if (this.type === LINK_LIST_TYPE.END) {
+      this._childItems.forEach(elem => {
+        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
+    }
+  }
+
   /**
    * A selector selecting the child items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-link-list-item`;
+    return `${ddsPrefix}-link-list-item, ${ddsPrefix}-link-list-item-cta`;
   }
 
   static get stableSelector() {

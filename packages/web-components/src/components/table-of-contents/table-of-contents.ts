@@ -10,7 +10,7 @@
 import { nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, internalProperty, query, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
@@ -232,6 +232,12 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     this._hasMobileContainerVisible = height > 0;
   };
 
+  /**
+   * The current 0px offset from the top of page.
+   */
+  @property({ type: Number })
+  stickyOffset = 0;
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
@@ -259,6 +265,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
 
   render() {
     const {
+      stickyOffset,
       _currentTarget: currentTarget,
       _hasHeading: hasHeading,
       _hasMobileContainerVisible: hasMobileContainerVisible,
@@ -280,7 +287,10 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
                 </div>
               `}
           <div class="${prefix}--tableofcontents__mobile-top"></div>
-          <div class="${ddsPrefix}-ce--table-of-contents__items-container">
+          <div
+            class="${ddsPrefix}-ce--table-of-contents__items-container"
+            style="position: sticky; top: ${stickyOffset ? `${stickyOffset}px` : 0}"
+          >
             <div class="${prefix}--tableofcontents__desktop">
               <ul>
                 ${targets.map(item => {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,6 +41,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param event The event.
      */
     _handleClick(event: MouseEvent) {
+      this.focus();
       const { ctaType, disabled, href } = this;
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link

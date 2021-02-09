@@ -87,6 +87,7 @@ const MastheadLeftNav = ({
           autoid={autoid}
           selected={selected}
           navType={rest.navType}
+          heading={link.menuSections[0]?.heading}
           dataTitle={dataTitle}>
           {renderNavSections(
             link.menuSections,
@@ -180,17 +181,32 @@ const preventOutFocus = (target, isSideNavExpanded) => {
 function renderNavSections(sections, backButtonText, autoid, navType) {
   const sectionItems = [];
   sections.forEach(section => {
-    section.menuItems.forEach((item, j) => {
-      const dataAutoId = `${autoid}-list${j}`;
+    // get array of highlighted menu items to render first
+    let highlightedItems = [];
+    const menu = [];
+
+    section.menuItems.forEach(item => {
+      if (item.highlighted) return highlightedItems.push(item);
+      return menu.push(item);
+    });
+
+    const menuItems = highlightedItems.concat(menu);
+    const highlightedCount = highlightedItems.length;
+
+    menuItems.forEach((item, k) => {
+      const dataAutoId = `${autoid}-list${k}`;
       if (item.megapanelContent) {
         sectionItems.push(
           <SideNavMenuWithBackFoward
             title={item.title}
             titleUrl={item.url}
+            lastHighlighted={
+              highlightedCount !== 0 && k + 1 === highlightedCount
+            }
             backButtonText={backButtonText}
             autoid={dataAutoId}
             navType={navType}
-            key={j}>
+            key={k}>
             {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
             <button
               className={`${prefix}--masthead__focus`}
@@ -207,24 +223,26 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
         sectionItems.push(
           <SideNavMenuItem
             href={item.url}
+            className={
+              highlightedCount !== 0 &&
+              k + 1 === highlightedCount &&
+              `${prefix}--masthead__side-nav__last-highlighted`
+            }
             data-autoid={dataAutoId}
             key={item.title}>
             {item.title}
           </SideNavMenuItem>
         );
       }
-
-      if (j === section.menuItems.length - 1) {
-        sectionItems.push(
-          <button
-            className={`${prefix}--masthead__focus`}
-            onFocus={e => {
-              preventOutFocus(e.target.parentElement.querySelector('a'), true);
-            }}
-            aria-hidden={true}></button>
-        );
-      }
     });
+    sectionItems.push(
+      <button
+        className={`${prefix}--masthead__focus`}
+        onFocus={e => {
+          preventOutFocus(e.target.parentElement.querySelector('a'), true);
+        }}
+        aria-hidden={true}></button>
+    );
   });
 
   return sectionItems;

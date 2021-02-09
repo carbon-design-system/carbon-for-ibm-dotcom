@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,11 +14,35 @@
 }
 
 @mixin content-section {
-  :host(#{$dds-prefix}-content-section),
   :host(#{$dds-prefix}-link-list-section),
   .#{$prefix}--content-section {
     padding-top: $spacing-09;
     padding-bottom: $carbon--layout-05;
+  }
+
+  .#{$prefix}--content-section-layout {
+    display: grid;
+    grid-template:
+      'leading' auto
+      'body' auto / 1fr;
+    row-gap: $spacing-03;
+
+    @include carbon--breakpoint('lg') {
+      grid-template: 'leading body' auto / 1fr 3fr;
+    }
+  }
+
+  .#{$prefix}--content-section__leading {
+    grid-area: leading;
+    padding: $spacing-05;
+  }
+
+  .#{$prefix}--content-section__body {
+    grid-area: body;
+    // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
+    // especially if the carousel containts large number of cards.
+    // May need to investigate.
+    display: contents;
   }
 
   .#{$prefix}--content-section__grid {
