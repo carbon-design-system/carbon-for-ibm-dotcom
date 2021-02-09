@@ -21,7 +21,10 @@
     </div>
     <div class="bx--tableofcontents__mobile-top">
     </div>
-    <div class="dds-ce--table-of-contents__items-container">
+    <div
+      class="dds-ce--table-of-contents__items-container"
+      style="position: sticky; top: 0"
+    >
       <div class="bx--tableofcontents__desktop">
         <ul>
         </ul>
@@ -60,7 +63,10 @@
     </div>
     <div class="bx--tableofcontents__mobile-top">
     </div>
-    <div class="dds-ce--table-of-contents__items-container">
+    <div
+      class="dds-ce--table-of-contents__items-container"
+      style="position: sticky; top: 0"
+    >
       <div class="bx--tableofcontents__desktop">
         <ul>
         </ul>
@@ -93,7 +99,10 @@
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>
-    <div class="dds-ce--table-of-contents__items-container">
+    <div
+      class="dds-ce--table-of-contents__items-container"
+      style="position: sticky; top: 0"
+    >
       <div class="bx--tableofcontents__desktop">
         <ul>
         </ul>
