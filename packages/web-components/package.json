@@ -202,7 +202,7 @@
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
     "magic-string": "^0.25.0",
-    "marked": "^1.1.0",
+    "marked": "^2.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "mkdirp": "^0.5.0",
     "node-sass": "^4.12.0",
