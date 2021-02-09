@@ -386,3 +386,20 @@ The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL`
 Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
 
 How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
+
+## Storybook CSF integration
+
+Storybook introduced a new story format in `5.x` timeframe, called Component Story Format (CSF). It makes stories an ECMAScript import, that is great for reusing stories.
+
+Unfortunately, knobs still require imperative API embedded in stories, which means as soon as we define knobs in stories any code calling stories depends on such knobs.
+
+To make sure that we can reuse stories for unit tests without depending on knobs, we define knobs somewhere outside stories, which is, in story parameters (`parameters.knobs`), like [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L116-L146). Such `parameters.knobs` is evaluated in a [global story decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/decorator-knobs.ts) and put into `parameters.props`, so that stories can refer to like [this](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L26).
+
+In this way, test can specify its own `parameters.props`, without being interfered by knobs. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__tests__/card.test.ts#L14-L21).
+
+## License header
+
+We ensure that our source code has appropriate licence header, with two mechanisms:
+
+1. The [CI task](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L25) that [checks if all source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/gulp-tasks/lint.js#L25-L50).
+2. The [pre-commit hook](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/.lintstagedrc#L4) that [checks if all staged source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L27). If the license year is found stale in the step, we [update it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/tasks/check-license.js#L46-L54) here.
