@@ -1552,7 +1552,7 @@ const customLinks: MastheadLink[] = [
             highlighted: true,
             megapanelContent: {
               headingTitle: 'Hybrid Cloud',
-              headingUrl: 'https://www.ibm.com/products?lnk=hpmps_bupr',
+              headingUrl: '',
               description: 'Blend cloud and on-premises resources for flexibility and balance',
               quickLinks: {
                 title: '',
