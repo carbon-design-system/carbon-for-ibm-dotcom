@@ -20,13 +20,15 @@
   // Add CSS Grid so that the CTA link will align to the bottom of the card despite the length of the copy.
   height: auto;
   display: grid;
+  align-items: flex-start;
   grid-template-rows: auto auto 1fr auto;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
 
   @include carbon--breakpoint(md) {
-    grid-template-columns: repeat(auto-fit, minmax(225px,1fr));
     margin-bottom: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--promo-item__heading {
+    align-self: flex-start;
   }
 
   .#{$prefix}--promo-item__heading,

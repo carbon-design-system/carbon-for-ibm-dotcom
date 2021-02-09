@@ -62,7 +62,7 @@ const promoItems = [
   {
     heading: 'Morbi eget placerat felis',
     statistic: '5.00hrs',
-    copy: `Pellentesque sollicitudin metus eget sem dignissim sollicitudin. Suspendisse ac quam in quam finibus porta. Nullam volutpat aliquam erat, vel scelerisque.`,
+    copy: `Pellentesque sollicitudin metus eget sem dignissim sollicitudin. Suspendisse ac quam in quam finibus porta. Nullam volutpat aliquam erat, vel scelerisque. Pellentesque sollicitudin metus.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolar',
@@ -101,7 +101,7 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withImages = ({ parameters }) => {
+export const withImage = ({ parameters }) => {
   const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
   return html`
     <dds-promo-group>
@@ -119,7 +119,7 @@ export const withImages = ({ parameters }) => {
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
             <dds-promo-item>
               <dds-card-heading>${itemHeading}</dds-card-heading>
-              <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"> </dds-image>
+              <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"></dds-image>
               <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
               <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
                 ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
@@ -133,7 +133,7 @@ export const withImages = ({ parameters }) => {
   `;
 };
 
-export const withStatistics = ({ parameters }) => {
+export const withStatistic = ({ parameters }) => {
   const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
   return html`
     <dds-promo-group>
@@ -165,7 +165,7 @@ export const withStatistics = ({ parameters }) => {
   `;
 };
 
-export const withPictograms = ({ parameters }) => {
+export const withPictogram = ({ parameters }) => {
   const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
   return html`
     <dds-promo-group>

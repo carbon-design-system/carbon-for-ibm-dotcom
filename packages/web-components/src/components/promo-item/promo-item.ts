@@ -22,9 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-promo-item
  * @slot heading - The Card heading.
+ * @slot image - The Image content.
  * @slot statistic - The statistic content.
  * @slot pictogram - The pictogram content.
- * @slot image - The Image content.
  * @slot copy - The Content Item Copy.
  * @slot footer - The link with icon content.
  */
@@ -37,8 +37,8 @@ class DDSPromoItem extends StableSelectorMixin(DDSContentItem) {
       </div>
       <div class="${prefix}--promo-item__media">
         <slot class="${prefix}--promo-item__image" name="image" @slotchange="${this._handleSlotChange}"></slot>
-        <slot class="${prefix}--promo-item__statistic" name="statistic"></slot>
-        <slot class="${prefix}--promo-item__pictogram" name="pictogram"></slot>
+        <slot class="${prefix}--promo-item__statistic" name="statistic" @slotchange="${this._handleSlotChange}"></slot>
+        <slot class="${prefix}--promo-item__pictogram" name="pictogram" @slotchange="${this._handleSlotChange}"></slot>
       </div>
       <div class="${prefix}--promo-item__content">
         <slot class="${prefix}--promo-item__copy" name="copy"></slot>

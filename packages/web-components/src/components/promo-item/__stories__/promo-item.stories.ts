@@ -14,14 +14,13 @@ import '../promo-item';
 import '../promo-item-statistic';
 import '../../link-with-icon/link-with-icon';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import styles from './promo-item.stories.scss';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
+  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
   return html`
     <dds-promo-item>
       <dds-card-heading>${heading}</dds-card-heading>
@@ -33,8 +32,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withImages = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
+export const withImage = ({ parameters }) => {
+  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
   return html`
     <dds-promo-item>
       <dds-card-heading>${heading}</dds-card-heading>
@@ -47,8 +46,8 @@ export const withImages = ({ parameters }) => {
   `;
 };
 
-export const withStatistics = ({ parameters }) => {
-  const { heading, statistic, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
+export const withStatistic = ({ parameters }) => {
+  const { heading, statistic, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
   return html`
     <dds-promo-item>
       <dds-card-heading>${heading}</dds-card-heading>
@@ -61,8 +60,8 @@ export const withStatistics = ({ parameters }) => {
   `;
 };
 
-export const withPictograms = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PictogramItem ?? {};
+export const withPictogram = ({ parameters }) => {
+  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
   return html`
     <dds-promo-item>
       <dds-card-heading>${heading}</dds-card-heading>
@@ -79,7 +78,7 @@ export const withPictograms = ({ parameters }) => {
       >
         <path d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"/><path fill="none" d="M0 0h32v32H0z"/>
       </svg>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
       <dds-link-with-icon href="${href}" slot="footer">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
@@ -92,7 +91,7 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramItem: ({ groupId }) => ({
+      PromoItem: ({ groupId }) => ({
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
         statistic: textNullable('Statistic (statistic):', '100%', groupId),
         copy: textNullable(
@@ -110,9 +109,6 @@ export default {
   },
   decorators: [
     story => html`
-      <style>
-        ${styles}
-      </style>
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
