@@ -243,7 +243,7 @@
     .#{$prefix}--link-with-icon {
       text-decoration: none;
       width: 100%;
-      margin: 0 $spacing-05;
+      margin: rem(-32px) $spacing-05 0;
       border-top: carbon--rem(1px) solid $ui-03;
       height: $spacing-09;
 
