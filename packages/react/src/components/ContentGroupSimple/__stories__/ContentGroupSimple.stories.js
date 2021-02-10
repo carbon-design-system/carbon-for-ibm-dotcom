@@ -46,7 +46,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-3">
           <ContentGroupSimple
             heading={heading}
             items={items}
