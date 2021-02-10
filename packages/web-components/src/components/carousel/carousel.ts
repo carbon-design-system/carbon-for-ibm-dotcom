@@ -31,6 +31,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-carousel`)
 class DDSCarousel extends HostListenerMixin(LitElement) {
   /**
+   * The scrolling container node.
+   */
+  @query(`.${prefix}--carousel__scroll-container`)
+  private _containerNode?: HTMLElement;
+
+  /**
    * The scrolling contents node.
    */
   @query(`.${prefix}--carousel__scroll-contents`)
@@ -91,7 +97,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    * @param [options.create] `true` to create the new resize observer.
    */
   private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
-    const { _contentsNode: contentsNode } = this;
+    const { _contentsNode: contentsNode, _containerNode: containerNode } = this;
     if (contentsNode) {
       if (this._observerResizeContainer) {
         this._observerResizeContainer.disconnect();
@@ -100,6 +106,9 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       if (this._observerResizeRoot) {
         this._observerResizeRoot.disconnect();
         this._observerResizeRoot = null;
+      }
+      if (containerNode) {
+        containerNode?.removeEventListener('scroll', this._handleScrollFocus);
       }
       if (create) {
         // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -110,8 +119,19 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
         // @ts-ignore
         this._observerResizeContainer = new ResizeObserver(this._observeResizeContainer);
         this._observerResizeContainer.observe(contentsNode);
+        containerNode?.addEventListener('scroll', this._handleScrollFocus);
       }
     }
+  }
+
+  /**
+   * Stops the container from scrolling when focusing on a card outside of the viewport.
+   *
+   * @param event The event.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _handleScrollFocus({ target }: Event) {
+    (target as HTMLElement).scrollTo(0, 0);
   }
 
   /**
