@@ -24,7 +24,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-promo-group`)
 class DDSPromoGroup extends StableSelectorMixin(DDSContentSection) {
-
   /**
    * Applies section attribute
    */

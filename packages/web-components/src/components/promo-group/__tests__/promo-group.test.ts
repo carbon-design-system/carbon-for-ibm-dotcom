@@ -42,7 +42,10 @@ describe('dds-promo-group', function() {
           cards: html`
             <dds-promo-item>
               <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-              <dds-content-item-copy slot="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</dds-content-item-copy>
+              <dds-content-item-copy slot="copy"
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</dds-content-item-copy
+              >
               <dds-link-with-icon href="https://example.com" slot="footer">
                 Lorem ipsum dolor ${ArrowRight20({ slot: 'icon' })}
               </dds-link-with-icon>

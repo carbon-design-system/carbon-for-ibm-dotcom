@@ -96,7 +96,6 @@ export const Default = ({ parameters }) => {
           `
         )}
       </dds-card-group>
-
     </dds-promo-group>
   `;
 };
@@ -128,7 +127,6 @@ export const withImage = ({ parameters }) => {
           `
         )}
       </dds-card-group>
-
     </dds-promo-group>
   `;
 };
@@ -160,7 +158,6 @@ export const withStatistic = ({ parameters }) => {
           `
         )}
       </dds-card-group>
-
     </dds-promo-group>
   `;
 };
@@ -183,7 +180,7 @@ export const withPictogram = ({ parameters }) => {
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
             <dds-promo-item>
               <dds-card-heading>${itemHeading}</dds-card-heading>
-              <svg 
+              <svg
                 slot="pictogram"
                 focusable="false"
                 preserveAspectRatio="xMidYMid meet"
@@ -194,7 +191,10 @@ export const withPictogram = ({ parameters }) => {
                 role="img"
                 class="bx--promo-item__pictogram"
               >
-                <path d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"/><path fill="none" d="M0 0h32v32H0z"/>
+                <path
+                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
+                />
+                <path fill="none" d="M0 0h32v32H0z" />
               </svg>
               <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
               <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
@@ -204,7 +204,6 @@ export const withPictogram = ({ parameters }) => {
           `
         )}
       </dds-card-group>
-
     </dds-promo-group>
   `;
 };
@@ -227,7 +226,11 @@ export default {
     knobs: {
       CardSectionSimple: ({ groupId }) => ({
         sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
-        secondaryHeading: textNullable('Secondary Heading (optional)', 'Optional title heading-4 color test-01 that spans to multiple lines as needed', groupId),
+        secondaryHeading: textNullable(
+          'Secondary Heading (optional)',
+          'Optional title heading-4 color test-01 that spans to multiple lines as needed',
+          groupId
+        ),
       }),
     },
   },
