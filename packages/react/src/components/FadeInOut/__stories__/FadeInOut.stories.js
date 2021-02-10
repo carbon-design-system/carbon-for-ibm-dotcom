@@ -9,7 +9,6 @@ import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-v
 import './fade-in-out.stories.scss';
 
 import Content from '../../DotcomShell/__stories__/data/content';
-import DotcomShell from '../../DotcomShell/DotcomShell';
 import FadeInOut from '../FadeInOut';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -48,15 +47,13 @@ export default {
 
 export const Default = () => {
   return (
-    <DotcomShell>
-      <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <FadeInOut selectorTargets={selectorTargets}>
-            <Content />
-          </FadeInOut>
-        </div>
-      </main>
-    </DotcomShell>
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <FadeInOut selectorTargets={selectorTargets}>
+          <Content />
+        </FadeInOut>
+      </div>
+    </main>
   );
 };
 
@@ -69,15 +66,13 @@ Default.story = {
 
 export const WithContinuousAnimations = () => {
   return (
-    <DotcomShell>
-      <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>
-          <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
-            <Content />
-          </FadeInOut>
-        </div>
-      </main>
-    </DotcomShell>
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
+          <Content />
+        </FadeInOut>
+      </div>
+    </main>
   );
 };
 
