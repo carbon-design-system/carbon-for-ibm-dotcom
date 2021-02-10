@@ -147,8 +147,15 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
     const currentCardIndex = Array.from(this.children).indexOf(target as HTMLElement);
 
     // keep current page if tabbing back into the carousel after previously moving pages
-    if (currentContains && oldNotContains && currentCardIndex === 0) {
-      (this.children[this.start] as HTMLElement).focus();
+    if (currentContains && oldNotContains) {
+      // focus coming from the top
+      if (currentCardIndex === 0) {
+        (this.children[this.start] as HTMLElement).focus();
+
+        // focus coming from bottom
+      } else if (currentCardIndex === this._total - 1) {
+        (this.children[this.start + this.pageSize - 1] as HTMLElement).focus();
+      }
       return;
     }
 
