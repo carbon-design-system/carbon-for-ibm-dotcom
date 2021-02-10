@@ -39,13 +39,14 @@ const mastheadLinks = [
                     title: 'What is Hybrid Cloud?',
                     titleEnglish: 'What is Hybrid Cloud?',
                     highlightedLink: true,
-                    url: 'https://www.ibm.com/cloud/hybrid',
+                    url:
+                      'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hp-optb',
                   },
                   {
                     title: 'Hybrid cloud solutions',
                     titleEnglish: 'Hybrid cloud solutions',
                     highlightedLink: true,
-                    url: 'https://www.ibm.com/cloud/hybrid',
+                    url: 'https://www.ibm.com/cloud/go-hybrid?lnk=hp-optb',
                   },
                 ],
               },
@@ -65,8 +66,8 @@ const mastheadLinks = [
             highlighted: true,
             megapanelContent: {
               headingTitle: 'Artificial intelligence',
-              headingUrl: 'https://www.ibm.com/artificial-intelligence',
-              description: 'Unlock the value in your organization with AI',
+              headingUrl: '',
+              description: 'Unlock the value in your organization with Watson',
               quickLinks: {
                 title: '',
                 links: [
@@ -74,13 +75,95 @@ const mastheadLinks = [
                     title: 'What is AI?',
                     titleEnglish: 'What is AI?',
                     highlightedLink: true,
-                    url: 'https://www.ibm.com/artificial-intelligence',
+                    url:
+                      'https://www.ibm.com/cloud/learn/artificial-intelligence?lnk=hp-optb',
                   },
                   {
                     title: 'AI solutions',
                     titleEnglish: 'AI solutions',
                     highlightedLink: true,
-                    url: 'https://www.ibm.com/artificial-intelligence',
+                    url: 'https://www.ibm.com/cloud/ai?lnk=hp-optb',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/6cad5af285e48a89/original/megamenu-pictogram-industries.png',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+          {
+            title: 'Top products & platforms',
+            titleEnglish: 'Top products & platforms',
+            url: 'https://www.ibm.com/products?lnk=hp-optb',
+            megapanelContent: {
+              headingTitle: 'Top products & platforms',
+              headingUrl: 'https://www.ibm.com/products?lnk=hp-optb',
+              description: '',
+              quickLinks: {
+                title: '',
+                links: [
+                  {
+                    title: 'Aspera',
+                    titleEnglish: 'Aspera',
+                    url: 'https://www.ibm.com/products/aspera?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Cognos',
+                    titleEnglish: 'Cognos',
+                    url:
+                      'https://www.ibm.com/products/cognos-analytics?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Db2',
+                    titleEnglish: 'Db2',
+                    url: 'https://www.ibm.com/analytics/db2?lnk=hp-optb',
+                  },
+                  {
+                    title: 'IBM Cloud',
+                    titleEnglish: 'IBM Cloud',
+                    url: 'https://www.ibm.com/cloud?lnk=hp-optb',
+                  },
+                  {
+                    title: 'IBM Cloud Paks',
+                    titleEnglish: 'IBM Cloud Paks',
+                    url: 'https://www.ibm.com/cloud/paks?lnk=hp-optb',
+                  },
+                  {
+                    title: 'IBM Sterling',
+                    titleEnglish: 'IBM Sterling',
+                    url:
+                      'https://www.ibm.com/supply-chain/sterling?lnk=hp-optb',
+                  },
+                  {
+                    title: 'IBM Z',
+                    titleEnglish: 'IBM Z',
+                    url: 'https://www.ibm.com/it-infrastructure/z?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Red Hat OpenShift',
+                    titleEnglish: 'Red Hat OpenShift',
+                    url: 'https://www.ibm.com/cloud/openshift?lnk=hp-optb',
+                  },
+                  {
+                    title: 'SPSS Statistics',
+                    titleEnglish: 'SPSS Statistics',
+                    url:
+                      'https://www.ibm.com/products/spss-statistics?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Watson',
+                    titleEnglish: 'Watson',
+                    url: 'https://www.ibm.com/watson?lnk=hp-optb',
+                  },
+                  {
+                    title: 'WebSphere',
+                    titleEnglish: 'WebSphere',
+                    url:
+                      'https://www.ibm.com/cloud/websphere-application-platform?lnk=hp-optb',
                   },
                 ],
               },
@@ -93,191 +176,165 @@ const mastheadLinks = [
             },
           },
           {
-            title: 'Top products & platforms',
-            titleEnglish: 'Top products & platforms',
-            url: 'https://www.ibm.com/products?lnk=hpmps_bupr&lnk2=link',
+            title: 'Solutions',
+            titleEnglish: 'Solutions',
+            url: '',
             megapanelContent: {
-              headingTitle: 'Top products & platforms',
-              headingUrl: 'https://www.ibm.com/products?lnk=hpmps_bupr',
+              headingTitle: 'Solutions',
+              headingUrl: '',
               description: '',
               quickLinks: {
                 title: '',
                 links: [
                   {
-                    title: 'Db2',
-                    titleEnglish: 'Db2',
+                    title: 'Artificial intelligence',
+                    titleEnglish: 'Artificial intelligence',
+                    url: 'https://ibm.com/cloud/ai?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Blockchain',
+                    titleEnglish: 'Blockchain',
+                    url: 'https://www.ibm.com/blockchain?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Business automation',
+                    titleEnglish: 'Business automation',
+                    url: 'https://www.ibm.com/automation?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Business operations',
+                    titleEnglish: 'Business operations',
+                    url: 'https://www.ibm.com/business-operations?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Cloud computing',
+                    titleEnglish: 'Cloud computing',
+                    url: 'https://www.ibm.com/cloud?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Data & Analytics',
+                    titleEnglish: 'Data & Analytics',
+                    url: 'https://www.ibm.com/analytics?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Hybrid cloud',
+                    titleEnglish: 'Hybrid cloud',
+                    url: 'https://www.ibm.com/cloud/hybrid?lnk=hp-optb',
+                  },
+                  {
+                    title: 'IT infrastructure',
+                    titleEnglish: 'IT infrastructure',
+                    url: 'https://www.ibm.com/it-infrastructure?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Quantum computing',
+                    titleEnglish: 'Quantum computing',
+                    url: 'https://www.ibm.com/quantum-computing?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Security',
+                    titleEnglish: 'Security',
+                    url: 'https://www.ibm.com/security?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Supply chain',
+                    titleEnglish: 'Supply chain',
+                    url: 'https://www.ibm.com/supply-chain?lnk=hp-optb',
+                  },
+                  {
+                    title: 'COVID-19 solutions',
+                    titleEnglish: 'COVID-19 solutions',
                     url:
-                      'https://www.ibm.com/analytics/db2?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'Hybrid Cloud',
-                    titleEnglish: 'Hybrid Cloud',
-                    url:
-                      'https://www.ibm.com/cloud/hybrid?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Cloud',
-                    titleEnglish: 'IBM Cloud',
-                    url: 'https://www.ibm.com/cloud?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Security',
-                    titleEnglish: 'IBM Security',
-                    url:
-                      'https://www.ibm.com/security?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Sterling',
-                    titleEnglish: 'IBM Sterling',
-                    url:
-                      'https://www.ibm.com/supply-chain/sterling?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM Z',
-                    titleEnglish: 'IBM Z',
-                    url:
-                      'https://www.ibm.com/it-infrastructure/z?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'Red Hat',
-                    titleEnglish: 'Red Hat',
-                    url:
-                      'https://www.ibm.com/cloud/redhat?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'SPSS Statistics',
-                    titleEnglish: 'SPSS Statistics',
-                    url:
-                      'https://www.ibm.com/products/spss-statistics?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'The Weather Company',
-                    titleEnglish: 'The Weather Company',
-                    url:
-                      'https://www.ibm.com/weather?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'Watson',
-                    titleEnglish: 'Watson',
-                    url: 'https://www.ibm.com/watson?lnk=hpmps_bupr&lnk2=learn',
-                  },
-                  {
-                    title: 'WebSphere',
-                    titleEnglish: 'WebSphere',
-                    url:
-                      'https://www.ibm.com/cloud/websphere-application-platform/?lnk=hpmps_bupr&lnk2=learn',
+                      'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hp-optb',
                   },
                 ],
               },
               feature: {
                 heading: '',
-                imageUrl:
-                  'https://1.dam.s81c.com/m/7b8ce832a78108d5/original/megamenu-pictogram-top-products-and-services.png',
+                imageUrl: '',
                 linkTitle: '',
                 linkUrl: '',
               },
             },
           },
           {
-            title: 'Security',
-            titleEnglish: 'Security',
-            url: 'https://www.ibm.com/security?lnk=hpmps_buse&lnk2=link',
+            title: 'Industries',
+            titleEnglish: 'Industries',
+            url: 'https://www.ibm.com/industries?lnk=hp-optb',
             megapanelContent: {
-              headingTitle: 'Security',
-              headingUrl: 'https://www.ibm.com/security?lnk=hpmps_buse',
+              headingTitle: 'Industries',
+              headingUrl: 'https://www.ibm.com/industries?lnk=hp-optb',
               description: '',
               quickLinks: {
                 title: '',
                 links: [
                   {
-                    title: 'Data security',
-                    titleEnglish: 'Data security',
+                    title: 'Aerospace & defense',
+                    titleEnglish: 'Aerospace & defense',
                     url:
-                      'https://www.ibm.com/security/data-security?lnk=hpmps_buse&lnk2=learn',
+                      'https://www.ibm.com/industries/aerospace-defense?lnk=hp-optb',
                   },
                   {
-                    title: 'Identity & access management',
-                    titleEnglish: 'Identity & access management',
+                    title: 'Automotive',
+                    titleEnglish: 'Automotive',
                     url:
-                      'https://www.ibm.com/security/identity-access-management?lnk=hpmps_buse&lnk2=learn',
+                      'https://www.ibm.com/industries/automotive?lnk=hp-optb',
                   },
                   {
-                    title: 'Security information & event management',
-                    titleEnglish: 'Security information & event management',
+                    title: 'Banking & financial markets',
+                    titleEnglish: 'Banking & financial markets',
                     url:
-                      'https://www.ibm.com/security/security-intelligence?lnk=hpmps_buse&lnk2=learn',
+                      'https://www.ibm.com/industries/banking-financial-markets?lnk=hp-optb',
                   },
                   {
-                    title: 'Security orchestration, automation & response',
-                    titleEnglish:
-                      'Security orchestration, automation & response',
-                    url:
-                      'https://www.ibm.com/security/intelligent-orchestration?lnk=hpmps_buse',
+                    title: 'Education',
+                    titleEnglish: 'Education',
+                    url: 'https://www.ibm.com/industries/education?lnk=hp-optb',
                   },
                   {
-                    title: 'View all Security products',
-                    titleEnglish: 'View all Security products',
+                    title: 'Electronics',
+                    titleEnglish: 'Electronics',
                     url:
-                      'https://www.ibm.com/us-en/products/category/technology/security?lnk=hpmps_buse&lnk2=learn?lnk=hpmps_buse&lnk2=learn',
+                      'https://www.ibm.com/industries/electronics?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Energy & utilities',
+                    titleEnglish: 'Energy & utilities',
+                    url: 'https://www.ibm.com/industries/energy?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Government',
+                    titleEnglish: 'Government',
+                    url:
+                      'https://www.ibm.com/industries/government?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Healthcare',
+                    titleEnglish: 'Healthcare',
+                    url:
+                      'https://www.ibm.com/industries/healthcare?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Insurance',
+                    titleEnglish: 'Insurance',
+                    url: 'https://www.ibm.com/industries/insurance?lnk=hp-optb',
+                  },
+                  {
+                    title: 'Life sciences',
+                    titleEnglish: 'Life sciences',
+                    url:
+                      'https://www.ibm.com/industries/lifesciences?lnk=hp-optb',
+                  },
+                  {
+                    title: 'View all Industries',
+                    titleEnglish: 'View all Industries',
+                    url: 'https://www.ibm.com/industries?lnk=hp-optb#2546397',
                   },
                 ],
               },
               feature: {
                 heading: '',
-                imageUrl:
-                  'https://1.dam.s81c.com/m/335f1d6485cede0/original/megamenu-pictogram-security.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Supply chain',
-            titleEnglish: 'Supply chain',
-            url: 'https://www.ibm.com/supply-chain?lnk=hpmps_busc&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Supply chain',
-              headingUrl: 'https://www.ibm.com/supply-chain?lnk=hpmps_busc',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Supply chain visibility',
-                    titleEnglish: 'Supply chain visibility',
-                    url:
-                      'https://www.ibm.com/supply-chain/visibility?lnk=hpmps_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Supplier collaboration',
-                    titleEnglish: 'Supplier collaboration',
-                    url:
-                      'https://www.ibm.com/supply-chain/supplier-collaboration-solutions?lnk=hpmps_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Business process improvement',
-                    titleEnglish: 'Business process improvement',
-                    url:
-                      'https://www.ibm.com/supply-chain/process-improvement-solutions?lnk=hpmps_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'Order management and fulfillment',
-                    titleEnglish: 'Order management and fulfillment',
-                    url:
-                      'https://www.ibm.com/supply-chain/order-management-software?lnk=hpmps_busc&lnk2=learn',
-                  },
-                  {
-                    title: 'View all Supply Chain products',
-                    titleEnglish: 'View all Supply Chain products',
-                    url:
-                      'https://www.ibm.com/supply-chain/products?lnk=hpmps_busc&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl:
-                  'https://1.dam.s81c.com/m/53c30e47cbfc167/original/megamenu-pictogram-supply-chain.png',
+                imageUrl: '',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -286,7 +343,7 @@ const mastheadLinks = [
           {
             title: 'View all products',
             titleEnglish: 'View all products',
-            url: 'https://www.ibm.com/products?lnk=hpmps_buall&lnk2=link',
+            url: 'https://www.ibm.com/products?lnk=hpmps_buall',
             megaPanelViewAll: true,
           },
         ],
