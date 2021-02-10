@@ -12,28 +12,26 @@
 
 .#{$dds-prefix}-promo-item,
 :host(#{$dds-prefix}-promo-item) {
-  display: block;
   padding: 0 $carbon--spacing-05 $carbon--spacing-09 $carbon--spacing-05;
   margin-bottom: $carbon--spacing-07;
   border-bottom: 1px solid $ui-03;
 
-  // Add CSS Grid so that the CTA link will align to the bottom of the card despite the length of the copy.
-  height: auto;
-  display: grid;
-  align-items: flex-start;
-  grid-template-rows: auto auto 1fr auto;
-
   @include carbon--breakpoint(md) {
     margin-bottom: $carbon--spacing-07;
+
+    // Add CSS Grid so that the CTA link will align to the bottom of the card despite the length of the body copy.
+    height: auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
   }
 
   .#{$prefix}--promo-item__heading {
+    margin-bottom: $carbon--spacing-05;
     align-self: flex-start;
   }
 
-  .#{$prefix}--promo-item__heading,
-  .#{$prefix}--promo-item__media {
-    margin-bottom: $carbon--spacing-05;
+  .#{$prefix}--promo-item__content {
+    margin-top: $carbon--spacing-05;
   }
 
   .#{$dds-prefix}-promo-item__pictogram,
@@ -46,7 +44,6 @@
   .#{$prefix}--promo-item__footer {
     align-self: flex-end;
   }
-
 }
 
 .#{$dds-prefix}-promo-item-statistic,

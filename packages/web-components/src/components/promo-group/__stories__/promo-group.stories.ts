@@ -215,9 +215,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4">
-            ${story()}
-          </div>
+          ${story()}
         </div>
       </div>
     `,

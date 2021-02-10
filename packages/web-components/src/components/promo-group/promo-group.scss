@@ -7,14 +7,24 @@
 
 @import '@carbon/ibmdotcom-styles/scss/components/card-section-simple/card-section-simple';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-group/content-group';
 
 :host(#{$dds-prefix}-promo-group) {
   display: block;
-  padding-top: $carbon--layout-05;
-  padding-bottom: $carbon--layout-06;
+  padding-top: $carbon--layout-03;
+  padding-bottom: $carbon--layout-04;
+
+  @include carbon--breakpoint(md) {
+    padding-top: $carbon--layout-05;
+    padding-bottom: $carbon--layout-06;
+  }
 
   .#{$prefix}--content-section__left {
     padding-top: 0;
+  }
+
+  .#{$prefix}--content-section__children {
+    margin-top: 0;
   }
 
   .#{$prefix}--promo-group__heading {
@@ -24,6 +34,11 @@
   .#{$prefix}--promo-group__items {
     position: relative;
     margin-left: -#{$carbon--spacing-05};
+    margin-right: -#{$carbon--spacing-05};
+
+    @include carbon--breakpoint(md) {
+      margin-right: 0;
+    }
 
     // Add pseudo element to hide horizontal border line.
     &:after {
