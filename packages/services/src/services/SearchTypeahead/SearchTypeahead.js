@@ -20,7 +20,7 @@ const _host =
  * @private
  */
 const _api =
-  (process && process.env.SEARCH_TYPEAHEAD_API) || '/search/typeahead/v1/';
+  (process && process.env.SEARCH_TYPEAHEAD_API) || '/search/typeahead/v1';
 
 /**
  * SearchTypeahead endpoint

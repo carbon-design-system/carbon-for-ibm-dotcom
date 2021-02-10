@@ -1,14 +1,16 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 const _host = 'https://ibm.com';
+const _api = '/search/typeahead';
 const _version = 'v1';
 
-process.env.SEARCH_TYPEAHEAD_API = process.env.SEARCH_TYPEAHEAD_API || _host;
+process.env.SEARCH_TYPEAHEAD_HOST = process.env.SEARCH_TYPEAHEAD_HOST || _host;
+process.env.SEARCH_TYPEAHEAD_API = process.env.SEARCH_TYPEAHEAD_API || _api;
 process.env.SEARCH_TYPEAHEAD_VERSION =
   process.env.SEARCH_TYPEAHEAD_VERSION || _version;
 process.env.MARKETING_SEARCH_HOST = process.env.MARKETING_SEARCH_HOST || _host;
