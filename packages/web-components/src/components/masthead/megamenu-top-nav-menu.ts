@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -25,6 +25,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+  /**
+   * The menu ul node.
+   */
+  @query(`.${prefix}--header__menu`)
+  private _menuNode?: HTMLElement;
+
   /**
    * The observer for the resize of the viewport.
    */
@@ -76,6 +82,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
 
   updated(changedProperties) {
     super.updated(changedProperties);
+    this._menuNode.removeAttribute('role');
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
