@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-content-block),
   :host(#{$dds-prefix}-content-block-simple),
   :host(#{$dds-prefix}-content-block-media),
+  :host(#{$dds-prefix}-content-block-mixed),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
@@ -62,6 +63,13 @@
         'heading heading' auto
         'body body' auto
         'footer .' auto / 1fr 1fr;
+    }
+
+    &.#{$prefix}--layout--border {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     // Most slotted contents have margins aligning to Carbon grid gutters.
@@ -138,6 +146,10 @@
 
   .#{$prefix}--content-layout__body {
     grid-area: body;
+    .bx--content-group-cards__row {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
