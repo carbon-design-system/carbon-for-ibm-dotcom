@@ -136,7 +136,10 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
     const oldNotContains = target !== this && !this.contains(relatedTarget as DDSCard);
     const currentCardIndex = Array.from(this.children).indexOf(target as HTMLElement);
 
-    // keep current page if tabbing back into the carousel after previously moving pages
+    // Confirmed by design team; ensures the carousel remains on the current page when focusing back on the component.
+    // This conforms to the natural flow of the current content on the screen.
+    // The first card on the page should be focused if tabbing from the top,
+    // The last card on the page should be focused if tabbing from the bottom.
     if (currentContains && oldNotContains) {
       // focus coming from the top
       if (currentCardIndex === 0) {
