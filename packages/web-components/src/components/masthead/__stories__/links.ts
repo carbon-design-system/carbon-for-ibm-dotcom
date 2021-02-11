@@ -1561,7 +1561,7 @@ const customLinks: MastheadLink[] = [
                     title: 'What is Hybrid Cloud?',
                     titleEnglish: 'What is Hybrid Cloud?',
                     highlightedLink: true,
-                    url: 'hhttps://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmps_ess',
+                    url: 'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmps_ess',
                   },
                   {
                     title: 'Hybrid cloud solutions',
