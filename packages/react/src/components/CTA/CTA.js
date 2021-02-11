@@ -17,7 +17,14 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({ style, type, customClassName, ariaLabel, ...otherProps }) => {
+const CTA = ({
+  style,
+  type,
+  customClassName,
+  ariaLabel,
+  ariaRole,
+  ...otherProps
+}) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
@@ -50,7 +57,7 @@ const CTA = ({ style, type, customClassName, ariaLabel, ...otherProps }) => {
   }`;
   const ariaProps = style === ('card' || 'text') && {
     'aria-label': label,
-    role: 'region',
+    role: `${ariaRole ? ariaRole : 'region'}`,
   };
 
   return (
@@ -134,6 +141,11 @@ CTA.propTypes = {
    * Default label is in English, can be overridden by passing in a custom translated label.
    */
   ariaLabel: PropTypes.string,
+
+  /**
+   * Aria role prop to set a custom role depending on the use within other components.
+   */
+  ariaRole: PropTypes.string,
 };
 
 CTA.defaultProps = {
