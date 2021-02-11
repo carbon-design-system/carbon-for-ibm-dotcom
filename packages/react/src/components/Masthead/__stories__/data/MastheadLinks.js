@@ -40,7 +40,7 @@ const mastheadLinks = [
                     titleEnglish: 'What is Hybrid Cloud?',
                     highlightedLink: true,
                     url:
-                      'hhttps://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmps_ess',
+                      'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmps_ess',
                   },
                   {
                     title: 'Hybrid cloud solutions',
