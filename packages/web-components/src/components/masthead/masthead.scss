@@ -237,6 +237,7 @@
   overflow: auto;
   margin-top: calc(#{mini-units(6)} + 1px);
   height: calc(100% - #{mini-units(6)} - 1px);
+  transform: translateZ(0);
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
