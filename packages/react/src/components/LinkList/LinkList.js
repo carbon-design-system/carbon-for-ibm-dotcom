@@ -39,6 +39,7 @@ const LinkList = ({ heading, iconPlacement, items, style }) => {
               key={index}>
               <CTA
                 style={linkStyle}
+                ariaRole={'listitem'}
                 {...cta}
                 disableImage
                 {...(iconPlacement &&
