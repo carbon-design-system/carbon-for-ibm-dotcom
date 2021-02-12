@@ -77,12 +77,12 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   }
 
   firstUpdated() {
+    this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
   }
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    this._menuNode.removeAttribute('role');
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
