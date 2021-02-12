@@ -29,7 +29,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    * The menu ul node.
    */
   @query(`.${prefix}--header__menu`)
-  private _menuNode?: HTMLElement;
+  private _menuNode!: HTMLElement;
 
   /**
    * The observer for the resize of the viewport.
