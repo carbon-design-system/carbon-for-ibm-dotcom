@@ -43,8 +43,8 @@ const mastheadLinks = [
                       'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmps_ess',
                   },
                   {
-                    title: 'Hybrid cloud solutions',
-                    titleEnglish: 'Hybrid cloud solutions',
+                    title: 'Hybrid Cloud solutions',
+                    titleEnglish: 'Hybrid Cloud solutions',
                     highlightedLink: true,
                     url: 'https://www.ibm.com/cloud/go-hybrid?lnk=hpmps_ess',
                   },
@@ -217,8 +217,8 @@ const mastheadLinks = [
                     url: 'https://www.ibm.com/analytics?lnk=hpmps_buda',
                   },
                   {
-                    title: 'Hybrid cloud',
-                    titleEnglish: 'Hybrid cloud',
+                    title: 'Hybrid Cloud',
+                    titleEnglish: 'Hybrid Cloud',
                     url: 'https://www.ibm.com/cloud/hybrid?lnk=hpmps_bucl',
                   },
                   {
