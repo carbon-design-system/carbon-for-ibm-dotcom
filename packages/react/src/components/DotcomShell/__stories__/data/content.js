@@ -39,7 +39,7 @@ import React from 'react';
  */
 const Content = () => (
   <>
-    <TableOfContents menuLabel="Jump to" theme="white">
+    <TableOfContents menuLabel="Jump to" theme="white" stickyOffset="48">
       <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
       <Layout type="2-1">
         <div>

@@ -94,7 +94,7 @@ const StoryContent = () => html`
     <div class="bx--grid">
       <div class="bx--row">
         <div class="bx--offset-lg-3 bx--col-lg-13">
-          <dds-table-of-contents>
+          <dds-table-of-contents stickyOffset="48">
             <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
               <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>

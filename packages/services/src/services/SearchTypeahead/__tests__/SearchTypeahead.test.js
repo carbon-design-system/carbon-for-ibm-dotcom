@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,7 +28,7 @@ describe('SearchTypeaheadAPI', () => {
 
   it('should search for ibm.com results', async () => {
     const query = 'red hat';
-    const endpoint = `${process.env.SEARCH_TYPEAHEAD_API}/search/typeahead/${process.env.SEARCH_TYPEAHEAD_VERSION}`;
+    const endpoint = `${process.env.SEARCH_TYPEAHEAD_HOST}${process.env.SEARCH_TYPEAHEAD_API}`;
     const fetchUrl = `${endpoint}?lang=${_lc}&cc=${_cc}&query=${encodeURIComponent(
       query
     )}`;

@@ -45,10 +45,10 @@ const _trimAndLower = valueString => valueString.toLowerCase().trim();
 /**
  * When a suggestion item is clicked, we populate the input with its name field
  *
- * @param {object} suggestion The individual object from the data
+ * @param {object} suggestion The individual object or key name from the data
  * @returns {*} The name val
  */
-const _getSuggestionValue = suggestion => suggestion[0];
+const _getSuggestionValue = suggestion => suggestion[0] || suggestion.name;
 
 /**
  * Reducer for the useReducer hook
@@ -399,7 +399,9 @@ const MastheadSearch = ({
     if (request.reason === 'input-changed') {
       // if the search input has changed
       let response = rest.customTypeaheadApi
-        ? rest.customTypeaheadApi(searchValue)
+        ? rest.customTypeaheadApi(
+            await SearchTypeaheadAPI.getResults(searchValue)
+          )
         : await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
@@ -452,6 +454,26 @@ const MastheadSearch = ({
     return value.trim().length >= renderValue;
   }
 
+  /**
+   * Render section title
+   *
+   * @param {Array} section Array of section results
+   * @returns {string} Section title
+   */
+  function renderSectionTitle(section) {
+    return section.title ? <span>{section.title}</span> : null;
+  }
+
+  /**
+   * Render section results
+   *
+   * @param {Array} section Array of section results
+   * @returns {object} Section items
+   */
+  function getSectionSuggestions(section) {
+    return section.items;
+  }
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -476,6 +498,13 @@ const MastheadSearch = ({
             inputProps={inputProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
+            {...(rest.multiSection
+              ? {
+                  multiSection: true,
+                  renderSectionTitle: renderSectionTitle,
+                  getSectionSuggestions: getSectionSuggestions,
+                }
+              : {})}
           />
         </form>
       )}
