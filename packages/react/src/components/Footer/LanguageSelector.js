@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,6 +91,7 @@ const LanguageSelector = ({
       <Select
         defaultValue={selectedItem.id}
         data-autoid={`${stablePrefix}--language-selector__select`}
+        id={`${prefix}--language-selector`}
         className={`${prefix}--language-selector`}
         onChange={evt => _setSelectedItem(evt)}
         text={selectedItem.text}
@@ -110,8 +111,10 @@ const LanguageSelector = ({
 
 function renderSelectItems(items) {
   const selectItems = [];
-  items.map(item => {
-    selectItems.push(<SelectItem value={item.id} text={item.text} />);
+  items.map((item, index) => {
+    selectItems.push(
+      <SelectItem value={item.id} text={item.text} key={index} />
+    );
   });
   return selectItems;
 }

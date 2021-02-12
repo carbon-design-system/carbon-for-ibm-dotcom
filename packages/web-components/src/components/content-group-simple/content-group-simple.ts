@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Part } from 'lit-html';
 import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -24,11 +25,46 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-group-simple`)
 class DDSContentGroupSimple extends StableSelectorMixin(DDSContentGroup) {
-  protected _renderInnerBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
+  /**
+   * The CSS class list for the container (grid) node.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _getContainerClasses(): string | ((part: Part) => void) {
+    return `${prefix}--content-layout`;
+  }
+
+  /**
+   * @returns The non-header, non-complementary contents.
+   */
+  protected _renderBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-group__children ${prefix}--content-group__col">
-        ${this._renderMedia()}${this._renderContent()}
+      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
+        ${super._renderBody()}
+      </div>
+    `;
+  }
+
+  protected _renderInnerBody(): TemplateResult | string | void {
+    return html`
+      ${this._renderMedia()}${this._renderContent()}
+    `;
+  }
+
+  protected _renderFooter(): TemplateResult | string | void {
+    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
+    // TODO: See if we can remove the surrounding `<div>`
+    return html`
+      <div ?hidden="${!hasFooter}">
+        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <div class="${this._getContainerClasses()}">
+        ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;
   }

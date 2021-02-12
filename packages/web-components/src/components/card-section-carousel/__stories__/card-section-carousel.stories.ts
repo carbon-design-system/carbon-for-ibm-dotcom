@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,16 +58,18 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-Default.story = {
-  parameters: {
-    useRawContainer: true,
-  },
-};
-
 export default {
   title: 'Components/Card Section - Carousel',
+  decorators: [
+    story => html`
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section">
+        ${story()}
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
     knobs: {
       Carousel: ({ groupId }) => ({
         pageSize: number('Page size (page-size)', null!, groupId),

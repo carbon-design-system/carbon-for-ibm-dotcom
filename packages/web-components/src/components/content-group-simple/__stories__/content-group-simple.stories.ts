@@ -230,12 +230,8 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     story => html`
-      <dds-video-cta-container class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+        ${story()}
       </dds-video-cta-container>
     `,
   ],

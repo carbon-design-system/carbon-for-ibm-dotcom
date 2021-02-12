@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@ import CTASection from '../CTASection';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-const types = ['local', 'external', 'default'];
+const types = ['local', 'external'];
 
 const contentItemsProps = [
   {
@@ -78,12 +78,12 @@ Default.story = {
           type: types[0],
           buttons: [
             {
-              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              type: select('ContentBlock | CTA type', types, types[0], groupId),
               copy: 'Secondary button',
               href: 'https://example.com/',
             },
             {
-              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              type: select('ContentBlock | CTA type', types, types[0], groupId),
               copy: 'Primary button',
               href: 'https://example.com/',
             },
@@ -137,12 +137,12 @@ WithContentItems.story = {
           type: types[0],
           buttons: [
             {
-              type: select('CTA (type):', types, types[2], groupId),
+              type: select('CTA (type):', types, types[0], groupId),
               copy: 'Secondary button',
               href: 'https://example.com/',
             },
             {
-              type: select('CTA (type):', types, types[2], groupId),
+              type: select('CTA (type):', types, types[0], groupId),
               copy: 'Primary button',
               href: 'https://example.com/',
             },
