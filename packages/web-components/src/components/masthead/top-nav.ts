@@ -158,7 +158,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Handles `click` event on the left-hand paginator button.
    */
-  private _pagenateLeft() {
+  private _paginateLeft() {
     const {
       _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
@@ -193,7 +193,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Handles `click` event on the right-hand paginator button.
    */
-  private _pagenateRight() {
+  private _paginateRight() {
     const {
       _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
@@ -265,8 +265,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
-      _pagenateLeft: pagenateLeft,
-      _pagenateRight: pagenateRight,
+      _paginateLeft: paginateLeft,
+      _paginateRight: paginateRight,
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
@@ -285,7 +285,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               tabindex="-1"
               aria-hidden="true"
               class="${prefix}--header__nav-caret-left"
-              @click="${pagenateLeft}"
+              @click="${paginateLeft}"
             >
               ${CaretLeft20()}
             </button>
@@ -314,7 +314,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               tabindex="-1"
               aria-hidden="true"
               class="${prefix}--header__nav-caret-right"
-              @click="${pagenateRight}"
+              @click="${paginateRight}"
             >
               ${CaretRight20()}
             </button>
