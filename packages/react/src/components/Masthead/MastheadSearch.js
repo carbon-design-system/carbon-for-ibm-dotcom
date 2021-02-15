@@ -399,9 +399,7 @@ const MastheadSearch = ({
     if (request.reason === 'input-changed') {
       // if the search input has changed
       let response = rest.customTypeaheadApi
-        ? rest.customTypeaheadApi(
-            await SearchTypeaheadAPI.getResults(searchValue)
-          )
+        ? await rest.customTypeaheadApi(searchValue)
         : await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
@@ -461,7 +459,9 @@ const MastheadSearch = ({
    * @returns {string} Section title
    */
   function renderSectionTitle(section) {
-    return section.title ? <span>{section.title}</span> : null;
+    return section.items.length > 1 && section.title ? (
+      <span>{section.title}</span>
+    ) : null;
   }
 
   /**
