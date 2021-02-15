@@ -445,6 +445,11 @@ Masthead.propTypes = {
    * Custom typeahead API function
    */
   customTypeaheadApi: PropTypes.func,
+
+  /**
+   * Multiple search sections
+   */
+  multiSection: PropTypes.bool,
 };
 
 Masthead.defaultProps = {

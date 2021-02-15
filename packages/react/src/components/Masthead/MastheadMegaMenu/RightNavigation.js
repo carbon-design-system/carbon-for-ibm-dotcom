@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,7 @@ const RightNavigation = ({
     <div
       className={classnames(`${prefix}--masthead__megamenu__categories`, {
         [`${prefix}--masthead__megamenu--hasHighlights`]: hasHighlights,
+        [`${prefix}--masthead__megamenu--hasViewAllLink`]: viewAllLinkHref,
       })}>
       {children}
     </div>
