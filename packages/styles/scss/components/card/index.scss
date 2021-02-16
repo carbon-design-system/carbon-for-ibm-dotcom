@@ -67,6 +67,7 @@
     .#{$prefix}--card:active {
       position: relative;
       z-index: 2;
+      text-decoration: none;
 
       .#{$prefix}--image {
         position: relative;
