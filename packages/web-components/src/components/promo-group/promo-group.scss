@@ -41,7 +41,7 @@
     }
 
     // Add pseudo element to hide horizontal border line.
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       bottom: $carbon--spacing-07;

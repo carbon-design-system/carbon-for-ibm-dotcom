@@ -26,7 +26,8 @@ const promoItems = [
   {
     heading: 'End-to-end IT management',
     statistic: '96%',
-    copy: `Manage and orchestrate your hybrid multicloud infrastructure with the most secure, reliable and flexible servers available today.`,
+    copy: `Manage and orchestrate your hybrid multicloud infrastructure
+    with the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Explore hybrid cloud infrastructure',
@@ -35,7 +36,8 @@ const promoItems = [
   {
     heading: 'Secure data and workloads',
     statistic: '43%',
-    copy: `Protect data beyond the platform and achieve regulatory compliance and resiliency with exceptional data security and privacy capabilities.`,
+    copy: `Protect data beyond the platform and achieve regulatory compliance 
+    and resiliency with exceptional data security and privacy capabilities.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Explore infrastructure security',
@@ -44,7 +46,8 @@ const promoItems = [
   {
     heading: 'Flexible deployment',
     statistic: '64%',
-    copy: `Build once, run anywhere with flexible open compute solutions that support multiple Linux distributions, plus industry-leading cloud-native deployment.`,
+    copy: `Build once, run anywhere with flexible open compute solutions that 
+    support multiple Linux distributions, plus industry-leading cloud-native deployment.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Explore scale-out servers',
@@ -53,7 +56,8 @@ const promoItems = [
   {
     heading: 'Suspendisse nec est efficitur',
     statistic: '2.5B',
-    copy: `Pellentesque sollicitudin metus eget sem dignissim sollicitudin. Suspendisse ac quam in quam finibus porta. Nullam volutpat aliquam erat, vel scelerisque.`,
+    copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
+    the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolar',
@@ -62,7 +66,8 @@ const promoItems = [
   {
     heading: 'Morbi eget placerat felis',
     statistic: '5.00hrs',
-    copy: `Pellentesque sollicitudin metus eget sem dignissim sollicitudin. Suspendisse ac quam in quam finibus porta. Nullam volutpat aliquam erat, vel scelerisque. Pellentesque sollicitudin metus.`,
+    copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
+    the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolar',
@@ -192,7 +197,19 @@ export const withPictogram = ({ parameters }) => {
                 class="bx--promo-item__pictogram"
               >
                 <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
+                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
+                  25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
+                  0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
+                  0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
+                  0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
+                  0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
+                  0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
+                  0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
+                  0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
+                  0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
+                  27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
+                  7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
+                  0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
                 />
                 <path fill="none" d="M0 0h32v32H0z" />
               </svg>
