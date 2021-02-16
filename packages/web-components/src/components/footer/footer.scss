@@ -260,6 +260,14 @@
   @include carbon--breakpoint('lg') {
     order: 1;
     flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 13.5rem;
+    max-width: 20rem;
+  }
+
+  @include carbon--breakpoint('max') {
+    flex: 0 0 18.75%;
+    max-width: 18.75%;
   }
 
   .#{$prefix}--combo-box {
