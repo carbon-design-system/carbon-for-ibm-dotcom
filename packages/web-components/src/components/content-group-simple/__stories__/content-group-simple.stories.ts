@@ -15,6 +15,7 @@ import '../../content-group/content-group-copy';
 import '../../content-group/content-group-heading';
 import '../../content-item/content-item';
 import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
 import '../content-group-simple';
 
 import { html } from 'lit-element';
@@ -151,6 +152,31 @@ export const WithImage = ({ parameters }) => {
   `;
 };
 
+export const WithImageInChilds = ({ parameters }) => {
+  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
+  return html`
+    <dds-content-group-simple>
+      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      ${image({ heading: groupHeading })}
+      ${items.map(
+        ({ heading: itemHeading, copy: itemCopy }) => html`
+          <dds-content-item>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            ${image({ heading: groupHeading })}
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+          </dds-content-item>
+        `
+      )}
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-group-simple>
+  `;
+};
+
 export const WithVideo = ({ parameters }) => {
   const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
@@ -163,6 +189,31 @@ export const WithVideo = ({ parameters }) => {
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+          </dds-content-item>
+        `
+      )}
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-group-simple>
+  `;
+};
+
+export const WithVideoInChilds = ({ parameters }) => {
+  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
+  return html`
+    <dds-content-group-simple>
+      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+      ${items.map(
+        ({ heading: itemHeading, copy: itemCopy }) => html`
+          <dds-content-item>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
             <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
           </dds-content-item>
         `
