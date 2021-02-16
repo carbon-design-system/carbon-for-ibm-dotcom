@@ -12,6 +12,7 @@ import '../promo-item';
 import { Default } from '../__stories__/promo-item.stories';
 
 const template = (props?) =>
+  // @ts-ignore: Behind feature flag
   Default({
     parameters: {
       props: {
