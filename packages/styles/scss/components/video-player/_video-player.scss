@@ -58,7 +58,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$prefix}--video-player__video-caption {
     @include carbon--type-style('caption-01');
 
-    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-05);
+    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
     color: var(--#{$dds-prefix}--video-caption--color, $text-05);
     max-width: 90%;
   }
