@@ -79,7 +79,7 @@ const promoItems = [
 export const Default = !DDS_PROMO_GROUP
   ? undefined
   : ({ parameters }) => {
-      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
           <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
@@ -111,7 +111,7 @@ export const Default = !DDS_PROMO_GROUP
 export const withImage = !DDS_PROMO_GROUP
   ? undefined
   : ({ parameters }) => {
-      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
           <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
@@ -144,7 +144,7 @@ export const withImage = !DDS_PROMO_GROUP
 export const withStatistic = !DDS_PROMO_GROUP
   ? undefined
   : ({ parameters }) => {
-      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
           <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
@@ -177,7 +177,7 @@ export const withStatistic = !DDS_PROMO_GROUP
 export const withPictogram = !DDS_PROMO_GROUP
   ? undefined
   : ({ parameters }) => {
-      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
           <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
@@ -252,7 +252,7 @@ export default !DDS_PROMO_GROUP
         hasGrid: true,
         hasVerticalSpacingInComponent: true,
         knobs: {
-          CardSectionSimple: ({ groupId }) => ({
+          PromoGroup: ({ groupId }) => ({
             sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
             secondaryHeading: textNullable(
               'Secondary Heading (optional)',
