@@ -18,66 +18,75 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
+import { DDS_PROMO_GROUP } from '../../../globals/internal/feature-flags';
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
-  return html`
-    <dds-promo-item>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
-        ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-promo-item>
-  `;
-};
+export const Default = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
+      return html`
+        <dds-promo-item>
+          <dds-card-heading>${heading}</dds-card-heading>
+          <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
+          <dds-link-with-icon href="${href}" slot="footer">
+            ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        </dds-promo-item>
+      `;
+    };
 
-export const withImage = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
-  return html`
-    <dds-promo-item>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"> </dds-image>
-      <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
-        ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-promo-item>
-  `;
-};
+export const withImage = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
+      return html`
+        <dds-promo-item>
+          <dds-card-heading>${heading}</dds-card-heading>
+          <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"> </dds-image>
+          <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
+          <dds-link-with-icon href="${href}" slot="footer">
+            ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        </dds-promo-item>
+      `;
+    };
 
-export const withStatistic = ({ parameters }) => {
-  const { heading, statistic, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
-  return html`
-    <dds-promo-item>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-promo-item-statistic>${statistic}</dds-promo-item-statistic>
-      <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
-        ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-promo-item>
-  `;
-};
+export const withStatistic = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { heading, statistic, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
+      return html`
+        <dds-promo-item>
+          <dds-card-heading>${heading}</dds-card-heading>
+          <dds-promo-item-statistic>${statistic}</dds-promo-item-statistic>
+          <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
+          <dds-link-with-icon href="${href}" slot="footer">
+            ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        </dds-promo-item>
+      `;
+    };
 
-export const withPictogram = ({ parameters }) => {
-  const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
-  return html`
-    <dds-promo-item>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <svg
-        slot="pictogram"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        data-autoid="dds--pictogram-item__pictogram"
-        aria-label="Pictogram description"
-        viewBox="0 0 32 32"
-        role="img"
-        class="bx--promo-item__pictogram"
-      >
-        <path
-          d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
+export const withPictogram = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
+      return html`
+        <dds-promo-item>
+          <dds-card-heading>${heading}</dds-card-heading>
+          <svg
+            slot="pictogram"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            data-autoid="dds--pictogram-item__pictogram"
+            aria-label="Pictogram description"
+            viewBox="0 0 32 32"
+            role="img"
+            class="bx--promo-item__pictogram"
+          >
+            <path
+              d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
           25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
           0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
           0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
@@ -90,47 +99,49 @@ export const withPictogram = ({ parameters }) => {
           27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
           7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
           0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-        />
-        <path fill="none" d="M0 0h32v32H0z" />
-      </svg>
-      <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
-        ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-promo-item>
-  `;
-};
+            />
+            <path fill="none" d="M0 0h32v32H0z" />
+          </svg>
+          <dds-content-item-copy slot="copy">${copy}</dds-content-item-copy>
+          <dds-link-with-icon href="${href}" slot="footer">
+            ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
+          </dds-link-with-icon>
+        </dds-promo-item>
+      `;
+    };
 
-export default {
-  title: 'Components/Promo Item',
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      PromoItem: ({ groupId }) => ({
-        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
-        statistic: textNullable('Statistic (statistic):', '100%', groupId),
-        copy: textNullable(
-          'Copy (copy):',
-          'Lorem ipsum dolor sit amet, ' +
-            'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
-            'Ut enim ad minim veniam\n',
-          groupId
-        ),
-        href: textNullable('Link with Icon href:', 'https://example.com', groupId),
-        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
-      }),
-    },
-    hasGrid: true,
-  },
-  decorators: [
-    story => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
-            ${story()}
+export default !DDS_PROMO_GROUP
+  ? undefined
+  : {
+      title: 'Components/Promo Item',
+      parameters: {
+        ...readme.parameters,
+        knobs: {
+          PromoItem: ({ groupId }) => ({
+            heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
+            statistic: textNullable('Statistic (statistic):', '100%', groupId),
+            copy: textNullable(
+              'Copy (copy):',
+              'Lorem ipsum dolor sit amet, ' +
+                'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+                'Ut enim ad minim veniam\n',
+              groupId
+            ),
+            href: textNullable('Link with Icon href:', 'https://example.com', groupId),
+            linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
+          }),
+        },
+        hasGrid: true,
+      },
+      decorators: [
+        story => html`
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-sm-4 bx--col-lg-9 bx--offset-lg-3">
+                ${story()}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    `,
-  ],
-};
+        `,
+      ],
+    };

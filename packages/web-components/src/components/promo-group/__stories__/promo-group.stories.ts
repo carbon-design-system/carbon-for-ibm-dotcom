@@ -19,6 +19,7 @@ import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../promo-group';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
+import { DDS_PROMO_GROUP } from '../../../globals/internal/feature-flags';
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
 
@@ -75,129 +76,137 @@ const promoItems = [
   },
 ];
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
-  return html`
-    <dds-promo-group>
-      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+export const Default = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      return html`
+        <dds-promo-group>
+          <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
 
-      <dds-content-group slot="group-heading">
-        <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
-        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-          Optional text link example ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
-      </dds-content-group>
+          <dds-content-group slot="group-heading">
+            <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
+            <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+              Optional text link example ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-content-group>
 
-      <dds-card-group slot="group-items">
-        ${promoItems.map(
-          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-promo-item>
-              <dds-card-heading>${itemHeading}</dds-card-heading>
-              <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-promo-item>
-          `
-        )}
-      </dds-card-group>
-    </dds-promo-group>
-  `;
-};
+          <dds-card-group slot="group-items">
+            ${promoItems.map(
+              ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+                <dds-promo-item>
+                  <dds-card-heading>${itemHeading}</dds-card-heading>
+                  <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
+                  <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+                    ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-with-icon>
+                </dds-promo-item>
+              `
+            )}
+          </dds-card-group>
+        </dds-promo-group>
+      `;
+    };
 
-export const withImage = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
-  return html`
-    <dds-promo-group>
-      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+export const withImage = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      return html`
+        <dds-promo-group>
+          <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
 
-      <dds-content-group slot="group-heading">
-        <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
-        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-          Optional text link example ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
-      </dds-content-group>
+          <dds-content-group slot="group-heading">
+            <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
+            <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+              Optional text link example ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-content-group>
 
-      <dds-card-group slot="group-items">
-        ${promoItems.map(
-          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-promo-item>
-              <dds-card-heading>${itemHeading}</dds-card-heading>
-              <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"></dds-image>
-              <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-promo-item>
-          `
-        )}
-      </dds-card-group>
-    </dds-promo-group>
-  `;
-};
+          <dds-card-group slot="group-items">
+            ${promoItems.map(
+              ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+                <dds-promo-item>
+                  <dds-card-heading>${itemHeading}</dds-card-heading>
+                  <dds-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}"></dds-image>
+                  <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
+                  <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+                    ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-with-icon>
+                </dds-promo-item>
+              `
+            )}
+          </dds-card-group>
+        </dds-promo-group>
+      `;
+    };
 
-export const withStatistic = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
-  return html`
-    <dds-promo-group>
-      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+export const withStatistic = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      return html`
+        <dds-promo-group>
+          <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
 
-      <dds-content-group slot="group-heading">
-        <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
-        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-          Optional text link example ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
-      </dds-content-group>
+          <dds-content-group slot="group-heading">
+            <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
+            <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+              Optional text link example ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-content-group>
 
-      <dds-card-group slot="group-items">
-        ${promoItems.map(
-          ({ heading: itemHeading, statistic: itemStatistic, copy: itemCopy, linkWithIcon }) => html`
-            <dds-promo-item>
-              <dds-card-heading>${itemHeading}</dds-card-heading>
-              <dds-promo-item-statistic>${itemStatistic}</dds-promo-item-statistic>
-              <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-promo-item>
-          `
-        )}
-      </dds-card-group>
-    </dds-promo-group>
-  `;
-};
+          <dds-card-group slot="group-items">
+            ${promoItems.map(
+              ({ heading: itemHeading, statistic: itemStatistic, copy: itemCopy, linkWithIcon }) => html`
+                <dds-promo-item>
+                  <dds-card-heading>${itemHeading}</dds-card-heading>
+                  <dds-promo-item-statistic>${itemStatistic}</dds-promo-item-statistic>
+                  <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
+                  <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+                    ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-with-icon>
+                </dds-promo-item>
+              `
+            )}
+          </dds-card-group>
+        </dds-promo-group>
+      `;
+    };
 
-export const withPictogram = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
-  return html`
-    <dds-promo-group>
-      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+export const withPictogram = !DDS_PROMO_GROUP
+  ? undefined
+  : ({ parameters }) => {
+      const { sectionHeading, secondaryHeading } = parameters?.props?.CardSectionSimple ?? {};
+      return html`
+        <dds-promo-group>
+          <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
 
-      <dds-content-group slot="group-heading">
-        <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
-        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
-          Optional text link example ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
-      </dds-content-group>
+          <dds-content-group slot="group-heading">
+            <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
+            <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+              Optional text link example ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-content-group>
 
-      <dds-card-group slot="group-items">
-        ${promoItems.map(
-          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-promo-item>
-              <dds-card-heading>${itemHeading}</dds-card-heading>
-              <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
+          <dds-card-group slot="group-items">
+            ${promoItems.map(
+              ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+                <dds-promo-item>
+                  <dds-card-heading>${itemHeading}</dds-card-heading>
+                  <svg
+                    slot="pictogram"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-autoid="dds--pictogram-item__pictogram"
+                    aria-label="Pictogram description"
+                    viewBox="0 0 32 32"
+                    role="img"
+                    class="bx--promo-item__pictogram"
+                  >
+                    <path
+                      d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
                   25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
                   0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
                   0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
@@ -210,45 +219,47 @@ export const withPictogram = ({ parameters }) => {
                   27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
                   7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
                   0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-              <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-promo-item>
-          `
-        )}
-      </dds-card-group>
-    </dds-promo-group>
-  `;
-};
+                    />
+                    <path fill="none" d="M0 0h32v32H0z" />
+                  </svg>
+                  <dds-content-item-copy slot="copy">${itemCopy}</dds-content-item-copy>
+                  <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+                    ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+                  </dds-link-with-icon>
+                </dds-promo-item>
+              `
+            )}
+          </dds-card-group>
+        </dds-promo-group>
+      `;
+    };
 
-export default {
-  title: 'Components/Promo Group',
-  decorators: [
-    story => html`
-      <div class="bx--grid">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          ${story()}
-        </div>
-      </div>
-    `,
-  ],
-  parameters: {
-    ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    knobs: {
-      CardSectionSimple: ({ groupId }) => ({
-        sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
-        secondaryHeading: textNullable(
-          'Secondary Heading (optional)',
-          'Optional title heading-4 color test-01 that spans to multiple lines as needed',
-          groupId
-        ),
-      }),
-    },
-  },
-};
+export default !DDS_PROMO_GROUP
+  ? undefined
+  : {
+      title: 'Components/Promo Group',
+      decorators: [
+        story => html`
+          <div class="bx--grid">
+            <div class="bx--row dds-ce-demo-devenv--grid-row">
+              ${story()}
+            </div>
+          </div>
+        `,
+      ],
+      parameters: {
+        ...readme.parameters,
+        hasGrid: true,
+        hasVerticalSpacingInComponent: true,
+        knobs: {
+          CardSectionSimple: ({ groupId }) => ({
+            sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
+            secondaryHeading: textNullable(
+              'Secondary Heading (optional)',
+              'Optional title heading-4 color test-01 that spans to multiple lines as needed',
+              groupId
+            ),
+          }),
+        },
+      },
+    };
