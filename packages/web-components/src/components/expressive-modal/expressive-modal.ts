@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -140,29 +140,37 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    *
    * @param event The event.
    */
-  @HostListener('shadowRoot:focusout')
+  @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
-    const oldContains = target !== this && this.contains(target as Node);
-    const currentContains = relatedTarget !== this && this.contains(relatedTarget as Node);
+    const currentContains = target !== this && this.contains(target as Node);
+    const oldContains = relatedTarget !== this && this.contains(relatedTarget as Node);
 
     // Performs focus wrapping if _all_ of the following is met:
     // * This modal is open
     // * The viewport still has focus
-    // * Modal body used to have focus but no longer has focus
+    // * Modal body is about to lose focus
     const { open, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
     const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
-    if (open && relatedTarget && oldContains && !currentContains) {
-      const comparisonResult = (target as Node).compareDocumentPosition(relatedTarget as Node);
+
+    // Handles special case where relatedTarget is null coming out of the video player, causing modal to lose focus
+    if (open && target && !relatedTarget) {
+      if (target === endSentinelNode) {
+        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
+          this.focus();
+        }
+      }
+    } else if (open && target && !currentContains && oldContains) {
+      const comparisonResult = (relatedTarget as Node).compareDocumentPosition(target as Node);
       // eslint-disable-next-line no-bitwise
-      if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
+      if (target === startSentinelNode || comparisonResult & PRECEDING) {
         await (this.constructor as typeof DDSExpressiveModal)._delay();
-        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) && relatedTarget !== this) {
+        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) && target !== this) {
           this.focus();
         }
       }
       // eslint-disable-next-line no-bitwise
-      else if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
+      else if (target === endSentinelNode || comparisonResult & FOLLOWING) {
         await (this.constructor as typeof DDSExpressiveModal)._delay();
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
