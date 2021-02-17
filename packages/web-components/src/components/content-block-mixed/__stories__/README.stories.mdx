@@ -2,15 +2,19 @@ import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 
-# `<dds-content-block-mixed>`
+# Content Block Mixed
 
-> The "Content Block - Mixed Groups" pattern leverages the Content Block as the overall container of this pattern, and allows only a few opinionated block patterns to be included.
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-mixed)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-mixed)
 
 ## Getting started
 
 Here's a quick example to get you started.
 
-#### JS
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/content-block-mixed.js';
@@ -18,7 +22,6 @@ import '@carbon/ibmdotcom-web-components/image/image.js';
 import '@carbon/ibmdotcom-web-components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/content-block/content-block-paragraph.js';
 import '@carbon/ibmdotcom-web-components/content-group/content-group-heading.js';
 import '@carbon/ibmdotcom-web-components/content-group-cards/content-group-cards.js';
 import '@carbon/ibmdotcom-web-components/content-group-cards/content-group-cards-item.js';
@@ -36,10 +39,10 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 ```html
 <dds-content-block-mixed>
   <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
-  <dds-content-block-paragraph>
+  <dds-content-block-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
     Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-  </dds-content-block-paragraph>
+  </dds-content-block-copy>
 
   <dds-content-block-cards>
     <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>

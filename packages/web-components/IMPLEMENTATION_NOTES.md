@@ -27,7 +27,28 @@
 - [Masthead search](#masthead-search)
 - [TypeScript type definition](#typescript-type-definition)
 - [Vendor directory](#vendor-directory)
+- [Rollup bundle for Dotcom Shell](#rollup-bundle-for-dotcom-shell)
+  - [Sass optimization](#sass-optimization)
+  - [HTML optimization](#html-optimization)
+  - [Custom element definition for `carbon-web-components`](#custom-element-definition-for-carbon-web-components)
+  - [Building icons](#building-icons)
+  - [Building styles](#building-styles)
+  - [License header](#license-header)
+- [Unit tests](#unit-tests)
+  - [Test setup](#test-setup)
+  - [Writing tests](#writing-tests)
+    - [Rendering a template](#rendering-a-template)
+    - [Waiting for template to be updated](#waiting-for-template-to-be-updated)
+    - [Changing a public property](#changing-a-public-property)
+    - [Changing a private property](#changing-a-private-property)
+    - [Simulating a user action](#simulating-a-user-action)
+    - [Inspecting a DOM element or a component property](#inspecting-a-dom-element-or-a-component-property)
+    - [Seeing if a particular method has been called or a particular event has been fired](#seeing-if-a-particular-method-has-been-called-or-a-particular-event-has-been-fired)
+  - [Defining mocks](#defining-mocks)
+  - [Restoring state](#restoring-state)
 - [RTL support](#rtl-support)
+- [Storybook CSF integration](#storybook-csf-integration)
+- [License header](#license-header-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -279,6 +300,116 @@ The `import`s of `@carbon/ibmdotcom-services-store` code in `@carbon/ibmdotcom-w
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 ```
 
+## Rollup bundle for Dotcom Shell
+
+For quick setup of project using minimum feature set (Dotcom Shell) of `@carbon/ibmdotcom-web-components`, a [Rollup bundle](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/dist/ibmdotcom-web-components-dotcom-shell.min.js) is provided.
+
+The Rollup bundle builds the [entry point (`ibmdotcom-web-components-dotcom-shell.ts`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/ibmdotcom-web-components-dotcom-shell.ts). Whenever the Dotcom Shell contains a new components, etc. the entry point file must be updated.
+
+### Sass optimization
+
+The [Rollup config](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L80-L89) replaces `.css.js` files with [`.scss` entry point file (`ibmdotcom-web-components-dotcom-shell.scss`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss), so that CSS code that are included in multiple `.css.js` files (e.g. Carbon reset styles) are not duplicated in the Rollup bundle.
+
+### HTML optimization
+
+The Rollup bundle [minifies HTML content in `lit-html` templates](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L116-L131) to reduce its size.
+
+### Custom element definition for `carbon-web-components`
+
+The Rollup bundle [does _not_ define custom elements from `carbon-web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L135-L140), because the bundle is not meant for `carbon-web-components`' bundle.
+
+### Building icons
+
+There are some icons from `@carbon/ibmdotcom-styles` included in the Rollup bundle. We use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-ibmdotcom-icon.js) that converts those icons to `lit-html` version.
+
+### Building styles
+
+To build `.scss` files into the Rollup bundle, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-lit-scss.js) to build the Sass and convert it to a `lit-html` template.
+
+### License header
+
+Given the Rollup bundle includes third-party dependencies, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-license.js) to aggregate the license headers of those third-party dependencies and to put it to the top, along with our own license header.
+
+## Unit tests
+
+Unit tests for `@carbon/ibmdotcom-web-components` uses [Karma](http://karma-runner.github.io/latest/index.html), so that we can inspect the DOM to debug unit tests. `@carbon/ibmdotcom-web-components` uses [Jasmine](https://jasmine.github.io) for test definition and assertion, with a [custom matcher for snapshots](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tests/utils/snapshot.js).
+
+Please refer to [our developer documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/contributing-to-web-components.md#unit-test-coverage) to see how to run the tests.
+
+### Test setup
+
+The Karma configuration can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tests/karma.conf.js).
+
+`@carbon/ibmdotcom-web-components` uses [`karma-webpack`](https://www.npmjs.com/package/karma-webpack) to resolve ECMAScript modules in tests, and uses [`karma-snapshot`](https://www.npmjs.com/package/karma-snapshot) to save/load the snapshots.
+
+### Writing tests
+
+Most unit tests consists of the following parts:
+
+1. Render a template
+1. Wait for the template to be rendered
+1. (Optional) Do either of:
+
+   1. Change a public property or a private property
+   1. Simulate a user action
+
+1. (Optional) Wait for the template to be updated upon above change
+1. Do one of below to see if above yields to the desired result:
+
+   1. Inspect the DOM content
+   2. Inspect a component property
+   3. See if a particular method has been called or a particular event has been fired
+
+#### Rendering a template
+
+We use [`lit-html`](https://lit-html.polymer-project.org), the underlying template library of `lit-element`, for that purpose. In some cases, we reuse templates from [Storybook CSF](https://storybook.js.org/docs/react/api/csf), [the test for `<dds-leadspace-block>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/leadspace-block/__tests__/leadspace-block.test.ts#L12-L30) is an example.
+
+#### Waiting for template to be updated
+
+`lit-html` renders template asynchronously, using [microtask](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model), so that rendering template can be done in batch for multiple changes in template variables. That means the change in template is not reflected to the DOM right away.
+
+Creating a promise and waiting for it ensures that the subsequent code, e.g. assertions, run after pre-scheduled microtasks are done. We do it by:
+
+```javascript
+await Promise.resolve();
+```
+
+If multiple `lit-html` templates are in play for tests, multiple template update cycles (microtasks) may be in play. For example, rendering `<dds-carousel>` in a test template involves three update cycles, one is of test template, one is of `<dds-carousel>` that registers its `slotchange` event handler, one is of `<dds-carousel>` again the updates the template upon `slotchange` event. In such case we need to wait for microtask to be done multiple times.
+
+#### Changing a public property
+
+Changing a public property in test allows us to see if the template is rendered correctly and DOM is updated correctly, upon change in public property. To do that, we can simply grab the DOM node of the component and change public propery of the DOM node. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L73).
+
+#### Changing a private property
+
+Changing a private property in test allows us to quickly set up the test environment for particular case, in an isolated manner. For example, `<dds-carousel>` has a [private property that reflect the space between cards](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/carousel.ts#L46) that is updated by `slotchange` event handler as well as by `ResizeObserver` callback. Directly updating such private property allows us to quickly [test our code to see if the component behaves correctly upon change in such private property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L63-L65).
+
+#### Simulating a user action
+
+There are a couple of common ways to simulate a user action. The easiest one is using [`HTMLElement.click()` method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click). Another one is creating a custom event and running [`.dispatchEvent()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent). An example of the latter can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/footer/__tests__/footer-nav-group.test.ts#L102-L103).
+
+#### Inspecting a DOM element or a component property
+
+We can simply grab a component DOM to see whether its property or shadow DOM content is correct. An example of the former can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L204-L206). An example of the latter can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L127-L129).
+
+#### Seeing if a particular method has been called or a particular event has been fired
+
+To see if a particular method has been called or a particular event has been fired, we use [spies](https://jasmine.github.io/2.0/introduction#section-Spies). An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/__tests__/expressive-modal.test.ts#L121-L127).
+
+### Defining mocks
+
+The core notion of unit tests is running tests in an isolated environment, so that minimal factors affect whether the tests pass or fail. [Mocks](https://en.wikipedia.org/wiki/Mock_object) are very useful to achieve that.
+
+An example of setting mocks via Jasmine API can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/lightbox-media-viewer/__tests__/lightbox-media-viewer-container.test.ts#L25-L39). An example of manually setting mocks can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L35-L44).
+
+### Restoring state
+
+It's important for each tests to ensure the test environment is re-set back to the original state after the test runs, no matter whether the test passes or fails. Lack of such discipline often causes flaky tests.
+
+The common way to ensure that is [`beforeAll()`](https://jasmine.github.io/api/3.5/global.html#beforeAll)/[`beforeEach()`](https://jasmine.github.io/api/3.5/global.html#beforeEach)/[`afterEach()`](https://jasmine.github.io/api/3.5/global.html#afterEach)/[`afterAll()`](https://jasmine.github.io/api/3.5/global.html#afterAll). For example, most tests [render an empty template](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L318) after test is finished. Tests using mocks (except one set by Jasmine API) must [reset them](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/carousel/__tests__/carousel.test.ts#L324-L325) after test is finished.
+
+We have [our own utility](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tests/utils/event-manager.ts) to clean-up event handlers after tests. With that utilitity, we can attach events by `events.on(element, eventName, eventHandler)` ([example](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/__tests__/expressive-modal.test.ts#L232)) and clean them up by `events.reset()` ([example](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/__tests__/expressive-modal.test.ts#L264)).
+
 ## RTL support
 
 While [CSS logical properties and values](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) will allow us to support LTR and RTL in one codebase, there are several key properties that are not yet supported by some browsers, for example, [`inset-inline-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start).
@@ -294,3 +425,20 @@ The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL`
 Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
 
 How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
+
+## Storybook CSF integration
+
+Storybook introduced a new story format in `5.x` timeframe, called Component Story Format (CSF). It makes stories an ECMAScript import, that is great for reusing stories.
+
+Unfortunately, knobs still require imperative API embedded in stories, which means as soon as we define knobs in stories any code calling stories depends on such knobs.
+
+To make sure that we can reuse stories for unit tests without depending on knobs, we define knobs somewhere outside stories, which is, in story parameters (`parameters.knobs`), like [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L116-L146). Such `parameters.knobs` is evaluated in a [global story decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/decorator-knobs.ts) and put into `parameters.props`, so that stories can refer to like [this](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L26).
+
+In this way, test can specify its own `parameters.props`, without being interfered by knobs. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__tests__/card.test.ts#L14-L21).
+
+## License header
+
+We ensure that our source code has appropriate licence header, with two mechanisms:
+
+1. The [CI task](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L25) that [checks if all source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/gulp-tasks/lint.js#L25-L50).
+2. The [pre-commit hook](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/.lintstagedrc#L4) that [checks if all staged source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L27). If the license year is found stale in the step, we [update it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/tasks/check-license.js#L46-L54) here.

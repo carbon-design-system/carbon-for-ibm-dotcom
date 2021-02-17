@@ -72,6 +72,10 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
     }
   }
 
+  firstUpdated() {
+    this.tabIndex = 0;
+  }
+
   /**
    * The name of the custom event fired after the seach is toggled.
    */

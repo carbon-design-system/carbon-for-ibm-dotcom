@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.16.0-rc.0...@carbon/ibmdotcom-styles@1.16.0-rc.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **footer:** update micro language only styles ([#5179](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5179)) ([593214a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/593214a)), closes [#5178](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5178)
+
+
+
+
+
+# [1.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.15.0...@carbon/ibmdotcom-styles@1.16.0-rc.0) (2021-02-12)
+
+
+### Bug Fixes
+
+* **card-group:** Image height of the last card ([#5017](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5017)) ([593caee](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/593caee)), closes [#4810](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4810)
+* **contentBlockMixed:** align to non-gutter grid ([#5110](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5110)) ([6e6e0bc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6e6e0bc)), closes [#4962](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4962)
+* **datatable:** fix expansion spacing styles ([#5063](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5063)) ([0ae7b41](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ae7b41))
+* **expressive:** remove productive mixin from component styles and replace with expressive tokens ([#4957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4957)) ([1e14abe](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1e14abe)), closes [#4748](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4748)
+* **footer:** removed top border in micro footer ([#5018](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5018)) ([93c663f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/93c663f)), closes [#4615](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4615)
+* **masthead:** update L1 responsive breakpoint ([#4941](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4941)) ([ee9b82d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ee9b82d)), closes [#4920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4920)
+* **masthead:** update responsive styles for active search ([#5067](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5067)) ([680cb62](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/680cb62)), closes [#5037](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5037)
+* **megamenu:** add padding between category desc and link ([#5118](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5118)) ([07ed00b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/07ed00b)), closes [#5089](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5089)
+* **megamenu:** fix alignment issues in mobile nav ([#5112](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5112)) ([8cd3f1e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8cd3f1e)), closes [#5079](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5079)
+* **megamenu:** reduce padding in megamenu above view all link ([#5140](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5140)) ([5a329cb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a329cb)), closes [#5136](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5136)
+* **megamenu:** update hybrid cloud link and fix view all link hover state ([#5158](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5158)) ([36f3323](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/36f3323))
+
+
+### Features
+
+* **masthead:** grouped search results ([#5137](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5137)) ([ced4859](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ced4859)), closes [#4845](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4845)
+* **megamenu:** megamenu web component HC & AI updates ([#5016](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5016)) ([9963760](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9963760)), closes [#4641](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4641)
+* **Megamenu:** react megamenu updates for HC & AI ([#5043](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5043)) ([28f0b0f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/28f0b0f)), closes [#4653](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4653)
+
+
+
+
+
 # [1.15.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.15.0-rc.2...@carbon/ibmdotcom-styles@1.15.0) (2021-01-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
