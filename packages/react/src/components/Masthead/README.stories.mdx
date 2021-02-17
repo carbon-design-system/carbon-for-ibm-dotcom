@@ -159,21 +159,17 @@ ${SEARCH_REDIRECT_ENDPOINT}&q=${encodeURIComponent(value)}&lang=${state.lc}&cc=$
 
 **Custom typeahead API**
 
-To use a custom typeahead API, set the endpoint by adding these environment
-variables.
-
-```
-SEARCH_TYPEAHEAD_HOST=https://www.custom-typeahead-api.com
-SEARCH_TYPEAHEAD_API=/custom/api
-```
-
-Then use the `customTypeaheadApi` to get the response of the custom API
+To use a custom endpoint, pass `customTypeaheadApi` to get the response 
 and transform the data if needed.
 
 ```javascript
-let customTypeaheadApi = results => {
-  // transform results
-  return results;
+async function customTypeaheadApi(searchVal) {
+  return await fetch(`https://<fetch-url>?query=${searchVal}&foo=foo&bar=bar`)
+    .then(response => response.json())
+    .then(data => {
+      // transform results
+      return searchResults;
+    });
 }
 
 <Masthead customTypeaheadApi={customTypeaheadApi} />;
@@ -199,10 +195,14 @@ here is how the response should be structured:
 
 The masthead search can display groups of results with the `multiSection` prop:
 ```javascript
-let customTypeaheadApi = results => {
-  // transform results
-  return searchResults;
-} 
+async function customTypeaheadApi(searchVal) {
+  return await fetch(`https://<fetch-url>?query=${searchVal}&foo=foo&bar=bar`)
+    .then(response => response.json())
+    .then(data => {
+      // transform results with multiple sections
+      return searchResults;
+    });
+}
 
 <Masthead customTypeaheadApi={customTypeaheadApi} multiSection />;
 
