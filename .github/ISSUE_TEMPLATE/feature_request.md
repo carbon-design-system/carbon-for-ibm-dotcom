@@ -3,7 +3,7 @@ name: Feature Request 💡
 about: Suggest a new idea for the project.
 title: ''
 labels: Feature request
-assignees: jeffchew, wonilsuhibm, ljcarot, RobertaJHahn, photodow, RaphaelAmadeu
+assignees: jeffchew, wonilsuhibm, ljcarot, shixiedesign, RobertaJHahn, photodow, RaphaelAmadeu
 ---
 
 <!-- replace _{{...}}_ with your own words -->
