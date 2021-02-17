@@ -140,38 +140,54 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
    *
    * @param event The event.
    */
-  @HostListener('shadowRoot:focusin')
+  @HostListener('shadowRoot:focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleBlur = async ({ target, relatedTarget }: FocusEvent) => {
-    const currentContains = target !== this && this.contains(target as Node);
-    const oldContains = relatedTarget !== this && this.contains(relatedTarget as Node);
+    const oldContains = target !== this && this.contains(target as Node);
+    const currentContains = relatedTarget !== this && this.contains(relatedTarget as Node);
 
     // Performs focus wrapping if _all_ of the following is met:
     // * This modal is open
     // * The viewport still has focus
-    // * Modal body is about to lose focus
+    // * Modal body used to have focus but no longer has focus
     const { open, _startSentinelNode: startSentinelNode, _endSentinelNode: endSentinelNode } = this;
     const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
-
-    // Handles special case where relatedTarget is null coming out of the video player, causing modal to lose focus
-    if (open && target && !relatedTarget) {
-      if (target === endSentinelNode) {
+    if (open && relatedTarget && oldContains && !currentContains) {
+      const comparisonResult = (target as Node).compareDocumentPosition(relatedTarget as Node);
+      // eslint-disable-next-line no-bitwise
+      if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
+        await (this.constructor as typeof DDSExpressiveModal)._delay();
+        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) && relatedTarget !== this) {
+          this.focus();
+        }
+      }
+      // eslint-disable-next-line no-bitwise
+      else if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
+        await (this.constructor as typeof DDSExpressiveModal)._delay();
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
         }
       }
-    } else if (open && target && !currentContains && oldContains) {
-      const comparisonResult = (relatedTarget as Node).compareDocumentPosition(target as Node);
-      // eslint-disable-next-line no-bitwise
-      if (target === startSentinelNode || comparisonResult & PRECEDING) {
-        await (this.constructor as typeof DDSExpressiveModal)._delay();
-        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) && target !== this) {
-          this.focus();
-        }
-      }
-      // eslint-disable-next-line no-bitwise
-      else if (target === endSentinelNode || comparisonResult & FOLLOWING) {
-        await (this.constructor as typeof DDSExpressiveModal)._delay();
+    }
+  };
+
+  /**
+   * Special handler for `focus` events,
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
+    const { open, _endSentinelNode: endSentinelNode } = this;
+    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+
+    // Handling a special case in _handleBlur() where `relatedTarget` is null and `target` is the
+    // endSentintel, resulting in focus having already gone outside the modal into the browser bar
+    // when this logic is detected, rendering any focus() calls ineffective.
+    // The following logic captures this case the moment focus is within endSentinel instead.
+    if (open && target && !relatedTarget) {
+      if (target === endSentinelNode) {
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
         }
