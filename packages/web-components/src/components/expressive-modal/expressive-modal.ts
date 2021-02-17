@@ -172,6 +172,30 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     }
   };
 
+  /**
+   * Special handler for `focus` events,
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
+    const { open, _endSentinelNode: endSentinelNode } = this;
+    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+
+    // Handling a special case in _handleBlur() where `relatedTarget` is null and `target` is the
+    // endSentintel, resulting in focus having already gone outside the modal into the browser bar
+    // when this logic is detected, rendering any focus() calls ineffective.
+    // The following logic captures this case the moment focus is within endSentinel instead.
+    if (open && target && !relatedTarget) {
+      if (target === endSentinelNode) {
+        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
+          this.focus();
+        }
+      }
+    }
+  };
+
   @HostListener('document:keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = ({ key, target }: KeyboardEvent) => {
