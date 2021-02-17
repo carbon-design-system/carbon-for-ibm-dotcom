@@ -260,8 +260,8 @@
   @include carbon--breakpoint('lg') {
     order: 1;
     flex: 0 0 25%;
-    min-width: carbon--mini-units(27); 
     max-width: carbon--mini-units(40);
+    min-width: carbon--mini-units(27);
   }
 
   @include carbon--breakpoint('max') {
