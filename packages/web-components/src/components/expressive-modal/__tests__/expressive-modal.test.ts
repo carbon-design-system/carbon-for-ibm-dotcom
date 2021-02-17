@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -104,7 +104,6 @@ describe('dds-expressive-modal', function() {
 
   describe('Showing/hiding', function() {
     it('Should support using Carbon core primary button in footer as the primary focus element', async function() {
-      spyOn(DDSExpressiveModal as any, '_delay').and.callFake(() => {});
       render(
         html`
           <dds-expressive-modal>
@@ -118,6 +117,7 @@ describe('dds-expressive-modal', function() {
       const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
       const button = modal.querySelector('bx-btn') as HTMLButtonElement;
+      spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');
       modal.open = true;
@@ -128,7 +128,6 @@ describe('dds-expressive-modal', function() {
     });
 
     it('Should support using primary button in footer as the primary focus element', async function() {
-      spyOn(DDSExpressiveModal as any, '_delay').and.callFake(() => {});
       render(
         html`
           <dds-expressive-modal>
@@ -142,6 +141,7 @@ describe('dds-expressive-modal', function() {
       const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
       const button = modal.querySelector('dds-btn') as HTMLButtonElement;
+      spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');
       modal.open = true;
@@ -152,7 +152,6 @@ describe('dds-expressive-modal', function() {
     });
 
     it('Should support specifying the primary focus element', async function() {
-      spyOn(DDSExpressiveModal as any, '_delay').and.callFake(() => {});
       render(
         html`
           <dds-expressive-modal>
@@ -166,6 +165,7 @@ describe('dds-expressive-modal', function() {
       const modal = document.querySelector('dds-expressive-modal') as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
       const button = modal.querySelector('button') as HTMLButtonElement;
+      spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');
       modal.open = true;
