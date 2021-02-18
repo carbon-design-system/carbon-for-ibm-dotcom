@@ -41,12 +41,6 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   private _caretLeftNode?: HTMLElement;
 
   /**
-   * The right-hand paginator button.
-   */
-  @query(`.${prefix}--header__nav-caret-right`)
-  private _caretRightNode?: HTMLElement;
-
-  /**
    * The scrolling container.
    */
   @query(`.${ddsPrefix}-ce--header__nav-content-container`)
