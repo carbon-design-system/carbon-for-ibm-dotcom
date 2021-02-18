@@ -9,10 +9,13 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { breakpoints } from '@carbon/layout';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { forEach } from '../../globals/internal/collection-helpers';
+import { ANIMATION_TYPE } from './defs';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -22,37 +25,37 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const colSpan = 3;
 
 /**
- * Function component that handles fade transition for selected elements.
+ * Function component that handles fade or slide transition for selected elements.
  *
  * @example
  * import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
- * import '@carbon/ibmdotcom-web-components/es/components/fade-in-out/fade-in-out.js';
+ * import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js';
  *
  * As an example, the function can be called to target all instances of the
  * elements in a list:
  *
- * const list = 'bx--content-block, bx--content-group';
+ * const list = '${prefix}--content-block, ${prefix}--content-group';
  *
  * For default values of 400ms and 'one and done' play:
- * <dds-fade-in-out selectorTargets="${selectorTargets}">
+ * <dds-scroll-animations selectorTargets="${selectorTargets}">
  *  // some content
- * </dds-fade-in-out>
+ * </dds-scroll-animations>
  *
  * With 'continuous play' option:
- * <dds-fade-in-out selector-targets="${selectorTargets}" keep-animation="true">
+ * <dds-scroll-animations selector-targets="${selectorTargets}" keep-animation="true">
  *   // some content
- * </dds-fade-in-out>
+ * </dds-scroll-animations>
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
- * .bx--content-block {
- *   --#{$dds-prefix}--fade-in-out-delay: 250ms;
+ * .${prefix}--content-block {
+ *   --#{$dds-prefix}--scroll-animations-delay: 250ms;
  * }
  *
- * @element dds-fade-in-out
+ * @element dds-scroll-animations
  */
-@customElement(`${ddsPrefix}-fade-in-out`)
-class DDSFadeInOut extends StableSelectorMixin(LitElement) {
+@customElement(`${ddsPrefix}-scroll-animations`)
+class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   /**
    * Intersection Observer that watches outer viewport.
    *
@@ -74,6 +77,52 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
    */
   private _resizeObserver: any | null = null;
 
+  private _effectClass?: string;
+
+  private _exitEffectClass?: string;
+
+  private _setAnimationClasses() {
+    switch (this.animation) {
+      case ANIMATION_TYPE.SLIDE_UP:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up`;
+        break;
+      case ANIMATION_TYPE.SLIDE_UP_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down-left`;
+        break;
+      case ANIMATION_TYPE.SLIDE_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-left`;
+        break;
+      case ANIMATION_TYPE.SLIDE_UP_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up-left`;
+        break;
+      case ANIMATION_TYPE.FADE:
+      default:
+        this._effectClass = `${prefix}--fade-in`;
+        this._exitEffectClass = `${prefix}--fade-out`;
+        break;
+    }
+  }
+
   /**
    * Cleans observers upon update or exit, and creates new instances if needed.
    *
@@ -81,6 +130,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
    * @param [options.create] `true` to create the new intersection observer.
    */
   private _cleanAndCreateObservers({ create }: { create?: boolean } = {}) {
+    this._setAnimationClasses();
     this._cleanAndCreateRootObserver();
     this._cleanAndCreateInnerObserver();
     this._cleanAndCreateResizeObserver();
@@ -112,7 +162,7 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
     }
 
     if (create) {
-      this._rootObserver = new IntersectionObserver(this._handleExit);
+      this._rootObserver = new IntersectionObserver(this._handleExit.bind(this));
     }
   }
 
@@ -192,8 +242,8 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   private _handleEntrance = (records: IntersectionObserverEntry[]) => {
     records.forEach(({ intersectionRatio, target }) => {
       if (intersectionRatio > 0) {
-        target.classList.remove('bx--fade-out');
-        target.classList.add('bx--fade-in');
+        target.classList.remove(`${this._exitEffectClass}`);
+        target.classList.add(`${this._effectClass}`);
         if (!this.keepAnimation) {
           this._rootObserver?.unobserve(target);
           this._innerObserver?.unobserve(target);
@@ -213,11 +263,14 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   private _handleExit(records: IntersectionObserverEntry[]) {
     records.forEach(({ intersectionRatio, target }) => {
       if (intersectionRatio === 0) {
-        target.classList.remove('bx--fade-in');
-        target.classList.add('bx--fade-out');
+        target.classList.remove(`${this._effectClass}`);
+        target.classList.add(`${this._exitEffectClass}`);
       }
     });
   }
+
+  @property()
+  animation?: string = 'fade';
 
   /**
    * Iteration boolean for continuous play option.
@@ -252,4 +305,4 @@ class DDSFadeInOut extends StableSelectorMixin(LitElement) {
   }
 }
 
-export default DDSFadeInOut;
+export default DDSScrollAnimations;
