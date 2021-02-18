@@ -40,11 +40,13 @@ export const DefaultWithNoImage = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
@@ -61,11 +63,13 @@ export const DefaultWithImage = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
       <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
@@ -82,11 +86,13 @@ export const Centered = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
@@ -104,11 +110,13 @@ export const CenteredWithImage = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
       <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
@@ -125,11 +133,13 @@ export const Small = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
@@ -142,11 +152,13 @@ export const SmallWithImage = ({ parameters }) => {
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
       <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
         <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
@@ -154,6 +166,17 @@ export const SmallWithImage = ({ parameters }) => {
       </dds-image>
     </dds-leadspace>
   `;
+};
+
+const getAriaLabel = type => {
+  switch (type) {
+    case 'ArrowDown20':
+      return 'anchor link';
+    case 'Pdf20':
+      return 'pdf link';
+    default:
+      return '';
+  }
 };
 
 const iconMap = {
@@ -196,11 +219,15 @@ export default {
         ),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}, groupId),
-        }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0],
-        })),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          return {
+            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
         image: [
           {
             src: leadspaceImg,

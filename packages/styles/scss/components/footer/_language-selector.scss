@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,13 +31,16 @@
       @include list-box-expressive;
       @include select-expressive;
       @include text-input-expressive;
-      @include carbon--make-col-ready;
-      @include carbon--make-col(4, 4);
 
       margin-top: $spacing-05;
       padding-left: 0;
       padding-right: 0;
       order: 0;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+      }
 
       .#{$prefix}--language-selector {
         max-width: 100%;
