@@ -172,6 +172,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         currentFirstVisibleElementPosition + elems[currentFirstVisibleElementIndex].offsetWidth + currentScrollPosition <=
         contentContainerNode!.offsetWidth
       ) {
+        // Sets 0 to the position if we see the left remainder nav items can be contained in a page.
+        // This is a shortcut of left-hand pager button being hidden at position 0.
         this._currentScrollPosition = 0;
       } else {
         this._currentScrollPosition = -currentFirstVisibleElementPosition;
