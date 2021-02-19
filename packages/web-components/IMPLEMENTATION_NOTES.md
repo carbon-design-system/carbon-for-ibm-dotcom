@@ -27,6 +27,13 @@
 - [Masthead search](#masthead-search)
 - [TypeScript type definition](#typescript-type-definition)
 - [Vendor directory](#vendor-directory)
+- [Rollup bundle for Dotcom Shell](#rollup-bundle-for-dotcom-shell)
+  - [Sass optimization](#sass-optimization)
+  - [HTML optimization](#html-optimization)
+  - [Custom element definition for `carbon-web-components`](#custom-element-definition-for-carbon-web-components)
+  - [Building icons](#building-icons)
+  - [Building styles](#building-styles)
+  - [License header](#license-header)
 - [Unit tests](#unit-tests)
   - [Test setup](#test-setup)
   - [Writing tests](#writing-tests)
@@ -40,6 +47,8 @@
   - [Defining mocks](#defining-mocks)
   - [Restoring state](#restoring-state)
 - [RTL support](#rtl-support)
+- [Storybook CSF integration](#storybook-csf-integration)
+- [License header](#license-header-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -331,6 +340,36 @@ The `import`s of `@carbon/ibmdotcom-services-store` code in `@carbon/ibmdotcom-w
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 ```
 
+## Rollup bundle for Dotcom Shell
+
+For quick setup of project using minimum feature set (Dotcom Shell) of `@carbon/ibmdotcom-web-components`, a [Rollup bundle](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/dist/ibmdotcom-web-components-dotcom-shell.min.js) is provided.
+
+The Rollup bundle builds the [entry point (`ibmdotcom-web-components-dotcom-shell.ts`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/ibmdotcom-web-components-dotcom-shell.ts). Whenever the Dotcom Shell contains a new components, etc. the entry point file must be updated.
+
+### Sass optimization
+
+The [Rollup config](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L80-L89) replaces `.css.js` files with [`.scss` entry point file (`ibmdotcom-web-components-dotcom-shell.scss`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss), so that CSS code that are included in multiple `.css.js` files (e.g. Carbon reset styles) are not duplicated in the Rollup bundle.
+
+### HTML optimization
+
+The Rollup bundle [minifies HTML content in `lit-html` templates](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L116-L131) to reduce its size.
+
+### Custom element definition for `carbon-web-components`
+
+The Rollup bundle [does _not_ define custom elements from `carbon-web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L135-L140), because the bundle is not meant for `carbon-web-components`' bundle.
+
+### Building icons
+
+There are some icons from `@carbon/ibmdotcom-styles` included in the Rollup bundle. We use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-ibmdotcom-icon.js) that converts those icons to `lit-html` version.
+
+### Building styles
+
+To build `.scss` files into the Rollup bundle, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-lit-scss.js) to build the Sass and convert it to a `lit-html` template.
+
+### License header
+
+Given the Rollup bundle includes third-party dependencies, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-license.js) to aggregate the license headers of those third-party dependencies and to put it to the top, along with our own license header.
+
 ## Unit tests
 
 Unit tests for `@carbon/ibmdotcom-web-components` uses [Karma](http://karma-runner.github.io/latest/index.html), so that we can inspect the DOM to debug unit tests. `@carbon/ibmdotcom-web-components` uses [Jasmine](https://jasmine.github.io) for test definition and assertion, with a [custom matcher for snapshots](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tests/utils/snapshot.js).
@@ -426,3 +465,20 @@ The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL`
 Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
 
 How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
+
+## Storybook CSF integration
+
+Storybook introduced a new story format in `5.x` timeframe, called Component Story Format (CSF). It makes stories an ECMAScript import, that is great for reusing stories.
+
+Unfortunately, knobs still require imperative API embedded in stories, which means as soon as we define knobs in stories any code calling stories depends on such knobs.
+
+To make sure that we can reuse stories for unit tests without depending on knobs, we define knobs somewhere outside stories, which is, in story parameters (`parameters.knobs`), like [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L116-L146). Such `parameters.knobs` is evaluated in a [global story decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/decorator-knobs.ts) and put into `parameters.props`, so that stories can refer to like [this](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L26).
+
+In this way, test can specify its own `parameters.props`, without being interfered by knobs. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__tests__/card.test.ts#L14-L21).
+
+## License header
+
+We ensure that our source code has appropriate licence header, with two mechanisms:
+
+1. The [CI task](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L25) that [checks if all source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/gulp-tasks/lint.js#L25-L50).
+2. The [pre-commit hook](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/.lintstagedrc#L4) that [checks if all staged source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L27). If the license year is found stale in the step, we [update it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/tasks/check-license.js#L46-L54) here.

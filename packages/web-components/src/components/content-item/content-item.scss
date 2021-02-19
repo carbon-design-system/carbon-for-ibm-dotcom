@@ -14,3 +14,13 @@
 :host(#{$dds-prefix}-content-item-paragraph) {
   display: block;
 }
+
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-image-with-caption),
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
+  margin-top: 0;
+}

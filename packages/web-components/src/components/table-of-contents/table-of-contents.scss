@@ -40,10 +40,3 @@
     top: 48px;
   }
 }
-
-.#{$dds-prefix}-ce--table-of-contents__items-container {
-  @include carbon--breakpoint('lg') {
-    position: sticky;
-    top: 0;
-  }
-}
