@@ -8,4 +8,4 @@
  */
 
 import './styles.scss';
-import '@carbon/ibmdotcom-web-components/es/components/fade-in-out/fade-in-out.js';
+import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js';

@@ -6,12 +6,12 @@
  */
 
 import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
-import './fade-in-out.stories.scss';
+import './scroll-animations.stories.scss';
 
 import Content from '../../DotcomShell/__stories__/data/content';
-import FadeInOut from '../FadeInOut';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import ScrollAnimations from '../ScrollAnimations';
 
 const selectorTargets = `
   .bx--content-block__heading,
@@ -49,9 +49,9 @@ export const Default = () => {
   return (
     <main id="main-content">
       <div style={{ paddingTop: '6rem' }}>
-        <FadeInOut selectorTargets={selectorTargets}>
+        <ScrollAnimations selectorTargets={selectorTargets}>
           <Content />
-        </FadeInOut>
+        </ScrollAnimations>
       </div>
     </main>
   );
@@ -68,15 +68,62 @@ export const WithContinuousAnimations = () => {
   return (
     <main id="main-content">
       <div style={{ paddingTop: '6rem' }}>
-        <FadeInOut selectorTargets={selectorTargets} keepAnimations={true}>
+        <ScrollAnimations
+          animation={'fade'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
           <Content />
-        </FadeInOut>
+        </ScrollAnimations>
       </div>
     </main>
   );
 };
 
 WithContinuousAnimations.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideRight = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-right'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideRight.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideLeft = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-left'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideLeft.story = {
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },

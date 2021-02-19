@@ -81,48 +81,6 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
 
   private _exitEffectClass?: string;
 
-  private _setAnimationClasses() {
-    switch (this.animation) {
-      case ANIMATION_TYPE.SLIDE_UP:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-up`;
-        break;
-      case ANIMATION_TYPE.SLIDE_UP_RIGHT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-up-right`;
-        break;
-      case ANIMATION_TYPE.SLIDE_RIGHT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-right`;
-        break;
-      case ANIMATION_TYPE.SLIDE_DOWN_RIGHT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-down-right`;
-        break;
-      case ANIMATION_TYPE.SLIDE_DOWN:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-down`;
-        break;
-      case ANIMATION_TYPE.SLIDE_DOWN_LEFT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-down-left`;
-        break;
-      case ANIMATION_TYPE.SLIDE_LEFT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-left`;
-        break;
-      case ANIMATION_TYPE.SLIDE_UP_LEFT:
-        this._effectClass = `${prefix}--slide-in`;
-        this._exitEffectClass = `${prefix}--slide-up-left`;
-        break;
-      case ANIMATION_TYPE.FADE:
-      default:
-        this._effectClass = `${prefix}--fade-in`;
-        this._exitEffectClass = `${prefix}--fade-out`;
-        break;
-    }
-  }
-
   /**
    * Cleans observers upon update or exit, and creates new instances if needed.
    *
@@ -267,6 +225,53 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
         target.classList.add(`${this._exitEffectClass}`);
       }
     });
+  }
+
+  /**
+   * Sets the proper class names to be applied when element is within/out of view.
+   *
+   * @private
+   */
+  private _setAnimationClasses() {
+    switch (this.animation) {
+      case ANIMATION_TYPE.SLIDE_UP:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up`;
+        break;
+      case ANIMATION_TYPE.SLIDE_UP_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN_RIGHT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down-right`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down`;
+        break;
+      case ANIMATION_TYPE.SLIDE_DOWN_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-down-left`;
+        break;
+      case ANIMATION_TYPE.SLIDE_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-left`;
+        break;
+      case ANIMATION_TYPE.SLIDE_UP_LEFT:
+        this._effectClass = `${prefix}--slide-in`;
+        this._exitEffectClass = `${prefix}--slide-up-left`;
+        break;
+      case ANIMATION_TYPE.FADE:
+      default:
+        this._effectClass = `${prefix}--fade-in`;
+        this._exitEffectClass = `${prefix}--fade-out`;
+        break;
+    }
   }
 
   @property()
