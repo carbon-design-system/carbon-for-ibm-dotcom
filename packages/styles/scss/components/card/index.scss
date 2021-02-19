@@ -102,6 +102,11 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link) {
+    outline: none;
+  }
+
   :host(#{$dds-prefix}-card-eyebrow),
   .#{$prefix}--card__eyebrow {
     @include carbon--type-style('label-01');
