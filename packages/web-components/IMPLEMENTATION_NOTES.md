@@ -257,7 +257,7 @@ And the file loaded in browser (browser version) and the file loaded in Node (No
 
 ### Composite/container components for React
 
-React wrappers for composite components renders Web Components of leaf components, instead of the Web Componets version of composite component. Doing so ensures React SSR works for REST API calls, reducing network round-trips that is the key benefit of React SSR. An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
+React wrappers for composite components renders Web Components of leaf components, instead of the Web Components version of composite component. Doing so ensures React SSR works for REST API calls, reducing network round-trips that is the key benefit of React SSR. An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
 
 React wrappers for container components uses official Redux integration library, `react-redux`. Doing so allows application of Redux store to be scoped, leveraging [React's context feature](https://reactjs.org/docs/context.html). An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-container.ts).
 
