@@ -14,7 +14,7 @@ import contributing from '../../../../../../docs/contributing-license.md';
 ## Getting started
 
 ### Quick start
-##### (Note: Fade effect won't be noticeable unless the page is long enough to scroll through)
+##### (Note: Animation effect won't be noticeable unless the page is long enough to scroll through)
 
 In order to use the `<dds-scroll-animations>` component, it needs to be wrapped around the elements that need to be targeted,
 passing in a querystring containing the exact identifiers to control which elements it should target.
@@ -31,7 +31,7 @@ import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-v
 #### HTML
 
 ```html
-<dds-scroll-animations selector-targets='.targeted-class'>
+<dds-scroll-animations animation='fade' selector-targets='.targeted-class'>
   <div class='targeted-class'>
     <p>This content will fade in upon scrolled into view.</p>
   </div>
@@ -51,6 +51,21 @@ An optional custom delay can be set within targeted class in the application's C
   --dds--fade-in-out-delay: 250ms;
 }
 ```
+
+### Animation Effects
+
+There are currently nine effects that can be applied in the component. 
+To use a specific animation effect, pass one of the following to the `animation` attribute (e.g. `animation='slide-left'`):
+
+* `fade`
+* `slide-up`
+* `slide-up-right`
+* `slide-right`
+* `slide-down-right`
+* `slide-down`
+* `slide-down-left`
+* `slide-left`
+* `slide-up-left`
 
 ## Props
 

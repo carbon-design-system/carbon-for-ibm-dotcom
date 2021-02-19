@@ -77,8 +77,18 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
    */
   private _resizeObserver: any | null = null;
 
+  /**
+   * Scroll animation class to be applied when element is within viewport.
+   *
+   * @private
+   */
   private _effectClass?: string;
 
+  /**
+   * Scroll animation to be applied when elements are out of view.
+   *
+   * @private
+   */
   private _exitEffectClass?: string;
 
   /**

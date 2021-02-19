@@ -86,6 +86,50 @@ WithContinuousAnimations.story = {
   },
 };
 
+export const SlideUp = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-up'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideUp.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideUpRight = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-up-right'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideUpRight.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
 export const SlideRight = () => {
   return (
     <main id="main-content">
@@ -108,6 +152,72 @@ SlideRight.story = {
   },
 };
 
+export const SlideDownRight = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-down-right'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideDownRight.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideDown = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-down'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideDown.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideDownLeft = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-down-left'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideDownLeft.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
 export const SlideLeft = () => {
   return (
     <main id="main-content">
@@ -124,6 +234,28 @@ export const SlideLeft = () => {
 };
 
 SlideLeft.story = {
+  // to avoid jest errors with Intersection Observer
+  parameters: {
+    storyshots: { disable: true },
+  },
+};
+
+export const SlideUpLeft = () => {
+  return (
+    <main id="main-content">
+      <div style={{ paddingTop: '6rem' }}>
+        <ScrollAnimations
+          animation={'slide-up-left'}
+          selectorTargets={selectorTargets}
+          keepAnimations={true}>
+          <Content />
+        </ScrollAnimations>
+      </div>
+    </main>
+  );
+};
+
+SlideUpLeft.story = {
   // to avoid jest errors with Intersection Observer
   parameters: {
     storyshots: { disable: true },
