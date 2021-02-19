@@ -49,6 +49,7 @@
 - [RTL support](#rtl-support)
 - [Storybook CSF integration](#storybook-csf-integration)
 - [License header](#license-header-1)
+- [Focus wrapping](#focus-wrapping)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -442,3 +443,13 @@ We ensure that our source code has appropriate licence header, with two mechanis
 
 1. The [CI task](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L25) that [checks if all source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/gulp-tasks/lint.js#L25-L50).
 2. The [pre-commit hook](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/.lintstagedrc#L4) that [checks if all staged source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L27). If the license year is found stale in the step, we [update it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/tasks/check-license.js#L46-L54) here.
+
+## Focus wrapping
+
+Components like modal and left nav requires the keyboard focus to be kept within the component while it's open. There is a [spec discussion](https://github.com/whatwg/html/issues/897) for defining stack of elements where keyboard focus is kept within, but nothing has been implemented yet.
+
+To get a similar behavior, `<dds-expressive-modal>` defines their own "focus wrap" behavior. The code [detects if the keyboard focus gets out of `<dds-expressive-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L146-L155), and if it's the case, moves the focus back within `<dds-expressive-modal>`.
+
+Making sure focus wrapping code works even if `<dds-expressive-modal>` is the last element in `<body>` requires extra mechanism, because in such case the entire viewport loses focus and thus `blur` event cannot detect the newly focused element. To make sure the focus wrapping code in such case, we use ["focus sentinel"](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex#modals_and_keyboard_traps), that is [a non-visible focusable element](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L306) that gets focused before the viewport loses focus.
+
+`<dds-left-nav>` uses a [utility function](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js) for that purpose, to support two regions for focus wrapping. When the focus goes out of `<dds-masthead-menu-button>`, which is the trigger button for `<dds-left-nav>`, the focus should go to `<dds-left-nav>`. When the focus goes out of `<dds-left-nav>`, the focus should go to `<dds-masthead-menu-button>`. The utility function fires [`dds-request-focus-wrap` custom event](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js#L23) in such condition, and `<dds-left-nav>` [handles `dds-request-focus-wrap` event](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/left-nav.ts#L61-L93) to decide whether `<dds-masthead-menu-button>` or `<dds-left-nav>` should get focus.
