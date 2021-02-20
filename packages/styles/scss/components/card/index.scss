@@ -77,6 +77,10 @@
 
     &:hover {
       background-color: $hover-ui;
+
+      .#{$prefix}--card__wrapper {
+        background-color: $hover-ui;
+      }
     }
 
     .#{$prefix}--card__img {
