@@ -19,9 +19,7 @@
   .#{$prefix}--list--ordered:not(.#{$prefix}--list--nested) {
     > .#{$prefix}--list__item {
       &::before {
-        left: auto;
-        right: 100%;
-        margin-right: $carbon--spacing-03;
+        left: -1.875rem;
       }
     }
   }
