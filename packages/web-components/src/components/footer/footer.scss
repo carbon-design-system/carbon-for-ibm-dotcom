@@ -75,6 +75,11 @@
       flex: 0 0 25%;
       margin-left: 62.5%;
     }
+
+    @include carbon--breakpoint('max') {
+      flex: 0 0 18.75%;
+      margin-left: 68.75%;
+    }
   }
 
   ::slotted(#{$dds-prefix}-language-selector-mobile) {
@@ -254,7 +259,14 @@
 
   @include carbon--breakpoint('lg') {
     order: 1;
+    flex: 0 0 25%;
+    max-width: carbon--mini-units(40);
+    min-width: carbon--mini-units(27);
+  }
+
+  @include carbon--breakpoint('max') {
     flex: 0 0 18.75%;
+    max-width: 18.75%;
   }
 
   .#{$prefix}--combo-box {

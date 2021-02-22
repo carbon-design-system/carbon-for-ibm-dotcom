@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.16.0-rc.0...@carbon/ibmdotcom-styles@1.16.0-rc.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **footer:** update micro language only styles ([#5179](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5179)) ([593214a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/593214a)), closes [#5178](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5178)
+
+
+
+
+
 # [1.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.15.0...@carbon/ibmdotcom-styles@1.16.0-rc.0) (2021-02-12)
 
 

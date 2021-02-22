@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,6 +20,7 @@ import {
 } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
+import on from 'carbon-components/es/globals/js/misc/on';
 import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
@@ -171,6 +172,30 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     }
   };
 
+  /**
+   * Special handler for `focus` events,
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
+    const { open, _endSentinelNode: endSentinelNode } = this;
+    const { selectorTabbable: selectorTabbableForModal } = this.constructor as typeof DDSExpressiveModal;
+
+    // Handling a special case in _handleBlur() where `relatedTarget` is null and `target` is the
+    // endSentintel, resulting in focus having already gone outside the modal into the browser bar
+    // when this logic is detected, rendering any focus() calls ineffective.
+    // The following logic captures this case the moment focus is within endSentinel instead.
+    if (open && target && !relatedTarget) {
+      if (target === endSentinelNode) {
+        if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
+          this.focus();
+        }
+      }
+    }
+  };
+
   @HostListener('document:keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = ({ key, target }: KeyboardEvent) => {
@@ -222,6 +247,29 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         this.dispatchEvent(new CustomEvent(eventClose, init));
       }
     }
+  }
+
+  /**
+   * @param timeout The number of milliseconds as the longest time waiting for `transitionend` event.
+   * @returns A promise that is resolves when `transitionend` on the host element fires.
+   */
+  private _waitForTransitionEnd(timeout: number = 1000) {
+    return new Promise(resolve => {
+      let done = false;
+      let hTransitionEnd;
+      const handleResolve = () => {
+        if (hTransitionEnd) {
+          hTransitionEnd.release();
+          hTransitionEnd = null;
+        }
+        if (!done) {
+          resolve(undefined);
+          done = true;
+        }
+      };
+      on(this, 'transitionend', handleResolve);
+      setTimeout(handleResolve, timeout);
+    });
   }
 
   /**
@@ -320,7 +368,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
       if (this.open) {
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector((this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus);
-        await (this.constructor as typeof DDSExpressiveModal)._delay();
+        await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
