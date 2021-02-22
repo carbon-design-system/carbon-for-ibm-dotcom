@@ -42,6 +42,8 @@
 }
 
 :host(#{$dds-prefix}-card) {
+  outline: none;
+
   .#{$prefix}--card__pictogram {
     display: flex;
 
