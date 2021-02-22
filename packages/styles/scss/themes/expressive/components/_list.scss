@@ -19,7 +19,7 @@
   .#{$prefix}--list--ordered:not(.#{$prefix}--list--nested) {
     > .#{$prefix}--list__item {
       &::before {
-        left: -2.025rem;
+        left: -1.85rem;
       }
     }
   }
