@@ -53,12 +53,6 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   private _contentContainerNode?: HTMLElement;
 
   /**
-   * The scrolling content.
-   */
-  @query(`.${prefix}--header__nav-content`)
-  private _contentNode?: HTMLElement;
-
-  /**
    * The current scroll position.
    */
   @internalProperty()
