@@ -173,10 +173,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
         caretLeftNodeWidthAdjustment;
       // Ensures that is there is no blank area at the right hand side in scroll area
       // if we see the right remainder nav items can be contained in a page
-      this._currentScrollPosition = Math.max(
-        currentFirstVisibleElementPosition < caretLeftNodeWidthAdjustment ? 0 : currentFirstVisibleElementPosition,
-        0
-      );
+      this._currentScrollPosition = Math.max(currentFirstVisibleElementPosition, 0);
       // }
     }
   }
