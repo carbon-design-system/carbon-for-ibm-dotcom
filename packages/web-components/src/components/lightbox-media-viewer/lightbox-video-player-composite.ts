@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-stor
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
-import '../expressive-modal/expressive-modal';
+import './lightbox-expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
@@ -98,7 +98,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { description, duration, name } = currentVideoData;
     return html`
-      <dds-expressive-modal ?open="${open}" expressive-size="full-width">
+      <dds-lightbox-expressive-modal ?open="${open}" expressive-size="full-width">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-video-player
           description="${ifNonNull(description)}"
@@ -109,7 +109,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
           .formatDuration="${ifNonNull(formatDuration)}"
         >
         </dds-lightbox-video-player>
-      </dds-expressive-modal>
+      </dds-lightbox-expressive-modal>
     `;
   }
 
