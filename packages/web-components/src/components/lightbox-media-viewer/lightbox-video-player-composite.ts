@@ -15,7 +15,7 @@ import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-stor
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
-import './lightbox-expressive-modal';
+import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
@@ -98,7 +98,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { description, duration, name } = currentVideoData;
     return html`
-      <dds-lightbox-expressive-modal ?open="${open}" expressive-size="full-width">
+      <dds-expressive-modal ?open="${open}" expressive-size="full-width">
         <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
         <dds-lightbox-video-player
           description="${ifNonNull(description)}"
@@ -109,7 +109,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
           .formatDuration="${ifNonNull(formatDuration)}"
         >
         </dds-lightbox-video-player>
-      </dds-lightbox-expressive-modal>
+      </dds-expressive-modal>
     `;
   }
 
