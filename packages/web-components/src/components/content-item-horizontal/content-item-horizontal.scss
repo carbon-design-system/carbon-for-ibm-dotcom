@@ -7,10 +7,6 @@
 
 @import '@carbon/ibmdotcom-styles/scss/components/content-item-horizontal/content-item-horizontal';
 
-:host(#{$dds-prefix}-content-item-horizontal) {
-  margin: 0;
-}
-
 :host(#{$dds-prefix}-content-item-horizontal-eyebrow) {
   display: block;
 }
