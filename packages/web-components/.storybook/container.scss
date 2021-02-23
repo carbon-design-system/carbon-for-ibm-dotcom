@@ -78,6 +78,7 @@ body {
 .dds-ce-demo-devenv--simple-grid--card,
 .dds-ce-demo-devenv--simple-grid--card-group,
 .dds-ce-demo-devenv--simple-grid--content-layout,
+.dds-ce-demo-devenv--simple-grid--content-horizontal,
 .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
 .dds-ce-demo-devenv--simple-grid--content-block-headlines,
 .dds-ce-demo-devenv--simple-grid--content-section,
@@ -94,6 +95,7 @@ body {
   .dds-ce-demo-devenv--simple-grid--callout,
   .dds-ce-demo-devenv--simple-grid--card-group,
   .dds-ce-demo-devenv--simple-grid--content-layout,
+  .dds-ce-demo-devenv--simple-grid--content-horizontal,
   .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
   .dds-ce-demo-devenv--simple-grid--content-section {
     > * {
@@ -114,6 +116,12 @@ body {
   .dds-ce-demo-devenv--simple-grid--content-layout {
     > * {
       grid-column: 5 / span 8;
+    }
+  }
+
+  .dds-ce-demo-devenv--simple-grid--content-horizontal {
+    > * {
+      grid-column: 4 / span 10;
     }
   }
 
