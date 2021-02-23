@@ -25,6 +25,9 @@ class DDSLeavingIbmModalHeading extends BXModalHeading {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
     }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '2');
+    }
     super.connectedCallback();
   }
 
