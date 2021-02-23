@@ -98,7 +98,6 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
    * @param [options.create] `true` to create the new intersection observer.
    */
   private _cleanAndCreateObservers({ create }: { create?: boolean } = {}) {
-    this._setAnimationClasses();
     this._cleanAndCreateRootObserver();
     this._cleanAndCreateInnerObserver();
     this._cleanAndCreateResizeObserver();
@@ -311,6 +310,12 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   disconnectedCallback() {
     this._cleanAndCreateObservers();
     super.disconnectedCallback();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('animation')) {
+      this._setAnimationClasses();
+    }
   }
 
   render() {
