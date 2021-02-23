@@ -78,7 +78,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" aria-hidden="true">
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;

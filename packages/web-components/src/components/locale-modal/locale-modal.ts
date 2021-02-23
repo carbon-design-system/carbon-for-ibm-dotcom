@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -185,6 +185,16 @@ class DDSLocaleModal extends DDSExpressiveModal {
    */
   static get selectorLocaleSearch() {
     return `${ddsPrefix}-locale-search`;
+  }
+
+  /**
+   * A selector selecting the nodes that should be focused when modal gets open.
+   */
+  static get selectorPrimaryFocus() {
+    return `
+      [data-modal-primary-focus],
+      ${ddsPrefix}-region-item
+    `;
   }
 
   static get stableSelector() {
