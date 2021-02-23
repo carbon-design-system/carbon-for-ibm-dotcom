@@ -19,8 +19,8 @@
 
   &[expressive-size='full-width'] {
     .#{$prefix}--modal-container {
-      width: calc(100% - $layout-03);
-      height: calc(100% - $layout-03);
+      width: calc(100% - 2rem);
+      height: calc(100% - 2rem);
       max-height: none;
 
       .#{$prefix}--modal-content {
