@@ -33,3 +33,10 @@ export const DDS_CALLOUT_DATA: boolean = process!.env.DDS_CALLOUT_DATA === 'true
  * @type {boolean}
  */
 export const DDS_CONTENT_BLOCK_HEADLINES: boolean = process!.env.DDS_CONTENT_BLOCK_HEADLINES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables Promo Group Component
+ *
+ * @type {boolean}
+ */
+export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;

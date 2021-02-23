@@ -1,0 +1,217 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
+import'../promo-group';
+
+# `Promo Group`
+
+> The Promo Group - is a collection of simple promo text items presented in a section with a left-column header that provides different variants for showcasing images, statistics, and pictograms content.
+
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/promo-group/promo-group.js';
+
+// With Image.
+import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
+
+// With Statistic.
+import '@carbon/ibmdotcom-web-components/es/components/promo-item/promo-item-statistic.js';
+```
+
+### HTML (Default)
+
+```html
+<dds-promo-group color-scheme="inverse">
+  <dds-content-section-heading>Title heading</dds-content-section-heading>
+
+  <dds-content-group slot="group-heading">
+    <dds-content-group-heading>
+      Optional title heading-4 color test-01 that spans to multiple lines as needed
+    </dds-content-group-heading>
+    <dds-link-with-icon slot="footer" href="https://example.com">
+      Optional text link example ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-with-icon>
+  </dds-content-group>
+
+  <dds-card-group slot="group-items">
+    <dds-promo-item color-scheme="inverse">
+      <dds-card-heading>End-to-end IT management</dds-card-heading>
+      <dds-content-item-copy slot="copy">
+        Manage and orchestrate your hybrid multicloud infrastructure with the most secure, reliable and flexible servers available today.
+      </dds-content-item-copy>
+      <dds-link-with-icon slot="footer">
+        Lorem ipsum dolor
+        <svg
+          slot="icon"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-with-icon>
+    </dds-promo-item>
+  </dds-card-group>
+
+</dds-promo-group>
+```
+
+### HTML (with Image)
+
+```html
+<dds-promo-group color-scheme="inverse">
+  <dds-content-section-heading>Title heading</dds-content-section-heading>
+
+  <dds-content-group slot="group-heading">
+    <dds-content-group-heading>
+      Optional title heading-4 color test-01 that spans to multiple lines as needed
+    </dds-content-group-heading>
+    <dds-link-with-icon slot="footer" href="https://example.com">
+      Optional text link example ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-with-icon>
+  </dds-content-group>
+
+  <dds-card-group slot="group-items">
+    <dds-promo-item color-scheme="inverse">
+      <dds-card-heading>End-to-end IT management</dds-card-heading>
+      <dds-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"> </dds-image>
+      <dds-content-item-copy slot="copy">
+        Manage and orchestrate your hybrid multicloud infrastructure with the most secure, reliable and flexible servers available today.
+      </dds-content-item-copy>
+      <dds-link-with-icon slot="footer">
+        Lorem ipsum dolor
+        <svg
+          slot="icon"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-with-icon>
+    </dds-promo-item>
+  </dds-card-group>
+
+</dds-promo-group>
+```
+
+### HTML (with Statistic)
+
+```html
+<dds-promo-group color-scheme="inverse">
+  <dds-content-section-heading>Title heading</dds-content-section-heading>
+
+  <dds-content-group slot="group-heading">
+    <dds-content-group-heading>
+      Optional title heading-4 color test-01 that spans to multiple lines as needed
+    </dds-content-group-heading>
+    <dds-link-with-icon slot="footer" href="https://example.com">
+      Optional text link example ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-with-icon>
+  </dds-content-group>
+
+  <dds-card-group slot="group-items">
+    <dds-promo-item color-scheme="inverse">
+      <dds-card-heading>End-to-end IT management</dds-card-heading>
+      <dds-promo-item-statistic>100%</dds-promo-item-statistic>
+      <dds-content-item-copy slot="copy">
+        Manage and orchestrate your hybrid multicloud infrastructure with the most secure, reliable and flexible servers available today.
+      </dds-content-item-copy>
+      <dds-link-with-icon slot="footer">
+        Lorem ipsum dolor
+        <svg
+          slot="icon"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-with-icon>
+    </dds-promo-item>
+  </dds-card-group>
+
+</dds-promo-group>
+```
+
+### HTML (with Pictogram)
+
+```html
+<dds-promo-group color-scheme="inverse">
+  <dds-content-section-heading>Title heading</dds-content-section-heading>
+
+  <dds-content-group slot="group-heading">
+    <dds-content-group-heading>
+      Optional title heading-4 color test-01 that spans to multiple lines as needed
+    </dds-content-group-heading>
+    <dds-link-with-icon slot="footer" href="https://example.com">
+      Optional text link example ${ArrowRight20({ slot: 'icon' })}
+    </dds-link-with-icon>
+  </dds-content-group>
+
+  <dds-card-group slot="group-items">
+    <dds-promo-item color-scheme="inverse">
+      <dds-card-heading>End-to-end IT management</dds-card-heading>
+      <svg 
+        slot="pictogram"
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        data-autoid="dds--pictogram-item__pictogram"
+        aria-label="Pictogram description"
+        viewBox="0 0 32 32"
+        role="img"
+        class="bx--promo-item__pictogram"
+      >
+        <path d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"/><path fill="none" d="M0 0h32v32H0z"/>
+      </svg>
+      <dds-content-item-copy slot="copy">
+        Manage and orchestrate your hybrid multicloud infrastructure with the most secure, reliable and flexible servers available today.
+      </dds-content-item-copy>
+      <dds-link-with-icon slot="footer">
+        Lorem ipsum dolor
+        <svg
+          slot="icon"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-link-with-icon>
+    </dds-promo-item>
+  </dds-card-group>
+
+</dds-promo-group>
+```
+
+<Description markdown={markdownContents} />
+
+<Description markdown={contributing} />

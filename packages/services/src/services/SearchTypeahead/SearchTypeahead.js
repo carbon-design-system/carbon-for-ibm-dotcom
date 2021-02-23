@@ -1,26 +1,22 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import axios from 'axios';
 import { LocaleAPI } from '../Locale';
-
 /**
  * @constant {string | string} Host for the API calls
  * @private
  */
 const _host =
   (process && process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com';
-
 /**
  * @constant {string | string} API version
  * @private
  */
 const _version = (process && process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
-
 /**
  * SearchTypeahead endpoint
  *
@@ -28,7 +24,6 @@ const _version = (process && process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
  * @private
  */
 const _endpoint = `${_host}/search/typeahead/${_version}`;
-
 /**
  * SearchTypeahead API class with methods of fetching search results for
  * ibm.com
@@ -55,7 +50,6 @@ class SearchTypeaheadAPI {
       `query=${encodeURIComponent(query)}`,
     ].join('&');
     const url = `${_endpoint}?${urlQuery}`;
-
     return await axios
       .get(url, {
         headers: {
@@ -65,5 +59,4 @@ class SearchTypeaheadAPI {
       .then(response => response.data.response);
   }
 }
-
 export default SearchTypeaheadAPI;
