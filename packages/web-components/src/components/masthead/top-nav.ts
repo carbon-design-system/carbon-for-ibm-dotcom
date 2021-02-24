@@ -24,6 +24,21 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * @param a An array.
+ * @param predicate The callback function.
+ * @param [thisObject] The context object for the given callback function.
+ * @returns The index of the last item in the given array where `predicate` returns `true`. `-1` if no such item is found.
+ */
+function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObject?: any) => boolean, thisObject?: any): number {
+  for (let i = a.length - 1; i >= 0; --i) {
+    if (predicate(a[i], i, thisObject)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+/**
  * Masthead top nav.
  *
  * @element dds-top-nav
@@ -166,7 +181,6 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   private _paginateLeft() {
     const {
-      _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
       _contentContainerNode: contentContainerNode,
       _currentScrollPosition: currentScrollPosition,
@@ -174,29 +188,23 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _navNode: navNode,
       _slotNode: slotNode,
     } = this;
+    // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
+    // Given scrolling to left makes it shown,
+    // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
+    const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const caretLeftNodeWidthAdjustment = caretLeftNode?.offsetWidth ?? 0;
-      const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
       const navLeft = navNode!.getBoundingClientRect().left;
-      const currentFirstVisibleElementIndex = elems.findIndex(
-        elem => elem.getBoundingClientRect().left - navLeft >= currentScrollPosition
+      const lastVisibleElementIndex = findLastIndex(
+        elems,
+        elem => elem.getBoundingClientRect().left - navLeft < currentScrollPosition
       );
-      const currentFirstVisibleElementPosition = elems[currentFirstVisibleElementIndex].getBoundingClientRect().left - navLeft;
-      if (
-        currentFirstVisibleElementPosition <=
-        contentContainerNode!.offsetWidth + caretLeftNodeWidthAdjustment - caretRightNodeWidthAdjustment
-      ) {
-        // Sets 0 to the position if we see the left remainder nav items can be contained in a page.
-        // This is a shortcut of left-hand pager button being hidden at position 0.
-        this._currentScrollPosition = 0;
-      } else {
-        const interimLeft =
-          currentFirstVisibleElementPosition - contentContainerNode!.offsetWidth + caretRightNodeWidthAdjustment;
-        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left - navLeft >= interimLeft);
-        const firstVisibleElementPosition =
-          firstVisibleElementIndex === 0 ? 0 : elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
-        this._currentScrollPosition = firstVisibleElementPosition;
+      if (lastVisibleElementIndex >= 0) {
+        const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
+        this._currentScrollPosition = Math.max(
+          lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment),
+          0
+        );
       }
     }
   }
@@ -223,13 +231,13 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       const navLeft = navNode!.getBoundingClientRect().left;
       const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
       if (firstVisibleElementIndex > 0) {
-        const firstVisibleElementPosition = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
+        const firstVisibleElementLeft = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
         // Ensures that is there is no blank area at the right hand side in scroll area
         // if we see the right remainder nav items can be contained in a page
         const maxLeft =
           contentNode!.scrollWidth -
           (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
-        this._currentScrollPosition = Math.min(firstVisibleElementPosition, maxLeft);
+        this._currentScrollPosition = Math.min(firstVisibleElementLeft, maxLeft);
       }
     }
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,6 +18,7 @@ const template = ({ width = 215 }: { width?: number } = {}) => {
         display: flex;
         width: ${width}px;
         height: 1rem;
+        background-color: blue; /* For debugging */
       }
 
       dds-top-nav::part(nav) {
@@ -97,8 +98,6 @@ describe('dds-top-nav', function() {
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
-      const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-left');
-      MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -143,7 +142,7 @@ describe('dds-top-nav', function() {
     });
 
     it('should support snapping to menu item', async function() {
-      render(template({ width: 250 }), document.body);
+      render(template({ width: 200 }), document.body);
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
@@ -152,13 +151,29 @@ describe('dds-top-nav', function() {
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
-      (topNav as any)._currentScrollPosition = 350;
+      // The 4th item (left: `275px`, right: `350px`) should be the right-most next time
+      (topNav as any)._currentScrollPosition = 320;
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
-      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-275px');
+      // Given the 4th item should be the right-most, the left position should be `350px - (200px - 80px)`
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-230px');
     });
 
-    it('should cope with change in the hidden state of the go to previous page button', async function() {
+    it('should cope with change in the hidden state of the go to next page button', async function() {
+      render(template(), document.body);
+      await Promise.resolve(); // Update cycle for the component
+      await Promise.resolve(); // The cycle where `slotchange` event is called
+      const topNav = document.querySelector('dds-top-nav');
+      const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-left');
+      MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
+      await Promise.resolve();
+      (topNav as any)._currentScrollPosition = 700; // The scrolling position of the last page
+      (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
+      await Promise.resolve();
+      expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('-565px');
+    });
+
+    it('should snap to the left edge at the first page', async function() {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for the component
       await Promise.resolve(); // The cycle where `slotchange` event is called
@@ -168,7 +183,7 @@ describe('dds-top-nav', function() {
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
-      (topNav as any)._currentScrollPosition = 175;
+      (topNav as any)._currentScrollPosition = 90;
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
       expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('0px');
