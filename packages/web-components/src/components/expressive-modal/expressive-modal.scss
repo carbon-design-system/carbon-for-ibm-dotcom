@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -18,10 +18,15 @@
   }
 
   &[expressive-size='full-width'] {
-    ::slotted(#{$dds-prefix}-lightbox-image-viewer-body),
-    ::slotted(#{$dds-prefix}-lightbox-video-player-body) {
-      height: 100%;
-      overflow: auto;
+    .#{$prefix}--modal-container {
+      width: calc(100% - 2rem);
+      height: calc(100% - 2rem);
+      max-height: none;
+
+      .#{$prefix}--modal-content {
+        margin: $layout-04 $layout-03;
+        padding: 0;
+      }
     }
   }
 
