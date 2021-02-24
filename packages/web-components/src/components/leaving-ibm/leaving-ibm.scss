@@ -31,12 +31,7 @@
   padding-right: 20%;
 }
 
-:host(#{$dds-prefix}-leaving-ibm-modal-supplemental) {
-  display: block;
-  margin-top: $spacing-07;
-  color: $text-02;
-}
-:host span {
+::slotted([slot='supplemental']) {
   display: block;
   margin-top: $spacing-07;
   color: $text-02;

@@ -33,7 +33,7 @@ class DDSLeavingIbmModalBody extends BXModalBody {
     const { href } = this;
     return html`
       <p><slot></slot></p>
-      <span><slot name="supplemental"></slot></span>
+      <slot name="supplemental"></slot>
       <bx-link href="${ifNonNull(href)}">${!href ? href : new URL(href).hostname}</bx-link>
     `;
   }
