@@ -47,10 +47,22 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   private _caretRightNode?: HTMLElement;
 
   /**
+   * The `<nav>`.
+   */
+  @query(`.${prefix}--header__nav`)
+  private _navNode?: HTMLElement;
+
+  /**
    * The scrolling container.
    */
   @query(`.${ddsPrefix}-ce--header__nav-content-container`)
   private _contentContainerNode?: HTMLElement;
+
+  /**
+   * The scrolling content.
+   */
+  @query(`.${prefix}--header__nav-content`)
+  private _contentNode?: HTMLElement;
 
   /**
    * The current scroll position.
@@ -152,56 +164,72 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * Handles `click` event on the left-hand paginator button.
    */
-  private _paginateLeft() {
+  private _pagenateLeft() {
     const {
       _caretLeftNode: caretLeftNode,
+      _caretRightNode: caretRightNode,
       _contentContainerNode: contentContainerNode,
       _currentScrollPosition: currentScrollPosition,
+      _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
+      _navNode: navNode,
       _slotNode: slotNode,
     } = this;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
       const caretLeftNodeWidthAdjustment = caretLeftNode?.offsetWidth ?? 0;
+      const caretRightNodeWidthAdjustment = isIntersectionRightTrackerInContent ? caretRightNode!.offsetWidth : 0;
+      const navLeft = navNode!.getBoundingClientRect().left;
       const currentFirstVisibleElementIndex = elems.findIndex(
-        elem =>
-          elem.getBoundingClientRect().right >= contentContainerNode!.getBoundingClientRect().left + caretLeftNodeWidthAdjustment
+        elem => elem.getBoundingClientRect().left - navLeft >= currentScrollPosition
       );
-      const currentFirstVisibleElementPosition =
-        currentScrollPosition -
-        contentContainerNode!.getBoundingClientRect().right +
-        elems[currentFirstVisibleElementIndex].getBoundingClientRect().right +
-        caretLeftNodeWidthAdjustment;
-      // Ensures that is there is no blank area at the right hand side in scroll area
-      // if we see the right remainder nav items can be contained in a page
-      this._currentScrollPosition = Math.max(currentFirstVisibleElementPosition, 0);
+      const currentFirstVisibleElementPosition = elems[currentFirstVisibleElementIndex].getBoundingClientRect().left - navLeft;
+      if (
+        currentFirstVisibleElementPosition <=
+        contentContainerNode!.offsetWidth + caretLeftNodeWidthAdjustment - caretRightNodeWidthAdjustment
+      ) {
+        // Sets 0 to the position if we see the left remainder nav items can be contained in a page.
+        // This is a shortcut of left-hand pager button being hidden at position 0.
+        this._currentScrollPosition = 0;
+      } else {
+        const interimLeft =
+          currentFirstVisibleElementPosition - contentContainerNode!.offsetWidth + caretRightNodeWidthAdjustment;
+        const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().left - navLeft >= interimLeft);
+        const firstVisibleElementPosition =
+          firstVisibleElementIndex === 0 ? 0 : elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
+        this._currentScrollPosition = firstVisibleElementPosition;
+      }
     }
   }
 
   /**
    * Handles `click` event on the right-hand paginator button.
    */
-  private _paginateRight() {
+  private _pagenateRight() {
     const {
+      _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
       _contentContainerNode: contentContainerNode,
+      _contentNode: contentNode,
       _currentScrollPosition: currentScrollPosition,
+      _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
+      _navNode: navNode,
       _slotNode: slotNode,
     } = this;
-    const caretRightNodeWidthAdjustment = caretRightNode?.offsetWidth ?? 0;
-    const interimLeft = contentContainerNode!.getBoundingClientRect().right - caretRightNodeWidthAdjustment;
+    const caretLeftNodeWidthAdjustment = isIntersectionLeftTrackerInContent ? caretLeftNode!.offsetWidth : 0;
+    const caretRightNodeWidthAdjustment = caretRightNode!.offsetWidth;
+    const interimLeft = currentScrollPosition + contentContainerNode!.offsetWidth;
     const elems = slotNode?.assignedElements() as HTMLElement[];
     if (elems) {
-      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimLeft);
+      const navLeft = navNode!.getBoundingClientRect().left;
+      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right - navLeft > interimLeft);
       if (firstVisibleElementIndex > 0) {
-        const firstVisibleElementPosition =
-          elems[firstVisibleElementIndex].getBoundingClientRect().left -
-          contentContainerNode!.getBoundingClientRect().left -
-          caretRightNodeWidthAdjustment;
+        const firstVisibleElementPosition = elems[firstVisibleElementIndex].getBoundingClientRect().left - navLeft;
         // Ensures that is there is no blank area at the right hand side in scroll area
         // if we see the right remainder nav items can be contained in a page
         const maxLeft =
-          elems[elems.length - 1].getBoundingClientRect().right - contentContainerNode!.getBoundingClientRect().right;
-        this._currentScrollPosition = currentScrollPosition + Math.min(firstVisibleElementPosition, maxLeft);
+          contentNode!.scrollWidth -
+          (contentContainerNode!.offsetWidth - caretLeftNodeWidthAdjustment + caretRightNodeWidthAdjustment);
+        this._currentScrollPosition = Math.min(firstVisibleElementPosition, maxLeft);
       }
     }
   }
@@ -250,8 +278,8 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       _currentScrollPosition: currentScrollPosition,
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
-      _paginateLeft: paginateLeft,
-      _paginateRight: paginateRight,
+      _pagenateLeft: pagenateLeft,
+      _pagenateRight: pagenateRight,
     } = this;
     const caretLeftContainerClasses = classMap({
       [`${prefix}--header__nav-caret-left-container`]: true,
@@ -270,7 +298,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               tabindex="-1"
               aria-hidden="true"
               class="${prefix}--header__nav-caret-left"
-              @click="${paginateLeft}"
+              @click="${pagenateLeft}"
             >
               ${CaretLeft20()}
             </button>
@@ -299,7 +327,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
               tabindex="-1"
               aria-hidden="true"
               class="${prefix}--header__nav-caret-right"
-              @click="${paginateRight}"
+              @click="${pagenateRight}"
             >
               ${CaretRight20()}
             </button>
