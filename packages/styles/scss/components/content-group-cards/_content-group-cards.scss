@@ -20,11 +20,12 @@
   }
 
   .#{$prefix}--content-group-cards__row {
-    @include carbon--make-row;
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 1fr;
+
+    @include carbon--breakpoint(md) {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+    }
   }
 
   :host(#{$dds-prefix}-content-group-cards-item),
