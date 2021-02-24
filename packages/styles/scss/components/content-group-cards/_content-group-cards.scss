@@ -20,9 +20,14 @@
   }
 
   .#{$prefix}--content-group-cards__row {
+    margin-left: -1rem;
+    margin-right: -1rem;
+
     display: grid;
 
     @include carbon--breakpoint(md) {
+      margin-left: 0;
+      margin-right: 0;
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: 1fr;
     }
