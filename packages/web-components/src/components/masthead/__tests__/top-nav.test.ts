@@ -183,7 +183,10 @@ describe('dds-top-nav', function() {
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
-      (topNav as any)._currentScrollPosition = 90;
+      // This `_currentScrollPosition` makes the 2nd item the last visible one.
+      // Given the nav has `215px` in width, it can contain the 1st item as well as the 2nd item (`175px` combined)
+      // if the right caret is the only caret shown, and thus we can safely set `0` to the new scroll position
+      (topNav as any)._currentScrollPosition = 110;
       (topNav!.shadowRoot!.querySelector('[part="prev-button"]') as HTMLElement).click();
       await Promise.resolve();
       expect((topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement).style.left).toBe('0px');

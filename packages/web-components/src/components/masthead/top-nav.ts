@@ -181,6 +181,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   private _paginateLeft() {
     const {
+      _caretLeftNode: caretLeftNode,
       _caretRightNode: caretRightNode,
       _contentContainerNode: contentContainerNode,
       _currentScrollPosition: currentScrollPosition,
@@ -201,10 +202,11 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       );
       if (lastVisibleElementIndex >= 0) {
         const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right - navLeft;
-        this._currentScrollPosition = Math.max(
-          lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment),
-          0
-        );
+        const newScrollPosition = lastVisibleElementRight - (contentContainerNode!.offsetWidth - caretRightNodeWidthAdjustment);
+        // If the new scroll position is less than the width of the left caret button,
+        // it means that hiding the left caret button reveals the whole of the left-most nav item.
+        // Snaps the left-most nav item to the left edge of nav container in this case.
+        this._currentScrollPosition = newScrollPosition <= caretLeftNode!.offsetWidth ? 0 : newScrollPosition;
       }
     }
   }
