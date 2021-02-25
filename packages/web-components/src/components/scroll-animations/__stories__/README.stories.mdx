@@ -1,0 +1,74 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+
+# Fade In Out
+
+> Function component that handles fade transition for selected elements.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/scroll-animations)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/scroll-animations)
+
+## Getting started
+
+### Quick start
+##### (Note: Animation effect won't be noticeable unless the page is long enough to scroll through)
+
+In order to use the `<dds-scroll-animations>` component, it needs to be wrapped around the elements that need to be targeted,
+passing in a querystring containing the exact identifiers to control which elements it should target.
+
+Here's a simple example to get started:
+
+#### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/scroll-animations/scroll-animations.js'
+import '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
+```
+
+#### HTML
+
+```html
+<dds-scroll-animations animation='fade' selector-targets='.targeted-class'>
+  <div class='targeted-class'>
+    <p>This content will fade in upon scrolled into view.</p>
+  </div>
+
+  <div>
+    <p>This content is not included in the selector, it will not fade.</p>
+  </div>
+</dds-scroll-animations>
+```
+
+### CSS
+
+An optional custom delay can be set within targeted class in the application's CSS code as such:
+
+```css
+.targeted-class {
+  --dds--fade-in-out-delay: 250ms;
+}
+```
+
+### Animation Effects
+
+There are currently nine effects that can be applied in the component. 
+To use a specific animation effect, pass one of the following to the `animation` attribute (e.g. `animation='slide-left'`):
+
+* `fade`
+* `slide-up`
+* `slide-up-right`
+* `slide-right`
+* `slide-down-right`
+* `slide-down`
+* `slide-down-left`
+* `slide-left`
+* `slide-up-left`
+
+## Props
+
+<Props of="dds-scroll-animations" />
+
+<Description markdown={contributing} />

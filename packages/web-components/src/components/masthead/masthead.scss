@@ -156,15 +156,23 @@
 
   .#{$prefix}--header__nav-caret-left-container,
   .#{$prefix}--header__nav-caret-right-container {
-    position: relative;
-    flex-grow: 0;
-    flex-shrink: 0;
+    bottom: 0;
     z-index: 1;
+  }
+
+  .#{$prefix}--header__nav-caret-right-container {
+    right: 0;
+  }
+
+  .#{$prefix}--header__nav-caret-left-container {
+    left: 0;
   }
 
   .#{$prefix}--header__nav-caret-left,
   .#{$prefix}--header__nav-caret-right {
     position: relative;
+    // 40px caret width & 8px gradient
+    height: 48px;
   }
 
   .#{$dds-prefix}-ce--header__nav-caret-container--hidden {
