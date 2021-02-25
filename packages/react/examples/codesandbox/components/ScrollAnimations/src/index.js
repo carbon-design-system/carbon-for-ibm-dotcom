@@ -7,7 +7,7 @@
 
 import "./styles.scss";
 
-import { FadeInOut } from "@carbon/ibmdotcom-react";
+import { ScrollAnimations } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
 
@@ -15,7 +15,7 @@ const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-8">
-        <FadeInOut selectorTargets={'h1'}>
+        <ScrollAnimations animation={'fade'} selectorTargets={'h1'}>
           <h1>This is extra content so we can scroll!</h1>
           <h1>This is extra content so we can scroll!</h1>
           <h1>This is extra content so we can scroll!</h1>
@@ -46,7 +46,7 @@ const App = () => (
           <h1>This is extra content so we can scroll!</h1>
           <h1>This is extra content so we can scroll!</h1>
           <h1>This is extra content so we can scroll!</h1>
-        </FadeInOut>
+        </ScrollAnimations>
       </div>
     </div>
   </div>
