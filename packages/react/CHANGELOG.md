@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.16.0-rc.1...@carbon/ibmdotcom-react@1.16.1-rc.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* **masthead-search:** removed focus on first item prop ([#5292](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5292)) ([ed4ae60](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ed4ae60)), closes [#5287](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5287)
+
+
+
+
+
 # [1.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.16.0-rc.1...@carbon/ibmdotcom-react@1.16.0) (2021-02-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
