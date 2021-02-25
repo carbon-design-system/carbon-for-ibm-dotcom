@@ -79,7 +79,7 @@ const StoryContent = () => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { brandName, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -88,7 +88,7 @@ export const Default = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -99,7 +99,7 @@ export const Default = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .navLinks="${navLinks}"
@@ -110,13 +110,13 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithCustomData = ({ parameters }) => {
-  const { brandName, selectedMenuItem, userStatus } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, selectedMenuItem, userStatus } = parameters?.props?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
     <dds-masthead-composite
-      brand-name="${ifNonNull(brandName)}"
+      platform="${ifNonNull(platform)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
       user-status="${ifNonNull(userStatus)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -128,7 +128,7 @@ export const WithCustomData = ({ parameters }) => {
 };
 
 export const withL1 = ({ parameters }) => {
-  const { brandName, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -137,7 +137,7 @@ export const withL1 = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -148,7 +148,7 @@ export const withL1 = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .l1Data="${l1Data}"
@@ -160,7 +160,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 export const withAlternateLogoAndTooltip = ({ parameters }) => {
-  const { brandName, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -169,7 +169,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -181,7 +181,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .l1Data="${l1Data}"
@@ -213,7 +213,7 @@ export default {
     'carbon-theme': { disabled: true },
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        brandName: textNullable('Brand name (brand-name)', '', groupId),
+        platform: textNullable('Platform (platform)', '', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
         logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
