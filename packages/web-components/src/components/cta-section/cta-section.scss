@@ -15,18 +15,11 @@
   display: block;
 
   @include carbon--breakpoint('sm') {
-    padding-top: $carbon--layout-01;
-    grid-column: 5 / span 12;
-  }
-
-  @include carbon--breakpoint('md') {
-    padding-top: $carbon--layout-01;
-    grid-column: 1 / span 8;
+    padding-top: $carbon--layout-03;
   }
 
   @include carbon--breakpoint('lg') {
-    padding-top: $carbon--layout-04;
-    grid-column: 5 / span 12;
+    padding-top: $carbon--layout-05;
   }
 
   ::slotted([slot='action']) {
