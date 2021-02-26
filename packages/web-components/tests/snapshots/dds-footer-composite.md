@@ -7,6 +7,7 @@
 ```
 <dds-footer-composite size="">
   <dds-footer
+    aria-label="footer"
     data-autoid="dds--footer"
     role="footer"
     size=""
@@ -42,6 +43,7 @@
   size=""
 >
   <dds-footer
+    aria-label="footer"
     data-autoid="dds--footer"
     role="footer"
     size=""
