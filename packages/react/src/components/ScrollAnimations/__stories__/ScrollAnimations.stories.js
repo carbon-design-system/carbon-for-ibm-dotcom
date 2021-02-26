@@ -34,7 +34,7 @@ const selectorTargets = `
 `;
 
 export default {
-  title: 'Components|Fade In Out',
+  title: 'Components|Scroll Animations',
 
   parameters: {
     ...readme.parameters,

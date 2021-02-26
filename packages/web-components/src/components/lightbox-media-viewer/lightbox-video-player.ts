@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,6 +14,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
+import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 
 const { prefix } = settings;
@@ -31,7 +32,7 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
     return html`
-      <slot name="description">${description}</slot>
+      <slot name="description">${removeHtmlTagEntities(description)}</slot>
     `;
   }
 

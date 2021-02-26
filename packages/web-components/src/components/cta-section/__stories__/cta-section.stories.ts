@@ -138,19 +138,16 @@ export const WithLinkList = ({ parameters }) => {
 export default {
   title: 'Components/CTA Section',
   decorators: [
-    story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+    (story, { parameters }) => html`
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
   parameters: {
     hasGrid: true,
-    gridLargeColumnClass: 'bx--col-lg-8',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
+    hasVerticalSpacingInComponent: true,
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Take the next step', groupId),
