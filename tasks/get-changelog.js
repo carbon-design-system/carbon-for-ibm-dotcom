@@ -141,7 +141,9 @@ function getChangelog(pkgName, folder) {
       const choreSubject = _getCommitSubject(commitParse);
 
       chores[choreName] = chores[choreName] || [];
-      chores[choreName].push(choreSubject);
+      if (choreSubject !== 'publish') {
+        chores[choreName].push(choreSubject);
+      }
     }
   });
 
@@ -176,6 +178,14 @@ function getChangelog(pkgName, folder) {
       });
     });
     changelog += '\n';
+  }
+
+  if (
+    Object.keys(features).length === 0 &&
+    Object.keys(fixes).length === 0 &&
+    Object.keys(chores).length === 0
+  ) {
+    changelog = '';
   }
 
   return changelog;
