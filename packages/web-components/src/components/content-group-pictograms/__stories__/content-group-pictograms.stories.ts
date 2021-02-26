@@ -53,7 +53,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div>${story()}</div>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+        ${story()}
+      </div>
     `,
   ],
   parameters: {

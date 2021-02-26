@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,6 +52,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
   protected _getClassNames() {
     return classMap({
       [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+      [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
       [`${prefix}--masthead__megamenu__categories`]: true,
     });
   }

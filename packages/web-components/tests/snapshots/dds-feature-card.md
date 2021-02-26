@@ -19,7 +19,6 @@
     <slot name="heading">
     </slot>
     <div
-      aria-hidden="true"
       class="bx--card__copy"
       hidden=""
     >
@@ -56,7 +55,6 @@
       <slot name="heading">
       </slot>
       <div
-        aria-hidden="true"
         class="bx--card__copy"
         hidden=""
       >

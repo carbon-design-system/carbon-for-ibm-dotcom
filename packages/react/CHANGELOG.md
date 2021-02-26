@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.16.0-rc.1...@carbon/ibmdotcom-react@1.16.0) (2021-02-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.16.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.16.0-rc.0...@carbon/ibmdotcom-react@1.16.0-rc.1) (2021-02-17)
+
+
+### Features
+
+* **search:** allow custom url with noSearchRedirect ([#5198](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5198)) ([47b275b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/47b275b)), closes [#4845](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4845)
+
+
+
+
+
+# [1.16.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.53.48...@carbon/ibmdotcom-react@1.16.0-rc.0) (2021-02-12)
+
+
+### Bug Fixes
+
+* **masthead:** customtypeahead api fix ([#5168](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5168)) ([1603e63](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1603e63))
+
+
+
+
+
 # [1.15.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.15.0-rc.2...@carbon/ibmdotcom-react@1.15.0) (2021-01-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

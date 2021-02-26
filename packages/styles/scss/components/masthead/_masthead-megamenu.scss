@@ -136,13 +136,17 @@
       column-gap: 0;
     }
 
+    .#{$prefix}--masthead__megamenu--hasViewAllLink {
+      padding-bottom: 0;
+    }
+
     ::slotted(#{$dds-prefix}-megamenu-category-group)
       .#{$prefix}--masthead__megamenu__category-group-shield,
     .#{$prefix}--masthead__megamenu__category-group-shield {
       margin-left: -1rem;
     }
 
-    .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories {
+    .#{$prefix}--masthead__megamenu--hasHighlights {
       column-count: 3;
     }
   }
@@ -311,7 +315,6 @@
 
     :host(#{$dds-prefix}-megamenu-right-navigation),
     .#{$prefix}--masthead__megamenu__categories-section {
-      .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories,
       .#{$prefix}--masthead__megamenu__categories {
         column-count: 2;
       }
