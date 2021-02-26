@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -9,12 +9,17 @@
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-cta-section) {
+  padding-left: $carbon--layout-01;
   @include cta-section--pattern;
 
   display: block;
 
-  @include carbon--breakpoint('md') {
+  @include carbon--breakpoint('sm') {
     padding-top: $carbon--layout-03;
+  }
+
+  @include carbon--breakpoint('lg') {
+    padding-top: $carbon--layout-05;
   }
 
   ::slotted([slot='action']) {
