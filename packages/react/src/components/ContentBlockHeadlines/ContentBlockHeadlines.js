@@ -1,18 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useEffect, useRef } from 'react';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import { CTA } from '../CTA';
 import { DDS_CONTENTBLOCK_HEADLINES } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
+import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -22,38 +20,11 @@ const { prefix } = settings;
  * ContentBlockHeadlines pattern
  */
 const ContentBlockHeadlines = ({ heading, copy, items }) => {
-  const containerRef = useRef();
-
-  useEffect(() => {
-    setSameHeight();
-    root.addEventListener('resize', setSameHeight);
-
-    return () => root.removeEventListener('resize', setSameHeight);
-  }, []);
-
-  /**
-   * Function that activates the sameHeight utility
-   */
-  const setSameHeight = () => {
-    root.requestAnimationFrame(() => {
-      const { current: containerNode } = containerRef;
-      if (containerNode) {
-        sameHeight(
-          containerNode.getElementsByClassName(
-            `${prefix}--content-block-headlines__copy`
-          ),
-          'md'
-        );
-      }
-    });
-  };
-
   return featureFlag(
     DDS_CONTENTBLOCK_HEADLINES,
     <div
       data-autoid={`${stablePrefix}--content-block-headlines`}
-      className={`${prefix}--content-block-headlines`}
-      ref={containerRef}>
+      className={`${prefix}--content-block-headlines`}>
       <ContentBlock heading={heading} copy={copy} border={true}>
         <div className={`${prefix}--content-block-headlines__container`}>
           <div className={`${prefix}--content-block-headlines__row`}>
@@ -87,7 +58,12 @@ function renderItems(items) {
         <p className={`${prefix}--content-block-headlines__copy`}>
           {item.copy}
         </p>
-        {item.cta && <CTA {...item.cta} />}
+        {item.cta && (
+          <CTA
+            customClassName={`${prefix}--content-block-headlines__cta-container`}
+            {...item.cta}
+          />
+        )}
       </div>
     );
   });
