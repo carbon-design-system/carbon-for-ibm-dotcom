@@ -52,7 +52,7 @@ function renderItems(items) {
   items.forEach((item, index) => {
     headlineItems.push(
       <div className={`${prefix}--content-block-headlines__item`} key={index}>
-        <h4 className={`${prefix}--content-block-headlines__headline`}>
+        <h4 className={`${prefix}--content-block-headlines__heading`}>
           {item.headline}
         </h4>
         <p className={`${prefix}--content-block-headlines__copy`}>
