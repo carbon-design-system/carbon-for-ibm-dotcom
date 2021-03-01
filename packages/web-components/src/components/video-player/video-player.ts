@@ -123,7 +123,10 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   videoId?: string;
 
   /**
-   * The Aspect Ratio.
+   * Override default aspect ratio of 16x9`.
+   * Available aspect ratios:
+   *
+   * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
    */
   @property({ attribute: 'aspect-ratio' })
   aspectRatio?: string;
