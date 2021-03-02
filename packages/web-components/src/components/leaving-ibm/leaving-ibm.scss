@@ -19,6 +19,10 @@
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
   }
+
+  @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    max-height: 100%;
+  }
 }
 
 :host(#{$dds-prefix}-leaving-ibm-modal-heading) {
