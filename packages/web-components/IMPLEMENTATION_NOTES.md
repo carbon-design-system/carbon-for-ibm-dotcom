@@ -22,6 +22,8 @@
   - [Build procedure to generate React wrapper](#build-procedure-to-generate-react-wrapper)
     - [Limited components to generate React wrapper](#limited-components-to-generate-react-wrapper)
   - [Non-React APIs for React integration](#non-react-apis-for-react-integration)
+  - [React SSR integration](#react-ssr-integration)
+  - [Composite/container components for React](#compositecontainer-components-for-react)
 - [Container components](#container-components)
   - [Triggering action dispatcher](#triggering-action-dispatcher)
 - [Masthead search](#masthead-search)
