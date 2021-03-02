@@ -23,6 +23,8 @@ import '../cta-section-copy';
 import '../cta-section-item';
 import '../cta-section-item-heading';
 import '../cta-section-item-copy';
+import '../../cta-block/cta-block';
+import '../../content-item/content-item-heading';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -131,6 +133,42 @@ export const WithLinkList = ({ parameters }) => {
           News ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
       </dds-link-list>
+    </dds-cta-section>
+  `;
+};
+
+export const WithCTABlock = ({ parameters }) => {
+  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
+  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
+
+  return html`
+    <dds-cta-section>
+      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
+
+      <dds-button-group slot="action">
+        <dds-button-group-item target="${target}" href="https://example.com">
+          Secondary Button ${renderIcon}
+        </dds-button-group-item>
+        <dds-button-group-item target="${target}" href="https://example.com">
+          Primary button ${renderIcon}
+        </dds-button-group-item>
+      </dds-button-group>
+
+      <dds-cta-block>
+        <dds-content-item-heading>Hello there</dds-content-item-heading>
+        <p>
+          Hey there!
+        </p>
+      </dds-cta-block>
+
+      <dds-cta-block>
+        <dds-card-heading>this is our heading</dds-card-heading>
+        <dds-content-item-copy slot="copy">Lorem ipsum dolor sit amet</dds-content-item-copy>
+        <dds-link-with-icon href="https://example.com" slot="footer">
+          this is an example
+        </dds-link-with-icon>
+      </dds-cta-block>
     </dds-cta-section>
   `;
 };

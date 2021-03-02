@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import DDSContentItem from '../content-item/content-item';
@@ -29,6 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot copy - The Content Item Copy.
  * @slot footer - The link with icon content.
  */
+@customElement(`${ddsPrefix}-promo-item`)
 class DDSPromoItem extends StableSelectorMixin(DDSContentItem) {
   render() {
     return html`
@@ -56,9 +57,4 @@ class DDSPromoItem extends StableSelectorMixin(DDSContentItem) {
   static styles = styles;
 }
 
-// Define the new element
-if (DDS_PROMO_GROUP) {
-  customElements.define(`${ddsPrefix}-promo-item`, DDSPromoItem);
-}
-
-export default !DDS_PROMO_GROUP ? undefined : DDSPromoItem;
+export default DDSPromoItem;
