@@ -7,26 +7,40 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classnames from 'classnames';
 import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
 import React from 'react';
 import readme from './README.stories.react.mdx';
 import '../../dotcom-shell/dotcom-shell-container';
+import styles from './back-to-top.stories.scss';
+import Content from './data/content';
 
 export const Default = () => {
   return (
+    // @ts-ignore
     <dds-dotcom-shell-container>
-      <main>
-        <section className="bx--grid" style={{ paddingTop: '6rem', height: '220rem', position: 'relative' }}>
-          <p>scroll down</p>
-        </section>
-        <DDSBackToTop />
-      </main>
+      {Content()}
+      <DDSBackToTop />
+      {/* @ts-ignore */}
     </dds-dotcom-shell-container>
   );
 };
 
+Default.story = {};
+
 export default {
   title: 'Components/Back to top',
+  decorators: [
+    story => {
+      const classes = classnames('bx--content dds-ce-demo-devenv--ui-shell-content');
+      return (
+        <>
+          <style type="text/css">{styles.cssText}</style>
+          <div className={classes}>{story()}</div>
+        </>
+      );
+    },
+  ],
   parameters: {
     ...readme.parameters,
     hasGrid: true,

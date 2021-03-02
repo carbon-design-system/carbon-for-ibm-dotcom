@@ -8,20 +8,21 @@
  */
 
 import { html } from 'lit-element';
-// Below path will be there when an application installs `carbon-web-components` package.
-// In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-// @ts-ignore
 import '../back-to-top';
+import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
 import StoryContent from '../../dotcom-shell/__stories__/data/content';
+import styles from './back-to-top.stories.scss';
 
 export const Default = () => {
   return html`
-    <div>
+    <style>
+      ${styles}
+    </style>
+    <dds-dotcom-shell-container>
       ${StoryContent()}
       <dds-back-to-top></dds-back-to-top>
-    </div>
-    <div data-autoid="dds--footer">footer</div>
+    </dds-dotcom-shell-container>
   `;
 };
 
