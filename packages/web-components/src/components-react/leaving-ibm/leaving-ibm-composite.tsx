@@ -98,7 +98,7 @@ const DDSLeavingIbmComposite: FunctionComponent<DDSLeavingIbmCompositeProps> = (
       </BXModalHeader>
       <DDSLeavingIbmModalBody href={href}>
         <p>{leavingIbmCopy?.LEAVING002}</p>
-        <span slot="supplemental">{leavingIbmCopy?.LEAVING003}</span>
+        <slot name="supplemental">{leavingIbmCopy?.LEAVING003}</slot>
       </DDSLeavingIbmModalBody>
       <BXModalFooter>
         <BXBtn data-autoid={`${ddsPrefix}--leaving-ibm-cta`} href={href} kind={BUTTON_KIND.PRIMARY}>
