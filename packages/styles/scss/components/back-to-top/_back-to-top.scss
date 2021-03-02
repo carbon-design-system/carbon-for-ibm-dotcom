@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2020
+* Copyright IBM Corp. 2016, 2021
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -11,16 +11,28 @@
 
 @mixin back-to-top {
   :host(#{$dds-prefix}-back-to-top) {
-    position: fixed;
-    z-index: 9000;
-    bottom: $carbon--spacing-05;
-    right: $carbon--spacing-05;
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    padding-bottom: $carbon--spacing-05;
     outline: none;
 
     .#{$prefix}--back-to-top__btn {
+      border-color: $ui-background;
       border-radius: 50%;
       width: $container-02;
       height: $container-02;
+      margin-left: auto;
+      visibility: visible;
+      opacity: 1;
+      transition: all $duration--fast-02 motion(standard, productive);
+    }
+
+    &[hidden] {
+      .#{$prefix}--back-to-top__btn {
+        visibility: hidden;
+        opacity: 0;
+      }
     }
   }
 }

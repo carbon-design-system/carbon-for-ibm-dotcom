@@ -1,5 +1,6 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
 
 # Back to top
 
@@ -17,6 +18,14 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/back-to-top/back-to-top.js';
+
+function App() {
+  return (
+    <main id="example-main-content">
+      <dds-back-to-top></dds-back-to-top>
+    </main>
+  );
+}
 ```
 
 ### HTML
@@ -29,7 +38,7 @@ The `<dds-back-to-top>` component is set to position itself above `<dds-footer>`
 
 ## Props
 
-<Props of="dds-back-to-top" />
+<Props of={PropTypesRef} />
 
 ## Stable selectors
 

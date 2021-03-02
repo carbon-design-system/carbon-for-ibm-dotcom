@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, internalProperty, query } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import UpToTop20 from 'carbon-web-components/es/icons/up-to-top/20.js';
-import DDSButton from '../button/button';
+import StableSelectorMixin from '../../globals/mixins/stable-selector';
+// import './back-to-top-button';
 import styles from './back-to-top.scss';
 
 const { prefix } = settings;
@@ -23,25 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-back-to-top
  */
 @customElement(`${ddsPrefix}-back-to-top`)
-class DDSBackToTop extends DDSButton {
-  /**
-   * Footer component
-   */
-  @internalProperty()
-  private _hasFooter = false;
-
-  /**
-   * Position to set button active(200 (default))
-   */
-  @property({ attribute: 'active-when', reflect: true })
-  activeWhen = 200;
-
-  /**
-   * `false` if the button should be visible
-   */
-  @property({ type: Boolean, reflect: true })
-  hidden = true;
-
+class DDSBackToTop extends StableSelectorMixin(LitElement) {
   /**
    * The document height
    */
@@ -52,6 +35,17 @@ class DDSBackToTop extends DDSButton {
    */
   private _windowHeight: any | null = null;
 
+  /**
+   * Button click scrolls to top
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _handleOnClick() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /**
+   * Button visible when one full page length is scrolled if _showBackToTop is true
+   */
   private _handleOnScroll() {
     if (this._showBackToTop()) {
       if (document.body.scrollTop > this._windowHeight || document.documentElement.scrollTop > this._windowHeight) {
@@ -60,10 +54,6 @@ class DDSBackToTop extends DDSButton {
         this.hidden = true;
       }
     }
-  }
-
-  private _handleOnClick() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /**
@@ -75,19 +65,18 @@ class DDSBackToTop extends DDSButton {
 
   firstUpdated() {
     const doc = this.getRootNode() as Document;
-    const { customBottomPosition } = this.constructor as typeof DDSBackToTop;
-    this._hasFooter = !!doc.querySelector(`[data-autoid="${ddsPrefix}--footer"]`);
-  }
-
-  updated() {
-    const doc = this.getRootNode() as Document;
     this._bodyHeight = doc.documentElement.scrollHeight;
     this._windowHeight = doc.documentElement.clientHeight;
     window.onscroll = this._handleOnScroll.bind(this);
   }
 
+  /**
+   * `false` if the button should be visible
+   */
+  @property({ type: Boolean, reflect: true })
+  hidden = true;
+
   render() {
-    const { customBottomPosition } = this.constructor as typeof DDSBackToTop;
     const { _handleOnClick: handleOnClick } = this;
     return html`
       <button
@@ -99,12 +88,8 @@ class DDSBackToTop extends DDSButton {
     `;
   }
 
-  static get customBottomPosition() {
-    return `--${ddsPrefix}--back-to-top--bottom-position`;
-  }
-
   static get stableSelector() {
-    return `${ddsPrefix}--back-to-top-button`;
+    return `${ddsPrefix}--back-to-top`;
   }
 
   static styles = styles;
