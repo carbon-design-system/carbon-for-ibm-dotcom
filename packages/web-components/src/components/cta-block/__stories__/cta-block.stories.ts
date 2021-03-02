@@ -19,10 +19,7 @@ import '../../content-item/content-item-heading';
 export const Default = ({ parameters }) => {
   return html`
     <dds-cta-block>
-      <dds-content-item-heading>Hello there</dds-content-item-heading>
-      <p>
-        Hey there!
-      </p>
+      <span>How are you guys doing?</span>
     </dds-cta-block>
   `;
 };
