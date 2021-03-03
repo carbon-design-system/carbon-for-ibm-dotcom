@@ -15,11 +15,12 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/card';
 import '../../card/card-footer';
 import '../../card/card-heading';
-import '../../content-section/content-section';
 import '../../content-section/content-section-copy';
 import '../../content-section/content-section-heading';
 import '../../link-with-icon/link-with-icon';
 import '../../carousel/carousel';
+import '../card-section-carousel';
+import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
@@ -43,7 +44,7 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 export const Default = ({ parameters }) => {
   const { pageSize } = parameters?.props?.Carousel ?? {};
   return html`
-    <dds-content-section>
+    <dds-card-section-carousel>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
       <dds-content-section-copy>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -54,7 +55,7 @@ export const Default = ({ parameters }) => {
       <dds-carousel page-size="${ifNonNull(pageSize)}">
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
       </dds-carousel>
-    </dds-content-section>
+    </dds-card-section-carousel>
   `;
 };
 
@@ -62,6 +63,9 @@ export default {
   title: 'Components/Card Section - Carousel',
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-section">
         ${story()}
       </div>

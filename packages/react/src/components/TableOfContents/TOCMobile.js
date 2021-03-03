@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -92,7 +92,7 @@ const renderOptions = (options, label) => {
       return (
         <option
           className={`${prefix}--tableofcontents__mobile__select__option`}
-          data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
+          data-autoid={`${stablePrefix}--tableofcontents__mobile__select__option-${option.id}`}
           key={index}
           value={option.id}
           defaultValue={index === 0}
