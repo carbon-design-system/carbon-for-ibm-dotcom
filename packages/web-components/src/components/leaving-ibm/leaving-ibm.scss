@@ -16,6 +16,8 @@
 :host(#{$dds-prefix}-leaving-ibm-modal) {
   @extend :host(#{$prefix}-modal);
 
+  max-height: 100%;
+
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
   }
