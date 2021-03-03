@@ -52,9 +52,7 @@ const Content = () => (
                     <option
                       className="bx--tableofcontents__mobile__select__option"
                       data-autoid="dds--tableofcontents__mobile__select__option-menuLabel"
-                      value="menuLabel"
-                      disabled=""
-                      hidden="">
+                      value="menuLabel">
                       Jump to ...
                     </option>
                     <option
@@ -120,7 +118,6 @@ const Content = () => (
           </div>
           <div className="bx--tableofcontents__content bx--col-lg-12">
             <div className="bx--tableofcontents__content-wrapper">
-              <a name="section-1" data-title="Lorem ipsum dolor sit amet"></a>
               <section data-autoid="dds--layout" className="bx--grid">
                 <div className="bx--row">
                   <div className="bx--layout-2-3">
@@ -251,8 +248,6 @@ const Content = () => (
                               <li className="bx--buttongroup-item">
                                 <a
                                   data-autoid="dds--button-group-0"
-                                  copy="Excepteur sint occaecat"
-                                  tabindex="0"
                                   className="bx--btn bx--btn--primary"
                                   href="https://example.com/">
                                   Excepteur sint occaecat
@@ -281,7 +276,6 @@ const Content = () => (
                   </div>
                 </div>
               </section>
-              <a name="section-2" data-title="Pharetra pharetra massa massa ultricies mi quis."></a>
               <div data-autoid="dds--content-block-segmented" className="bx--content-block-segmented">
                 <div data-autoid="dds--content-block" className="bx--content-block">
                   <div>
@@ -479,7 +473,6 @@ const Content = () => (
                   </div>
                 </section>
               </div>
-              <a name="section-4" data-title="Tincidunt ornare massa"></a>
               <div data-autoid="dds--content-group-horizontal" className="bx--content-group-horizontal">
                 <div data-autoid="dds--content-block" className="bx--content-block">
                   <div>
@@ -681,12 +674,7 @@ const Content = () => (
             <div className="bx--cta-section__cta bx--fade-out">
               <ol className="bx--buttongroup" data-autoid="dds--button-group">
                 <li className="bx--buttongroup-item">
-                  <a
-                    data-autoid="dds--button-group-0"
-                    copy="Contact sales"
-                    tabindex="0"
-                    className="bx--btn bx--btn--primary"
-                    href="https://example.com/">
+                  <a data-autoid="dds--button-group-0" className="bx--btn bx--btn--primary" href="https://example.com/">
                     Contact sales
                     <svg
                       focusable="false"

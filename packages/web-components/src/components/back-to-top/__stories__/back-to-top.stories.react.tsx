@@ -15,7 +15,7 @@ import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/b
 import React from 'react';
 import readme from './README.stories.react.mdx';
 import styles from './back-to-top.stories.scss';
-import Content from './data/content.tsx';
+import Content from './data/content';
 
 export const Default = () => {
   return (
