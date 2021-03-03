@@ -14,18 +14,15 @@ import classnames from 'classnames';
 import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
 import React from 'react';
 import readme from './README.stories.react.mdx';
-import '../../dotcom-shell/dotcom-shell-container';
 import styles from './back-to-top.stories.scss';
 import Content from './data/content';
 
 export const Default = () => {
   return (
-    // @ts-ignore
-    <dds-dotcom-shell-container>
+    <>
       {Content()}
       <DDSBackToTop />
-      {/* @ts-ignore */}
-    </dds-dotcom-shell-container>
+    </>
   );
 };
 
