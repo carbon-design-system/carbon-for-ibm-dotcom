@@ -487,6 +487,13 @@ class DDSMastheadComposite extends LitElement {
   platform!: string;
 
   /**
+   * The brand name.
+   * @deprecated brandName use platform instead
+   */
+  @property({ attribute: 'brand-name' })
+  brandName!: string;
+
+  /**
    * The search results to show in the UI.
    */
   @property({ attribute: false })
@@ -597,6 +604,11 @@ class DDSMastheadComposite extends LitElement {
         this._setLanguage?.(language);
         this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
+    }
+    if (changedProperties.has('brandName')) {
+      this.platform = this.brandName;
+      // eslint-disable-next-line no-console
+      console.warn('`brand-name` will be deprecated in the future use `platform` instead.');
     }
   }
 
