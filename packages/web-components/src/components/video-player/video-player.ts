@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -121,6 +122,15 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   @property({ attribute: 'video-id' })
   videoId?: string;
 
+  /**
+   * Override default aspect ratio of `16x9`.
+   * Available aspect ratios:
+   *
+   * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
+   */
+  @property({ attribute: 'aspect-ratio' })
+  aspectRatio?: string;
+
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
@@ -129,9 +139,15 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { duration, formatCaption, formatDuration, hideCaption, name } = this;
+    const { aspectRatio, duration, formatCaption, formatDuration, hideCaption, name } = this;
+
+    const aspectRatioClass = classMap({
+      [`${prefix}--video-player__video-container`]: true,
+      [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: !!aspectRatio,
+    });
+
     return html`
-      <div class="${prefix}--video-player__video-container">
+      <div class="${aspectRatioClass}">
         ${this._renderContent()}
       </div>
       ${hideCaption
