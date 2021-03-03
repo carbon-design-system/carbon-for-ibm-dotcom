@@ -8,7 +8,7 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import cx from 'classnames';
+import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -141,8 +141,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   render() {
     const { aspectRatio, duration, formatCaption, formatDuration, hideCaption, name } = this;
 
-    const aspectRatioClass = cx({
-      [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
+    const aspectRatioClass = classMap({
+      [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: !!aspectRatio,
     });
 
     return html`
