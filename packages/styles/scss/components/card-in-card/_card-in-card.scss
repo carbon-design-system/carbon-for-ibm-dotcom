@@ -1,0 +1,118 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+ @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+ @import '../../globals/vars';
+ @import '../../globals/imports';
+ @import '../../globals/utils/aspect-ratio';
+ @import '../../globals/utils/hang';
+ @import '../image/image';
+ @import '../card/index';
+
+ @mixin card-in-card {
+   :host(#{$dds-prefix}-card-in-card),
+   .#{$prefix}--card-in-card {
+ 
+     .#{$prefix}--card {
+       display: block;
+
+       &:focus {
+         outline-width: 3px;
+         outline-offset: 1px;
+       }
+
+       @include carbon--breakpoint('lg') {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         flex-direction: row;
+       }
+ 
+       ::slotted([slot='image']),
+       .#{$prefix}--image {
+
+         @include carbon--breakpoint('lg') {
+           position: relative;
+           border: 2px solid red;
+         }
+       }
+ 
+       .#{$prefix}--image {
+         overflow-y: hidden;
+       }
+     }
+ 
+     .#{$prefix}--card__wrapper {
+       background-color: $ui-01;
+       min-height: carbon--rem(220px);
+       height: auto;
+       padding: $spacing-05;
+       border: 1px solid blue;
+
+       @include carbon--breakpoint('lg') {
+         position: absolute;
+         bottom: 0;
+         right: 0;
+       }
+ 
+       .#{$prefix}--card__eyebrow,
+       .#{$prefix}--card__heading,
+       ::slotted(#{$dds-prefix}-card-eyebrow),
+       ::slotted(#{$dds-prefix}-card-heading) {
+         width: 100%;
+
+         @include carbon--breakpoint('md') {
+           width: 90%;
+         }
+       }
+ 
+       .#{$prefix}--card__content {
+         padding: 0;
+       }
+ 
+       .#{$prefix}--card__eyebrow,
+       ::slotted(#{$dds-prefix}-card-eyebrow) {
+        @include carbon--type-style('label-01');
+
+        margin-bottom: $carbon--spacing-03;
+        color: $text-02;
+       }
+ 
+       .#{$prefix}--card__heading,
+       ::slotted(#{$dds-prefix}-card-heading) {
+         @include carbon--type-style('expressive-heading-03', true);
+
+         margin-bottom: $spacing-07;
+       }
+     }
+ 
+     .#{$prefix}--card__footer {
+       flex-direction: row;
+     }
+   }
+
+ }
+ 
+ .#{$prefix}--card-in-card__container {
+   color: $text-01;
+   background: $ui-background;
+   position: relative;
+   height: 100%;
+   @include hang;
+   padding-top: aspect-ratio(4, 3);
+
+   @include carbon--breakpoint('lg') {
+     padding-top: aspect-ratio(16, 9);
+   }
+ }
+ 
+ @include exports('card-in-card') {
+   @include card-in-card;
+ }
+ 
