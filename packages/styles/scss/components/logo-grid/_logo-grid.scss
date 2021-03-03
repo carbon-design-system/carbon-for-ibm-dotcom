@@ -15,7 +15,7 @@
 @mixin logo-grid {
   .#{$prefix}--logo-grid,
   :host(#{$dds-prefix}-logo-grid) {
-    padding: $spacing-03;
+    padding: $spacing-05;
 
     .#{$prefix}--content-block {
       padding-top: 0;
