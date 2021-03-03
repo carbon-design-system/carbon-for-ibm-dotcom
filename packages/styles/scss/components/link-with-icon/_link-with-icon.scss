@@ -85,6 +85,7 @@
     }
   }
 
+  :host(#{$dds-prefix}-link-with-icon),
   .#{$prefix}--link-with-icon__container {
     display: table;
 
