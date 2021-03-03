@@ -95,10 +95,11 @@ class DDSMastheadComposite extends LitElement {
         ? html`
             <dds-top-nav-l1>
               ${menuItems.map((elem, i) => {
+                const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
                 return elem.menuItems
                   ? html`
                       <dds-top-nav-menu
-                        ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
+                        ?active="${selected}"
                         menu-label="${elem.title}"
                         trigger-content="${elem.title}"
                         data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
@@ -116,7 +117,7 @@ class DDSMastheadComposite extends LitElement {
                     `
                   : html`
                       <dds-top-nav-item
-                        ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
+                        ?active="${selected}"
                         href="${elem.url}"
                         title="${elem.title}"
                         data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
@@ -125,11 +126,12 @@ class DDSMastheadComposite extends LitElement {
               })}
             </dds-top-nav-l1>
           `
-        : menuItems.map((elem, i) =>
-            elem.menuItems
+        : menuItems.map((elem, i) => {
+            const selected = selectedMenuItem && elem.titleEnglish === selectedMenuItem;
+            return elem.menuItems
               ? html`
                   <dds-left-nav-menu
-                    ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
+                    ?active="${selected}"
                     title="${elem.title}"
                     data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
                   >
@@ -146,13 +148,13 @@ class DDSMastheadComposite extends LitElement {
                 `
               : html`
                   <dds-left-nav-item
-                    ?active="${selectedMenuItem && elem.titleEnglish === selectedMenuItem}"
+                    ?active="${selected}"
                     href="${elem.url}"
                     title="${elem.title}"
                     data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
                   ></dds-left-nav-item>
-                `
-          );
+                `;
+          });
     }
 
     return undefined;
@@ -358,6 +360,7 @@ class DDSMastheadComposite extends LitElement {
       ? undefined
       : navLinks.map((link, i) => {
           const { menuSections = [], title, titleEnglish, url } = link;
+          const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
           let sections;
           let mobileSections;
           if (link.hasMegapanel) {
@@ -389,7 +392,7 @@ class DDSMastheadComposite extends LitElement {
             if (sections.length === 0) {
               return html`
                 <dds-top-nav-item
-                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                  ?active="${selected}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -399,7 +402,7 @@ class DDSMastheadComposite extends LitElement {
             if (link.hasMegapanel) {
               return html`
                 <dds-megamenu-top-nav-menu
-                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                  ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -410,7 +413,7 @@ class DDSMastheadComposite extends LitElement {
             }
             return html`
               <dds-top-nav-menu
-                ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
                 data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
@@ -422,7 +425,7 @@ class DDSMastheadComposite extends LitElement {
           return sections.length === 0
             ? html`
                 <dds-left-nav-item
-                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                  ?active="${selected}"
                   href="${url}"
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
@@ -430,7 +433,7 @@ class DDSMastheadComposite extends LitElement {
               `
             : html`
                 <dds-left-nav-menu
-                  ?active="${selectedMenuItem && titleEnglish === selectedMenuItem}"
+                  ?active="${selected}"
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
                 >
@@ -672,7 +675,7 @@ class DDSMastheadComposite extends LitElement {
             )}
           </dds-masthead-profile>
         </dds-masthead-global-bar>
-        ${!l1Data ? undefined : this._renderL1()}
+        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
