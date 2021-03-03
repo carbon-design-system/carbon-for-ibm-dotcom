@@ -142,11 +142,12 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
     const { aspectRatio, duration, formatCaption, formatDuration, hideCaption, name } = this;
 
     const aspectRatioClass = classMap({
+      [`${prefix}--video-player__video-container`]: true,
       [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: !!aspectRatio,
     });
 
     return html`
-      <div class="${prefix}--video-player__video-container ${aspectRatioClass}">
+      <div class="${aspectRatioClass}">
         ${this._renderContent()}
       </div>
       ${hideCaption
