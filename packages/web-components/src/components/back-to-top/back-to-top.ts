@@ -30,6 +30,11 @@ interface Cancelable {
 @customElement(`${ddsPrefix}-back-to-top`)
 class DDSBackToTop extends HostListenerMixin(LitElement) {
   /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
    * The document height
    */
   private _bodyHeight!: number;
@@ -66,6 +71,31 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   }
 
   /**
+   * Cleans-up and creats the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._observeResizeRoot);
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+    }
+    // }
+  }
+
+  private _observeResizeRoot = () => {
+    this._bodyHeight = this.ownerDocument!.documentElement.scrollHeight;
+    this._windowHeight = this.ownerDocument!.documentElement.clientHeight;
+  };
+
+  /**
    * Show button only when document height is 3x greater than viewport
    */
   private _showBackToTop() {
@@ -86,6 +116,7 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
 
   connectedCallback() {
     super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
     if (!this._throttleScroll) {
       this._throttleScroll = throttle(this._handleOnScroll, 250);
     }
@@ -93,6 +124,7 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this._cleanAndCreateObserverResize();
     if (this._throttleScroll) {
       this._throttleScroll.cancel();
       this._throttleScroll = null;
@@ -100,9 +132,7 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   }
 
   firstUpdated() {
-    const doc = this.ownerDocument;
-    this._bodyHeight = doc.documentElement.scrollHeight;
-    this._windowHeight = doc.documentElement.clientHeight;
+    this._cleanAndCreateObserverResize({ create: true });
   }
 
   render() {
@@ -124,4 +154,5 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSBackToTop;
