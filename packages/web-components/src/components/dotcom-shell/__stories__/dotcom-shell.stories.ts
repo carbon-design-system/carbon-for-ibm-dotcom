@@ -49,7 +49,7 @@ const footerSizes = {
 };
 
 export const Default = ({ parameters }) => {
-  const { brandName, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { platform, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { langDisplay, language, size: footerSize, legalLinks, links: footerLinks, localeList } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
@@ -60,7 +60,7 @@ export const Default = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             footer-size="${ifNonNull(footerSize)}"
@@ -77,7 +77,7 @@ export const Default = ({ parameters }) => {
         `
       : html`
           <dds-dotcom-shell-container
-            brand-name="${ifNonNull(brandName)}"
+            platform="${ifNonNull(platform)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             footer-size="${ifNonNull(footerSize)}"
@@ -113,7 +113,7 @@ export default {
     useRawContainer: true,
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        brandName: textNullable('Brand name (brand-name)', '', groupId),
+        platform: textNullable('Platform (platform)', '', groupId),
         logoHref: 'https://www.ibm.com',
       }),
       FooterComposite: ({ groupId }) => ({
