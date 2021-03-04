@@ -88,7 +88,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderHeading() {
     const { title } = this;
     return html`
-      <slot name="heading">${title}</slot>
+      <slot @slotchange="${this._handleSlotChange}" name="heading">${title}</slot>
     `;
   }
 
@@ -107,6 +107,22 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return html`
       <slot name="image"></slot>
     `;
+  }
+
+  /**
+   * Handler for @slotChange, changes the size property for dds-leadspace-heading
+   *
+   * @private
+   */
+  private _handleSlotChange(event: Event) {
+    const { headingSelector } = this.constructor as typeof DDSLeadSpace;
+    const headingComponent = ((event.target as HTMLSlotElement)
+      .assignedNodes({ flatten: true })
+      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(headingSelector)) as Element[])[0];
+
+    if (headingComponent) {
+      headingComponent.setAttribute('size', this.size);
+    }
   }
 
   /**
@@ -198,6 +214,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
         </div>
       </section>
     `;
+  }
+
+  static get headingSelector() {
+    return `${ddsPrefix}-leadspace-heading`;
   }
 
   static get stableSelector() {
