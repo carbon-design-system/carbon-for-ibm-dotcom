@@ -125,7 +125,6 @@ const App = () => (
             },
           ]}
           cta={{
-            type: "feature",
             heading: "Feature Card",
             card: {
               heading: "Consectetur adipisicing elit",
