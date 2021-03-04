@@ -11,7 +11,7 @@ import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME } from './defs';
+import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -56,6 +56,15 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
       [`${prefix}--leadspace--centered__image`]: this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
       [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
       [`${prefix}--leadspace__section`]: true,
+    });
+  }
+
+  /**
+   * Returns a class-name based on the size parameter size
+   */
+  protected _getSizeClass() {
+    return classMap({
+      [`${prefix}--leadspace--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
     });
   }
 

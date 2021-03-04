@@ -15,6 +15,7 @@ import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 /* eslint-disable import/no-duplicates */
 import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
+
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../leadspace';
 /* eslint-enable import/no-duplicates */
@@ -32,6 +33,11 @@ const gradientStyleSchemes = {
   [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
+
+// const sizes = {
+//   [`Regular size`]: null,
+//   [`Medium (${LEADSPACE_SIZE.MEDIUM})`]: LEADSPACE_SIZE.MEDIUM,
+// };
 
 export const DefaultWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
@@ -208,6 +214,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
+        // size: select('Modal size (size)', size, null, groupId),
         title: text('title (title):', 'Lead space title', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
