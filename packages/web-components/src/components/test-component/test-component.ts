@@ -13,7 +13,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { DDS_TEST_COMPONENT } from '../../globals/internal/feature-flags';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
 /**
  * Test Component
  *
@@ -28,10 +27,6 @@ class DDSTestComponent extends StableSelectorMixin(LitElement) {
       </div>
     `;
   }
-}
-
-if (DDS_TEST_COMPONENT) {
-  customElements.define(`${ddsPrefix}-test-component`, DDSTestComponent);
 }
 
 export default !DDS_TEST_COMPONENT ? undefined : DDSTestComponent;
