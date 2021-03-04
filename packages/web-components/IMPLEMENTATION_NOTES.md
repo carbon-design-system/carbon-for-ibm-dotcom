@@ -17,6 +17,7 @@
   - [Components rendering modal](#components-rendering-modal)
 - [CTA components](#cta-components)
   - [Video CTA](#video-cta)
+- [Video player](#video-player)
 - [React integration](#react-integration)
   - [React wrapper generator](#react-wrapper-generator)
   - [Build procedure to generate React wrapper](#build-procedure-to-generate-react-wrapper)
