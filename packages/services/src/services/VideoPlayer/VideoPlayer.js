@@ -15,8 +15,9 @@ import root from 'window-or-global';
  * @private
  */
 const _partnerId =
-  process.env.REACT_APP_KALTURA_PARTNER_ID ||
-  process.env.KALTURA_PARTNER_ID ||
+  (process &&
+    (process.env.REACT_APP_KALTURA_PARTNER_ID ||
+      process.env.KALTURA_PARTNER_ID)) ||
   1773841;
 
 /**
@@ -26,8 +27,9 @@ const _partnerId =
  * @private
  */
 const _uiConfId =
-  process.env.REACT_APP_KALTURA_UICONF_ID ||
-  process.env.KALTURA_UICONF_ID ||
+  (process &&
+    (process.env.REACT_APP_KALTURA_UICONF_ID ||
+      process.env.KALTURA_UICONF_ID)) ||
   27941801;
 
 /**
