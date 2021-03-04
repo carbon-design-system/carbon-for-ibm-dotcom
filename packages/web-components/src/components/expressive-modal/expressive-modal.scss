@@ -17,6 +17,10 @@
     @extend :host(#{$prefix}-modal[open]);
   }
 
+  &:not([open]) {
+    display: none;
+  }
+
   &[expressive-size='full-width'] {
     .#{$prefix}--modal-container {
       width: calc(100% - 2rem);
