@@ -486,11 +486,18 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The platform name.
    */
-  @property({ attribute: 'platform' })
+  @property()
   platform!: string;
 
   /**
+   * The platform url.
+   */
+  @property({ attribute: 'platform-url' })
+  platformUrl?: string;
+
+  /**
    * The brand name.
+   *
    * @deprecated brandName use platform instead
    */
   @property({ attribute: 'brand-name' })
@@ -621,6 +628,7 @@ class DDSMastheadComposite extends LitElement {
       authenticatedProfileItems,
       currentSearchResults,
       platform,
+      platformUrl,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -643,7 +651,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name>${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
         ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
@@ -659,7 +667,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform
           ? undefined
           : html`
-              <dds-top-nav-name>${platform}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined
