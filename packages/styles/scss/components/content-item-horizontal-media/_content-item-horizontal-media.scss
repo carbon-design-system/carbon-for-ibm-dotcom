@@ -88,7 +88,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-media) .#{$prefix}--content-item__cta,
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
     margin-top: auto;
 
@@ -191,12 +192,9 @@
             @include carbon--make-col(7, 10);
           }
         }
-
       }
     }
-
   }
-
 }
 
 @include exports('content-item-horizontal-media') {
