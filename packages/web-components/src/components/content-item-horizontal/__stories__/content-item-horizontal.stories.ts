@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../image/image';
@@ -32,12 +32,12 @@ const types = {
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
 };
 
-const media_align = {
+const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
   [`Right`]: MEDIA_ALIGN.RIGHT,
 };
 
-const media_type = {
+const mediaType = {
   [`Image`]: MEDIA_TYPE.IMAGE,
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
@@ -72,15 +72,15 @@ export const Default = ({ parameters }) => {
 
 export const WithMedia = ({ parameters }) => {
   const { align, type, alt, eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
-  parameters?.props?.ContentItemHorizontal ?? {};
+    parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media align="${align}">
-      ${type == MEDIA_TYPE.IMAGE
+      ${type === MEDIA_TYPE.IMAGE
         ? html`
             <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
           `
         : null}
-      ${type == MEDIA_TYPE.VIDEO
+      ${type === MEDIA_TYPE.VIDEO
         ? html`
             <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
           `
@@ -123,8 +123,8 @@ export default {
     hasGrid: true,
     knobs: {
       ContentItemHorizontal: () => ({
-        align: select('Alignment', media_align, MEDIA_ALIGN.LEFT),
-        type: select('Media type', media_type, MEDIA_TYPE.IMAGE),
+        align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
+        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
