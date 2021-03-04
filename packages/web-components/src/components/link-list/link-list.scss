@@ -75,7 +75,6 @@
       border-bottom: 1px solid $ui-03;
       margin-top: -1px;
       margin-left: -$carbon--layout-01;
-      margin-right: 0;
       --#{$dds-prefix}--link-list-item--anchor-padding: #{$carbon--spacing-05};
     }
   }
@@ -106,7 +105,7 @@
       ::slotted(#{$dds-prefix}-link-list-item) {
         display: block;
         margin-left: -$carbon--layout-01;
-        margin-right: -$carbon--layout-01;
+        margin-right: 0;
       }
     }
   }
