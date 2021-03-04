@@ -27,15 +27,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-region-item`)
 class DDSRegionItem extends HostListenerMixin(BXLink) {
-  /**
-   * Handles 'click' event on this element.
-   *
-   * @param event The event.
-   */
   @HostListener('click')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   // eslint-disable-next-line class-methods-use-this
-  private _handleClick(event: MouseEvent) {
+  protected _handleClick(event: MouseEvent) {
     event.preventDefault();
   }
 
