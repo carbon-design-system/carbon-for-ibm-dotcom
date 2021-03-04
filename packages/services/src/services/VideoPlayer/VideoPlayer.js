@@ -14,7 +14,10 @@ import root from 'window-or-global';
  * @type {number}
  * @private
  */
-const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+const _partnerId =
+  process.env.REACT_APP_KALTURA_PARTNER_ID ||
+  process.env.KALTURA_PARTNER_ID ||
+  1773841;
 
 /**
  * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
@@ -22,7 +25,10 @@ const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
  * @type {number}
  * @private
  */
-const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
+const _uiConfId =
+  process.env.REACT_APP_KALTURA_UICONF_ID ||
+  process.env.KALTURA_UICONF_ID ||
+  27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
@@ -119,8 +125,8 @@ let videoData = {};
  * In order to set the Partner ID/UIConf ID, set the following environment
  * variables:
  *
- * - KALTURA_PARTNER_ID
- * - KALTURA_UICONF_ID
+ * - KALTURA_PARTNER_ID (or REACT_APP_KALTURA_PARTNER_ID)
+ * - KALTURA_UICONF_ID (or REACT_APP_KALTURA_UICONF_ID)
  */
 class VideoPlayerAPI {
   /**
