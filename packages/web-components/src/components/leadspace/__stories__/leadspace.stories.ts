@@ -28,21 +28,22 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import { LEADSPACE_SIZE } from '../defs';
 
 const gradientStyleSchemes = {
   [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-// const sizes = {
-//   [`Regular size`]: null,
-//   [`Medium (${LEADSPACE_SIZE.MEDIUM})`]: LEADSPACE_SIZE.MEDIUM,
-// };
+const sizes = {
+  [`Regular size`]: null,
+  [`Medium (${LEADSPACE_SIZE.MEDIUM})`]: LEADSPACE_SIZE.MEDIUM,
+};
 
 export const DefaultWithNoImage = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace size="${size}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -59,9 +60,10 @@ export const DefaultWithNoImage = ({ parameters }) => {
 };
 
 export const DefaultWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
+      size="${size}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
@@ -86,9 +88,9 @@ export const DefaultWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace type="centered">
+    <dds-leadspace size="${size}" type="centered">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -105,9 +107,10 @@ export const Centered = ({ parameters }) => {
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
+      size="${size}"
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
@@ -133,9 +136,9 @@ export const CenteredWithImage = ({ parameters }) => {
 };
 
 export const Small = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
+    <dds-leadspace size="${size}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -152,9 +155,15 @@ export const Small = ({ parameters }) => {
 };
 
 export const SmallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
+    <dds-leadspace
+      size="${size}"
+      ?gradient="${ifNonNull(gradient)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      type="small"
+    >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -251,6 +260,7 @@ export default {
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+        size: select('Leadspace Size', sizes, LEADSPACE_SIZE.MEDIUM, groupId),
       }),
     },
   },

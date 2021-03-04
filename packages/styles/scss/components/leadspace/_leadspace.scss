@@ -93,6 +93,10 @@ $btn-min-width: 26;
     padding-top: $carbon--layout-01;
   }
 
+  :host(#{$dds-prefix}-leadspace)[size='medium'] {
+    background: #fff000;
+  }
+
   :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--leadspace--content__container {

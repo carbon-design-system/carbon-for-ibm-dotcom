@@ -145,6 +145,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   type = LEADSPACE_TYPE.LEFT;
 
+  @property({ reflect: true })
+  size = LEADSPACE_SIZE.NONE;
+
   render() {
     const { gradientStyleScheme, type } = this;
     return html`
