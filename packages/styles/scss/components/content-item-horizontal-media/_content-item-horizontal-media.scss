@@ -8,8 +8,8 @@
 @import '../../globals/imports';
 @import '../link-list/index';
 
-@mixin content-item-horizontal {
-  :host(#{$dds-prefix}-content-item-horizontal),
+@mixin content-item-horizontal-media {
+  :host(#{$dds-prefix}-content-item-horizontal-media),
   .#{$prefix}--content-item-horizontal__item {
     @include carbon--make-row;
 
@@ -88,7 +88,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
+  :host(#{$dds-prefix}-content-item-horizontal-media) .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
     margin-top: auto;
 
@@ -111,50 +111,94 @@
 
     width: 100%;
     min-height: 160px;
-  }
 
-  .#{$prefix}--content-item-horizontal__col {
-    flex-direction: column;
+    .#{$prefix}--content-item-horizontal__col {
+      flex-direction: column;
 
-    @include carbon--make-col-ready;
+      @include carbon--make-col-ready;
 
-    &:first-of-type {
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
+      &:first-of-type {
+        @include carbon--breakpoint(sm) {
+          @include carbon--make-col(4, 4);
+        }
+
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(6, 8);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(7, 10);
+        }
       }
 
-      @include carbon--breakpoint(md) {
-        @include carbon--make-col(4, 8);
-      }
+      &:last-of-type {
+        @include carbon--breakpoint(sm) {
+          @include carbon--make-col(4, 4);
 
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(4, 10);
+          display: flex;
+        }
+
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(2, 8);
+
+          display: flex;
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(3, 10);
+
+          display: flex;
+        }
       }
     }
 
-    &:last-of-type {
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
+    &.#{$prefix}--content-item-horizontal-media__align-right {
+      .#{$prefix}--content-item-horizontal__col {
+        flex-direction: column;
 
-        display: flex;
-      }
+        @include carbon--make-col-ready;
 
-      @include carbon--breakpoint(md) {
-        @include carbon--make-col(4, 8);
+        &:first-of-type {
+          @include carbon--breakpoint(sm) {
+            @include carbon--make-col(4, 4);
 
-        display: flex;
-      }
+            display: flex;
+          }
 
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(6, 10);
+          @include carbon--breakpoint(md) {
+            @include carbon--make-col(2, 8);
 
-        display: flex;
+            display: flex;
+          }
+
+          @include carbon--breakpoint(lg) {
+            @include carbon--make-col(3, 10);
+
+            display: flex;
+          }
+        }
+
+        &:last-of-type {
+          @include carbon--breakpoint(sm) {
+            @include carbon--make-col(4, 4);
+          }
+
+          @include carbon--breakpoint(md) {
+            @include carbon--make-col(6, 8);
+          }
+
+          @include carbon--breakpoint(lg) {
+            @include carbon--make-col(7, 10);
+          }
+        }
+
       }
     }
+
   }
 
 }
 
-@include exports('content-item-horizontal') {
-  @include content-item-horizontal;
+@include exports('content-item-horizontal-media') {
+  @include content-item-horizontal-media;
 }
