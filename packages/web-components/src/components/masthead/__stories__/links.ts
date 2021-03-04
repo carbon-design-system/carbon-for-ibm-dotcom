@@ -53,23 +53,28 @@ const l1Data: MastheadL1 = {
   url: 'https://example.com',
   menuItems: [
     {
-      title: 'Lorem ipsum dolor',
+      title: 'Products & Solutions',
+      titleEnglish: 'Products & Solutions',
       url: 'https://example.com',
     },
     {
-      title: 'Lorem ipsum dolor',
+      title: 'Services & Consulting',
+      titleEnglish: 'Services & Consulting',
       url: 'https://example.com',
       menuItems: [
         {
-          title: 'Lorem ipsum dolor',
+          title: 'About IBM',
+          titleEnglish: 'About IBM',
           url: 'https://example.com',
         },
         {
-          title: 'Lorem ipsum dolor',
+          title: 'Partners',
+          titleEnglish: 'Partners',
           url: 'https://example.com',
         },
         {
-          title: 'Lorem ipsum dolor',
+          title: 'IBM Research',
+          titleEnglish: 'IBM Research',
           url: 'https://example.com',
         },
       ],
