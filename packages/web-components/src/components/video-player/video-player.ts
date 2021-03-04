@@ -37,7 +37,7 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
    * Handles `click` event on the video thumbnail.
    */
   private _handleClickOverlay() {
-    // this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+    this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
     const { videoId } = this;
     const { eventContentStateChange } = this.constructor as typeof DDSVideoPlayer;
     this.dispatchEvent(
