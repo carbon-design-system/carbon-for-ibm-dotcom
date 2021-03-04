@@ -118,10 +118,10 @@ class DDSDotcomShellComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The brand name. This goes to masthead.
+   * The platform name. This goes to masthead.
    */
-  @property({ attribute: 'brand-name' })
-  brandName?: string;
+  @property({ attribute: 'platform' })
+  platform?: string;
 
   /**
    * The g11n collator to use for sorting contry names. This goes to footer.
@@ -271,7 +271,7 @@ class DDSDotcomShellComposite extends LitElement {
     const {
       activateSearch,
       authenticatedProfileItems,
-      brandName,
+      platform,
       collatorCountryName,
       currentSearchResults,
       disableLocaleButton,
@@ -305,7 +305,7 @@ class DDSDotcomShellComposite extends LitElement {
         {
           activateSearch,
           authenticatedProfileItems,
-          brandName,
+          platform,
           currentSearchResults,
           mastheadAssistiveText,
           menuBarAssistiveText,
