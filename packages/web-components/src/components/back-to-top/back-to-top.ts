@@ -35,6 +35,11 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
   /**
+   * The observer for the resize of the document body.
+   */
+  private _observerResizeBody: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
    * The document height
    */
   private _bodyHeight!: number;
@@ -62,11 +67,7 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
    */
   private _handleOnScroll() {
     if (this._showBackToTop()) {
-      if (document.body.scrollTop > this._windowHeight || document.documentElement.scrollTop > this._windowHeight) {
-        this.hidden = false;
-      } else {
-        this.hidden = true;
-      }
+      this.hidden = this.ownerDocument!.documentElement.scrollTop <= this._windowHeight;
     }
   }
 
@@ -86,20 +87,26 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
       // @ts-ignore
       this._observerResizeRoot = new ResizeObserver(this._observeResizeRoot);
       this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeBody = new ResizeObserver(this._observeResizeBody);
+      this._observerResizeBody.observe(this.ownerDocument!.body);
     }
-    // }
   }
 
-  private _observeResizeRoot = () => {
-    this._bodyHeight = this.ownerDocument!.documentElement.scrollHeight;
-    this._windowHeight = this.ownerDocument!.documentElement.clientHeight;
+  private _observeResizeRoot = entries => {
+    this._windowHeight = entries[entries.length - 1].contentRect.height;
+  };
+
+  private _observeResizeBody = entries => {
+    this._bodyHeight = entries[entries.length - 1].target.scrollHeight;
   };
 
   /**
    * Show button only when document height is 3x greater than viewport
    */
   private _showBackToTop() {
-    return this._bodyHeight * 3 > this._windowHeight;
+    return this._bodyHeight > this._windowHeight * 3;
   }
 
   /**
