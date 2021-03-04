@@ -86,7 +86,7 @@ export const WithMedia = ({ parameters }) => {
           `
         : null}
       <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-heading><h3>${heading}</h3></dds-content-item-heading>
       <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
       <dds-link-list slot="footer" type="vertical">
         <dds-link-list-item-cta
