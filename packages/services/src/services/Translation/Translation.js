@@ -24,7 +24,8 @@ const _host =
  * @type {string}
  * @private
  */
-const _endpoint = `${_host}/common/v18/js/data/jsononly`;
+const _endpoint = `${_host}${(process && process.env.TRANSLATION_ENDPOINT) ||
+  '/common/v18/js/data/jsononly'}`;
 
 /**
  * Session Storage key for translation data
@@ -32,7 +33,8 @@ const _endpoint = `${_host}/common/v18/js/data/jsononly`;
  * @type {string}
  * @private
  */
-const _sessionTranslationKey = 'dds-translation';
+const _sessionTranslationKey =
+  (process && process.env.TRANSLATION_SESSIONKEY) || 'dds-translation';
 
 /**
  * The cache for in-flight or resolved requests for the i18n data, keyed by the initiating locale.
