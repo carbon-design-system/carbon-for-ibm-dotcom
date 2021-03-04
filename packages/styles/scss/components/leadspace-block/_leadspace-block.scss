@@ -87,7 +87,6 @@
   :host(#{$dds-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
-    width: 100%;
     max-width: carbon--mini-units(80);
 
     @include carbon--breakpoint('md') {
