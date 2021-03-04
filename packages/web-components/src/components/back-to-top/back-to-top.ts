@@ -82,6 +82,10 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
       this._observerResizeRoot.disconnect();
       this._observerResizeRoot = null;
     }
+    if (this._observerResizeBody) {
+      this._observerResizeBody.disconnect();
+      this._observerResizeBody = null;
+    }
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
