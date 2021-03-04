@@ -481,7 +481,14 @@ class DDSMastheadComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * The platform name.
+   */
+  @property({ attribute: 'platform' })
+  platform!: string;
+
+  /**
    * The brand name.
+   * @deprecated brandName use platform instead
    */
   @property({ attribute: 'brand-name' })
   brandName!: string;
@@ -598,6 +605,11 @@ class DDSMastheadComposite extends LitElement {
         this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
+    if (changedProperties.has('brandName')) {
+      this.platform = this.brandName;
+      // eslint-disable-next-line no-console
+      console.warn('`brand-name` will be deprecated in the future use `platform` instead.');
+    }
   }
 
   render() {
@@ -605,7 +617,7 @@ class DDSMastheadComposite extends LitElement {
       activateSearch,
       authenticatedProfileItems,
       currentSearchResults,
-      brandName,
+      platform,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -625,10 +637,10 @@ class DDSMastheadComposite extends LitElement {
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
-        ${!brandName
+        ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name>${brandName}</dds-left-nav-name>
+              <dds-left-nav-name>${platform}</dds-left-nav-name>
             `}
         ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
@@ -641,10 +653,10 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!brandName
+        ${!platform
           ? undefined
           : html`
-              <dds-top-nav-name>${brandName}</dds-top-nav-name>
+              <dds-top-nav-name>${platform}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined
