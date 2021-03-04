@@ -80,7 +80,7 @@
     "@carbon/ibmdotcom-utilities": "1.16.1",
     "@carbon/layout": "10.19.0",
     "carbon-components": "10.29.0",
-    "carbon-web-components": "1.11.1",
+    "carbon-web-components": "1.11.2",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
