@@ -36,7 +36,7 @@ const gradientStyleSchemes = {
 };
 
 const sizes = {
-  [`Regular size`]: null,
+  [`Regular size`]: LEADSPACE_SIZE.NONE,
   [`Medium (${LEADSPACE_SIZE.MEDIUM})`]: LEADSPACE_SIZE.MEDIUM,
 };
 
