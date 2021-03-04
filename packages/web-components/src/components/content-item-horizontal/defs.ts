@@ -22,7 +22,6 @@ export enum MEDIA_ALIGN {
   RIGHT = 'right',
 }
 
-
 /**
  * Media type.
  */
