@@ -45,7 +45,7 @@ const { prefix } = settings;
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
- * @param {string} props.selectedMenuItem L0 menu item to render with selected state
+ * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -300,6 +300,7 @@ const Masthead = ({
                   {...mastheadL1Data}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  selectedMenuItem={selectedMenuItem}
                 />
               </div>
             )}

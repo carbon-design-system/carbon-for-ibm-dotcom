@@ -135,7 +135,7 @@ WithCustomNavigation.story = {
           ),
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
-            'Services & Consulting',
+            'Lorem ipsum dolor sit amet',
             groupId
           ),
         };
@@ -234,6 +234,11 @@ WithL1.story = {
             ),
             navigationL1: mastheadKnobs.navigation.custom,
           },
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Lorem ipsum dolor sit amet',
+            groupId
+          ),
         };
       },
     },
