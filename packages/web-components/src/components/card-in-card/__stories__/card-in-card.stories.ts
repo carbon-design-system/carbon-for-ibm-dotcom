@@ -12,6 +12,7 @@ import '../../card/card-heading';
 import '../../image/image';
 import '../card-in-card';
 import '../card-in-card-footer';
+import '../card-in-card-image';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -26,10 +27,10 @@ export const Default = ({ parameters }) => {
   const { eyebrow, heading, copy, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
   return html`
     <dds-card-in-card href=${ifNonNull(href || undefined)}>
-      <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+      <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      </dds-image>
+      </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
       <dds-card-in-card-footer>
