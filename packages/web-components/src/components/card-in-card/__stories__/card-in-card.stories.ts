@@ -18,7 +18,8 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
-import imgSm4x3 from '../../../../../storybook-images/assets/320/fpo--4x3--320x160--004.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
+import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -29,6 +30,7 @@ export const Default = ({ parameters }) => {
     <dds-card-in-card href=${ifNonNull(href || undefined)}>
       <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
       </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>

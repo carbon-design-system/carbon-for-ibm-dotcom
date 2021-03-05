@@ -22,7 +22,7 @@
   width: 100%;
   padding-top: aspect-ratio(4, 3);
 
-  @include carbon--breakpoint('lg') {
+  @include carbon--breakpoint('md') {
     padding-top: aspect-ratio(16, 9);
   }
 
