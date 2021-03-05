@@ -19,7 +19,7 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * A component to present a content in a horizontal orientation.
+ * A component to present content in a horizontal orientation with media.
  *
  * @element dds-content-item-horizontal-media
  */
@@ -32,31 +32,18 @@ class DDSContentItemHorizontalMedia extends DDSContentItem {
   align = MEDIA_ALIGN.LEFT;
 
   render() {
-    return this.align == MEDIA_ALIGN.RIGHT
-      ? html`
-          <div class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this.align}">
-            <div class="${prefix}--content-item-horizontal__col">
-              <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
-              <slot name="heading"></slot>
-              ${this._renderBody()}${this._renderFooter()}
-            </div>
-            <div class="${prefix}--content-item-horizontal__col">
-              <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-            </div>
-          </div>
-        `
-      : html`
-          <div class="${prefix}--content-item-horizontal__row">
-            <div class="${prefix}--content-item-horizontal__col">
-              <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-            </div>
-            <div class="${prefix}--content-item-horizontal__col">
-              <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
-              <slot name="heading"></slot>
-              ${this._renderBody()}${this._renderFooter()}
-            </div>
-          </div>
-        `;
+    return html`
+      <div class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this.align}">
+        <div class="${prefix}--content-item-horizontal__col">
+          <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
+        </div>
+        <div class="${prefix}--content-item-horizontal__col">
+          <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
+          <slot name="heading"></slot>
+          ${this._renderBody()}${this._renderFooter()}
+        </div>
+      </div>
+    `;
   }
 
   static get stableSelector() {

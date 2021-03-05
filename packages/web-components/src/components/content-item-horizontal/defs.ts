@@ -14,7 +14,7 @@ export enum MEDIA_ALIGN {
   /**
    * Content item horizontal media align left
    */
-  LEFT = 'image',
+  LEFT = 'left',
 
   /**
    * Content item horizontal media align right

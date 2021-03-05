@@ -7,6 +7,7 @@
 
 @import '../../globals/imports';
 @import '../link-list/index';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
 
 @mixin content-item-horizontal-media {
   :host(#{$dds-prefix}-content-item-horizontal-media),
@@ -108,88 +109,95 @@
   }
 
   .#{$prefix}--content-item-horizontal__row {
-    @include carbon--make-row;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-    width: 100%;
-    min-height: 160px;
+    @include carbon--breakpoint('sm') {
+      grid-template-columns: repeat(4, 1fr);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @include carbon--breakpoint('md') {
+      grid-template-columns: repeat(8, 1fr);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @include carbon--breakpoint('lg') {
+      grid-template-columns: repeat(16, 1fr);
+    }
+
+    @include carbon--breakpoint('max') {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      margin-left: calc((100% - 99rem) / 2);
+      margin-right: calc((100% - 99rem) / 2);
+    }
 
     .#{$prefix}--content-item-horizontal__col {
-      flex-direction: column;
-
-      @include carbon--make-col-ready;
-
       &:first-of-type {
-        @include carbon--breakpoint(sm) {
-          @include carbon--make-col(4, 4);
+        @include carbon--breakpoint('sm') {
+          grid-column: 1 / span 4;
         }
 
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(6, 8);
+        @include carbon--breakpoint('md') {
+          grid-column: 1 / span 6;
+          padding-right: $carbon--spacing-05;
         }
 
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(7, 10);
+        @include carbon--breakpoint('lg') {
+          grid-column: 1 / span 11;
+          padding-right: $carbon--spacing-05;
         }
       }
 
       &:last-of-type {
-        @include carbon--breakpoint(sm) {
-          @include carbon--make-col(4, 4);
-
-          display: flex;
+        @include carbon--breakpoint('sm') {
+          grid-column: 1 / span 4;
         }
 
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(2, 8);
-
-          display: flex;
+        @include carbon--breakpoint('md') {
+          grid-row: 1;
+          grid-column: 7 / span 2;
+          padding-left: $carbon--spacing-05;
         }
 
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(3, 10);
-
-          display: flex;
+        @include carbon--breakpoint('lg') {
+          grid-row: 1;
+          grid-column: 12 / span 5;
+          padding-left: $carbon--spacing-05;
         }
       }
     }
 
     &.#{$prefix}--content-item-horizontal-media__align-right {
       .#{$prefix}--content-item-horizontal__col {
-        flex-direction: column;
-
-        @include carbon--make-col-ready;
-
         &:first-of-type {
-          @include carbon--breakpoint(sm) {
-            @include carbon--make-col(4, 4);
-
-            display: flex;
+          @include carbon--breakpoint('sm') {
+            grid-column: 1 / span 4;
           }
 
-          @include carbon--breakpoint(md) {
-            @include carbon--make-col(2, 8);
-
-            display: flex;
+          @include carbon--breakpoint('md') {
+            grid-column: 3 / span 6;
           }
 
-          @include carbon--breakpoint(lg) {
-            @include carbon--make-col(3, 10);
-
-            display: flex;
+          @include carbon--breakpoint('lg') {
+            grid-column: 6 / span 11;
           }
         }
 
         &:last-of-type {
-          @include carbon--breakpoint(sm) {
-            @include carbon--make-col(4, 4);
+          @include carbon--breakpoint('sm') {
+            grid-column: 1 / span 4;
           }
 
-          @include carbon--breakpoint(md) {
-            @include carbon--make-col(6, 8);
+          @include carbon--breakpoint('md') {
+            grid-column: 1 / span 2;
           }
 
-          @include carbon--breakpoint(lg) {
-            @include carbon--make-col(7, 10);
+          @include carbon--breakpoint('lg') {
+            grid-column: 1 / span 5;
           }
         }
       }
