@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,7 @@ import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
+import { VIDEO_PLAYER_CONTENT_STATE } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
 
@@ -43,7 +44,15 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     if (currentEmbeddedVideo) {
       currentEmbeddedVideo.sendNotification('doStop');
     }
+    this.open = false;
   };
+
+  protected _handleContentStateChange(event: CustomEvent) {
+    const { contentState, videoId } = event.detail;
+    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId) {
+      this.open = true;
+    }
+  }
 
   /**
    * The video player.
@@ -52,15 +61,6 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const { selectorVideoPlayer } = this.constructor as typeof DDSLightboxVideoPlayerComposite;
     return (this.modalRenderRoot as Element)?.querySelector?.(selectorVideoPlayer);
   }
-
-  // eslint-disable-next-line class-methods-use-this
-  get autoPlay() {
-    return true; // Lock `autoPlay` to be `true`
-  }
-
-  // @ts-ignore
-  // eslint-disable-next-line class-methods-use-this, no-empty-function
-  set autoPlay(value) {} // Lock `autoPlay` to be `true`
 
   /**
    * `true` if the modal should be open.
@@ -84,6 +84,19 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
       this._hCloseModal = this._hCloseModal.release();
     }
     super.disconnectedCallback();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('open') || changedProperties.has('videoId')) {
+      const { open, videoId } = this;
+      this._activateEmbeddedVideo(!open ? '' : videoId);
+      if (videoId) {
+        this._loadVideoData?.(videoId);
+        if (open) {
+          this._embedVideo?.(videoId);
+        }
+      }
+    }
   }
 
   renderLightDOM() {

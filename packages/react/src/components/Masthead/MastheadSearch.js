@@ -494,7 +494,6 @@ const MastheadSearch = ({
             getSuggestionValue={_getSuggestionValue} // Name of suggestion
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-            highlightFirstSuggestion // First suggestion is highlighted by default
             inputProps={inputProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
