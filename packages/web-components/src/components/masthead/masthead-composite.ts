@@ -472,6 +472,18 @@ class DDSMastheadComposite extends LitElement {
   _setLanguage?: (language: string) => void;
 
   /**
+   * `true` if there is a profile.
+   */
+  @property({ type: Boolean, attribute: 'profile' })
+  profile = true;
+
+  /**
+   * `true` if there is a search.
+   */
+  @property({ type: Boolean, attribute: 'search' })
+  search = true;
+
+  /**
    * `true` to activate the search box.
    */
   @property({ type: Boolean, attribute: 'activate-search' })
@@ -486,7 +498,7 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The platform name.
    */
-  @property()
+  @property({ attribute: 'platform' })
   platform!: string;
 
   /**
@@ -629,6 +641,7 @@ class DDSMastheadComposite extends LitElement {
       currentSearchResults,
       platform,
       platformUrl,
+      profile,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -636,6 +649,7 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       language,
       openSearchDropdown,
+      search,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -676,24 +690,32 @@ class DDSMastheadComposite extends LitElement {
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
               </dds-top-nav>
             `}
-        <dds-masthead-search-composite
-          ?active="${activateSearch}"
-          input-timeout="${inputTimeout}"
-          language="${ifNonNull(language)}"
-          ?open="${openSearchDropdown}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          .currentSearchResults="${ifNonNull(currentSearchResults)}"
-          ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-        ></dds-masthead-search-composite>
+        ${!search
+          ? undefined
+          : html`
+              <dds-masthead-search-composite
+                ?active="${activateSearch}"
+                input-timeout="${inputTimeout}"
+                language="${ifNonNull(language)}"
+                ?open="${openSearchDropdown}"
+                placeholder="${ifNonNull(searchPlaceholder)}"
+                .currentSearchResults="${ifNonNull(currentSearchResults)}"
+                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
+              ></dds-masthead-search-composite>
+            `}
         <dds-masthead-global-bar>
-          <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems?.map(
-              ({ title, url }) =>
-                html`
-                  <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
-                `
-            )}
-          </dds-masthead-profile>
+          ${!profile
+            ? undefined
+            : html`
+                <dds-masthead-profile ?authenticated="${authenticated}">
+                  ${profileItems?.map(
+                    ({ title, url }) =>
+                      html`
+                        <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
+                      `
+                  )}
+                </dds-masthead-profile>
+              `}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

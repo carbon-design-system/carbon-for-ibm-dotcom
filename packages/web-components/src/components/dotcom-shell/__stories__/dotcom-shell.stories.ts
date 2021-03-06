@@ -80,7 +80,7 @@ export const Default = ({ parameters }) => {
             platform="${ifNonNull(platform)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
+            size="short"
             user-status="${ifNonNull(userStatus)}"
             .legalLinks="${ifNonNull(legalLinks)}"
             .localeList="${ifNonNull(localeList)}"

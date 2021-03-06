@@ -228,7 +228,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * Footer size. This goes to footer.
    */
-  @property({ reflect: true, attribute: 'footer-size' })
+  @property({ reflect: true, attribute: 'size' })
   footerSize?: FOOTER_SIZE;
 
   /**
