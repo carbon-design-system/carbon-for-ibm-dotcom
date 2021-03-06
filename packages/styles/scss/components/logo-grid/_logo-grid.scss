@@ -126,6 +126,7 @@
   }
 
   :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
+    margin-top: auto;
     fill: $link-01;
   }
 
