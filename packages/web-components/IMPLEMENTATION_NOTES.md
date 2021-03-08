@@ -17,6 +17,7 @@
   - [Components rendering modal](#components-rendering-modal)
 - [CTA components](#cta-components)
   - [Video CTA](#video-cta)
+- [Video player](#video-player)
 - [React integration](#react-integration)
   - [React wrapper generator](#react-wrapper-generator)
   - [Build procedure to generate React wrapper](#build-procedure-to-generate-react-wrapper)
@@ -160,6 +161,18 @@ Only one instance of `<dds-video-cta-container>` is needed in an application, as
 
 - Send an event (`dds-cta-request-video-data`) when user clicks on CTA so that the lightbox video player code can launch the light box
 - (Video caption/duration/thumbnail)
+
+## Video player
+
+Video player has two states, one is [thumbnail mode](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/defs.ts#L17) and one is [video (playing) mode](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/defs.ts#L22). When user clicks on video thumbmail, [`dds-video-player-content-state-changed` event is fired](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player.ts#L42-L51) so `<dds-masthead-composite>` can [start embedding the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L80-L86).
+
+Embedding the video involves:
+
+1. [Creating the DOM element of the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L157-L159)
+2. [Putting above DOM element to the right place](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L160-L164). `<dds-video-player-composite>` specifies the place for the DOM element of the video via [`selectorVideoPlayer` static property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L182-L184). [`<dds-lightbox-video-player-composite>` overrides it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/lightbox-media-viewer/lightbox-video-player-composite.ts#L119-L121).
+3. [Calling video player API from `@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L165)
+
+Video player in Web Components codebase allows embedded videos to be reused, e.g. for re-opening lightbox. To do that, instead of throwing away the DOM of embedded video, the code [stops the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L59) and [hides the DOM of the embedded video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L62) when the embedded video should stop being presented.
 
 ## React integration
 

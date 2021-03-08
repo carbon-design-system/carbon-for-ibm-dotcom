@@ -26,6 +26,14 @@ const userStatuses = {
   [`Unauthenticated`]: UNAUTHENTICATED_STATUS,
 };
 
+/**
+ * platform knob data
+ */
+const platformData = {
+  name: 'IBM Cloud',
+  url: 'https://www.ibm.com/cloud',
+};
+
 export const Default = ({ parameters }) => {
   const { platform, selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
@@ -37,6 +45,7 @@ export const Default = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -48,6 +57,7 @@ export const Default = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .navLinks="${navLinks}"
@@ -64,6 +74,7 @@ export const WithCustomData = ({ parameters }) => {
     </style>
     <dds-masthead-composite
       platform="${ifNonNull(platform)}"
+      platform-url="${ifNonNull(platformData.url)}"
       selected-menu-item="${ifNonNull(selectedMenuItem)}"
       user-status="${ifNonNull(userStatus)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -71,6 +82,49 @@ export const WithCustomData = ({ parameters }) => {
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
     ></dds-masthead-composite>
   `;
+};
+
+export const withPlatform = ({ parameters }) => {
+  const { selectedMenuItem, userStatus, navLinks } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="${ifNonNull(platformData.name)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            platform="${ifNonNull(platformData.name)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            .navLinks="${navLinks}"
+          ></dds-masthead-container>
+        `}
+  `;
+};
+
+withPlatform.story = {
+  parameters: {
+    knobs: {
+      MastheadComposite: ({ groupId }) => ({
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
+        logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
+      }),
+    },
+  },
 };
 
 export const withL1 = ({ parameters }) => {
@@ -84,6 +138,7 @@ export const withL1 = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -95,6 +150,7 @@ export const withL1 = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .l1Data="${l1Data}"
@@ -115,6 +171,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -127,6 +184,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
       : html`
           <dds-masthead-container
             platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             .l1Data="${l1Data}"
@@ -157,7 +215,7 @@ export default {
     'carbon-theme': { disabled: true },
     knobs: {
       MastheadComposite: ({ groupId }) => ({
-        platform: textNullable('Platform (platform)', '', groupId),
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
         logoHref: textNullable('Logo href (logo-href)', 'https://www.ibm.com', groupId),
