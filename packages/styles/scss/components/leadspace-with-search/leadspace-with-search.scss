@@ -78,6 +78,9 @@
             color: $text-05;
             @include type-style('expressive-heading-03');
           }
+          &:focus::placeholder {
+            color: transparent;
+          }
         }
       }
     }
