@@ -9,7 +9,7 @@
   .#{$prefix}--leadspace-with-search {
     padding-top: $layout-04;
     padding-bottom: $layout-04;
-    border-bottom: 1px solid $ui-04;
+    border-bottom: 1px solid $ui-03;
     @include carbon--make-container;
     @include carbon--breakpoint('lg') {
       padding-top: $layout-05;
@@ -52,7 +52,7 @@
       }
       button.bx--search-close {
         height: 100%;
-        width: $layout-02;
+        width: $layout-04;
         @include carbon--breakpoint('md') {
           width: $layout-05;
           svg {
@@ -62,19 +62,18 @@
         }
       }
       @include carbon--breakpoint('md') {
-        margin-left: -(carbon--mini-units(2));
         @include carbon--make-col(6, 8);
       }
       @include carbon--breakpoint('lg') {
         height: $layout-05;
         margin-top: $layout-05;
-        margin-left: -(carbon--mini-units(2));
-        @include carbon--make-col(6, 7);
+        @include carbon--make-col(8, 10);
 
         input.bx--search-input {
           height: 100%;
           color: $text-01;
           padding-left: carbon--mini-units(8);
+          @include type-style('expressive-heading-03');
           &::placeholder {
             color: $text-05;
             @include type-style('expressive-heading-03');
