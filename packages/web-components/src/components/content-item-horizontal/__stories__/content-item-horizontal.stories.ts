@@ -103,7 +103,7 @@ export const WithMedia = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Content Item Horizontal',
+  title: 'Components/Content item horizontal',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-horizontal">
