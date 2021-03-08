@@ -76,6 +76,10 @@
       margin-top: -1px;
       margin-left: -$carbon--layout-01;
       --#{$dds-prefix}--link-list-item--anchor-padding: #{$carbon--spacing-05};
+
+      @include carbon--breakpoint('max') {
+        margin-right: -$carbon--layout-01;
+      }
     }
   }
 
