@@ -16,6 +16,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './table-of-contents.scss';
+import { TOC_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,6 +31,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends StableSelectorMixin(LitElement) {
+  /**
+   * Defines TOC type
+   */
+  @property({ reflect: true })
+  type = TOC_TYPES.DEFAULT;
+
   /**
    * The current target `<a>` that should be in view.
    */
@@ -233,6 +240,18 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   };
 
   /**
+   * Returns TOC class based on the type
+   */
+  private _getBarClass = () => {
+    switch (this.type) {
+      case TOC_TYPES.HORIZONTAL:
+        return `${prefix}--tableofcontents__horizontal`;
+      default:
+        return `${prefix}--tableofcontents__sidebar`;
+    }
+  };
+
+  /**
    * The current 0px offset from the top of page.
    */
   @property({ type: Number })
@@ -274,10 +293,11 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       _handleClickItem: handleClickItem,
       _handleSlotChange: handleSlotChange,
       _handleSlotChangeHeading: handleSlotChangeHeading,
+      _getBarClass: getBarClass,
     } = this;
     return html`
       <div class="${ddsPrefix}-ce--table-of-contents__container">
-        <div part="table" class="${prefix}--tableofcontents__sidebar">
+        <div part="table" class="${getBarClass()}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
