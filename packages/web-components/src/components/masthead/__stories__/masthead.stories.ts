@@ -22,8 +22,8 @@ import { authenticatedProfileItems, unauthenticatedProfileItems } from './profil
 import readme from './README.stories.mdx';
 
 const userStatuses = {
-  [`Authenticated`]: 'test.user@ibm.com',
-  [`Unauthenticated`]: UNAUTHENTICATED_STATUS,
+  authenticated: 'test.user@ibm.com',
+  unauthenticated: UNAUTHENTICATED_STATUS,
 };
 
 /**
@@ -97,20 +97,40 @@ export const WithCustomNavigation = ({ parameters }) => {
 export const searchOpenByDefault = ({ parameters }) => {
   const { platform, selectedMenuItem, userStatus, searchPlaceholder, profile, search, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    <dds-masthead-container
-      activate-search="true"
-      platform="${ifNonNull(platform)}"
-      selected-menu-item="${ifNonNull(selectedMenuItem)}"
-      user-status="${ifNonNull(userStatus)}"
-      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      .navLinks="${navLinks}"
-      .profile="${profile}"
-      .search="${search}"
-    ></dds-masthead-container>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            activate-search="true"
+            platform="${ifNonNull(platformData.name)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .navLinks="${navLinks}"
+            .profile="${profile}"
+            .search="${search}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            activate-search="true"
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            .profile="${profile}"
+            .search="${search}"
+          ></dds-masthead-container>
+        `}
   `;
 };
 
@@ -160,7 +180,7 @@ withPlatform.story = {
         search: boolean('show the search functionality (search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
   },
@@ -206,7 +226,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 export const withAlternateLogoAndTooltip = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, profile, search, searchPlaceholder } =
+  const { platform, selectedMenuItem, userStatus, navLinks, profile, search, searchPlaceholder, mastheadLogo } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -225,7 +245,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             .profile="${profile}"
             .search="${search}"
             .navLinks="${navLinks}"
-            .logoData="${logoData}"
+            .logoData="${mastheadLogo}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -237,7 +257,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            .logoData="${logoData}"
+            .logoData="${mastheadLogo}"
             .profile="${profile}"
             .search="${search}"
           ></dds-masthead-container>
@@ -249,12 +269,18 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: ({ groupId }) => ({
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         profile: boolean('show the profile functionality (profile)', true, groupId),
         search: boolean('show the search functionality (search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        mastheadLogo: select('select', { defaultWithNoTooltip: null, alternateWithTooltip: logoData }, groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
+        mastheadLogo: select(
+          'masthead logo data (logoData)',
+          { defaultWithNoTooltip: null, alternateWithTooltip: logoData },
+          logoData,
+          groupId
+        ),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
   },
@@ -281,12 +307,12 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, platformData.name, groupId),
+        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         profile: boolean('show the profile functionality (profile)', true, groupId),
         search: boolean('show the search functionality (search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, null, groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
     props: (() => {
