@@ -24,7 +24,7 @@ const _host =
  * @type {string}
  * @private
  */
-const _endpoint = `${_host}/common/v18/js/data/jsononly`;
+const _dds_endpoint = '/common/v18/js/data/jsononly';
 
 /**
  * Session Storage key for translation data
@@ -74,6 +74,7 @@ class TranslationAPI {
    * Returns translation i18n data
    *
    * @param {object} codes object containing lc and cc
+   * @param {string} endpoint endpoint to fetch data from
    *
    * @returns {Promise<any>} Translation data
    * @example
@@ -87,7 +88,7 @@ class TranslationAPI {
    *   return response;
    * }
    */
-  static async getTranslation(codes) {
+  static async getTranslation(codes, endpoint) {
     let lang = 'en';
     let country = 'us';
 
@@ -101,7 +102,7 @@ class TranslationAPI {
     }
 
     return new Promise((resolve, reject) => {
-      this.fetchTranslation(lang, country, resolve, reject);
+      this.fetchTranslation(lang, country, endpoint, resolve, reject);
     });
   }
 
@@ -110,10 +111,11 @@ class TranslationAPI {
    *
    * @param {string} lang Language code
    * @param {string} country Country code
+   * @param {string} endpoint endpoint to fetch data
    * @param {Function} resolve resolves the Promise
    * @param {Function} reject rejects the promise
    */
-  static fetchTranslation(lang, country, resolve, reject) {
+  static fetchTranslation(lang, country, endpoint, resolve, reject) {
     const itemKey = `${_sessionTranslationKey}-${country}-${lang}`;
 
     const sessionTranslation = this.getSessionCache(itemKey);
@@ -123,7 +125,9 @@ class TranslationAPI {
     } else {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
-        const url = `${_endpoint}/${country}${lang}.json`;
+        const url = `${_host}${
+          endpoint ? endpoint : _dds_endpoint
+        }/${country}${lang}.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
