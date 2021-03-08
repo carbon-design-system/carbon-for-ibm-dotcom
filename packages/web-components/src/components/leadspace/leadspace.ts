@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  customElement,
-  html,
-  svg,
-  property,
-  LitElement,
-  internalProperty,
-} from 'lit-element';
+import { customElement, html, svg, property, LitElement, internalProperty } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -67,6 +60,16 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getContainerClass() {
+    return classMap({
+      [`${prefix}--leadspace__container-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
+    });
+  }
+
+  /**
    * Returns a class-name based on the size parameter size
    */
   protected _getSizeClass() {
@@ -103,7 +106,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const { headingSelector } = this.constructor as typeof DDSLeadSpace;
     this._headingComponent = ((event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
-      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(headingSelector)) as Element[])[0];
+      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(headingSelector)) as Element[]).shift();
 
     this._headingComponent.setAttribute('size', this.size);
   }
@@ -177,7 +180,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     const { gradientStyleScheme, type } = this;
     return html`
       <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="section">
-        <div class="${prefix}--leadspace__container">
+        <div class="${this._getContainerClass()}">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined

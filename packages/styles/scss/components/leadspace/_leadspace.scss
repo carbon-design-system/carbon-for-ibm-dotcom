@@ -93,10 +93,6 @@ $btn-min-width: 26;
     padding-top: $carbon--layout-01;
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='medium'] {
-    background: #fff000;
-  }
-
   :host(#{$dds-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--leadspace--content__container {
@@ -124,6 +120,10 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__container {
       position: relative;
       height: 100%;
+    }
+    .#{$prefix}--leadspace__container-medium {
+      position: relative;
+      height: carbon--mini-units(60);
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -168,6 +168,10 @@ $btn-min-width: 26;
         position: relative;
       }
 
+      .#{$prefix}--leadspace__container-medium {
+        position: relative;
+      }
+
       .#{$prefix}--leadspace__overlay {
         padding-top: $spacing-07;
         padding-bottom: $spacing-07;
@@ -206,6 +210,14 @@ $btn-min-width: 26;
         position: absolute;
         top: 0;
         height: 100%;
+        width: 100%;
+      }
+
+      .#{$prefix}--leadspace__container-medium {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: carbon--mini-units(60);
         width: 100%;
       }
 
@@ -259,6 +271,11 @@ $btn-min-width: 26;
       }
 
       .#{$prefix}--leadspace__container {
+        overflow: auto;
+        position: relative;
+      }
+
+      .#{$prefix}--leadspace__container-medium {
         overflow: auto;
         position: relative;
       }
@@ -422,6 +439,11 @@ $btn-min-width: 26;
     padding-left: 1rem;
     width: 95%;
     z-index: 1;
+    @include carbon--type-style(display-01, true);
+  }
+
+  :host(#{$dds-prefix}-leadspace-heading)[size='medium'] {
+    margin-bottom: $spacing-06;
     @include carbon--type-style(display-01, true);
   }
 }
