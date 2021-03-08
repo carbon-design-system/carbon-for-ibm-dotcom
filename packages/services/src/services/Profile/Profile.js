@@ -10,7 +10,10 @@ import axios from 'axios';
  * @constant {string | string} Host for the profile status API call
  * @private
  */
-const _host = (process && process.env.PROFILE_HOST) || 'https://login.ibm.com';
+const _host =
+  (process &&
+    (process.env.REACT_APP_PROFILE_HOST || process.env.PROFILE_HOST)) ||
+  'https://login.ibm.com';
 
 /**
  * @constant {string | string} API version
