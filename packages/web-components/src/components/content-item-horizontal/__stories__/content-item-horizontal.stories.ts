@@ -15,6 +15,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../image/image';
 import '../content-item-horizontal';
 import '../content-item-horizontal-media';
+import '../content-item-horizontal-media-copy';
+import '../content-item-horizontal-media-video';
 import '../content-item-horizontal-copy';
 import '../content-item-horizontal-eyebrow';
 import '../../content-item/content-item-heading';
@@ -71,7 +73,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithMedia = ({ parameters }) => {
-  const { align, type, alt, eyebrow, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+  const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
     parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media align="${align}">
@@ -82,12 +84,11 @@ export const WithMedia = ({ parameters }) => {
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+            <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
           `
         : null}
-      <dds-content-item-horizontal-eyebrow>${eyebrow}</dds-content-item-horizontal-eyebrow>
-      <dds-content-item-heading><h3>${heading}</h3></dds-content-item-heading>
-      <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
       <dds-link-list slot="footer" type="vertical">
         <dds-link-list-item-cta
           icon-placement="${ICON_PLACEMENT.RIGHT}"
@@ -95,13 +96,6 @@ export const WithMedia = ({ parameters }) => {
           cta-type="${ifNonNull(ctaType1)}"
         >
           ${ctaCopy1}
-        </dds-link-list-item-cta>
-        <dds-link-list-item-cta
-          icon-placement="${ICON_PLACEMENT.RIGHT}"
-          href="${ifNonNull(href2)}"
-          cta-type="${ifNonNull(ctaType2)}"
-        >
-          ${ctaCopy2}
         </dds-link-list-item-cta>
       </dds-link-list>
     </dds-content-item-horizontal-media>

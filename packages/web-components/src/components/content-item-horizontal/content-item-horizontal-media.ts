@@ -35,12 +35,12 @@ class DDSContentItemHorizontalMedia extends DDSContentItem {
     return html`
       <div class="${prefix}--content-item-horizontal__row ${prefix}--content-item-horizontal-media__align-${this.align}">
         <div class="${prefix}--content-item-horizontal__col">
-          <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
-        </div>
-        <div class="${prefix}--content-item-horizontal__col">
           <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
           <slot name="heading"></slot>
           ${this._renderBody()}${this._renderFooter()}
+        </div>
+        <div class="${prefix}--content-item-horizontal__col">
+          <slot name="media" @slotchange="${this._handleSlotChange}"></slot>
         </div>
       </div>
     `;

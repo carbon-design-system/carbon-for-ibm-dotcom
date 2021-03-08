@@ -37,8 +37,10 @@
     padding-right: $carbon--spacing-05;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
-  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-item-horizontal-media-copy)
+    ::slotted(:not([slot])),
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow,
   .#{$prefix}--content-item-horizontal__item--heading,
@@ -55,38 +57,27 @@
     @include carbon--type-style('label-01');
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-01;
-    @include carbon--type-style('expressive-heading-03', true);
-    @include carbon--breakpoint(sm) {
-      margin-bottom: $carbon--spacing-07;
-    }
-
-    @include carbon--breakpoint(md) {
-      margin-bottom: $carbon--layout-04;
-    }
-
-    @include carbon--breakpoint(lg) {
-      margin-bottom: $carbon--layout-04;
-    }
-  }
-  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
-  .#{$prefix}--content-item-horizontal__item--copy {
     margin-bottom: $carbon--spacing-07;
-    @include carbon--breakpoint(sm) {
-      margin-bottom: $carbon--spacing-07;
-    }
-    @include carbon--breakpoint(md) {
-      margin-bottom: $layout-05;
-    }
-    @include carbon--breakpoint(lg) {
-      margin-bottom: $layout-05;
-    }
+    @include carbon--type-style('expressive-heading-04', true);
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media-copy)
+    ::slotted(:not([slot])) {
+    margin-bottom: $carbon--spacing-07;
     p {
       color: $text-01;
     }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media-video) {
+    position: relative;
+    top: -1rem;
+    text-align: left;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-media)
@@ -112,61 +103,30 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    @include carbon--breakpoint('sm') {
-      grid-template-columns: repeat(4, 1fr);
-      padding-left: 1rem;
-      padding-right: 1rem;
+    @include carbon--breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    @include carbon--breakpoint('md') {
-      grid-template-columns: repeat(8, 1fr);
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(16, 1fr);
-    }
-
-    @include carbon--breakpoint('max') {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      margin-left: calc((100% - 99rem) / 2);
-      margin-right: calc((100% - 99rem) / 2);
-    }
-
-    .#{$prefix}--content-item-horizontal__col {
-      &:first-of-type {
-        @include carbon--breakpoint('sm') {
+    &.#{$prefix}--content-item-horizontal-media__align-left {
+      .#{$prefix}--content-item-horizontal__col {
+        &:first-of-type {
           grid-column: 1 / span 4;
+          @include carbon--breakpoint(lg) {
+            grid-column: 3 / span 1;
+            padding-left: $carbon--spacing-05;
+          }
         }
 
-        @include carbon--breakpoint('md') {
-          grid-column: 1 / span 6;
-          padding-right: $carbon--spacing-05;
-        }
-
-        @include carbon--breakpoint('lg') {
-          grid-column: 1 / span 11;
-          padding-right: $carbon--spacing-05;
-        }
-      }
-
-      &:last-of-type {
-        @include carbon--breakpoint('sm') {
+        &:last-of-type {
           grid-column: 1 / span 4;
-        }
+          margin-top: 1rem;
 
-        @include carbon--breakpoint('md') {
-          grid-row: 1;
-          grid-column: 7 / span 2;
-          padding-left: $carbon--spacing-05;
-        }
-
-        @include carbon--breakpoint('lg') {
-          grid-row: 1;
-          grid-column: 12 / span 5;
-          padding-left: $carbon--spacing-05;
+          @include carbon--breakpoint(lg) {
+            margin-top: 0;
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            padding-right: $carbon--spacing-05;
+          }
         }
       }
     }
@@ -174,30 +134,22 @@
     &.#{$prefix}--content-item-horizontal-media__align-right {
       .#{$prefix}--content-item-horizontal__col {
         &:first-of-type {
-          @include carbon--breakpoint('sm') {
-            grid-column: 1 / span 4;
-          }
+          grid-column: 1 / span 4;
+          text-align: left;
 
-          @include carbon--breakpoint('md') {
-            grid-column: 3 / span 6;
-          }
-
-          @include carbon--breakpoint('lg') {
-            grid-column: 6 / span 11;
+          @include carbon--breakpoint(lg) {
+            grid-column: 1 / span 1;
+            padding-right: $carbon--spacing-05;
           }
         }
 
         &:last-of-type {
-          @include carbon--breakpoint('sm') {
-            grid-column: 1 / span 4;
-          }
-
-          @include carbon--breakpoint('md') {
-            grid-column: 1 / span 2;
-          }
-
-          @include carbon--breakpoint('lg') {
-            grid-column: 1 / span 5;
+          grid-column: 1 / span 4;
+          margin-top: 1rem;
+          @include carbon--breakpoint(lg) {
+            margin-top: 0;
+            grid-column: 2 / span 2;
+            padding-left: $carbon--spacing-05;
           }
         }
       }

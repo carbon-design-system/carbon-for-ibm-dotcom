@@ -6,11 +6,3 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/content-item-horizontal-media/content-item-horizontal-media';
-
-:host(#{$dds-prefix}-content-item-horizontal-media) {
-  margin: 0;
-}
-
-:host(#{$dds-prefix}-content-item-horizontal-eyebrow) {
-  display: block;
-}
