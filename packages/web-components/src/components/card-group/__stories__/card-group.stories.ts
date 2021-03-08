@@ -16,12 +16,14 @@ import '../card-group';
 import '../card-group-item';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import { number } from '@storybook/addon-knobs';
+import { select, number } from '@storybook/addon-knobs';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+import { GRID_MODE } from '../defs';
 
 import readme from './README.stories.mdx';
 
@@ -129,11 +131,16 @@ withImagesAndCTA.story = {
   },
 };
 
+const girdModes = {
+  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+};
+
 export const withCardInCard = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, girdMode } = parameters?.props?.CardGroup ?? {};
   return html`
     <dds-card-in-card href="https://example.com">
-      <dds-card-in-card-image slot="image" alt="foo" default-src="${imgXlg16x9}">
+      <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
@@ -144,7 +151,7 @@ export const withCardInCard = ({ parameters }) => {
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-in-card-footer>
     </dds-card-in-card>
-    <dds-card-group>
+    <dds-card-group grid-mode="${ifNonNull(girdMode)}">
       ${cards}
     </dds-card-group>
   `;
@@ -155,6 +162,7 @@ withCardInCard.story = {
     ...readme.parameters,
     knobs: {
       CardGroup: ({ groupId }) => ({
+        girdMode: select('Grid mode:', girdModes, GRID_MODE.NARROW, groupId),
         cards: Array.from({
           length: number('Number of cards', 3, {}, groupId),
         }).map(() => cardGroupItemWithCTAs),

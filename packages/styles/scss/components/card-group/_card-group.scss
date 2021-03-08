@@ -118,6 +118,16 @@
     }
   }
 
+  // Add Grid Mode Narrow (16px gutter) style.
+  :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
+  .#{$prefix}--card-group--narrow {
+    :host(#{$dds-prefix}-card-group-item),
+    .#{$prefix}--card-group__cards__col {
+      background: inherit;
+      padding: 8px;
+    }
+  }
+
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
     padding-left: $carbon--grid-gutter--condensed / 2;

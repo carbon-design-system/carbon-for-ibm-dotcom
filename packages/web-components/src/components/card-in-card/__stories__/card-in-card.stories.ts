@@ -25,7 +25,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { eyebrow, heading, copy, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
+  const { eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
   return html`
     <dds-card-in-card href=${ifNonNull(href || undefined)}>
       <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
