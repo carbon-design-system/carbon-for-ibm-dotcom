@@ -16,7 +16,7 @@ import styles from './card-in-card.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Card in Card footer.
+ * Card in Card Extends Card Footer.
  *
  * @element dds-card-in-card-footer
  */
