@@ -24,7 +24,11 @@ const _host =
  * @type {string}
  * @private
  */
-const _dds_endpoint = '/common/v18/js/data/jsononly';
+const _ddsEndpointDefault =
+  (process &&
+    (process.env.REACT_APP_DDS_TRANSLATION_ENDPOINT ||
+      process.env.DDS_TRANSLATION_ENDPOINT)) ||
+  '/common/v18/js/data/jsononly';
 
 /**
  * Session Storage key for translation data
@@ -74,7 +78,7 @@ class TranslationAPI {
    * Returns translation i18n data
    *
    * @param {object} codes object containing lc and cc
-   * @param {string} endpoint endpoint to fetch data from
+   * @param {string} endpoint endpoint to fetch data from (optional)
    *
    * @returns {Promise<any>} Translation data
    * @example
@@ -111,9 +115,10 @@ class TranslationAPI {
    *
    * @param {string} lang Language code
    * @param {string} country Country code
-   * @param {string} endpoint endpoint to fetch data
+   * @param {string} endpoint endpoint to fetch data (optional)
    * @param {Function} resolve resolves the Promise
    * @param {Function} reject rejects the promise
+   * @private
    */
   static fetchTranslation(lang, country, endpoint, resolve, reject) {
     const itemKey = `${_sessionTranslationKey}-${country}-${lang}`;
@@ -126,7 +131,7 @@ class TranslationAPI {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
         const url = `${_host}${
-          endpoint ? endpoint : _dds_endpoint
+          endpoint ? endpoint : _ddsEndpointDefault
         }/${country}${lang}.json`;
 
         _requestsTranslation[key] = axios
@@ -158,6 +163,7 @@ class TranslationAPI {
    *
    * @param   {object} data translation data to be transformed
    * @returns {object} Translation data
+   * @private
    */
   static transformData(data) {
     const signedout = data.profileMenu?.signedout;
@@ -183,6 +189,7 @@ class TranslationAPI {
    *
    * @param   {string} key session storage key
    * @returns {object} session storage object
+   * @private
    */
   static getSessionCache(key) {
     const session =
