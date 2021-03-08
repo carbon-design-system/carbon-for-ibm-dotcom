@@ -8,8 +8,8 @@
  */
 
 import { html, customElement, property } from 'lit-element';
-import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import styles from './content-item-horizontal-media.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
