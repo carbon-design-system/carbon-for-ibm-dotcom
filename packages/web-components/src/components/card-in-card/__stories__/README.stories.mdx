@@ -3,3 +3,64 @@ import contributing from '../../../../../../docs/contributing-license.md';
 import ExpressiveModal from './ExpressiveModal';
 
 # Card in Card
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/card-in-card)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/card-in-card)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card-footer.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card-image.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card.js';
+```
+
+### HTML
+
+```html
+<dds-card-in-card href="https://example.com">
+  <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
+    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </dds-image-item>
+  </dds-card-in-card-image>
+  <dds-card-eyebrow>Label</dds-card-eyebrow>
+  <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
+  <dds-card-in-card-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-in-card-footer>
+</dds-card-in-card>
+```
+
+## Props
+
+<Props of="dds-card-in-card" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector | Compatibility selector            | Description |
+| ----------------------- | --------------------------------- | ----------- |
+| `<dds-card-in-card>`    | `data-autoid="dds--card-in-card"` | Component   |
+
+<Description markdown={contributing} />
