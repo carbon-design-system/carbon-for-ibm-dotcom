@@ -44,6 +44,12 @@ document.getElementById('masthead-container').navLinks = links;
 <dds-masthead-container id="masthead-container"></dds-masthead-container>
 ```
 
+To set a custom endpoint for the translation service to fetch from, set either the `data-endpoint` attribute like below or `DDS_TRANSLATION_ENDPOINT` environment variable.
+
+```html
+<dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
+```
+
 ## Stable selectors
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
