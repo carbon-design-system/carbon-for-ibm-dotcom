@@ -19,16 +19,25 @@ const _host =
   'https://1.www.s81c.com';
 
 /**
- * Translation API endpoint
+ * Translation API default endpoint
  *
  * @type {string}
  * @private
  */
 const _ddsEndpointDefault =
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer';
+
+/**
+ * Translation API endpoint
+ *
+ * @type {string}
+ * @private
+ */
+const _ddsEndpoint =
   (process &&
     (process.env.REACT_APP_DDS_TRANSLATION_ENDPOINT ||
       process.env.DDS_TRANSLATION_ENDPOINT)) ||
-  '/common/v18/js/data/jsononly';
+  _ddsEndpointDefault;
 
 /**
  * Session Storage key for translation data
@@ -59,15 +68,18 @@ const _twoHours = 60 * 60 * 2000;
 class TranslationAPI {
   /**
    * Clears the cache.
+   *
+   * @param {string} endpoint specified API non-default endpoint (optional)
    */
-  static clearCache() {
+  static clearCache(endpoint) {
+    const sessionKey = this.getSessionKey(endpoint);
     if (typeof sessionStorage !== 'undefined') {
       Object.keys(_requestsTranslation).forEach(
         key => delete _requestsTranslation[key]
       );
       for (let i = 0; i < sessionStorage.length; ++i) {
         const key = sessionStorage.key(i);
-        if (key.indexOf(_sessionTranslationKey) === 0) {
+        if (key.indexOf(sessionKey) === 0) {
           sessionStorage.removeItem(key);
         }
       }
@@ -121,7 +133,8 @@ class TranslationAPI {
    * @private
    */
   static fetchTranslation(lang, country, endpoint, resolve, reject) {
-    const itemKey = `${_sessionTranslationKey}-${country}-${lang}`;
+    const sessionKey = this.getSessionKey(endpoint);
+    const itemKey = `${sessionKey}-${country}-${lang}`;
 
     const sessionTranslation = this.getSessionCache(itemKey);
 
@@ -130,9 +143,8 @@ class TranslationAPI {
     } else {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
-        const url = `${_host}${
-          endpoint ? endpoint : _ddsEndpointDefault
-        }/${country}${lang}.json`;
+        const url = `${_host}${endpoint ||
+          _ddsEndpoint}/${country}${lang}.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
@@ -146,7 +158,7 @@ class TranslationAPI {
             data['timestamp'] = Date.now();
             if (typeof sessionStorage !== 'undefined') {
               sessionStorage.setItem(
-                `${_sessionTranslationKey}-${country}-${lang}`,
+                `${sessionKey}-${country}-${lang}`,
                 JSON.stringify(data)
               );
             }
@@ -156,6 +168,27 @@ class TranslationAPI {
 
       _requestsTranslation[key].then(resolve, reject);
     }
+  }
+
+  /**
+   * sets the Session key depending on API endpoint
+   *
+   * @param {string} endpoint specified endpoint passed as arg in getTranslation()
+   * @returns {string} session key
+   * @private
+   */
+  static getSessionKey(endpoint) {
+    let sessionKey = _sessionTranslationKey;
+    // form session key from specified endpoint
+    if (_ddsEndpointDefault !== _ddsEndpoint || endpoint) {
+      const endpointSrc = endpoint || _ddsEndpoint;
+      sessionKey = endpointSrc.replace(
+        /[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi,
+        ''
+      );
+    }
+
+    return sessionKey;
   }
 
   /**
