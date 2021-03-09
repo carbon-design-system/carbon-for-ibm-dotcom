@@ -43,18 +43,17 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Logo Grid',
   decorators: [
-    story => html`
-      <div style="width: 100%" class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
+    (story, { parameters }) => html`
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--logo-grid',
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),

@@ -101,6 +101,8 @@ export default {
   title: 'Components/LeadSpaceBlock',
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpaceBlock: ({ groupId }) => ({
         title: text('title (title)', 'Continuous delivery', groupId),
@@ -115,12 +117,8 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="bx--grid" style="width: 100%">
-          <div class="bx--row">
-            <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-              ${story()}
-            </div>
-          </div>
+        <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+          ${story()}
         </div>
       `,
     ],
