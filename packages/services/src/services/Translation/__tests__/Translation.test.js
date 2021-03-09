@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -75,9 +75,9 @@ describe('TranslationAPI', () => {
     ).toBeGreaterThan(-1);
   });
 
-  it('should fetch the i18n data', async () => {
+  it('should fetch the i18n data from default endpoint', async () => {
     // Expected endpoint called
-    const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
+    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation({
@@ -96,6 +96,28 @@ describe('TranslationAPI', () => {
     });
 
     expect(response).toEqual(responseSuccess);
+  });
+
+  it('should fetch the i18n data from given endpoint', async () => {
+    // Expected endpoint called
+    const givenEndpoint = '/common/carbon-for-ibm-dotcom/custom-endpoint';
+    const endpoint = `${process.env.TRANSLATION_HOST}${givenEndpoint}`;
+    const fetchUrl = `${endpoint}/usen.json`;
+
+    await TranslationAPI.getTranslation(
+      {
+        lc: 'en',
+        cc: 'us',
+      },
+      givenEndpoint
+    );
+
+    expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
+      headers: {
+        'Content-Type': 'text/plain',
+        origin: 'https://ibm.com',
+      },
+    });
   });
 
   it('should return a json with a recent timestamp', async () => {
