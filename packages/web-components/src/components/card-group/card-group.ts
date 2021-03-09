@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,8 +26,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends LitElement {
+
   /**
-   * Grid Mode Gutter (collapsed/1px (default) | narrow/16px)
+   * The Grid Mode for the component layout.
+   * Collapsed/1px (default) | Narrow/16px).
    */
   @property({ attribute: 'grid-mode', reflect: true })
   gridMode = GRID_MODE.COLLAPSED;
