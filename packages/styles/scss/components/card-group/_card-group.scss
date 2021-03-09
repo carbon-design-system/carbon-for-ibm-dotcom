@@ -119,15 +119,20 @@
   }
 
   // Add Grid Mode Narrow (16px gutter) style.
-  // (WIP): Trying to figure out how to pass styles to the slotted item classes 
-  // <dds-card-group-item> without having to extend a new component to do so.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
-    // column-gap: 16px;
+    @include carbon--breakpoint('sm') {
+      column-gap: $carbon--spacing-05;
+    }
 
-    :host(#{$dds-prefix}-card-group-item),
+    ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
       background: inherit;
+      padding: $carbon--spacing-03 0 0 0;
+
+      @include carbon--breakpoint('md') {
+        padding: $carbon--spacing-05 0 0 0;
+      }
     }
   }
 
