@@ -131,13 +131,13 @@ withImagesAndCTA.story = {
   },
 };
 
-const girdModes = {
+const gridModes = {
   [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
 };
 
 export const withCardInCard = ({ parameters }) => {
-  const { cards, girdMode } = parameters?.props?.CardGroup ?? {};
+  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
     <dds-card-in-card href="https://example.com">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgXlg16x9}">
@@ -151,7 +151,7 @@ export const withCardInCard = ({ parameters }) => {
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-in-card-footer>
     </dds-card-in-card>
-    <dds-card-group grid-mode="${ifNonNull(girdMode)}">
+    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}
     </dds-card-group>
   `;
@@ -162,7 +162,7 @@ withCardInCard.story = {
     ...readme.parameters,
     knobs: {
       CardGroup: ({ groupId }) => ({
-        girdMode: select('Grid mode:', girdModes, GRID_MODE.NARROW, groupId),
+        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
         cards: Array.from({
           length: number('Number of cards', 3, {}, groupId),
         }).map(() => cardGroupItemWithCTAs),
