@@ -9,6 +9,7 @@
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/aspect-ratio';
+@import '../../globals/utils/ratio-base';
 @import '../image/image';
 @import '../card/index';
 
@@ -42,13 +43,19 @@
       width: 100%;
       background-color: $ui-01;
       height: auto;
-      padding: $spacing-05;
+      padding: $carbon--spacing-05;
+
+      @include carbon--breakpoint('md') {
+        @include ratio-base(4, 1, false);
+      }
 
       @include carbon--breakpoint('lg') {
-        width: 33.33%;
+        width: calc(33.33% - #{$carbon--spacing-04});
         position: absolute;
         bottom: 0;
         right: 0;
+
+        @include ratio-base(2, 1, false);
       }
 
       .#{$prefix}--card__eyebrow,
@@ -85,7 +92,7 @@
     ::slotted([slot='footer']),
     .#{$prefix}--card__footer {
       position: absolute;
-      bottom: $spacing-05;
+      bottom: $carbon--spacing-05;
     }
   }
 }
