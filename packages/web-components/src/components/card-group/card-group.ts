@@ -30,7 +30,7 @@ class DDSCardGroup extends LitElement {
    * Grid Mode Gutter (collapsed/1px (default) | narrow/16px)
    */
   @property({ attribute: 'grid-mode', reflect: true })
-  gridMode = GRID_MODE.NARROW;
+  gridMode = GRID_MODE.COLLAPSED;
 
   render() {
     const slotClasses = classMap({

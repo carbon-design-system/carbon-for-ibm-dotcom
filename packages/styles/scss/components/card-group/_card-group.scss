@@ -121,10 +121,11 @@
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
+    // column-gap: 16px;
+
     :host(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
       background: inherit;
-      padding: 8px;
     }
   }
 
