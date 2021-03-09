@@ -9,6 +9,7 @@
 @import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 
 :host(#{$dds-prefix}-content-section),
+:host(#{$dds-prefix}-card-section-carousel),
 :host(#{$dds-prefix}-content-section-heading),
 :host(#{$dds-prefix}-content-section-copy) {
   display: block;
