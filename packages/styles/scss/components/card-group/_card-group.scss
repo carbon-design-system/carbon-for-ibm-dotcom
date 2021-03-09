@@ -119,6 +119,8 @@
   }
 
   // Add Grid Mode Narrow (16px gutter) style.
+  // (WIP): Trying to figure out how to pass styles to the slotted item classes 
+  // <dds-card-group-item> without having to extend a new component to do so.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
     // column-gap: 16px;
