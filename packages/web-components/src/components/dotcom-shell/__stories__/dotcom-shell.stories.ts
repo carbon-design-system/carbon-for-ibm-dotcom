@@ -591,7 +591,6 @@ export const withL1 = ({ parameters }) => {
     parameters?.props?.MastheadComposite ?? {};
   const { langDisplay, language, legalLinks, links: footerLinks, localeList } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
-  console.log('l1data', l1Data);
   return html`
     <style>
       ${mastheadStyles}

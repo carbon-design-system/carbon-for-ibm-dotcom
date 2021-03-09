@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { boolean, object } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
 import '../footer-composite';
@@ -29,6 +30,7 @@ export const base = ({ parameters }) => {
     legalLinks,
     links,
     localeList,
+    localeButton,
     clearSelectionLabel,
     languageSelectorLabel,
     selectedLanguage,
@@ -42,6 +44,7 @@ export const base = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-footer-composite
+            disable-locale-button="${localeButton}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
@@ -57,6 +60,7 @@ export const base = ({ parameters }) => {
         `
       : html`
           <dds-footer-container
+            disable-locale-button="${localeButton}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
@@ -91,9 +95,19 @@ export const defaultLanguageOnly = ({ parameters }) => {
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
-    langList: mockLangList,
   };
   return base({ parameters });
+};
+
+defaultLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
+      }),
+    },
+  },
 };
 
 export const short = ({ parameters }) => {
@@ -106,7 +120,7 @@ export const short = ({ parameters }) => {
   return base({ parameters });
 };
 
-export const shortDefaultLanguageOnly = ({ parameters }) => {
+export const shortLanguageOnly = ({ parameters }) => {
   const { props = {} } = parameters;
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
@@ -114,13 +128,19 @@ export const shortDefaultLanguageOnly = ({ parameters }) => {
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
-    langList: mockLangList,
   };
-  return html`
-    <div class="micro-container">
-      ${base({ parameters })}
-    </div>
-  `;
+  return base({ parameters });
+};
+
+shortLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
+      }),
+    },
+  },
 };
 
 export const micro = ({ parameters }) => {
@@ -128,6 +148,7 @@ export const micro = ({ parameters }) => {
   props.FooterComposite = {
     ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
+    langList: '',
   };
   return html`
     <div class="micro-container">
@@ -136,11 +157,43 @@ export const micro = ({ parameters }) => {
   `;
 };
 
+export const microLanguageOnly = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
+    size: FOOTER_SIZE.MICRO,
+    languageSelectorLabel: 'Choose a language',
+    clearSelectionLabel: 'Clear language selection',
+    selectedLanguage: 'English',
+  };
+  return html`
+    <div class="micro-container">
+      ${base({ parameters })}
+    </div>
+  `;
+};
+
+microLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Footer',
   parameters: {
     ...readme.parameters,
     useRawContainer: true,
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+      }),
+    },
     props: (() => {
       // Lets `<dds-footer-container>` load the footer links
       const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
