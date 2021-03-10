@@ -10,7 +10,7 @@
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
-
+0
 // TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
 :host(#{$dds-prefix}-table-of-contents) {
   @extend .#{$prefix}--grid;
@@ -26,9 +26,16 @@
   @extend .#{$prefix}--col-lg-12;
 }
 
-.#{$dds-prefix}-ce--table-of-contents__container {
+.#{$dds-prefix}-ce--table-of-contents__container,
+.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
   @include carbon--make-row();
+}
 
+.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
+  position: relative;
+}
+
+.#{$dds-prefix}-ce--table-of-contents__container {
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
   ::slotted(#{$dds-prefix}-content-block-simple),
   ::slotted(#{$dds-prefix}-content-block-segmented) {

@@ -240,18 +240,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   };
 
   /**
-   * Returns TOC class based on the type
-   */
-  private _getBarClass = () => {
-    switch (this.type) {
-      case TOC_TYPES.HORIZONTAL:
-        return `${prefix}--tableofcontents__horizontal`;
-      default:
-        return `${prefix}--tableofcontents__sidebar`;
-    }
-  };
-
-  /**
    * The current 0px offset from the top of page.
    */
   @property({ type: Number })
@@ -293,11 +281,21 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       _handleClickItem: handleClickItem,
       _handleSlotChange: handleSlotChange,
       _handleSlotChangeHeading: handleSlotChangeHeading,
-      _getBarClass: getBarClass,
     } = this;
+
+    const containerClasses = classMap({
+      [`${ddsPrefix}-ce--table-of-contents__container`]: this.type === TOC_TYPES.DEFAULT,
+      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]: this.type === TOC_TYPES.HORIZONTAL,
+    });
+
+    const navigationClasses = classMap({
+      [`${prefix}--tableofcontents__sidebar`]: this.type === TOC_TYPES.DEFAULT,
+      [`${prefix}--tableofcontents__horizontal`]: this.type === TOC_TYPES.HORIZONTAL,
+    });
+
     return html`
-      <div class="${ddsPrefix}-ce--table-of-contents__container">
-        <div part="table" class="${getBarClass()}">
+      <div class="${containerClasses}">
+        <div part="table" class="${navigationClasses}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
