@@ -113,8 +113,8 @@ export const searchOpenByDefault = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
