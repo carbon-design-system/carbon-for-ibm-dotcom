@@ -480,8 +480,8 @@ class DDSMastheadComposite extends LitElement {
   /**
    * `true` if there is a search.
    */
-  @property({ type: Boolean, attribute: 'search' })
-  search = true;
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
 
   /**
    * `true` to activate the search box.
