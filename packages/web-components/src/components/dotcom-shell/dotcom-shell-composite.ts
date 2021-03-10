@@ -107,8 +107,8 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` if there is a profile.
    */
-  @property({ type: Boolean, attribute: 'profile' })
-  profile = true;
+  @property({ type: Boolean, attribute: 'has-profile' })
+  hasProfile = true;
 
   /**
    * `true` if there is a search.
