@@ -216,8 +216,8 @@ export const withL1 = ({ parameters }) => {
             platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
           ></dds-masthead-container>
