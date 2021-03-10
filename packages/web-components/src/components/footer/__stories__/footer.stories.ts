@@ -179,7 +179,7 @@ microLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
     },
