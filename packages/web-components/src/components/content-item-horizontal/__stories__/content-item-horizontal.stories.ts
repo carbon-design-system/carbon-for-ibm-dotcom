@@ -101,15 +101,15 @@ export const WithMedia = ({ parameters }) => {
   `;
 };
 
-WithMedia.story = {
-  decorators: [
-    story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-horizontal-media">
-        ${story()}
-      </div>
-    `,
-  ],
+Default.story = {
   parameters: {
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal',
+  },
+};
+
+WithMedia.story = {
+  parameters: {
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
@@ -133,8 +133,8 @@ WithMedia.story = {
 export default {
   title: 'Components/Content item horizontal',
   decorators: [
-    story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-horizontal">
+    (story, { parameters }) => html`
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
         ${story()}
       </div>
     `,
