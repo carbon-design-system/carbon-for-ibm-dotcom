@@ -70,26 +70,37 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Returns a class-name based on the size parameter size
-   */
-  protected _getSizeClass() {
-    return classMap({
-      [`${prefix}--leadspace--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
-    });
-  }
-
-  /**
    * Renders Leadspace copy/description
    */
   protected _renderCopy() {
     const { copy } = this;
     return html`
       <div class="${prefix}--leadspace__row">
-        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${prefix}--leadspace__desc">
+        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${this._getCopyType()}">
           <slot>${copy}</slot>
         </p>
       </div>
     `;
+  }
+
+  /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getCopyType() {
+    return classMap({
+      [`${prefix}--leadspace__desc-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
+    });
+  }
+
+  /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getContentType() {
+    return classMap({
+      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace--content__container-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+    });
   }
 
   /**
@@ -170,6 +181,9 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   type = LEADSPACE_TYPE.LEFT;
 
+  /**
+   *  Leadspace size (tall or medium)
+   */
   @property({ reflect: true })
   size = LEADSPACE_SIZE.NONE;
 
@@ -212,7 +226,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                   <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${prefix}--leadspace--content__container">
+            <div class="${this._getContentType()}">
               <div class="${prefix}--leadspace__row">
                 ${this._renderHeading()}
               </div>

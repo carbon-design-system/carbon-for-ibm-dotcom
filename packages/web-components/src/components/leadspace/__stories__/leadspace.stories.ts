@@ -36,8 +36,8 @@ const gradientStyleSchemes = {
 };
 
 const sizes = {
-  [`Regular size`]: LEADSPACE_SIZE.NONE,
-  [`Medium (${LEADSPACE_SIZE.MEDIUM})`]: LEADSPACE_SIZE.MEDIUM,
+  [`Tall`]: LEADSPACE_SIZE.NONE,
+  [`Medium`]: LEADSPACE_SIZE.MEDIUM,
 };
 
 export const DefaultWithNoImage = ({ parameters }) => {
@@ -223,7 +223,6 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        // size: select('Modal size (size)', size, null, groupId),
         title: text('title (title):', 'Lead space title', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
@@ -260,7 +259,7 @@ export default {
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
-        size: select('Leadspace Size', sizes, LEADSPACE_SIZE.MEDIUM, groupId),
+        size: select('Size', sizes, LEADSPACE_SIZE.NONE, groupId),
       }),
     },
   },
