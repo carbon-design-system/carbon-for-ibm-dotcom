@@ -17,7 +17,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 const footerTypeOptions = {
-  tall: 'tall',
+  default: 'default',
   short: 'short',
   micro: 'micro',
 };
@@ -42,7 +42,7 @@ export default {
             type: select(
               'Footer (footerProps): sets the type of footer (type)',
               footerTypeOptions,
-              footerTypeOptions.tall,
+              footerTypeOptions.default,
               'Footer'
             ),
           },
