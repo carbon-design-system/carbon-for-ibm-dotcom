@@ -206,7 +206,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
     const { _startX, _startTime } = this;
     const { pageSize, start, _total: total } = this;
     const allowedTime = 300; // max time allowed to do swipe
-    const threshold = 125; // min distance traveled to be considered swipe
+    const threshold = 75; // min distance traveled to be considered swipe
 
     const distX = event.changedTouches[0].clientX - _startX; // distance travelled
     const elapsedTime = new Date().getTime() - _startTime; // elapsed time
