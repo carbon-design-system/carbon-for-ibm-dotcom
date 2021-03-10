@@ -696,7 +696,7 @@ export default {
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
       }),
     },
     props: (() => {
