@@ -43,16 +43,16 @@ export enum LEADSPACE_GRADIENT_STYLE_SCHEME {
 }
 
 /**
- * Leadspace type
+ * Leadspace size
  */
 export enum LEADSPACE_SIZE {
   /**
-   * Left-aligned - small style of the leadspace title (default)
+   * Default - tall size of the leadspace (default)
    */
   NONE = '',
 
   /**
-   * Left-aligned - large style of the leadspace title
+   * Medium - medium size of the leadspace
    */
   MEDIUM = 'medium',
 }
