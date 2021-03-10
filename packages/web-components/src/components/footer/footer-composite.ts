@@ -265,14 +265,14 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
           )}
         </dds-footer-nav>
         ${disableLocaleButton ? console.log('true') : console.log('false')}
-        ${size !== FOOTER_SIZE.MICRO && !langList
+        ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" size="${size}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
           : ``}
-        ${size !== FOOTER_SIZE.MICRO && langList
+        ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
           ? html`
               <dds-language-selector-desktop
                 trigger-content="${languageSelectorLabel}"
@@ -303,7 +303,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
-          ${size === FOOTER_SIZE.MICRO && !langList
+          ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
             ? html`
                 <dds-locale-button
                   buttonLabel="${ifNonNull(buttonLabel)}"
@@ -314,7 +314,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                 >
               `
             : ``}
-          ${size === FOOTER_SIZE.MICRO && langList
+          ${size === FOOTER_SIZE.MICRO && langList && !disableLocaleButton
             ? html`
                 <dds-language-selector-desktop
                   size="${size}"

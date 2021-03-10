@@ -55,6 +55,7 @@ export const base = ({ parameters }) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
+            ?disable-locale-button="${localeButton}"
           >
           </dds-footer-composite>
         `
@@ -71,6 +72,7 @@ export const base = ({ parameters }) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
+            ?disable-locale-button="${localeButton}"
           >
           </dds-footer-container>
         `}

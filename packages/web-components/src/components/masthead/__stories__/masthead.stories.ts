@@ -51,8 +51,8 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
@@ -65,8 +65,8 @@ export const Default = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
           ></dds-masthead-container>
         `}
   `;
@@ -87,8 +87,8 @@ export const WithCustomNavigation = ({ parameters }) => {
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
       .navLinks="${customLinks}"
-      .profile="${profile}"
-      .search="${search}"
+      ?profile="${profile}"
+      ?search="${search}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
     ></dds-masthead-composite>
   `;
@@ -113,8 +113,8 @@ export const searchOpenByDefault = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -127,8 +127,8 @@ export const searchOpenByDefault = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
           ></dds-masthead-container>
         `}
   `;
@@ -152,8 +152,8 @@ export const withPlatform = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -165,8 +165,8 @@ export const withPlatform = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
           ></dds-masthead-container>
         `}
   `;
@@ -203,8 +203,8 @@ export const withL1 = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -216,8 +216,8 @@ export const withL1 = ({ parameters }) => {
             platform-url="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
           ></dds-masthead-container>
@@ -242,8 +242,8 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
             .navLinks="${navLinks}"
             .logoData="${mastheadLogo}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -258,8 +258,8 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
             .logoData="${mastheadLogo}"
-            .profile="${profile}"
-            .search="${search}"
+            ?profile="${profile}"
+            ?search="${search}"
           ></dds-masthead-container>
         `}
   `;

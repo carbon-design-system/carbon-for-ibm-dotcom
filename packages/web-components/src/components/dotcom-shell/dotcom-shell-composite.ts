@@ -167,7 +167,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` to omit the locale switcher button.
    */
-  @property({ attribute: 'disable-locale-button' })
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
   disableLocaleButton = false;
 
   /**
