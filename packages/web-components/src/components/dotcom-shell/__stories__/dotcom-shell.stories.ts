@@ -689,8 +689,8 @@ export default {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
         platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
-        profile: boolean('show the profile functionality (profile)', true, groupId),
-        search: boolean('show the search functionality (search)', true, groupId),
+        hasProfile: boolean('show the profile functionality (profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (search)', true, groupId),
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
