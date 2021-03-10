@@ -30,7 +30,7 @@ export const base = ({ parameters }) => {
     legalLinks,
     links,
     localeList,
-    localeButton,
+    disableLocaleButton,
     clearSelectionLabel,
     languageSelectorLabel,
     selectedLanguage,
@@ -44,7 +44,6 @@ export const base = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-footer-composite
-            disable-locale-button="${localeButton}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
@@ -55,13 +54,12 @@ export const base = ({ parameters }) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
           </dds-footer-composite>
         `
       : html`
           <dds-footer-container
-            disable-locale-button="${localeButton}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             size="${ifNonNull(size)}"
@@ -72,7 +70,7 @@ export const base = ({ parameters }) => {
             language-selector-label="${ifNonNull(languageSelectorLabel)}"
             clear-selection-label="${ifNonNull(clearSelectionLabel)}"
             selected-language="${ifNonNull(selectedLanguage)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
           </dds-footer-container>
         `}

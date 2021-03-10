@@ -65,9 +65,9 @@ const footerSizes = {
 };
 
 export const Default = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -112,9 +112,9 @@ export const Default = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -134,9 +134,9 @@ Default.story = {
 };
 
 export const DefaultFooterLanguageOnly = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -162,10 +162,10 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -187,9 +187,9 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -201,7 +201,7 @@ DefaultFooterLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('langlist', mockLangList, groupId),
       }),
     },
@@ -209,9 +209,9 @@ DefaultFooterLanguageOnly.story = {
 };
 
 export const searchOpen = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -234,10 +234,10 @@ export const searchOpen = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -260,9 +260,9 @@ export const searchOpen = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -271,9 +271,9 @@ export const searchOpen = ({ parameters }) => {
 };
 
 export const withPlatform = ({ parameters }) => {
-  const { profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -295,10 +295,10 @@ export const withPlatform = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -316,9 +316,9 @@ export const withPlatform = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -341,9 +341,9 @@ withPlatform.story = {
 };
 
 export const withShortFooter = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -366,9 +366,10 @@ export const withShortFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -387,9 +388,9 @@ export const withShortFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -398,9 +399,9 @@ export const withShortFooter = ({ parameters }) => {
 };
 
 export const withShortFooterLanguageOnly = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -427,10 +428,10 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -453,9 +454,9 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -467,7 +468,7 @@ withShortFooterLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('langlist', mockLangList, groupId),
       }),
     },
@@ -475,9 +476,9 @@ withShortFooterLanguageOnly.story = {
 };
 
 export const withMicroFooter = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -500,10 +501,10 @@ export const withMicroFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -522,9 +523,9 @@ export const withMicroFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -533,9 +534,9 @@ export const withMicroFooter = ({ parameters }) => {
 };
 
 export const withMicroFooterLanguageOnly = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -562,10 +563,10 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -588,9 +589,9 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>
@@ -610,9 +611,9 @@ withMicroFooterLanguageOnly.story = {
 };
 
 export const withL1 = ({ parameters }) => {
-  const { platform, profile, userStatus, navLinks, search, searchPlaceholder, selectedMenuItem } =
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
     parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, localeButton } =
+  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
     parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -635,10 +636,10 @@ export const withL1 = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
@@ -657,9 +658,9 @@ export const withL1 = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
-            ?disable-locale-button="${localeButton}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-container>

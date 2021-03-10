@@ -35,7 +35,7 @@ const platformData = {
 };
 
 export const Default = ({ parameters }) => {
-  const { platform, profile, search, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+  const { platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -73,7 +73,7 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithCustomNavigation = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, searchPlaceholder, profile, search } =
+  const { platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
     parameters?.props?.MastheadComposite ?? {};
   return html`
     <style>
@@ -95,7 +95,7 @@ export const WithCustomNavigation = ({ parameters }) => {
 };
 
 export const searchOpenByDefault = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, searchPlaceholder, profile, search, navLinks } =
+  const { platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -135,7 +135,7 @@ export const searchOpenByDefault = ({ parameters }) => {
 };
 
 export const withPlatform = ({ parameters }) => {
-  const { selectedMenuItem, userStatus, navLinks, profile, search, searchPlaceholder } =
+  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -187,7 +187,7 @@ withPlatform.story = {
 };
 
 export const withL1 = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, profile, search, searchPlaceholder } =
+  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
@@ -226,7 +226,7 @@ export const withL1 = ({ parameters }) => {
 };
 
 export const withAlternateLogoAndTooltip = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, profile, search, searchPlaceholder, mastheadLogo } =
+  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
