@@ -10,19 +10,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -47,19 +44,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -86,19 +80,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -123,19 +114,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -162,19 +150,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -206,19 +191,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -252,19 +234,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -296,19 +275,16 @@
   part="section"
   style="background-image: url(http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616)"
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -342,19 +318,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -379,19 +352,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -418,19 +388,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
@@ -455,19 +422,16 @@
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div>
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div>
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
-            <p
-              class="bx--leadspace__desc"
-              data-autoid="dds--leadspace__desc"
-            >
+            <p data-autoid="dds--leadspace__desc">
               <slot>
               </slot>
             </p>
