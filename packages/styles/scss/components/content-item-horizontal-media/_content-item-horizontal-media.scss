@@ -88,7 +88,6 @@
   .#{$prefix}--content-item-horizontal__row {
     display: grid;
     column-gap: $carbon--spacing-07;
-    grid-template-columns: repeat(4, 1fr);
 
     @include carbon--breakpoint(lg) {
       grid-template-columns: repeat(3, 1fr);
@@ -111,6 +110,7 @@
             margin-top: 0;
             grid-row: 1;
             grid-column: 1 / span 2;
+            max-width: 640px;
           }
         }
       }
@@ -133,6 +133,7 @@
           @include carbon--breakpoint(lg) {
             margin-top: 0;
             grid-column: 2 / span 2;
+            max-width: 640px;
           }
         }
       }

@@ -101,6 +101,28 @@ export const WithMedia = ({ parameters }) => {
   `;
 };
 
+WithMedia.story = {
+  parameters: {
+    knobs: {
+      ContentItemHorizontal: () => ({
+        align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
+        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
+        alt: textNullable('Image alt text', 'Lorem ipsum'),
+        heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
+        copy: textNullable(
+          'Copy (copy):',
+          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
+            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+            'Phasellus at elit sollicitudin.'
+        ),
+        ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
+        ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
+        href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Content item horizontal',
   decorators: [
@@ -116,9 +138,6 @@ export default {
     hasGrid: true,
     knobs: {
       ContentItemHorizontal: () => ({
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
-        type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
-        alt: textNullable('Image alt text', 'Lorem ipsum'),
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
         copy: textNullable(
