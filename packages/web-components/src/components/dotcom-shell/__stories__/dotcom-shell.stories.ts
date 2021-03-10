@@ -126,7 +126,7 @@ Default.story = {
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         footerSize: select('Size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
       }),
     },
