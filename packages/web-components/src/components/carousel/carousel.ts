@@ -88,7 +88,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    * Initial touch position (used to detect swipe gesture)
    */
   @internalProperty()
-  private _startX = 0;
+  private _startPos = 0;
 
   /**
    * Initial touch time (used to detect swipe gesture)
@@ -195,7 +195,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    * Handles `touchstart` event.
    */
   private _handleTouchStartEvent(event: TouchEvent) {
-    this._startX = event.touches[0].clientX;
+    this._startPos = event.touches[0].clientX;
     this._startTime = new Date().getTime();
   }
 
@@ -203,16 +203,16 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    * Handles `touchend` event.
    */
   private _handleTouchEndEvent(event: TouchEvent) {
-    const { _startX, _startTime } = this;
+    const { _startPos, _startTime } = this;
     const { pageSize, start, _total: total } = this;
     const allowedTime = 300; // max time allowed to do swipe
     const threshold = 75; // min distance traveled to be considered swipe
 
-    const distX = event.changedTouches[0].clientX - _startX; // distance travelled
+    const distTravelled = event.changedTouches[0].clientX - _startPos; // distance travelled
     const elapsedTime = new Date().getTime() - _startTime; // elapsed time
 
-    if (elapsedTime <= allowedTime && Math.abs(distX) >= threshold) {
-      if (distX < 0) {
+    if (elapsedTime <= allowedTime && Math.abs(distTravelled) >= threshold) {
+      if (distTravelled < 0) {
         this.start = Math.min(start + pageSize, total - 1);
       } else {
         this.start = Math.max(start - pageSize, 0);
