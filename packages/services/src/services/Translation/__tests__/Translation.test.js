@@ -148,6 +148,22 @@ describe('TranslationAPI', () => {
     expect(sessionValue).toEqual(JSON.stringify(responseSuccess));
   });
 
+  it('should set the session storage with default session key', async () => {
+    root.location = {
+      href: 'https://www.loremipsum.com',
+    };
+
+    const expectedSessionKey = 'dds-translation-us-en';
+
+    await TranslationAPI.getTranslation({
+      lc: 'en',
+      cc: 'us',
+    });
+
+    const sessionValue = sessionStorageMock.getItem(expectedSessionKey);
+    expect(sessionValue).toEqual(JSON.stringify(responseSuccess));
+  });
+
   it('should return a json with a recent timestamp', async () => {
     // using very old cached session
     sessionStorageMock.setItem(
