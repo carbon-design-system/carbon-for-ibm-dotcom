@@ -30,7 +30,7 @@
     /* stylelint-disable-next-line length-zero-no-unit */
     --dds--carousel--overflow-hint-size: 0rem;
 
-    @include carbon--breakpoint('sm') {
+    @include carbon--breakpoint('md') {
       --dds--carousel--overflow-hint-size: 1rem;
     }
 
