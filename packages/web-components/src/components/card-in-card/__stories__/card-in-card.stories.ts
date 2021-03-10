@@ -65,12 +65,8 @@ export default {
   title: 'Components/Card in Card',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-in-card">
+        ${story()}
       </div>
     `,
   ],
@@ -81,7 +77,7 @@ export default {
       'dds-card-in-card': () => ({
         eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
         heading: textNullable('Card Heading (heading):', 'Standard Bank Group prepares to embrace Africa’s AI opportunity'),
-        defaultSrc: textNullable('Image src (defaultSrc):', imgXlg16x9),
+        defaultSrc: textNullable('Image src (defaultSrc):', imgSm4x3),
         alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),

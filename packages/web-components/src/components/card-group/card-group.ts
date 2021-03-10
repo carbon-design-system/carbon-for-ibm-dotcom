@@ -26,7 +26,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends LitElement {
-
   /**
    * The Grid Mode for the component layout.
    * Collapsed/1px (default) | Narrow/16px).
