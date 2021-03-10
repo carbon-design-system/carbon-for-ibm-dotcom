@@ -42,7 +42,7 @@
       &:focus {
         ::slotted([slot='image']),
         .#{$prefix}--image {
-          &:before {
+          &::before {
             opacity: 0.2;
           }
         }
@@ -53,7 +53,7 @@
       .#{$prefix}--image {
         position: relative;
 
-        &:before {
+        &::before {
           content: '';
           position: absolute;
           width: 100%;
