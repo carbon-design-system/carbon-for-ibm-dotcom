@@ -102,6 +102,13 @@ export const WithMedia = ({ parameters }) => {
 };
 
 WithMedia.story = {
+  decorators: [
+    story => html`
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-horizontal-media">
+        ${story()}
+      </div>
+    `,
+  ],
   parameters: {
     knobs: {
       ContentItemHorizontal: () => ({
