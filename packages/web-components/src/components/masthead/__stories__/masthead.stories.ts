@@ -258,8 +258,8 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
             .logoData="${mastheadLogo}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
           ></dds-masthead-container>
         `}
   `;
