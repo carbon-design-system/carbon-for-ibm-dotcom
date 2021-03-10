@@ -40,6 +40,19 @@ const links = [...menu items...];
 document.getElementById('masthead-container').navLinks = links;
 ```
 
+#### Using L1 nav
+
+To use L1 nav, set `l1Data` prop. `l1Data` prop should be an
+object that contains the navigation data of L1 nav:
+
+```javascipt
+const l1Data = {
+  title: 'Stock Charts',
+  url: 'https://example.com',
+  menuItems: (The nav links),
+}
+```
+
 ```html
 <dds-masthead-container id="masthead-container"></dds-masthead-container>
 ```
