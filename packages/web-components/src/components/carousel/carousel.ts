@@ -194,7 +194,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   /**
    * Handles `touchstart` event.
    */
-  private _handleTouchStartEvent(event: Event) {
+  private _handleTouchStartEvent(event: TouchEvent) {
     this._startX = event.touches[0].clientX;
     this._startTime = new Date().getTime();
   }
@@ -202,7 +202,7 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   /**
    * Handles `touchend` event.
    */
-  private _handleTouchEndEvent(event: Event) {
+  private _handleTouchEndEvent(event: TouchEvent) {
     const { _startX, _startTime } = this;
     const { pageSize, start, _total: total } = this;
     const allowedTime = 300; // max time allowed to do swipe
