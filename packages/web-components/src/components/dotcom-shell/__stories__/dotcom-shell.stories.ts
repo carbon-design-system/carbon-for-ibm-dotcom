@@ -602,7 +602,7 @@ withMicroFooterLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: ({ groupId }) => ({
-        localeButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
         langList: object('langlist', mockLangList, groupId),
       }),
     },
