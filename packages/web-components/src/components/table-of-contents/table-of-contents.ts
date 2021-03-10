@@ -32,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   /**
-   * Defines TOC type
+   * Defines TOC type, `` for default, `horizontal` for horizontal variant.
    */
   @property({ reflect: true })
   type = TOC_TYPES.DEFAULT;
