@@ -90,8 +90,8 @@ export const Default = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -112,8 +112,8 @@ export const Default = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -162,8 +162,8 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -187,8 +187,8 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -234,8 +234,8 @@ export const searchOpen = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -260,8 +260,8 @@ export const searchOpen = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -295,8 +295,8 @@ export const withPlatform = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -316,8 +316,8 @@ export const withPlatform = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -366,8 +366,8 @@ export const withShortFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            .profile="${profile}"
-            .search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           >
             ${StoryContent()}
@@ -387,8 +387,8 @@ export const withShortFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -427,8 +427,8 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -453,8 +453,8 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -500,8 +500,8 @@ export const withMicroFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -522,8 +522,8 @@ export const withMicroFooter = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -562,8 +562,8 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -588,8 +588,8 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}
@@ -635,8 +635,8 @@ export const withL1 = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
@@ -657,8 +657,8 @@ export const withL1 = ({ parameters }) => {
             .footerLinks="${ifNonNull(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
-            ?profile="${profile}"
-            ?search="${search}"
+            ?has-profile="${profile}"
+            ?has-search="${search}"
             ?disable-locale-button="${localeButton}"
           >
             ${StoryContent()}

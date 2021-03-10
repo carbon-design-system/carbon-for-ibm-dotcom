@@ -641,7 +641,7 @@ class DDSMastheadComposite extends LitElement {
       currentSearchResults,
       platform,
       platformUrl,
-      profile,
+      hasProfile,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -649,7 +649,7 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       language,
       openSearchDropdown,
-      search,
+      hasSearch,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -690,7 +690,7 @@ class DDSMastheadComposite extends LitElement {
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
               </dds-top-nav>
             `}
-        ${!search
+        ${!hasSearch
           ? undefined
           : html`
               <dds-masthead-search-composite
@@ -704,7 +704,7 @@ class DDSMastheadComposite extends LitElement {
               ></dds-masthead-search-composite>
             `}
         <dds-masthead-global-bar>
-          ${!profile
+          ${!hasProfile
             ? undefined
             : html`
                 <dds-masthead-profile ?authenticated="${authenticated}">
