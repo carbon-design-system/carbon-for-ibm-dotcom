@@ -498,7 +498,7 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The platform name.
    */
-  @property({ attribute: 'platform' })
+  @property()
   platform!: string;
 
   /**
