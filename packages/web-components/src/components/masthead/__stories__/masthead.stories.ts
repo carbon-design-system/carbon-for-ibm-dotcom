@@ -87,8 +87,8 @@ export const WithCustomNavigation = ({ parameters }) => {
       searchPlaceholder="${ifNonNull(searchPlaceholder)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
       .navLinks="${customLinks}"
-      ?has-profile="${profile}"
-      ?has-search="${search}"
+      ?has-profile="${hasProfile}"
+      ?has-search="${hasSearch}"
       .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
     ></dds-masthead-composite>
   `;
