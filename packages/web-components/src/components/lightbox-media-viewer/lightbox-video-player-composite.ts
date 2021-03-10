@@ -36,6 +36,20 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   private _hCloseModal: Handle | null = null;
 
   /**
+   * Handles aria state depending on the modal's state.
+   */
+  private _handleAriaState = () => {
+    const iFrame = this._videoPlayer?.querySelector('iframe');
+
+    // Handles edge case where screen reader still reads video title within iFrame
+    if (this.open) {
+      window.frames[`${iFrame?.id}`].document.querySelector('.topBarContainer').removeAttribute('aria-hidden');
+    } else {
+      window.frames[`${iFrame?.id}`].document.querySelector('.topBarContainer').setAttribute('aria-hidden', 'true');
+    }
+  };
+
+  /**
    * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
    */
   private _handleCloseModal = () => {
@@ -45,6 +59,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
       currentEmbeddedVideo.sendNotification('doStop');
     }
     this.open = false;
+    this._handleAriaState();
   };
 
   protected _handleContentStateChange(event: CustomEvent) {
@@ -94,6 +109,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
         this._loadVideoData?.(videoId);
         if (open) {
           this._embedVideo?.(videoId);
+          this._handleAriaState();
         }
       }
     }
