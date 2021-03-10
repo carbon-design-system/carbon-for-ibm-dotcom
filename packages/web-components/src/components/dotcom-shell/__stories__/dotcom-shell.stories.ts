@@ -90,8 +90,8 @@ export const Default = ({ parameters }) => {
             .localeList="${ifNonNull(localeList)}"
             .footerLinks="${ifNonNull(footerLinks)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${localeButton}"
           >
