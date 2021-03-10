@@ -192,17 +192,17 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Handles `swipe` start event.
+   * Handles `touchstart` event.
    */
-  private _handleSwipeStartEvent(event: Event) {
+  private _handleTouchStartEvent(event: Event) {
     this._startX = event.touches[0].clientX;
     this._startTime = new Date().getTime();
   }
 
   /**
-   * Handles `swipe` end event.
+   * Handles `touchend` event.
    */
-  private _handleSwipeEndEvent(event: Event) {
+  private _handleTouchEndEvent(event: Event) {
     const { _startX, _startTime } = this;
     const { pageSize, start, _total: total } = this;
     const allowedTime = 300; // max time allowed to do swipe
@@ -331,8 +331,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       _handleClickPrevButton: handleClickPrevButton,
       _handleScrollFocus: handleScrollFocus,
       _handleSlotChange: handleSlotChange,
-      _handleSwipeStartEvent: handleSwipeStartEvent,
-      _handleSwipeEndEvent: handleSwipeEndEvent,
+      _handleTouchStartEvent: handleTouchStartEvent,
+      _handleTouchEndEvent: handleTouchEndEvent,
     } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
@@ -342,8 +342,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       <div
         class="${prefix}--carousel__scroll-container"
         @scroll="${handleScrollFocus}"
-        @touchstart="${handleSwipeStartEvent}"
-        @touchend="${handleSwipeEndEvent}"
+        @touchstart="${handleTouchStartEvent}"
+        @touchend="${handleTouchEndEvent}"
         style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
       >
         <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
