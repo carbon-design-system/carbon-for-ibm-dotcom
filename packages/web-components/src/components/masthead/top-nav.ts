@@ -350,7 +350,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   }
 
   /**
-   * The name of the custom event fired after the seach is toggled.
+   * The name of the custom event fired after the search is toggled.
    */
   static get eventToggleSearch() {
     return `${ddsPrefix}-masthead-search-toggled`;
