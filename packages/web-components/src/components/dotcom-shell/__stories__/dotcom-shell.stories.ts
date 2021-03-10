@@ -93,7 +93,7 @@ export const Default = ({ parameters }) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${localeButton}"
+            ?disable-locale-button="${disableLocaleButton}"
           >
             ${StoryContent()}
           </dds-dotcom-shell-composite>
