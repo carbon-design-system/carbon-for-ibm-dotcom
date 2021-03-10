@@ -245,7 +245,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .logoData="${mastheadLogo}"
+            .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : null}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -257,7 +257,7 @@ export const withAlternateLogoAndTooltip = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            .logoData="${mastheadLogo}"
+            .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : null}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
           ></dds-masthead-container>
@@ -276,8 +276,8 @@ withAlternateLogoAndTooltip.story = {
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         mastheadLogo: select(
           'masthead logo data (logoData)',
-          { defaultWithNoTooltip: null, alternateWithTooltip: logoData },
-          logoData,
+          { defaultWithNoTooltip: null, alternateWithTooltip: 'alternateWithTooltip' },
+          'alternateWithTooltip',
           groupId
         ),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
