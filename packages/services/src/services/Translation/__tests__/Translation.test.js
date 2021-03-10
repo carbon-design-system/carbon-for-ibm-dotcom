@@ -51,9 +51,14 @@ Object.defineProperty(window, 'sessionStorage', {
 describe('TranslationAPI', () => {
   const { location } = root;
 
+  const mockDate = 1546300800000; // Epoch time of January 1, 2019 midnight UTC
+  global.Date.now = jest.fn(() => mockDate);
+
   afterEach(() => {
     jest.resetModules();
     root.location = location;
+    TranslationAPI.clearCache();
+    sessionStorageMock.clear();
   });
 
   it('should replace the signout url "state" param with current location', async () => {
@@ -76,6 +81,9 @@ describe('TranslationAPI', () => {
   });
 
   it('should fetch the i18n data from default endpoint', async () => {
+    root.location = {
+      href: 'https://www.loremipsum.com',
+    };
     // Expected endpoint called
     const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer`;
     const fetchUrl = `${endpoint}/usen.json`;
@@ -120,10 +128,27 @@ describe('TranslationAPI', () => {
     });
   });
 
-  it('should return a json with a recent timestamp', async () => {
-    const mockDate = 1546300800000; // Epoch time of January 1, 2019 midnight UTC
-    global.Date.now = jest.fn(() => mockDate);
+  it('should set the session storage according to the session key derived from given endpoint', async () => {
+    root.location = {
+      href: 'https://www.loremipsum.com',
+    };
 
+    const givenEndpoint = '/common/carbon-for-ibm-dotcom/custom-endpoint';
+    const expectedSessionKey = 'commoncarbonforibmdotcomcustomendpoint-us-en';
+
+    await TranslationAPI.getTranslation(
+      {
+        lc: 'en',
+        cc: 'us',
+      },
+      givenEndpoint
+    );
+
+    const sessionValue = sessionStorageMock.getItem(expectedSessionKey);
+    expect(sessionValue).toEqual(JSON.stringify(responseSuccess));
+  });
+
+  it('should return a json with a recent timestamp', async () => {
     // using very old cached session
     sessionStorageMock.setItem(
       'dds-translation-us-en',
@@ -141,9 +166,5 @@ describe('TranslationAPI', () => {
 
     // fresh data would lack this property
     expect(newSession).not.toHaveProperty('CACHE');
-  });
-
-  afterEach(() => {
-    TranslationAPI.clearCache();
   });
 });
