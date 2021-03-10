@@ -127,8 +127,8 @@ export const searchOpenByDefault = ({ parameters }) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .navLinks="${navLinks}"
-            ?has-profile="${profile}"
-            ?has-search="${search}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
           ></dds-masthead-container>
         `}
   `;
