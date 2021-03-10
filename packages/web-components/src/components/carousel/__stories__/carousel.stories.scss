@@ -26,10 +26,12 @@
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   dds-carousel {
+    /* The unit is required to correctly calculate the margin/padding for page overflow UI */
+    /* stylelint-disable-next-line length-zero-no-unit */
+    --dds--carousel--overflow-hint-size: 0rem;
+
     @include carbon--breakpoint('sm') {
-      /* The unit is required to correctly calculate the margin/padding for page overflow UI */
-      /* stylelint-disable-next-line length-zero-no-unit */
-      --dds--carousel--overflow-hint-size: 0rem;
+      --dds--carousel--overflow-hint-size: 1rem;
     }
 
     @include carbon--breakpoint(lg) {
