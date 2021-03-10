@@ -73,7 +73,8 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithMedia = ({ parameters }) => {
-  const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1 } = parameters?.props?.ContentItemHorizontal ?? {};
+  const { align, type, alt, heading, copy, ctaType1, ctaCopy1, href1, ctaType2, ctaCopy2, href2 } =
+    parameters?.props?.ContentItemHorizontal ?? {};
   return html`
     <dds-content-item-horizontal-media align="${align}">
       ${type === MEDIA_TYPE.IMAGE
@@ -95,6 +96,13 @@ export const WithMedia = ({ parameters }) => {
           cta-type="${ifNonNull(ctaType1)}"
         >
           ${ctaCopy1}
+        </dds-link-list-item-cta>
+        <dds-link-list-item-cta
+          icon-placement="${ICON_PLACEMENT.RIGHT}"
+          href="${ifNonNull(href2)}"
+          cta-type="${ifNonNull(ctaType2)}"
+        >
+          ${ctaCopy2}
         </dds-link-list-item-cta>
       </dds-link-list>
     </dds-content-item-horizontal-media>
@@ -125,6 +133,9 @@ WithMedia.story = {
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
         href1: textNullable('CTA 1 href (cta-href):', 'https://www.ibm.com'),
+        ctaType2: select('CTA 2 type (cta-type)', types, CTA_TYPE.EXTERNAL),
+        ctaCopy2: textNullable('CTA 2 copy (cta-copy):', 'Microservices and containers'),
+        href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
   },
