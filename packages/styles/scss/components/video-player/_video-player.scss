@@ -63,6 +63,15 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     max-width: 90%;
   }
 
+  .#{$prefix}--video-player__video-caption--card {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 33.3333%;
+    height: rem(160px);
+    cursor: pointer;
+  }
+
   .#{$prefix}--video-player__image-overlay {
     border: none;
     padding: 0;

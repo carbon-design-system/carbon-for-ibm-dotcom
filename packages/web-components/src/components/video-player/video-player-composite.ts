@@ -17,7 +17,7 @@ import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
-import { VIDEO_PLAYER_CONTENT_STATE } from './video-player';
+import { VIDEO_PLAYER_CAPTION_STYLE, VIDEO_PLAYER_CONTENT_STATE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
 /* eslint-enable import/no-duplicates */
@@ -90,6 +90,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   autoPlay = false;
 
   /**
+   * The style of the caption.
+   */
+  @property({ reflect: true, attribute: 'caption-style' })
+  captionStyle = VIDEO_PLAYER_CAPTION_STYLE.TEXT;
+
+  /**
    * The embedded Kaltura player element (that has `.sendNotification()`, etc. APIs), keyed by the video ID.
    */
   @property({ attribute: false })
@@ -153,7 +159,16 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 
   renderLightDOM() {
-    const { aspectRatio, formatCaption, formatDuration, hideCaption, videoData = {}, videoId, videoThumbnailWidth } = this;
+    const {
+      aspectRatio,
+      captionStyle,
+      formatCaption,
+      formatDuration,
+      hideCaption,
+      videoData = {},
+      videoId,
+      videoThumbnailWidth,
+    } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
@@ -162,6 +177,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
     });
     return html`
       <dds-video-player
+        caption-style="${ifNonNull(captionStyle)}"
         duration="${ifNonNull(duration)}"
         ?hide-caption=${hideCaption}
         name="${ifNonNull(name)}"

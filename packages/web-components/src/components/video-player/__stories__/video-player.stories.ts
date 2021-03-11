@@ -8,36 +8,39 @@
  */
 
 import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
+import { VIDEO_PLAYER_CAPTION_STYLE } from '../defs';
 import '../video-player-container';
 
-export const Default = () => html`
-  <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
-`;
+const captionStyles = {
+  [`Text (${VIDEO_PLAYER_CAPTION_STYLE.TEXT})`]: VIDEO_PLAYER_CAPTION_STYLE.TEXT,
+  [`Card (${VIDEO_PLAYER_CAPTION_STYLE.CARD})`]: VIDEO_PLAYER_CAPTION_STYLE.CARD,
+};
 
-export const aspectRatio1x1 = ({ parameters }) => {
-  const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
+export const Default = ({ parameters }) => {
+  const { captionStyle, videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container
+      caption-style="${ifNonNull(captionStyle)}"
+      video-id="${ifNonNull(videoId)}"
+      aspect-ratio="${ifNonNull(aspectRatio)}"
+    >
+    </dds-video-player-container>
   `;
 };
 
-export const aspectRatio4x3 = ({ parameters }) => {
-  const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
-  return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
-  `;
-};
+export const aspectRatio1x1 = ({ parameters }) => Default({ parameters });
+
+export const aspectRatio4x3 = ({ parameters }) => Default({ parameters });
 
 aspectRatio4x3.story = {
   name: 'Aspect ratio 4:3',
   parameters: {
-    knobs: {
-      VideoPlayer: () => {
-        return {
-          aspectRatio: '4x3',
-          videoId: '1_9h94wo6b',
-        };
+    props: {
+      VideoPlayer: {
+        aspectRatio: '4x3',
       },
     },
   },
@@ -46,12 +49,9 @@ aspectRatio4x3.story = {
 aspectRatio1x1.story = {
   name: 'Aspect ratio 1:1',
   parameters: {
-    knobs: {
-      VideoPlayer: () => {
-        return {
-          aspectRatio: '1x1',
-          videoId: '1_9h94wo6b',
-        };
+    props: {
+      VideoPlayer: {
+        aspectRatio: '1x1',
       },
     },
   },
@@ -74,6 +74,16 @@ export default {
     ...readme.parameters,
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
+    props: {
+      VideoPlayer: {
+        videoId: '1_9h94wo6b',
+      },
+    },
+    knobs: {
+      VideoPlayer: ({ groupId }) => ({
+        captionStyle: select('Caption style (caption-style)', captionStyles, VIDEO_PLAYER_CAPTION_STYLE.TEXT, groupId),
+      }),
+    },
     percy: {
       skip: true,
     },

@@ -128,6 +128,9 @@
     ::slotted(svg[slot='icon']),
   :host(#{$dds-prefix}-card-cta-footer)
     .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$dds-prefix}-video-player-launcher-card-footer)
+    .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
     margin-left: 0;
     color: $link-01;
@@ -142,6 +145,7 @@
   .#{$prefix}--card .#{$prefix}--card__footer,
   :host(#{$dds-prefix}-card-footer),
   :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-video-player-launcher-card-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;

@@ -18,10 +18,12 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import { VIDEO_PLAYER_CONTENT_STATE } from './defs';
+import '../card/card';
+import './video-player-launcher-card-footer';
+import { VIDEO_PLAYER_CAPTION_STYLE, VIDEO_PLAYER_CONTENT_STATE } from './defs';
 import styles from './video-player.scss';
 
-export { VIDEO_PLAYER_CONTENT_STATE };
+export { VIDEO_PLAYER_CAPTION_STYLE, VIDEO_PLAYER_CONTENT_STATE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,6 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Video player.
  *
  * @element dds-video-player
+ * @csspart caption The caption.
  */
 @customElement(`${ddsPrefix}-video-player`)
 class DDSVideoPlayer extends FocusMixin(LitElement) {
@@ -71,6 +74,12 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
           <slot></slot>
         `;
   }
+
+  /**
+   * The style of the caption.
+   */
+  @property({ reflect: true, attribute: 'caption-style' })
+  captionStyle = VIDEO_PLAYER_CAPTION_STYLE.TEXT;
 
   /**
    * The video player's content state.
@@ -139,7 +148,17 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { aspectRatio, duration, formatCaption, formatDuration, hideCaption, name } = this;
+    const {
+      aspectRatio,
+      captionStyle,
+      contentState,
+      duration,
+      formatCaption,
+      formatDuration,
+      hideCaption,
+      name,
+      _handleClickOverlay: handleClickOverlay,
+    } = this;
 
     const aspectRatioClass = classMap({
       [`${prefix}--video-player__video-container`]: true,
@@ -149,11 +168,19 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
     return html`
       <div class="${aspectRatioClass}">
         ${this._renderContent()}
+        ${hideCaption || captionStyle !== VIDEO_PLAYER_CAPTION_STYLE.CARD || contentState !== VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+          ? undefined
+          : html`
+              <dds-card part="caption" class="${prefix}--video-player__video-caption--card" @click="${handleClickOverlay}">
+                <dds-card-heading>${name}</dds-card-heading>
+                <dds-video-player-launcher-card-footer duration="${ifNonNull(duration)}"> </dds-video-player-launcher-card-footer>
+              </dds-card>
+            `}
       </div>
-      ${hideCaption
+      ${hideCaption || captionStyle !== VIDEO_PLAYER_CAPTION_STYLE.TEXT
         ? undefined
         : html`
-            <div class="${prefix}--video-player__video-caption">
+            <div part="caption" class="${prefix}--video-player__video-caption">
               ${formatCaption({ duration: formatDuration({ duration: !duration ? duration : duration * 1000 }), name })}
             </div>
           `}

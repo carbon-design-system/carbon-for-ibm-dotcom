@@ -9,7 +9,8 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
 
 :host(#{$dds-prefix}-card-footer),
-:host(#{$dds-prefix}-card-cta-footer) {
+:host(#{$dds-prefix}-card-cta-footer),
+:host(#{$dds-prefix}-video-player-launcher-card-footer) {
   .#{$dds-prefix}-ce--card__footer--static {
     color: $link-01;
   }
