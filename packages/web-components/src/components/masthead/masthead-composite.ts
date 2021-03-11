@@ -455,7 +455,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _loadTranslation?: (language?: string) => Promise<Translation>;
+  _loadTranslation?: (language?: string, dataEndpoint?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
@@ -470,6 +470,18 @@ class DDSMastheadComposite extends LitElement {
    * @internal
    */
   _setLanguage?: (language: string) => void;
+
+  /**
+   * `true` if there is a profile.
+   */
+  @property({ type: Boolean, attribute: 'has-profile' })
+  hasProfile = true;
+
+  /**
+   * `true` if there is a search.
+   */
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
 
   /**
    * `true` to activate the search box.
@@ -546,6 +558,12 @@ class DDSMastheadComposite extends LitElement {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * Specify translation endpoint if not using default dds endpoint.
+   */
+  @property({ attribute: 'data-endpoint' })
+  dataEndpoint?: string;
+
+  /**
    * The throttle timeout to run query upon user input.
    */
   @property({ type: Number, attribute: 'input-timeout' })
@@ -599,20 +617,20 @@ class DDSMastheadComposite extends LitElement {
   }
 
   firstUpdated() {
-    const { language } = this;
+    const { language, dataEndpoint } = this;
     if (language) {
       this._setLanguage?.(language);
     }
-    this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+    this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('language')) {
-      const { language } = this;
+      const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
-        this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+        this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
     if (changedProperties.has('brandName')) {
@@ -629,6 +647,7 @@ class DDSMastheadComposite extends LitElement {
       currentSearchResults,
       platform,
       platformUrl,
+      hasProfile,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -636,6 +655,7 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       language,
       openSearchDropdown,
+      hasSearch,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -676,24 +696,32 @@ class DDSMastheadComposite extends LitElement {
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
               </dds-top-nav>
             `}
-        <dds-masthead-search-composite
-          ?active="${activateSearch}"
-          input-timeout="${inputTimeout}"
-          language="${ifNonNull(language)}"
-          ?open="${openSearchDropdown}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          .currentSearchResults="${ifNonNull(currentSearchResults)}"
-          ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-        ></dds-masthead-search-composite>
+        ${!hasSearch
+          ? undefined
+          : html`
+              <dds-masthead-search-composite
+                ?active="${activateSearch}"
+                input-timeout="${inputTimeout}"
+                language="${ifNonNull(language)}"
+                ?open="${openSearchDropdown}"
+                placeholder="${ifNonNull(searchPlaceholder)}"
+                .currentSearchResults="${ifNonNull(currentSearchResults)}"
+                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
+              ></dds-masthead-search-composite>
+            `}
         <dds-masthead-global-bar>
-          <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems?.map(
-              ({ title, url }) =>
-                html`
-                  <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
-                `
-            )}
-          </dds-masthead-profile>
+          ${!hasProfile
+            ? undefined
+            : html`
+                <dds-masthead-profile ?authenticated="${authenticated}">
+                  ${profileItems?.map(
+                    ({ title, url }) =>
+                      html`
+                        <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
+                      `
+                  )}
+                </dds-masthead-profile>
+              `}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

@@ -1862,342 +1862,104 @@ const customLinks: MastheadLink[] = [
     ],
   },
   {
-    title: 'Services & Consulting',
-    titleEnglish: 'Services & Consulting',
+    title: 'Lorem ipsum dolor sit amet',
+    titleEnglish: 'Lorem ipsum dolor sit amet',
     url: '',
     hasMenu: true,
     hasMegapanel: true,
     menuSections: [
       {
+        heading: 'Explore',
+        menuItems: [
+          {
+            title: 'Link 1',
+            url: '',
+            megapanelContent: {
+              headingTitle: '',
+              headingUrl: '',
+              description: '',
+              quickLinks: {
+                title: 'Title',
+                links: [
+                  {
+                    title: 'Subnav 1',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 2',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 3',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 4',
+                    url: '',
+                  },
+                ],
+              },
+              feature: {
+                heading: '',
+                imageUrl: '',
+                linkTitle: '',
+                linkUrl: '',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Consectetur adipiscing elit',
+    titleEnglish: 'Consectetur adipiscing elit',
+    url: '',
+    hasMenu: true,
+    menuSections: [
+      {
         heading: '',
         menuItems: [
           {
-            title: 'Business process services',
-            titleEnglish: 'Business process services',
-            url: 'https://www.ibm.com/services/process?lnk=hpmsc_bups&lnk2=link',
+            title: 'Link 2',
+            titleEnglish: 'Link 2',
+            url: '',
+          },
+          {
+            title: 'Financing',
+            url: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
             megapanelContent: {
-              headingTitle: 'Business process services',
-              headingUrl: 'https://www.ibm.com/services/process?lnk=hpmsc_bups',
-              description: '',
+              headingTitle: 'Financing',
+              headingUrl: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
+              description: 'Funding options that fit your business',
               quickLinks: {
-                title: '',
+                title: 'Quicklinks',
                 links: [
                   {
-                    title: 'Artificial intelligence services',
-                    titleEnglish: 'Artificial intelligence services',
-                    url: 'https://www.ibm.com/services/artificial-intelligence?lnk=hpmsc_bups&lnk2=learn',
+                    title: 'Subnav 1',
+                    url: '',
                   },
                   {
-                    title: 'Automation',
-                    titleEnglish: 'Automation',
-                    url: 'https://www.ibm.com/automation/services?lnk=hpmsc_bups&lnk2=learn',
+                    title: 'Subnav 2',
+                    url: '',
                   },
                   {
-                    title: 'Big data & data platform',
-                    titleEnglish: 'Big data & data platform',
-                    url: 'https://www.ibm.com/services/big-data-services?lnk=hpmsc_bups&lnk2=learn',
+                    title: 'Subnav 3',
+                    url: '',
                   },
                   {
-                    title: 'Business process outsourcing',
-                    titleEnglish: 'Business process outsourcing',
-                    url: 'https://www.ibm.com/services/process/outsourcing?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'Edge consulting',
-                    titleEnglish: 'Edge consulting',
-                    url: 'https://www.ibm.com/services/process/edge-services?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'Finance transformation',
-                    titleEnglish: 'Finance transformation',
-                    url: 'https://www.ibm.com/services/process/finance?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'IoT consulting',
-                    titleEnglish: 'IoT consulting',
-                    url: 'https://www.ibm.com/services/process/iot-consulting?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'Procurement & strategic sourcing',
-                    titleEnglish: 'Procurement & strategic sourcing',
-                    url: 'https://www.ibm.com/services/process/procurement?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'Risk consulting & fraud management',
-                    titleEnglish: 'Risk consulting & fraud management',
-                    url: 'https://www.ibm.com/services/process/risk?lnk=hpmsc_bups&lnk2=learn',
-                  },
-                  {
-                    title: 'Supply chain',
-                    titleEnglish: 'Supply chain',
-                    url: 'https://www.ibm.com/services/process/supply-chain?lnk=hpmsc_bups&lnk2=learn',
+                    title: 'Subnav 4',
+                    url: '',
                   },
                 ],
               },
               feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/79a6c3cde7dd0665/original/megamenu-pictogram-business-process-service.png',
-                linkTitle: '',
-                linkUrl: '',
+                heading: 'Cloud financing strategies that work for your business',
+                imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
+                linkTitle: 'Committed to cloud? Make the most of your cash flow.',
+                linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
               },
             },
-          },
-          {
-            title: 'Design & business strategy',
-            titleEnglish: 'Design & business strategy',
-            url: 'https://www.ibm.com/services/ibmix/?lnk=hpmsc_budbs&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Design & business strategy',
-              headingUrl: 'https://www.ibm.com/services/ibmix/?lnk=hpmsc_bubs',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Digital strategy',
-                    titleEnglish: 'Digital strategy',
-                    url: 'https://www.ibm.com/services/business/digital?lnk=hpmsc_bubs&lnk2=learn',
-                  },
-                  {
-                    title: 'Experience strategy',
-                    titleEnglish: 'Experience strategy',
-                    url: 'https://www.ibm.com/services/ibmix/experience-strategy?lnk=hpmsc_bubs&lnk2=learn',
-                  },
-                  {
-                    title: 'Marketing platforms',
-                    titleEnglish: 'Marketing platforms',
-                    url: 'https://www.ibm.com/services/ibmix/marketing-platforms?lnk=hpmsc_bubs&lnk2=learn',
-                  },
-                  {
-                    title: 'Salesforce consulting',
-                    titleEnglish: 'Salesforce consulting',
-                    url: 'https://www.ibm.com/services/salesforce?lnk=hpmsc_bubs&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/1b7522c50ea39ca/original/megamenu-pictogram-design-business-strategy.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Hybrid multicloud services',
-            titleEnglish: 'Hybrid multicloud services',
-            url: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs?lnk=hpmsc_buhs',
-            megapanelContent: {
-              headingTitle: 'Hybrid multicloud services',
-              headingUrl: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Business continuity & resiliency',
-                    titleEnglish: 'Business continuity & resiliency',
-                    url: 'https://www.ibm.com/services/business-continuity?lnk=hpmsc_buhs&lnk2=learn',
-                  },
-                  {
-                    title: 'Cloud services',
-                    titleEnglish: 'Cloud services',
-                    url: 'https://www.ibm.com/services/cloud?lnk=hpmsc_buhs&lnk2=learn',
-                  },
-                  {
-                    title: 'Network',
-                    titleEnglish: 'Network',
-                    url: 'https://www.ibm.com/services/network?lnk=hpmsc_buhs&lnk2=learn',
-                  },
-                  {
-                    title: 'Workplace services',
-                    titleEnglish: 'Workplace services',
-                    url: 'https://www.ibm.com/services/digital-workplace?lnk=hpmsc_buhs&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5daa9dce872913ea/original/megamenu-pictogram-hybrid-multi-cloud-services.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Talent & transformation',
-            titleEnglish: 'Talent & transformation',
-            url: 'https://www.ibm.com/talent-management?lnk=hpmsc_buta&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Talent & transformation',
-              headingUrl: 'https://www.ibm.com/talent-management?lnk=hpmsc_buta',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'HR transformation',
-                    titleEnglish: 'HR transformation',
-                    url: 'https://www.ibm.com/services/process/talent/human-resources?lnk=hpmsc_buta&lnk2=learn',
-                  },
-                  {
-                    title: 'Talent acquisition',
-                    titleEnglish: 'Talent acquisition',
-                    url: 'https://www.ibm.com/talent-management/talent-acquisition?lnk=hpmsc_buta&lnk2=learn',
-                  },
-                  {
-                    title: 'Talent development',
-                    titleEnglish: 'Talent development',
-                    url: 'https://www.ibm.com/services/process/talent/development?lnk=hpmsc_buta&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/69e350b141e12bd5/original/megamenu-pictogram-talent-and-transformation.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Application services',
-            titleEnglish: 'Application services',
-            url: 'https://www.ibm.com/services/applications?lnk=hpmsc_buas&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Application services',
-              headingUrl: 'https://www.ibm.com/services/applications?lnk=hpmsc_buas',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Application development',
-                    titleEnglish: 'Application development',
-                    url: 'https://www.ibm.com/services/applications/development?lnk=hpmsc_buas&lnk2=learn',
-                  },
-                  {
-                    title: 'Application Modernization',
-                    titleEnglish: 'Application Modernization',
-                    url: 'https://www.ibm.com/services/cloud/modernize-applications?lnk=hpmsc_buas&lnk2=learn',
-                  },
-                  {
-                    title: 'Enterprise application management',
-                    titleEnglish: 'Enterprise application management',
-                    url: 'https://www.ibm.com/services/cloud/enterprise-application-management?lnk=hpmsc_buas&lnk2=learn',
-                  },
-                  {
-                    title: 'Enterprise applications strategy',
-                    titleEnglish: 'Enterprise applications strategy',
-                    url: 'https://www.ibm.com/services/applications/enterprise?lnk=hpmsc_buas&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/2b7c180c68557dcb/original/megamenu-pictogram-application-services.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Security services',
-            titleEnglish: 'Security services',
-            url: 'https://www.ibm.com/security/services?lnk=hpmsc_buse&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Security services',
-              headingUrl: 'https://www.ibm.com/security/services?lnk=hpmsc_buse',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Application security',
-                    titleEnglish: 'Application security',
-                    url: 'https://www.ibm.com/security/services/application-security-services?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                  {
-                    title: 'Cloud security',
-                    titleEnglish: 'Cloud security',
-                    url: 'https://www.ibm.com/security/services/cloud-security-services?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                  {
-                    title: 'Data security',
-                    titleEnglish: 'Data security',
-                    url: 'https://www.ibm.com/security/services/data-security?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                  {
-                    title: 'Identity & access management',
-                    titleEnglish: 'Identity & access management',
-                    url: 'https://www.ibm.com/security/services/identity-access-management?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                  {
-                    title: 'Managed security',
-                    titleEnglish: 'Managed security',
-                    url: 'https://www.ibm.com/security/services/managed-security-services?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                  {
-                    title: 'Security governance',
-                    titleEnglish: 'Security governance',
-                    url: 'https://www.ibm.com/security/services/security-governance?lnk=hpmsc_buse&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/6ecec25a8489cf82/original/megamenu-pictogram-security-services.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Services for tech support',
-            titleEnglish: 'Services for tech support',
-            url: 'https://www.ibm.com/services/technology-support?lnk=hpmsc_busv&lnk2=link',
-            megapanelContent: {
-              headingTitle: 'Services for tech support',
-              headingUrl: 'https://www.ibm.com/services/technology-support?lnk=hpmsc_busv',
-              description: '',
-              quickLinks: {
-                title: '',
-                links: [
-                  {
-                    title: 'Open source',
-                    titleEnglish: 'Open source',
-                    url: 'https://www.ibm.com/services/technology-support/open-source?lnk=hpmsc_busv&lnk2=learn',
-                  },
-                  {
-                    title: 'Third party & multivendor',
-                    titleEnglish: 'Third party & multivendor',
-                    url: 'https://www.ibm.com/services/technology-support/multivendor-it?lnk=hpmsc_busv&lnk2=learn',
-                  },
-                  {
-                    title: 'IBM warranties and maintenance',
-                    titleEnglish: 'IBM warranties and maintenance',
-                    url: 'https://www.ibm.com/services/technology-support/hardware-software?lnk=hpmsc_busv&lnk2=learn',
-                  },
-                ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/7056e2b83b04133e/original/megamenu-pictogram-services-for-tech-support.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
-            },
-          },
-          {
-            title: 'Payment plans for Services & Consulting',
-            titleEnglish: 'Payment plans for Services & Consulting',
-            url: 'https://www.ibm.com/financing/solutions/it-services-financing?lnk=hpmsc_bufi&lnk2=link',
-          },
-          {
-            title: 'View all services',
-            titleEnglish: 'View all services',
-            url: 'https://www.ibm.com/services?lnk=hpmsc_buall&lnk2=link',
-            megaPanelViewAll: true,
           },
         ],
       },
@@ -2207,6 +1969,171 @@ const customLinks: MastheadLink[] = [
     title: 'Nulla quis sem at nibh elementum imperdiet',
     titleEnglish: 'Nulla quis sem at nibh elementum imperdiet',
     url: 'https://www.ibm.com/industries?lnk=min',
+    hasMenu: false,
+    hasMegapanel: false,
+    menuSections: [],
+  },
+  {
+    title: 'Fusce nec tellus sed augue semper porta',
+    titleEnglish: 'Fusce nec tellus sed augue semper porta',
+    url: '',
+    hasMenu: true,
+    hasMegapanel: true,
+    menuSections: [
+      {
+        heading: '',
+        menuItems: [
+          {
+            title: 'IBM Developer',
+            url: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
+            megapanelContent: {
+              headingTitle: 'IBM Developer',
+              headingUrl: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
+              description: '',
+              quickLinks: {
+                title: 'Quicklinks',
+                links: [
+                  {
+                    title: 'Subnav 1',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 2',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 3',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 4',
+                    url: '',
+                  },
+                ],
+              },
+              feature: {
+                heading: 'IBM Developer newsletters',
+                imageUrl: 'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
+                linkTitle: 'Technical info on popular software development topics, including AI, Blockchain, Java and more',
+                linkUrl: 'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
+              },
+            },
+          },
+          {
+            title: 'Blockchain',
+            url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+            megapanelContent: {
+              headingTitle: 'Blockchain',
+              headingUrl: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+              description: '',
+              quickLinks: {
+                title: 'Quicklinks',
+                links: [
+                  {
+                    title: 'Subnav 1',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 2',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 3',
+                    url: '',
+                  },
+                  {
+                    title: 'Subnav 4',
+                    url: '',
+                  },
+                ],
+              },
+              feature: {
+                heading: 'Blockchain 101',
+                imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
+                linkTitle:
+                  'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
+                linkUrl:
+                  'https://developer.ibm.com/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/?lnk=hpmdev_dw&lnk2=learn',
+              },
+            },
+          },
+          {
+            title: 'Containers',
+            url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+            megapanelContent: {
+              headingTitle: 'Containers',
+              headingUrl: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+              description: '',
+              quickLinks: {
+                title: 'Quicklinks',
+                links: [
+                  {
+                    title: 'Code patterns',
+                    url: 'https://developer.ibm.com/patterns/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                  {
+                    title: 'Tutorials',
+                    url: 'https://developer.ibm.com/tutorials/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                  {
+                    title: 'Events',
+                    url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: 'Make sense of Kubernetes',
+                imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
+                linkTitle: 'Deploy a simple Python application with Kubernetes',
+                linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
+              },
+            },
+          },
+          {
+            title: 'Analytics',
+            url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+            megapanelContent: {
+              headingTitle: 'Analytics',
+              headingUrl: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+              description: '',
+              quickLinks: {
+                title: 'Quicklinks',
+                links: [
+                  {
+                    title: 'Code patterns',
+                    url: 'https://developer.ibm.com/patterns/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                  {
+                    title: 'Tutorials',
+                    url: 'https://developer.ibm.com/tutorials/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                  {
+                    title: 'Events',
+                    url: 'https://developer.ibm.com/events/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                  {
+                    title: 'Developer community',
+                    url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
+                  },
+                ],
+              },
+              feature: {
+                heading: 'Train your data no matter where it lives',
+                imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
+                linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
+                linkUrl:
+                  'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Sed cursus ante dapibus diam',
+    titleEnglish: 'Sed cursus ante dapibus diam',
+    url: 'https://www.ibm.com/support/home/?lnk=msu_usen',
     hasMenu: false,
     hasMegapanel: false,
     menuSections: [],
