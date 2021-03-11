@@ -42,25 +42,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-// WIP: Need to figure out how to expose cta type video within DDSFeatureCard/Card in Card.
-export const withVideo = ({ parameters }) => {
-  const { eyebrow, heading, defaultSrc, alt } = parameters?.props?.['dds-card-in-card'] ?? {};
-  return html`
-    <dds-card-in-card cta-type="video" href="1_9h94wo6b">
-      <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      </dds-card-in-card-image>
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-in-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
-    </dds-card-in-card>
-  `;
-};
-
 export default {
   title: 'Components/Card in Card',
   decorators: [
