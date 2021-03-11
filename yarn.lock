@@ -9429,15 +9429,6 @@ carbon-components-react@7.29.0:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@10.17.0:
-  version "10.17.0"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.17.0.tgz#e1f5e219443b9317147013280224cdb89dbc0bf8"
-  integrity sha512-kTSWkgtTaW9FGBTHOCj0/Ir86RCNRBti0Ckf7yVC1LaQJ0VWy2/BLrwhfNWaWGCGUnx4A+qt8MwEuG1Yz07JhA==
-  dependencies:
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
 carbon-components@10.29.0:
   version "10.29.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.29.0.tgz#9fd31f1a5cce4cb59a7196222e524d8442fd9026"
@@ -25300,6 +25291,14 @@ synchronous-promise@^2.0.6:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.9.tgz#b83db98e9e7ae826bf9c8261fd8ac859126c780a"
   integrity sha512-LO95GIW16x69LuND1nuuwM4pjgFGupg7pZ/4lU86AmchPKrhk0o2tpMU2unXRrqo81iAFe1YJ0nAGEVwsrZAgg==
+
+syncyarnlock@^1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/syncyarnlock/-/syncyarnlock-1.0.19.tgz#ec5d380ef5432e428d2828b0d086e66d579f31fb"
+  integrity sha512-9o6KHr+MfYUqBzLPiaWlZZ365XAdLYdWFFgT92gLpXaVK8Z/kjwMZMUCv9FEOItVEeZ3TFCgItzYXYdV/CVZrQ==
+  dependencies:
+    commander "^2.20.0"
+    glob "^7.1.4"
 
 table@^5.2.3, table@^5.4.6:
   version "5.4.6"

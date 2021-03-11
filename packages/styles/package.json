@@ -29,7 +29,7 @@
     "ci-check": "yarn build",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "storybook": "start-storybook -p 9000",
-    "upgrade-carbon": "yarn upgrade-interactive @carbon/grid @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components @carbon/icons-react carbon-components-react --latest --exact",
+    "upgrade-carbon": "yarn upgrade @carbon/grid @carbon/icons-react @carbon/import-once @carbon/layout @carbon/motion @carbon/themes @carbon/type carbon-components carbon-components-react && syncyarnlock -k -s",
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "dependencies": {
@@ -49,7 +49,6 @@
     "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@carbon/icons-react": "^10.13.0",
     "@percy/storybook": "^3.3.0",
     "@storybook/addon-actions": "^5.3.0",
     "@storybook/addon-info": "^5.3.0",
@@ -59,7 +58,6 @@
     "autoprefixer": "^9.8.0",
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
-    "carbon-components": "10.29.0",
     "carbon-components-react": "7.29.0",
     "del": "^3.0.0",
     "fast-sass-loader": "^1.5.0",

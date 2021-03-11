@@ -68,7 +68,7 @@
     "storybook": "start-storybook -p 9000",
     "storybook:react": "node ../../node_modules/@storybook/react/bin/index.js -p 9002 -c .storybook/react",
     "build-storybook:react": "gulp build:modules:react && node --max-old-space-size=8192 ../../node_modules/@storybook/react/dist/server/build.js -c .storybook/react -o storybook-static-react",
-    "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
+    "upgrade-carbon": "yarn upgrade @carbon/layout carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons && syncyarnlock -k -s",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "resolutions": {
@@ -139,8 +139,6 @@
     "babel-loader": "^8.0.0",
     "babel-plugin-istanbul": "^4.1.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
-    "carbon-components": "10.29.0",
-    "carbon-web-components": "1.11.0",
     "chalk": "^2.3.0",
     "child-process-promise": "^2.2.0",
     "classnames": "^2.2.0",
