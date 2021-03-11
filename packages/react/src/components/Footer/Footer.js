@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -104,7 +104,7 @@ const Footer = ({
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           {type !== 'micro' && <FooterLogo />}
-          {(type === 'tall' || type === undefined) && (
+          {(type === 'default' || type === undefined) && (
             <FooterNav groups={footerMenuData} />
           )}
           {type !== 'micro' &&
@@ -211,11 +211,11 @@ Footer.propTypes = {
    *
    * | Name    | Description                                                                 |
    * | ------- | --------------------------------------------------------------------------- |
-   * | `tall`  | Default footer variant includes additional navigation taking up more space. |
+   * | `default`  | Default footer variant includes additional navigation taking up more space. |
    * | `short` | Short footer variant reduces space by removing any additional navigation.   |
    * | `micro` | Micro footer variant includes legal navigation and locale button only.      |
    */
-  type: PropTypes.oneOf(['tall', 'short', 'micro']),
+  type: PropTypes.oneOf(['default', 'short', 'micro']),
 
   /**
    * Language code for fetching the display name.
@@ -269,7 +269,7 @@ Footer.propTypes = {
  */
 Footer.defaultProps = {
   navigation: null,
-  type: 'tall',
+  type: 'default',
   langCode: null,
   disableLocaleButton: false,
   languageOnly: false,
