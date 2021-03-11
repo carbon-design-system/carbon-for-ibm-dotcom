@@ -123,9 +123,7 @@
 
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
-  ::slotted(#{$dds-prefix}-footer-logo),
-  ::slotted(#{$dds-prefix}-language-selector-desktop),
-  ::slotted(#{$dds-prefix}-language-selector-mobile) {
+  ::slotted(#{$dds-prefix}-footer-logo) {
     display: none;
   }
 }
@@ -279,4 +277,12 @@
     bottom: $carbon--spacing-08;
     max-height: 13.5rem;
   }
+}
+
+:host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
+:host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
+  margin: 0;
 }
