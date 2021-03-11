@@ -42,10 +42,15 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const iFrame = this._videoPlayer?.querySelector('iframe');
 
     // Handles edge case where screen reader still reads video title within iFrame
-    if (this.open) {
-      window.frames[`${iFrame?.id}`].document.querySelector('.topBarContainer').removeAttribute('aria-hidden');
-    } else {
-      window.frames[`${iFrame?.id}`].document.querySelector('.topBarContainer').setAttribute('aria-hidden', 'true');
+    try {
+      if (this.open) {
+        iFrame?.contentWindow?.document.querySelector('.topBarContainer')?.removeAttribute('aria-hidden');
+      } else {
+        iFrame?.contentWindow?.document.querySelector('.topBarContainer')?.setAttribute('aria-hidden', 'true');
+      }
+    } catch (error) {
+      console.log('Failed to access element in iframe');
+      throw error;
     }
   };
 
