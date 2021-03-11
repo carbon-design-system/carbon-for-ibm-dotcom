@@ -16,6 +16,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './table-of-contents.scss';
+import { TOC_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,6 +31,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends StableSelectorMixin(LitElement) {
+  /**
+   * Defines TOC type, "" for default, `horizontal` for horizontal variant.
+   */
+  @property({ reflect: true, attribute: 'toc-layout' })
+  layout = TOC_TYPES.DEFAULT;
+
   /**
    * The current target `<a>` that should be in view.
    */
@@ -275,9 +282,20 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       _handleSlotChange: handleSlotChange,
       _handleSlotChangeHeading: handleSlotChangeHeading,
     } = this;
+
+    const containerClasses = classMap({
+      [`${ddsPrefix}-ce--table-of-contents__container`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]: this.layout === TOC_TYPES.HORIZONTAL,
+    });
+
+    const navigationClasses = classMap({
+      [`${prefix}--tableofcontents__sidebar`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${prefix}--tableofcontents__navbar`]: this.layout === TOC_TYPES.HORIZONTAL,
+    });
+
     return html`
-      <div class="${ddsPrefix}-ce--table-of-contents__container">
-        <div part="table" class="${prefix}--tableofcontents__sidebar">
+      <div class="${containerClasses}">
+        <div part="table" class="${navigationClasses}">
           ${hasMobileContainerVisible
             ? nothing
             : html`

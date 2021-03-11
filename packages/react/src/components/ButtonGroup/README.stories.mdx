@@ -99,7 +99,7 @@ function App() {
           <ButtonGroup
             buttons={[
               {
-                href: 'https://example.com',
+                onClick: () => alert('button clicked'),
                 copy: 'Secondary action button',
                 renderIcon: ArrowDown20,
               },
@@ -123,11 +123,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ##### OPTIONAL 💡
 
-In addition, direct ES module imports can be used to speed up build compilation and have less reliance on tree-shaking determinations from build scripts:
+In addition, direct ES module imports can be used to speed up build compilation
+and have less reliance on tree-shaking determinations from build scripts:
 
-````js
+```js
 import ButtonGroup from '@carbon/ibmdotcom-react/es/components/ButtonGroup/ButtonGroup';
-````
+```
 
 ## Props
 
