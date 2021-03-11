@@ -21,6 +21,9 @@ import styles from './carousel.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
+const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
+
 /**
  * Carousel.
  *
@@ -83,6 +86,18 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
    */
   @internalProperty()
   private _total = 0;
+
+  /**
+   * Initial touch position (used to detect swipe gesture)
+   */
+  @internalProperty()
+  private _startPos = 0;
+
+  /**
+   * Initial touch time (used to detect swipe gesture)
+   */
+  @internalProperty()
+  private _startTime = 0;
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -177,6 +192,33 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   private _handleClickPrevButton() {
     const { pageSize, start } = this;
     this.start = Math.max(start - pageSize, 0);
+  }
+
+  /**
+   * Handles `touchstart` event.
+   */
+  private _handleTouchStartEvent(event: TouchEvent) {
+    this._startPos = event.touches[0].clientX;
+    this._startTime = new Date().getTime();
+  }
+
+  /**
+   * Handles `touchend` event.
+   */
+  private _handleTouchEndEvent(event: TouchEvent) {
+    const { _startPos, _startTime } = this;
+    const { pageSize, start, _total: total } = this;
+
+    const distTravelled = event.changedTouches[0].clientX - _startPos; // distance travelled
+    const elapsedTime = new Date().getTime() - _startTime; // elapsed time
+
+    if (elapsedTime <= MAX_GESTURE_DURATION && Math.abs(distTravelled) >= MIN_DISTANCE_TRAVELLED) {
+      if (distTravelled < 0) {
+        this.start = Math.min(start + pageSize, total - 1);
+      } else {
+        this.start = Math.max(start - pageSize, 0);
+      }
+    }
   }
 
   /**
@@ -290,6 +332,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       _handleClickPrevButton: handleClickPrevButton,
       _handleScrollFocus: handleScrollFocus,
       _handleSlotChange: handleSlotChange,
+      _handleTouchStartEvent: handleTouchStartEvent,
+      _handleTouchEndEvent: handleTouchEndEvent,
     } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
@@ -299,6 +343,8 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
       <div
         class="${prefix}--carousel__scroll-container"
         @scroll="${handleScrollFocus}"
+        @touchstart="${handleTouchStartEvent}"
+        @touchend="${handleTouchEndEvent}"
         style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
       >
         <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
