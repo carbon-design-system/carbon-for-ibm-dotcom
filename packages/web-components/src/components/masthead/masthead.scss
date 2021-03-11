@@ -114,6 +114,7 @@
 }
 
 :host(#{$dds-prefix}-masthead-profile) {
+  background-color: $ui-background;
   a.#{$prefix}--header__menu-item {
     padding-left: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
     padding-right: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
@@ -179,10 +180,6 @@
     position: absolute;
     visibility: hidden;
   }
-}
-
-:host(#{$dds-prefix}-top-nav) {
-  overflow: hidden;
 }
 
 :host(#{$dds-prefix}-top-nav-l1) {

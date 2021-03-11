@@ -119,6 +119,12 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   hidden = true;
 
+  /**
+   * Assistive text for back to top button.
+   */
+  @property({ attribute: 'back-to-top-assistive-text' })
+  backToTopAssistiveText = 'Back to top';
+
   @HostListener('window:scroll')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleScroll = (event: Event) => {
@@ -147,10 +153,11 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
   }
 
   render() {
-    const { _handleOnClick: handleOnClick } = this;
+    const { backToTopAssistiveText, _handleOnClick: handleOnClick } = this;
     return html`
       <button
         class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--back-to-top__btn"
+        aria-label="${backToTopAssistiveText}"
         @click="${handleOnClick}"
       >
         ${UpToTop20()}

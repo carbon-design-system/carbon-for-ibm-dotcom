@@ -13,5 +13,5 @@ import translation from './data/translation.json';
 import localeList from './data/locale-list.json';
 
 const mock = new MockAdapter(axios);
-mock.onGet(/common\/v18\/js\/data\/jsononly/).reply(200, translation);
+mock.onGet(/common\/carbon-for-ibm-dotcom\/translations\/masthead-footer/).reply(200, translation);
 mock.onGet(/common\/js\/dynamicnav\/www\/countrylist\/jsononly/).reply(200, localeList);

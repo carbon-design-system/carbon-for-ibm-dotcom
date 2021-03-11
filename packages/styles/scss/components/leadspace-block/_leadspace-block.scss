@@ -77,6 +77,14 @@
     padding-top: $spacing-09;
     padding-bottom: $spacing-09;
     max-width: carbon--mini-units(80);
+    margin-right: 0;
+  }
+
+  .#{$prefix}--leadspace-block
+    .#{$prefix}--link-list
+    .#{$prefix}--link-list__list--vertical-end
+    .#{$prefix}--link-list__list__CTA {
+    max-width: none;
   }
 
   :host(#{$dds-prefix}-leadspace-block-content)
@@ -86,7 +94,7 @@
 
   :host(#{$dds-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
-    width: 100%;
+    display: block;
     max-width: carbon--mini-units(80);
 
     @include carbon--breakpoint('md') {

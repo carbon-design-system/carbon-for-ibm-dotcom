@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -83,7 +83,7 @@ describe('dds-video-player-composite', function() {
     expect((embeddedVideoBar as HTMLElement).hidden).toBe(false);
     expect((embeddedVideoBaz as HTMLElement).hidden).toBe(true);
     expect((embeddedVideoFoo as any).sendNotification).toHaveBeenCalledWith('doStop');
-    expect((embeddedVideoBar as any).sendNotification).not.toHaveBeenCalled();
+    expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith('doPlay');
     expect((embeddedVideoBaz as any).sendNotification).toHaveBeenCalledWith('doStop');
   });
 
