@@ -58,12 +58,8 @@ export default {
   title: 'Components/Content Group Cards',
   decorators: [
     story => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+        ${story()}
       </div>
     `,
   ],
