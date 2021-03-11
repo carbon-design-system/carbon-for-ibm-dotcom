@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, svg, property, LitElement, internalProperty } from 'lit-element';
+import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -109,17 +109,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderHeading() {
     const { title } = this;
     return html`
-      <slot @slotchange="${this._handleSlotChange}" name="heading">${title}</slot>
+      <slot name="heading">${title}</slot>
     `;
-  }
-
-  private _handleSlotChange(event: Event) {
-    const { headingSelector } = this.constructor as typeof DDSLeadSpace;
-    this._headingComponent = ((event.target as HTMLSlotElement)
-      .assignedNodes({ flatten: true })
-      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(headingSelector)) as Element[]).shift();
-
-    this._headingComponent.setAttribute('size', this.size);
   }
 
   /**
@@ -137,12 +128,6 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return html`
       <slot name="image"></slot>
     `;
-  }
-
-  protected updated(changedProperties: any) {
-    if (changedProperties.has('size') && this._headingComponent) {
-      this._headingComponent.setAttribute('size', this.size);
-    }
   }
 
   /**
@@ -186,9 +171,6 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   @property({ reflect: true })
   size = LEADSPACE_SIZE.NONE;
-
-  @internalProperty()
-  private _headingComponent: Element;
 
   render() {
     const { gradientStyleScheme, type } = this;
