@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,9 +9,11 @@
   .#{$prefix}--leadspace-with-search {
     padding-top: $layout-04;
     padding-bottom: $layout-04;
+    border-bottom: 1px solid $ui-03;
     @include carbon--make-container;
-    @include carbon--breakpoint('max') {
-      border-bottom: 1px solid $ui-04;
+    @include carbon--breakpoint('lg') {
+      padding-top: $layout-05;
+      padding-bottom: $layout-05;
     }
     &__row {
       @include carbon--make-row;
@@ -50,6 +52,14 @@
       }
       button.bx--search-close {
         height: 100%;
+        width: $layout-04;
+        @include carbon--breakpoint('md') {
+          width: $layout-05;
+          svg {
+            height: $layout-02;
+            width: $layout-02;
+          }
+        }
       }
       @include carbon--breakpoint('md') {
         @include carbon--make-col(6, 8);
@@ -57,13 +67,19 @@
       @include carbon--breakpoint('lg') {
         height: $layout-05;
         margin-top: $layout-05;
+        @include carbon--make-col(8, 10);
+
         input.bx--search-input {
           height: 100%;
           color: $text-01;
-          padding-left: carbon--mini-units(7);
+          padding-left: carbon--mini-units(8);
+          @include type-style('expressive-heading-03');
           &::placeholder {
             color: $text-05;
             @include type-style('expressive-heading-03');
+          }
+          &:focus::placeholder {
+            color: transparent;
           }
         }
       }
