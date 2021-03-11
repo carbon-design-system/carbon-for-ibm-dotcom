@@ -21,6 +21,9 @@ import styles from './carousel.scss';
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
+const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
+
 /**
  * Carousel.
  *
@@ -205,13 +208,11 @@ class DDSCarousel extends HostListenerMixin(LitElement) {
   private _handleTouchEndEvent(event: TouchEvent) {
     const { _startPos, _startTime } = this;
     const { pageSize, start, _total: total } = this;
-    const allowedTime = 300; // max time allowed to do swipe
-    const threshold = 75; // min distance traveled to be considered swipe
 
     const distTravelled = event.changedTouches[0].clientX - _startPos; // distance travelled
     const elapsedTime = new Date().getTime() - _startTime; // elapsed time
 
-    if (elapsedTime <= allowedTime && Math.abs(distTravelled) >= threshold) {
+    if (elapsedTime <= MAX_GESTURE_DURATION && Math.abs(distTravelled) >= MIN_DISTANCE_TRAVELLED) {
       if (distTravelled < 0) {
         this.start = Math.min(start + pageSize, total - 1);
       } else {
