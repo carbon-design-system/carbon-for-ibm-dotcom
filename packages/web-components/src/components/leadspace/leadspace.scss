@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@
 :host(#{$dds-prefix}-leadspace) {
   display: block;
 
-  @include carbon--breakpoint(md) {
+  @include carbon--breakpoint(sm) {
     // Uses `<svg>` rather than CSS for gradient, to support CSS custom properties
     .#{$prefix}--leadspace--gradient,
     .#{$prefix}--leadspace__section.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
