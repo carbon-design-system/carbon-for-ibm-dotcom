@@ -15,7 +15,10 @@
     </button>
   </div>
 </div>
-<div class="bx--video-player__video-caption">
+<div
+  class="bx--video-player__video-caption"
+  part="caption"
+>
 </div>
 
 ```
@@ -27,7 +30,10 @@
   <slot>
   </slot>
 </div>
-<div class="bx--video-player__video-caption">
+<div
+  class="bx--video-player__video-caption"
+  part="caption"
+>
   video-name-foo (0:30)
 </div>
 
