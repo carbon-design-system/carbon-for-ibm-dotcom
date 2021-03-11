@@ -268,6 +268,15 @@ const MastheadSearch = ({
   };
 
   /**
+   * Autosuggest will pass through all these props to the container.
+   *
+   * @type {{'aria-label': string}}
+   */
+  const containerProps = {
+    'aria-label': 'IBM search field',
+  };
+
+  /**
    * Executes the logic for the search icon depending on search input state.
    * This will execute the search if the search is open, or will open the
    * search field if closed.
@@ -495,6 +504,7 @@ const MastheadSearch = ({
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
             inputProps={inputProps}
+            containerProps={containerProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
             {...(rest.multiSection
