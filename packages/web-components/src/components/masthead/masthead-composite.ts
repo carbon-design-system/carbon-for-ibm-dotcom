@@ -455,7 +455,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _loadTranslation?: (language?: string) => Promise<Translation>;
+  _loadTranslation?: (language?: string, dataEndpoint?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
@@ -558,6 +558,12 @@ class DDSMastheadComposite extends LitElement {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * Specify translation endpoint if not using default dds endpoint.
+   */
+  @property({ attribute: 'data-endpoint' })
+  dataEndpoint?: string;
+
+  /**
    * The throttle timeout to run query upon user input.
    */
   @property({ type: Number, attribute: 'input-timeout' })
@@ -611,20 +617,20 @@ class DDSMastheadComposite extends LitElement {
   }
 
   firstUpdated() {
-    const { language } = this;
+    const { language, dataEndpoint } = this;
     if (language) {
       this._setLanguage?.(language);
     }
-    this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+    this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('language')) {
-      const { language } = this;
+      const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
-        this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+        this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
     if (changedProperties.has('brandName')) {

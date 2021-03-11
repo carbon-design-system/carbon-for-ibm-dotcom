@@ -19,12 +19,25 @@ const _host =
   'https://1.www.s81c.com';
 
 /**
+ * Translation API default endpoint
+ *
+ * @type {string}
+ * @private
+ */
+const _ddsEndpointDefault =
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer';
+
+/**
  * Translation API endpoint
  *
  * @type {string}
  * @private
  */
-const _endpoint = `${_host}/common/v18/js/data/jsononly`;
+const _ddsEndpoint =
+  (process &&
+    (process.env.REACT_APP_DDS_TRANSLATION_ENDPOINT ||
+      process.env.DDS_TRANSLATION_ENDPOINT)) ||
+  _ddsEndpointDefault;
 
 /**
  * Session Storage key for translation data
@@ -55,15 +68,18 @@ const _twoHours = 60 * 60 * 2000;
 class TranslationAPI {
   /**
    * Clears the cache.
+   *
+   * @param {string} endpoint specified API non-default endpoint (optional)
    */
-  static clearCache() {
+  static clearCache(endpoint) {
+    const sessionKey = this.getSessionKey(endpoint);
     if (typeof sessionStorage !== 'undefined') {
       Object.keys(_requestsTranslation).forEach(
         key => delete _requestsTranslation[key]
       );
       for (let i = 0; i < sessionStorage.length; ++i) {
         const key = sessionStorage.key(i);
-        if (key.indexOf(_sessionTranslationKey) === 0) {
+        if (key.indexOf(sessionKey) === 0) {
           sessionStorage.removeItem(key);
         }
       }
@@ -74,6 +90,7 @@ class TranslationAPI {
    * Returns translation i18n data
    *
    * @param {object} codes object containing lc and cc
+   * @param {string} endpoint endpoint to fetch data from (optional)
    *
    * @returns {Promise<any>} Translation data
    * @example
@@ -87,7 +104,7 @@ class TranslationAPI {
    *   return response;
    * }
    */
-  static async getTranslation(codes) {
+  static async getTranslation(codes, endpoint) {
     let lang = 'en';
     let country = 'us';
 
@@ -101,7 +118,7 @@ class TranslationAPI {
     }
 
     return new Promise((resolve, reject) => {
-      this.fetchTranslation(lang, country, resolve, reject);
+      this.fetchTranslation(lang, country, endpoint, resolve, reject);
     });
   }
 
@@ -110,11 +127,14 @@ class TranslationAPI {
    *
    * @param {string} lang Language code
    * @param {string} country Country code
+   * @param {string} endpoint endpoint to fetch data (optional)
    * @param {Function} resolve resolves the Promise
    * @param {Function} reject rejects the promise
+   * @private
    */
-  static fetchTranslation(lang, country, resolve, reject) {
-    const itemKey = `${_sessionTranslationKey}-${country}-${lang}`;
+  static fetchTranslation(lang, country, endpoint, resolve, reject) {
+    const sessionKey = this.getSessionKey(endpoint);
+    const itemKey = `${sessionKey}-${country}-${lang}`;
 
     const sessionTranslation = this.getSessionCache(itemKey);
 
@@ -123,7 +143,8 @@ class TranslationAPI {
     } else {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
-        const url = `${_endpoint}/${country}${lang}.json`;
+        const url = `${_host}${endpoint ||
+          _ddsEndpoint}/${country}${lang}.json`;
 
         _requestsTranslation[key] = axios
           .get(url, {
@@ -137,7 +158,7 @@ class TranslationAPI {
             data['timestamp'] = Date.now();
             if (typeof sessionStorage !== 'undefined') {
               sessionStorage.setItem(
-                `${_sessionTranslationKey}-${country}-${lang}`,
+                `${sessionKey}-${country}-${lang}`,
                 JSON.stringify(data)
               );
             }
@@ -150,10 +171,32 @@ class TranslationAPI {
   }
 
   /**
+   * sets the Session key depending on API endpoint
+   *
+   * @param {string} endpoint specified endpoint passed as arg in getTranslation()
+   * @returns {string} session key
+   * @private
+   */
+  static getSessionKey(endpoint) {
+    let sessionKey = _sessionTranslationKey;
+    // form session key from specified endpoint
+    if (_ddsEndpointDefault !== _ddsEndpoint || endpoint) {
+      const endpointSrc = endpoint || _ddsEndpoint;
+      sessionKey = endpointSrc.replace(
+        /[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi,
+        ''
+      );
+    }
+
+    return sessionKey;
+  }
+
+  /**
    * Transforms translation data
    *
    * @param   {object} data translation data to be transformed
    * @returns {object} Translation data
+   * @private
    */
   static transformData(data) {
     const signedout = data.profileMenu?.signedout;
@@ -179,6 +222,7 @@ class TranslationAPI {
    *
    * @param   {string} key session storage key
    * @returns {object} session storage object
+   * @private
    */
   static getSessionCache(key) {
     const session =
