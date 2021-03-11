@@ -10,12 +10,4 @@
 
 :host(#{$dds-prefix}-leadspace) {
   display: block;
-
-  @include carbon--breakpoint(sm) {
-    // Uses `<svg>` rather than CSS for gradient, to support CSS custom properties
-    .#{$prefix}--leadspace--gradient,
-    .#{$prefix}--leadspace__section.#{$prefix}--leadspace--centered .#{$prefix}--leadspace--gradient {
-      background: none;
-    }
-  }
 }
