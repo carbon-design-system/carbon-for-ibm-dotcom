@@ -33,7 +33,7 @@
     }
   }
 
-  .#{$prefix}--tableofcontents__horizontal
+  .#{$prefix}--tableofcontents__navbar
     .#{$prefix}--tableofcontents__desktop__item {
     margin-bottom: 1px;
     a {
@@ -200,7 +200,7 @@
     }
   }
 
-  .#{$prefix}--tableofcontents__horizontal {
+  .#{$prefix}--tableofcontents__navbar {
     position: sticky;
     top: 0;
     background-color: $ui-01;
