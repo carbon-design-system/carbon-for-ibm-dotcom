@@ -34,8 +34,8 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   /**
    * Defines TOC type, `` for default, `horizontal` for horizontal variant.
    */
-  @property({ reflect: true })
-  type = TOC_TYPES.DEFAULT;
+  @property({ reflect: true, attribute: 'toc-layout' })
+  layout = TOC_TYPES.DEFAULT;
 
   /**
    * The current target `<a>` that should be in view.
@@ -284,13 +284,13 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     } = this;
 
     const containerClasses = classMap({
-      [`${ddsPrefix}-ce--table-of-contents__container`]: this.type === TOC_TYPES.DEFAULT,
-      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]: this.type === TOC_TYPES.HORIZONTAL,
+      [`${ddsPrefix}-ce--table-of-contents__container`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]: this.layout === TOC_TYPES.HORIZONTAL,
     });
 
     const navigationClasses = classMap({
-      [`${prefix}--tableofcontents__sidebar`]: this.type === TOC_TYPES.DEFAULT,
-      [`${prefix}--tableofcontents__horizontal`]: this.type === TOC_TYPES.HORIZONTAL,
+      [`${prefix}--tableofcontents__sidebar`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${prefix}--tableofcontents__navbar`]: this.layout === TOC_TYPES.HORIZONTAL,
     });
 
     return html`

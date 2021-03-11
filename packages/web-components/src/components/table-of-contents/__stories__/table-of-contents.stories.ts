@@ -58,7 +58,7 @@ WithHeadingContent.story = {
 };
 
 export const Horizontal = () => html`
-  <dds-table-of-contents type="${TOC_TYPES.HORIZONTAL}">
+  <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
     ${content()}
   </dds-table-of-contents>
 `;

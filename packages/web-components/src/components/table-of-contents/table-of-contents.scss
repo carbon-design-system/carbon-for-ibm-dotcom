@@ -10,7 +10,7 @@
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
-0
+
 // TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
 :host(#{$dds-prefix}-table-of-contents) {
   @extend .#{$prefix}--grid;
