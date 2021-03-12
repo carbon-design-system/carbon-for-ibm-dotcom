@@ -1,0 +1,160 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../link-list/index';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+@mixin content-item-horizontal-media {
+  :host(#{$dds-prefix}-content-item-horizontal-media) {
+    padding-top: $carbon--spacing-07;
+    padding-bottom: $carbon--spacing-07;
+
+    @include carbon--breakpoint(md) {
+      padding-bottom: $carbon--spacing-10;
+    }
+    @include carbon--breakpoint(lg) {
+      padding-top: $carbon--spacing-10;
+      padding-bottom: $carbon--spacing-10;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-content-item-horizontal-media-copy)
+    ::slotted(:not([slot])),
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  .#{$prefix}--content-item-horizontal__item--eyebrow,
+  .#{$prefix}--content-item-horizontal__item--heading,
+  .#{$prefix}--content-item-horizontal__item--copy {
+    @include carbon--breakpoint(md) {
+      max-width: 90%;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  .#{$prefix}--content-item-horizontal__item--eyebrow {
+    color: $text-05;
+    padding-bottom: $spacing-03;
+    @include carbon--type-style('label-01');
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    ::slotted([slot='heading']),
+  .#{$prefix}--content-item-horizontal__item--heading {
+    display: block;
+    color: $text-01;
+    margin-bottom: $carbon--spacing-07;
+    @include carbon--type-style('expressive-heading-04', true);
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media-copy)
+    ::slotted(:not([slot])) {
+    margin-bottom: $carbon--spacing-07;
+    p {
+      color: $text-01;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media-video) {
+    position: relative;
+    top: -1rem;
+    text-align: left;
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal-media)
+    .#{$prefix}--content-item__cta,
+  .#{$prefix}--content-item-horizontal__item--cta {
+    margin-top: auto;
+
+    .#{$prefix}--link-list {
+      padding: 0;
+      &:first-of-type {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--link-list li {
+      @include carbon--breakpoint(md) {
+        margin-bottom: $carbon--spacing-05;
+      }
+    }
+  }
+
+  .#{$prefix}--content-item-horizontal__row {
+    display: grid;
+    column-gap: $carbon--spacing-07;
+
+    @include carbon--breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include carbon--breakpoint(max) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    &.#{$prefix}--content-item-horizontal-media__align-left {
+      .#{$prefix}--content-item-horizontal__col {
+        &:first-of-type {
+          grid-column: 1 / span 4;
+          @include carbon--breakpoint(lg) {
+            grid-column: 3 / span 1;
+          }
+          @include carbon--breakpoint(max) {
+            grid-column: 9 / span 4;
+          }
+        }
+
+        &:last-of-type {
+          grid-column: 1 / span 4;
+          margin-top: 1rem;
+
+          @include carbon--breakpoint(lg) {
+            margin-top: 0;
+            grid-row: 1;
+            grid-column: 1 / span 2;
+          }
+          @include carbon--breakpoint(max) {
+            grid-column: 1 / span 7;
+          }
+        }
+      }
+    }
+
+    &.#{$prefix}--content-item-horizontal-media__align-right {
+      .#{$prefix}--content-item-horizontal__col {
+        &:first-of-type {
+          grid-column: 1 / span 4;
+          text-align: left;
+
+          @include carbon--breakpoint(lg) {
+            grid-column: 1 / span 1;
+          }
+          @include carbon--breakpoint(max) {
+            grid-column: 1 / span 4;
+          }
+        }
+
+        &:last-of-type {
+          grid-column: 1 / span 4;
+          margin-top: 1rem;
+          @include carbon--breakpoint(lg) {
+            margin-top: 0;
+            grid-column: 2 / span 2;
+          }
+          @include carbon--breakpoint(max) {
+            grid-column: 5 / span 7;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include exports('content-item-horizontal-media') {
+  @include content-item-horizontal-media;
+}
