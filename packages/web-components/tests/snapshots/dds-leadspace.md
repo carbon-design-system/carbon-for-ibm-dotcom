@@ -184,15 +184,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -228,15 +221,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -274,15 +260,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
