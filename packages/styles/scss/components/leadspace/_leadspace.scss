@@ -66,7 +66,7 @@ $btn-min-width: 26;
     color: $text-01;
   }
 
-  .#{$prefix}--leadspace__desc-medium {
+  .#{$prefix}--leadspace__desc--medium {
     padding-top: $layout-06;
     padding-bottom: $layout-03;
     color: $text-01;
@@ -167,7 +167,7 @@ $btn-min-width: 26;
       @include carbon--make-col(4, 4);
     }
 
-    .#{$prefix}--leadspace__desc-medium {
+    .#{$prefix}--leadspace__desc--medium {
       z-index: 1;
       @include carbon--make-col-ready;
       @include carbon--type-style(expressive-heading-03, true);
@@ -250,7 +250,7 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 16);
       }
 
-      .#{$prefix}--leadspace__desc-medium {
+      .#{$prefix}--leadspace__desc--medium {
         @include carbon--make-col-ready;
         @include carbon--make-col(6, 16);
       }
@@ -335,7 +335,7 @@ $btn-min-width: 26;
         @include carbon--type-style(expressive-heading-03, true);
       }
 
-      .#{$prefix}--leadspace__desc-medium {
+      .#{$prefix}--leadspace__desc--medium {
         width: 95%;
         @include carbon--type-style(expressive-heading-03, true);
       }
@@ -388,7 +388,7 @@ $btn-min-width: 26;
 
         ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
-        .#{$prefix}--leadspace__desc-medium {
+        .#{$prefix}--leadspace__desc--medium {
           max-width: carbon--mini-units(80);
         }
 
@@ -396,7 +396,7 @@ $btn-min-width: 26;
           padding-top: $carbon--layout-04;
         }
 
-        .#{$prefix}--leadspace__desc-medium {
+        .#{$prefix}--leadspace__desc--medium {
           padding-top: $carbon--layout-04;
         }
 

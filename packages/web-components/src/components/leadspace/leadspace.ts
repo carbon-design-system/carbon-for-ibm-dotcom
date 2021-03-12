@@ -88,7 +88,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getCopyType() {
     return classMap({
-      [`${prefix}--leadspace__desc-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
     });
   }
