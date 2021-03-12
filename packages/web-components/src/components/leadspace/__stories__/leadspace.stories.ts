@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
@@ -33,10 +33,34 @@ const gradientStyleSchemes = {
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
+const getAriaLabel = type => {
+  switch (type) {
+    case 'ArrowDown20':
+      return 'anchor link';
+    case 'Pdf20':
+      return 'pdf link';
+    default:
+      return '';
+  }
+};
+
+const iconMap = {
+  ArrowRight20: ArrowRight20({ slot: 'icon' }),
+  ArrowDown20: ArrowDown20({ slot: 'icon' }),
+  Pdf20: Pdf20({ slot: 'icon' }),
+};
+
+const iconOptions = {
+  None: null,
+  'Arrow Right': 'ArrowRight20',
+  'Arrow Down': 'ArrowDown20',
+  PDF: 'Pdf20',
+};
+
 export const DefaultWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" gradient-style-scheme="false">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -50,6 +74,44 @@ export const DefaultWithNoImage = ({ parameters }) => {
       </dds-button-group>
     </dds-leadspace>
   `;
+};
+
+DefaultWithNoImage.story = {
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => ({
+        title: text('title (title):', 'Lead space title', groupId),
+        copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}, groupId),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          return {
+            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        image: [
+          {
+            src: leadspaceImg,
+            breakpoint: 'sm',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'md',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'lg',
+          },
+        ],
+        alt: text('Image alt text (alt):', 'Image alt text', groupId),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+      }),
+    },
+  },
 };
 
 export const DefaultWithImage = ({ parameters }) => {
@@ -82,7 +144,7 @@ export const DefaultWithImage = ({ parameters }) => {
 export const Centered = ({ parameters }) => {
   const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace type="centered">
+    <dds-leadspace type="centered" gradient-style-scheme="false">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -98,11 +160,49 @@ export const Centered = ({ parameters }) => {
   `;
 };
 
+Centered.story = {
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => ({
+        title: text('title (title):', 'Lead space title', groupId),
+        copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}, groupId),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          return {
+            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        image: [
+          {
+            src: leadspaceImg,
+            breakpoint: 'sm',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'md',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'lg',
+          },
+        ],
+        alt: text('Image alt text (alt):', 'Image alt text', groupId),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+      }),
+    },
+  },
+};
+
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
-      ?gradient="${ifNonNull(gradient)}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
@@ -129,7 +229,7 @@ export const CenteredWithImage = ({ parameters }) => {
 export const Small = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
+    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small" gradient-style-scheme="false">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -145,10 +245,53 @@ export const Small = ({ parameters }) => {
   `;
 };
 
+Small.story = {
+  parameters: {
+    knobs: {
+      LeadSpace: ({ groupId }) => ({
+        title: text('title (title):', 'Lead space title', groupId),
+        copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}, groupId),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          return {
+            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        image: [
+          {
+            src: leadspaceImg,
+            breakpoint: 'sm',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'md',
+          },
+          {
+            src: leadspaceImg,
+            breakpoint: 'lg',
+          },
+        ],
+        alt: text('Image alt text (alt):', 'Image alt text', groupId),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
+      }),
+    },
+  },
+};
+
 export const SmallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
+    <dds-leadspace
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+      type="small"
+    >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -166,30 +309,6 @@ export const SmallWithImage = ({ parameters }) => {
       </dds-image>
     </dds-leadspace>
   `;
-};
-
-const getAriaLabel = type => {
-  switch (type) {
-    case 'ArrowDown20':
-      return 'anchor link';
-    case 'Pdf20':
-      return 'pdf link';
-    default:
-      return '';
-  }
-};
-
-const iconMap = {
-  ArrowRight20: ArrowRight20({ slot: 'icon' }),
-  ArrowDown20: ArrowDown20({ slot: 'icon' }),
-  Pdf20: Pdf20({ slot: 'icon' }),
-};
-
-const iconOptions = {
-  None: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
 };
 
 export default {
@@ -210,7 +329,6 @@ export default {
       LeadSpace: ({ groupId }) => ({
         title: text('title (title):', 'Lead space title', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
-        gradient: boolean('gradient overlay (gradient)', true, groupId),
         gradientStyleScheme: select(
           'Gradient style scheme (gradient-style-scheme)',
           gradientStyleSchemes,
