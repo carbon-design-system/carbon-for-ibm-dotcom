@@ -200,6 +200,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                         `
                           : svg`
                           <stop offset="0%" />
+                          <stop offset="50%" />
                           <stop offset="75%" />
                         `
                       }

@@ -35,11 +35,6 @@ const gradientStyleSchemes = {
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-// const size = {
-//   [`Tall`]: LEADSPACE_SIZE.NONE,
-//   [`Medium`]: LEADSPACE_SIZE.MEDIUM,
-// };
-
 export const TallWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
@@ -258,7 +253,6 @@ export default {
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
-        // size: select('Size', sizes, LEADSPACE_SIZE.NONE, groupId),
       }),
     },
   },
