@@ -15,7 +15,7 @@
 @mixin logo-grid {
   .#{$prefix}--logo-grid,
   :host(#{$dds-prefix}-logo-grid) {
-    padding: $spacing-03;
+    padding: $spacing-05;
 
     .#{$prefix}--content-block {
       padding-top: 0;
@@ -126,6 +126,7 @@
   }
 
   :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
+    margin-top: auto;
     fill: $link-01;
   }
 
@@ -134,6 +135,15 @@
     .#{$prefix}--content-block__cta
     .#{$prefix}--card__heading {
     @include carbon--type-style('productive-heading-01');
+  }
+
+  .#{$prefix}--content-layout--logo-grid {
+    display: grid;
+
+    grid-template:
+      'heading' auto
+      'body' auto
+      'footer' auto / 1fr;
   }
 }
 @include exports('logo-grid') {
