@@ -183,6 +183,53 @@ export const SmallWithImage = ({ parameters }) => {
   `;
 };
 
+export const Medium = ({ parameters }) => {
+  const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  return html`
+    <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
+      </dds-button-group>
+    </dds-leadspace>
+  `;
+};
+
+export const MediumWithImage = ({ parameters }) => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  return html`
+    <dds-leadspace
+      size="${LEADSPACE_SIZE.MEDIUM}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+    >
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
+      </dds-button-group>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
+      </dds-image>
+    </dds-leadspace>
+  `;
+};
+
 const getAriaLabel = type => {
   switch (type) {
     case 'ArrowDown20':
