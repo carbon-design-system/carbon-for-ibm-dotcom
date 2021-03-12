@@ -64,7 +64,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getContainerClass() {
     return classMap({
-      [`${prefix}--leadspace__container-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
     });
   }
@@ -99,7 +99,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   protected _getContentType() {
     return classMap({
       [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
-      [`${prefix}--leadspace--content__container-medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
     });
   }
 

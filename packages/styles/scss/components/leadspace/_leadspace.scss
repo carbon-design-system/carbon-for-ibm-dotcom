@@ -108,7 +108,7 @@ $btn-min-width: 26;
       height: 100%;
     }
 
-    .#{$prefix}--leadspace--content__container-medium {
+    .#{$prefix}--leadspace--content__container--medium {
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -133,7 +133,7 @@ $btn-min-width: 26;
       position: relative;
       height: 100%;
     }
-    .#{$prefix}--leadspace__container-medium {
+    .#{$prefix}--leadspace__container--medium {
       position: relative;
       height: carbon--mini-units(60);
     }
@@ -187,7 +187,7 @@ $btn-min-width: 26;
         position: relative;
       }
 
-      .#{$prefix}--leadspace__container-medium {
+      .#{$prefix}--leadspace__container--medium {
         position: relative;
       }
 
@@ -232,7 +232,7 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      .#{$prefix}--leadspace__container-medium {
+      .#{$prefix}--leadspace__container--medium {
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -299,7 +299,7 @@ $btn-min-width: 26;
         position: relative;
       }
 
-      .#{$prefix}--leadspace__container-medium {
+      .#{$prefix}--leadspace__container--medium {
         overflow: auto;
         position: relative;
       }
@@ -312,7 +312,7 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 4);
       }
 
-      .#{$prefix}--leadspace--content__container-medium {
+      .#{$prefix}--leadspace--content__container--medium {
         display: flex;
         flex-direction: column;
         @include carbon--make-col-ready;
@@ -374,7 +374,7 @@ $btn-min-width: 26;
           @include carbon--make-col(4, 8);
         }
 
-        .#{$prefix}--leadspace--content__container-medium {
+        .#{$prefix}--leadspace--content__container--medium {
           margin: 0 auto;
           padding-left: 1.5rem;
           @include carbon--make-col(4, 8);
