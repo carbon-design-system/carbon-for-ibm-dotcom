@@ -118,6 +118,24 @@
     }
   }
 
+  // Add Grid Mode Narrow (16px gutter) style.
+  :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
+  .#{$prefix}--card-group--narrow {
+    @include carbon--breakpoint('sm') {
+      column-gap: $carbon--spacing-05;
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item),
+    .#{$prefix}--card-group__cards__col {
+      background: inherit;
+      padding: $carbon--spacing-03 0 0 0;
+
+      @include carbon--breakpoint('md') {
+        padding: $carbon--spacing-05 0 0 0;
+      }
+    }
+  }
+
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__cards__col {
     padding-left: $carbon--grid-gutter--condensed / 2;
