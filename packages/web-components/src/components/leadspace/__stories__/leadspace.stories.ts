@@ -217,7 +217,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        title: text('title (title):', 'Lead space title', groupId),
+        title: text('title (title):', 'Heading can go on two lines max', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
         gradientStyleScheme: select(
