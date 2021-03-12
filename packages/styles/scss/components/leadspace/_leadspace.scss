@@ -111,6 +111,7 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace--content__container--medium {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       height: 100%;
     }
 
