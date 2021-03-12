@@ -1,6 +1,6 @@
 # `dds-leadspace`
 
-## `Misc attributes - DefaultWithNoImage`
+## `Misc attributes - TallWithNoImage`
 
 ####   `should render with minimum attributes`
 
@@ -11,7 +11,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -48,7 +48,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -76,7 +76,7 @@
 
 ```
 
-## `Misc attributes - DefaultWithImage`
+## `Misc attributes - TallWithImage`
 
 ####   `should render with minimum attributes`
 
@@ -163,7 +163,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -200,7 +200,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -311,19 +311,19 @@
 
 ```
 
-## `Misc attributes - Small`
+## `Misc attributes - Medium`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+  <div class="bx--leadspace__container--medium">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
@@ -331,7 +331,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -354,13 +354,13 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+  <div class="bx--leadspace__container--medium">
+    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
@@ -368,7 +368,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -387,19 +387,19 @@
 
 ```
 
-## `Misc attributes - SmallWithImage`
+## `Misc attributes - MediumWithImage`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
@@ -407,7 +407,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
@@ -430,13 +430,13 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
   part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
           <slot name="heading">
           </slot>
@@ -444,7 +444,7 @@
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
               <slot>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,16 +10,16 @@
 import { render } from 'lit-html';
 import '../leadspace';
 import {
-  DefaultWithNoImage,
-  DefaultWithImage,
+  TallWithNoImage,
+  TallWithImage,
   Centered,
   CenteredWithImage,
-  Small,
-  SmallWithImage,
+  Medium,
+  MediumWithImage,
 } from '../__stories__/leadspace.stories';
 
-const DefaultWithNoImageTemplate = (props?) =>
-  DefaultWithNoImage({
+const TallWithNoImageTemplate = (props?) =>
+  TallWithNoImage({
     parameters: {
       props: {
         LeadSpace: {
@@ -39,8 +39,8 @@ const DefaultWithNoImageTemplate = (props?) =>
     },
   });
 
-const DefaultWithImageTemplate = (props?) =>
-  DefaultWithImage({
+const TallWithImageTemplate = (props?) =>
+  TallWithImage({
     parameters: {
       props: {
         LeadSpace: {
@@ -102,8 +102,8 @@ const CenteredWithImageTemplate = (props?) =>
     },
   });
 
-const SmallTemplate = (props?) =>
-  Small({
+const MediumTemplate = (props?) =>
+  Medium({
     parameters: {
       props: {
         LeadSpace: {
@@ -123,8 +123,8 @@ const SmallTemplate = (props?) =>
     },
   });
 
-const SmallWithImageTemplate = (props?) =>
-  SmallWithImage({
+const MediumWithImageTemplate = (props?) =>
+  MediumWithImage({
     parameters: {
       props: {
         LeadSpace: {
@@ -145,16 +145,16 @@ const SmallWithImageTemplate = (props?) =>
   });
 
 describe('dds-leadspace', function() {
-  describe('Misc attributes - DefaultWithNoImage', function() {
+  describe('Misc attributes - TallWithNoImage', function() {
     it('should render with minimum attributes', async function() {
-      render(DefaultWithNoImageTemplate(), document.body);
+      render(TallWithNoImageTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace>`
       expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        DefaultWithNoImageTemplate({
+        TallWithNoImageTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
@@ -166,16 +166,16 @@ describe('dds-leadspace', function() {
     });
   });
 
-  describe('Misc attributes - DefaultWithImage', function() {
+  describe('Misc attributes - TallWithImage', function() {
     it('should render with minimum attributes', async function() {
-      render(DefaultWithImageTemplate(), document.body);
+      render(TallWithImageTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace>`
       expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        DefaultWithImageTemplate({
+        TallWithImageTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
@@ -256,16 +256,16 @@ describe('dds-leadspace', function() {
     });
   });
 
-  describe('Misc attributes - Small', function() {
+  describe('Misc attributes - Medium', function() {
     it('should render with minimum attributes', async function() {
-      render(SmallTemplate(), document.body);
+      render(MediumTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace>`
       expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        SmallTemplate({
+        MediumTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
@@ -277,16 +277,16 @@ describe('dds-leadspace', function() {
     });
   });
 
-  describe('Misc attributes - SmallWithImage', function() {
+  describe('Misc attributes - MediumWithImage', function() {
     it('should render with minimum attributes', async function() {
-      render(SmallWithImageTemplate(), document.body);
+      render(MediumWithImageTemplate(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-leadspace>`
       expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
       render(
-        SmallWithImageTemplate({
+        MediumWithImageTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
