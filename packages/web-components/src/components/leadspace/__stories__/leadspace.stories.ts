@@ -35,15 +35,15 @@ const gradientStyleSchemes = {
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-const sizes = {
-  [`Tall`]: LEADSPACE_SIZE.NONE,
-  [`Medium`]: LEADSPACE_SIZE.MEDIUM,
-};
+// const size = {
+//   [`Tall`]: LEADSPACE_SIZE.NONE,
+//   [`Medium`]: LEADSPACE_SIZE.MEDIUM,
+// };
 
-export const DefaultWithNoImage = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
+export const TallWithNoImage = ({ parameters }) => {
+  const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${size}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -59,11 +59,11 @@ export const DefaultWithNoImage = ({ parameters }) => {
   `;
 };
 
-export const DefaultWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
+export const TallWithImage = ({ parameters }) => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
-      size="${size}"
+      size="${LEADSPACE_SIZE.NONE}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
@@ -88,9 +88,9 @@ export const DefaultWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${size}" type="centered">
+    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -107,62 +107,14 @@ export const Centered = ({ parameters }) => {
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
-      size="${size}"
+      size="${LEADSPACE_SIZE.NONE}"
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
-    >
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
-        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
-      </dds-image>
-    </dds-leadspace>
-  `;
-};
-
-export const Small = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
-  return html`
-    <dds-leadspace size="${size}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
-      <dds-button-group slot="action">
-        ${buttons.map(elem => {
-          return html`
-            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
-            >
-          `;
-        })}
-      </dds-button-group>
-    </dds-leadspace>
-  `;
-};
-
-export const SmallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, size } = parameters?.props?.LeadSpace ?? {};
-  return html`
-    <dds-leadspace
-      size="${size}"
-      ?gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-      type="small"
     >
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
@@ -306,7 +258,7 @@ export default {
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
-        size: select('Size', sizes, LEADSPACE_SIZE.NONE, groupId),
+        // size: select('Size', sizes, LEADSPACE_SIZE.NONE, groupId),
       }),
     },
   },

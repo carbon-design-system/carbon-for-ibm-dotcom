@@ -15,7 +15,7 @@ import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE } from 
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
-export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME };
+export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -170,7 +170,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    *  Leadspace size (tall or medium)
    */
   @property({ reflect: true })
-  size = LEADSPACE_SIZE.NONE;
+  size = 'tall';
 
   render() {
     const { gradientStyleScheme, type } = this;
