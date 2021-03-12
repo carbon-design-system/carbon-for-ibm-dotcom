@@ -118,7 +118,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _renderImage() {
     const { defaultSrc, alt, type } = this;
-    if (type === LEADSPACE_TYPE.CENTERED) {
+    if (this.defaultSrc && type === LEADSPACE_TYPE.CENTERED) {
       return html`
         <div data-autoid="${ddsPrefix}--leadspace--centered--mobile__image" class="${prefix}--leadspace--centered--mobile__image">
           <img src="${defaultSrc}" alt="${alt}" />
