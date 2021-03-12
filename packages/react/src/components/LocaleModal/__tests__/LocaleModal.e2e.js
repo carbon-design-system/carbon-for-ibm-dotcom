@@ -1,9 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+const percySnapshot = require('@percy/webdriverio');
 
 /**
  * Defines the host for testing
@@ -23,32 +25,25 @@ const _url =
 const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal', () => {
-  beforeAll(() => {
-    browser.url(_url + _path);
-
-    $('[data-region="am"]').waitForExist(15000); // wait for data to load
-  });
-
-  it('should load the Americas region', () => {
-    $('[data-region="am"]').click();
-    const regiontitle = $('.bx--modal-header__heading').getText();
-    expect(regiontitle).toBe('Americas');
-  });
-
-  it('should filter on canada', () => {
-    $('[data-autoid="dds--locale-modal__filter"]').setValue('canada');
-    browser.pause(500);
-    const allresults = $$('.bx--locale-modal__locales');
-    let visibleresults = [];
-    allresults.forEach(result => {
-      if (result.getCSSProperty('display').value !== 'none') {
-        visibleresults.push(result);
-      }
+  it('should load the Americas region', async () => {
+    await browser.url(_url + _path);
+    const region = await $('[data-region="am"]');
+    region.click();
+    await percySnapshot('Components|LocaleModal: Region Selected', {
+      widths: [1280],
     });
-    expect(visibleresults.length).toBe(2);
+
+    const filter = await $('[data-autoid="dds--locale-modal__filter"]');
+    filter.addValue('c');
+    filter.addValue('a');
+    await browser.pause(1500);
+
+    await percySnapshot('Components|LocaleModal: Filter', {
+      widths: [1280],
+    });
   });
 
-  it('should go to the Canada/French website', () => {
+  /*it('should go to the Canada/French website', () => {
     const allresults = $$('.bx--locale-modal__locales');
     let visibleresults = [];
     allresults.forEach(result => {
@@ -62,5 +57,5 @@ describe('LocaleModal', () => {
       url = url.substring(0, url.indexOf('?'));
     }
     expect(url).toBe('https://www.ibm.com/ca-fr');
-  });
+  });*/
 });
