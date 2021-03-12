@@ -24,7 +24,7 @@ import { TOC_TYPES } from '../defs';
 
 export const Default = () => html`
   <dds-table-of-contents>
-    ${content()}
+    ${content('bx--tableofcontents__contents')}
   </dds-table-of-contents>
 `;
 
@@ -42,7 +42,7 @@ export const WithHeadingContent = ({ parameters }) => {
         : html`
             <dds-hr slot="menu-rule"></dds-hr>
           `}
-      ${content()}
+      ${content('bx--tableofcontents__contents')}
     </dds-table-of-contents>
   `;
 };
@@ -59,7 +59,7 @@ WithHeadingContent.story = {
 
 export const Horizontal = () => html`
   <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
-    ${content()}
+    ${content('bx--tableofcontents-horizontal__contents')}
   </dds-table-of-contents>
 `;
 
