@@ -50,7 +50,7 @@ const _sessionTranslationKey = 'dds-translation';
 /**
  * The cache for in-flight or resolved requests for the i18n data, keyed by the initiating locale.
  *
- * @type {object<string, Translation>}
+ * @type {object}
  */
 const _requestsTranslation = {};
 

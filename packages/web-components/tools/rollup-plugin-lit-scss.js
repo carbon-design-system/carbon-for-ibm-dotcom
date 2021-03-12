@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@ function transformToTemplate(css) {
  * @param {RegExp} [options.include=/\.scss/] The files to include.
  * @param {RegExp} [options.exclude] The files to exclude.
  * @param {Function} [options.preprocessor] The CSS preprocessor to use.
- * @returns {Rollup.Plugin} The rollup plugin to transform an `.scss` file to a `lit-html` template.
+ * @returns {object} The rollup plugin to transform an `.scss` file to a `lit-html` template.
  */
 function rollupPluginLitSCSS({ include = /\.scss$/i, exclude, preprocessor = noop, ...options } = {}) {
   const filter = createFilter(include, exclude);
@@ -54,7 +54,7 @@ function rollupPluginLitSCSS({ include = /\.scss$/i, exclude, preprocessor = noo
      *
      * @param {string} contents The module contents.
      * @param {string} id The module ID.
-     * @returns {Rollup.TransformSourceDescription} The transformed module contents.
+     * @returns {object} The transformed module contents.
      */
     async transform(contents, id) {
       if (!filter(id)) {
