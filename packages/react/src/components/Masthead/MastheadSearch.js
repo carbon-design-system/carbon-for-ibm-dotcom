@@ -273,7 +273,7 @@ const MastheadSearch = ({
    * @type {{'aria-label': string}}
    */
   const containerProps = {
-    'aria-label': 'IBM search field',
+    'aria-label': placeHolderText,
   };
 
   /**
