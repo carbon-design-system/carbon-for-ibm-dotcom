@@ -97,7 +97,7 @@ const _getLocaleByLangAttr = () => {
 /**
  * The cache for in-flight or resolved requests for the country list, keyed by the initiating locale.
  *
- * @type {object<string, LocaleList>}
+ * @type {object}
  */
 const _requestsList = {};
 
