@@ -34,8 +34,7 @@ describe('LocaleModal', () => {
     });
 
     const filter = await $('[data-autoid="dds--locale-modal__filter"]');
-    filter.addValue('c');
-    filter.addValue('a');
+    filter.addValue('ca');
     await browser.pause(1500);
 
     await percySnapshot('Components|LocaleModal: Filter', {
