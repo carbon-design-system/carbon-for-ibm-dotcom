@@ -11,7 +11,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -48,7 +48,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -163,7 +163,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -184,15 +184,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -207,7 +200,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -228,15 +221,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -274,15 +260,8 @@
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -343,7 +322,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
@@ -380,7 +359,7 @@
   style=""
 >
   <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
+    <div class="bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
           <slot name="heading">
