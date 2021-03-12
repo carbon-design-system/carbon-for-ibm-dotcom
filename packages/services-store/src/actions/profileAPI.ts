@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,37 +16,54 @@ import { UserStatus, PROFILE_API_ACTION, ProfileAPIState } from '../types/profil
  * @returns A Redux action to set the state that the JSONP call for user authentication status failed.
  * @private
  */
-export function setMonitorUserStatusError(error: Error) {
+export function setErrorRequestUserStatus(error: Error) {
   return {
-    type: PROFILE_API_ACTION.SET_ERROR_MONITOR_USER_STATUS,
+    type: PROFILE_API_ACTION.SET_ERROR_REQUEST_USER_STATUS,
     error,
   };
 }
 
 /**
- * @param status The user authentication status from the JSONP call.
- * @returns A Redux action to set the given user authentication status.
+ * @param request The promise of the REST call for  user status that is in progress.
+ * @returns A Redux action to set the state that the REST call for user status is in progress.
+ * @private
  */
-export function setUserStatus(status: UserStatus) {
+export function setRequestUserStatusInProgress(request: Promise<UserStatus>) {
   return {
-    type: PROFILE_API_ACTION.SET_USER_STATUS,
-    status,
+    type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
+    request,
   };
 }
 
-export type ProfileAPIActions = ReturnType<typeof setMonitorUserStatusError> | ReturnType<typeof setUserStatus>;
+/**
+ * @param request The user authentication status from the JSONP call.
+ * @returns A Redux action to set the given user authentication status.
+ */
+export function setUserStatus(request: UserStatus) {
+  return {
+    type: PROFILE_API_ACTION.SET_USER_STATUS,
+    request,
+  };
+}
+
+export type ProfileAPIActions =
+  | ReturnType<typeof setErrorRequestUserStatus>
+  | ReturnType<typeof setRequestUserStatusInProgress>
+  | ReturnType<typeof setUserStatus>;
 
 /**
- * @returns A Redux action that monitors user authentication status.
+ * @returns A Redux action that sends a REST call for user authentication status.
  */
-export function monitorUserStatus(): ThunkAction<void, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
-  return dispatch => {
-    ProfileAPI.monitorUserStatus((error: Error, status: UserStatus) => {
-      if (error) {
-        dispatch(setMonitorUserStatusError(error));
-      } else {
-        dispatch(setUserStatus(status));
-      }
-    });
+export function loadUserStatus(): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
+  return async dispatch => {
+    const promiseStatus: Promise<UserStatus> = ProfileAPI.getUserStatus();
+    dispatch(setRequestUserStatusInProgress(promiseStatus));
+    try {
+      dispatch(setUserStatus(await promiseStatus));
+    } catch (error) {
+      dispatch(setErrorRequestUserStatus(error));
+      throw error;
+    }
+    return promiseStatus;
   };
 }

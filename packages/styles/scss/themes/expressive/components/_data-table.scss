@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,6 +28,12 @@
     height: rem(20px);
     width: rem(20px);
   }
+  .#{$prefix}--data-table tbody td {
+    &.#{$prefix}--table-column-checkbox {
+      padding-right: $spacing-05;
+    }
+  }
+
   .#{$prefix}--action-list .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
@@ -41,9 +47,6 @@
   .#{$prefix}--action-list .#{$prefix}--btn .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
-  }
-  th.#{$prefix}--table-expand + th.#{$prefix}--table-column-checkbox {
-    padding-left: 0.75rem;
   }
   .#{$prefix}--overflow-menu__icon {
     height: 1.25rem;

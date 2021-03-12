@@ -1,0 +1,83 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/vars';
+@import '../../globals/imports';
+
+:root {
+  --#{$dds-prefix}--fade-in-out-delay: 0s;
+}
+
+$dds--slide-distance: $carbon--layout-03;
+
+.#{$prefix}--fade-in {
+  transition-timing-function: carbon--motion(entrance, expressive);
+  transition-duration: $duration--slow-01;
+  transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
+  opacity: 1;
+}
+
+.#{$prefix}--fade-out {
+  opacity: 0;
+}
+
+.#{$prefix}--slide {
+  &-in {
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+
+    transition-timing-function: carbon--motion(entrance, expressive);
+    transition-duration: $duration--slow-01;
+    transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
+  }
+
+  &-up {
+    top: $dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-up-right {
+    top: $dds--slide-distance;
+    left: -$dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-right {
+    left: -$dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-down-right {
+    top: -$dds--slide-distance;
+    left: -$dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-down {
+    top: -$dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-down-left {
+    top: -$dds--slide-distance;
+    left: $dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-left {
+    left: $dds--slide-distance;
+    opacity: 0;
+  }
+
+  &-up-left {
+    top: $dds--slide-distance;
+    left: $dds--slide-distance;
+    opacity: 0;
+  }
+}

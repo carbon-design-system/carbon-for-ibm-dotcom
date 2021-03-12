@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,47 +11,18 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
+
+export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-export enum QUOTE_TYPES {
-  /**
-   * Default - double-curved
-   */
-  DEFAULT = 'double-curved',
-
-  /**
-   * single-curved
-   */
-  SINGLE_CURVED = 'single-curved',
-
-  /**
-   * single-angle
-   */
-  SINGLE_ANGLE = 'single-angle',
-
-  /**
-   * double-angle
-   */
-  DOUBLE_ANGLE = 'double-angle',
-
-  /**
-   * low-high-reversed-double-curved
-   */
-  LOW_HIGH_REVERSED_DOUBLE_CURVED = 'low-high-reversed-double-curved',
-
-  /**
-   * cornerBracket
-   */
-  CORNER_BRACKET = 'cornerBracket',
-}
-
 const slotExistencePropertyNames = {
-  sourceHeading: '_hasSourceHeading',
-  sourceCopy: '_hasSourceCopy',
-  sourceBottomCopy: '_hasSourceBottomCopy',
+  'source-heading': '_hasSourceHeading',
+  'source-copy': '_hasSourceCopy',
+  'source-bottom-copy': '_hasSourceBottomCopy',
   footer: '_hasFooter',
 };
 
@@ -61,6 +32,9 @@ const slotExistencePropertyNames = {
  * @element dds-quote
  * @slot copy - The copy content.
  * @slot footer - The footer (CTA) content.
+ * @slot source-heading - The heading content of the quote source.
+ * @slot source-copy - The copy content of the quote source.
+ * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
 @customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
@@ -72,7 +46,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
    * `single-angle`: `‹ ›`;
    * `double-angle`: `« »`;
    * `low-high-reversed-double-curved`: `„ “`;
-   * `cornerBracket`: `「 」`;
+   * `corner-bracket`: `「 」`;
    */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
@@ -80,8 +54,8 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines if the inverse class is included
    */
-  @property({ reflect: true, type: Boolean })
-  inverse = false;
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = QUOTE_COLOR_SCHEMES.REGULAR;
 
   /**
    * `true` if there is source heading.
@@ -121,65 +95,54 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
         return html`
           <span class="${prefix}--quote__mark">‘</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">’</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">’</span>
           </blockquote>
         `;
       case QUOTE_TYPES.DOUBLE_ANGLE:
         return html`
           <span class="${prefix}--quote__mark">«</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">»</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">»</span>
           </blockquote>
         `;
       case QUOTE_TYPES.SINGLE_ANGLE:
         return html`
           <span class="${prefix}--quote__mark">‹</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">›</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">›</span>
           </blockquote>
         `;
       case QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED:
         return html`
           <span class="${prefix}--quote__mark">„</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">“</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">“</span>
           </blockquote>
         `;
       case QUOTE_TYPES.CORNER_BRACKET:
         return html`
           <span class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket">「</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">」</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">」</span>
           </blockquote>
         `;
       default:
         return html`
           <span class="${prefix}--quote__mark">“</span>
           <blockquote class="${prefix}--quote__copy">
-            <slot name="copy"></slot><span class="${prefix}--quote__mark-closing">”</span>
+            <slot></slot><span class="${prefix}--quote__mark-closing">”</span>
           </blockquote>
         `;
     }
   }
 
   protected _renderSource() {
-    const {
-      _hasSourceHeading: hasSourceHeading,
-      _hasSourceCopy: hasSourceCopy,
-      _hasSourceBottomCopy: hasSourceBottomCopy,
-      _handleSlotChange: handleSlotChange,
-    } = this;
+    const { _hasSourceHeading: hasSourceHeading, _hasSourceCopy: hasSourceCopy, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasSourceHeading || !hasSourceCopy}" class="${prefix}--quote__source">
-        <p class="${prefix}--quote__source-heading">
-          <slot @slotchange="${handleSlotChange}" name="sourceHeading"></slot>
-        </p>
-        <p class="${prefix}--quote__source-body">
-          <slot @slotchange="${handleSlotChange}" name="sourceCopy"></slot>
-        </p>
-        <p ?hidden="${!hasSourceBottomCopy}" class="${prefix}--quote__source-optional-copy">
-          <slot @slotchange="${handleSlotChange}" name="sourceBottomCopy"></slot>
-        </p>
+        <slot @slotchange="${handleSlotChange}" name="source-heading"></slot>
+        <slot @slotchange="${handleSlotChange}" name="source-copy"></slot>
+        <slot @slotchange="${handleSlotChange}" name="source-bottom-copy"></slot>
       </div>
     `;
   }
@@ -192,13 +155,6 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('inverse')) {
-      const { inverse } = this;
-      this.classList.toggle(`${prefix}--quote__inverse`, inverse);
-    }
   }
 
   render() {

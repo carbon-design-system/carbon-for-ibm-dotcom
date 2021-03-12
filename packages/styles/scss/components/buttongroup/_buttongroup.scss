@@ -32,7 +32,8 @@
   }
 
   .#{$prefix}--buttongroup-item,
-  :host(#{$dds-prefix}-button-group-item) {
+  :host(#{$dds-prefix}-button-group-item),
+  :host(#{$dds-prefix}-button-cta) {
     margin-top: $carbon--layout-01;
     max-width: carbon--mini-units(40);
     min-width: 0;

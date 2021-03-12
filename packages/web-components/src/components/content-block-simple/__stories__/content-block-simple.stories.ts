@@ -1,25 +1,35 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/shared-enums';
 import '../../image/image';
-import '../../cta/text-cta';
-import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
-import '../../content-item/content-item-copy';
+import '../../cta/link-list-item-card-cta';
+import '../../cta/card-cta';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-complementary';
+// eslint-disable-next-line import/no-duplicates
+import '../../content-block/content-block-copy';
+import '../../link-list/link-list';
+import '../../link-list/link-list-heading';
 import '../content-block-simple';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
+// eslint-disable-next-line import/no-duplicates
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import { CTA_TYPE } from '../../cta/defs';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -48,33 +58,17 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
   Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   - [list item](https://www.ibm.com)
-    1. list item 1a
+    - list item 1a
   1. list item 2
-    - list item 2a
+    1. list item 2a
 `;
 
 // TODO: Replace with <dds-image-with-caption>
 const image = html`
-  <dds-image
-    slot="media"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-  >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image>
 `;
 
@@ -84,8 +78,11 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-simple>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -97,8 +94,11 @@ export const WithImage = ({ parameters }) => {
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       ${image}
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -109,9 +109,12 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
@@ -122,29 +125,30 @@ export const WithAsideElements = ({ parameters }) => {
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${image}
-      <dds-content-block-complementary>
-        <dds-link-list type="default">
-          <span slot="heading">Tutorial</span>
-          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
-            <p>Containerization A Complete Guide</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-          <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
-            <p>Why should you use microservices and containers</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-        </dds-link-list>
-      </dds-content-block-complementary>
-      <dds-text-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">${ctaCopy}</dds-text-cta>
+      <dds-link-list type="default" slot="complementary">
+        <dds-link-list-heading>Tutorial</dds-link-list-heading>
+        <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
+          <p>Containerization A Complete Guide</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+        <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
+          <p>Why should you use microservices and containers</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+      </dds-link-list>
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
     </dds-content-block-simple>
   `;
 };
 
 WithAsideElements.story = {
   parameters: {
-    gridLargeColumnClass: 'bx--col-lg-12',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
   },
 };
 
@@ -152,12 +156,8 @@ export default {
   title: 'Components/Content block simple',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 ${parameters.gridLargeColumnClass} bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
@@ -165,7 +165,7 @@ export default {
     ...readme.parameters,
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
-    gridLargeColumnClass: 'bx--col-lg-8',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
         complementaryStyleScheme: select(

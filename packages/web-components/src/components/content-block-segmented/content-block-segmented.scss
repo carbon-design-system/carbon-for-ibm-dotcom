@@ -1,8 +1,47 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
 @import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/content-block-segmented';
+
+:host(#{$dds-prefix}-content-block-segmented) {
+  ::slotted(:not([slot])) {
+    display: block;
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: $carbon--layout-06;
+      margin-bottom: $carbon--layout-06;
+    }
+  }
+
+  ::slotted(#{$dds-prefix}-content-block-complementary) {
+    @include carbon--breakpoint-down('lg') {
+      margin: $layout-05 0;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-content-block-segmented-item) ::slotted(*) {
+  margin-left: $carbon--spacing-05;
+  margin-right: $carbon--spacing-05;
+}
+
+// TODO: Consider applying this rule in general
+:host(#{$dds-prefix}-content-block-segmented-item) {
+  ::slotted(#{$dds-prefix}-content-item-copy) {
+    @include carbon--breakpoint('md') {
+      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+    }
+  }
+}
+
+.#{$dds-prefix}-ce--content-layout--with-adjacent-heading-content ::slotted([slot='heading']) {
+  // In this condition, given the heading content and child content are in different grid area, both margins will be in effect.
+  // Uses the margin of child content and cancels one of the heading to get the right margin.
+  margin-bottom: 0;
+}

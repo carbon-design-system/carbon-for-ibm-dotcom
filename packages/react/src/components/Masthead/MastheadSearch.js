@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,10 +45,10 @@ const _trimAndLower = valueString => valueString.toLowerCase().trim();
 /**
  * When a suggestion item is clicked, we populate the input with its name field
  *
- * @param {object} suggestion The individual object from the data
+ * @param {object} suggestion The individual object or key name from the data
  * @returns {*} The name val
  */
-const _getSuggestionValue = suggestion => suggestion[0];
+const _getSuggestionValue = suggestion => suggestion[0] || suggestion.name;
 
 /**
  * Reducer for the useReducer hook
@@ -100,7 +100,6 @@ const MastheadSearch = ({
   renderValue,
   searchOpenOnload,
   navType,
-  customTypeaheadApi,
   ...rest
 }) => {
   const { ref } = useSearchVisible(false);
@@ -207,6 +206,21 @@ const MastheadSearch = ({
   }
 
   /**
+   * Custom event emitted when search does not redirect to default url
+   *
+   * @param {event} event The callback event
+   * @param {string} val The new val of the input
+   */
+  function onSearchNoRedirect(event, val) {
+    const onSearchNoRedirect = new CustomEvent('onSearchNoRedirect', {
+      bubbles: true,
+      detail: { value: val },
+    });
+
+    event.currentTarget.dispatchEvent(onSearchNoRedirect);
+  }
+
+  /**
    * When the input field changes, we set the new val to our state
    *
    * @param {event} event The callback event
@@ -220,8 +234,24 @@ const MastheadSearch = ({
     });
 
     event.currentTarget.dispatchEvent(onSearchValueChanged);
-
     dispatch({ type: 'setVal', payload: { val: newValue } });
+  }
+
+  /**
+   * Custom onKeyDown event handlers
+   *
+   * @param {event} event The callback event
+   */
+  function onKeyDown(event) {
+    switch (event.key) {
+      case 'Enter': {
+        // Disables Enter key if searchNoRirect is true
+        if (rest.searchNoRedirect) {
+          onSearchNoRedirect(event, state.val);
+          event.preventDefault();
+        }
+      }
+    }
   }
 
   /**
@@ -233,7 +263,17 @@ const MastheadSearch = ({
     placeholder: placeHolderText,
     value: state.val,
     onChange,
+    onKeyDown,
     className: `${prefix}--header__search--input`,
+  };
+
+  /**
+   * Autosuggest will pass through all these props to the container.
+   *
+   * @type {{'aria-label': string}}
+   */
+  const containerProps = {
+    'aria-label': placeHolderText,
   };
 
   /**
@@ -263,7 +303,11 @@ const MastheadSearch = ({
     }
 
     if (state.isSearchOpen && state.val.length) {
-      root.parent.location.href = getRedirect(state.val);
+      if (rest.searchNoRedirect) {
+        onSearchNoRedirect(event, state.val);
+      } else {
+        root.parent.location.href = getRedirect(state.val);
+      }
     } else {
       dispatch({ type: 'setSearchOpen' });
     }
@@ -310,7 +354,6 @@ const MastheadSearch = ({
         componentInputProps={componentInputProps}
         dispatch={dispatch}
         isActive={state.isSearchOpen}
-        searchIconClick={searchIconClick}
       />
     );
   }
@@ -364,8 +407,8 @@ const MastheadSearch = ({
 
     if (request.reason === 'input-changed') {
       // if the search input has changed
-      let response = customTypeaheadApi
-        ? customTypeaheadApi(searchValue)
+      let response = rest.customTypeaheadApi
+        ? await rest.customTypeaheadApi(searchValue)
         : await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
@@ -400,7 +443,12 @@ const MastheadSearch = ({
    * @param {string} params.suggestionValue Suggestion value
    */
   function onSuggestionSelected(event, { suggestionValue }) {
-    root.parent.location.href = getRedirect(suggestionValue);
+    if (rest.searchNoRedirect) {
+      onSearchNoRedirect(event, suggestionValue);
+      event.preventDefault();
+    } else {
+      root.parent.location.href = getRedirect(suggestionValue);
+    }
   }
 
   /**
@@ -411,6 +459,28 @@ const MastheadSearch = ({
    */
   function shouldRenderSuggestions(value) {
     return value.trim().length >= renderValue;
+  }
+
+  /**
+   * Render section title
+   *
+   * @param {Array} section Array of section results
+   * @returns {string} Section title
+   */
+  function renderSectionTitle(section) {
+    return section.items.length > 1 && section.title ? (
+      <span>{section.title}</span>
+    ) : null;
+  }
+
+  /**
+   * Render section results
+   *
+   * @param {Array} section Array of section results
+   * @returns {object} Section items
+   */
+  function getSectionSuggestions(section) {
+    return section.items;
   }
 
   return (
@@ -433,10 +503,17 @@ const MastheadSearch = ({
             getSuggestionValue={_getSuggestionValue} // Name of suggestion
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-            highlightFirstSuggestion // First suggestion is highlighted by default
             inputProps={inputProps}
+            containerProps={containerProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
+            {...(rest.multiSection
+              ? {
+                  multiSection: true,
+                  renderSectionTitle: renderSectionTitle,
+                  getSectionSuggestions: getSectionSuggestions,
+                }
+              : {})}
           />
         </form>
       )}
@@ -483,11 +560,6 @@ MastheadSearch.propTypes = {
    * navigation type for autoids
    */
   navType: PropTypes.oneOf(['default', 'alt', 'eco']),
-
-  /**
-   * Custom typeahead API function
-   */
-  customTypeaheadApi: PropTypes.func,
 };
 
 MastheadSearch.defaultProps = {

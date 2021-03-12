@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -56,10 +56,9 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   .#{$prefix}--video-player__video-caption {
-    @include use-carbon-productive-tokens();
-    @include carbon--type-style(body-long-01, true);
+    @include carbon--type-style('caption-01');
 
-    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-05);
+    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
     color: var(--#{$dds-prefix}--video-caption--color, $text-05);
     max-width: 90%;
   }

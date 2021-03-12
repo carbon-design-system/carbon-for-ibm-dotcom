@@ -10,6 +10,7 @@
 import { html, render } from 'lit-html';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import '../../card/card-heading';
 import '../content-block-cards';
 
 const template = (props?) => {
@@ -40,7 +41,7 @@ describe('dds-content-block-cards', function() {
           heading: 'heading-foo',
           cards: html`
             <dds-card-group-item href="https://example.com">
-              <div slot="heading">Nunc convallis lobortis</div>
+              <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
                 hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.

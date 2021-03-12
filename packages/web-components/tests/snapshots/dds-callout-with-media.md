@@ -7,31 +7,27 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <slot name="heading">
-    </slot>
-    <div class="bx--content-block__children">
-      <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
-          <slot>
-          </slot>
-        </div>
-        <div>
-          <slot name="media">
-          </slot>
-        </div>
-      </div>
-    </div>
-    <div
-      class="bx--content-block__cta-row"
-      hidden=""
-    >
-      <div class="bx--content-block__cta bx--content-block__cta-col">
-        <slot name="footer">
+    <div class="bx--content-layout">
+      <slot name="heading">
+      </slot>
+      <div
+        class="bx--content-layout__body"
+        hidden=""
+      >
+        <slot name="copy">
         </slot>
+        <slot>
+        </slot>
+        <slot name="media">
+        </slot>
+        <div hidden="">
+          <slot name="footer">
+          </slot>
+        </div>
       </div>
+      <slot name="complementary">
+      </slot>
     </div>
-    <slot name="complementary">
-    </slot>
   </div>
 </div>
 
@@ -42,31 +38,27 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <slot name="heading">
-    </slot>
-    <div class="bx--content-block__children">
-      <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
-          <slot>
-          </slot>
-        </div>
-        <div>
-          <slot name="media">
-          </slot>
-        </div>
-      </div>
-    </div>
-    <div
-      class="bx--content-block__cta-row"
-      hidden=""
-    >
-      <div class="bx--content-block__cta bx--content-block__cta-col">
-        <slot name="footer">
+    <div class="bx--content-layout">
+      <slot name="heading">
+      </slot>
+      <div
+        class="bx--content-layout__body"
+        hidden=""
+      >
+        <slot name="copy">
         </slot>
+        <slot>
+        </slot>
+        <slot name="media">
+        </slot>
+        <div hidden="">
+          <slot name="footer">
+          </slot>
+        </div>
       </div>
+      <slot name="complementary">
+      </slot>
     </div>
-    <slot name="complementary">
-    </slot>
   </div>
 </div>
 
@@ -77,31 +69,27 @@
 ```
 <div class="bx--callout__column">
   <div class="bx--callout__content">
-    <slot name="heading">
-    </slot>
-    <div class="bx--content-block__children">
-      <div class="bx--content-block-simple__content">
-        <div class="bx--content-item">
-          <slot>
-          </slot>
-        </div>
-        <div>
-          <slot name="media">
-          </slot>
-        </div>
-      </div>
-    </div>
-    <div
-      class="bx--content-block__cta-row"
-      hidden=""
-    >
-      <div class="bx--content-block__cta bx--content-block__cta-col">
-        <slot name="footer">
+    <div class="bx--content-layout">
+      <slot name="heading">
+      </slot>
+      <div
+        class="bx--content-layout__body"
+        hidden=""
+      >
+        <slot name="copy">
         </slot>
+        <slot>
+        </slot>
+        <slot name="media">
+        </slot>
+        <div hidden="">
+          <slot name="footer">
+          </slot>
+        </div>
       </div>
+      <slot name="complementary">
+      </slot>
     </div>
-    <slot name="complementary">
-    </slot>
   </div>
 </div>
 

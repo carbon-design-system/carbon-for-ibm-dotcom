@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -10,6 +10,17 @@
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
 
+:host(#{$dds-prefix}-content-item-copy),
 :host(#{$dds-prefix}-content-item-paragraph) {
   display: block;
+}
+
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-image-with-caption),
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-video-player-container) {
+  margin-top: 0;
 }

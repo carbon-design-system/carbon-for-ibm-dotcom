@@ -1,22 +1,21 @@
 # `dds-leadspace`
 
-## `Misc attributes - DefaultWithNoImage`
+## `Misc attributes - TallWithNoImage`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
   class="bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -24,11 +23,11 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -45,16 +44,15 @@
 ```
 <section
   class="bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -62,11 +60,11 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -78,23 +76,22 @@
 
 ```
 
-## `Misc attributes - DefaultWithImage`
+## `Misc attributes - TallWithImage`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
   class="bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -102,11 +99,11 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -123,16 +120,15 @@
 ```
 <section
   class="bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -140,11 +136,11 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -163,16 +159,15 @@
 ```
 <section
   class="bx--leadspace--centered bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -180,24 +175,17 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -208,16 +196,15 @@
 ```
 <section
   class="bx--leadspace--centered bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -225,24 +212,17 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -255,16 +235,15 @@
 ```
 <section
   class="bx--leadspace--centered bx--leadspace__section"
+  part="section"
   style=""
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -272,24 +251,17 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
     </div>
-    <div
-      class="bx--leadspace--centered--mobile__image"
-      data-autoid="dds--leadspace--centered--mobile__image"
-    >
-      <img
-        alt=""
-        src=""
-      >
-    </div>
+    <slot name="image">
+    </slot>
   </div>
 </section>
 
@@ -300,16 +272,15 @@
 ```
 <section
   class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace__section"
+  part="section"
   style="background-image: url(http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616)"
 >
   <div class="bx--leadspace__container">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
@@ -317,11 +288,11 @@
               class="bx--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -340,35 +311,34 @@
 
 ```
 
-## `Misc attributes - Small`
+## `Misc attributes - Medium`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
+  part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -384,29 +354,28 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
+  part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -418,35 +387,34 @@
 
 ```
 
-## `Misc attributes - SmallWithImage`
+## `Misc attributes - MediumWithImage`
 
 ####   `should render with minimum attributes`
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
+  part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>
@@ -462,29 +430,28 @@
 
 ```
 <section
-  class="bx--leadspace--productive bx--leadspace__section"
+  class="bx--leadspace__section"
+  part="section"
   style=""
 >
-  <div class="bx--leadspace__container">
+  <div class="bx--leadspace__container--medium">
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
+      <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <h1 class="bx--leadspace__title">
-            <slot name="title">
-            </slot>
-          </h1>
+          <slot name="heading">
+          </slot>
         </div>
         <div class="bx--leadspace__content">
           <div class="bx--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="bx--leadspace__desc--medium"
               data-autoid="dds--leadspace__desc"
             >
-              <slot name="copy">
+              <slot>
               </slot>
             </p>
           </div>
-          <slot name="buttons">
+          <slot name="action">
           </slot>
         </div>
       </div>

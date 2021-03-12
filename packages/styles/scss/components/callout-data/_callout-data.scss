@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,41 +8,6 @@
 @mixin callout-data {
   .#{$prefix}--callout-data,
   :host(#{$dds-prefix}-callout-data) {
-    .#{$prefix}--callout-data__data {
-      @include carbon--type-style('display-03', true);
-
-      color: $inverse-01;
-      padding-top: $layout-01;
-      padding-bottom: $layout-05;
-    }
-
-    .#{$prefix}--callout-data__copy {
-      @include carbon--type-style('expressive-heading-03', true);
-
-      color: $inverse-01;
-      margin-top: auto;
-      padding-bottom: $layout-01;
-    }
-
-    .#{$prefix}--callout-data__source {
-      @include carbon--type-style('body-short-01', true);
-
-      width: 90%;
-      max-width: carbon--mini-units(80);
-      padding-bottom: $layout-03;
-
-      @include carbon--breakpoint('md') {
-        padding-bottom: $layout-05;
-      }
-
-      @include carbon--breakpoint('lg') {
-        padding-bottom: $layout-06;
-      }
-
-      padding-top: $spacing-03;
-      color: $text-05;
-    }
-
     .#{$prefix}--callout__column,
     #{$dds-prefix}-callout {
       height: auto;
@@ -73,39 +38,50 @@
       width: 90%;
       max-width: 640px;
     }
+
+    .#{$prefix}--callout__container {
+      @include carbon--theme($carbon--theme--white, true) {
+        background-color: $inverse-02;
+      }
+    }
   }
 
-  :host(#{$dds-prefix}-callout-data-container) .#{$prefix}--callout__column {
-    background-color: $inverse-02;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+  :host(#{$dds-prefix}-callout-data-heading),
+  .#{$prefix}--callout-data__data {
+    @include carbon--type-style('display-03', true);
+
+    color: $inverse-01;
+    padding-top: $layout-01;
+    padding-bottom: $layout-05;
+  }
+
+  :host(#{$dds-prefix}-callout-data-copy),
+  .#{$prefix}--callout-data__copy {
+    @include carbon--type-style('expressive-heading-03', true);
+
+    color: $inverse-01;
+    margin-top: auto;
+    padding-bottom: $layout-01;
+  }
+
+  :host(#{$dds-prefix}-callout-data-source),
+  .#{$prefix}--callout-data__source {
+    @include carbon--type-style('caption-01');
+
+    width: 90%;
+    max-width: carbon--mini-units(80);
+    padding-bottom: $layout-03;
 
     @include carbon--breakpoint('md') {
-      min-height: carbon--mini-units(40);
+      padding-bottom: $layout-05;
     }
 
     @include carbon--breakpoint('lg') {
-      min-height: carbon--mini-units(50);
+      padding-bottom: $layout-06;
     }
 
-    @include carbon--breakpoint('xlg') {
-      min-height: carbon--mini-units(60);
-    }
-
-    @include carbon--breakpoint('max') {
-      min-height: carbon--mini-units(70);
-    }
-
-    .#{$prefix}--callout__content {
-      padding-left: 0;
-      margin-left: 0;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      width: 90%;
-      max-width: 640px;
-    }
+    padding-top: $spacing-03;
+    color: $text-05;
   }
 }
 @include exports('callout-data') {

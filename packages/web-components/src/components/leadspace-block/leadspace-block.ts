@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,22 +53,22 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   /**
    * Render the Leadspace Block title
    */
-  protected _renderTitle() {
+  protected _renderHeading() {
     const { _hasTitle: hasTitle } = this;
     return html`
-      <div ?hidden="${!hasTitle}">
-        <h1 data-autoid="${ddsPrefix}--leadspace-block__title" class="${prefix}--leadspace-block__title">
-          <slot name="title" @slotchange="${this._handleSlotChange}"></slot>
-        </div>
-      </div>
+      <slot ?hidden="${!hasTitle}" name="heading" @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 
   render() {
     return html`
-      ${this._renderTitle()}
-      <slot></slot>
-      <dds-hr></dds-hr>
+      <div class="${prefix}--content-layout">
+        ${this._renderHeading()}
+        <div class="${prefix}--content-layout__body">
+          <slot></slot>
+          <dds-hr></dds-hr>
+        </div>
+      </div>
     `;
   }
 

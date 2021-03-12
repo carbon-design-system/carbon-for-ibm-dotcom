@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -127,12 +127,17 @@
   .#{$prefix}--masthead__megamenu__categories-section {
     display: flex;
     flex-direction: column;
-    padding-top: $spacing-06;
+    padding-top: rem(18px);
     width: 100%;
 
     .#{$prefix}--masthead__megamenu__categories {
-      padding: 0 0 $layout-03 $layout-01;
+      padding: 0 0 $layout-03 0;
       column-count: 4;
+      column-gap: 0;
+    }
+
+    .#{$prefix}--masthead__megamenu--hasViewAllLink {
+      padding-bottom: 0;
     }
 
     ::slotted(#{$dds-prefix}-megamenu-category-group)
@@ -141,9 +146,19 @@
       margin-left: -1rem;
     }
 
-    .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories {
+    .#{$prefix}--masthead__megamenu--hasHighlights {
       column-count: 3;
     }
+  }
+
+  .#{$prefix}--masthead__megamenu__copy,
+  :host(#{$dds-prefix}-megamenu-category-group-copy) {
+    display: block;
+    @include use-carbon-productive-tokens();
+    @include type-style('body-short-01');
+
+    color: $text-02;
+    padding: rem(6px) $spacing-05 rem(10px);
   }
 
   :host(#{$dds-prefix}-megamenu-category-group),
@@ -155,6 +170,13 @@
       display: inline-block;
       padding-bottom: $spacing-07;
     }
+
+    .#{$prefix}--masthead__megamenu__copy,
+    ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
+      color: $text-01;
+      margin-top: rem(-6px);
+      padding: 0 $spacing-05 $spacing-03 $spacing-05;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
@@ -164,7 +186,7 @@
     p,
     a,
     .#{$prefix}--link-with-icon {
-      padding: 7px $spacing-05;
+      padding: 6px $spacing-05;
       text-decoration: none;
       width: 100%;
     }
@@ -173,7 +195,7 @@
     p {
       color: $text-01;
       @include use-carbon-productive-tokens();
-      @include type-style('productive-heading-01');
+      @include type-style('expressive-heading-01');
     }
 
     svg {
@@ -190,16 +212,29 @@
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include use-carbon-productive-tokens();
-    @include type-style('body-short-01');
+    @include type-style('body-long-01');
 
     color: $text-02;
     text-decoration: none;
-    padding: 7px $spacing-05;
+    padding: 6px $spacing-05;
     display: block;
 
     &:hover,
     &:active {
       color: $text-01;
+    }
+  }
+
+  .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
+    @include use-carbon-productive-tokens();
+    @include type-style('body-short-01');
+
+    width: 100%;
+
+    a {
+      width: 100%;
+      padding: 7px $spacing-05;
     }
   }
 
@@ -238,6 +273,8 @@
   :host(#{$dds-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-headline
     .#{$prefix}--link-with-icon,
+  .#{$prefix}--masthead__megamenu__category-sublink--highlighted
+    .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink {
     &:focus,
@@ -257,7 +294,7 @@
   :host(#{$dds-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
-    padding-top: $spacing-06;
+    padding-top: rem(18px);
     border-right: carbon--rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
   }
@@ -272,12 +309,12 @@
       border-right: none;
       border-bottom: carbon--rem(1px) solid $ui-03;
       column-count: 2;
+      column-gap: 0;
       @include carbon--make-col(8, 8);
     }
 
     :host(#{$dds-prefix}-megamenu-right-navigation),
     .#{$prefix}--masthead__megamenu__categories-section {
-      .#{$prefix}--masthead__megamenu--hasHighlights.#{$prefix}--masthead__megamenu__categories,
       .#{$prefix}--masthead__megamenu__categories {
         column-count: 2;
       }

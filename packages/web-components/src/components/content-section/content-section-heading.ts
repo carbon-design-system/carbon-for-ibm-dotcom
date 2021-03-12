@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,6 +23,16 @@ class DDSContentSectionHeading extends LitElement {
   @property({ reflect: true })
   slot = 'heading';
 
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'heading');
+    }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '3');
+    }
+    super.connectedCallback();
+  }
+
   render() {
     return html`
       <slot></slot>
@@ -32,4 +42,5 @@ class DDSContentSectionHeading extends LitElement {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentSectionHeading;

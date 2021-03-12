@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -142,6 +142,10 @@ module.exports = function setupKarma(config) {
             test: /\.mdx$/,
             use: 'null-loader',
           },
+          {
+            test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+            loader: 'url-loader',
+          },
         ],
       },
 
@@ -149,6 +153,7 @@ module.exports = function setupKarma(config) {
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
           'process.env.DDS_CALLOUT_DATA': JSON.stringify('true'),
+          'process.env.DDS_PROMO_GROUP': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, resource => {
           const { request } = resource;

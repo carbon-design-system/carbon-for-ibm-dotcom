@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,9 +21,14 @@ module.exports = ({ config, mode }) => {
   if (mode === 'PRODUCTION') {
     config.optimization = {
       ...config.optimization,
+      splitChunks: {
+        chunks: 'all',
+        minSize: 30 * 1024,
+        maxSize: 1024 * 1024,
+      },
       minimizer: [
         new TerserPlugin({
-          sourceMap: true,
+          sourceMap: useStyleSourceMap,
           terserOptions: {
             mangle: false,
           },
@@ -77,7 +82,7 @@ module.exports = ({ config, mode }) => {
       use: [...babelLoaderRule.use, require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
     },
     {
-      test: /-story\.[jt]s$/,
+      test: /\.stories\.[jt]sx?$/,
       use: [
         {
           loader: require.resolve('@storybook/source-loader'),
@@ -96,17 +101,17 @@ module.exports = ({ config, mode }) => {
       enforce: 'pre',
     },
     {
-      test: /\.ts$/,
+      test: /\.tsx?$/,
       use: [
         {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-modules'],
+            presets: ['@babel/preset-react', '@babel/preset-modules'],
             plugins: [
               [
                 'babel-plugin-emotion',
                 {
-                  sourceMap: true,
+                  sourceMap: useStyleSourceMap,
                   autoLabel: true,
                 },
               ],
@@ -147,6 +152,10 @@ module.exports = ({ config, mode }) => {
           },
         },
       ],
+    },
+    {
+      test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+      loader: 'file-loader',
     }
   );
 
@@ -156,7 +165,7 @@ module.exports = ({ config, mode }) => {
     })
   );
 
-  config.resolve.extensions.push('.ts', '.d.ts');
+  config.resolve.extensions.push('.ts', '.tsx', '.d.ts');
 
   return config;
 };

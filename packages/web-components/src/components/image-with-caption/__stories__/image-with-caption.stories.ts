@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,26 +10,24 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--002.jpg';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--002.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../image-with-caption';
 import readme from './README.stories.mdx';
 
 const images = {
-  '2:1': 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
-  '16:9': 'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
+  '2:1': imgLg2x1,
+  '16:9': imgLg16x9,
 };
 
 const srcsets = {
-  'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616': [
-    'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
-    'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
-    'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
-  ],
-  'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616': [
-    'https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616',
-    'https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616',
-    'https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616',
-  ],
+  '2:1': [imgSm2x1, imgMd2x1, imgLg2x1],
+  '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
 };
 
 export const Default = ({ parameters }) => {
@@ -62,12 +60,7 @@ export default {
     knobs: {
       'dds-image-with-caption': ({ groupId }) => ({
         alt: textNullable('Alt text (alt)', 'Image alt text', groupId),
-        defaultSrc: select(
-          'Default image (default-src)',
-          images,
-          'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
-          groupId
-        ),
+        defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
         lightbox: boolean('Lightbox (lightbox)', true, groupId),
         copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
         heading: textNullable('Heading (heading)', 'This is a heading', groupId),

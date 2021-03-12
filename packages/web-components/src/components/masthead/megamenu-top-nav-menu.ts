@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -25,6 +25,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+  /**
+   * The menu ul node.
+   */
+  @query(`.${prefix}--header__menu`)
+  private _menuNode!: HTMLElement;
+
   /**
    * The observer for the resize of the viewport.
    */
@@ -45,7 +51,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
       this._observerResizeRoot = new ResizeObserver(this._observeResizeRoot);
-      this._observerResizeRoot.observe(this.ownerDocument.documentElement);
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
     }
   }
 
@@ -71,6 +77,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   }
 
   firstUpdated() {
+    this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
   }
 

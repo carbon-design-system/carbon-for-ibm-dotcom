@@ -1,17 +1,31 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "0.7.0-rc.1",
+  "version": "1.1.1",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
     "./dist/": "./dist/",
+    "./es/components-react/": {
+      "node": "./lib/components-react-node/",
+      "default": "./es/components-react/"
+    },
+    "./es/components/": {
+      "node": "./lib/components/",
+      "default": "./es/components/"
+    },
+    "./es/globals/": {
+      "node": "./lib/globals/",
+      "default": "./es/globals/"
+    },
     "./es/": "./es/",
+    "./lib/": "./lib/",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
   "files": [
     "dist/**/*",
     "es/**/*",
+    "lib/**/*",
     "scss/**/*",
     "custom-elements.json"
   ],
@@ -52,6 +66,8 @@
     "test:integration:ui": "jest -c tests/integration/ui/jest.config.js --runInBand",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
+    "storybook:react": "node ../../node_modules/@storybook/react/bin/index.js -p 9002 -c .storybook/react",
+    "build-storybook:react": "gulp build:modules:react && node --max-old-space-size=8192 ../../node_modules/@storybook/react/dist/server/build.js -c .storybook/react -o storybook-static-react",
     "upgrade-carbon": "yarn upgrade-interactive carbon-components carbon-web-components @carbon/icon-helpers @carbon/icons --latest --exact",
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
@@ -59,16 +75,25 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "1.14.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.13.0",
-    "@carbon/ibmdotcom-utilities": "1.14.0-rc.0",
-    "@carbon/layout": "10.15.0",
-    "carbon-components": "10.25.0",
-    "carbon-web-components": "1.9.0",
+    "@carbon/ibmdotcom-services": "1.16.1",
+    "@carbon/ibmdotcom-styles": "1.16.1",
+    "@carbon/ibmdotcom-utilities": "1.16.1",
+    "@carbon/layout": "10.19.0",
+    "carbon-components": "10.29.0",
+    "carbon-web-components": "1.12.0",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "window-or-global": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "@carbon/icons-react": "10.26.0",
+    "lodash.pickby": "^4.6.0",
+    "prop-types": "^15.7.0",
+    "react": "^16.10.0 || ^17.0.0",
+    "react-dom": "^16.10.0 || ^17.0.0",
+    "react-redux": "^7.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -83,11 +108,12 @@
     "@babel/plugin-transform-typescript": "^7.11.0",
     "@babel/preset-env": "^7.8.0",
     "@babel/preset-modules": "^0.1.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
-    "@carbon/ibmdotcom-services-store": "1.14.0-rc.0",
-    "@carbon/icon-helpers": "10.10.0",
-    "@carbon/icons": "10.22.0",
+    "@carbon/ibmdotcom-services-store": "1.16.1",
+    "@carbon/icon-helpers": "10.14.0",
+    "@carbon/icons": "10.26.0",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/storybook": "^3.3.0",
@@ -95,10 +121,12 @@
     "@storybook/addon-docs": "^5.3.0",
     "@storybook/addon-knobs": "^5.3.0",
     "@storybook/addon-storysource": "^5.3.0",
+    "@storybook/react": "^5.3.0",
     "@storybook/source-loader": "^5.3.0",
     "@storybook/web-components": "^5.3.0",
     "@types/jasmine": "^3.3.0",
     "@types/lodash-es": "^4.17.0",
+    "@types/prop-types": "^15.7.0",
     "@types/redux-mock-store": "^1.0.0",
     "@types/webpack-env": "^1.14.0",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
@@ -111,9 +139,11 @@
     "babel-loader": "^8.0.0",
     "babel-plugin-istanbul": "^4.1.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
-    "carbon-components": "10.25.0",
+    "carbon-components": "10.29.0",
+    "carbon-web-components": "1.12.0",
     "chalk": "^2.3.0",
     "child-process-promise": "^2.2.0",
+    "classnames": "^2.2.0",
     "cli-table": "^0.3.0",
     "commander": "^2.13.0",
     "css-loader": "^2.0.0",
@@ -151,10 +181,10 @@
     "is-port-reachable": "^3.0.0",
     "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine-core": "^3.0.0",
-    "jest": "^24.0.0",
-    "jest-circus": "^24.0.0",
+    "jest": "25.5.4",
+    "jest-circus": "25.5.4",
     "jest-dev-server": "^4.4.0",
-    "jest-diff": "^24.9.0",
+    "jest-diff": "25.5.0",
     "jest-environment-puppeteer": "^4.4.0",
     "jest-playwright-preset": "^0.1.0",
     "karma": "^4.0.0",
@@ -172,7 +202,7 @@
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
     "magic-string": "^0.25.0",
-    "marked": "^1.1.0",
+    "marked": "^2.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "mkdirp": "^0.5.0",
     "node-sass": "^4.12.0",
@@ -207,13 +237,14 @@
     "through2": "^3.0.0",
     "ts-loader": "^6.0.0",
     "tsickle": "^0.37.0",
-    "typescript": "~3.9.0",
+    "typescript": "~3.8.0",
     "web-component-analyzer": "^1.0.0",
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
     "lit-element": "^2.3.0",
-    "lit-html": "^1.2.0"
+    "lit-html": "^1.2.0",
+    "typescript": "~3.8.0"
   },
   "prettier": {
     "jsxBracketSameLine": true,

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,6 +37,7 @@ const MastheadLeftNav = ({
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
+    const selected = rest.selectedMenuItem === link.titleEnglish;
     if (link.hasMenu || link.hasMegaPanel) {
       const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
       const dataTitle = link.titleEnglish
@@ -54,7 +55,7 @@ const MastheadLeftNav = ({
               backButtonText={backButtonText}
               key={i}
               autoid={autoid}
-              selected={rest.selectedMenuItem === link.titleEnglish}
+              selected={selected}
               navType={rest.navType}
               dataTitle={dataTitle}>
               {renderNavSections(
@@ -84,8 +85,9 @@ const MastheadLeftNav = ({
           backButtonText={backButtonText}
           key={i}
           autoid={autoid}
-          selected={rest.selectedMenuItem === link.titleEnglish}
+          selected={selected}
           navType={rest.navType}
+          heading={link.menuSections[0]?.heading}
           dataTitle={dataTitle}>
           {renderNavSections(
             link.menuSections,
@@ -102,8 +104,7 @@ const MastheadLeftNav = ({
             <SideNavLink
               href={link.url}
               className={
-                rest.selected &&
-                `${prefix}--masthead__side-nav--submemu--selected`
+                selected && `${prefix}--masthead__side-nav--submemu--selected`
               }
               data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
               key={i}>
@@ -127,8 +128,7 @@ const MastheadLeftNav = ({
         <SideNavLink
           href={link.url}
           className={
-            rest.selectedMenuItem === link.titleEnglish &&
-            `${prefix}--masthead__side-nav--submemu--selected`
+            selected && `${prefix}--masthead__side-nav--submemu--selected`
           }
           data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
           key={i}>
@@ -181,17 +181,32 @@ const preventOutFocus = (target, isSideNavExpanded) => {
 function renderNavSections(sections, backButtonText, autoid, navType) {
   const sectionItems = [];
   sections.forEach(section => {
-    section.menuItems.forEach((item, j) => {
-      const dataAutoId = `${autoid}-list${j}`;
+    // get array of highlighted menu items to render first
+    let highlightedItems = [];
+    const menu = [];
+
+    section.menuItems.forEach(item => {
+      if (item.highlighted) return highlightedItems.push(item);
+      return menu.push(item);
+    });
+
+    const menuItems = highlightedItems.concat(menu);
+    const highlightedCount = highlightedItems.length;
+
+    menuItems.forEach((item, k) => {
+      const dataAutoId = `${autoid}-list${k}`;
       if (item.megapanelContent) {
         sectionItems.push(
           <SideNavMenuWithBackFoward
             title={item.title}
             titleUrl={item.url}
+            lastHighlighted={
+              highlightedCount !== 0 && k + 1 === highlightedCount
+            }
             backButtonText={backButtonText}
             autoid={dataAutoId}
             navType={navType}
-            key={j}>
+            key={k}>
             {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
             <button
               className={`${prefix}--masthead__focus`}
@@ -208,24 +223,26 @@ function renderNavSections(sections, backButtonText, autoid, navType) {
         sectionItems.push(
           <SideNavMenuItem
             href={item.url}
+            className={
+              highlightedCount !== 0 &&
+              k + 1 === highlightedCount &&
+              `${prefix}--masthead__side-nav__last-highlighted`
+            }
             data-autoid={dataAutoId}
             key={item.title}>
             {item.title}
           </SideNavMenuItem>
         );
       }
-
-      if (j === section.menuItems.length - 1) {
-        sectionItems.push(
-          <button
-            className={`${prefix}--masthead__focus`}
-            onFocus={e => {
-              preventOutFocus(e.target.parentElement.querySelector('a'), true);
-            }}
-            aria-hidden={true}></button>
-        );
-      }
     });
+    sectionItems.push(
+      <button
+        className={`${prefix}--masthead__focus`}
+        onFocus={e => {
+          preventOutFocus(e.target.parentElement.querySelector('a'), true);
+        }}
+        aria-hidden={true}></button>
+    );
   });
 
   return sectionItems;

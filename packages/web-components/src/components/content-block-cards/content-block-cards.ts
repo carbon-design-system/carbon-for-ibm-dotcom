@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { Part } from 'lit-html';
+import { html, css, customElement, TemplateResult } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
@@ -25,13 +26,45 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-content-block-cards`)
 class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
   /**
-   * @returns The main content.
+   * The CSS class list for the container (grid) node.
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
+  protected _getContainerClasses(): string | ((part: Part) => void) {
+    return `${prefix}--content-layout ${prefix}--content-layout--card-group`;
+  }
+
+  /**
+   * @returns The non-header, non-complementary contents.
+   */
+  protected _renderBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
     return html`
-      <div class="${prefix}--content-block__children">
-        <slot name="content"></slot>
+      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
+        ${super._renderBody()}
+      </div>
+    `;
+  }
+
+  protected _renderInnerBody() {
+    return html`
+      ${this._renderContent()}${this._renderMedia()}
+    `;
+  }
+
+  protected _renderFooter(): TemplateResult | string | void {
+    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
+    // TODO: See if we can remove the surrounding `<div>`
+    return html`
+      <div ?hidden="${!hasFooter}">
+        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
+      </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <div class="${this._getContainerClasses()}">
+        ${this._renderHeading()}${this._renderBody()}
       </div>
     `;
   }

@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.1-rc.0...@carbon/ibmdotcom-web-components@1.1.1) (2021-03-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.1.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.1...@carbon/ibmdotcom-web-components@1.1.1-rc.0) (2021-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.1...@carbon/ibmdotcom-web-components@1.1.0) (2021-02-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.1.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.0...@carbon/ibmdotcom-web-components@1.1.0-rc.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **card:** remove aria-hidden from copy ([#5196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5196)) ([d1a547a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/d1a547a)), closes [#5194](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5194)
+* **expressive-modal:** ensure waiting for transitionend event ([#5189](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5189)) ([a50a2e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/a50a2e6)), closes [#5173](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5173)
+
+
+
+
+
+# [1.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.53.48...@carbon/ibmdotcom-web-components@1.1.0-rc.0) (2021-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.0.0-rc.2...@carbon/ibmdotcom-web-components@1.0.0) (2021-01-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.0.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.0.0-rc.1...@carbon/ibmdotcom-web-components@1.0.0-rc.2) (2021-01-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.0.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.8.0-rc.0...@carbon/ibmdotcom-web-components@1.0.0-rc.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* **content-block-mixed:** fixed pictogram color on g90 and g100 theme ([#4949](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4949)) ([1dc940f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1dc940f)), closes [#4933](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4933)
+* **profile:** update profile requx actions, types, and reducers naming and unit tests ([#4926](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4926)) ([c824634](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/c824634)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4701)
+* **TOC:** update mobile sticky styles ([#4953](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4953)) ([9cd1900](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9cd1900))
+
+
+
+
+
+# [0.8.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.51.51...@carbon/ibmdotcom-web-components@0.8.0-rc.0) (2021-01-16)
+
+### Features
+
+- **profile:** change profile api endpoint ([#4909](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4909)) ([e9cffaa](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e9cffaa)), closes [#4701](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4701)
+
+# [0.7.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.1...@carbon/ibmdotcom-web-components@0.7.0) (2020-12-15)
+
+### Bug Fixes
+
+- **legal-nav:** align cookie preference to other nav items ([#4680](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4680)) ([678b8e7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/678b8e7)), closes [#4676](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4676)
+- **masthead:** avoid rendering L0 if L1 is there ([#4679](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4679)) ([9bfe360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/9bfe360)), closes [#4677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/4677)
+
 # [0.7.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.7.0-rc.0...@carbon/ibmdotcom-web-components@0.7.0-rc.1) (2020-12-08)
 
 ### Bug Fixes

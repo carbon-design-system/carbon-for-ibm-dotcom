@@ -22,8 +22,8 @@ import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-v
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 /* eslint-enable import/no-duplicates */
-import { CTA_TYPE } from './shared-enums';
-import { CTAMixinImpl } from './mixins/cta';
+import { CTA_TYPE } from './defs';
+import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -77,15 +77,15 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href } = event.detail;
-    (event.target as CTAMixinImpl).videoThumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
+    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
       videoId: href,
       width: '320',
     });
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
-      (event.target as CTAMixinImpl).videoName = name;
-      (event.target as CTAMixinImpl).videoDuration = duration;
+      (event.target as VideoCTAMixinImpl).videoName = name;
+      (event.target as VideoCTAMixinImpl).videoDuration = duration;
     }
   }
 

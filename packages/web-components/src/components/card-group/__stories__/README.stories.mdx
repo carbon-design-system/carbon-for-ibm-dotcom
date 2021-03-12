@@ -20,6 +20,11 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group.js';
 import '@carbon/ibmdotcom-web-components/es/components/card-group/card-group-item.js';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
+
+// With Card in Card.
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card-footer.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card-image.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-in-card/card-in-card.js';
 ```
 
 ### HTML
@@ -27,7 +32,7 @@ import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
 ```html
 <dds-card-group>
   <dds-card-group-item href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -39,8 +44,52 @@ import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
     </dds-card-footer>
   </dds-card-group-item>
   <dds-card-group-item href="https://example.com" color-scheme="inverse">
-    <div slot="heading">Top level card link</div>
+    <dds-card-heading>Top level card link</dds-card-heading>
     <dds-card-footer slot="footer" color-scheme="inverse">
+      <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      </svg>
+    </dds-card-footer>
+  </dds-card-group-item>
+</dds-card-group>
+```
+
+### HTML (with Card in Card)
+
+```html
+<dds-card-in-card href="https://example.com">
+  <dds-card-in-card-image slot="image" alt="Image alt text" default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    <dds-image-item media="(min-width: 1312px)" srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616"> </dds-image-item>
+  </dds-card-in-card-image>
+  <dds-card-eyebrow>Label</dds-card-eyebrow>
+  <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
+  <dds-card-in-card-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-in-card-footer>
+</dds-card-in-card>
+
+<dds-card-group grid-mode="narrow">
+  <dds-card-group-item href="https://example.com">
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
       <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
@@ -51,7 +100,10 @@ import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
 
 ## Props
 
+### `<dds-card-group>`
+
 <Props of="dds-card-group" />
+
 
 ### `<dds-card-group-item>`
 

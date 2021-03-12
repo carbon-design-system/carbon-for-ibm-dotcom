@@ -71,6 +71,7 @@
   <div
     aria-expanded="true"
     aria-haspopup="listbox"
+    aria-label="IBM search field"
     aria-owns="result-list"
     class="react-autosuggest__container react-autosuggest__suggestions-container--open"
     role="combobox"
@@ -100,6 +101,13 @@
     </div>
   </div>
 </form>
+<div
+  aria-live="assertive"
+  aria-relevant="additions text"
+  class="bx--assistive-text"
+  role="status"
+>
+</div>
 <div class="bx--header__search--actions">
   <button
     aria-label="perform-search-button-assistive-text-foo"

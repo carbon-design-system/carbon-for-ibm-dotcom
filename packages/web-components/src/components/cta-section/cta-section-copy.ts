@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement } from 'lit-element';
+import { html, property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSContentItemParagraph from '../content-item/content-item-paragraph';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -15,8 +15,19 @@ import styles from './cta-section.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The copy content of CTA section.
+ *
+ * @element dds-cta-section-copy
+ */
 @customElement(`${ddsPrefix}-cta-section-copy`)
 class DDSCTASectionItemCopy extends StableSelectorMixin(DDSContentItemParagraph) {
+  /**
+   * The shadow slot this copy content should be in.
+   */
+  @property({ reflect: true })
+  slot = 'copy';
+
   render() {
     return html`
       <slot></slot>

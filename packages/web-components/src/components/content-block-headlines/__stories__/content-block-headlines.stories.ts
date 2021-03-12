@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,7 +50,7 @@ export const Default = !DDS_CONTENT_BLOCK_HEADLINES
       return html`
         <dds-content-block-headlines>
           <dds-content-block-heading>${heading}</dds-content-block-heading>
-          <dds-content-block-copy slot="copy">${copy}</dds-content-block-copy>
+          <dds-content-block-copy>${copy}</dds-content-block-copy>
           ${contentItemRow1} ${contentItemRow1} ${contentItemRow2} ${contentItemRow1}
         </dds-content-block-headlines>
       `;
@@ -77,12 +77,8 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
         },
         decorators: [
           story => html`
-            <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-              <div class="bx--row dds-ce-demo-devenv--grid-row">
-                <div class="bx--col-sm-4 bx--offset-lg-4 bx--col-lg-12">
-                  ${story()}
-                </div>
-              </div>
+            <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
+              ${story()}
             </div>
           `,
         ],

@@ -1,25 +1,28 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
 import '../content-block-cards';
 import '../../content-block/content-block-heading';
+import '../../card/card-eyebrow';
+import '../../card/card-heading';
 import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-
-import { CTA_TYPE } from '../../cta/shared-enums';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CTA_TYPE } from '../../cta/defs';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
@@ -29,7 +32,7 @@ const ctaTypes = {
 
 const cardGroupItem = html`
   <dds-card-group-item cta-type="local" href="https://example.com">
-    <div slot="heading">Nunc convallis lobortis</div>
+    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -43,11 +46,11 @@ const cardGroupItemWithImages = html`
     <dds-image
       slot="image"
       alt="Image alt text"
-      default-src="https://fpoimg.com/1056x792?text=4:3&amp;bg_color=ee5396&amp;text_color=161616"
+      default-src="${imgLg4x3}"
     >
     </dds-image>
-    <div slot="eyebrow">Topic</div>
-    <div slot="heading">Natural Language Processing.</div>
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
+    <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-cta-footer><dds-card-cta-footer>
   </dds-card-group-item>
 `;
@@ -66,7 +69,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem} ${cardGroupItem}
       </dds-card-group>
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
@@ -82,7 +85,7 @@ export const withImages = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages} ${cardGroupItemWithImages}
         ${cardGroupItemWithImages}
       </dds-card-group>
@@ -99,7 +102,7 @@ export const withVideos = ({ parameters }) => {
   return html`
     <dds-content-block-cards>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-card-group slot="content">
+      <dds-card-group>
         ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos} ${cardGroupItemWithVideos}
         ${cardGroupItemWithVideos}
       </dds-card-group>
@@ -123,14 +126,14 @@ export default {
   title: 'Components/Content Block Cards',
   decorators: [
     story => html`
-      <dds-video-cta-container>
+      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-cards">
         ${story()}
       </dds-video-cta-container>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasCardGroup: true,
+    hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentBlockCards: () => ({

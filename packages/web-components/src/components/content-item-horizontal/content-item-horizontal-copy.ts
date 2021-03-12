@@ -15,6 +15,11 @@ import styles from './content-item-horizontal.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+/**
+ * The copy content of content item horizontal.
+ *
+ * @element dds-content-item-horizontal-copy
+ */
 @customElement(`${ddsPrefix}-content-item-horizontal-copy`)
 class DDSContentItemHorizontalCopy extends StableSelectorMixin(DDSContentItemCopy) {
   render() {

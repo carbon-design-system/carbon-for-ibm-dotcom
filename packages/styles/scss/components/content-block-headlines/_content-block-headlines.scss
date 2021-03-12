@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2020
+* Copyright IBM Corp. 2016, 2021
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@
       }
     }
 
-    :host(#{$dds-prefix}-content-block__copy),
+    ::slotted(#{$dds-prefix}-content-block-copy),
     .#{$prefix}--content-block__copy {
       margin-bottom: 6rem;
       p {
@@ -80,6 +80,9 @@
 
   :host(#{$dds-prefix}-content-block-headlines-item),
   .#{$prefix}--content-block-headlines__item {
+    display: flex;
+    flex-direction: column;
+
     border-top: 1px solid $ui-03;
     padding-top: $carbon--spacing-05;
     padding-bottom: $carbon--spacing-07;
@@ -103,6 +106,10 @@
       @include carbon--type-style('display-02', true);
     }
 
+    .#{$prefix}--content-block-headlines__cta-container {
+      margin-top: auto;
+    }
+
     .#{$prefix}--link {
       margin-top: $carbon--spacing-05;
     }
@@ -110,6 +117,27 @@
     @include carbon--breakpoint('md') {
       padding-top: $carbon--spacing-05;
       padding-bottom: $carbon--layout-05;
+    }
+  }
+
+  .#{$prefix}--content-layout--with-headlines {
+    grid-template:
+      'heading' auto
+      'body' auto
+      'footer' auto / 1fr;
+
+    @include carbon--breakpoint('md') {
+      grid-template:
+        'heading heading' auto
+        'body body' auto
+        'footer .' auto / 1fr 1fr;
+    }
+
+    @include carbon--breakpoint('lg') {
+      grid-template:
+        'heading heading .' auto
+        'body body .' auto
+        'footer . .' auto / 1fr 1fr 1fr;
     }
   }
 }

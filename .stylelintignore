@@ -4,6 +4,7 @@
 **/docs/**
 **/coverage/**
 **/storybook-static/**
+**/storybook-static-react/**
 **/jsdocs/**
 **/carbon-stories/**
 **/carbon-tools/**

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   const { heading } = parameters?.props?.LinkListSection ?? {};
   return html`
     <dds-link-list-section>
-      <dds-content-section-heading>${heading}</dds-content-section-heading>
+      <dds-link-list-heading>${heading}</dds-link-list-heading>
       <dds-link-list>
         <dds-link-list-item href="https://example.com">
           Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}

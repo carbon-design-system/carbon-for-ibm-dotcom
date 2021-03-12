@@ -1,43 +1,41 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { customElement, html, LitElement, property } from 'lit-element';
+
+import { classMap } from 'lit-html/directives/class-map';
+import { internalProperty, customElement, html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { LINK_LIST_TYPE } from './defs';
 import styles from './link-list.scss';
+import DDSLinkListItem, { LINK_LIST_ITEM_TYPE } from './link-list-item';
+
+export { LINK_LIST_TYPE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-/**
- * Link list type
- */
-export enum LINK_LIST_TYPE {
+export enum END_TYPE_LAYOUT {
   /**
-   * Default
+   * Default layout | 1 - 3 items
    */
   DEFAULT = 'default',
 
   /**
-   * Vertical
+   * Two Columns - Split layout | 4 - 6 items
    */
-  VERTICAL = 'vertical',
+  TWO_COLUMNS = 'two-columns',
 
   /**
-   * Horizontal
+   * Tree Columns Layout | 7 + items
    */
-  HORIZONTAL = 'horizontal',
-
-  /**
-   * End of section
-   */
-  END = 'end',
+  THREE_COLUMNS = 'three-columns',
 }
 
 /**
@@ -49,20 +47,16 @@ export enum LINK_LIST_TYPE {
 @customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends StableSelectorMixin(LitElement) {
   /**
-   * Returns a class-name based on the parameter type
+   * Defines the layout for the end layout - based on END_TYPE_LAYOUT
    */
-  private ulClasses() {
-    switch (this.type) {
-      case LINK_LIST_TYPE.HORIZONTAL:
-        return `${prefix}--link-list__list--horizontal`;
-      case LINK_LIST_TYPE.VERTICAL:
-        return `${prefix}--link-list__list--vertical`;
-      case LINK_LIST_TYPE.END:
-        return `${ddsPrefix}-ce--link-list__list--end`;
-      default:
-        return `${prefix}--link-list__list--card`;
-    }
-  }
+  @internalProperty()
+  private _endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+
+  /**
+   * Child items
+   */
+  @internalProperty()
+  private _childItems: Element[] = [];
 
   /**
    * Handler for @slotChange, toggles the split layout class and set the children link-list-item to the same height
@@ -71,41 +65,75 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    */
   private _handleSlotChange(event: Event) {
     const { selectorItem } = this.constructor as typeof DDSLinkList;
-    const childItems = (event.target as HTMLSlotElement)
+    this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
-    if (childItems.length > 3 && this.type === LINK_LIST_TYPE.END) {
-      this.classList.add((this.constructor as typeof DDSLinkList).classSplitLayout);
+
+    if (this._childItems.length > 3) {
+      if (this._childItems.length < 7) this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
+      else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+    } else {
+      this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+    }
+    if (this.type === LINK_LIST_TYPE.END) {
+      this._childItems.forEach(elem => {
+        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
     }
   }
 
   /**
    * The link list type.
+   * possible values are:
+   * default - Vertically stacked card-like links;
+   * vertical - Vertically stacked inline links;
+   * horizontal - Horizontaly stacked inline links;
+   * end - End of section variant - Inline links stacked up to three columns based on the quantity of links;
    */
   @property({ reflect: true })
   type = LINK_LIST_TYPE.DEFAULT;
 
   render() {
+    const { type, _endTypeLayout: endTypeLayout } = this;
+    const headingClasses = classMap({
+      [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
+      [`${ddsPrefix}-ce--link-list__heading--split`]:
+        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+    });
+    const listTypeClasses =
+      {
+        [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
+        [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
+        [LINK_LIST_TYPE.END]: `${ddsPrefix}-ce--link-list__list--end`,
+      }[type] ?? `${prefix}--link-list__list--card`;
+    const listClasses = classMap({
+      [`${prefix}--link-list__list`]: true,
+      [listTypeClasses]: true,
+      [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+      [`${ddsPrefix}-ce--link-list__list--three-columns`]:
+        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
+    });
     return html`
-      <h4 class="${prefix}--link-list__heading"><slot name="heading"></slot></h4>
-      <ul name="list" class="${prefix}--link-list__list ${this.ulClasses()}">
+      <div class="${headingClasses}"><slot name="heading"></slot></div>
+      <ul name="list" class="${listClasses}">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
   }
 
-  /**
-   * The CSS class for the "split layout".
-   */
-  static get classSplitLayout() {
-    return `${prefix}--link-list__split`;
+  updated() {
+    if (this.type === LINK_LIST_TYPE.END) {
+      this._childItems.forEach(elem => {
+        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
+    }
   }
 
   /**
    * A selector selecting the child items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-link-list-item`;
+    return `${ddsPrefix}-link-list-item, ${ddsPrefix}-link-list-item-cta`;
   }
 
   static get stableSelector() {

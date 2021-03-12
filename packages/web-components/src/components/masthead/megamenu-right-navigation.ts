@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,26 +12,14 @@ import { classMap } from 'lit-html/directives/class-map';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
 
+export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
+
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * The style scheme for the right navigation.
- */
-export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
-  /**
-   * Regular style.
-   */
-  REGULAR = 'regular',
-
-  /**
-   * For left (highlighted) section layout.
-   */
-  LEFT_SECTION = 'left-section',
-}
 
 /**
  * MegaMenu right navigation section
@@ -64,6 +52,7 @@ class DDSMegaMenuRightNavigation extends LitElement {
   protected _getClassNames() {
     return classMap({
       [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+      [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
       [`${prefix}--masthead__megamenu__categories`]: true,
     });
   }

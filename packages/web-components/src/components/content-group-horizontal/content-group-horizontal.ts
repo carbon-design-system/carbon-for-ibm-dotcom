@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,9 +9,8 @@
 
 import { css, customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSContentBlock from '../content-block/content-block';
+import DDSContentGroupSimple from '../content-group-simple/content-group-simple';
 import '../horizontal-rule/horizontal-rule';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group-horizontal.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,11 +21,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-group-horizontal
  */
 @customElement(`${ddsPrefix}-content-group-horizontal`)
-class DDSContentGroupHorizontal extends StableSelectorMixin(DDSContentBlock) {
+class DDSContentGroupHorizontal extends DDSContentGroupSimple {
   render() {
     return html`
-      <slot name="heading"></slot>
-      ${this._renderBody()}
+      ${super.render()}
       <dds-hr></dds-hr>
     `;
   }

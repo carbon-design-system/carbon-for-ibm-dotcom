@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -55,7 +55,7 @@ const parserOptions = {
  * @param {object} options The options.
  * @param {object<string, object<string, string>>} options.table
  *   The table pointing to import paths, keyed by the package name and the import name.
- * @returns {TransformFunction} The Gulp transform function to create the table.
+ * @returns {Function} The Gulp transform function to create the table.
  */
 function scan({ table }) {
   return through2.obj((file, _, done) => {
@@ -91,7 +91,7 @@ function scan({ table }) {
  * @param {object} options The options.
  * @param {object<string, object<string, string>>} options.table
  *   The table pointing to import paths, keyed by the package name and the import name.
- * @returns {TransformFunction} The Gulp transform function to optimize imports.
+ * @returns {Function} The Gulp transform function to optimize imports.
  */
 function convert({ table }) {
   return through2.obj((file, _, done) => {
@@ -183,6 +183,7 @@ const generateTable = (() => {
     return await promiseTable;
   };
 })();
+
 /**
  * Generates `src/internal/vendor` contents.
  */
@@ -218,7 +219,7 @@ const carbonComponetsReactVendorESDst = async () => {
 };
 
 /**
- * @returns {NodeJS.ReadWriteStream} The Gulp stream to generate `lib/internal/vendor` contents.
+ * The Gulp stream to generate `lib/internal/vendor` contents.
  */
 const carbonComponetsReactVendorCJSDst = () =>
   gulp

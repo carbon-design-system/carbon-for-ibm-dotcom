@@ -1,27 +1,32 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
-import styles from './callout-with-media.stories.scss';
+// eslint-disable-next-line import/no-duplicates
+import '../../content-block/content-block-copy';
+// Above import is interface-only ref and thus code won't be brought into the build
 import '../../content-block/content-block-heading';
-import '../../content-item/content-item-copy';
 import '../callout-with-media';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+import { html } from 'lit-element';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports,import/no-duplicates
+import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';
+import styles from './callout-with-media.stories.scss';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = html`
   <dds-callout-with-media-image
     alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+    default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
   </dds-callout-with-media-image>
@@ -35,8 +40,8 @@ export const Default = ({ parameters }) => {
   const { copy, heading, mediaType } = parameters?.props?.CalloutWithMedia ?? {};
   return html`
     <dds-callout-with-media>
-      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-content-block-heading>${heading}</dds-content-block-heading>
+      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
       ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;
@@ -46,6 +51,9 @@ export default {
   title: 'Components/Callout with Media',
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--callout',
     'carbon-theme': { disabled: true },
     knobs: {
       CalloutWithMedia: ({ groupId }) => ({
@@ -62,13 +70,11 @@ export default {
       }),
     },
     decorators: [
-      story => html`
+      (story, { parameters }) => html`
         <style>
           ${styles}
         </style>
-        <div class="bx--grid" style="width:100%">
-          <div class="bx--row">
-            <div class="bx--offset-lg-4 bx--col-lg-12">
+            <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
               ${story()}
             </div>
           </div>

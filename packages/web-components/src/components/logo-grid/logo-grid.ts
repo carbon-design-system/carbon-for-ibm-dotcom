@@ -1,18 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import { css, customElement, html, property } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './logo-grid.scss';
 import DDSContentBlock from '../content-block/content-block';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -22,30 +24,27 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
-  @property({ attribute: 'hide-border', reflect: true, type: Boolean })
-  hideBorder = false;
-
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent() {
+  protected _renderInnerBody() {
+    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div class="bx--content-block__children">
-        <div class="bx--logo-grid__row">
-          <slot></slot>
+      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children ${prefix}--content-layout__body">
+        <div class="${prefix}--logo-grid__row">
+          ${this._renderContent()}${this._renderMedia()}
         </div>
       </div>
     `;
   }
 
+  @property({ attribute: 'hide-border', reflect: true, type: Boolean })
+  hideBorder = false;
+
   render() {
     return html`
-      <slot name="heading"></slot>
-      ${this._renderBody()}
+      <div class="${prefix}--content-layout--logo-grid">
+        <slot name="heading"></slot>
+        ${this._renderBody()}
+      </div>
     `;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderCopy() {
-    return '';
   }
 
   static get stableSelector() {

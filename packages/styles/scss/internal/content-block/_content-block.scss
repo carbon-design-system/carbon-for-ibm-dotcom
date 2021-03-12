@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-content-block),
   :host(#{$dds-prefix}-content-block-simple),
   :host(#{$dds-prefix}-content-block-media),
+  :host(#{$dds-prefix}-content-block-mixed),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
@@ -48,6 +49,109 @@
       }
     }
   }
+
+  .#{$prefix}--content-layout {
+    display: grid;
+
+    grid-template:
+      'heading' auto
+      'body' auto
+      'footer' auto / 1fr;
+
+    @include carbon--breakpoint('md') {
+      grid-template:
+        'heading heading' auto
+        'body body' auto
+        'footer .' auto / 1fr 1fr;
+    }
+
+    &.#{$prefix}--layout--border {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    // Most slotted contents have margins aligning to Carbon grid gutters.
+    // Note: Child contents define their margin by their own
+    ::slotted([slot]) {
+      margin-left: $carbon--spacing-05;
+      margin-right: $carbon--spacing-05;
+    }
+
+    // Cards and link lists are the exceptions of above
+    // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` and add `<dds-link-list>` here
+    ::slotted(#{$dds-prefix}-card[slot]),
+    ::slotted(#{$dds-prefix}-card-cta[slot]) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    ::slotted([slot='complementary']) {
+      grid-area: complementary;
+      margin-top: $layout-05;
+      margin-bottom: $layout-05;
+
+      @include carbon--breakpoint('lg') {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    ::slotted([slot='footer']) {
+      margin-top: $carbon--layout-04;
+
+      @include carbon--breakpoint('md') {
+        width: 50%;
+        margin-top: $carbon--layout-05;
+      }
+    }
+
+    ::slotted([slot='heading']) {
+      grid-area: heading;
+    }
+
+    ::slotted([slot='media']) {
+      margin-top: $carbon--spacing-07;
+    }
+
+    ::slotted(#{$dds-prefix}-video-player-container) {
+      // Ensures the margin gets effective
+      display: block;
+    }
+  }
+
+  .#{$prefix}--content-layout--with-complementary {
+    grid-template:
+      'heading' auto
+      'body' auto
+      'footer' auto
+      'complementary' auto / 1fr;
+
+    @include carbon--breakpoint('md') {
+      grid-template:
+        'heading heading' auto
+        'body body' auto
+        'footer .' auto
+        'complementary complementary' auto / 1fr 1fr;
+    }
+
+    @include carbon--breakpoint('lg') {
+      grid-template:
+        'heading heading .' auto
+        'body body complementary' auto
+        'footer . complementary' auto / 1fr 1fr 1fr;
+    }
+  }
+
+  .#{$prefix}--content-layout__body {
+    grid-area: body;
+    .bx--content-group-cards__row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
   :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
   .#{$prefix}--content-block .#{$prefix}--hr {
     margin-top: 0;

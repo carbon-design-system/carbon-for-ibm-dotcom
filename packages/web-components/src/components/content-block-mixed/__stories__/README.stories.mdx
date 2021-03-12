@@ -2,27 +2,33 @@ import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 
-# `<dds-content-block-mixed>`
+# Content Block Mixed
 
-> The "Content Block - Mixed Groups" pattern leverages the Content Block as the overall container of this pattern, and allows only a few opinionated block patterns to be included.
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-mixed)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-block-mixed)
 
 ## Getting started
 
 Here's a quick example to get you started.
 
-#### JS
+### JS
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/content-block-mixed.js';
 import '@carbon/ibmdotcom-web-components/image/image.js';
+import '@carbon/ibmdotcom-web-components/card/card-heading.js';
+import '@carbon/ibmdotcom-web-components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/content-block/content-block-paragraph.js';
 import '@carbon/ibmdotcom-web-components/content-group/content-group-heading.js';
 import '@carbon/ibmdotcom-web-components/content-group-cards/content-group-cards.js';
 import '@carbon/ibmdotcom-web-components/content-group-cards/content-group-cards-item.js';
 import '@carbon/ibmdotcom-web-components/content-group-pictograms/content-group-pictograms.js';
 import '@carbon/ibmdotcom-web-components/content-group-simple/content-group-simple.js';
 import '@carbon/ibmdotcom-web-components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/content-item/content-item-copy.js';
 import '@carbon/ibmdotcom-web-components/pictogram-item/pictogram-item.js';
 import '@carbon/ibmdotcom-web-components/cta/card-cta.js';
 import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
@@ -33,16 +39,16 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 ```html
 <dds-content-block-mixed>
   <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
-  <dds-content-block-paragraph>
+  <dds-content-block-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
     Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-  </dds-content-block-paragraph>
+  </dds-content-block-copy>
 
   <dds-content-block-cards>
     <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
     <dds-card-group slot="content">
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -55,7 +61,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
       </dds-card-group-item>
 
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -68,7 +74,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
       </dds-card-group-item>
 
       <dds-card-group-item href="https://example.com">
-        <div slot="heading">Nunc convallis lobortis</div>
+        <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
           Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
@@ -90,7 +96,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 
   <dds-content-group-pictograms>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
     <dds-pictogram-item>
       <svg slot="pictogram"...>
         ...
@@ -108,7 +114,7 @@ import '@carbon/ibmdotcom-web-components/cta/card-cta-footer.js';
 
   <dds-content-group-simple>
     <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-    <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
+    <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
     <dds-image-with-caption
       slot="media"
       alt="Image alt text"
@@ -147,6 +153,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |
 | `<dds-content-block-mixed>`   | `data-autoid="dds--content-block-mixed"`    | Component   |
+| `<dds-content-block-copy>`    | `data-autoid="dds--content-block__copy"`    | Component   |
 | `<dds-content-block-heading>` | `data-autoid="dds--content-block__heading"` | Component   |
 | `<dds-content-item-copy>`     | `data-autoid="dds--content-item__copy"`     | Component   |
 

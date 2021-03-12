@@ -7,6 +7,7 @@ dist
 docs
 coverage
 storybook-static
+storybook-static-react
 .github
 jsdocs
 examples
@@ -14,5 +15,6 @@ carbon-stories
 carbon-tools
 .next
 .yarn
+CHANGELOG.md
 packages/**/src/internal/vendor
 packages/web-components/tests/snapshots

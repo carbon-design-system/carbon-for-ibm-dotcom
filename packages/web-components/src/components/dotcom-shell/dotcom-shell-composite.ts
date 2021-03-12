@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,11 +14,12 @@ import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-sto
 import {
   BasicLink,
   BasicLinkSet,
+  MastheadL1,
   MastheadLink,
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import { USER_AUTHENTICATION_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
+import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
@@ -47,7 +48,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
-    const footer = this.ownerDocument.createElement(`${ddsPrefix}-footer-composite`);
+    const footer = this.ownerDocument!.createElement(`${ddsPrefix}-footer-composite`);
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
   }
@@ -56,7 +57,7 @@ class DDSDotcomShellComposite extends LitElement {
    * @returns The render root of the masthead contents.
    */
   private _createMastheadRenderRoot() {
-    const masthead = this.ownerDocument.createElement(`${ddsPrefix}-masthead-composite`);
+    const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
   }
@@ -90,11 +91,11 @@ class DDSDotcomShellComposite extends LitElement {
   _loadTranslation?: (language?: string) => Promise<Translation>;
 
   /**
-   * The placeholder for `monitorUserStatus()` Redux action that will be mixed in. This goes to masthead.
+   * The placeholder for `loadUserStatus()` Redux action that will be mixed in. This goes to masthead.
    *
    * @internal
    */
-  _monitorUserStatus?: () => void;
+  _loadUserStatus?: () => void;
 
   /**
    * The placeholder for `setLanguage()` Redux action that will be mixed in. This goes to masthead.
@@ -102,6 +103,18 @@ class DDSDotcomShellComposite extends LitElement {
    * @internal
    */
   _setLanguage?: (language: string) => void;
+
+  /**
+   * `true` if there is a profile.
+   */
+  @property({ type: Boolean, attribute: 'has-profile' })
+  hasProfile = true;
+
+  /**
+   * `true` if there is a search.
+   */
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
 
   /**
    * `true` to activate the search box. This goes to masthead.
@@ -118,10 +131,24 @@ class DDSDotcomShellComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The brand name. This goes to masthead.
+   * The platform name. This goes to masthead.
    */
-  @property({ attribute: 'brand-name' })
-  brandName?: string;
+  @property({ attribute: 'platform' })
+  platform?: string;
+
+  /**
+   * The platform url.
+   */
+  @property({ attribute: 'platform-url' })
+  platformUrl?: string;
+
+  /**
+   * The clear button label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'clear-selection-label' })
+  clearSelectionLabel?: string;
 
   /**
    * The g11n collator to use for sorting contry names. This goes to footer.
@@ -140,7 +167,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` to omit the locale switcher button.
    */
-  @property({ attribute: 'disable-locale-button' })
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
   disableLocaleButton = false;
 
   /**
@@ -166,12 +193,36 @@ class DDSDotcomShellComposite extends LitElement {
   langDisplay?: string;
 
   /**
+   * The placeholder label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'language-selector-label' })
+  languageSelectorLabel?: string;
+
+  /**
+   * The initial selected language in the selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'selected-language' })
+  selectedLanguage?: string;
+
+  /**
    * The language used for query. This goes to masthead and footer.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property()
   language?: string;
+
+  /**
+   * Placeholder list of languages to populate language selector
+   *
+   * @internal
+   */
+  @property({ attribute: false })
+  langList?: string[];
 
   /**
    * The legal nav links. This goes to footer.
@@ -248,6 +299,12 @@ class DDSDotcomShellComposite extends LitElement {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * Data for l1.
+   */
+  @property({ attribute: false })
+  l1Data?: MastheadL1;
+
+  /**
    * The navigation links. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
@@ -256,12 +313,18 @@ class DDSDotcomShellComposite extends LitElement {
   navLinks?: MastheadLink[];
 
   /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  searchPlaceholder?: string;
+
+  /**
    * The user authentication status. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: 'user-status' })
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus = UNAUTHENTICATED_STATUS;
 
   update(changedProperties) {
     super.update(changedProperties);
@@ -271,9 +334,11 @@ class DDSDotcomShellComposite extends LitElement {
     const {
       activateSearch,
       authenticatedProfileItems,
-      brandName,
+      platform,
+      platformUrl,
       collatorCountryName,
       currentSearchResults,
+      clearSelectionLabel,
       disableLocaleButton,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -281,8 +346,11 @@ class DDSDotcomShellComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       unauthenticatedProfileItems,
       inputTimeout,
+      l1Data,
       language,
+      languageSelectorLabel,
       langDisplay,
+      langList,
       legalLinks,
       localeList,
       footerLinks,
@@ -290,13 +358,17 @@ class DDSDotcomShellComposite extends LitElement {
       openLocaleModal,
       openSearchDropdown,
       navLinks,
+      hasProfile,
+      hasSearch,
+      searchPlaceholder,
+      selectedLanguage,
       selectedMenuItem,
       userStatus,
       _loadLangDisplay,
       _setLanguage,
       _loadLocaleList,
       _loadTranslation,
-      _monitorUserStatus,
+      _loadUserStatus,
       _loadSearchResults,
     } = this;
     Object.assign(
@@ -305,7 +377,8 @@ class DDSDotcomShellComposite extends LitElement {
         {
           activateSearch,
           authenticatedProfileItems,
-          brandName,
+          platform,
+          platformUrl,
           currentSearchResults,
           mastheadAssistiveText,
           menuBarAssistiveText,
@@ -313,14 +386,18 @@ class DDSDotcomShellComposite extends LitElement {
           menuButtonAssistiveTextInactive,
           unauthenticatedProfileItems,
           inputTimeout,
+          l1Data,
           language,
           navLinks,
+          hasProfile,
+          hasSearch,
+          searchPlaceholder,
           openSearchDropdown,
           selectedMenuItem,
           userStatus,
           _loadSearchResults,
           _loadTranslation,
-          _monitorUserStatus,
+          _loadUserStatus,
           _setLanguage,
         },
         value => value !== undefined
@@ -333,14 +410,18 @@ class DDSDotcomShellComposite extends LitElement {
       this._footerRenderRoot,
       pickBy(
         {
+          clearSelectionLabel,
           collatorCountryName,
           disableLocaleButton,
           language,
+          languageSelectorLabel,
           langDisplay,
+          langList,
           legalLinks,
           links: footerLinks,
           localeList,
           openLocaleModal,
+          selectedLanguage,
           size: footerSize,
           _loadLangDisplay,
           _loadLocaleList,

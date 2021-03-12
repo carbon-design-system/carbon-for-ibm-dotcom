@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,30 +11,13 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { FOOTER_SIZE } from './defs';
 import styles from './footer.scss';
+
+export { FOOTER_SIZE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Footer size.
- */
-export enum FOOTER_SIZE {
-  /**
-   * Regular size.
-   */
-  REGULAR = '',
-
-  /**
-   * Short size.
-   */
-  SHORT = 'short',
-
-  /**
-   * Micro size.
-   */
-  MICRO = 'micro',
-}
 
 /**
  * The top-level element in footer.
@@ -56,6 +39,10 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'footer');
     }
+
+    if (!this.hasAttribute('aria-label')) {
+      this.setAttribute('aria-label', 'footer');
+    }
     super.connectedCallback();
   }
 
@@ -66,6 +53,7 @@ class DDSFooter extends StableSelectorMixin(LitElement) {
           <slot name="brand"></slot>
           <slot></slot>
           <slot name="locale-button"></slot>
+          <slot name="language-selector"></slot>
         </div>
       </section>
       <slot name="legal-nav"></slot>

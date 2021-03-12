@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,12 +10,13 @@
 import { nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, internalProperty, query, customElement, LitElement } from 'lit-element';
+import { html, property, internalProperty, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './table-of-contents.scss';
+import { TOC_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,6 +31,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends StableSelectorMixin(LitElement) {
+  /**
+   * Defines TOC type, "" for default, `horizontal` for horizontal variant.
+   */
+  @property({ reflect: true, attribute: 'toc-layout' })
+  layout = TOC_TYPES.DEFAULT;
+
   /**
    * The current target `<a>` that should be in view.
    */
@@ -195,7 +202,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    this.ownerDocument.defaultView!.location.hash = target;
+    this.ownerDocument!.defaultView!.location.hash = target;
     const elem = this.querySelector(`a[name="${target}"]`);
     if (elem) {
       elem.setAttribute('tabindex', '0');
@@ -232,6 +239,12 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     this._hasMobileContainerVisible = height > 0;
   };
 
+  /**
+   * The current 0px offset from the top of page.
+   */
+  @property({ type: Number })
+  stickyOffset = 0;
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
@@ -259,6 +272,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
 
   render() {
     const {
+      stickyOffset,
       _currentTarget: currentTarget,
       _hasHeading: hasHeading,
       _hasMobileContainerVisible: hasMobileContainerVisible,
@@ -268,9 +282,20 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       _handleSlotChange: handleSlotChange,
       _handleSlotChangeHeading: handleSlotChangeHeading,
     } = this;
+
+    const containerClasses = classMap({
+      [`${ddsPrefix}-ce--table-of-contents__container`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]: this.layout === TOC_TYPES.HORIZONTAL,
+    });
+
+    const navigationClasses = classMap({
+      [`${prefix}--tableofcontents__sidebar`]: this.layout === TOC_TYPES.DEFAULT,
+      [`${prefix}--tableofcontents__navbar`]: this.layout === TOC_TYPES.HORIZONTAL,
+    });
+
     return html`
-      <div class="${ddsPrefix}-ce--table-of-contents__container">
-        <div part="table" class="${prefix}--tableofcontents__sidebar">
+      <div class="${containerClasses}">
+        <div part="table" class="${navigationClasses}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
@@ -280,7 +305,10 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
                 </div>
               `}
           <div class="${prefix}--tableofcontents__mobile-top"></div>
-          <div class="${ddsPrefix}-ce--table-of-contents__items-container">
+          <div
+            class="${ddsPrefix}-ce--table-of-contents__items-container"
+            style="position: sticky; top: ${stickyOffset ? `${stickyOffset}px` : 0}"
+          >
             <div class="${prefix}--tableofcontents__desktop">
               <ul>
                 ${targets.map(item => {

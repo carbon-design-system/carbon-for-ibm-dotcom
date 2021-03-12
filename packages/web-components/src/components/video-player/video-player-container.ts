@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,6 +16,7 @@ import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store'
 import { VideoData, VideoPlayerAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import { loadVideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI';
 import { VideoPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/videoPlayerAPI.d';
+import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoPlayerComposite from './video-player-composite';
 
@@ -162,7 +163,7 @@ export const DDSVideoPlayerContainerMixin = <T extends Constructor<HTMLElement>>
       }
       videoPlayer.appendChild(div);
       const embedVideoHandle = await VideoPlayerAPI.embedVideo(videoId, playerId, true);
-      doc.getElementById(playerId)!.dataset.videoId = videoId;
+      doc!.getElementById(playerId)!.dataset.videoId = videoId;
       return embedVideoHandle.kWidget();
     }
 

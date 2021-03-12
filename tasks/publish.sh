@@ -37,7 +37,7 @@ release_rc0_patch () {
 
 # RC.0 minor release
 release_rc0_minor () {
-  ./node_modules/.bin/lerna publish preminor --conventional-prerelease --preid rc --pre-dist-tag next
+  ./node_modules/.bin/lerna publish preminor --conventional-prerelease --preid rc --pre-dist-tag next --force-publish
 }
 
 # RC.0 major release

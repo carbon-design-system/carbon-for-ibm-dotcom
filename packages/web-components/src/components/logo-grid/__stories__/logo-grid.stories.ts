@@ -1,23 +1,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
 import '../logo-grid';
 import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
+import '../../card/card-heading';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { boolean } from '@storybook/addon-knobs';
-import logos from './data/logos.json';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-
+import { html } from 'lit-element';
+import logos from './data/logos.js';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
   const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } = parameters?.props?.LogoGrid ?? {};
@@ -33,7 +33,7 @@ export const Default = ({ parameters }) => {
           `
         )}
       <dds-logo-grid-link href="${ctaHref}">
-        <p>${ctaCopy}</p>
+        <dds-card-heading>${ctaCopy}</dds-card-heading>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-logo-grid-link>
     </dds-logo-grid>
@@ -43,18 +43,17 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Logo Grid',
   decorators: [
-    story => html`
-      <div style="width: 100%" class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-            ${story()}
-          </div>
-        </div>
+    (story, { parameters }) => html`
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--logo-grid',
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),

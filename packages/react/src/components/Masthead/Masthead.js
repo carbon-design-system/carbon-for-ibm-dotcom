@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -45,7 +45,7 @@ const { prefix } = settings;
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
- * @param {string} props.selectedMenuItem L0 menu item to render with selected state
+ * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -88,7 +88,7 @@ const Masthead = ({
     (async () => {
       const status = await ProfileAPI.getUserStatus();
       if (!unmounted) {
-        setStatus(status.user === 'Authenticated');
+        setStatus(status.user !== 'Unauthenticated');
       }
     })();
     return () => {
@@ -97,7 +97,6 @@ const Masthead = ({
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
-  const [logo, setlogo] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
     signedout: [],
@@ -111,7 +110,6 @@ const Masthead = ({
         if (!unmounted) {
           setMastheadData(pageData.mastheadNav.links);
           setProfileData(pageData.profileMenu);
-          setlogo(pageData?.logo);
         }
       } catch (error) {
         console.error('Error populating masthead data:', error);
@@ -213,12 +211,13 @@ const Masthead = ({
                 data-autoid={`${stablePrefix}--masthead`}>
                 <SkipToContent />
 
-                {(mastheadL1Data || navigation) && !isSearchActive && (
+                {(mastheadL1Data || navigation) && (
                   <HeaderMenuButton
                     aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
                     data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
+                    className={headerSearchClasses}
                   />
                 )}
 
@@ -235,7 +234,7 @@ const Masthead = ({
                 )}
 
                 <IbmLogo
-                  logoData={logo}
+                  logoData={mastheadProps.mastheadLogo}
                   autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
                   isSearchActive={isSearchActive}
                 />
@@ -253,15 +252,10 @@ const Masthead = ({
                   )}
                   {hasSearch && (
                     <MastheadSearch
+                      {...mastheadProps}
                       searchOpenOnload={isSearchActive}
                       placeHolderText={placeHolderText}
                       navType={navType}
-                      {...(mastheadProps.customTypeaheadApi
-                        ? {
-                            customTypeaheadApi:
-                              mastheadProps.customTypeaheadApi,
-                          }
-                        : {})}
                       isSearchActive={handleSearchActive}
                     />
                   )}
@@ -306,6 +300,7 @@ const Masthead = ({
                   {...mastheadL1Data}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  selectedMenuItem={selectedMenuItem}
                 />
               </div>
             )}
@@ -327,7 +322,7 @@ Masthead.propTypes = {
    * | none               | null      | No navigation                               | `<Masthead />`                      |
    *
    * `Custom` navigation data must follow the same structure and key names as `default`.
-   * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+   * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
    */
   navigation: PropTypes.oneOfType([
     PropTypes.string,
@@ -423,7 +418,7 @@ Masthead.propTypes = {
      * | none               | null      | No navigation                               | `<MastheadL1 />`                      |
      *
      * `Custom` navigation data must follow the same structure and key names as `default`.
-     * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+     * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
      */
     navigationL1: PropTypes.oneOfType([
       PropTypes.string,
@@ -451,6 +446,11 @@ Masthead.propTypes = {
    * Custom typeahead API function
    */
   customTypeaheadApi: PropTypes.func,
+
+  /**
+   * Multiple search sections
+   */
+  multiSection: PropTypes.bool,
 };
 
 Masthead.defaultProps = {

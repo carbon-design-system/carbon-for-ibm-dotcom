@@ -20,10 +20,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*.ts",
-    "tests/**/*.ts",
-    ".storybook/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", ".storybook/**/*.ts", ".storybook/**/*.tsx"],
   "exclude": []
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -62,19 +62,12 @@
       margin-bottom: $carbon--spacing-07;
     }
 
-    .#{$prefix}--card__eyebrow {
-      @include use-carbon-productive-tokens();
-      @include carbon--type-style('body-short-01');
-
-      margin-bottom: $carbon--spacing-03;
-      color: $text-02;
-    }
-
     .#{$prefix}--card:focus,
     .#{$prefix}--card:visited,
     .#{$prefix}--card:active {
       position: relative;
       z-index: 2;
+      text-decoration: none;
 
       .#{$prefix}--image {
         position: relative;
@@ -84,6 +77,11 @@
 
     &:hover {
       background-color: $hover-ui;
+      text-decoration: none;
+
+      .#{$prefix}--card__wrapper {
+        background-color: $hover-ui;
+      }
     }
 
     .#{$prefix}--card__img {
@@ -102,19 +100,24 @@
       padding: 0;
     }
 
-    .#{$prefix}--card__video {
-      .#{$prefix}--card__footer span {
-        color: $text-02;
-        @include use-carbon-productive-tokens();
-        @include carbon--type-style('body-short-01');
-      }
-    }
-
     &.#{$prefix}--link:focus,
     .#{$prefix}--link:focus {
       outline: 2px solid $focus;
       outline-offset: -2px;
     }
+  }
+
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link) {
+    outline: none;
+  }
+
+  :host(#{$dds-prefix}-card-eyebrow),
+  .#{$prefix}--card__eyebrow {
+    @include carbon--type-style('label-01');
+
+    margin-bottom: $carbon--spacing-03;
+    color: $text-02;
   }
 
   .#{$prefix}--card .#{$prefix}--card__cta,
@@ -141,7 +144,8 @@
   :host(#{$dds-prefix}-card-cta-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
-    margin-top: auto; /* Moves the footer down to the bottom in the card */
+    margin-top: auto;
+    /* Moves the footer down to the bottom in the card */
 
     .#{$prefix}--card__cta__copy {
       margin-right: $carbon--spacing-03;
@@ -199,6 +203,25 @@
 
     &:hover {
       background-color: $inverse-hover-ui;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-heading) {
+    @include carbon--type-style('expressive-heading-03');
+    @include content-width;
+
+    color: $text-01;
+    margin-bottom: $carbon--layout-05;
+  }
+
+  :host(#{$dds-prefix}-card)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+    ::slotted(#{$dds-prefix}-card-eyebrow) {
+      color: $text-03;
+    }
+
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $inverse-01;
     }
   }
 

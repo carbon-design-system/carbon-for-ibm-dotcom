@@ -5,38 +5,38 @@
 ####   `should render with minimum attributes`
 
 ```
-<div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
+<div class="bx--content-layout">
+  <slot
+    hidden=""
+    name="heading"
   >
-    <slot name="title">
+  </slot>
+  <div class="bx--content-layout__body">
+    <slot>
     </slot>
-  </h1>
+    <dds-hr data-autoid="dds--hr">
+    </dds-hr>
+  </div>
 </div>
-<slot>
-</slot>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
-<div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
+<div class="bx--content-layout">
+  <slot
+    hidden=""
+    name="heading"
   >
-    <slot name="title">
+  </slot>
+  <div class="bx--content-layout__body">
+    <slot>
     </slot>
-  </h1>
+    <dds-hr data-autoid="dds--hr">
+    </dds-hr>
+  </div>
 </div>
-<slot>
-</slot>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 
@@ -45,38 +45,38 @@
 ####   `should render with minimum attributes`
 
 ```
-<div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
+<div class="bx--content-layout">
+  <slot
+    hidden=""
+    name="heading"
   >
-    <slot name="title">
+  </slot>
+  <div class="bx--content-layout__body">
+    <slot>
     </slot>
-  </h1>
+    <dds-hr data-autoid="dds--hr">
+    </dds-hr>
+  </div>
 </div>
-<slot>
-</slot>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
-<div hidden="">
-  <h1
-    class="bx--leadspace-block__title"
-    data-autoid="dds--leadspace-block__title"
+<div class="bx--content-layout">
+  <slot
+    hidden=""
+    name="heading"
   >
-    <slot name="title">
+  </slot>
+  <div class="bx--content-layout__body">
+    <slot>
     </slot>
-  </h1>
+    <dds-hr data-autoid="dds--hr">
+    </dds-hr>
+  </div>
 </div>
-<slot>
-</slot>
-<dds-hr data-autoid="dds--hr">
-</dds-hr>
 
 ```
 

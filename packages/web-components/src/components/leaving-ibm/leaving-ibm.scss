@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -16,6 +16,8 @@
 :host(#{$dds-prefix}-leaving-ibm-modal) {
   @extend :host(#{$prefix}-modal);
 
+  max-height: 100%;
+
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
   }
@@ -28,9 +30,19 @@
 :host(#{$dds-prefix}-leaving-ibm-modal-body) {
   @extend :host(#{$prefix}-modal-body);
 
-  .#{$prefix}--leaving-ibm__text {
+  padding-right: 20%;
+
+  ::slotted(slot[name='supplemental']) {
+    display: block;
     margin-top: $spacing-07;
     color: $text-02;
     @include carbon--type-style('label-01');
   }
+}
+
+:host(#{$dds-prefix}-leaving-ibm-modal-supplemental) {
+  display: block;
+  margin-top: $spacing-07;
+  color: $text-02;
+  @include carbon--type-style('label-01');
 }

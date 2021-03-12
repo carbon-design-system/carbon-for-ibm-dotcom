@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -13,17 +13,36 @@
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-content-block),
+:host(#{$dds-prefix}-content-block-copy),
 :host(#{$dds-prefix}-content-block-heading),
-:host(#{$dds-prefix}-content-block-complementary) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-content-block-complementary) {
-  @include dds--make-col(1, 3);
-}
-
+:host(#{$dds-prefix}-content-block-complementary),
 :host(#{$dds-prefix}-content-block-paragraph) {
   display: block;
+}
+
+// TODO: Consider applying this rule in general
+:host(#{$dds-prefix}-content-block-simple),
+:host(#{$dds-prefix}-content-block-segmented) {
+  ::slotted(#{$dds-prefix}-content-block-copy) {
+    @include carbon--breakpoint('md') {
+      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-content-block-copy[size='sm']) {
+  width: auto;
+  max-width: none;
+
+  @include carbon--breakpoint(md) {
+    @include content-width;
+  }
+
+  ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @include carbon--type-style('body-long-02');
+
+    margin-bottom: $carbon--spacing-06;
+  }
 }
 
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version

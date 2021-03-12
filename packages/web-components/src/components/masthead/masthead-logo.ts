@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, internalProperty, property, customElement } from 'lit-element';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
-import DDSLink from '../../globals/internal/link';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSLink)) {
+class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
   /**
    * Search bar opened flag.
    */
@@ -70,6 +70,10 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(DDSLink)) {
       linkNode.classList.remove(`${prefix}--link`);
       linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, hasSearchActive);
     }
+  }
+
+  firstUpdated() {
+    this.tabIndex = 0;
   }
 
   /**

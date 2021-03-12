@@ -10,13 +10,13 @@
   "dependencies": {
     "@carbon/ibmdotcom-react": "latest",
     "@carbon/ibmdotcom-styles": "latest",
-    "@carbon/icons-react": "10.13.0",
+    "@carbon/icons-react": "latest",
     "react": "16.13.0",
     "react-dom": "16.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",
-    "parcel-bundler": "^1.12.0",
+    "parcel-bundler": "1.12.3",
     "sass": "^1.26.9"
   },
   "resolutions": {

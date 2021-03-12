@@ -1,12 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import ContentGroupSimple from '../ContentGroupSimple';
-import ContentGroupSimpleKnobs from './data/ContentGroupSimple.knobs';
+import ContentGroupSimpleKnobs from './data/ContentGroupSimple.knobs.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
@@ -46,7 +46,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+        <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-3">
           <ContentGroupSimple
             heading={heading}
             items={items}

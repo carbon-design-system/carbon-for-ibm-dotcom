@@ -7,22 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html, LitElement } from 'lit-element';
+import { BUTTON_KIND } from 'carbon-web-components/es/components/button/defs';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import styles from './button-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-export enum BUTTON_TYPES {
-  /**
-   * Default / Primary
-   */
-  DEFAULT = 'primary',
-
-  /**
-   * Alternate / Tertiary
-   */
-  ALTERNATE = 'tertiary',
-}
 
 /**
  * Button group.
@@ -46,7 +35,7 @@ class DDSButtonGroup extends LitElement {
       );
 
     childItems.forEach((elem, index) => {
-      (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_TYPES.ALTERNATE : BUTTON_TYPES.DEFAULT);
+      (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_KIND.TERTIARY : BUTTON_KIND.PRIMARY);
     });
 
     const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;

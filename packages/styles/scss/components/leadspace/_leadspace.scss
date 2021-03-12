@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,8 +60,15 @@ $btn-min-width: 26;
     background-color: $ui-background;
   }
 
+  ::slotted(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc {
+    color: $text-01;
+  }
+
+  .#{$prefix}--leadspace__desc--medium {
+    padding-top: $layout-04;
+    padding-bottom: $layout-01;
     color: $text-01;
   }
 
@@ -98,10 +105,14 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
+    }
 
-      @include carbon--breakpoint(lg) {
-        height: 100%;
-      }
+    .#{$prefix}--leadspace--content__container--medium {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
 
     ::slotted(#{$dds-prefix}-image),
@@ -121,6 +132,12 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__container {
       position: relative;
+      height: 100%;
+    }
+    .#{$prefix}--leadspace__container--medium {
+      background-color: $ui-01;
+      position: relative;
+      height: carbon--mini-units(60);
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -133,24 +150,26 @@ $btn-min-width: 26;
       padding-top: $spacing-05;
       padding-bottom: $spacing-05;
       z-index: 1;
+      height: 100%;
       width: 100%;
       max-width: none;
     }
 
-    .#{$prefix}--leadspace__title {
-      padding-top: 0;
-      margin-bottom: $spacing-09;
-      padding-left: 1rem;
-      width: 95%;
-      z-index: 1;
-      @include carbon--type-style(display-01, true);
-    }
-
-    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-      @include carbon--type-style(expressive-heading-06, true);
+    .#{$prefix}--leadspace--productive {
+      ::slotted(#{$dds-prefix}-leadspace-heading),
+      .#{$prefix}--leadspace__title {
+        @include carbon--type-style(expressive-heading-06, true);
+      }
     }
 
     .#{$prefix}--leadspace__desc {
+      z-index: 1;
+      @include carbon--make-col-ready;
+      @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col(4, 4);
+    }
+
+    .#{$prefix}--leadspace__desc--medium {
       z-index: 1;
       @include carbon--make-col-ready;
       @include carbon--type-style(expressive-heading-03, true);
@@ -170,6 +189,11 @@ $btn-min-width: 26;
         position: relative;
       }
 
+      .#{$prefix}--leadspace__container--medium {
+        background-color: $ui-01;
+        position: relative;
+      }
+
       .#{$prefix}--leadspace__overlay {
         padding-top: $spacing-07;
         padding-bottom: $spacing-07;
@@ -182,6 +206,7 @@ $btn-min-width: 26;
         height: 100%;
       }
 
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
 
@@ -210,10 +235,16 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      .#{$prefix}--image {
-        height: auto;
+      .#{$prefix}--leadspace__container--medium {
+        background-color: $ui-01;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: carbon--mini-units(60);
+        width: 100%;
       }
 
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
       }
@@ -223,8 +254,16 @@ $btn-min-width: 26;
         @include carbon--make-col(4, 16);
       }
 
-      .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
-        @include carbon--make-col(7, 16);
+      .#{$prefix}--leadspace__desc--medium {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(6, 16);
+      }
+
+      .#{$prefix}--leadspace--productive {
+        ::slotted(#{$dds-prefix}-leadspace-heading),
+        .#{$prefix}--leadspace__title {
+          @include carbon--make-col(7, 16);
+        }
       }
     }
 
@@ -264,10 +303,22 @@ $btn-min-width: 26;
         position: relative;
       }
 
+      .#{$prefix}--leadspace__container--medium {
+        overflow: auto;
+        position: relative;
+      }
+
       .#{$prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+      }
+
+      .#{$prefix}--leadspace--content__container--medium {
+        display: flex;
+        flex-direction: column;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 4);
       }
@@ -288,12 +339,19 @@ $btn-min-width: 26;
         @include carbon--type-style(expressive-heading-03, true);
       }
 
+      .#{$prefix}--leadspace__desc--medium {
+        width: 95%;
+        @include carbon--type-style(expressive-heading-03, true);
+      }
+
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         margin-bottom: 0;
         @include carbon--type-style(expressive-heading-05, true);
       }
 
       .#{$prefix}--leadspace__desc,
+      ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
         padding-top: $carbon--layout-03;
@@ -320,12 +378,29 @@ $btn-min-width: 26;
           @include carbon--make-col(4, 8);
         }
 
+        .#{$prefix}--leadspace--content__container--medium {
+          margin: 0 auto;
+          padding-left: 1.5rem;
+          @include carbon--make-col(4, 8);
+        }
+
+        ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
         .#{$prefix}--leadspace__desc {
           max-width: carbon--mini-units(80);
         }
 
+        ::slotted(#{$dds-prefix}-leadspace-heading),
+        .#{$prefix}--leadspace__title,
+        .#{$prefix}--leadspace__desc--medium {
+          max-width: carbon--mini-units(80);
+        }
+
         .#{$prefix}--leadspace__desc {
+          padding-top: $carbon--layout-04;
+        }
+
+        .#{$prefix}--leadspace__desc--medium {
           padding-top: $carbon--layout-04;
         }
 
@@ -340,6 +415,7 @@ $btn-min-width: 26;
       }
 
       @include carbon--breakpoint(lg) {
+        ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title {
           padding-top: $carbon--layout-05;
         }
@@ -383,10 +459,14 @@ $btn-min-width: 26;
       stop-color: $ui-background;
 
       &:nth-of-type(1) {
-        stop-opacity: 0.95;
+        stop-opacity: 1;
       }
 
       &:nth-of-type(2) {
+        stop-opacity: 0.4;
+      }
+
+      &:nth-of-type(3) {
         stop-opacity: 0;
       }
     }
@@ -410,6 +490,21 @@ $btn-min-width: 26;
         stop-opacity: 0;
       }
     }
+  }
+
+  :host(#{$dds-prefix}-leadspace-heading),
+  .#{$prefix}--leadspace__title {
+    padding-top: 0;
+    margin-bottom: $spacing-09;
+    padding-left: 1rem;
+    width: 95%;
+    z-index: 1;
+    @include carbon--type-style(display-01, true);
+  }
+
+  :host(#{$dds-prefix}-leadspace-heading)[size='medium'] {
+    margin-bottom: $spacing-06;
+    @include carbon--type-style(display-01, true);
   }
 }
 

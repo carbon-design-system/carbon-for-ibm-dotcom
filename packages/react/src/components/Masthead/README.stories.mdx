@@ -26,7 +26,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/index';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the Masthead
@@ -126,6 +126,12 @@ document.addEventListener('onSearchValueChanged', e =>
   console.log(e.detail); // { value: inputValue }
   // do something here
 );
+
+// disables search redirect onClick and onEnter
+document.addEventListener('onSearchNoRedirect', e =>
+  console.log(e.detail); // { value: inputValue }
+  // do something here
+);
 ```
 
 ## Props
@@ -134,8 +140,7 @@ document.addEventListener('onSearchValueChanged', e =>
 
 ## customTypeaheadApi
 
-The masthead search supports a user-defined redirect host URL and typeahead
-endpoint API.
+The masthead search supports a user-defined redirect host URL and typeahead API.
 
 **Custom redirect URL endpoint**
 
@@ -154,24 +159,24 @@ ${SEARCH_REDIRECT_ENDPOINT}&q=${encodeURIComponent(value)}&lang=${state.lc}&cc=$
 
 **Custom typeahead API**
 
-To use a custom typeahead API, set the endpoint by adding an environment
-variable.
-
-```
-SEARCH_TYPEAHEAD_API=https://www.custom-typeahead-api.com
-```
-
-Then use the `customTypeaheadApi` prop to pass a promise-based method to fetch
-the results of the search value.
+To use a custom endpoint, pass `customTypeaheadApi` to get the response 
+and transform the data if needed.
 
 ```javascript
-let customTypeaheadApi = async searchVal => await response.json();
+async function customTypeaheadApi(searchVal) {
+  return await fetch(`https://<fetch-url>?query=${searchVal}&foo=foo&bar=bar`)
+    .then(response => response.json())
+    .then(data => {
+      // transform results
+      return searchResults;
+    });
+}
 
 <Masthead customTypeaheadApi={customTypeaheadApi} />;
 ```
 
-In order for the typeahead presentation layer to correctly display the results,
-here is how the response object should look:
+In order for the results to display correctly,
+here is how the response should be structured:
 
 ```javascript
 [
@@ -186,6 +191,43 @@ here is how the response object should look:
 
 > 💡 A maximum of 10 results will be displayed.
 
+**Multiple search result sections**
+
+The masthead search can display groups of results with the `multiSection` prop:
+```javascript
+async function customTypeaheadApi(searchVal) {
+  return await fetch(`https://<fetch-url>?query=${searchVal}&foo=foo&bar=bar`)
+    .then(response => response.json())
+    .then(data => {
+      // transform results with multiple sections
+      return searchResults;
+    });
+}
+
+<Masthead customTypeaheadApi={customTypeaheadApi} multiSection />;
+
+```
+
+The results must follow this stucture:
+
+```javascript
+[
+  {
+    title: 'Section one',
+    items: [
+      {
+        name: 'Item one', // the search value to be filtered
+        // additional items
+      }
+    ]
+  },
+  // additional sections
+]
+
+```
+
+
+
 ## platform
 
 Includes platform name (only available with `default` and `custom navigation`).
@@ -198,6 +240,17 @@ const platformData = {
 };
 
 <Masthead platform={platformData} navigation="default" />;
+```
+
+## searchNoRedirect
+
+This will disable the default redirecting of the search component as well as emit
+the `onSearchNoRedirect` [custom event](#custom-events).
+> Note that unless a custom redirect action is
+provided in the event, the search will do nothing except list search suggestions.
+
+```javascript
+<Masthead navigation="default" searchNoRedirect />;
 ```
 
 ## customProfileLogin

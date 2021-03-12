@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import Bee from '@carbon/pictograms-react/lib/bee';
 import { Card } from '../';
 import { DDS_CARD_WITH_PICTOGRAM } from '../../../internal/FeatureFlags';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -26,8 +27,7 @@ export default {
         return {
           image:
             (boolean('image', false, groupId) && {
-              defaultSrc:
-                'https://fpoimg.com/600x300?text=2:1&bg_color=ee5396&text_color=161616',
+              defaultSrc: imgLg2x1,
               alt: 'Image alt text',
             }) ||
             undefined,
@@ -65,7 +65,7 @@ export const Default = ({ parameters }) => {
 
   return (
     <div className={`bx--card--${theme}`}>
-      <div className="bx--grid">
+      <div className="bx--grid bx--grid--card">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
             <Card {...(parameters?.props?.Card ?? {})} />

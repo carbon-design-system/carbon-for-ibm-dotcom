@@ -1,37 +1,38 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import { QUOTE_TYPES } from '../quote';
+import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
+import '../quote-source-bottom-copy';
+import '../quote-source-copy';
+import '../quote-source-heading';
 import '../../link-with-icon/link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
 
 export const Default = ({ parameters }) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, inverse } = parameters?.props?.Quote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = parameters?.props?.Quote ?? {};
   return html`
-    <dds-quote ?inverse="${inverse}" mark-type="${quoteMark}">
-      <span slot="copy">
-        ${copy}
-      </span>
-      <span slot="sourceHeading">
+    <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
+      ${copy}
+      <dds-quote-source-heading>
         ${sourceHeading}
-      </span>
-      <span slot="sourceCopy">
+      </dds-quote-source-heading>
+      <dds-quote-source-copy>
         ${sourceCopy}
-      </span>
-      <span slot="sourceBottomCopy">
+      </dds-quote-source-copy>
+      <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </span>
+      </dds-quote-source-bottom-copy>
       <dds-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
@@ -46,6 +47,11 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
   [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
+};
+
+const colorSchemes = {
+  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
+  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
 };
 
 export default {
@@ -73,10 +79,10 @@ export default {
           groupId
         ),
         quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
-        sourceHeading: textNullable('Source Heading(sourceHeading)', 'Lorem ipsum dolor sit amet', groupId),
-        sourceCopy: textNullable('Source Copy(sourceCopy)', 'consectetur adipiscing elit', groupId),
-        sourceBottomCopy: textNullable('Source Copy(sourceBottomCopy)', 'IBM Cloud', groupId),
-        inverse: boolean('Inverse (inverse)', false, groupId),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'Lorem ipsum dolor sit amet', groupId),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'consectetur adipiscing elit', groupId),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
+        colorScheme: select('Color Scheme (color-scheme)', colorSchemes, colorSchemes.regular, groupId),
       }),
     },
   },

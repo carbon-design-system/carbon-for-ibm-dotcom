@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,16 +13,13 @@ import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import { MastheadLink, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import {
-  USER_AUTHENTICATION_STATUS,
-  ProfileAPIState,
-} from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
+import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { loadTranslation } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI';
 import { TranslateAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
-import { monitorUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
+import { loadUserStatus } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI';
 import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/profileAPI.d';
 import { loadSearchResults } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI';
 import { SearchAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/searchAPI.d';
@@ -68,7 +65,7 @@ export interface MastheadContainerStateProps extends MastheadSearchContainerStat
   /**
    * The user authentication status.
    */
-  userStatus?: USER_AUTHENTICATION_STATUS;
+  userStatus?: string;
 }
 
 /**
@@ -79,7 +76,7 @@ export type MastheadContainerActions =
   | ReturnType<typeof loadLanguage>
   | ReturnType<typeof setLanguage>
   | ReturnType<typeof loadTranslation>
-  | ReturnType<typeof monitorUserStatus>;
+  | ReturnType<typeof loadUserStatus>;
 
 /**
  * @param state The Redux state for masthead.
@@ -89,7 +86,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   const { localeAPI, translateAPI, profileAPI, searchAPI } = state;
   const { language } = localeAPI ?? {};
   const { translations } = translateAPI ?? {};
-  const { status } = profileAPI ?? {};
+  const { request } = profileAPI ?? {};
   const { currentSearchQueryString, searchResults } = searchAPI ?? {};
   let currentSearchResults;
   for (let { length = 0 } = currentSearchQueryString ?? {}; !currentSearchResults && length > 0; --length) {
@@ -100,7 +97,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
-      userStatus: status?.user,
+      userStatus: request?.user,
       currentSearchResults: currentSearchResults ?? [],
     },
     value => value !== undefined
@@ -117,7 +114,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | Transla
       _loadLanguage: loadLanguage,
       _setLanguage: setLanguage,
       _loadTranslation: loadTranslation,
-      _monitorUserStatus: monitorUserStatus,
+      _loadUserStatus: loadUserStatus,
       _loadSearchResults: loadSearchResults,
     },
     dispatch as Dispatch // TS definition of `bindActionCreators()` seems to have no templated `Dispatch`

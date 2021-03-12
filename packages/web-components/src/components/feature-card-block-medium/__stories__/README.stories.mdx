@@ -17,43 +17,42 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
+import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/feature-card/feature-card-footer.js';
 import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-medium/feature-card-block-medium.js';
-import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-medium/feature-card-block-medium-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-medium/feature-card-block-medium-card.js';
+import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-medium/feature-card-block-medium-block-heading.js';
 ```
 
 ### HTML
 
 ```html
-<dds-feature-card-block-medium>
-  <dds-feature-card-block-medium-heading slot="heading">
+<dds-feature-card-block-medium href="https://example.com">
+  <dds-feature-card-block-medium-block-heading>
     How is artificial intelligence used today in your industry?
-  </dds-feature-card-block-medium-heading>
-  <dds-feature-card-block-medium-card href="https://example.com">
-    <dds-image
-      slot="image"
-      alt="Image alt text"
-      default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616/ee5396/161616&amp;amp;text=1x1"
-    ></dds-image>
-    <span slot="heading">Explore AI use cases in all industries</span>
-    <dds-feature-card-footer>
-      <svg
-        slot="footer"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </dds-feature-card-footer>
-  </dds-feature-card-block-medium-card>
+  </dds-feature-card-block-medium-block-heading>
+  <dds-image
+    slot="image"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616/ee5396/161616&amp;amp;text=1x1"
+  >
+  </dds-image>
+  <dds-card-heading>Explore AI use cases in all industries</dds-card-heading>
+  <dds-feature-card-footer>
+    <svg
+      slot="footer"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-feature-card-footer>
 </dds-feature-card-block-medium>
 ```
 

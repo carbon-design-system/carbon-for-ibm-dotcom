@@ -5,22 +5,28 @@
 ####   `should render with minimum attributes`
 
 ```
-<slot name="heading">
-</slot>
-<slot>
-</slot>
-<div class="bx--content-block__children">
-  <slot>
+<div class="bx--content-layout">
+  <slot name="heading">
   </slot>
-</div>
-<div
-  class="bx--content-block__cta-row"
-  hidden=""
->
-  <div class="bx--content-block__cta bx--content-block__cta-col">
-    <slot name="footer">
+  <div
+    class="bx--content-layout__body"
+    hidden=""
+  >
+    <slot name="copy">
     </slot>
+    <div hidden="">
+      <slot name="media">
+      </slot>
+    </div>
+    <slot>
+    </slot>
+    <div hidden="">
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
+  <slot name="complementary">
+  </slot>
 </div>
 <dds-hr data-autoid="dds--hr">
 </dds-hr>
@@ -30,22 +36,28 @@
 ####   `should render with various attributes`
 
 ```
-<slot name="heading">
-</slot>
-<slot>
-</slot>
-<div class="bx--content-block__children">
-  <slot>
+<div class="bx--content-layout">
+  <slot name="heading">
   </slot>
-</div>
-<div
-  class="bx--content-block__cta-row"
-  hidden=""
->
-  <div class="bx--content-block__cta bx--content-block__cta-col">
-    <slot name="footer">
+  <div
+    class="bx--content-layout__body"
+    hidden=""
+  >
+    <slot name="copy">
     </slot>
+    <div hidden="">
+      <slot name="media">
+      </slot>
+    </div>
+    <slot>
+    </slot>
+    <div hidden="">
+      <slot name="footer">
+      </slot>
+    </div>
   </div>
+  <slot name="complementary">
+  </slot>
 </div>
 <dds-hr data-autoid="dds--hr">
 </dds-hr>

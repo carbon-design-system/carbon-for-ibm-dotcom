@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement } from 'lit-element';
+import BXLink from 'carbon-web-components/es/components/link/link';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLink from '../../globals/internal/link';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-category-link
  */
 @customElement(`${ddsPrefix}-megamenu-category-link`)
-class DDSMegaMenuCateoryLink extends DDSLink {
+class DDSMegaMenuCateoryLink extends BXLink {
   /**
    * link title.
    */

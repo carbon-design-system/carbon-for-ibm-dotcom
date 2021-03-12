@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,11 @@ import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 /* eslint-disable import/no-duplicates */
 import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
+
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../leadspace';
 /* eslint-enable import/no-duplicates */
+import '../leadspace-heading';
 
 import '../../image/image';
 import '../../button-group/button-group';
@@ -25,48 +27,56 @@ import '../../button-group/button-group-item';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
+import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+import { LEADSPACE_SIZE } from '../defs';
+
 const gradientStyleSchemes = {
   [`Without gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.NONE})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.NONE,
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-export const DefaultWithNoImage = ({ parameters }) => {
+export const TallWithNoImage = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
 };
 
-export const DefaultWithImage = ({ parameters }) => {
+export const TallWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
+      size="${LEADSPACE_SIZE.NONE}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
@@ -75,15 +85,17 @@ export const DefaultWithImage = ({ parameters }) => {
 export const Centered = ({ parameters }) => {
   const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace type="centered">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
@@ -93,64 +105,87 @@ export const CenteredWithImage = ({ parameters }) => {
   const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
+      size="${LEADSPACE_SIZE.NONE}"
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
     >
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
 };
 
-export const Small = ({ parameters }) => {
+export const Medium = ({ parameters }) => {
   const { alt, defaultSrc, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+    <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
     </dds-leadspace>
   `;
 };
 
-export const SmallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+export const MediumWithImage = ({ parameters }) => {
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
   return html`
-    <dds-leadspace ?gradient="${ifNonNull(gradient)}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}" type="small">
-      <span slot="title">${ifNonNull(title)}</span>
-      <span slot="copy">${ifNonNull(copy)}</span>
-      <dds-button-group slot="buttons">
-        ${buttons.map(
-          elem => html`
-            <dds-button-group-item href="${elem.href}">${elem.copy}${elem.renderIcon}</dds-button-group-item>
-          `
-        )}
+    <dds-leadspace
+      size="${LEADSPACE_SIZE.MEDIUM}"
+      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
+      alt="${ifNonNull(alt)}"
+      default-src="${ifNonNull(defaultSrc)}"
+    >
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      ${ifNonNull(copy)}
+      <dds-button-group slot="action">
+        ${buttons.map(elem => {
+          return html`
+            <dds-button-group-item aria-label="${elem.label}" href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+            >
+          `;
+        })}
       </dds-button-group>
-      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
+      <dds-image slot="image" class="bx--image" alt="${ifNonNull(alt)}" default-src="${leadspaceImg}">
+        <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+        <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
       </dds-image>
     </dds-leadspace>
   `;
+};
+
+const getAriaLabel = type => {
+  switch (type) {
+    case 'ArrowDown20':
+      return 'anchor link';
+    case 'Pdf20':
+      return 'pdf link';
+    default:
+      return '';
+  }
 };
 
 const iconMap = {
@@ -182,7 +217,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        title: text('title (title):', 'Lead space title', groupId),
+        title: text('title (title):', 'Heading can go on two lines max', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
         gradientStyleScheme: select(
@@ -193,31 +228,31 @@ export default {
         ),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}, groupId),
-        }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0],
-        })),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'], groupId) ?? 0;
+          return {
+            href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
         image: [
           {
-            src: 'https://fpoimg.com/320x160?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'sm',
           },
           {
-            src: 'https://fpoimg.com/400x200?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'md',
           },
           {
-            src: 'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616',
+            src: leadspaceImg,
             breakpoint: 'lg',
           },
         ],
         alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text(
-          'Default image (defaultSrc):',
-          'https://fpoimg.com/1056x480?bg_color=ee5396&amp;text_color=161616',
-          groupId
-        ),
+        defaultSrc: text('Default image (defaultSrc):', leadspaceImg, groupId),
       }),
     },
   },

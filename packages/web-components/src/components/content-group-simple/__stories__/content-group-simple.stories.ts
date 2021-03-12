@@ -1,27 +1,33 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../../cta/shared-enums';
 import '../../image/image';
 import '../../cta/video-cta-container';
 import '../../cta/card-cta';
 import '../../cta/card-cta-footer';
+import '../../content-group/content-group-copy';
 import '../../content-group/content-group-heading';
 import '../../content-item/content-item';
 import '../../content-item/content-item-heading';
+import '../../content-item/content-item-copy';
 import '../content-group-simple';
+
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CTA_TYPE } from '../../cta/defs';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--004.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--004.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--004.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -62,10 +68,11 @@ const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit.
   Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit.
   Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
   - [list item](https://www.ibm.com)
-    1. list item 1a
+    - list item 1a
   1. list item 2
-    - list item 2a
+    1. list item 2a
 `;
 
 const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
@@ -91,27 +98,10 @@ const items = [
 ];
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => html`
-  <dds-image-with-caption
-    slot="media"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    heading="${ifNonNull(imageHeading)}"
-  >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-    >
-    </dds-image-item>
+  <dds-image-with-caption slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="${ifNonNull(imageHeading)}">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
   </dds-image-with-caption>
 `;
 
@@ -121,7 +111,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
           <dds-content-item>
@@ -132,9 +122,7 @@ export const Default = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -146,7 +134,7 @@ export const WithImage = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       ${image({ heading: groupHeading })}
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
@@ -158,9 +146,32 @@ export const WithImage = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-group-simple>
+  `;
+};
+
+export const WithImageInChilds = ({ parameters }) => {
+  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
+  return html`
+    <dds-content-group-simple>
+      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      ${image({ heading: groupHeading })}
+      ${items.map(
+        ({ heading: itemHeading, copy: itemCopy }) => html`
+          <dds-content-item>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            ${image({ heading: groupHeading })}
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+          </dds-content-item>
+        `
+      )}
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -172,7 +183,7 @@ export const WithVideo = ({ parameters }) => {
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-item-copy>${groupCopy}</dds-content-item-copy>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
       <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
       ${items.map(
         ({ heading: itemHeading, copy: itemCopy }) => html`
@@ -184,9 +195,32 @@ export const WithVideo = ({ parameters }) => {
       )}
       <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
         ${ctaCopy}
-        <dds-card-cta-footer>
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-cta-footer>
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-group-simple>
+  `;
+};
+
+export const WithVideoInChilds = ({ parameters }) => {
+  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
+  return html`
+    <dds-content-group-simple>
+      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+      ${items.map(
+        ({ heading: itemHeading, copy: itemCopy }) => html`
+          <dds-content-item>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+          </dds-content-item>
+        `
+      )}
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+        ${ctaCopy}
+        <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
     </dds-content-group-simple>
   `;
@@ -196,12 +230,8 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     story => html`
-      <dds-video-cta-container class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
-            ${story()}
-          </div>
-        </div>
+      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">
+        ${story()}
       </dds-video-cta-container>
     `,
   ],
@@ -219,11 +249,11 @@ export default {
         heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
       }),
       CardCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, null, groupId);
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
         return {
           copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
           ctaType,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
         };
       },
     },

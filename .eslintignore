@@ -25,6 +25,7 @@ packages/services/node_modules
 
 # services-store
 packages/services-store/es
+packages/services-store/lib
 
 # styles
 packages/styles/dist
@@ -53,4 +54,5 @@ packages/web-components/umd
 packages/web-components/lib
 packages/web-components/node_modules
 packages/web-components/storybook-static
+packages/web-components/storybook-static-react
 packages/web-components/src/internal/vendor

@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -204,14 +204,18 @@ export class SideNavMenu extends React.Component {
               <IconElement />
             </SideNavIcon>
           )}
-          <span
-            className={`${prefix}--side-nav__submenu-title`}
-            data-autoid={`${rest.autoid}`}>
-            {title}
-          </span>
-          <SideNavIcon className={`${prefix}--side-nav__submenu-chevron`} small>
-            <ChevronDown20 />
-          </SideNavIcon>
+          <div className={`${prefix}--side-nav__submenu-content`}>
+            <span
+              className={`${prefix}--side-nav__submenu-title`}
+              data-autoid={`${rest.autoid}`}>
+              {title}
+            </span>
+            <SideNavIcon
+              className={`${prefix}--side-nav__submenu-chevron`}
+              small>
+              <ChevronDown20 />
+            </SideNavIcon>
+          </div>
         </button>
         <ul className={`${prefix}--side-nav__menu`} role="menu">
           {React.Children.map(children, this._renderSideNavItem)}

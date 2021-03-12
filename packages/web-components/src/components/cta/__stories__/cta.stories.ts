@@ -1,25 +1,28 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
-import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { CTA_TYPE } from '../shared-enums';
 import '../video-cta-container';
+import '../button-cta';
 import '../card-cta';
 import '../card-cta-footer';
 import '../feature-cta';
 import '../feature-cta-footer';
 import '../text-cta';
+import { classMap } from 'lit-html/directives/class-map';
+import { html } from 'lit-element';
+import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
+// eslint-disable-next-line sort-imports
+import { CTA_TYPE } from '../defs';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -87,6 +90,39 @@ Text.story = {
   },
 };
 
+export const Button = ({ parameters }) => {
+  const { copy, ctaType, download, href } = parameters?.props?.ButtonCTA ?? {};
+  return html`
+    <div>
+      <dds-button-group>
+        <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+        <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
+      </dds-button-group>
+    </div>
+  `;
+};
+
+Button.story = {
+  parameters: {
+    knobs: {
+      ButtonCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+        const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+        const download =
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+        return {
+          copy,
+          ctaType,
+          download,
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+        };
+      },
+    },
+  },
+};
+
 export const Card = ({ parameters }) => {
   const { copy, ctaType, download, href } = parameters?.props?.CardCTA ?? {};
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
@@ -106,8 +142,7 @@ export const Card = ({ parameters }) => {
 
 Card.story = {
   parameters: {
-    colExtraClasses: 'bx--col-md-4 bx--col-lg-4',
-    useGridForCard: true,
+    hasGrid: true,
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
       CardCTAFooter: ({ groupId }) => {
@@ -135,12 +170,7 @@ export const Feature = ({ parameters }) => {
   return html`
     <dds-feature-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
       ${copy}
-      <dds-image
-        slot="image"
-        alt="Image alt text"
-        default-src="https://fpoimg.com/672x672?text=1:1&amp;bg_color=ee5396&amp;text_color=161616"
-      >
-      </dds-image>
+      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"> </dds-image>
       <dds-feature-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"
@@ -154,8 +184,7 @@ export const Feature = ({ parameters }) => {
 
 Feature.story = {
   parameters: {
-    colExtraClasses: 'bx--col-lg-8 bx--offset-lg-4',
-    useGridForCard: true,
+    hasGrid: true,
     knobs: {
       FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
       FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
@@ -167,24 +196,19 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { colExtraClasses = 'bx--col-lg-8', useGridForCard } = parameters ?? {};
+      const { hasGrid } = parameters;
       const classes = classMap({
-        'bx--grid': true,
-        'dds-ce-demo-devenv--grid--stretch': useGridForCard,
+        'dds-ce-demo-devenv--simple-grid': hasGrid,
+        'dds-ce-demo-devenv--simple-grid--card': hasGrid,
       });
       return html`
         <dds-video-cta-container class="${classes}">
-          <div class="bx--row dds-ce-demo-devenv--grid-row">
-            <div class="bx--col-sm-4 ${colExtraClasses}">
-              ${story()}
-            </div>
-          </div>
+          ${story()}
         </dds-video-cta-container>
       `;
     },
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
   },
 };
