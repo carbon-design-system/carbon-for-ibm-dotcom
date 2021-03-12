@@ -19,7 +19,7 @@ import '../../card-group/card-group';
 import '../../card-group/card-group-item';
 import '../promo-group';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
-import { DDS_PROMO_GROUP } from '../../../globals/internal/feature-flags';
+/*import { DDS_PROMO_GROUP } from '../../../globals/internal/feature-flags';*/
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
 
@@ -76,9 +76,7 @@ const promoItems = [
   },
 ];
 
-export const Default = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const Default = ({ parameters }) => {
       const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
@@ -108,9 +106,7 @@ export const Default = !DDS_PROMO_GROUP
       `;
     };
 
-export const withImage = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withImage = ({ parameters }) => {
       const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
@@ -141,9 +137,7 @@ export const withImage = !DDS_PROMO_GROUP
       `;
     };
 
-export const withStatistic = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withStatistic = ({ parameters }) => {
       const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
@@ -174,9 +168,7 @@ export const withStatistic = !DDS_PROMO_GROUP
       `;
     };
 
-export const withPictogram = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withPictogram = ({ parameters }) => {
       const { sectionHeading, secondaryHeading } = parameters?.props?.PromoGroup ?? {};
       return html`
         <dds-promo-group>
@@ -234,9 +226,7 @@ export const withPictogram = !DDS_PROMO_GROUP
       `;
     };
 
-export default !DDS_PROMO_GROUP
-  ? undefined
-  : {
+export default {
       title: 'Components/Promo Group',
       decorators: [
         story => html`

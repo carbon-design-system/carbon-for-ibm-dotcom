@@ -13,7 +13,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import DDSContentItem from '../content-item/content-item';
 import styles from './promo-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { DDS_PROMO_GROUP } from '../../globals/internal/feature-flags';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -57,8 +56,9 @@ class DDSPromoItem extends StableSelectorMixin(DDSContentItem) {
 }
 
 // Define the new element
+/*
 if (DDS_PROMO_GROUP) {
   customElements.define(`${ddsPrefix}-promo-item`, DDSPromoItem);
 }
-
-export default !DDS_PROMO_GROUP ? undefined : DDSPromoItem;
+*/
+export default DDSPromoItem;

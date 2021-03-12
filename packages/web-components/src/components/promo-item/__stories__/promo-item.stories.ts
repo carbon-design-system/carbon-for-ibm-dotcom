@@ -18,11 +18,8 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
-import { DDS_PROMO_GROUP } from '../../../globals/internal/feature-flags';
 
-export const Default = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const Default = ({ parameters }) => {
       const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
       return html`
         <dds-promo-item>
@@ -35,9 +32,7 @@ export const Default = !DDS_PROMO_GROUP
       `;
     };
 
-export const withImage = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withImage = ({ parameters }) => {
       const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
       return html`
         <dds-promo-item>
@@ -51,9 +46,7 @@ export const withImage = !DDS_PROMO_GROUP
       `;
     };
 
-export const withStatistic = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withStatistic = ({ parameters }) => {
       const { heading, statistic, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
       return html`
         <dds-promo-item>
@@ -67,9 +60,7 @@ export const withStatistic = !DDS_PROMO_GROUP
       `;
     };
 
-export const withPictogram = !DDS_PROMO_GROUP
-  ? undefined
-  : ({ parameters }) => {
+export const withPictogram = ({ parameters }) => {
       const { heading, copy, href, linkCopy } = parameters?.props?.PromoItem ?? {};
       return html`
         <dds-promo-item>
@@ -110,9 +101,7 @@ export const withPictogram = !DDS_PROMO_GROUP
       `;
     };
 
-export default !DDS_PROMO_GROUP
-  ? undefined
-  : {
+export default {
       title: 'Components/Promo Item',
       parameters: {
         ...readme.parameters,

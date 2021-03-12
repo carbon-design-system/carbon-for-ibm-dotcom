@@ -39,4 +39,4 @@ export const DDS_CONTENT_BLOCK_HEADLINES: boolean = process!.env.DDS_CONTENT_BLO
  *
  * @type {boolean}
  */
-export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;
+/*export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;*/

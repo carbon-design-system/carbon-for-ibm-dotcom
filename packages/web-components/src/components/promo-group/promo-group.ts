@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './promo-group.scss';
 import DDSContentSection from '../content-section/content-section';
-import { DDS_PROMO_GROUP } from '../../globals/internal/feature-flags';
+/*import { DDS_PROMO_GROUP } from '../../globals/internal/feature-flags';*/
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,6 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-promo-group
  */
+@customElement(`${ddsPrefix}-promo-group`)
 class DDSPromoGroup extends StableSelectorMixin(DDSContentSection) {
   /**
    * Applies section attribute
@@ -62,8 +63,8 @@ class DDSPromoGroup extends StableSelectorMixin(DDSContentSection) {
 }
 
 // Define the new element
-if (DDS_PROMO_GROUP) {
-  customElements.define(`${ddsPrefix}-promo-group`, DDSPromoGroup);
-}
+/*if (DDS_PROMO_GROUP) {
+  customElements.define(DDSPromoGroup);
+}*/
 
-export default !DDS_PROMO_GROUP ? undefined : DDSPromoGroup;
+export default DDSPromoGroup;

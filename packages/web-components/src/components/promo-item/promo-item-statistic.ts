@@ -9,7 +9,6 @@
 import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './promo-item.scss';
-import { DDS_PROMO_GROUP } from '../../globals/internal/feature-flags';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -45,9 +44,4 @@ class DDSPromoItemStatistic extends LitElement {
   static styles = styles;
 }
 
-// Define the new element
-if (DDS_PROMO_GROUP) {
-  customElements.define(`${ddsPrefix}-promo-item-statistic`, DDSPromoItemStatistic);
-}
-
-export default !DDS_PROMO_GROUP ? undefined : DDSPromoItemStatistic;
+export default DDSPromoItemStatistic;
