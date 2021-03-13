@@ -9,7 +9,7 @@
 
 import { css, customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSContentGroupSimple from '../content-group-simple/content-group-simple';
+import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-group-horizontal.scss';
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-group-horizontal
  */
 @customElement(`${ddsPrefix}-content-group-horizontal`)
-class DDSContentGroupHorizontal extends DDSContentGroupSimple {
+class DDSContentGroupHorizontal extends DDSContentGroup {
   render() {
     return html`
       ${super.render()}
