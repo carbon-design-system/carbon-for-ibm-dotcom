@@ -66,6 +66,12 @@ $btn-min-width: 26;
     color: $text-01;
   }
 
+  .#{$prefix}--leadspace__desc--medium {
+    padding-top: $layout-04;
+    padding-bottom: $layout-01;
+    color: $text-01;
+  }
+
   .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
     width: 100%;
   }
@@ -102,6 +108,13 @@ $btn-min-width: 26;
       height: 100%;
     }
 
+    .#{$prefix}--leadspace--content__container--medium {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     ::slotted(#{$dds-prefix}-image),
     .#{$prefix}--image {
       position: absolute;
@@ -120,6 +133,11 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace__container {
       position: relative;
       height: 100%;
+    }
+    .#{$prefix}--leadspace__container--medium {
+      background-color: $ui-01;
+      position: relative;
+      height: carbon--mini-units(60);
     }
 
     .#{$prefix}--leadspace__overlay {
@@ -151,6 +169,13 @@ $btn-min-width: 26;
       @include carbon--make-col(4, 4);
     }
 
+    .#{$prefix}--leadspace__desc--medium {
+      z-index: 1;
+      @include carbon--make-col-ready;
+      @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col(4, 4);
+    }
+
     .#{$prefix}--leadspace__row {
       @include carbon--make-row;
     }
@@ -161,6 +186,11 @@ $btn-min-width: 26;
 
     @include carbon--breakpoint(md) {
       .#{$prefix}--leadspace__container {
+        position: relative;
+      }
+
+      .#{$prefix}--leadspace__container--medium {
+        background-color: $ui-01;
         position: relative;
       }
 
@@ -205,6 +235,15 @@ $btn-min-width: 26;
         width: 100%;
       }
 
+      .#{$prefix}--leadspace__container--medium {
+        background-color: $ui-01;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: carbon--mini-units(60);
+        width: 100%;
+      }
+
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
@@ -213,6 +252,11 @@ $btn-min-width: 26;
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
+      }
+
+      .#{$prefix}--leadspace__desc--medium {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(6, 16);
       }
 
       .#{$prefix}--leadspace--productive {
@@ -259,10 +303,22 @@ $btn-min-width: 26;
         position: relative;
       }
 
+      .#{$prefix}--leadspace__container--medium {
+        overflow: auto;
+        position: relative;
+      }
+
       .#{$prefix}--leadspace--content__container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+      }
+
+      .#{$prefix}--leadspace--content__container--medium {
+        display: flex;
+        flex-direction: column;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 4);
       }
@@ -279,6 +335,11 @@ $btn-min-width: 26;
       }
 
       .#{$prefix}--leadspace__desc {
+        width: 95%;
+        @include carbon--type-style(expressive-heading-03, true);
+      }
+
+      .#{$prefix}--leadspace__desc--medium {
         width: 95%;
         @include carbon--type-style(expressive-heading-03, true);
       }
@@ -317,13 +378,29 @@ $btn-min-width: 26;
           @include carbon--make-col(4, 8);
         }
 
+        .#{$prefix}--leadspace--content__container--medium {
+          margin: 0 auto;
+          padding-left: 1.5rem;
+          @include carbon--make-col(4, 8);
+        }
+
         ::slotted(#{$dds-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
         .#{$prefix}--leadspace__desc {
           max-width: carbon--mini-units(80);
         }
 
+        ::slotted(#{$dds-prefix}-leadspace-heading),
+        .#{$prefix}--leadspace__title,
+        .#{$prefix}--leadspace__desc--medium {
+          max-width: carbon--mini-units(80);
+        }
+
         .#{$prefix}--leadspace__desc {
+          padding-top: $carbon--layout-04;
+        }
+
+        .#{$prefix}--leadspace__desc--medium {
           padding-top: $carbon--layout-04;
         }
 
@@ -382,10 +459,14 @@ $btn-min-width: 26;
       stop-color: $ui-background;
 
       &:nth-of-type(1) {
-        stop-opacity: 0.95;
+        stop-opacity: 1;
       }
 
       &:nth-of-type(2) {
+        stop-opacity: 0.4;
+      }
+
+      &:nth-of-type(3) {
         stop-opacity: 0;
       }
     }
@@ -418,6 +499,11 @@ $btn-min-width: 26;
     padding-left: 1rem;
     width: 95%;
     z-index: 1;
+    @include carbon--type-style(display-01, true);
+  }
+
+  :host(#{$dds-prefix}-leadspace-heading)[size='medium'] {
+    margin-bottom: $spacing-06;
     @include carbon--type-style(display-01, true);
   }
 }
