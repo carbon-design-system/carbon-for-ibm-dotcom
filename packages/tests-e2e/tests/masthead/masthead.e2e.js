@@ -13,7 +13,9 @@ const percySnapshot = require('@percy/webdriverio');
  * @type {string | string}
  * @private
  */
-const _url = (process && process.env.SELENIUM_HOST) || 'https://ibmdotcom-react-canary.mybluemix.net';
+const _url =
+  (process && process.env.SELENIUM_HOST) ||
+  'https://ibmdotcom-react-canary.mybluemix.net';
 
 /**
  * Flag to switch to the web components paths instead of the React ones
@@ -21,7 +23,8 @@ const _url = (process && process.env.SELENIUM_HOST) || 'https://ibmdotcom-react-
  * @type {boolean}
  * @private
  */
-const _webcomponentsTests = (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
+const _webcomponentsTests =
+  (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
 
 /**
  * Sets the correct path (default Masthead)
