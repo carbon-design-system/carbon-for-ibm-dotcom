@@ -13,8 +13,15 @@ const percySnapshot = require('@percy/webdriverio');
  * @type {string | string}
  * @private
  */
-const _url =
-  process?.env.SELENIUM_HOST || 'https://ibmdotcom-react-canary.mybluemix.net';
+const _url = (process && process.env.SELENIUM_HOST) || 'https://ibmdotcom-react-canary.mybluemix.net';
+
+/**
+ * Flag to switch to the web components paths instead of the React ones
+ *
+ * @type {boolean}
+ * @private
+ */
+const _webcomponentsTests = (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
 
 /**
  * Sets the correct path
@@ -27,13 +34,25 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 describe('LocaleModal', () => {
   it('should load the Americas region', async () => {
     await browser.url(_url + _path);
-    const region = await $('[data-region="am"]');
+    let region, filter;
+    if (_webcomponentsTests) {
+      const regionRoot = await $('dds-region-item');
+      region = await regionRoot.shadow$('a');
+    } else {
+      region = await $('[data-region="am"]');
+    }
     region.click();
     await percySnapshot('Components|LocaleModal: Region Selected', {
       widths: [1280],
     });
 
-    const filter = await $('[data-autoid="dds--locale-modal__filter"]');
+    if (_webcomponentsTests) {
+      const localeSearch = await $('dds-locale-search');
+      const search = await localeSearch.shadow$('dds-search');
+      filter = await search.shadow$('.bx--search-input');
+    } else {
+      filter = await $('[data-autoid="dds--locale-modal__filter"]');
+    }
     filter.addValue('ca');
     await browser.pause(1500);
 

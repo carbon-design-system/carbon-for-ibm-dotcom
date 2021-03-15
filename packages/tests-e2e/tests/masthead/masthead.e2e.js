@@ -13,8 +13,15 @@ const percySnapshot = require('@percy/webdriverio');
  * @type {string | string}
  * @private
  */
-const _url =
-  process?.env.SELENIUM_HOST || 'https://ibmdotcom-react-canary.mybluemix.net';
+const _url = (process && process.env.SELENIUM_HOST) || 'https://ibmdotcom-react-canary.mybluemix.net';
+
+/**
+ * Flag to switch to the web components paths instead of the React ones
+ *
+ * @type {boolean}
+ * @private
+ */
+const _webcomponentsTests = (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
 
 /**
  * Sets the correct path (default Masthead)
@@ -60,9 +67,14 @@ describe('Masthead: Default', () => {
   it('should open the login menu', async () => {
     await browser.url(_url + _pathDefault);
     await browser.setWindowSize(1280, 780);
-    const profile = await $(
-      '[data-autoid="dds--masthead-default__l0-account"]'
-    );
+    let profile;
+
+    if (_webcomponentsTests) {
+      const profileElement = await $('dds-masthead-profile');
+      profile = await profileElement.shadow$('a');
+    } else {
+      profile = await $('[data-autoid="dds--masthead-default__l0-account"]');
+    }
     await profile.click();
     await percySnapshot('Components|Masthead: Default - Profile Menu', {
       widths: [1280],
@@ -72,7 +84,13 @@ describe('Masthead: Default', () => {
   it('should open the search bar', async () => {
     await browser.url(_url + _pathDefault);
     await browser.setWindowSize(1280, 780);
-    const search = await $('[data-autoid="dds--masthead-default__l0-search"]');
+    let search;
+    if (_webcomponentsTests) {
+      const searchElement = await $('dds-masthead-search');
+      search = await searchElement.shadow$('button');
+    } else {
+      search = await $('[data-autoid="dds--masthead-default__l0-search"]');
+    }
     await search.click();
     await percySnapshot('Components|Masthead: Default - Search', {
       widths: [1280],
@@ -82,9 +100,14 @@ describe('Masthead: Default', () => {
   it('should take a snapshot of the mobile menu', async () => {
     await browser.url(_url + _pathDefault);
     await browser.setWindowSize(320, 780);
-    const nav = await $(
-      '[data-autoid="dds--masthead-default-sidenav__l0-menu"]'
-    );
+    let nav;
+    if (_webcomponentsTests) {
+      const menuButton = await $('dds-masthead-menu-button');
+      nav = await menuButton.shadow$('button');
+    } else {
+      nav = await $('[data-autoid="dds--masthead-default-sidenav__l0-menu"]');
+    }
+
     await nav.click();
     await percySnapshot('Components|Masthead: Default - Mobile Menu', {
       widths: [320],
@@ -101,7 +124,15 @@ describe('Masthead: Default', () => {
   it('should scroll the L0 overflow properly', async () => {
     await browser.url(_url + _pathCustom);
     await browser.setWindowSize(1280, 780);
-    const overflow = await $('.bx--header__nav-caret-right');
+    let overflow;
+
+    if (_webcomponentsTests) {
+      const topNav = await $('dds-top-nav');
+      overflow = await topNav.shadow$('.bx--header__nav-caret-right');
+    } else {
+      overflow = await $('.bx--header__nav-caret-right');
+    }
+
     await overflow.click();
     await browser.pause(3000);
     await percySnapshot('Components|Masthead: Custom - Overflow', {
@@ -112,7 +143,13 @@ describe('Masthead: Default', () => {
   it('should open the search bar with platform', async () => {
     await browser.url(_url + _pathPlatform);
     await browser.setWindowSize(1280, 780);
-    const search = await $('[data-autoid="dds--masthead-eco__l0-search"]');
+    let search;
+    if (_webcomponentsTests) {
+      const searchElement = await $('dds-masthead-search');
+      search = await searchElement.shadow$('button');
+    } else {
+      search = await $('[data-autoid="dds--masthead-eco__l0-search"]');
+    }
     await search.click();
     await percySnapshot('Components|Masthead: With Platform - Search', {
       widths: [1280],
