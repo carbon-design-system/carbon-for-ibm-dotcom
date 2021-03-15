@@ -11,11 +11,11 @@ import { customElement, html, svg, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME } from './defs';
+import { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
-export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME };
+export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -60,17 +60,47 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getContainerClass() {
+    return classMap({
+      [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
+    });
+  }
+
+  /**
    * Renders Leadspace copy/description
    */
   protected _renderCopy() {
     const { copy } = this;
     return html`
       <div class="${prefix}--leadspace__row">
-        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${prefix}--leadspace__desc">
+        <p data-autoid="${ddsPrefix}--leadspace__desc" class="${this._getCopyType()}">
           <slot>${copy}</slot>
         </p>
       </div>
     `;
+  }
+
+  /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getCopyType() {
+    return classMap({
+      [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
+    });
+  }
+
+  /**
+   * Returns a class-name based on the size parameter type
+   */
+  protected _getContentType() {
+    return classMap({
+      [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
+      [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+    });
   }
 
   /**
@@ -136,11 +166,17 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   type = LEADSPACE_TYPE.LEFT;
 
+  /**
+   *  Leadspace size (tall or medium)
+   */
+  @property({ reflect: true })
+  size = 'tall';
+
   render() {
     const { gradientStyleScheme, type } = this;
     return html`
       <section style="${this._getBackgroundImage()}" class="${this._getTypeClass()}" part="section">
-        <div class="${prefix}--leadspace__container">
+        <div class="${this._getContainerClass()}">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
@@ -164,6 +200,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                         `
                           : svg`
                           <stop offset="0%" />
+                          <stop offset="50%" />
                           <stop offset="75%" />
                         `
                       }
@@ -172,7 +209,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                   <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${prefix}--leadspace--content__container">
+            <div class="${this._getContentType()}">
               <div class="${prefix}--leadspace__row">
                 ${this._renderHeading()}
               </div>
@@ -186,6 +223,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
         </div>
       </section>
     `;
+  }
+
+  static get headingSelector() {
+    return `${ddsPrefix}-leadspace-heading`;
   }
 
   static get stableSelector() {
