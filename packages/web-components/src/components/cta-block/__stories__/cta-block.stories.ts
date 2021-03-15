@@ -38,6 +38,40 @@ const video = html`
   <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
 `;
 
+const pictogram = html`
+  <svg
+    focusable="false"
+    preserveAspectRatio="xMidYMid meet"
+    xmlns="http://www.w3.org/2000/svg"
+    data-autoid="dds--pictogram-item__pictogram"
+    aria-label="Pictogram description"
+    viewBox="0 0 32 32"
+    role="img"
+    class="bx--promo-item__pictogram"
+  >
+    <path
+      d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
+          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
+          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
+          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
+          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
+          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
+          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
+          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
+          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
+          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
+          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
+          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
+          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
+    />
+    <path fill="none" d="M0 0h32v32H0z" />
+  </svg>
+`;
+
+const statistic = html`
+  <div>100%</div>
+`;
+
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
 
 const ctaBlockItems = [
@@ -94,7 +128,7 @@ const ctaBlockItems = [
 ];
 
 export const Default = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading } = parameters?.props?.CtaBlock ?? {};
+  const { sectionHeading, secondaryHeading, mediaType } = parameters?.props?.CtaBlock ?? {};
   return html`
     <dds-cta-block>
       <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
@@ -111,9 +145,10 @@ export const Default = ({ parameters }) => {
       </dds-content-group>
 
       ${ctaBlockItems.map(
-        ({ media: mediaType, heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+        ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
           <dds-cta-block-item>
             ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
+            ${mediaType === 'pictogram' ? pictogram : ``} ${mediaType === 'statistic' ? statistic : ``}
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
             <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
@@ -134,7 +169,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       CtaBlock: ({ groupId }) => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
+        mediaType: select('mediaType (optional)', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
         sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
         secondaryHeading: textNullable(
           'Secondary Heading (optional)',
