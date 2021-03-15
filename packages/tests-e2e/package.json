@@ -7,7 +7,7 @@
   "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
   "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
   "scripts": {
-    "test:e2e": "percy exec -- npx wdio run wdio.conf.js"
+    "test:e2e": "percy exec -- npx wdio run ./wdio.conf.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
