@@ -37,6 +37,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 describe('LocaleModal', () => {
   it('should load the Americas region', async () => {
     await browser.url(_url + _path);
+    await browser.pause(1500);
     let region, filter;
     if (_webcomponentsTests) {
       const regionRoot = await $('dds-region-item');
