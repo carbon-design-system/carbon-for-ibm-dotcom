@@ -14,6 +14,7 @@ import '../../card-in-card/card-in-card-footer';
 import '../../card-in-card/card-in-card-image';
 import '../card-group';
 import '../card-group-item';
+import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import { select, number } from '@storybook/addon-knobs';
@@ -133,23 +134,54 @@ withImagesAndCTA.story = {
 
 export const withMixedMedia = () => {
   return html`
-    <dds-card-group>
-      <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-        Test Video - 1:1
-        <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-          0:18
-        </dds-card-cta-footer>
-      </dds-card-group-item>
-      <dds-card-group-item href="https://example.com">
-        <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+    <dds-video-cta-container>
+      <dds-card-group>
+        <dds-card-group-item cta-type="video" href="1_9h94wo6b">
         <dds-card-eyebrow>Topic</dds-card-eyebrow>
-        <dds-card-heading>Natural Language Processing.</dds-card-heading>
-        <dds-card-footer slot="footer">
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-footer>
-      </dds-card-group-item>
-    </dds-card-group>
+          Test Video - 1:1
+          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            0:18
+          </dds-card-cta-footer>
+        </dds-card-group-item>
+        <dds-card-group-item href="https://example.com">
+          <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+          <dds-card-eyebrow>Topic</dds-card-eyebrow>
+          <dds-card-heading>Natural Language Processing.</dds-card-heading>
+          <dds-card-footer slot="footer">
+            ${ArrowRight20({ slot: 'icon' })}
+          </dds-card-footer>
+        </dds-card-group-item>
+                <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+          Test Video - 1:1
+          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            0:18
+          </dds-card-cta-footer>
+        </dds-card-group-item>
+                <dds-card-group-item href="https://example.com">
+          <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+          <dds-card-eyebrow>Topic</dds-card-eyebrow>
+          <dds-card-heading>Natural Language Processing.</dds-card-heading>
+          <dds-card-footer slot="footer">
+            ${ArrowRight20({ slot: 'icon' })}
+          </dds-card-footer>
+        </dds-card-group-item>
+                <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+          Test Video - 1:1
+          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            0:18
+          </dds-card-cta-footer>
+      </dds-card-group>
+    </dds-video-cta-container>
   `;
+};
+
+withMixedMedia.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: () => ({}),
+    },
+  },
 };
 
 const gridModes = {
