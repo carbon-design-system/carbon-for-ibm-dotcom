@@ -44,13 +44,13 @@ const pictogram = html`
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     stroke="currentColor"
-    data-autoid="dds--card__pictogram"
-    aria-label="Pictogram description"
+    data-autoid="dds--cta-block__pictogram"
+    aria-label="Pictogram"
     width="48"
     height="48"
     viewBox="0 0 48 48"
     role="img"
-    class="bx--card__pictogram"
+    class="dds--cta-block__pictogram"
   >
     <path
       fill="none"
@@ -63,7 +63,7 @@ const pictogram = html`
 `;
 
 const statistic = html`
-  <div slot="media">100%</div>
+  <span class="dds--cta-block__statistic" slot="media">100%</span>
 `;
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';

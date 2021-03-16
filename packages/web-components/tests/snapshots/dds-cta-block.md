@@ -1,4 +1,4 @@
-# `dds-promo-group`
+# `dds-cta-block`
 
 ## `Misc attributes`
 
@@ -7,17 +7,17 @@
 ```
 <div class="bx--content-section__grid">
   <div class="bx--content-section__row">
-    <div class="bx--content-section__left">
+    <div class="bx--content-section__heading">
       <slot name="heading">
       </slot>
     </div>
     <div class="bx--content-section__children">
-      <div class="bx--promo-group__heading">
+      <div class="bx--cta-block__heading">
         <slot name="group-heading">
         </slot>
       </div>
-      <div class="bx--promo-group__items">
-        <slot name="group-items">
+      <div class="bx--cta-block__items">
+        <slot>
         </slot>
       </div>
     </div>
@@ -31,17 +31,17 @@
 ```
 <div class="bx--content-section__grid">
   <div class="bx--content-section__row">
-    <div class="bx--content-section__left">
+    <div class="bx--content-section__heading">
       <slot name="heading">
       </slot>
     </div>
     <div class="bx--content-section__children">
-      <div class="bx--promo-group__heading">
+      <div class="bx--cta-block__heading">
         <slot name="group-heading">
         </slot>
       </div>
-      <div class="bx--promo-group__items">
-        <slot name="group-items">
+      <div class="bx--cta-block__items">
+        <slot>
         </slot>
       </div>
     </div>
