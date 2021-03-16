@@ -139,7 +139,7 @@ const gridModes = {
 export const withCardInCard = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-in-card grid-mode="${ifNonNull(gridMode)}" href="https://example.com">
+    <dds-card-in-card grid-mode="${gridMode}" href="https://example.com">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
@@ -151,7 +151,7 @@ export const withCardInCard = ({ parameters }) => {
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-in-card-footer>
     </dds-card-in-card>
-    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+    <dds-card-group grid-mode="${gridMode}">
       ${cards}
     </dds-card-group>
   `;
