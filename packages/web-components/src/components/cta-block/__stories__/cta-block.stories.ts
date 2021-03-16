@@ -10,8 +10,6 @@
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
 import '../../content-section/content-section';
 import '../../content-section/content-section-heading';
 import '../../card/card-heading';
@@ -21,7 +19,8 @@ import '../cta-block';
 import '../../content-item/content-item-heading';
 import '../cta-block-item';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
+import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
@@ -40,36 +39,31 @@ const video = html`
 
 const pictogram = html`
   <svg
+    slot="media"
     focusable="false"
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
-    data-autoid="dds--pictogram-item__pictogram"
+    stroke="currentColor"
+    data-autoid="dds--card__pictogram"
     aria-label="Pictogram description"
-    viewBox="0 0 32 32"
+    width="48"
+    height="48"
+    viewBox="0 0 48 48"
     role="img"
-    class="bx--promo-item__pictogram"
+    class="bx--card__pictogram"
   >
     <path
-      d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-    />
-    <path fill="none" d="M0 0h32v32H0z" />
+      fill="none"
+      stroke-linejoin="round"
+      stroke-miterlimit="10"
+      stroke-width=".72"
+      d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+    ></path>
   </svg>
 `;
 
 const statistic = html`
-  <div>100%</div>
+  <div slot="media">100%</div>
 `;
 
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
@@ -163,34 +157,28 @@ export const Default = ({ parameters }) => {
 
 export default {
   title: 'Components/Cta Block',
+  decorators: [
+    (story, { parameters }) => html`
+      <div class="${parameters.gridContentClasses}">
+        ${story()}
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    gridContentClasses: 'bx--grid dds-ce-demo-devenv--simple-grid--content-layout',
     hasVerticalSpacingInComponent: true,
     knobs: {
       CtaBlock: ({ groupId }) => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
-        sectionHeading: textNullable('Heading (required)', 'Title heading', groupId),
+        sectionHeading: textNullable('Heading', 'Title heading', groupId),
         secondaryHeading: textNullable(
-          'Secondary Heading (optional)',
+          'Secondary Heading',
           'Optional title heading-4 color test-01 that spans to multiple lines as needed',
           groupId
         ),
+        mediaType: select('Media Type', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
       }),
     },
   },
-  decorators: [
-    (story, { parameters }) => {
-      const { colLgClass } = parameters;
-      return html`
-        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-          <div class="bx--row">
-            <div class="bx--col-sm-4 ${colLgClass} bx--offset-lg-4">
-              ${story()}
-            </div>
-          </div>
-        </div>
-      `;
-    },
-  ],
 };

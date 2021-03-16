@@ -23,6 +23,15 @@ import '../cta-section-copy';
 import '../cta-section-item';
 import '../cta-section-item-heading';
 import '../cta-section-item-copy';
+import '../../cta-block/cta-block-item';
+import '../../cta-block/cta-block';
+import '../../content-item/content-item';
+import '../../content-item/content-item-copy';
+import '../../content-item/content-item-heading';
+import '../../content-item/content-item-paragraph';
+import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
+import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -92,282 +101,6 @@ export const WithContentItems = ({ parameters }) => {
   `;
 };
 
-export const WithStatisticContentItems = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
-
-  return html`
-    <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy
-          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
-          you.</dds-cta-section-item-copy
-        >
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-      </dds-cta-section-item>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-      </dds-cta-section-item>
-    </dds-cta-section>
-  `;
-};
-
-export const WithPictogramContentItems = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
-
-  return html`
-    <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy
-          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
-          you.</dds-cta-section-item-copy
-        >
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-      </dds-cta-section-item>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-      </dds-cta-section-item>
-    </dds-cta-section>
-  `;
-};
-
-export const WithImageContentItems = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
-
-  return html`
-    <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy
-          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
-          you.</dds-cta-section-item-copy
-        >
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-      </dds-cta-section-item>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-        <svg
-                slot="pictogram"
-                focusable="false"
-                preserveAspectRatio="xMidYMid meet"
-                xmlns="http://www.w3.org/2000/svg"
-                data-autoid="dds--pictogram-item__pictogram"
-                aria-label="Pictogram description"
-                viewBox="0 0 32 32"
-                role="img"
-                class="bx--promo-item__pictogram"
-              >
-                <path
-                  d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-              25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-              0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-              0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-              0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-              0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-              0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-              0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-              0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-              27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-              7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-              0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-                />
-                <path fill="none" d="M0 0h32v32H0z" />
-              </svg>
-        <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-      </dds-cta-section-item>
-    </dds-cta-section>
-  `;
-};
-
 export const WithLinkList = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
@@ -411,18 +144,160 @@ export const WithLinkList = ({ parameters }) => {
   `;
 };
 
+export const CtaBlock = ({ parameters }) => {
+  const { sectionHeading, secondaryHeading, mediaType } = parameters?.props?.CTASection ?? {};
+  const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
+  const image = html`
+    <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+    </dds-image>
+  `;
+
+  const video = html`
+    <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+  `;
+
+  const pictogram = html`
+    <svg
+      slot="media"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      data-autoid="dds--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      role="img"
+      class="bx--card__pictogram"
+    >
+      <path
+        fill="none"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        stroke-width=".72"
+        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,
+        32v5 M9,27h30"
+      ></path>
+    </svg>
+  `;
+
+  const statistic = html`
+    <div slot="media">100%</div>
+  `;
+
+  const ctaBlockItems = [
+    {
+      heading: 'End-to-end IT management',
+      copy: `Manage and orchestrate your hybrid multicloud infrastructure
+    with the most secure, reliable and flexible servers available today.`,
+      linkWithIcon: {
+        href: 'https://www.example.com',
+        copy: 'Explore hybrid cloud infrastructure',
+      },
+    },
+    {
+      heading: 'Secure data and workloads',
+      copy: `Protect data beyond the platform and achieve regulatory compliance 
+    and resiliency with exceptional data security and privacy capabilities.`,
+      linkWithIcon: {
+        href: 'https://www.example.com',
+        copy: 'Explore infrastructure security',
+      },
+    },
+    {
+      heading: 'Flexible deployment',
+      copy: `Build once, run anywhere with flexible open compute solutions that 
+    support multiple Linux distributions, plus industry-leading cloud-native deployment.`,
+      linkWithIcon: {
+        href: 'https://www.example.com',
+        copy: 'Explore scale-out servers',
+      },
+    },
+    {
+      heading: 'Suspendisse nec est efficitur',
+      copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
+    the most secure, reliable and flexible servers available today.`,
+      linkWithIcon: {
+        href: 'https://www.example.com',
+        copy: 'Lorem ipsum dolar',
+      },
+    },
+    {
+      heading: 'Morbi eget placerat felis',
+      copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
+    the most secure, reliable and flexible servers available today.`,
+      linkWithIcon: {
+        href: 'https://www.example.com',
+        copy: 'Lorem ipsum dolar',
+      },
+    },
+  ];
+
+  return html`
+    <dds-cta-block>
+      <dds-content-section-heading>${ifNonNull(sectionHeading)}</dds-content-section-heading>
+
+      <dds-content-group slot="group-heading">
+        <dds-content-group-heading>${ifNonNull(secondaryHeading)}</dds-content-group-heading>
+        <dds-content-group-copy
+          >Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose. eiusmode tempor incididunt
+          ut.</dds-content-group-copy
+        >
+        <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+          Optional text link example ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-with-icon>
+      </dds-content-group>
+
+      ${ctaBlockItems.map(
+        ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+          <dds-cta-block-item>
+            ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
+            ${mediaType === 'pictogram' ? pictogram : ``} ${mediaType === 'statistic' ? statistic : ``}
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+            <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+              ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-cta-block-item>
+        `
+      )}
+    </dds-cta-block>
+  `;
+};
+
+CtaBlock.story = {
+  parameters: {
+    gridContentClasses: 'bx--grid dds-ce-demo-devenv--simple-grid--content-layout',
+    knobs: {
+      CTASection: ({ groupId }) => ({
+        sectionHeading: textNullable('Heading', 'Title heading', groupId),
+        secondaryHeading: textNullable(
+          'Secondary Heading',
+          'Optional title heading-4 color test-01 that spans to multiple lines as needed',
+          groupId
+        ),
+        mediaType: select('Media Type', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/CTA Section',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+      <div class="${parameters.gridContentClasses}">
         ${story()}
       </div>
     `,
   ],
   parameters: {
     hasGrid: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout',
     hasVerticalSpacingInComponent: true,
     knobs: {
       CTASection: ({ groupId }) => ({
