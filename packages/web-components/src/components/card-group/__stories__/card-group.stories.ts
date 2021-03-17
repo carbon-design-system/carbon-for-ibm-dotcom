@@ -43,7 +43,7 @@ const defaultCardGroupItem = html`
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+    <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
@@ -140,7 +140,7 @@ export const withMixedMedia = () => {
           <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
         </dds-card-group-item>
         <dds-card-group-item href="https://example.com">
-          <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+          <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
           Image copy
           <dds-card-footer slot="footer">
             ${ArrowRight20({ slot: 'icon' })}
@@ -150,7 +150,7 @@ export const withMixedMedia = () => {
           <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
         </dds-card-group-item>
         <dds-card-group-item href="https://example.com">
-          <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+          <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
           Image copy
           <dds-card-footer slot="footer">
             ${ArrowRight20({ slot: 'icon' })}
