@@ -203,7 +203,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    // this.ownerDocument!.defaultView!.location.hash = target;
     smoothScroll(null, `a[name="${target}"]`);
     const elem = this.querySelector(`a[name="${target}"]`);
     if (elem) {
