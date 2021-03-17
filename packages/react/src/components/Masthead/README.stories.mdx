@@ -242,6 +242,16 @@ const platformData = {
 <Masthead platform={platformData} navigation="default" />;
 ```
 
+## searchAlwaysOpen
+
+Search will always be open, it cannot be closed.
+Clicking the close button will clear and focus the search input only.
+> This should only be used when there are no navigation items in the masthead.
+
+```javascript
+<Masthead navigation="default" searchAlwaysOpen />;
+```
+
 ## searchNoRedirect
 
 This will disable the default redirecting of the search component as well as emit

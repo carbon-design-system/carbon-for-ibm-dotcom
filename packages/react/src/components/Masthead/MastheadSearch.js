@@ -103,7 +103,6 @@ const MastheadSearch = ({
   ...rest
 }) => {
   const { ref } = useSearchVisible(false);
-
   /**
    * Initial state of the autocomplete component
    *
@@ -115,7 +114,7 @@ const MastheadSearch = ({
     suggestions: [],
     prevSuggestions: [],
     suggestionContainerVisible: false,
-    isSearchOpen: searchOpenOnload,
+    isSearchOpen: searchOpenOnload || rest.searchAlwaysOpen,
     lc: 'en',
     cc: 'us',
   };
@@ -166,16 +165,18 @@ const MastheadSearch = ({
     };
 
     /**
-     * Close search when click detected outside of component.
-     * This is necessary otherwise search stays open even when
-     * elements other than the close button and the
-     * profile button are clicked.
+     * Close search when click detected outside of component
+     * unless searchAlwaysOpen is true.
      *
      * @param {*} event Click event outside masthead component
      */
     const handleClickOutside = event => {
       let mastheadRef = ref.current?.closest('.bx--masthead');
-      if (mastheadRef && !mastheadRef.contains(event.target)) {
+      if (
+        mastheadRef &&
+        !mastheadRef.contains(event.target) &&
+        !rest.searchAlwaysOpen
+      ) {
         // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
         if (state.val.length === 0) {
           dispatch({ type: 'setSearchClosed' });
@@ -314,15 +315,27 @@ const MastheadSearch = ({
   }
 
   /**
-   * Clear search and clear input when called
+   * Close search and clear input if searchAlwaysOpen is false.
+   * If searchAlwaysOpen is true, clear input only.
    */
   const resetSearch = useCallback(() => {
-    dispatch({ type: 'setSearchClosed' });
+    const searchElRef = !rest.searchAlwaysOpen
+      ? root.document.querySelectorAll(
+          `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
+        )
+      : root.document.querySelectorAll(
+          `[data-autoid="${stablePrefix}--header__search--input"]`
+        );
+
+    if (!rest.searchAlwaysOpen) dispatch({ type: 'setSearchClosed' });
+
     dispatch({
       type: 'setVal',
       payload: { val: '' },
     });
-  }, [dispatch]);
+
+    searchElRef && searchElRef[0].focus();
+  }, [dispatch, rest.searchAlwaysOpen, navType]);
 
   /**
    * closeBtnAction resets and sets focus after search is closed
@@ -336,10 +349,6 @@ const MastheadSearch = ({
     event.currentTarget.dispatchEvent(onSearchCloseClicked);
 
     resetSearch();
-    const searchIconRef = root.document.querySelectorAll(
-      `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
-    );
-    searchIconRef && searchIconRef[0].focus();
   }
 
   /**
@@ -550,6 +559,11 @@ MastheadSearch.propTypes = {
    * Number of characters to begin showing suggestions.
    */
   renderValue: PropTypes.number,
+
+  /**
+   * `true` to make the search field always open.
+   */
+  searchAlwaysOpen: PropTypes.bool,
 
   /**
    * `true` to make the search field open in the initial state.
