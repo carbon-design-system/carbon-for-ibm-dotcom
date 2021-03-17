@@ -46,8 +46,6 @@ export default {
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
-        defaultSrc: textNullable('Image src (defaultSrc):', imgLg1x1),
-        alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),
     },
