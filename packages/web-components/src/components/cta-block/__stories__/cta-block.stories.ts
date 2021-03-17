@@ -71,7 +71,6 @@ const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
 const ctaBlockItems = [
   {
     heading: 'End-to-end IT management',
-    statistic: '96%',
     copy: `Manage and orchestrate your hybrid multicloud infrastructure
     with the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {
@@ -81,7 +80,6 @@ const ctaBlockItems = [
   },
   {
     heading: 'Secure data and workloads',
-    statistic: '43%',
     copy: `Protect data beyond the platform and achieve regulatory compliance 
     and resiliency with exceptional data security and privacy capabilities.`,
     linkWithIcon: {
@@ -91,7 +89,6 @@ const ctaBlockItems = [
   },
   {
     heading: 'Flexible deployment',
-    statistic: '64%',
     copy: `Build once, run anywhere with flexible open compute solutions that 
     support multiple Linux distributions, plus industry-leading cloud-native deployment.`,
     linkWithIcon: {
@@ -101,7 +98,6 @@ const ctaBlockItems = [
   },
   {
     heading: 'Suspendisse nec est efficitur',
-    statistic: '2.5B',
     copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
     the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {
@@ -111,7 +107,6 @@ const ctaBlockItems = [
   },
   {
     heading: 'Morbi eget placerat felis',
-    statistic: '5.00hrs',
     copy: `Manage and orchestrate your hybrid multicloud infrastructure with 
     the most secure, reliable and flexible servers available today.`,
     linkWithIcon: {

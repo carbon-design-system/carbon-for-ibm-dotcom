@@ -8,6 +8,7 @@
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/scale';
 
 @mixin cta-block {
   :host(#{$dds-prefix}-cta-block) {
@@ -69,23 +70,23 @@
     }
 
     ::slotted(span.#{$dds-prefix}--cta-block__statistic) {
-      font-weight: 600 !important;
+      font-weight: carbon--font-weight('semibold') !important;
       margin-bottom: $carbon--spacing-07 !important;
 
       @include carbon--breakpoint-down('md') {
-        font-size: 42px !important;
+        font-size: 2.625rem !important;
       }
 
       @include carbon--breakpoint('md') {
-        font-size: 54px !important;
+        font-size: 3.375rem !important;
       }
 
       @include carbon--breakpoint('lg') {
-        font-size: 60px !important;
+        font-size: 3.75rem !important;
       }
 
       @include carbon--breakpoint('xlg') {
-        font-size: 76px !important;
+        font-size: 4.75rem !important;
       }
     }
 
@@ -101,7 +102,7 @@
   }
 
   :host(#{$dds-prefix}-cta-block-item):last-of-type {
-    border-bottom: 0px !important;
+    border-bottom: 0 !important;
   }
 
   :host(#{$dds-prefix}-content-group-heading) {

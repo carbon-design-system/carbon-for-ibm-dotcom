@@ -166,27 +166,27 @@ export const CtaBlock = ({ parameters }) => {
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
       stroke="currentColor"
-      data-autoid="dds--card__pictogram"
-      aria-label="Pictogram description"
+      data-autoid="dds--cta-block__pictogram"
+      aria-label="Pictogram"
       width="48"
       height="48"
       viewBox="0 0 48 48"
       role="img"
-      class="bx--card__pictogram"
+      class="dds--cta-block__pictogram"
     >
       <path
         fill="none"
         stroke-linejoin="round"
         stroke-miterlimit="10"
         stroke-width=".72"
-        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,
-        32v5 M9,27h30"
+        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,
+        31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
       ></path>
     </svg>
   `;
 
   const statistic = html`
-    <div slot="media">100%</div>
+    <span class="dds--cta-block__statistic" slot="media">100%</span>
   `;
 
   const ctaBlockItems = [
