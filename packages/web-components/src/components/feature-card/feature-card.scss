@@ -16,6 +16,10 @@
   display: block;
   outline: none;
 
+  .#{$prefix}--card {
+    outline-offset: 1px;
+  }
+
   @include carbon--breakpoint-down('md') {
     .#{$prefix}--card__content {
       padding: 0;
@@ -28,7 +32,9 @@
   ::slotted(#{dds-prefix}-card-heading) {
     background-color: $ui-01;
     margin: 0;
+    width: 100%;
     padding: carbon--mini-units(2);
+    padding-right: 10%;
     padding-bottom: var(--cds-layout-03, 2rem);
   }
 
