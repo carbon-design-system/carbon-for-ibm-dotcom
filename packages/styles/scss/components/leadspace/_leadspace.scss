@@ -15,6 +15,7 @@ $btn-min-width: 26;
 
 @mixin gradient($color) {
   .#{$prefix}--leadspace--gradient {
+    //background-color: rgba(22, 22, 22, 0.75);
     background-color: rgba($color, 0.75);
   }
 
@@ -435,16 +436,12 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace__gradient {
-      display: none;
-
-      @include carbon--breakpoint(md) {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .#{$prefix}--leadspace__gradient__rect {
