@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.17.0-rc.0...@carbon/ibmdotcom-styles@1.17.0-rc.1) (2021-03-17)
+
+
+### Bug Fixes
+
+* **leadspace:** fixes carbon theme issue on small breakpoints ([#5526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5526)) ([1ff5f78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1ff5f78)), closes [#5503](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5503)
+
+
+
+
+
 # [1.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.16.1...@carbon/ibmdotcom-styles@1.17.0-rc.0) (2021-03-12)
 
 
