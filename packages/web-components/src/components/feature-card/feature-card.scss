@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,30 @@
 :host(#{$dds-prefix}-feature-card),
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
-
   outline: none;
+
+  @include carbon--breakpoint-down('md') {
+    .#{$prefix}--card__content {
+      padding: 0;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include carbon--breakpoint-down('md') {
+  ::slotted(#{dds-prefix}-card-heading) {
+    background-color: $ui-01;
+    margin: 0;
+    padding: carbon--mini-units(2);
+    padding-bottom: var(--cds-layout-03, 2rem);
+  }
+
+  ::slotted(#{$dds-prefix}-feature-car-footer) {
+    background-color: $ui-01;
+    padding: carbon--mini-units(2);
+    padding-top: 0;
+    margin-top: carbon--mini-units(-4);
+  }
 }
 
 :host(#{$dds-prefix}-feature-card-footer),

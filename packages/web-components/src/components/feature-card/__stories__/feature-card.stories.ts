@@ -19,10 +19,10 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card'] ?? {};
+  const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
-      <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"></dds-image>
       <dds-card-heading>${heading}</dds-card-heading>
       <dds-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
