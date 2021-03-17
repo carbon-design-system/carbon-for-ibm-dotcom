@@ -13,16 +13,17 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/card/card.js';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-footer.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-section/content-section-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon.js';
 import '@carbon/ibmdotcom-web-components/es/components/carousel/carousel.js';
+import '@carbon/ibmdotcom-web-components/es/components/card-section-carousel/card-section-carousel.js'
 ```
 
 ### HTML
 
 ```html
-<dds-content-section>
+<dds-card-section-carousel>
   <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
   <dds-content-section-copy>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -143,7 +144,7 @@ import '@carbon/ibmdotcom-web-components/es/components/carousel/carousel.js';
       </dds-card-footer>
     </dds-card>
   </dds-carousel>
-</dds-content-section>
+</dds-card-section-carousel>
 ```
 
 ## Carousel
@@ -153,5 +154,13 @@ Check the [documentation](https://github.com/carbon-design-system/carbon-for-ibm
 ## Card
 
 Check the [documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components/src/components/card/__stories__/README.stories.mdx) for `dds-card`.
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector       | Compatibility selector                    | Description |
+| ----------------------------- | ----------------------------------------- | ----------- |
+| `<dds-card-section-carousel>`   | `data-autoid="dds--card-section-carousel"`  | Component   |
 
 <Description markdown={contributing} />

@@ -30,7 +30,7 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 #### Setting Platform
 
 ```html
-<dds-masthead-container brand-name="Lorem Ipsum"></dds-masthead-container>
+<dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
 ```
 
 #### Custom Navigation
@@ -40,8 +40,27 @@ const links = [...menu items...];
 document.getElementById('masthead-container').navLinks = links;
 ```
 
+#### Using L1 nav
+
+To use L1 nav, set `l1Data` prop. `l1Data` prop should be an
+object that contains the navigation data of L1 nav:
+
+```javascipt
+const l1Data = {
+  title: 'Stock Charts',
+  url: 'https://example.com',
+  menuItems: (The nav links),
+}
+```
+
 ```html
 <dds-masthead-container id="masthead-container"></dds-masthead-container>
+```
+
+To set a custom endpoint for the translation service to fetch from, set either the `data-endpoint` attribute like below or `DDS_TRANSLATION_ENDPOINT` environment variable.
+
+```html
+<dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
 
 ## Stable selectors
