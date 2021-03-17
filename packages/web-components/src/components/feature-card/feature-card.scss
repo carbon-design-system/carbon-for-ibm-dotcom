@@ -16,10 +16,6 @@
   display: block;
   outline: none;
 
-  .#{$prefix}--card {
-    outline-offset: 1px;
-  }
-
   @include carbon--breakpoint-down('md') {
     .#{$prefix}--card__content {
       padding: 0;
@@ -29,16 +25,16 @@
 }
 
 @include carbon--breakpoint-down('md') {
-  ::slotted(#{dds-prefix}-card-heading) {
+  ::slotted(#{$dds-prefix}-card-heading) {
     background-color: $ui-01;
     margin: 0;
     width: 100%;
     padding: carbon--mini-units(2);
     padding-right: 10%;
-    padding-bottom: var(--cds-layout-03, 2rem);
+    padding-bottom: $layout-03;
   }
 
-  ::slotted(#{$dds-prefix}-feature-car-footer) {
+  ::slotted(#{$dds-prefix}-feature-card-footer) {
     background-color: $ui-01;
     padding: carbon--mini-units(2);
     padding-top: 0;

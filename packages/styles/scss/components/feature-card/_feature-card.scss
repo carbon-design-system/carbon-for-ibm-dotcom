@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -70,6 +70,27 @@
 
     @include carbon--breakpoint-down('md') {
       padding-top: aspect-ratio(1, 1);
+
+      .#{$prefix}--card__content {
+        padding: 0;
+        justify-content: space-between;
+      }
+
+      #{$prefix}--card__heading {
+        background-color: $ui-01;
+        margin: 0;
+        width: 100%;
+        padding: carbon--mini-units(2);
+        padding-right: 10%;
+        padding-bottom: $layout-03;
+      }
+
+      #{$prefix}--card__footer {
+        background-color: $ui-01;
+        padding: carbon--mini-units(2);
+        padding-top: 0;
+        margin-top: carbon--mini-units(-4);
+      }
     }
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
