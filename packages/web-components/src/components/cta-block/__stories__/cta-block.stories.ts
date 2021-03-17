@@ -156,7 +156,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Cta Block',
+  title: 'Components/CTA Block',
   decorators: [
     (story, { parameters }) => html`
       <div class="${parameters.gridContentClasses}">
