@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -134,17 +134,21 @@ const HeaderNavContainer = ({ children }) => {
   }, [setIO]);
 
   useEffect(() => {
+    const navContent = contentRef.current;
+
     if (io) {
+      navContent.addEventListener('keydown', handleOnKeyDown);
       io.observe(contentLeftRef.current);
       io.observe(contentRightRef.current);
     } else {
       return () => {
         if (io) {
+          navContent.removeEventListener('keydown', handleOnKeyDown);
           io.disconnect();
         }
       };
     }
-  }, [io]);
+  });
 
   /**
    * Keyboard event handler for menu items.
@@ -178,10 +182,7 @@ const HeaderNavContainer = ({ children }) => {
   return (
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
-        <div
-          className={`${prefix}--header__nav-content`}
-          ref={contentRef}
-          onKeyDown={handleOnKeyDown}>
+        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
           <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
           <div
             className={`${prefix}--sub-content-right`}

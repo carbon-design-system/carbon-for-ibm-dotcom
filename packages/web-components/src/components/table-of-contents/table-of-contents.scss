@@ -26,9 +26,16 @@
   @extend .#{$prefix}--col-lg-12;
 }
 
-.#{$dds-prefix}-ce--table-of-contents__container {
+.#{$dds-prefix}-ce--table-of-contents__container,
+.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
   @include carbon--make-row();
+}
 
+.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
+  position: relative;
+}
+
+.#{$dds-prefix}-ce--table-of-contents__container {
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
   ::slotted(#{$dds-prefix}-content-block-simple),
   ::slotted(#{$dds-prefix}-content-block-segmented) {
@@ -38,12 +45,5 @@
 
   .#{$prefix}--tableofcontents__sidebar {
     top: 48px;
-  }
-}
-
-.#{$dds-prefix}-ce--table-of-contents__items-container {
-  @include carbon--breakpoint('lg') {
-    position: sticky;
-    top: 0;
   }
 }

@@ -11,6 +11,10 @@
 :host(#{$dds-prefix}-link-list-section) {
   display: block;
 
+  .#{$prefix}--content-section__left {
+    padding-top: 0;
+  }
+
   .#{$prefix}--content-section__children {
     margin-top: 0;
 

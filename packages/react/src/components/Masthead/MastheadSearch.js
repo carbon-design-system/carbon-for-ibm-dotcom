@@ -45,10 +45,10 @@ const _trimAndLower = valueString => valueString.toLowerCase().trim();
 /**
  * When a suggestion item is clicked, we populate the input with its name field
  *
- * @param {object} suggestion The individual object from the data
+ * @param {object} suggestion The individual object or key name from the data
  * @returns {*} The name val
  */
-const _getSuggestionValue = suggestion => suggestion[0];
+const _getSuggestionValue = suggestion => suggestion[0] || suggestion.name;
 
 /**
  * Reducer for the useReducer hook
@@ -268,6 +268,15 @@ const MastheadSearch = ({
   };
 
   /**
+   * Autosuggest will pass through all these props to the container.
+   *
+   * @type {{'aria-label': string}}
+   */
+  const containerProps = {
+    'aria-label': placeHolderText,
+  };
+
+  /**
    * Executes the logic for the search icon depending on search input state.
    * This will execute the search if the search is open, or will open the
    * search field if closed.
@@ -399,7 +408,7 @@ const MastheadSearch = ({
     if (request.reason === 'input-changed') {
       // if the search input has changed
       let response = rest.customTypeaheadApi
-        ? rest.customTypeaheadApi(searchValue)
+        ? await rest.customTypeaheadApi(searchValue)
         : await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
@@ -452,6 +461,28 @@ const MastheadSearch = ({
     return value.trim().length >= renderValue;
   }
 
+  /**
+   * Render section title
+   *
+   * @param {Array} section Array of section results
+   * @returns {string} Section title
+   */
+  function renderSectionTitle(section) {
+    return section.items.length > 1 && section.title ? (
+      <span>{section.title}</span>
+    ) : null;
+  }
+
+  /**
+   * Render section results
+   *
+   * @param {Array} section Array of section results
+   * @returns {object} Section items
+   */
+  function getSectionSuggestions(section) {
+    return section.items;
+  }
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -472,10 +503,17 @@ const MastheadSearch = ({
             getSuggestionValue={_getSuggestionValue} // Name of suggestion
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-            highlightFirstSuggestion // First suggestion is highlighted by default
             inputProps={inputProps}
+            containerProps={containerProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
+            {...(rest.multiSection
+              ? {
+                  multiSection: true,
+                  renderSectionTitle: renderSectionTitle,
+                  getSectionSuggestions: getSectionSuggestions,
+                }
+              : {})}
           />
         </form>
       )}

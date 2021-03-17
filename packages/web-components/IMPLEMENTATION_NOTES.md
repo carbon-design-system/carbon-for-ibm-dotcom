@@ -17,16 +17,26 @@
   - [Components rendering modal](#components-rendering-modal)
 - [CTA components](#cta-components)
   - [Video CTA](#video-cta)
+- [Video player](#video-player)
 - [React integration](#react-integration)
   - [React wrapper generator](#react-wrapper-generator)
   - [Build procedure to generate React wrapper](#build-procedure-to-generate-react-wrapper)
     - [Limited components to generate React wrapper](#limited-components-to-generate-react-wrapper)
   - [Non-React APIs for React integration](#non-react-apis-for-react-integration)
+  - [React SSR integration](#react-ssr-integration)
+  - [Composite/container components for React](#compositecontainer-components-for-react)
 - [Container components](#container-components)
   - [Triggering action dispatcher](#triggering-action-dispatcher)
 - [Masthead search](#masthead-search)
 - [TypeScript type definition](#typescript-type-definition)
 - [Vendor directory](#vendor-directory)
+- [Rollup bundle for Dotcom Shell](#rollup-bundle-for-dotcom-shell)
+  - [Sass optimization](#sass-optimization)
+  - [HTML optimization](#html-optimization)
+  - [Custom element definition for `carbon-web-components`](#custom-element-definition-for-carbon-web-components)
+  - [Building icons](#building-icons)
+  - [Building styles](#building-styles)
+  - [License header](#license-header)
 - [Unit tests](#unit-tests)
   - [Test setup](#test-setup)
   - [Writing tests](#writing-tests)
@@ -40,6 +50,9 @@
   - [Defining mocks](#defining-mocks)
   - [Restoring state](#restoring-state)
 - [RTL support](#rtl-support)
+- [Storybook CSF integration](#storybook-csf-integration)
+- [License header](#license-header-1)
+- [Focus wrapping](#focus-wrapping)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -149,6 +162,18 @@ Only one instance of `<dds-video-cta-container>` is needed in an application, as
 - Send an event (`dds-cta-request-video-data`) when user clicks on CTA so that the lightbox video player code can launch the light box
 - (Video caption/duration/thumbnail)
 
+## Video player
+
+Video player has two states, one is [thumbnail mode](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/defs.ts#L17) and one is [video (playing) mode](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/defs.ts#L22). When user clicks on video thumbmail, [`dds-video-player-content-state-changed` event is fired](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player.ts#L42-L51) so `<dds-masthead-composite>` can [start embedding the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L80-L86).
+
+Embedding the video involves:
+
+1. [Creating the DOM element of the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L157-L159)
+2. [Putting above DOM element to the right place](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L160-L164). `<dds-video-player-composite>` specifies the place for the DOM element of the video via [`selectorVideoPlayer` static property](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L182-L184). [`<dds-lightbox-video-player-composite>` overrides it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/lightbox-media-viewer/lightbox-video-player-composite.ts#L119-L121).
+3. [Calling video player API from `@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-container.ts#L165)
+
+Video player in Web Components codebase allows embedded videos to be reused, e.g. for re-opening lightbox. To do that, instead of throwing away the DOM of embedded video, the code [stops the video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L59) and [hides the DOM of the embedded video](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.16.0/packages/web-components/src/components/video-player/video-player-composite.ts#L62) when the embedded video should stop being presented.
+
 ## React integration
 
 While Angular/Vue require limited/no change in application to use Web Components, React has some problems with Web Components support. React heavily relies on its knowledge with regard to how intrinsic HTML elements work.
@@ -211,6 +236,46 @@ export * from '../../components/card/defs.js';
 ```
 
 The build procedure can be found at [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0-rc.1/packages/web-components/gulp-tasks/build.js#L257-L282).
+
+### React SSR integration
+
+With `12.16.3` or higher version of Node, the React wrappers can be server-side rendered.
+
+Running our component code in Node causes JavaScript error because:
+
+- Web Components spec is based on HTMLElement, a spec on browser
+- `lit-html` and `lit-element` ships only their ESM code
+
+To avoid such JavaScript error, we leverage [conditional mapping](https://github.com/jkrems/proposal-pkg-exports#2-conditional-mapping) feature that was introduced in Node `12.16.3`, that allows us to write something like below in `package.json`:
+
+```json
+"exports": {
+  "./es/components-react/": {
+    "node": "./lib/components-react-node/",
+    "default": "./es/components-react/"
+  }
+}
+```
+
+It makes `import` or `require()` behave like:
+
+| `import` or `require()`                                                     | File loaded in browser                      | File loaded in Node                               |
+| --------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------- |
+| `@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead.js` | `/es/components-react/masthead/masthead.js` | `/lib/components-react-node/masthead/masthead.js` |
+
+And the file loaded in browser (browser version) and the file loaded in Node (Node version) have the following differences, so Node version won't cause JavaScript error by running ESM or browser-specific code:
+
+| Item                                       | Browser version | Node version |
+| ------------------------------------------ | --------------- | ------------ |
+| Module format                              | ESM             | CommonJS     |
+| Loads Web Components implementation module | Yes             | No           |
+| Loads `lit-html` and `lit-element`         | Yes             | No           |
+
+### Composite/container components for React
+
+React wrappers for composite components renders Web Components of leaf components, instead of the Web Components version of composite component. Doing so ensures React SSR works for REST API calls, reducing network round-trips that is the key benefit of React SSR. An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-composite.tsx).
+
+React wrappers for container components uses official Redux integration library, `react-redux`. Doing so allows application of Redux store to be scoped, leveraging [React's context feature](https://reactjs.org/docs/context.html). An example is [one for `<dds-leaving-ibm-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components-react/leaving-ibm/leaving-ibm-container.ts).
 
 ## Container components
 
@@ -290,6 +355,36 @@ The `import`s of `@carbon/ibmdotcom-services-store` code in `@carbon/ibmdotcom-w
 ```javascript
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 ```
+
+## Rollup bundle for Dotcom Shell
+
+For quick setup of project using minimum feature set (Dotcom Shell) of `@carbon/ibmdotcom-web-components`, a [Rollup bundle](https://unpkg.com/browse/@carbon/ibmdotcom-web-components@1.0.0/dist/ibmdotcom-web-components-dotcom-shell.min.js) is provided.
+
+The Rollup bundle builds the [entry point (`ibmdotcom-web-components-dotcom-shell.ts`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/ibmdotcom-web-components-dotcom-shell.ts). Whenever the Dotcom Shell contains a new components, etc. the entry point file must be updated.
+
+### Sass optimization
+
+The [Rollup config](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L80-L89) replaces `.css.js` files with [`.scss` entry point file (`ibmdotcom-web-components-dotcom-shell.scss`)](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/globals/scss/ibmdotcom-web-components-dotcom-shell.scss), so that CSS code that are included in multiple `.css.js` files (e.g. Carbon reset styles) are not duplicated in the Rollup bundle.
+
+### HTML optimization
+
+The Rollup bundle [minifies HTML content in `lit-html` templates](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L116-L131) to reduce its size.
+
+### Custom element definition for `carbon-web-components`
+
+The Rollup bundle [does _not_ define custom elements from `carbon-web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/get-rollup-config.js#L135-L140), because the bundle is not meant for `carbon-web-components`' bundle.
+
+### Building icons
+
+There are some icons from `@carbon/ibmdotcom-styles` included in the Rollup bundle. We use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-ibmdotcom-icon.js) that converts those icons to `lit-html` version.
+
+### Building styles
+
+To build `.scss` files into the Rollup bundle, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-lit-scss.js) to build the Sass and convert it to a `lit-html` template.
+
+### License header
+
+Given the Rollup bundle includes third-party dependencies, we use a [Rollup plugin](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/tools/rollup-plugin-license.js) to aggregate the license headers of those third-party dependencies and to put it to the top, along with our own license header.
 
 ## Unit tests
 
@@ -386,3 +481,30 @@ The develoment environment looks at `STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL`
 Both of above use [RTLCSS](https://rtlcss.com) to generate the RTL version. RTLCSS has feature of [conrtol](https://rtlcss.com/learn/usage-guide/control-directives/)/[value](https://rtlcss.com/learn/usage-guide/value-directives/) directives, that `@carbon/ibmdotcom-web-components` codebase [utilize](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/masthead.scss#L347-L356).
 
 How to use the RTL version of CSS can be seen at [the usage documentation](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/docs/enable-rtl.md).
+
+## Storybook CSF integration
+
+Storybook introduced a new story format in `5.x` timeframe, called Component Story Format (CSF). It makes stories an ECMAScript import, that is great for reusing stories.
+
+Unfortunately, knobs still require imperative API embedded in stories, which means as soon as we define knobs in stories any code calling stories depends on such knobs.
+
+To make sure that we can reuse stories for unit tests without depending on knobs, we define knobs somewhere outside stories, which is, in story parameters (`parameters.knobs`), like [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L116-L146). Such `parameters.knobs` is evaluated in a [global story decorator](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/.storybook/decorator-knobs.ts) and put into `parameters.props`, so that stories can refer to like [this](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__stories__/card.stories.ts#L26).
+
+In this way, test can specify its own `parameters.props`, without being interfered by knobs. An example can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/card/__tests__/card.test.ts#L14-L21).
+
+## License header
+
+We ensure that our source code has appropriate licence header, with two mechanisms:
+
+1. The [CI task](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L25) that [checks if all source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/gulp-tasks/lint.js#L25-L50).
+2. The [pre-commit hook](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/.lintstagedrc#L4) that [checks if all staged source files have license headers](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/package.json#L27). If the license year is found stale in the step, we [update it](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/tasks/check-license.js#L46-L54) here.
+
+## Focus wrapping
+
+Components like modal and left nav requires the keyboard focus to be kept within the component while it's open. There is a [spec discussion](https://github.com/whatwg/html/issues/897) for defining stack of elements where keyboard focus is kept within, but nothing has been implemented yet.
+
+To get a similar behavior, `<dds-expressive-modal>` defines their own "focus wrap" behavior. The code [detects if the keyboard focus gets out of `<dds-expressive-modal>`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L146-L155), and if it's the case, moves the focus back within `<dds-expressive-modal>`.
+
+Making sure focus wrapping code works even if `<dds-expressive-modal>` is the last element in `<body>` requires extra mechanism, because in such case the entire viewport loses focus and thus `blur` event cannot detect the newly focused element. To make sure the focus wrapping code in such case, we use ["focus sentinel"](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex#modals_and_keyboard_traps), that is [a non-visible focusable element](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/expressive-modal/expressive-modal.ts#L306) that gets focused before the viewport loses focus.
+
+`<dds-left-nav>` uses a [utility function](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js) for that purpose, to support two regions for focus wrapping. When the focus goes out of `<dds-masthead-menu-button>`, which is the trigger button for `<dds-left-nav>`, the focus should go to `<dds-left-nav>`. When the focus goes out of `<dds-left-nav>`, the focus should go to `<dds-masthead-menu-button>`. The utility function fires [`dds-request-focus-wrap` custom event](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/utilities/src/utilities/focuswrap/focuswrap.js#L23) in such condition, and `<dds-left-nav>` [handles `dds-request-focus-wrap` event](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/v1.15.0/packages/web-components/src/components/masthead/left-nav.ts#L61-L93) to decide whether `<dds-masthead-menu-button>` or `<dds-left-nav>` should get focus.

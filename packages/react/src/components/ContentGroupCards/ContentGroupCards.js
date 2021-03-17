@@ -1,17 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
 import ContentGroup from '../../internal/components/ContentGroup/ContentGroup';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
-import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
+import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
@@ -20,34 +19,6 @@ const { stablePrefix } = ddsSettings;
  * Card Array Component.
  */
 const ContentGroupCards = ({ heading, items, copy }) => {
-  const containerRef = useRef();
-
-  useEffect(() => {
-    setSameHeight();
-    window.addEventListener('resize', setSameHeight);
-
-    return () => window.removeEventListener('resize', setSameHeight);
-  }, []);
-
-  /**
-   * Function that activates the sameHeight utility
-   */
-  const setSameHeight = () => {
-    window.requestAnimationFrame(() => {
-      const { current: containerNode } = containerRef;
-      if (containerNode) {
-        sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__heading`),
-          'md'
-        );
-        sameHeight(
-          containerNode.getElementsByClassName(`${prefix}--card__copy`),
-          'md'
-        );
-      }
-    });
-  };
-
   return (
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
@@ -55,7 +26,6 @@ const ContentGroupCards = ({ heading, items, copy }) => {
       <ContentGroup heading={heading} copy={copy}>
         <div
           data-autoid={`${stablePrefix}--content-group-cards-group`}
-          ref={containerRef}
           className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
           <div className={`${prefix}--content-group-cards__row`}>
             {_renderCards(items)}

@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.2.0-rc.0...@carbon/ibmdotcom-web-components@1.2.0-rc.1) (2021-03-17)
+
+
+### Bug Fixes
+
+* **leadspace:** fixes carbon theme issue on small breakpoints ([#5526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5526)) ([1ff5f78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1ff5f78)), closes [#5503](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5503)
+
+
+
+
+
+# [1.2.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.54.96...@carbon/ibmdotcom-web-components@1.2.0-rc.0) (2021-03-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.1.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.1-rc.0...@carbon/ibmdotcom-web-components@1.1.1) (2021-03-01)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.1.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.1...@carbon/ibmdotcom-web-components@1.1.1-rc.0) (2021-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.1.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.1...@carbon/ibmdotcom-web-components@1.1.0) (2021-02-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.1.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.0-rc.0...@carbon/ibmdotcom-web-components@1.1.0-rc.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **card:** remove aria-hidden from copy ([#5196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5196)) ([d1a547a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/d1a547a)), closes [#5194](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5194)
+* **expressive-modal:** ensure waiting for transitionend event ([#5189](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5189)) ([a50a2e6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/a50a2e6)), closes [#5173](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5173)
+
+
+
+
+
+# [1.1.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.53.48...@carbon/ibmdotcom-web-components@1.1.0-rc.0) (2021-02-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.0.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.0.0-rc.2...@carbon/ibmdotcom-web-components@1.0.0) (2021-01-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

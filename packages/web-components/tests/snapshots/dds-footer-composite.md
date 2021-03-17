@@ -7,6 +7,7 @@
 ```
 <dds-footer-composite size="">
   <dds-footer
+    aria-label="footer"
     data-autoid="dds--footer"
     role="footer"
     size=""
@@ -18,7 +19,10 @@
       role="navigation"
     >
     </dds-footer-nav>
-    <dds-locale-button data-autoid="dds--locale-btn">
+    <dds-locale-button
+      data-autoid="dds--locale-btn"
+      size=""
+    >
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
@@ -42,6 +46,7 @@
   size=""
 >
   <dds-footer
+    aria-label="footer"
     data-autoid="dds--footer"
     role="footer"
     size=""
@@ -89,7 +94,10 @@
         </dds-footer-nav-item>
       </dds-footer-nav-group>
     </dds-footer-nav>
-    <dds-locale-button data-autoid="dds--locale-btn">
+    <dds-locale-button
+      data-autoid="dds--locale-btn"
+      size=""
+    >
       lang-display-foo
     </dds-locale-button>
     <dds-legal-nav
