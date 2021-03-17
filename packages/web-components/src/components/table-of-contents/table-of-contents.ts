@@ -14,6 +14,7 @@ import { html, internalProperty, query, customElement, LitElement } from 'lit-el
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
+import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './table-of-contents.scss';
 
@@ -195,7 +196,8 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    this.ownerDocument!.defaultView!.location.hash = target;
+    // this.ownerDocument!.defaultView!.location.hash = target;
+    smoothScroll(null, `a[name="${target}"]`);
     const elem = this.querySelector(`a[name="${target}"]`);
     if (elem) {
       elem.setAttribute('tabindex', '0');
