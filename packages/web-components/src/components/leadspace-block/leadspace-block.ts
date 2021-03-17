@@ -8,11 +8,13 @@
  */
 
 import { customElement, internalProperty, html, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -54,17 +56,19 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   protected _renderHeading() {
     const { _hasTitle: hasTitle } = this;
     return html`
-      <div ?hidden="${!hasTitle}">
-        <slot name="heading" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
+      <slot ?hidden="${!hasTitle}" name="heading" @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 
   render() {
     return html`
-      ${this._renderHeading()}
-      <slot></slot>
-      <dds-hr></dds-hr>
+      <div class="${prefix}--content-layout">
+        ${this._renderHeading()}
+        <div class="${prefix}--content-layout__body">
+          <slot></slot>
+          <dds-hr></dds-hr>
+        </div>
+      </div>
     `;
   }
 

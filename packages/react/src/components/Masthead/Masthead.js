@@ -45,7 +45,7 @@ const { prefix } = settings;
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
- * @param {string} props.selectedMenuItem L0 menu item to render with selected state
+ * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -300,6 +300,7 @@ const Masthead = ({
                   {...mastheadL1Data}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  selectedMenuItem={selectedMenuItem}
                 />
               </div>
             )}
@@ -321,7 +322,7 @@ Masthead.propTypes = {
    * | none               | null      | No navigation                               | `<Masthead />`                      |
    *
    * `Custom` navigation data must follow the same structure and key names as `default`.
-   * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+   * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
    */
   navigation: PropTypes.oneOfType([
     PropTypes.string,
@@ -417,7 +418,7 @@ Masthead.propTypes = {
      * | none               | null      | No navigation                               | `<MastheadL1 />`                      |
      *
      * `Custom` navigation data must follow the same structure and key names as `default`.
-     * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+     * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
      */
     navigationL1: PropTypes.oneOfType([
       PropTypes.string,

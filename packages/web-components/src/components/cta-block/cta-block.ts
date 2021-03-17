@@ -1,4 +1,13 @@
-import { customElement, html, internalProperty, LitElement } from 'lit-element';
+/**
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+import { customElement, html } from 'lit-element';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -17,8 +26,6 @@ class DDSCtaBlock extends StableSelectorMixin(DDSContentItem) {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'section');
     }
-    let app = document.getElementsByTagName('dds-content-section-heading');
-
     super.connectedCallback();
   }
 

@@ -155,7 +155,7 @@
   :host(#{$dds-prefix}-megamenu-category-group-copy) {
     display: block;
     @include use-carbon-productive-tokens();
-    @include type-style('body-short-01');
+    @include type-style('body-long-01');
 
     color: $text-02;
     padding: rem(6px) $spacing-05 rem(10px);
@@ -173,6 +173,8 @@
 
     .#{$prefix}--masthead__megamenu__copy,
     ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
+      @include type-style('body-long-01');
+
       color: $text-01;
       margin-top: rem(-6px);
       padding: 0 $spacing-05 $spacing-03 $spacing-05;

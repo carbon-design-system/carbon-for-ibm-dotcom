@@ -59,6 +59,17 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
     `;
   }
 
+  updated(changedProperties) {
+    if (changedProperties.has('name')) {
+      this.setAttribute('aria-label', this.name);
+    }
+  }
+
+  connectedCallback() {
+    this.setAttribute('role', 'dialog');
+    super.connectedCallback();
+  }
+
   /**
    * The media description.
    */

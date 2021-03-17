@@ -135,7 +135,7 @@ WithCustomNavigation.story = {
           ),
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
-            'Services & Consulting',
+            'Lorem ipsum dolor sit amet',
             groupId
           ),
         };
@@ -149,7 +149,6 @@ export const SearchOpenByDefault = ({ parameters }) => (
 );
 
 SearchOpenByDefault.story = {
-  name: 'Search open by default',
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
@@ -234,18 +233,22 @@ WithL1.story = {
             ),
             navigationL1: mastheadKnobs.navigation.custom,
           },
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Lorem ipsum dolor sit amet',
+            groupId
+          ),
         };
       },
     },
   },
 };
 
-export const WithAlternateLogo = ({ parameters }) => (
+export const WithAlternateLogoAndTooltip = ({ parameters }) => (
   <Masthead {...(parameters?.props?.Masthead ?? {})} />
 );
 
-WithAlternateLogo.story = {
-  name: 'With logo data',
+WithAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
@@ -284,7 +287,7 @@ WithAlternateLogo.story = {
           mastheadLogo: select(
             'masthead logo data (mastheadLogo)',
             mastheadKnobs.mastheadLogo,
-            mastheadKnobs.mastheadLogo.defaultNoTooltip,
+            mastheadKnobs.mastheadLogo.alternateWithTooltip,
             groupId
           ),
         };
