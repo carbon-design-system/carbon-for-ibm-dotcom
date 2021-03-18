@@ -16,15 +16,15 @@
     </slot>
     <slot>
     </slot>
-    <div hidden="">
-      <slot name="media">
-      </slot>
-    </div>
+    <slot name="media">
+    </slot>
     <div hidden="">
       <slot name="footer">
       </slot>
     </div>
   </div>
+  <slot name="complementary">
+  </slot>
 </div>
 
 ```
@@ -43,15 +43,15 @@
     </slot>
     <slot>
     </slot>
-    <div hidden="">
-      <slot name="media">
-      </slot>
-    </div>
+    <slot name="media">
+    </slot>
     <div hidden="">
       <slot name="footer">
       </slot>
     </div>
   </div>
+  <slot name="complementary">
+  </slot>
 </div>
 
 ```
