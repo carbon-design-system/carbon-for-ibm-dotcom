@@ -216,6 +216,7 @@ withCardInCard.story = {
 export default {
   title: 'Components/Card Group',
   parameters: {
+    hasGrid: true,
     ...readme.parameters,
     hasCardGroupStandalone: true,
     knobs: {
