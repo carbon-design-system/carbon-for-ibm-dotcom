@@ -36,12 +36,12 @@ const cardRandomPhrase = () => {
     'Te sint disputando pri, at his aliquip corrumpit',
   ];
 
-  const randomSampleText = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+  const randomPhrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com">
       <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
       <p>
-        ${randomSampleText}
+        ${randomPhrase}
       </p>
       <dds-card-footer slot="footer">
         ${ArrowRight20({ slot: 'icon' })}
