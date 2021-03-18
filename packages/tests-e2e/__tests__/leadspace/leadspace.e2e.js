@@ -56,7 +56,7 @@ describe('Leadspace', () => {
   it('should load default with no image in various themes', async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`${_url}${_pathDefaultNoImage}?theme=g100`, {
+    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g100`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -72,7 +72,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathDefaultNoImage}?theme=g90`, {
+    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g90`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -88,7 +88,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathDefaultNoImage}?theme=g10`, {
+    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g10`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -110,7 +110,7 @@ describe('Leadspace', () => {
   it('should load default with image in various themes', async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`${_url}${_pathDefaultImage}?theme=g100`, {
+    await page.goto(`${_url}${_pathDefaultImage}&theme=g100`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -126,7 +126,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathDefaultImage}?theme=g90`, {
+    await page.goto(`${_url}${_pathDefaultImage}&theme=g90`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -142,7 +142,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathDefaultImage}?theme=g10`, {
+    await page.goto(`${_url}${_pathDefaultImage}&theme=g10`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -165,7 +165,7 @@ describe('Leadspace', () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto(`${_url}${_pathCenteredNoImage}?theme=g100`, {
+    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g100`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -181,7 +181,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathCenteredNoImage}?theme=g90`, {
+    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g90`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -197,7 +197,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathCenteredNoImage}?theme=g10`, {
+    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g10`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -220,7 +220,7 @@ describe('Leadspace', () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto(`${_url}${_pathCenteredImage}?theme=g100`, {
+    await page.goto(`${_url}${_pathCenteredImage}&theme=g100`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -236,7 +236,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathCenteredImage}?theme=g90`, {
+    await page.goto(`${_url}${_pathCenteredImage}&theme=g90`, {
       waitUntil: 'load',
       timeout: 15000,
     });
@@ -252,7 +252,7 @@ describe('Leadspace', () => {
       }
     );
 
-    await page.goto(`${_url}${_pathCenteredImage}?theme=g10`, {
+    await page.goto(`${_url}${_pathCenteredImage}&theme=g10`, {
       waitUntil: 'load',
       timeout: 15000,
     });
