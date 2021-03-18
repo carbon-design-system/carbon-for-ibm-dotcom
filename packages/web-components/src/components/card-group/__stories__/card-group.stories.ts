@@ -226,5 +226,12 @@ export default {
         }).map(() => defaultCardGroupItem),
       }),
     },
+    decorators: [
+      story => html`
+        <div class="dds-ce-demo-devenv--simple-grid--stretch">
+          ${story()}
+        </div>
+      `,
+    ],
   },
 };
