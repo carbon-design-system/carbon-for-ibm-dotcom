@@ -29,6 +29,9 @@ import '../../content-block/content-block-copy';
 import '../../content-item-horizontal/content-item-horizontal';
 import '../../content-item-horizontal/content-item-horizontal-copy';
 import '../../content-item-horizontal/content-item-horizontal-eyebrow';
+import '../../leadspace/leadspace';
+import '../../leadspace/leadspace-heading';
+import '../../image/image';
 import '../../leadspace-block/leadspace-block';
 import '../../leadspace-block/leadspace-block-content';
 import '../../leadspace-block/leadspace-block-cta';
@@ -95,7 +98,7 @@ export const Default = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -116,7 +119,7 @@ export const Default = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -167,7 +170,7 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -191,7 +194,7 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -239,7 +242,7 @@ export const searchOpen = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -264,7 +267,7 @@ export const searchOpen = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -300,7 +303,7 @@ export const withPlatform = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -320,7 +323,7 @@ export const withPlatform = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -371,7 +374,7 @@ export const withShortFooter = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -392,7 +395,7 @@ export const withShortFooter = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -433,7 +436,7 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -458,7 +461,7 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -506,7 +509,7 @@ export const withMicroFooter = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -527,7 +530,7 @@ export const withMicroFooter = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -568,7 +571,7 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -593,7 +596,7 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
@@ -641,7 +644,7 @@ export const withL1 = ({ parameters }) => {
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-composite>
         `
       : html`
@@ -662,10 +665,79 @@ export const withL1 = ({ parameters }) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}"
           >
-            ${StoryContent()}
+            ${StoryContent({ type: 'default' })}
           </dds-dotcom-shell-container>
         `}
   `;
+};
+
+export const WithHorizontalTOC = ({ parameters }) => {
+  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
+    parameters?.props?.FooterComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${mastheadStyles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-dotcom-shell-composite
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContent({ type: 'horizontal' })}
+          </dds-dotcom-shell-composite>
+        `
+      : html`
+          <dds-dotcom-shell-container
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            language="${ifNonNull(language)}"
+            lang-display="${ifNonNull(langDisplay)}"
+            footer-size="${ifNonNull(footerSize)}"
+            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .legalLinks="${ifNonNull(legalLinks)}"
+            .localeList="${ifNonNull(localeList)}"
+            .footerLinks="${ifNonNull(footerLinks)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            ?disable-locale-button="${disableLocaleButton}"
+          >
+            ${StoryContent({ type: 'horizontal' })}
+          </dds-dotcom-shell-container>
+        `}
+  `;
+};
+
+WithHorizontalTOC.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        footerSize: select('Size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
+      }),
+    },
+  },
 };
 
 export default {
