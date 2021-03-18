@@ -351,20 +351,6 @@ const StoryContent = ({ type = 'default' }) =>
           ${Array.from([1, 2]).map(() => contentItemHorizontal)}
         </dds-content-group-horizontal>
 
-        <a name="5" data-title="Lobortis elementum nibh tellus"></a>
-        <dds-logo-grid ?hide-border="true">
-          <dds-content-block-heading>Lobortis elementum nibh tellus</dds-content-block-heading>
-          ${logosGroup &&
-            logosGroup.map(
-              elem => html`
-                <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
-              `
-            )}
-          <dds-logo-grid-link href="https://example.com">
-            <p>Amet justo donec</p>
-            ${ArrowRight20({ slot: 'footer' })}
-          </dds-logo-grid-link>
-        </dds-logo-grid>
       </dds-table-of-contents>
     </div>
   </main>
