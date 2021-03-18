@@ -8,8 +8,7 @@
     "node": "12.x"
   },
   "workspaces": {
-    "packages": ["packages/*"],
-    "nohoist": ["@wdio/**", "chromedriver", "wdio-chromedriver-service"]
+    "packages": ["packages/*"]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
