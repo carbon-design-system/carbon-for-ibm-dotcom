@@ -24,21 +24,32 @@ import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import { GRID_MODE } from '../defs';
+import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
 
-const defaultCardGroupItem = html`
-  <dds-card-group-item href="https://example.com">
-    <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-    </p>
-    <dds-card-footer slot="footer">
-      ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-card-group-item>
-`;
+const cardRandomPhrase = () => {
+  const phraseArray = [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+    'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero',
+    'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Te sint disputando pri, at his aliquip corrumpit',
+  ];
+
+  const randomSampleText = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+  const defaultCardGroupItem = html`
+    <dds-card-group-item href="https://example.com">
+      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+      <p>
+        ${randomSampleText}
+      </p>
+      <dds-card-footer slot="footer">
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-footer>
+    </dds-card-group-item>
+  `;
+  return defaultCardGroupItem;
+};
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
@@ -157,6 +168,27 @@ export const withCardInCard = ({ parameters }) => {
   `;
 };
 
+export const withCardInCardAndImageCards = ({ parameters }) => {
+  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
+  return html`
+    <dds-card-in-card href="https://example.com">
+      <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
+        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+      </dds-card-in-card-image>
+      <dds-card-eyebrow>Label</dds-card-eyebrow>
+      <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
+      <dds-card-in-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-in-card-footer>
+    </dds-card-in-card>
+    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+      ${cards}
+    </dds-card-group>
+  `;
+};
+
 withCardInCard.story = {
   parameters: {
     ...readme.parameters,
@@ -171,8 +203,32 @@ withCardInCard.story = {
   },
 };
 
+withCardInCardAndImageCards.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
+        cards: Array.from({
+          length: number('Number of cards', 3, {}, groupId),
+        }).map(() => cardGroupItemWithImages),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Card Group',
+  decorators: [
+    story => html`
+      <style>
+        ${styles}
+      </style>
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-group">
+        ${story()}
+      </div>
+    `,
+  ],
   parameters: {
     ...readme.parameters,
     hasCardGroupStandalone: true,
@@ -180,7 +236,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => defaultCardGroupItem),
+        }).map(() => cardRandomPhrase()),
       }),
     },
   },
