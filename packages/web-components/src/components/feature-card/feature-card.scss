@@ -17,28 +17,20 @@
   outline: none;
 
   @include carbon--breakpoint-down('md') {
-    .#{$prefix}--card__content {
-      padding: 0;
-      justify-content: space-between;
-    }
-  }
-}
-
-@include carbon--breakpoint-down('md') {
-  ::slotted(#{$dds-prefix}-card-heading) {
-    background-color: $ui-01;
-    margin: 0;
-    width: 100%;
-    padding: carbon--mini-units(2);
-    padding-right: 10%;
-    padding-bottom: $layout-03;
-  }
-
-  ::slotted(#{$dds-prefix}-feature-card-footer) {
-    background-color: $ui-01;
-    padding: carbon--mini-units(2);
     padding-top: 0;
-    margin-top: carbon--mini-units(-4);
+
+    .#{$prefix}--card__wrapper {
+      display: block;
+      min-height: 0;
+      height: auto;
+    }
+    .#{$prefix}--card--link {
+      display: block;
+    }
+    ::slotted([slot='image']) {
+      top: 0;
+      height: 300%;
+    }
   }
 }
 
