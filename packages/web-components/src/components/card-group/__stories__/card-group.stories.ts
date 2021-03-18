@@ -52,6 +52,12 @@ const cardGroupItemWithImages = html`
   </dds-card-group-item>
 `;
 
+const cardGroupItemWithVideos = html`
+  <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
+  </dds-card-group-item>
+`;
+
 const cardGroupItemWithCTAs = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
@@ -132,33 +138,12 @@ withImagesAndCTA.story = {
   },
 };
 
-export const withMixedMedia = () => {
+export const withMixedMedia = ({ parameters }) => {
+  const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
     <dds-video-cta-container>
       <dds-card-group>
-        <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
-        </dds-card-group-item>
-        <dds-card-group-item href="https://example.com">
-          <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
-          Image copy
-          <dds-card-footer slot="footer">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-card-group-item>
-        <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
-        </dds-card-group-item>
-        <dds-card-group-item href="https://example.com">
-          <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
-          Image copy
-          <dds-card-footer slot="footer">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-card-group-item>
-        <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-          <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
-        </dds-card-group-item>
+        ${cards}
       </dds-card-group>
     </dds-video-cta-container>
   `;
@@ -168,7 +153,11 @@ withMixedMedia.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      CardGroup: () => ({}),
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
+      }),
     },
   },
 };
