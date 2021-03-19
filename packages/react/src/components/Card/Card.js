@@ -91,7 +91,7 @@ export const Card = ({
             </h3>
           )}
           {optionalContent(copy)}
-          {renderFooter(cta, heading, pictogram)}
+          {renderFooter(cta, copy, heading, pictogram)}
         </div>
       </div>
     </TileType>
@@ -121,7 +121,7 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, heading, pictogram) {
+function renderFooter(cta, copy, heading, pictogram) {
   return (
     cta && (
       <div
@@ -129,7 +129,7 @@ function renderFooter(cta, heading, pictogram) {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
         })}
-        aria-label={cta?.copy ? '' : heading}>
+        aria-label={cta?.copy ? '' : heading ? heading : copy}>
         {cta?.copy && !pictogram && (
           <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}
