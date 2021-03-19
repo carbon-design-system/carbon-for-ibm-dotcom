@@ -36,7 +36,7 @@ const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal', () => {
   it('should load the Americas region', async () => {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(`${_url}${_path}`, { waitUntil: 'load', timeout: 15000 });
     await page.waitForSelector('[data-autoid="dds--locale-modal"]');
