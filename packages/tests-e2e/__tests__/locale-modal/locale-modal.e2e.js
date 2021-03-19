@@ -35,10 +35,20 @@ const _webcomponentsTests =
 const _path = '/iframe.html?id=components-locale-modal--default';
 
 describe('LocaleModal', () => {
+  let browser, page;
+
+  beforeAll(async () => {
+    browser = await puppeteer.launch();
+  });
+
+  afterAll(async () => {
+    await browser.close();
+  });
+
   it('should load the Americas region', async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(`${_url}${_path}`, { waitUntil: 'load', timeout: 15000 });
+    page = await browser.newPage();
+    await page.goto(`${_url}${_path}`, { waitUntil: 'load', timeout: 30000 });
+
     await page.waitForSelector('[data-autoid="dds--locale-modal"]');
 
     if (_webcomponentsTests) {
@@ -70,7 +80,5 @@ describe('LocaleModal', () => {
     await percySnapshot(page, 'Components|LocaleModal: Filter', {
       widths: [1280],
     });
-
-    await browser.close();
   });
 });

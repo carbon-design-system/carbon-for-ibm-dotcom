@@ -52,17 +52,26 @@ const _pathCustom =
 const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
 
 describe('Masthead: Default', () => {
+  let browser, page;
+
+  beforeAll(async () => {
+    browser = await puppeteer.launch();
+  });
+
+  afterAll(async () => {
+    await browser.close();
+  });
+
   it('should take a snapshot of the megamenu', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 1280,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathDefault}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
     await page.waitForTimeout(3000);
 
@@ -83,22 +92,20 @@ describe('Masthead: Default', () => {
         widths: [1280],
       }
     );
-
-    await browser.close();
   });
 
   it('should open the login menu', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 1280,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathDefault}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
     if (_webcomponentsTests) {
@@ -113,22 +120,20 @@ describe('Masthead: Default', () => {
     await percySnapshot(page, 'Components|Masthead: Default - Profile Menu', {
       widths: [1280],
     });
-
-    await browser.close();
   });
 
   it('should open the search bar', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 1280,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathDefault}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
     if (_webcomponentsTests) {
@@ -143,22 +148,20 @@ describe('Masthead: Default', () => {
     await percySnapshot(page, 'Components|Masthead: Default - Search', {
       widths: [1280],
     });
-
-    await browser.close();
   });
 
   it('should take a snapshot of the mobile menu', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 320,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 320,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathDefault}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
     if (_webcomponentsTests) {
@@ -194,22 +197,20 @@ describe('Masthead: Default', () => {
         widths: [320],
       }
     );
-
-    await browser.close();
   });
 
   it('should scroll the L0 overflow properly', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 1280,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathCustom}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
     if (_webcomponentsTests) {
@@ -225,22 +226,20 @@ describe('Masthead: Default', () => {
     await percySnapshot(page, 'Components|Masthead: Custom - Overflow', {
       widths: [1280],
     });
-
-    await browser.close();
   });
 
   it('should open the search bar with platform', async () => {
-    const browser = await puppeteer.launch({
-      defaultViewport: {
-        width: 1280,
-        height: 780,
-      },
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
     });
-    const page = await browser.newPage();
+
     await page.goto(`${_url}${_pathPlatform}`, {
       waitUntil: 'load',
-      timeout: 15000,
+      timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
     if (_webcomponentsTests) {
@@ -255,7 +254,5 @@ describe('Masthead: Default', () => {
     await percySnapshot(page, 'Components|Masthead: With Platform - Search', {
       widths: [1280],
     });
-
-    await browser.close();
   });
 });

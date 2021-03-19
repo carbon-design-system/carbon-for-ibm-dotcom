@@ -5,13 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-require('dotenv').config();
-
 module.exports = {
   preset: 'jest-puppeteer',
   testMatch: ['<rootDir>/**/__tests__/**/**.e2e.js'],
   testRunner: 'jest-circus/runner',
   testURL: 'http://localhost',
-  testTimeout: 20000,
+  testTimeout: 30000,
   moduleFileExtensions: ['js', 'json'],
+  setupFiles: ['dotenv/config'],
 };

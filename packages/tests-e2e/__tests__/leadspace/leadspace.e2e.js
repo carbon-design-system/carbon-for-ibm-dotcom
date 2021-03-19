@@ -53,221 +53,259 @@ const _pathCenteredImage =
   '/iframe.html?id=components-leadspace--centered-with-image';
 
 describe('Leadspace', () => {
-  it('should load default with no image in various themes', async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g100`, {
-      waitUntil: 'load',
-      timeout: 15000,
-    });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
-    );
+  let browser, page;
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with no image - g100 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+  beforeAll(async () => {
+    browser = await puppeteer.launch();
+  });
 
-    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g90`, {
-      waitUntil: 'load',
-      timeout: 15000,
-    });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
-    );
-
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with no image - g90 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
-
-    await page.goto(`${_url}${_pathDefaultNoImage}&theme=g10`, {
-      waitUntil: 'load',
-      timeout: 15000,
-    });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
-    );
-
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with no image - g10 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
-
+  afterAll(async () => {
     await browser.close();
   });
 
-  it('should load default with image in various themes', async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(`${_url}${_pathDefaultImage}&theme=g100`, {
-      waitUntil: 'load',
-      timeout: 15000,
+  describe('default with no image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultNoImage}&theme=g100`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with no image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with image - g100 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultNoImage}&theme=g90`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathDefaultImage}&theme=g90`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with no image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with image - g90 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultNoImage}&theme=g10`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
 
-    await page.goto(`${_url}${_pathDefaultImage}&theme=g10`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with no image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
-    );
-
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Default with image - g10 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
-
-    await browser.close();
   });
 
-  it('should load centered with no image in various themes', async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+  describe('default with image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultImage}&theme=g100`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g100`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with no image - g100 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultImage}&theme=g90`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g90`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with no image - g90 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathDefaultImage}&theme=g10`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredNoImage}&theme=g10`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Default with image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
-    );
-
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with no image - g10 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
-
-    await browser.close();
   });
 
-  it('should load centered with image in various themes', async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+  describe('centered with no image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredNoImage}&theme=g100`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredImage}&theme=g100`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with no image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with image - g100 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredNoImage}&theme=g90`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredImage}&theme=g90`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with no image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
-    );
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with image - g90 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredNoImage}&theme=g10`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await page.goto(`${_url}${_pathCenteredImage}&theme=g10`, {
-      waitUntil: 'load',
-      timeout: 15000,
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with no image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
     });
-    await page.evaluate(
-      'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
-    );
+  });
 
-    await percySnapshot(
-      page,
-      'Components|Leadspace: Centered with image - g10 theme',
-      {
-        widths: [320, 1280],
-      }
-    );
+  describe('centered with image', () => {
+    it('should load g100 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredImage}&theme=g100`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
 
-    await browser.close();
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g100")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with image - g100 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g90 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredImage}&theme=g90`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g90")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with image - g90 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
+
+    it('should load g10 theme', async () => {
+      page = await browser.newPage();
+      await page.goto(`${_url}${_pathCenteredImage}&theme=g10`, {
+        waitUntil: 'load',
+        timeout: 30000,
+      });
+
+      await page.evaluate(
+        'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
+      );
+
+      await percySnapshot(
+        page,
+        'Components|Leadspace: Centered with image - g10 theme',
+        {
+          widths: [320, 1280],
+        }
+      );
+    });
   });
 });
