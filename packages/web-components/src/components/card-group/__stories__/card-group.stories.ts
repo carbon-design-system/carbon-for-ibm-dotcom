@@ -18,7 +18,6 @@ import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import { select, number } from '@storybook/addon-knobs';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -170,7 +169,7 @@ const gridModes = {
 export const withCardInCard = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-in-card href="https://example.com">
+    <dds-card-in-card grid-mode="${gridMode}" href="https://example.com">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
@@ -182,7 +181,7 @@ export const withCardInCard = ({ parameters }) => {
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-in-card-footer>
     </dds-card-in-card>
-    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+    <dds-card-group grid-mode="${gridMode}">
       ${cards}
     </dds-card-group>
   `;
