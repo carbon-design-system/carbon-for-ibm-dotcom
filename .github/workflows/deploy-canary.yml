@@ -46,6 +46,7 @@ jobs:
         with:
           env-file: packages/tests-e2e/.env
         env:
+          SELENIUM_HOST: https://ibmdotcom-react-canary.mybluemix.net
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT_E2E }}
       - name: Create e2e percy snapshots
         run: yarn test:e2e

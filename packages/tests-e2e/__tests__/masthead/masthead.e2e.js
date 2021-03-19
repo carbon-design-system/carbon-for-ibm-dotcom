@@ -8,16 +8,6 @@ const puppeteer = require('puppeteer');
 const percySnapshot = require('@percy/puppeteer');
 
 /**
- * Defines the host for testing
- *
- * @type {string | string}
- * @private
- */
-const _url =
-  (process && process.env.SELENIUM_HOST) ||
-  'https://ibmdotcom-react-canary.mybluemix.net';
-
-/**
  * Flag to switch to the web components paths instead of the React ones
  *
  * @type {boolean}
@@ -25,6 +15,24 @@ const _url =
  */
 const _webcomponentsTests =
   (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
+
+/**
+ * Sets the default url
+ *
+ * @type {string}
+ * @private
+ */
+const _urlDefault = _webcomponentsTests
+  ? 'https://ibmdotcom-web-components-canary.mybluemix.net'
+  : 'https://ibmdotcom-react-canary.mybluemix.net';
+
+/**
+ * Defines the host for testing
+ *
+ * @type {string | string}
+ * @private
+ */
+const _url = (process && process.env.SELENIUM_HOST) || _urlDefault;
 
 /**
  * Sets the correct path (default Masthead)
@@ -73,9 +81,18 @@ describe('Masthead: Default', () => {
       waitUntil: 'load',
       timeout: 30000,
     });
+
     await page.waitForTimeout(3000);
 
-    await page.click('[data-autoid="dds--masthead-default__l0-nav0"]');
+    if (_webcomponentsTests) {
+      const nav0 = await page.evaluateHandle(
+        `document.querySelector('dds-top-nav > dds-megamenu-top-nav-menu:nth-child(1)').shadowRoot.querySelector('a')`
+      );
+      nav0.click();
+    } else {
+      await page.click('[data-autoid="dds--masthead-default__l0-nav0"]');
+    }
+
     await percySnapshot(
       page,
       'Components|Masthead: Default - Mega Menu (Nav 0)',
@@ -83,7 +100,15 @@ describe('Masthead: Default', () => {
         widths: [1280],
       }
     );
-    await page.click('[data-autoid="dds--masthead-default__l0-nav1"]');
+
+    if (_webcomponentsTests) {
+      const nav1 = await page.evaluateHandle(
+        `document.querySelector('dds-top-nav > dds-megamenu-top-nav-menu:nth-child(2)').shadowRoot.querySelector('a')`
+      );
+      nav1.click();
+    } else {
+      await page.click('[data-autoid="dds--masthead-default__l0-nav1"]');
+    }
 
     await percySnapshot(
       page,

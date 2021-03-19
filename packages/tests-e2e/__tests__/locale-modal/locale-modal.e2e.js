@@ -8,16 +8,6 @@ const puppeteer = require('puppeteer');
 const percySnapshot = require('@percy/puppeteer');
 
 /**
- * Defines the host for testing
- *
- * @type {string | string}
- * @private
- */
-const _url =
-  (process && process.env.SELENIUM_HOST) ||
-  'https://ibmdotcom-react-canary.mybluemix.net';
-
-/**
  * Flag to switch to the web components paths instead of the React ones
  *
  * @type {boolean}
@@ -25,6 +15,24 @@ const _url =
  */
 const _webcomponentsTests =
   (process && process.env.WEBCOMPONENTS_TESTS === 'true') || false;
+
+/**
+ * Sets the default url
+ *
+ * @type {string}
+ * @private
+ */
+const _urlDefault = _webcomponentsTests
+  ? 'https://ibmdotcom-web-components-canary.mybluemix.net'
+  : 'https://ibmdotcom-react-canary.mybluemix.net';
+
+/**
+ * Defines the host for testing
+ *
+ * @type {string | string}
+ * @private
+ */
+const _url = (process && process.env.SELENIUM_HOST) || _urlDefault;
 
 /**
  * Sets the correct path

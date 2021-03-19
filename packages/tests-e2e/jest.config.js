@@ -7,7 +7,7 @@
 
 module.exports = {
   preset: 'jest-puppeteer',
-  testMatch: ['<rootDir>/**/__tests__/**/**.e2e.js'],
+  testMatch: ['<rootDir>/**/__tests__/**/*.e2e.js'],
   testRunner: 'jest-circus/runner',
   testURL: 'http://localhost',
   testTimeout: 30000,
