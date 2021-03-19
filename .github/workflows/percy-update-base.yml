@@ -35,6 +35,15 @@ jobs:
       - name: Run percy-storybook
         run: yarn visual-snapshot
         working-directory: packages/react
+      - name: Set env vars
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/tests-e2e/.env
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT_E2E }}
+      - name: Run e2e tests
+        run: yarn test:e2e
+        working-directory: packages/tests-e2e
   web-components:
     runs-on: ubuntu-16.04
     strategy:

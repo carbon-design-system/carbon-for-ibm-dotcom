@@ -12,6 +12,6 @@ module.exports = {
   testMatch: ['<rootDir>/**/__tests__/**/**.e2e.js'],
   testRunner: 'jest-circus/runner',
   testURL: 'http://localhost',
-  testTimeout: 15000,
+  testTimeout: 20000,
   moduleFileExtensions: ['js', 'json'],
 };
