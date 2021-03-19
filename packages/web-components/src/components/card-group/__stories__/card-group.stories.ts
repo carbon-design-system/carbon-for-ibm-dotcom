@@ -217,7 +217,7 @@ export default {
     },
     decorators: [
       story => html`
-        <div class="dds-ce-demo-devenv--simple-grid--stretch">
+        <div class="dds-ce-demo-devenv--grid--stretch">
           ${story()}
         </div>
       `,
