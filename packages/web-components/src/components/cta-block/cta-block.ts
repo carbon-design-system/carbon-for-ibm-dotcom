@@ -37,8 +37,10 @@ class DDSCtaBlock extends StableSelectorMixin(DDSContentItem) {
             <slot name="heading"></slot>
           </div>
           <div class="${prefix}--content-section__children">
-            <div class="${prefix}--cta-block__heading">
+            <div class="${prefix}--cta-block__group">
               <slot name="group-heading"></slot>
+              <slot name="group-copy"></slot>
+              <slot name="group-cta"></slot>
             </div>
             <div class="${prefix}--cta-block__items">
               <slot></slot>

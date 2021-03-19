@@ -27,11 +27,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSCtaBlockItem extends StableSelectorMixin(DDSContentItem) {
   render() {
     return html`
-      <div>
-        <slot name="media"></slot>
+      <div class="bx--cta-block-item-wrapper">
+        <div class="bx--cta-block-item-content">
+          <div>
+            <slot name="media"></slot>
+          </div>
+          <slot name="heading"></slot>
+          ${this._renderBody()}${this._renderFooter()}
+        </div>
       </div>
-      <slot name="heading"></slot>
-      ${this._renderBody()}${this._renderFooter()}
     `;
   }
 

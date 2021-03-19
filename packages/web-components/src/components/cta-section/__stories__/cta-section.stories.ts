@@ -145,49 +145,8 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 export const CtaBlock = ({ parameters }) => {
-  const { sectionHeading, secondaryHeading, mediaType } = parameters?.props?.CTASection ?? {};
+  const { sectionHeading, secondaryHeading, supportingElement } = parameters?.props?.CTASection ?? {};
   const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
-  const image = html`
-    <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
-    </dds-image>
-  `;
-
-  const video = html`
-    <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
-  `;
-
-  const pictogram = html`
-    <svg
-      slot="media"
-      focusable="false"
-      preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      stroke="currentColor"
-      data-autoid="dds--cta-block__pictogram"
-      aria-label="Pictogram"
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      role="img"
-      class="dds--cta-block__pictogram"
-    >
-      <path
-        fill="none"
-        stroke-linejoin="round"
-        stroke-miterlimit="10"
-        stroke-width=".72"
-        d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,
-        31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-      ></path>
-    </svg>
-  `;
-
-  const statistic = html`
-    <span class="dds--cta-block__statistic" slot="media">100%</span>
-  `;
 
   const ctaBlockItems = [
     {
@@ -255,8 +214,52 @@ export const CtaBlock = ({ parameters }) => {
       ${ctaBlockItems.map(
         ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
           <dds-cta-block-item>
-            ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
-            ${mediaType === 'pictogram' ? pictogram : ``} ${mediaType === 'statistic' ? statistic : ``}
+            ${supportingElement === 'image'
+              ? html`
+                  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+                    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
+                    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
+                    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+                  </dds-image>
+                `
+              : ``}
+            ${supportingElement === 'video'
+              ? html`
+                  <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+                `
+              : ``}
+            ${supportingElement === 'pictogram'
+              ? html`
+                  <svg
+                    slot="media"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                    data-autoid="dds--cta-block__pictogram"
+                    aria-label="Pictogram"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 48 48"
+                    role="img"
+                    class="dds--cta-block__pictogram"
+                  >
+                    <path
+                      fill="none"
+                      stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      stroke-width=".72"
+                      d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,0,2,0.9,2,2v17C39,
+                    31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+                    ></path>
+                  </svg>
+                `
+              : ``}
+            ${supportingElement === 'statistic'
+              ? html`
+                  <div class="dds--cta-block__statistic" slot="media">100%</div>
+                `
+              : ``}
             <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
             <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
             <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
@@ -280,7 +283,7 @@ CtaBlock.story = {
           'Optional title heading-4 color test-01 that spans to multiple lines as needed',
           groupId
         ),
-        mediaType: select('Media Type', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
+        supportingElement: select('Supporting Element', ['image', 'video', 'pictogram', 'statistic', 'none'], 'image', groupId),
       }),
     },
   },
