@@ -85,9 +85,13 @@ export const Card = ({
               {eyebrow}
             </p>
           )}
-          {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
+          {heading && (
+            <h3 className={`${prefix}--card__heading`} aria-hidden={true}>
+              {heading}
+            </h3>
+          )}
           {optionalContent(copy)}
-          {renderFooter(cta, pictogram)}
+          {renderFooter(cta, heading, pictogram)}
         </div>
       </div>
     </TileType>
@@ -106,7 +110,8 @@ function optionalContent(copy) {
       className={`${prefix}--card__copy`}
       dangerouslySetInnerHTML={{
         __html: markdownToHtml(copy, { bold: false }),
-      }}></div>
+      }}
+      aria-hidden={true}></div>
   );
 }
 
@@ -116,18 +121,17 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, pictogram) {
+function renderFooter(cta, heading, pictogram) {
   return (
     cta && (
       <div
         className={classNames(`${prefix}--card__footer`, {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
-        })}>
+        })}
+        aria-label={cta?.copy ? '' : heading}>
         {cta?.copy && !pictogram && (
-          <span className={`${prefix}--card__cta__copy`} aria-hidden={true}>
-            {cta?.copy}
-          </span>
+          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}
         {cta?.icon?.src && !pictogram && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />

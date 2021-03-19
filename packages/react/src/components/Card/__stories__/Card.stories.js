@@ -75,3 +75,60 @@ export const Default = ({ parameters }) => {
     </div>
   );
 };
+
+const card = {
+  eyebrow: 'eyebrow text',
+  heading: 'Lorem ipsum dolor sit amet',
+  copy: 'hello',
+};
+
+const ctaWithCopy = {
+  type: 'local',
+  href: 'https://example.com',
+  copy: 'cta copy',
+  icon: {
+    src: ArrowRight20,
+  },
+};
+const ctaWithoutCopy = {
+  type: 'local',
+  href: 'https://example.com',
+  copy: '',
+  icon: {
+    src: ArrowRight20,
+  },
+};
+
+export const testWithLinkCopy = () => {
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+
+  return (
+    <div className={`bx--card--${theme}`}>
+      <div className="bx--grid bx--grid--card">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            <Card cta={ctaWithCopy} {...card} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const testWithoutLinkCopy = () => {
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+
+  return (
+    <div className={`bx--card--${theme}`}>
+      <div className="bx--grid bx--grid--card">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            <Card cta={ctaWithoutCopy} {...card} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
