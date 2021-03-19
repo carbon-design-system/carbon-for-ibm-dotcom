@@ -30,18 +30,18 @@ import readme from './README.stories.mdx';
 
 const cardRandomPhrase = () => {
   const phraseArray = [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
-    'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero',
-    'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Lorem ipsum dolor sit amet',
+    'Nunc convallis lobortis',
+    'Lorem ipsum dolor sit amet, consectetur.',
     'Te sint disputando pri, at his aliquip corrumpit',
   ];
 
-  const randomPhrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+  const randomSampleText = phraseArray[Math.floor(Math.random() * phraseArray.length)];
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com">
-      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+      <dds-card-heading>${randomSampleText}</dds-card-heading>
       <p>
-        ${randomPhrase}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
       </p>
       <dds-card-footer slot="footer">
         ${ArrowRight20({ slot: 'icon' })}
@@ -114,61 +114,12 @@ withImages.story = {
   },
 };
 
-export const withImagesAndCTA = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
-  return html`
-    <dds-card-group>
-      ${cards}
-      <dds-card-group-item href="https://example.com" color-scheme="inverse">
-        <dds-card-heading>Top level card link</dds-card-heading>
-        <dds-card-footer slot="footer" color-scheme="inverse">
-          ${ArrowRight20({ slot: 'icon' })}
-        </dds-card-footer>
-      </dds-card-group-item>
-    </dds-card-group>
-  `;
-};
-
-withImagesAndCTA.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      CardGroup: ({ groupId }) => ({
-        cards: Array.from({
-          length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardGroupItemWithImages),
-      }),
-    },
-  },
-};
-
 const gridModes = {
   [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
 };
 
 export const withCardInCard = ({ parameters }) => {
-  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
-  return html`
-    <dds-card-in-card href="https://example.com">
-      <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      </dds-card-in-card-image>
-      <dds-card-eyebrow>Label</dds-card-eyebrow>
-      <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-in-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
-    </dds-card-in-card>
-    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
-      ${cards}
-    </dds-card-group>
-  `;
-};
-
-export const withCardInCardAndImageCards = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
     <dds-card-in-card href="https://example.com">
@@ -201,6 +152,27 @@ withCardInCard.story = {
       }),
     },
   },
+};
+
+export const withCardInCardAndImageCards = ({ parameters }) => {
+  const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
+  return html`
+    <dds-card-in-card href="https://example.com">
+      <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
+        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
+        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
+      </dds-card-in-card-image>
+      <dds-card-eyebrow>Label</dds-card-eyebrow>
+      <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
+      <dds-card-in-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-card-in-card-footer>
+    </dds-card-in-card>
+    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+      ${cards}
+    </dds-card-group>
+  `;
 };
 
 withCardInCardAndImageCards.story = {

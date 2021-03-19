@@ -7,8 +7,13 @@
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
 
-@include carbon--breakpoint('xlg') {
-  .dds-ce-demo-devenv--simple-grid--card-group > * {
-    grid-column: 5 / span 12;
+.dds-ce-demo-devenv--simple-grid--card-group > * {
+  grid-column: 5 / span 16;
+}
+
+.dds-ce-demo-devenv--container--has-card-group-standalone {
+  @include carbon--breakpoint-up('lg') {
+    margin: 0;
+    grid-column: 5 / span 16;
   }
 }
