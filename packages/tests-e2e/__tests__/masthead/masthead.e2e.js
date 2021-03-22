@@ -82,14 +82,15 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const nav0 = await page.evaluateHandle(
         `document.querySelector('dds-top-nav > dds-megamenu-top-nav-menu:nth-child(1)').shadowRoot.querySelector('a')`
       );
       nav0.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default__l0-nav0"]'
+      );
       await page.click('[data-autoid="dds--masthead-default__l0-nav0"]');
     }
 
@@ -131,14 +132,15 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const profile = await page.evaluateHandle(
         `document.querySelector('dds-masthead-profile').shadowRoot.querySelector('a')`
       );
       profile.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default__l0-account"]'
+      );
       await page.click('[data-autoid="dds--masthead-default__l0-account"]');
     }
 
@@ -159,14 +161,15 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const search = await page.evaluateHandle(
         `document.querySelector('dds-masthead-search').shadowRoot.querySelector('.bx--header__search--search')`
       );
       search.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default__l0-search"]'
+      );
       await page.click('[data-autoid="dds--masthead-default__l0-search"]');
     }
 
@@ -187,14 +190,15 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const menuButton = await page.evaluateHandle(
         `document.querySelector('dds-masthead-menu-button').shadowRoot.querySelector('button')`
       );
       menuButton.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default-sidenav__l0-menu"]'
+      );
       await page.click(
         '[data-autoid="dds--masthead-default-sidenav__l0-menu"]'
       );
@@ -236,18 +240,19 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const overflow = await page.evaluateHandle(
         `document.querySelector('dds-top-nav').shadowRoot.querySelector('.bx--header__nav-caret-right-container > button')`
       );
       overflow.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default__l0-nav0"]'
+      );
       await page.click('.bx--header__nav-caret-right');
     }
 
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000); // TODO: will find a better way to wait for animation to complete
     await percySnapshot(page, 'Components|Masthead: Custom - Overflow', {
       widths: [1280],
     });
@@ -265,14 +270,15 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
-    await page.waitForTimeout(3000);
-
     if (_webcomponentsTests) {
       const search = await page.evaluateHandle(
         `document.querySelector('dds-masthead-search').shadowRoot.querySelector('.bx--header__search--search')`
       );
       search.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-eco__l0-search"]'
+      );
       await page.click('[data-autoid="dds--masthead-eco__l0-search"]');
     }
 
