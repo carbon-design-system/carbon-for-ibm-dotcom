@@ -75,6 +75,7 @@
 :host(#{$dds-prefix}-cta-section-item-heading) {
   @include carbon--type-style('expressive-heading-02', true);
 
+  display: block;
   width: 100%;
 
   @include carbon--breakpoint('md') {
