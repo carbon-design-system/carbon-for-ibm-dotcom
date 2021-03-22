@@ -15,6 +15,8 @@ import imgLg16x9 from '../../../../../../storybook-images/assets/720/fpo--16x9--
 import imgLg1x1 from '../../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
 import imgXlg4x3 from '../../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 
+import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
+
 const image = html`
   <dds-image-with-caption
     alt="Image alt text"
@@ -258,13 +260,23 @@ const StoryContent = ({ type = 'default' }) =>
 `
     : html`
     <dds-leadspace
-      size="medium"
-      alt=""
-      default-src="https://picsum.photos/id/1076/1056/480"
+  size="medium"
+  gradient-style-scheme="true"
+  alt=""
+  default-src="${leadspaceImg}"
+>
+  <dds-leadspace-heading>Leadspace Title</dds-leadspace-heading>
+  Use this area for a short line of copy to support the title
+  <dds-button-group slot="action">
+    <dds-button-group-item aria-label="" href=""
+      >test</dds-button-group-item
     >
-      <dds-leadspace-heading>LeadSpace heading</dds-leadspace-heading>
-      LeadSpace copy
-    </dds-leadspace>
+    </dds-button-group>
+  <dds-image slot="image" class="bx--image" alt="" default-src="${leadspaceImg}">
+    <dds-image-item media="(min-width: 672px)" srcset="${leadspaceImg}"></dds-image-item>
+    <dds-image-item media="(min-width: 0)" srcset="${leadspaceImg}"></dds-image-item>
+  </dds-image>
+</dds-leadspace>
       <main class="bx--content dds-ce-demo-devenv--ui-shell-content" style="padding-top: 0">
     <div class="bx--grid">
       <dds-table-of-contents stickyOffset="48" toc-layout="horizontal">
