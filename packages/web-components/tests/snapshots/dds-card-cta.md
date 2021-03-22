@@ -37,12 +37,12 @@
 ```
 <slot name="image">
 </slot>
-<dds-image
+<dds-card-cta-image
   alt="video-name-foo"
   data-autoid="dds--image"
   default-src="https://example.com/video-thumbnail-foo"
 >
-</dds-image>
+</dds-card-cta-image>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
     <slot name="eyebrow">
