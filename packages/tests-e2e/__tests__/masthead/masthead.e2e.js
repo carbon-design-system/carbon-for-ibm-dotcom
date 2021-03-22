@@ -141,6 +141,10 @@ describe('Masthead: Default', () => {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-default__l0-account"]'
       );
+
+      // TODO: temporary until issue #5483 is fixed
+      await page.waitForTimeout(1500);
+
       await page.click('[data-autoid="dds--masthead-default__l0-account"]');
     }
 
@@ -240,6 +244,11 @@ describe('Masthead: Default', () => {
       timeout: 30000,
     });
 
+    // Removes the animation of the nav container
+    await page.addStyleTag({
+      content: '.bx--header__nav-content { transition: none !important; }',
+    });
+
     if (_webcomponentsTests) {
       const overflow = await page.evaluateHandle(
         `document.querySelector('dds-top-nav').shadowRoot.querySelector('.bx--header__nav-caret-right-container > button')`
@@ -252,7 +261,6 @@ describe('Masthead: Default', () => {
       await page.click('.bx--header__nav-caret-right');
     }
 
-    await page.waitForTimeout(3000); // TODO: will find a better way to wait for animation to complete
     await percySnapshot(page, 'Components|Masthead: Custom - Overflow', {
       widths: [1280],
     });
