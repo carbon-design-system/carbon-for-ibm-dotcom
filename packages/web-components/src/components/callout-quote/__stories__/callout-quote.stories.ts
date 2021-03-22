@@ -16,6 +16,7 @@ import { QUOTE_TYPES } from '../../quote/quote';
 import '../../quote/quote-source-bottom-copy';
 import '../../quote/quote-source-copy';
 import '../../quote/quote-source-heading';
+import '../callout-link-with-icon';
 import readme from './README.stories.mdx';
 
 const types = {
@@ -41,9 +42,9 @@ export const Default = ({ parameters }) => {
       <dds-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
-      <dds-link-with-icon slot="footer" href="https://example.com">
+      <dds-callout-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
+      </dds-callout-link-with-icon>
     </dds-callout-quote>
   `;
 };

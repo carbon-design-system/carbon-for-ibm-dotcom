@@ -28,8 +28,8 @@
 
     padding-bottom: $layout-05;
 
-    ::slotted(#{$dds-prefix}-link-with-icon) {
-      padding-left: 2rem;
+    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+      padding-left: $spacing-05;
     }
   }
 }
