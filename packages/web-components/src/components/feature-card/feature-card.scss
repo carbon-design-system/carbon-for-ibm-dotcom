@@ -16,6 +16,10 @@
   display: block;
   outline: none;
 
+  .#{$prefix}--card:focus {
+    outline-offset: 1px;
+  }
+
   @include carbon--breakpoint-down('md') {
     .#{$prefix}--card__content {
       padding: carbon--mini-units(2);
