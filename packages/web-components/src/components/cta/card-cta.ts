@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,7 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCard from '../card/card';
+import './card-cta-image';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import DDSCardCTAFooter from './card-cta-footer';
@@ -54,9 +55,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
-            </dds-image>
+            </dds-card-cta-image>
           `;
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}
