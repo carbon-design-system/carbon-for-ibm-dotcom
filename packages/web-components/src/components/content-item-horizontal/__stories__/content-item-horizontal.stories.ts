@@ -120,7 +120,7 @@ WithMedia.story = {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-horizontal-media',
     knobs: {
       ContentItemHorizontal: () => ({
-        align: select('Alignment', mediaAlign, MEDIA_ALIGN.LEFT),
+        align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
