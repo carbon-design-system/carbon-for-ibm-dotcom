@@ -9,6 +9,9 @@
 @import 'carbon-components/scss/globals/scss/typography';
 
 .dds-react-demo--table-of-contents {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+
   a[name] {
     display: block;
     color: $text-01;
