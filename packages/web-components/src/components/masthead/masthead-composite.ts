@@ -61,7 +61,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Rendering target for masthead navigation items.
  */
-enum NAV_ITEMS_RENDER_TARGET {
+export enum NAV_ITEMS_RENDER_TARGET {
   /**
    * For top navigation.
    */
@@ -74,7 +74,7 @@ enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
- * Component that rendres masthead from links, etc. data.
+ * Component that renders masthead from links, etc. data.
  *
  * @element dds-masthead-composite
  */
@@ -87,7 +87,7 @@ class DDSMastheadComposite extends LitElement {
    * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
    */
-  private _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
+  protected _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     if (!this.l1Data) return undefined;
     const { menuItems } = this.l1Data;
     if (menuItems) {
@@ -167,7 +167,7 @@ class DDSMastheadComposite extends LitElement {
    * @param [options.selectedMenuItem] The selected nav item.
    * @returns The L1 nav.
    */
-  private _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
+  protected _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
     return html`
@@ -186,7 +186,7 @@ class DDSMastheadComposite extends LitElement {
    * Renders masthead logo
    *
    */
-  private _renderLogo() {
+  protected _renderLogo() {
     if (!this.logoData)
       return html`
         <dds-masthead-logo></dds-masthead-logo>
@@ -207,7 +207,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _getHighlightedMenuItems(sections) {
+  protected _getHighlightedMenuItems(sections) {
     const highlightedItems: MastheadMenuItem[] = [];
     let viewAllLink;
     const menu: MastheadMenuItem[] = [];
@@ -230,7 +230,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMegaMenu(sections) {
+  protected _renderMegaMenu(sections) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -304,7 +304,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMobileMegaMenu(sections) {
+  protected _renderMobileMegaMenu(sections) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const menuItems = highlightedItems.concat(menu);
     if (viewAllLink) {
@@ -354,7 +354,7 @@ class DDSMastheadComposite extends LitElement {
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
    */
-  private _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
+  protected _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     const { navLinks } = this;
     return !navLinks
       ? undefined

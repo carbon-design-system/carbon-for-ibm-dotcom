@@ -15,6 +15,7 @@ import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
+import '../cloud/cloud-masthead-container';
 import styles from './masthead.stories.scss';
 import { mastheadLinks as links, customLinks, l1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
@@ -284,6 +285,45 @@ withAlternateLogoAndTooltip.story = {
       }),
     },
   },
+};
+
+export const withCloudVariant = ({ parameters }) => {
+  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-cloud-masthead-composite
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            user-status="${ifNonNull(userStatus)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-cloud-masthead-composite>
+        `
+      : html`
+          <dds-cloud-masthead-container
+            platform="${ifNonNull(platform)}"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(userStatus)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .l1Data="${l1Data}"
+            .navLinks="${navLinks}"
+          ></dds-cloud-masthead-container>
+        `}
+  `;
 };
 
 export default {
