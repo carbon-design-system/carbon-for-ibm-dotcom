@@ -20,6 +20,12 @@
 
     .#{$prefix}--quote {
       background-color: $inverse-02;
+      .#{$prefix}--link {
+        color: $inverse-link;
+        &:hover {
+          color: #a6c8ff;
+        }
+      }
     }
   }
 
