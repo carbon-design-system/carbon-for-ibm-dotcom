@@ -27,14 +27,14 @@
     flex-direction: row;
   }
 
-  &:focus {
-    outline: 2px solid $focus;
-    outline-offset: 1px;
-  }
-
   .#{$prefix}--card__heading,
   ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
+  }
+
+  &:focus {
+    outline: 2px solid $focus;
+    outline-offset: 0;
   }
 }
 
@@ -67,6 +67,15 @@
   :host(#{$dds-prefix}-feature-card),
   :host(#{$dds-prefix}-feature-cta) {
     position: relative;
+
+    &:hover {
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        @include carbon--breakpoint(md) {
+          filter: brightness(80%);
+        }
+      }
+    }
 
     @include carbon--breakpoint-down('md') {
       padding-top: aspect-ratio(1, 1);
