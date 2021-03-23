@@ -12,6 +12,14 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import '../cta-block';
 
 const template = (props?) => {
+  // @ts-ignore: Behind feature flag
+  Default({
+    parameters: {
+      props: {
+        'dds-feature-name': props,
+      },
+    },
+  });
   const { sectionTitle, sectionContentGroup, ctaBlockChildren } = props ?? {};
   return html`
     <dds-cta-block>

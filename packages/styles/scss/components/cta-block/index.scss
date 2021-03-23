@@ -60,18 +60,11 @@
       ::slotted(#{$dds-prefix}-cta-block-item) {
         padding: $carbon--layout-05 $carbon--spacing-05;
         border-bottom: carbon--rem(1px) solid $ui-03;
-        /*display: grid;*/
 
         @include carbon--breakpoint-down('sm') {
           padding-top: $carbon--layout-03;
           padding-bottom: $carbon--layout-03;
         }
-      }
-    }
-
-    .#{$prefix}--cta-block__group {
-      ::slotted(#{$dds-prefix}-cta-section-copy) {
-        margin-bottom: $carbon--spacing-07;
       }
     }
   }
