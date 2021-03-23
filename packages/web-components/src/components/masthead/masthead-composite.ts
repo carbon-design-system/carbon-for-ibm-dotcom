@@ -53,7 +53,7 @@ import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
 import './left-nav-overlay';
-import './masthead-search-composite';
+import './masthead-search-container';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -699,7 +699,7 @@ class DDSMastheadComposite extends LitElement {
         ${!hasSearch
           ? undefined
           : html`
-              <dds-masthead-search-composite
+              <dds-masthead-search-container
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
@@ -707,7 +707,7 @@ class DDSMastheadComposite extends LitElement {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-              ></dds-masthead-search-composite>
+              ></dds-masthead-search-container>
             `}
         <dds-masthead-global-bar>
           ${!hasProfile
