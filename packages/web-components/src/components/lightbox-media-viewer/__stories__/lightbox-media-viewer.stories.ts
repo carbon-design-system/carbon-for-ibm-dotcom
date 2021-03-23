@@ -119,6 +119,69 @@ EmbeddedVideoPlayer.story = {
   },
 };
 
+Default.story = {
+  parameters: {
+    knobs: {
+      LightboxImageViewer: ({ groupId }) => ({
+        alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
+        description: textNullable(
+          'Description (description)',
+          `
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
+            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
+          groupId
+        ),
+        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
+      }),
+    },
+  },
+};
+
+export const EmbeddedVideoPlayerWithInlineThumbnail = ({ parameters }) => {
+  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { hideCaption, videoId } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
+  const handleBeforeClose = (event: CustomEvent) => {
+    onBeforeClose?.(event);
+    if (disableClose) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <style>
+      ${styles}
+    </style>
+    <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <dds-lightbox-video-player-container
+            ?hide-caption="${hideCaption}"
+            ?open="${open}"
+            video-id="${videoId}"
+            @dds-expressive-modal-beingclosed="${handleBeforeClose}"
+            @dds-expressive-modal-closed="${onClose}"
+            render-thumbnail
+          >
+          </dds-lightbox-video-player-container>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+EmbeddedVideoPlayerWithInlineThumbnail.story = {
+  parameters: {
+    knobs: {
+      LightboxVideoPlayerContainer: ({ groupId }) => ({
+        hideCaption: boolean('hide caption (hide-caption)', false, groupId),
+        videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
+      }),
+    },
+  },
+};
+
 export default {
   title: 'Components/Lightbox media viewer',
   parameters: {
