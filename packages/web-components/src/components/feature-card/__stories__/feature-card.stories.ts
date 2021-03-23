@@ -17,6 +17,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import styles from './feature-card.stories.scss';
 
 export const Default = ({ parameters }) => {
   const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
@@ -35,6 +36,9 @@ export default {
   title: 'Components/Feature Card',
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
         ${story()}
       </div>
