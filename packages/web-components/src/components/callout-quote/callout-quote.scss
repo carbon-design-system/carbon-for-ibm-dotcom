@@ -11,10 +11,10 @@
 :host(#{$dds-prefix}-callout-link-with-icon) {
   @extend .#{$prefix}--link-with-icon;
 
-  display: block;
-  .#{$prefix}--link-with-icon {
+  display: inline-block;
+  a.#{$prefix}--link-with-icon {
     color: $inverse-link;
-    @include carbon--make-col-ready;
+    outline-color: $inverse-focus-ui;
     &:hover {
       color: #a6c8ff;
     }

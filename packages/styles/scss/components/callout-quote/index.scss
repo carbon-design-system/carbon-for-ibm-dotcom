@@ -22,6 +22,7 @@
       background-color: $inverse-02;
       .#{$prefix}--link {
         color: $inverse-link;
+        outline-color: $inverse-focus-ui;
         &:hover {
           color: #a6c8ff;
         }
@@ -35,7 +36,8 @@
     padding-bottom: $layout-05;
 
     ::slotted(#{$dds-prefix}-callout-link-with-icon) {
-      padding-left: $spacing-05;
+      padding-left: $spacing-07;
+      outline: transparent;
     }
   }
 }
