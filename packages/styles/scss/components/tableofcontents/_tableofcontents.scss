@@ -9,6 +9,8 @@
 @import '../../globals/imports';
 @import '../layout/layout';
 
+$hover-transition-timing: 95ms;
+
 // items that change according to the theme applied
 @mixin themed-items {
   color: $text-01;
@@ -218,7 +220,6 @@
     position: sticky;
     top: 0;
     width: 100%;
-    //padding: 0 1rem;
 
     @include carbon--breakpoint('lg') {
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
@@ -226,6 +227,8 @@
       height: carbon--rem(49px);
       background-color: $ui-01;
       overflow: hidden;
+      padding: 0 1rem;
+      margin-left: -4rem;
     }
 
     .#{$prefix}--tableofcontents__desktop__item {
@@ -305,7 +308,7 @@
     }
     &:hover {
       background-color: $hover-ui;
-      //transition-duration: $search-transition-timing;
+      transition-duration: $hover-transition-timing;
       > {
         svg {
           fill: $text-01;
