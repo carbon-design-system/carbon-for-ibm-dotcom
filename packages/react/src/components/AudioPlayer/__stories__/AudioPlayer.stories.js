@@ -28,11 +28,20 @@ export const Default = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-16 bx--col-xlg-16 bx--col-max-16">
-          <AudioPlayer
-            videoId={videoId}
-            showCaption={showCaption}
-            aspectRatio={aspectRatio}
-          />
+          <div
+            style={{
+              height: '100vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <AudioPlayer
+              videoId={videoId}
+              showCaption={showCaption}
+              aspectRatio={aspectRatio}
+              hasSettings={true}
+            />
+          </div>
         </div>
       </div>
     </div>

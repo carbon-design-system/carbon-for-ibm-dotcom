@@ -13,178 +13,13 @@
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin audio-player {
-  // :host(#{$dds-prefix}-video-player),
-  // .#{$prefix}--audio-player {
-  //   .#{$prefix}--description {
-  //     display: flex;
-  //     align-items: center;
-  //     width: 25%;
-
-  //     .#{$prefix}--image-container {
-  //       width: 89px;
-  //     }
-
-  //     .#{$prefix}--image__img {
-  //       width: 100%;
-  //     }
-
-  //     .#{$prefix}--audio-information {
-  //       margin-left: $layout-01;
-
-  //       &-title {
-  //         font-weight: bold;
-  //         word-wrap: break-word;
-  //         flex: 1 1 auto;
-  //         max-width: 165px;
-  //         color: $interactive-02;
-  //       }
-  //     }
-  //   }
-
-  //   .#{$prefix}--controls {
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: center;
-  //     width: 50%;
-
-  //     .#{$prefix}--actions {
-  //       display: flex;
-  //       align-self: center;
-
-  //       &-volume {
-  //         display: flex;
-  //         align-self: flex-end;
-  //         .bx--form-item .bx--slider-container .bx--slider__range-label {
-  //           display: none;
-  //         }
-  //         &-position {
-  //           margin-top: 5px;
-  //         }
-  //       }
-
-  //       &-controls {
-  //         margin-right: 40px;
-
-  //         &-move-back {
-  //           padding-right: 40px;
-  //         }
-
-  //         &-move-forward,
-  //         &-move-back {
-  //           svg {
-  //             transform: scale(1.58);
-  //           }
-  //         }
-
-  //         &-pause {
-  //           padding-right: 40px;
-
-  //           svg {
-  //             transform: scale(2);
-  //           }
-  //         }
-
-  //         &-play {
-  //           padding-right: 40px;
-
-  //           svg {
-  //             transform: scale(2);
-  //           }
-  //         }
-
-  //         &-download {
-  //           padding-right: 40px;
-
-  //           svg {
-  //             transform: scale(1.16);
-  //           }
-  //         }
-  //       }
-  //     }
-
-  //     .#{$prefix}--audio-time {
-  //       width: 100%;
-
-  //       .bx--form-item .bx--slider-container {
-  //         width: 100%;
-  //       }
-  //     }
-  //   }
-
-  //   .#{$prefix}--extra-metadata {
-  //     width: 25%;
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: flex-end;
-  //     position: relative;
-
-  //     .bx--form-item .bx--select {
-  //       width: 100%;
-  //       .bx--select-input__wrapper {
-  //         width: 100%;
-  //         .bx--select-input {
-  //           width: 100%;
-  //         }
-
-  //         svg.bx--select__arrow path {
-  //           d: path(
-  //             'M13 7L12.3 6.3 8.5 10.1 8.5 1 7.5 1 7.5 10.1 3.7 6.3 3 7 8 12zM13 12v2H3v-2H2v2l0 0c0 .6.4 1 1 1h10c.6 0 1-.4 1-1l0 0v-2H13z'
-  //           );
-  //         }
-  //       }
-  //     }
-
-  //     &-transcript {
-  //       border: solid 1px $interactive-02;
-  //     }
-
-  //     &-link {
-  //       // margin: $spacing-03 0 $layout-01 $layout-01;
-  //       color: $interactive-02;
-  //     }
-
-  //     &-icon {
-  //       position: absolute;
-  //       left: 0;
-  //       // top: 15px;
-  //     }
-  //   }
-
-  //   display: flex;
-  //   justify-content: space-between;
-  //   padding: $layout-01 0;
-  //   // align-items: center
-  // }
-
-  // .#{$prefix}--audio-player__audio-container {
-  //   @include carbon--theme($carbon--theme--g10, true);
-
-  //   // position: fixed;
-  //   width: 100%;
-  //   // height: 100px;
-  //   // bottom: 86px;
-  //   background-color: $ui-background; /* Cool Gray 10 */
-  //   border-top: 1px solid $ui-03; /* Cool Gray 20 */
-  // }
-
-  // :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
-  // .#{$prefix}--video-player .#{$prefix}--image {
-  //   width: 100%;
-  //   height: 100%;
-  // }
-
   .#{$prefix}--audio-player__audio-container {
-    // @include carbon--theme($carbon--theme--g10, true);
-
-    // position: fixed;
-    // width: 100%;
-    // bottom: 86px;
-    height: 48px;
-    background-color: $ui-01;
+    // position: relative;
     display: flex;
-    padding: 8px 16px;
     align-items: center;
-    // border-top: 1px solid $ui-03;
+    height: 48px;
+    padding: 8px 16px;
+    background-color: $ui-01;
   }
 
   .#{$prefix}--audio-player__audio-time {
@@ -195,67 +30,39 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$prefix}--audio-player__audio-volume {
     height: 200px;
     width: 20px;
-    // border-right: 1px solid red;
-    outline: 1px solid $danger-01;
+    outline: 1px solid $red-60;
 
-    &-position {
-      transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      margin-left: 10px;
-      position: absolute;
-      top: 50%;
-      text-align: center;
-    }
+    // &-position {
+    //   margin-left: 10px;
+    //   position: absolute;
+    //   top: 50%;
+    //   text-align: center;
+    // }
   }
 
-  // .#{$prefix}--video-player__video-container {
-  //   width: 100%;
-  //   position: relative;
-  //   display: inline-block;
-  //   margin-top: $spacing-05;
+  .#{$prefix}--audio-player__volume-control {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    outline: 1px solid $orange-40;
 
-  //   ::slotted(.#{$prefix}--audio-player),
-  //   .#{$prefix}--video-player {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //   }
+    &-container {
+      position: absolute;
+      bottom: calc(48px + 10px);
+      display: flex;
+      align-items: center;
+      max-width: 240px;
+      height: 48px;
+      padding: 0 8px 8px;
+      background-color: $ui-01;
+      box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
+      // outline: 1px solid blue;
 
-  //   @include ratio-base(16, 9, true);
-
-  //   @each $aspect-ratio in $aspect-ratios {
-  //     $width: nth($aspect-ratio, 1);
-  //     $height: nth($aspect-ratio, 2);
-
-  //     &.#{$prefix}--video-player__aspect-ratio {
-  //       &--#{$width}x#{$height} {
-  //         @include ratio-base($width, $height, true);
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .#{$prefix}--video-player__video-caption {
-  //   @include carbon--type-style('caption-01');
-
-  //   padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
-  //   color: var(--#{$dds-prefix}--video-caption--color, $text-05);
-  //   max-width: 90%;
-  // }
-
-  // .#{$prefix}--video-player__image-overlay {
-  //   border: none;
-  //   padding: 0;
-  //   cursor: pointer;
-  //   width: 100%;
-  //   height: 100%;
-
-  //   &:focus {
-  //     outline: 3px solid $focus;
-  //     outline-offset: 1px;
-  //   }
-  // }
+      // & > .bx--slider-container {
+      //   transform: translateX(-50%) translateY(-50%) rotate(90deg);
+      // }
+    }
+  }
 }
 
 @include exports('audio-player') {

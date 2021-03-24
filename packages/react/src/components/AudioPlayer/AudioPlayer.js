@@ -17,7 +17,7 @@ import Forward_1032 from '@carbon/icons-react/es/forward--10/24';
 // import VideoImageOverlay from './VideoImageOverlay';
 import PauseFilled32 from '@carbon/icons-react/es/pause--filled/32';
 import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/24';
 // import Select from '../../internal/vendor/carbon-components-react/components/Select/Select';
@@ -36,7 +36,7 @@ const { prefix } = settings;
 
 /**
  * AudioPlayer component.
- * 
+ *
  * // showCaption,
   // videoId,
   // customClassName,
@@ -44,11 +44,11 @@ const { prefix } = settings;
   // aspectRatio,
  */
 
-const AudioPlayer = () => {
+const AudioPlayer = ({ hasSettings }) => {
   // const [, setVideoData] = useState({ description: '', name: '' });
   const [volume, setVolume] = useState(0);
   const [audioTime, setAudioTime] = useState(0);
-  const [displayAudio, setDisplayAudio] = useState(false);
+  const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
 
   // embedVideo is set to true when overlay thumbnail is clicked
@@ -106,29 +106,35 @@ const AudioPlayer = () => {
   };
 
   const handleDisplayVolume = () => {
-    setDisplayAudio(prev => !prev);
+    setDisplayVolumeControl(prev => !prev);
   };
 
   const handlePlayPauseAudio = () => {
     setPlayAudio(prev => !prev);
   };
 
+  const volumeControl = () => {
+    return (
+      displayVolumeControl && (
+        // <div className={`${prefix}--audio-player__audio-volume`}>
+        <div className={`${prefix}--audio-player__volume-control-container`}>
+          <Slider
+            max={100}
+            min={0}
+            value={volume}
+            onChange={({ value }) => setVolume(value)}
+            hideTextInput
+            formatLabel={() => ''}
+            // className={`${prefix}--audio-player__audio-volume-position`}
+          />
+        </div>
+        // </div>
+      )
+    );
+  };
+
   return (
     <>
-      {displayAudio && (
-        <div className={`${prefix}--audio-player__audio-volume`}>
-          <div>
-            <Slider
-              max={100}
-              min={0}
-              value={volume}
-              onChange={({ value }) => setVolume(value)}
-              hideTextInput
-              className={`${prefix}--audio-player__audio-volume-position`}
-            />
-          </div>
-        </div>
-      )}
       <div className={`${prefix}--audio-player__audio-container`}>
         {playAudio ? (
           <Button
@@ -147,16 +153,18 @@ const AudioPlayer = () => {
             onClick={() => handlePlayPauseAudio}
           />
         )}
+
         <Button
           renderIcon={Rewind_1032}
           iconDescription="Rewind 10 seconds"
           hasIconOnly
           kind="ghost"
         />
+
         <div className={`${prefix}--audio-player__audio-time`}>
           <Slider
-            minLabel="09"
-            maxLabel="020"
+            minLabel="00:00"
+            maxLabel="00:20"
             value={audioTime}
             onChange={({ value }) => setAudioTime(value)}
             hideTextInput
@@ -165,45 +173,54 @@ const AudioPlayer = () => {
             }
           />
         </div>
+
         <Button
           renderIcon={Forward_1032}
           iconDescription="Forward 10 seconds"
           hasIconOnly
           kind="ghost"
         />
-        {volume === 0 && (
+
+        <div className={`${prefix}--audio-player__volume-control`}>
+          {volumeControl()}
+          {volume === 0 && (
+            <Button
+              renderIcon={VolumeMute24}
+              iconDescription="Volume"
+              hasIconOnly
+              kind="ghost"
+              onClick={() => handleDisplayVolume()}
+            />
+          )}
+          {volume > 0 && volume < 80 && (
+            <Button
+              renderIcon={VolumeDown24}
+              iconDescription="Volume"
+              hasIconOnly
+              kind="ghost"
+              onClick={() => handleDisplayVolume()}
+            />
+          )}
+          {volume >= 80 && (
+            <Button
+              renderIcon={VolumeUp24}
+              iconDescription="Volume"
+              hasIconOnly
+              kind="ghost"
+              onClick={() => handleDisplayVolume()}
+            />
+          )}
+        </div>
+
+        {hasSettings && (
           <Button
-            renderIcon={VolumeMute24}
-            iconDescription="Volume"
+            renderIcon={Settings32}
+            iconDescription="Settings"
             hasIconOnly
             kind="ghost"
-            onClick={() => handleDisplayVolume()}
           />
         )}
-        {volume > 0 && volume < 80 && (
-          <Button
-            renderIcon={VolumeDown24}
-            iconDescription="Volume"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => handleDisplayVolume()}
-          />
-        )}
-        {volume >= 80 && (
-          <Button
-            renderIcon={VolumeUp24}
-            iconDescription="Volume"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => handleDisplayVolume()}
-          />
-        )}
-        <Button
-          renderIcon={Settings32}
-          iconDescription="Settings"
-          hasIconOnly
-          kind="ghost"
-        />
+
         <Button
           renderIcon={ClosedCaptionFilled32}
           iconDescription="Captions"
@@ -216,6 +233,11 @@ const AudioPlayer = () => {
 };
 
 AudioPlayer.propTypes = {
+  /**
+   * `true` to show the settings button.
+   */
+  hasSettings: PropTypes.bool,
+
   /**
    * `true` to autoplay the video on load
    */
@@ -243,6 +265,7 @@ AudioPlayer.propTypes = {
 
 AudioPlayer.defaultProps = {
   autoPlay: false,
+  hasSettings: true,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;
