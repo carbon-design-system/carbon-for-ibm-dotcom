@@ -22,10 +22,8 @@
         <div class="bx--content-group-cards__row">
           <slot>
           </slot>
-          <div hidden="">
-            <slot name="media">
-            </slot>
-          </div>
+          <slot name="media">
+          </slot>
         </div>
       </div>
     </div>
@@ -60,10 +58,8 @@
         <div class="bx--content-group-cards__row">
           <slot>
           </slot>
-          <div hidden="">
-            <slot name="media">
-            </slot>
-          </div>
+          <slot name="media">
+          </slot>
         </div>
       </div>
     </div>

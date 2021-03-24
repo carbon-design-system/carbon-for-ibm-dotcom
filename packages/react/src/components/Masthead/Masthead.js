@@ -42,6 +42,7 @@ const { prefix } = settings;
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
  * @param {boolean} props.searchOpenOnloadNoBlur Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
+ * @param {string} props.initialSearchTerm Initial value for search input
  * @param {object} props.platform Platform name that appears on L0.
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
@@ -56,6 +57,7 @@ const Masthead = ({
   searchOpenOnload,
   searchOpenOnloadNoBlur,
   placeHolderText,
+  initialSearchTerm,
   platform,
   mastheadL1Data,
   selectedMenuItem,
@@ -264,6 +266,7 @@ const Masthead = ({
                         ? { searchOpenOnloadNoBlur: isSearchActive }
                         : {})}
                       placeHolderText={placeHolderText}
+                      initialSearchTerm={initialSearchTerm}
                       navType={navType}
                       isSearchActive={handleSearchActive}
                     />
@@ -401,6 +404,11 @@ Masthead.propTypes = {
   placeHolderText: PropTypes.string,
 
   /**
+   * Initial value for search input.
+   */
+  initialSearchTerm: PropTypes.string,
+
+  /**
    * All the data that goes to the L1 of the Masthead.
    */
   mastheadL1Data: PropTypes.shape({
@@ -475,6 +483,7 @@ Masthead.defaultProps = {
   selectedMenuItem: '',
   platform: null,
   placeHolderText: 'Search all of IBM',
+  initialSearchTerm: '',
   mastheadL1Data: null,
 };
 
