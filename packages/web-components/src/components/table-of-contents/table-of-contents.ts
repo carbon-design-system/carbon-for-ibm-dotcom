@@ -141,17 +141,9 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   @query(`.${prefix}--sub-content-right`)
   private _intersectionRightSentinelNode?: HTMLElement;
 
-  /**
-   * The left-hand sentinel to track intersection with the host element.
-   * If they intersect, the left-hand paginator button should be hidden.
-   */
   @queryAll(`.${prefix}--tableofcontents__desktop__item`)
   private _itemNodes?: HTMLElement[] = [];
 
-  /**
-   * The left-hand sentinel to track intersection with the host element.
-   * If they intersect, the left-hand paginator button should be hidden.
-   */
   @query(`.${prefix}--tableofcontents__navbar`)
   private _navBar?: HTMLElement;
 
