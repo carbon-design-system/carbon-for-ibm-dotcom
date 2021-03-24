@@ -284,7 +284,7 @@
 
   @include carbon--breakpoint('md') {
     .#{$prefix}--tableofcontents__mobile {
-      padding-left: $carbon--spacing-07;
+      padding-left: $carbon--spacing-05;
     }
   }
 

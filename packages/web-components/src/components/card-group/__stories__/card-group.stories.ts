@@ -14,10 +14,10 @@ import '../../card-in-card/card-in-card-footer';
 import '../../card-in-card/card-in-card-image';
 import '../card-group';
 import '../card-group-item';
+import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import { select, number } from '@storybook/addon-knobs';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -53,12 +53,18 @@ const cardRandomPhrase = () => {
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
-    <dds-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-image>
+    <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
     <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-heading>Natural Language Processing.</dds-card-heading>
     <dds-card-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
+  </dds-card-group-item>
+`;
+
+const cardGroupItemWithVideos = html`
+  <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
@@ -154,6 +160,35 @@ withCardInCard.story = {
   },
 };
 
+export const withMixedMedia = ({ parameters }) => {
+  const { cards } = parameters?.props?.CardGroup ?? {};
+  return html`
+    <dds-video-cta-container>
+      <dds-card-group>
+        ${cards}
+      </dds-card-group>
+    </dds-video-cta-container>
+  `;
+};
+
+withMixedMedia.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map((_, index) => (index % 2 ? cardGroupItemWithImages : cardGroupItemWithVideos)),
+      }),
+    },
+  },
+};
+
+const gridModes = {
+  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+};
+
 export const withCardInCardAndImageCards = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
@@ -202,6 +237,7 @@ export default {
     `,
   ],
   parameters: {
+    hasGrid: true,
     ...readme.parameters,
     hasCardGroupStandalone: true,
     knobs: {
@@ -211,5 +247,12 @@ export default {
         }).map(() => cardRandomPhrase()),
       }),
     },
+    decorators: [
+      story => html`
+        <div class="dds-ce-demo-devenv--grid--stretch">
+          ${story()}
+        </div>
+      `,
+    ],
   },
 };
