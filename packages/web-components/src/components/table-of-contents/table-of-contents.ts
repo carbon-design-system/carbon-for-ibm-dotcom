@@ -515,6 +515,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${containerClasses}">
         <div part="table" class="${navigationClasses}">
+          <div class="test"></div>
           ${hasMobileContainerVisible
             ? nothing
             : html`

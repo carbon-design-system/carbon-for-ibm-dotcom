@@ -213,6 +213,21 @@
     }
   }
 
+  .test {
+    width: 0;
+    height: 0;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      height: 40px;
+      top: 0;
+      bottom: 0;
+      right: calc((100vw - 100%) / -2);
+      left: calc((100vw - 100%) / -2);
+    }
+  }
+
   .#{$prefix}--tableofcontents__navbar {
     z-index: 1;
     position: sticky;
