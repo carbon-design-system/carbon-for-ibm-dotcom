@@ -55,7 +55,6 @@ export default {
 export const Default = ({ parameters }) => {
   const { copy, heading, items, cta } =
     parameters?.props?.ContentBlockMedia ?? {};
-  console.log('cta in ContentBlockMedia', cta);
   return (
     <div className="bx--grid">
       <div className="bx--row">
