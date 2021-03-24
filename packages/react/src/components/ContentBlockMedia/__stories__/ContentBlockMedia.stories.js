@@ -6,7 +6,6 @@
  */
 
 import { select, text, boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
@@ -19,14 +18,11 @@ Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
 nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.`;
 
 const ctaProps = {
-  type: 'local',
   heading: 'Lorem ipsum dolor sit amet',
   card: {
+    type: 'external',
     cta: {
       href: 'https://www.example.com',
-      icon: {
-        src: ArrowRight20,
-      },
     },
     heading: 'Consectetur adipisicing elit',
     image: {
@@ -59,6 +55,7 @@ export default {
 export const Default = ({ parameters }) => {
   const { copy, heading, items, cta } =
     parameters?.props?.ContentBlockMedia ?? {};
+  console.log('cta in ContentBlockMedia', cta);
   return (
     <div className="bx--grid">
       <div className="bx--row">
