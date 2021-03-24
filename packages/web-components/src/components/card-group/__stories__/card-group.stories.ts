@@ -161,7 +161,7 @@ withMixedMedia.story = {
   },
 };
 
-const definedGridModes = {
+const gridModes = {
   [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
 };
@@ -192,7 +192,7 @@ withCardInCard.story = {
     ...readme.parameters,
     knobs: {
       CardGroup: ({ groupId }) => ({
-        gridMode: select('Grid mode:', definedGridModes, GRID_MODE.NARROW, groupId),
+        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
         cards: Array.from({
           length: number('Number of cards', 3, {}, groupId),
         }).map(() => cardGroupItemWithCTAs),
