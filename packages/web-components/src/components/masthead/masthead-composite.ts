@@ -699,7 +699,7 @@ class DDSMastheadComposite extends LitElement {
         ${!hasSearch
           ? undefined
           : html`
-              <dds-masthead-search-container
+              <dds-masthead-search-composite
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
@@ -707,7 +707,7 @@ class DDSMastheadComposite extends LitElement {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-              ></dds-masthead-search-container>
+              ></dds-masthead-search-composite>
             `}
         <dds-masthead-global-bar>
           ${!hasProfile
