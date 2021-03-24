@@ -8,10 +8,7 @@
     "node": "12.x"
   },
   "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": []
+    "packages": ["packages/*"]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
