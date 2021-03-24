@@ -14,10 +14,8 @@
   >
     <slot name="copy">
     </slot>
-    <div hidden="">
-      <slot name="media">
-      </slot>
-    </div>
+    <slot name="media">
+    </slot>
     <slot>
     </slot>
     <div hidden="">
@@ -45,10 +43,8 @@
   >
     <slot name="copy">
     </slot>
-    <div hidden="">
-      <slot name="media">
-      </slot>
-    </div>
+    <slot name="media">
+    </slot>
     <slot>
     </slot>
     <div hidden="">

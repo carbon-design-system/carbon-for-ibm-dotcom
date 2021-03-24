@@ -104,8 +104,12 @@ DefaultWithNoImage.story = {
 export const DefaultWithImage = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.LeadSpace ?? {};
+  const params = new URLSearchParams(window.location.search);
+  const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+    themeParam ||
+    document.documentElement.getAttribute('storybook-carbon-theme') ||
+    'white';
   return (
     <LeadSpace
       theme={theme}
@@ -139,8 +143,12 @@ DefaultWithImage.story = {
 export const Centered = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.Leadspace ?? {};
+  const params = new URLSearchParams(window.location.search);
+  const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+    themeParam ||
+    document.documentElement.getAttribute('storybook-carbon-theme') ||
+    'white';
   return (
     <LeadSpace
       type="centered"
@@ -198,8 +206,12 @@ Centered.story = {
 
 export const CenteredWithImage = ({ parameters }) => {
   const { title, copy, gradient, buttons } = parameters?.props?.Leadspace ?? {};
+  const params = new URLSearchParams(window.location.search);
+  const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+    themeParam ||
+    document.documentElement.getAttribute('storybook-carbon-theme') ||
+    'white';
   return (
     <LeadSpace
       type="centered"
