@@ -213,21 +213,6 @@
     }
   }
 
-  .test {
-    width: 0;
-    height: 0;
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      height: 40px;
-      top: 0;
-      bottom: 0;
-      right: calc((100vw - 100%) / -2);
-      left: calc((100vw - 100%) / -2);
-    }
-  }
-
   .#{$prefix}--tableofcontents__navbar {
     z-index: 1;
     position: sticky;
@@ -238,9 +223,9 @@
     @include carbon--breakpoint('lg') {
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
       border-bottom: 1px solid $ui-04;
-      height: 49px;
+      height: carbon--rem(49px);
       background-color: $ui-01;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     .#{$prefix}--tableofcontents__desktop__item {
