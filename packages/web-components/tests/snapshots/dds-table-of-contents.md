@@ -21,13 +21,31 @@
     </div>
     <div class="bx--tableofcontents__mobile-top">
     </div>
+    <div class="bx--header__nav-caret-left-container dds-ce--header__nav-caret-container--hidden">
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-left"
+        part="prev-button"
+        tabindex="-1"
+      >
+      </button>
+      <div class="bx--header__nav-caret-left-gradient">
+      </div>
+    </div>
     <div
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
+      <div
+        class="bx--tableofcontents__desktop"
+        style="left: -0px"
+      >
+        <div class="bx--sub-content-left">
+        </div>
         <ul>
         </ul>
+        <div class="bx--sub-content-right">
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
@@ -35,6 +53,17 @@
           </select>
         </div>
       </div>
+    </div>
+    <div class="bx--header__nav-caret-right-container dds-ce--header__nav-caret-container--hidden">
+      <div class="bx--header__nav-caret-right-gradient">
+      </div>
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-right"
+        part="next-button"
+        tabindex="-1"
+      >
+      </button>
     </div>
   </div>
   <div class="bx--tableofcontents__content">
@@ -63,13 +92,31 @@
     </div>
     <div class="bx--tableofcontents__mobile-top">
     </div>
+    <div class="bx--header__nav-caret-left-container dds-ce--header__nav-caret-container--hidden">
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-left"
+        part="prev-button"
+        tabindex="-1"
+      >
+      </button>
+      <div class="bx--header__nav-caret-left-gradient">
+      </div>
+    </div>
     <div
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
+      <div
+        class="bx--tableofcontents__desktop"
+        style="left: -0px"
+      >
+        <div class="bx--sub-content-left">
+        </div>
         <ul>
         </ul>
+        <div class="bx--sub-content-right">
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
@@ -77,6 +124,17 @@
           </select>
         </div>
       </div>
+    </div>
+    <div class="bx--header__nav-caret-right-container dds-ce--header__nav-caret-container--hidden">
+      <div class="bx--header__nav-caret-right-gradient">
+      </div>
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-right"
+        part="next-button"
+        tabindex="-1"
+      >
+      </button>
     </div>
   </div>
   <div class="bx--tableofcontents__content">
@@ -99,13 +157,31 @@
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>
+    <div class="bx--header__nav-caret-left-container dds-ce--header__nav-caret-container--hidden">
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-left"
+        part="prev-button"
+        tabindex="-1"
+      >
+      </button>
+      <div class="bx--header__nav-caret-left-gradient">
+      </div>
+    </div>
     <div
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
+      <div
+        class="bx--tableofcontents__desktop"
+        style="left: -0px"
+      >
+        <div class="bx--sub-content-left">
+        </div>
         <ul>
         </ul>
+        <div class="bx--sub-content-right">
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
@@ -113,6 +189,17 @@
           </select>
         </div>
       </div>
+    </div>
+    <div class="bx--header__nav-caret-right-container dds-ce--header__nav-caret-container--hidden">
+      <div class="bx--header__nav-caret-right-gradient">
+      </div>
+      <button
+        aria-hidden="true"
+        class="bx--header__nav-caret-right"
+        part="next-button"
+        tabindex="-1"
+      >
+      </button>
     </div>
   </div>
   <div class="bx--tableofcontents__content">
