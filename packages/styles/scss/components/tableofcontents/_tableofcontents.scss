@@ -37,6 +37,7 @@
     .#{$prefix}--tableofcontents__desktop__item {
     margin-bottom: 1px;
     a {
+      white-space: nowrap;
       border-left: none;
       color: $text-02;
     }
@@ -216,21 +217,15 @@
     z-index: 1;
     position: sticky;
     top: 0;
-    background-color: $ui-01;
     width: 100%;
+    //padding: 0 1rem;
 
     @include carbon--breakpoint('lg') {
-      &::before {
-        border-bottom: 1px solid $ui-04;
-        content: '';
-        background-color: $ui-01;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: calc((100vw - 100%) / -2);
-        left: calc((100vw - 100%) / -2);
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-      }
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+      border-bottom: 1px solid $ui-04;
+      height: 49px;
+      background-color: $ui-01;
+      overflow-x: hidden;
     }
 
     .#{$prefix}--tableofcontents__desktop__item {
@@ -239,10 +234,6 @@
         color: $text-02;
         padding-left: $spacing-05;
         padding-right: $spacing-05;
-
-        &:hover {
-          border-bottom-color: $hover-selected-ui;
-        }
 
         &:focus {
           outline: 2px solid $focus;
@@ -268,12 +259,105 @@
       max-width: none;
       padding-top: 0;
       margin-top: 0;
+      position: absolute;
+      transition: left $transition--base motion(standard, productive);
 
       ul {
         display: flex;
         justify-content: flex-start;
       }
     }
+  }
+
+  .#{$prefix}--sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--header__nav-caret-left,
+  .#{$prefix}--header__nav-caret-right {
+    width: rem(40px);
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    border: none;
+    background-color: $ui-01;
+    > {
+      svg {
+        position: absolute;
+        fill: currentColor;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    &:hover {
+      background-color: $hover-ui;
+      //transition-duration: $search-transition-timing;
+      > {
+        svg {
+          fill: $text-01;
+        }
+      }
+    }
+    &:focus,
+    &:active {
+      display: block;
+      background-color: $hover-ui;
+      outline: 2px solid $interactive-01;
+      outline-offset: -2px;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    @media (min-width: 800px) {
+      display: block;
+    }
+  }
+  .#{$prefix}--header__nav-caret-left-container[hidden],
+  .#{$prefix}--header__nav-caret-right-container[hidden] {
+    display: none;
+  }
+  .#{$prefix}--header__nav-caret-left {
+    left: 0;
+  }
+
+  .#{$prefix}--header__nav-caret-left-gradient {
+    display: block;
+    position: absolute;
+    left: rem(40px);
+    top: 0;
+    height: 100%;
+    width: rem(8px);
+    background: linear-gradient(to right, $ui-01, rgba(255, 255, 255, 0));
+    z-index: 1;
+  }
+
+  .#{$prefix}--header__nav-caret-right {
+    right: 0;
+  }
+
+  .#{$prefix}--header__nav-caret-right-gradient {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: rem(40px);
+    height: 100%;
+    width: rem(8px);
+    background: linear-gradient(to left, $ui-01, rgba(255, 255, 255, 0));
   }
 
   @include carbon--breakpoint('sm') {

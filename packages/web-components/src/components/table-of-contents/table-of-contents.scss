@@ -10,10 +10,22 @@
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@import '../../../../styles/scss/components/tableofcontents/tableofcontents';
 
 // TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
 :host(#{$dds-prefix}-table-of-contents) {
   @extend .#{$prefix}--grid;
+}
+
+:host(#{$dds-prefix}-table-of-contents)[toc-layout='horizontal'] {
+  //@include carbon--breakpoint('lg') {
+  //  position: absolute;
+  //  padding: 0;
+  //
+  //  .#{$prefix}--tableofcontents__content {
+  //    padding: 0 5rem;
+  //  }
+  //}
 }
 
 // TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
@@ -26,16 +38,15 @@
   @extend .#{$prefix}--col-lg-12;
 }
 
-.#{$dds-prefix}-ce--table-of-contents__container,
 .#{$dds-prefix}-ce--table-of-contents-horizontal__container {
   @include carbon--make-row();
-}
 
-.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
   position: relative;
 }
 
 .#{$dds-prefix}-ce--table-of-contents__container {
+  @include carbon--make-row();
+
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
   ::slotted(#{$dds-prefix}-content-block-simple),
   ::slotted(#{$dds-prefix}-content-block-segmented) {
@@ -46,4 +57,36 @@
   .#{$prefix}--tableofcontents__sidebar {
     top: 48px;
   }
+}
+
+.#{$prefix}--header__nav-caret-left-container,
+.#{$prefix}--header__nav-caret-right-container {
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  display: none;
+
+  @include carbon--breakpoint('lg') {
+    display: block;
+  }
+}
+
+.#{$prefix}--header__nav-caret-right-container {
+  right: 0;
+}
+
+.#{$prefix}--header__nav-caret-left-container {
+  left: 0;
+}
+
+.#{$prefix}--header__nav-caret-left,
+.#{$prefix}--header__nav-caret-right {
+  position: relative;
+  // 40px caret width & 8px gradient
+  height: 48px;
+}
+
+.#{$dds-prefix}-ce--header__nav-caret-container--hidden {
+  position: absolute;
+  visibility: hidden;
 }

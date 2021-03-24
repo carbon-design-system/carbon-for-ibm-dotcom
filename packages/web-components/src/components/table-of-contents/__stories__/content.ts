@@ -13,7 +13,7 @@ const content = contentClass => html`
   <div class="${contentClass} dds-ce-demo--table-of-contents">
     <a name="8">
       <h3>
-        Cras molestie condimentum
+        0 Cras molestie condimentum
       </h3>
     </a>
     <p>
@@ -45,7 +45,7 @@ const content = contentClass => html`
     </p>
     <a name="7">
       <h3>
-        Praesent fermentum sodales
+        1 Praesent fermentum sodales
       </h3>
     </a>
     <p>
@@ -77,7 +77,7 @@ const content = contentClass => html`
     </p>
     <a name="2">
       <h3>
-        Nulla tristique lacinia
+        2 Nulla tristique lacinia
       </h3>
     </a>
     <p>
@@ -109,7 +109,7 @@ const content = contentClass => html`
     </p>
     <a name="3">
       <h3>
-        Morbi id nibh metus
+        3 Morbi id nibh metus
       </h3>
     </a>
     <p>
@@ -141,7 +141,7 @@ const content = contentClass => html`
     </p>
     <a name="14">
       <h3>
-        Integer non scelerisque
+        4 Integer non scelerisque
       </h3>
     </a>
     <p>
@@ -171,6 +171,68 @@ const content = contentClass => html`
       vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque
       nisl.
     </p>
+    <a name="15">
+      <h3>
+        5 Integer non scelerisque
+      </h3>
+    </a>
+        <a name="15">
+      <h3>
+        6 Integer non scelerisque
+      </h3>
+    </a>
+        <a name="15">
+      <h3>
+        7 Integer non scelerisque
+      </h3>
+    </a>
+            <a name="15">
+      <h3>
+        8 Integer non scelerisque
+      </h3>
+    </a>
+                <a name="15">
+      <h3>
+        9 Integer non scelerisque
+      </h3>
+    </a>
+        </a>
+                <a name="15">
+      <h3>
+        10 Integer non scelerisque
+      </h3>
+    </a>
+        <a name="15">
+      <h3>
+        11 Integer non scelerisque
+      </h3>
+    </a>
+        <a name="15">
+      <h3>
+        12 Integer non scelerisque
+      </h3>
+    </a>
+        <a name="15">
+      <h3>
+        13 Integer non scelerisque
+      </h3>
+    </a>
+            <a name="15">
+      <h3>
+        14 Integer non scelerisque
+      </h3>
+    </a>
+                <a name="15">
+      <h3>
+        15 Integer non scelerisque
+      </h3>
+    </a>
+        </a>
+                <a name="15">
+      <h3>
+        16 Integer non scelerisque
+      </h3>
+    </a>
   </div>
 `;
 
