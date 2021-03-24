@@ -1,0 +1,29 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../link-list/index';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+//@mixin tabs-extended {
+//  :host(#{$dds-prefix}-tabs-extended) {
+//
+//    @include carbon--breakpoint(md) {
+//      padding-bottom: $carbon--spacing-10;
+//    }
+//
+//    @include carbon--breakpoint(lg) {
+//      padding-top: $carbon--spacing-10;
+//      padding-bottom: $carbon--spacing-10;
+//    }
+//
+//  }
+//}
+//
+//@include exports('tabs-extended') {
+//  @include tabs-extended;
+//}
