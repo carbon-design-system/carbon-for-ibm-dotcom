@@ -287,42 +287,25 @@ withAlternateLogoAndTooltip.story = {
   },
 };
 
-export const withCloudVariant = ({ parameters }) => {
-  const { platform, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+export const WithCloudVariant = ({ parameters }) => {
+  const { selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } = parameters?.props?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
     </style>
-    ${useMock
-      ? html`
-          <dds-cloud-masthead-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            user-status="${ifNonNull(userStatus)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
-            .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-          ></dds-cloud-masthead-composite>
-        `
-      : html`
-          <dds-cloud-masthead-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            .l1Data="${l1Data}"
-            .navLinks="${navLinks}"
-          ></dds-cloud-masthead-container>
-        `}
+    <dds-cloud-masthead-container
+      platform="Cloud"
+      platform-url="${ifNonNull(platformData.url)}"
+      selected-menu-item="${ifNonNull(selectedMenuItem)}"
+      user-status="${ifNonNull(userStatus)}"
+      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      .navLinks="${customLinks}"
+      ?has-profile="${hasProfile}"
+      ?has-search="${hasSearch}"
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+      data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+    ></dds-cloud-masthead-container>
   `;
 };
 
