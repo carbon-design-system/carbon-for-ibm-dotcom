@@ -33,8 +33,26 @@
   }
 
   &:focus {
-    outline: 2px solid $focus;
+    outline: none;
     outline-offset: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid $focus;
+      outline: 1px solid #ffffff;
+      outline-offset: -3px;
+
+      @include carbon--breakpoint-down('md') {
+        min-height: 292px;
+      }
+    }
   }
 }
 
@@ -71,9 +89,11 @@
     &:hover {
       ::slotted([slot='image']),
       .#{$prefix}--image {
-        @include carbon--breakpoint(md) {
-          filter: brightness(80%);
-        }
+        filter: brightness(80%);
+      }
+
+      .#{$prefix}--card__content {
+        background-color: $hover-ui;
       }
     }
 
@@ -113,6 +133,8 @@
 
     .#{$prefix}--card {
       @include card;
+
+      margin: 0;
     }
 
     .#{$prefix}--card__heading {
