@@ -29,7 +29,7 @@ class DDSContentItemHorizontalMedia extends DDSContentItem {
    * Defines the alignment of the media: `left` or `right`
    */
   @property({ reflect: true })
-  align = MEDIA_ALIGN.LEFT;
+  align = MEDIA_ALIGN.RIGHT;
 
   render() {
     return html`
