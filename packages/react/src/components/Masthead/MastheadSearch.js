@@ -97,12 +97,15 @@ function _reducer(state, action) {
  */
 const MastheadSearch = ({
   placeHolderText,
+  initialSearchTerm,
   renderValue,
   searchOpenOnload,
+  searchOpenOnloadNoBlur,
   navType,
   ...rest
 }) => {
   const { ref } = useSearchVisible(false);
+
   /**
    * Initial state of the autocomplete component
    *
@@ -110,11 +113,11 @@ const MastheadSearch = ({
    * @private
    */
   const _initialState = {
-    val: '',
+    val: initialSearchTerm || getValueFromQueryString() || '',
     suggestions: [],
     prevSuggestions: [],
     suggestionContainerVisible: false,
-    isSearchOpen: searchOpenOnload || rest.searchAlwaysOpen,
+    isSearchOpen: searchOpenOnload || searchOpenOnloadNoBlur,
     lc: 'en',
     cc: 'us',
   };
@@ -165,21 +168,21 @@ const MastheadSearch = ({
     };
 
     /**
-     * Close search when click detected outside of component
-     * unless searchAlwaysOpen is true.
+     * Close search when click detected outside of component.
+     * This is necessary otherwise search stays open even when
+     * elements other than the close button and the
+     * profile button are clicked.
      *
      * @param {*} event Click event outside masthead component
      */
     const handleClickOutside = event => {
-      let mastheadRef = ref.current?.closest('.bx--masthead');
-      if (
-        mastheadRef &&
-        !mastheadRef.contains(event.target) &&
-        !rest.searchAlwaysOpen
-      ) {
-        // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
-        if (state.val.length === 0) {
-          dispatch({ type: 'setSearchClosed' });
+      if (!searchOpenOnloadNoBlur) {
+        let mastheadRef = ref.current?.closest('.bx--masthead');
+        if (mastheadRef && !mastheadRef.contains(event.target)) {
+          // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
+          if (state.val.length === 0) {
+            dispatch({ type: 'setSearchClosed' });
+          }
         }
       }
     };
@@ -315,27 +318,15 @@ const MastheadSearch = ({
   }
 
   /**
-   * Close search and clear input if searchAlwaysOpen is false.
-   * If searchAlwaysOpen is true, clear input only.
+   * Clear search and clear input when called
    */
   const resetSearch = useCallback(() => {
-    const searchElRef = !rest.searchAlwaysOpen
-      ? root.document.querySelectorAll(
-          `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
-        )
-      : root.document.querySelectorAll(
-          `[data-autoid="${stablePrefix}--header__search--input"]`
-        );
-
-    if (!rest.searchAlwaysOpen) dispatch({ type: 'setSearchClosed' });
-
+    dispatch({ type: 'setSearchClosed' });
     dispatch({
       type: 'setVal',
       payload: { val: '' },
     });
-
-    searchElRef && searchElRef[0].focus();
-  }, [dispatch, rest.searchAlwaysOpen, navType]);
+  }, [dispatch]);
 
   /**
    * closeBtnAction resets and sets focus after search is closed
@@ -349,6 +340,10 @@ const MastheadSearch = ({
     event.currentTarget.dispatchEvent(onSearchCloseClicked);
 
     resetSearch();
+    const searchIconRef = root.document.querySelectorAll(
+      `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
+    );
+    searchIconRef && searchIconRef[0].focus();
   }
 
   /**
@@ -492,6 +487,19 @@ const MastheadSearch = ({
     return section.items;
   }
 
+  /**
+   * Get inital search term from query string
+   *
+   * @returns {string} Search term
+   */
+  function getValueFromQueryString() {
+    try {
+      return new URLSearchParams(root.location.search).get('q');
+    } catch (e) {
+      return '';
+    }
+  }
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -556,19 +564,25 @@ MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
 
   /**
+   * Initial value for the search field.
+   */
+  initialSearchTerm: PropTypes.string,
+
+  /**
    * Number of characters to begin showing suggestions.
    */
   renderValue: PropTypes.number,
 
   /**
-   * `true` to make the search field always open.
-   */
-  searchAlwaysOpen: PropTypes.bool,
-
-  /**
    * `true` to make the search field open in the initial state.
    */
   searchOpenOnload: PropTypes.bool,
+
+  /**
+   * `true` to make the search field open in the initial state.
+   * Search will not close on blur, but with close button only.
+   */
+  searchOpenOnloadNoBlur: PropTypes.bool,
 
   /**
    * navigation type for autoids
@@ -578,8 +592,10 @@ MastheadSearch.propTypes = {
 
 MastheadSearch.defaultProps = {
   placeHolderText: 'Search all of IBM',
+  initialSearchTerm: '',
   renderValue: 3,
   searchOpenOnload: false,
+  searchOpenOnloadNoBlur: false,
 };
 
 // Export the react component

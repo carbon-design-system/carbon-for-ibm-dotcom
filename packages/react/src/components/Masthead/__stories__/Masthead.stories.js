@@ -144,21 +144,21 @@ WithCustomNavigation.story = {
   },
 };
 
-export const SearchOpenOnLoad = ({ parameters }) => (
+export const SearchOpenOnload = ({ parameters }) => (
   <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload />
 );
 
-SearchOpenOnLoad.story = {
+SearchOpenOnload.story = {
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
 };
 
-export const SearchAlwaysOpen = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchAlwaysOpen />
+export const SearchOpenOnloadNoBlur = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnloadNoBlur />
 );
 
-SearchAlwaysOpen.story = {
+SearchOpenOnloadNoBlur.story = {
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },

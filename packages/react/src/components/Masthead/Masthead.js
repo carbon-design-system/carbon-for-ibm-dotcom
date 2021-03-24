@@ -40,6 +40,7 @@ const { prefix } = settings;
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
+ * @param {boolean} props.searchOpenOnloadNoBlur Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
  * @param {object} props.platform Platform name that appears on L0.
  * @param {string} props.title Title for the masthead L1
@@ -53,6 +54,7 @@ const Masthead = ({
   hasProfile,
   hasSearch,
   searchOpenOnload,
+  searchOpenOnloadNoBlur,
   placeHolderText,
   platform,
   mastheadL1Data,
@@ -73,7 +75,9 @@ const Masthead = ({
    * @param {boolean} isSearchActive Whether the search bar is open
    * @returns {*} The active search status
    */
-  const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  const [isSearchActive, setIsSearchActive] = useState(
+    searchOpenOnload || searchOpenOnloadNoBlur
+  );
   const handleSearchActive = e => {
     setIsSearchActive(e);
   };
@@ -253,7 +257,12 @@ const Masthead = ({
                   {hasSearch && (
                     <MastheadSearch
                       {...mastheadProps}
-                      searchOpenOnload={isSearchActive}
+                      {...(searchOpenOnload
+                        ? { searchOpenOnload: isSearchActive }
+                        : {})}
+                      {...(searchOpenOnloadNoBlur
+                        ? { searchOpenOnloadNoBlur: isSearchActive }
+                        : {})}
                       placeHolderText={placeHolderText}
                       navType={navType}
                       isSearchActive={handleSearchActive}
@@ -366,6 +375,11 @@ Masthead.propTypes = {
   searchOpenOnload: PropTypes.bool,
 
   /**
+   * `true` to have search field open on page load. Search will not close on blur, but with close button only.
+   */
+  searchOpenOnloadNoBlur: PropTypes.bool,
+
+  /**
    * Platform name that appears on L0.
    * Includes platform name (only available with `default` and `custom navigation`).
    * Object requires `name` and `url`.
@@ -457,6 +471,7 @@ Masthead.defaultProps = {
   hasProfile: true,
   hasSearch: true,
   searchOpenOnload: false,
+  searchOpenOnloadNoBlur: false,
   selectedMenuItem: '',
   platform: null,
   placeHolderText: 'Search all of IBM',
