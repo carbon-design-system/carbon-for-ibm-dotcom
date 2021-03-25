@@ -55,7 +55,10 @@ describe('LocaleModal', () => {
 
   it('should load the Americas region', async () => {
     page = await browser.newPage();
-    await page.goto(`${_url}${_path}`, { waitUntil: 'load', timeout: 30000 });
+    await page.goto(`${_url}${_path}`, {
+      waitUntil: 'networkidle0',
+      timeout: 100000,
+    });
 
     await page.waitForSelector('[data-autoid="dds--locale-modal"]');
 
@@ -65,7 +68,9 @@ describe('LocaleModal', () => {
       );
       region.click();
     } else {
-      await page.waitForSelector('[data-region="am"]');
+      await page.waitForSelector(
+        '.bx--locale-modal__regions > div > div:nth-child(1) > a'
+      );
       await page.click('[data-region="am"]');
     }
 
