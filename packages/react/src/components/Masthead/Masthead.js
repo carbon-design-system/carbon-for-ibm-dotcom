@@ -270,7 +270,7 @@ const Masthead = ({
                       overflowMenuProps={{
                         ariaLabel: 'User Profile',
                         'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
-                        flipped: true,
+                        flipped: root.document?.dir === 'rtl' ? false : true,
                         style: { width: '3rem' },
                         onOpen: () => _setProfileListPosition(),
                         renderIcon: () =>
