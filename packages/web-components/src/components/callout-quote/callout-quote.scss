@@ -12,11 +12,14 @@
   @extend .#{$prefix}--link-with-icon;
 
   display: inline-block;
-  a.#{$prefix}--link-with-icon {
+  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
     color: $inverse-link;
     outline-color: $inverse-focus-ui;
     &:hover {
       color: #a6c8ff;
+    }
+    &:active {
+      color: $inverse-link;
     }
   }
 }
