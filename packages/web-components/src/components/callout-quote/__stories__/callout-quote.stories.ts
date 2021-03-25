@@ -43,7 +43,7 @@ export const Default = ({ parameters }) => {
         ${sourceBottomCopy}
       </dds-quote-source-bottom-copy>
       <dds-callout-link-with-icon slot="footer" href="https://example.com">
-        Link with Icon ${ArrowRight20({ slot: 'icon' })}
+        Link with icon ${ArrowRight20({ slot: 'icon' })}
       </dds-callout-link-with-icon>
     </dds-callout-quote>
   `;
