@@ -52,28 +52,18 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     this._tabItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
-      .filter(node => (new DDSTab)?.nodeName === node.nodeName)
-      .map((elem, index) => {
-        const tab = {
-          label: elem.label,
-          title: elem.title,
-          disabled: elem.disabled,
-          index: index,
-        };
-        return tab;
-      });
+      .filter(node => (new DDSTab)?.nodeName === node.nodeName);
   }
 
   private _setActiveTab(index) {
-    console.log(index);
     this.active = index;
   }
 
   updated() {
-    console.log(this.childNodes);
-    //   .forEach(elem => {
-    //   (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
-    // });
+    this._tabItems.map((tab, index) => {
+      tab.active = (index === this.active);
+      tab.index = index;
+    })
   }
 
   render() {
@@ -84,14 +74,14 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--tabs-extended">
         <div data-tabs class="${prefix}--tabs">
           <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
-            ${tabs.map(item => {
-              const active = (item.index === this.active) ? `${prefix}--tabs__nav-item--selected` : ``;
+            ${tabs.map((tab, index) => {
+              const active = (index === this.active) ? `${prefix}--tabs__nav-item--selected` : ``;
               return html`
                 <li
                   class="${prefix}--tabs__nav-item ${active}"
-                  data-target=".tab-${item.index}-default" role="tab" aria-selected="true">
-                  <a tabindex="${item.index}" id="tab-link-${item.index}-default" class="${prefix}--tabs__nav-link" href="javascript:void(0)" role="tab"
-                     aria-controls="tab-panel-${item.index}-default" @click="${(e) => this._setActiveTab(item.index)}" >${item.label}</a>
+                  data-target=".tab-${index}-default" role="tab" aria-selected="true">
+                  <a tabindex="${index}" id="tab-link-${index}-default" class="${prefix}--tabs__nav-link" href="javascript:void(0)" role="tab"
+                     aria-controls="tab-panel-${index}-default" @click="${(e) => this._setActiveTab(index)}" >${tab.label}</a>
                 </li>
               `;
             })}

@@ -39,9 +39,21 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   disabled = null;
 
+  /**
+   * Defines the disabled state of the tab.
+   */
+  @property({ reflect: true })
+  active = false;
+
+  /**
+   * Defines the disabled state of the tab.
+   */
+  @property({ reflect: true })
+  index = 0;
+
   render() {
     return html`
-      <div class="tab-content">
+      <div class="tab-${this.index}-container" aria-hidden="${this.active}">
         <slot></slot>
       </div>
     `;
