@@ -129,7 +129,10 @@ function renderFooter(cta, copy, heading, pictogram) {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
         })}
-        aria-label={cta?.copy ? '' : heading ? heading : copy}>
+        aria-label={
+          (cta?.copy ? '' : heading ? heading : copy) +
+          CTALogic.getDefaultLabel(cta?.type)
+        }>
         {cta?.copy && !pictogram && (
           <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}

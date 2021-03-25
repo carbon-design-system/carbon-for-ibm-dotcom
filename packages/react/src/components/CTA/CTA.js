@@ -52,11 +52,7 @@ const CTA = ({
     ...otherProps,
   };
 
-  const label = `${otherProps?.copy}${
-    ariaLabel ? ariaLabel : CTALogic.getDefaultLabel(type)
-  }`;
   const ariaProps = style === ('card' || 'text') && {
-    'aria-label': label,
     role: `${ariaRole ? ariaRole : 'region'}`,
   };
 
