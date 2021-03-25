@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, videoId } =
+  const { showCaption, aspectRatio, audioId } =
     parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -36,7 +36,7 @@ export const Default = ({ parameters }) => {
               justifyContent: 'center',
             }}>
             <AudioPlayer
-              videoId={videoId}
+              audioId={audioId}
               showCaption={showCaption}
               aspectRatio={aspectRatio}
               hasSettings={true}
@@ -54,7 +54,7 @@ Default.story = {
       AudioPlayer: ({ groupId }) => ({
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         aspectRatio: 'default',
-        videoId: '1_9h94wo6b',
+        audioId: '1_9h94wo6b',
       }),
     },
   },

@@ -4,29 +4,26 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import React, { useState, useEffect } from 'react';
+import AudioImageOverlay from './AudioImageOverlay';
+import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 
-import React, { useState } from 'react';
 // import cx from 'classnames';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-// import Download24 from '@carbon/icons-react/es/download/24';
 import Forward_1032 from '@carbon/icons-react/es/forward--10/24';
-// import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
-// import VideoImageOverlay from './VideoImageOverlay';
 import PauseFilled32 from '@carbon/icons-react/es/pause--filled/32';
 import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
 import PropTypes from 'prop-types';
 
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/24';
-// import Select from '../../internal/vendor/carbon-components-react/components/Select/Select';
-// import SelectItem from '../../internal/vendor/carbon-components-react/components/SelectItem/SelectItem';
 import settings from 'carbon-components/es/globals/js/settings';
 import Settings32 from '@carbon/icons-react/es/settings/20';
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
+
 // import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
-// import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 import VolumeDown24 from '@carbon/icons-react/es/volume--down/24';
 import VolumeMute24 from '@carbon/icons-react/es/volume--mute/24';
 import VolumeUp24 from '@carbon/icons-react/es/volume--up/24';
@@ -44,12 +41,20 @@ const { prefix } = settings;
   // aspectRatio,
  */
 
-const AudioPlayer = ({ hasSettings }) => {
+const AudioPlayer = ({ hasSettings, audioId }) => {
   // const [, setVideoData] = useState({ description: '', name: '' });
   const [volume, setVolume] = useState(0);
   const [audioTime, setAudioTime] = useState(0);
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
+  const [displayAudioSettings, setDisplayAudioSettings] = useState(false);
+  const [
+    displayAudioCaptionsOptions,
+    setDisplayAudioCaptionsOptions,
+  ] = useState(false);
+  const [displayAudioCaptions, setDisplayAudioCaptions] = useState(false);
   const [playAudio, setPlayAudio] = useState(false);
+  const [audioHasThumbnail, setAudioHasThumbnail] = useState(false);
+  const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   // embedVideo is set to true when overlay thumbnail is clicked
   // const [embedAudio] = useState(true);
@@ -98,15 +103,55 @@ const AudioPlayer = ({ hasSettings }) => {
 
   //  },[audioTime]);
 
-  const handleFormat = (a, b) => {
-    console.log(a);
-    console.log(b);
+  useEffect(() => {
+    const thumbnailUrl = AudioPlayerAPI.getThumbnailUrl({
+      videoId: audioId,
+      width: '48',
+      height: '48',
+    });
 
-    return b;
+    fetch(thumbnailUrl)
+      .then(() => {
+        setAudioHasThumbnail(true);
+        setThumbnailUrl(thumbnailUrl);
+      })
+      .catch(() => setAudioHasThumbnail(false));
+  }, [audioId]);
+
+  const handleFormat = (minMax, minOrMaxLabel) => {
+    return minOrMaxLabel;
+  };
+
+  const toggleAudioVolumeControlAndSettings = audioCommand => {
+    if (audioCommand === 'volume') {
+      setDisplayAudioSettings(false);
+      setDisplayAudioCaptionsOptions(false);
+    }
+
+    if (audioCommand === 'settings') {
+      setDisplayVolumeControl(false);
+      setDisplayAudioCaptionsOptions(false);
+    }
+
+    if (audioCommand === 'captions') {
+      setDisplayVolumeControl(false);
+      setDisplayAudioSettings(false);
+    }
   };
 
   const handleDisplayVolume = () => {
+    toggleAudioVolumeControlAndSettings('volume');
     setDisplayVolumeControl(prev => !prev);
+  };
+
+  const handleDisplayAudioSettings = () => {
+    toggleAudioVolumeControlAndSettings('settings');
+    setDisplayAudioSettings(prev => !prev);
+  };
+
+  const handleDisplayAudioCaptions = () => {
+    toggleAudioVolumeControlAndSettings('captions');
+    setDisplayAudioCaptionsOptions(prev => !prev);
   };
 
   const handlePlayPauseAudio = () => {
@@ -116,7 +161,6 @@ const AudioPlayer = ({ hasSettings }) => {
   const volumeControl = () => {
     return (
       displayVolumeControl && (
-        // <div className={`${prefix}--audio-player__audio-volume`}>
         <div className={`${prefix}--audio-player__volume-control-container`}>
           <Slider
             max={100}
@@ -125,10 +169,102 @@ const AudioPlayer = ({ hasSettings }) => {
             onChange={({ value }) => setVolume(value)}
             hideTextInput
             formatLabel={() => ''}
-            // className={`${prefix}--audio-player__audio-volume-position`}
           />
         </div>
-        // </div>
+      )
+    );
+  };
+
+  const handleAudioSpeed = () => {
+    console.log('CLICK');
+  };
+
+  const audioSettings = () => {
+    return (
+      displayAudioSettings && (
+        <div className={`${prefix}--audio-player__audio-settings-container`}>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioSpeed()}
+            onKeyDown={() => handleAudioSpeed()}
+            className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
+            1x
+          </div>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioSpeed()}
+            onKeyDown={() => handleAudioSpeed()}
+            className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
+            1.5x
+          </div>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioSpeed()}
+            onKeyDown={() => handleAudioSpeed()}
+            className={`${prefix}--audio-player__audio-settings-container-settings-options`}>
+            2x
+          </div>
+        </div>
+      )
+    );
+  };
+
+  const handleAudioCaptions = captions => {
+    if (captions === 'off') {
+      setDisplayAudioCaptions(false);
+    } else {
+      setDisplayAudioCaptions(true);
+    }
+    setDisplayAudioCaptionsOptions(false);
+  };
+
+  const audioCaptions = () => {
+    return (
+      displayAudioCaptionsOptions && (
+        <div className={`${prefix}--audio-player__captions-container`}>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioCaptions('options')}
+            onKeyDown={() => handleAudioCaptions('options')}
+            className={`${prefix}--audio-player__captions-container-captions-options ${prefix}--audio-player__captions-container-captions-options-border`}>
+            Options
+          </div>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioCaptions('off')}
+            onKeyDown={() => handleAudioCaptions('off')}
+            className={`${prefix}--audio-player__captions-container-captions-options ${prefix}--audio-player__captions-container-captions-options-border`}>
+            Off
+          </div>
+          <div
+            role="button"
+            tabIndex="0"
+            onClick={() => handleAudioCaptions('english')}
+            onKeyDown={() => handleAudioCaptions('english')}
+            className={`${prefix}--audio-player__captions-container-captions-options`}>
+            English
+          </div>
+        </div>
+      )
+    );
+  };
+
+  const captions = () => {
+    return (
+      displayAudioCaptions && (
+        <div
+          className={`${prefix}--audio-player__audio-container-container-captions`}>
+          <p
+            className={`${prefix}--audio-player__audio-container-container-captions-captions-text`}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+        </div>
       )
     );
   };
@@ -136,21 +272,30 @@ const AudioPlayer = ({ hasSettings }) => {
   return (
     <>
       <div className={`${prefix}--audio-player__audio-container`}>
-        {playAudio ? (
-          <Button
-            renderIcon={PlayFilledAlt32}
-            iconDescription="Play"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => handlePlayPauseAudio}
+        {audioHasThumbnail && (
+          <AudioImageOverlay
+            src={thumbnailUrl}
+            styleOfComponent={`${prefix}--audio-player__thumbnail`}
           />
-        ) : (
+        )}
+        {captions()}
+        {playAudio ? (
           <Button
             renderIcon={PauseFilled32}
             iconDescription="Pause"
             hasIconOnly
             kind="ghost"
-            onClick={() => handlePlayPauseAudio}
+            onClick={() => handlePlayPauseAudio()}
+            tooltipPosition="bottom"
+          />
+        ) : (
+          <Button
+            renderIcon={PlayFilledAlt32}
+            iconDescription="Play"
+            hasIconOnly
+            kind="ghost"
+            onClick={() => handlePlayPauseAudio()}
+            tooltipPosition="bottom"
           />
         )}
 
@@ -159,10 +304,13 @@ const AudioPlayer = ({ hasSettings }) => {
           iconDescription="Rewind 10 seconds"
           hasIconOnly
           kind="ghost"
+          tooltipPosition="bottom"
         />
 
         <div className={`${prefix}--audio-player__audio-time`}>
           <Slider
+            min={0}
+            max={160}
             minLabel="00:00"
             maxLabel="00:20"
             value={audioTime}
@@ -171,6 +319,7 @@ const AudioPlayer = ({ hasSettings }) => {
             formatLabel={(value, minOrMaxLabel) =>
               handleFormat(value, minOrMaxLabel)
             }
+            step={1}
           />
         </div>
 
@@ -179,6 +328,7 @@ const AudioPlayer = ({ hasSettings }) => {
           iconDescription="Forward 10 seconds"
           hasIconOnly
           kind="ghost"
+          tooltipPosition="bottom"
         />
 
         <div className={`${prefix}--audio-player__volume-control`}>
@@ -190,6 +340,7 @@ const AudioPlayer = ({ hasSettings }) => {
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
+              tooltipPosition="bottom"
             />
           )}
           {volume > 0 && volume < 80 && (
@@ -199,6 +350,7 @@ const AudioPlayer = ({ hasSettings }) => {
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
+              tooltipPosition="bottom"
             />
           )}
           {volume >= 80 && (
@@ -208,25 +360,39 @@ const AudioPlayer = ({ hasSettings }) => {
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
+              tooltipPosition="bottom"
             />
           )}
         </div>
 
         {hasSettings && (
-          <Button
-            renderIcon={Settings32}
-            iconDescription="Settings"
-            hasIconOnly
-            kind="ghost"
-          />
+          <div className={`${prefix}--audio-player__audio-settings`}>
+            {audioSettings()}
+            <Button
+              renderIcon={Settings32}
+              iconDescription="Settings"
+              hasIconOnly
+              kind="ghost"
+              onClick={() => handleDisplayAudioSettings()}
+              tooltipPosition="bottom"
+            />
+          </div>
         )}
 
-        <Button
-          renderIcon={ClosedCaptionFilled32}
-          iconDescription="Captions"
-          hasIconOnly
-          kind="ghost"
-        />
+        <div className={`${prefix}--audio-player__captions`}>
+          {audioCaptions()}
+          <Button
+            renderIcon={ClosedCaptionFilled32}
+            iconDescription="Captions"
+            hasIconOnly
+            kind="ghost"
+            onClick={() => handleDisplayAudioCaptions()}
+            className={
+              displayAudioCaptions && `${prefix}--audio-player__captions-button`
+            }
+            tooltipPosition="bottom"
+          />
+        </div>
       </div>
     </>
   );
@@ -237,6 +403,10 @@ AudioPlayer.propTypes = {
    * `true` to show the settings button.
    */
   hasSettings: PropTypes.bool,
+  /**
+   * Video ID from Kaltura video platform.
+   */
+  audioId: PropTypes.string.isRequired,
 
   /**
    * `true` to autoplay the video on load
@@ -253,10 +423,7 @@ AudioPlayer.propTypes = {
    * The CSS class name to apply.
    */
   // customClassName: PropTypes.string,
-  /**
-   * Video ID from Kaltura video platform.
-   */
-  // videoId: PropTypes.string.isRequired,
+
   /**
    * `true` to show the description.
    */
