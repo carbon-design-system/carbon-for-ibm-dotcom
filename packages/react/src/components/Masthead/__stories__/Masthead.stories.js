@@ -81,6 +81,11 @@ Default.story = {
             'Search all of IBM',
             groupId
           ),
+          initialSearchTerm: text(
+            'initial search term (initialSearchTerm)',
+            '',
+            groupId
+          ),
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
             'Services & Consulting',
