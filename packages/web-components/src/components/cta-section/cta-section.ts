@@ -37,6 +37,49 @@ const slotExistencePropertyNames = {
 @customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentBlock) {
   /**
+   * Array to hold the card-heading elements within child items.
+   */
+  private _childItemHeadings: any[] = [];
+
+  /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * Cleans-up and creats the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._setSameHeight);
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+    }
+  }
+
+  /**
+   * The observer for the resize of the viewport, calls sameHeight utility function
+   */
+  private _setSameHeight = () => {
+    window.requestAnimationFrame(() => {
+      sameHeight(
+        this._childItemHeadings.filter(e => {
+          return e;
+        }),
+        'md'
+      );
+    });
+  };
+
+  /**
    * `true` if there are CTA action in the content item area.
    */
   @internalProperty()
@@ -65,15 +108,12 @@ class DDSCTASection extends StableSelectorMixin(DDSContentBlock) {
           : false
       );
 
-    // sets all headings to the same height
+    // retrieves all cta-section-item headings
     if (childItems) {
-      const childItemHeadings: any[] = [];
       childItems.forEach(e => {
-        childItemHeadings.push((e as HTMLElement).querySelector((this.constructor as typeof DDSCTASection).selectorItemHeading));
-      });
-
-      setTimeout(() => {
-        sameHeight(childItemHeadings, 'md');
+        this._childItemHeadings.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCTASection).selectorItemHeading)
+        );
       });
     }
 
@@ -95,6 +135,17 @@ class DDSCTASection extends StableSelectorMixin(DDSContentBlock) {
       this.setAttribute('role', 'section');
     }
     super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
+    super.disconnectedCallback();
+  }
+
+  firstUpdated() {
+    super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
   }
 
   /**
