@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -155,6 +155,8 @@ $search-transition-timing: 95ms;
 @mixin masthead {
   .#{$prefix}--masthead,
   :host(#{$dds-prefix}-masthead) {
+    @include carbon--theme($carbon--theme--white, true);
+
     position: fixed;
     top: 0;
     left: 0;
@@ -217,7 +219,10 @@ $search-transition-timing: 95ms;
   }
 
   .#{$prefix}--masthead__l0 {
+    @include carbon--theme($carbon--theme--white, true);
+
     position: relative;
+    background: $ui-background;
 
     &::after {
       content: '';
@@ -570,6 +575,8 @@ $search-transition-timing: 95ms;
 
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
+    @include carbon--theme($carbon--theme--white, true);
+
     background-color: $ui-background;
     position: fixed;
     z-index: 99999;
