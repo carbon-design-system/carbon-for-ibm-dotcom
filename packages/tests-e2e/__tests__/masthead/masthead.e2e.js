@@ -78,8 +78,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -111,8 +111,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -144,8 +144,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -177,8 +177,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -206,8 +206,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -256,8 +256,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathCustom}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     // Removes the animation of the nav container
@@ -291,8 +291,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathPlatform}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {

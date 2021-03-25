@@ -57,8 +57,8 @@ describe('Table of contents', () => {
   it('should load g100 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathManual}&theme=g100`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     await page.evaluate(
@@ -73,8 +73,8 @@ describe('Table of contents', () => {
   it('should load g90 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathManual}&theme=g90`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     await page.evaluate(
@@ -89,8 +89,8 @@ describe('Table of contents', () => {
   it('should load g10 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathManual}&theme=g10`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
     await page.evaluate(
       'document.documentElement.setAttribute("storybook-carbon-theme","g10")'
