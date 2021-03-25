@@ -134,6 +134,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   aspectRatio?: '';
 
   /**
+   * The video player's content state showing Video or Thumbnail.
+   */
+  @property({ reflect: true, attribute: 'player-mode' })
+  playerMode = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+
+  /**
    * The video thumbnail width.
    */
   @property({ type: Number, attribute: 'video-thumbnail-width' })
@@ -153,7 +159,16 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 
   renderLightDOM() {
-    const { aspectRatio, formatCaption, formatDuration, hideCaption, videoData = {}, videoId, videoThumbnailWidth } = this;
+    const {
+      aspectRatio,
+      formatCaption,
+      formatDuration,
+      hideCaption,
+      videoData = {},
+      videoId,
+      videoThumbnailWidth,
+      playerMode,
+    } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
@@ -170,6 +185,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         aspect-ratio="${ifNonNull(aspectRatio)}"
         .formatCaption="${ifNonNull(formatCaption)}"
         .formatDuration="${ifNonNull(formatDuration)}"
+        .playerMode="${ifNonNull(playerMode)}"
       >
       </dds-video-player>
     `;

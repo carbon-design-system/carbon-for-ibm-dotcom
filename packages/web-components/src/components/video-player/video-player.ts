@@ -34,6 +34,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-video-player`)
 class DDSVideoPlayer extends FocusMixin(LitElement) {
   /**
+   * The video player's content state showing Video or Thumbnail.
+   */
+  @property({ reflect: true, attribute: 'player-mode' })
+  playerMode = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+
+  /**
    * Handles `click` event on the video thumbnail.
    */
   private _handleClickOverlay() {
@@ -46,7 +52,7 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
         composed: true,
         detail: {
           videoId,
-          contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
+          contentState: this.contentState,
         },
       })
     );
@@ -56,8 +62,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
    * @returns The video content.
    */
   private _renderContent() {
-    const { contentState, name, thumbnailUrl } = this;
-    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+    const { contentState, name, thumbnailUrl, playerMode } = this;
+    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL || playerMode === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
       ? html`
           <div class="${prefix}--video-player__video">
             <button class="${prefix}--video-player__image-overlay" @click="${this._handleClickOverlay}">

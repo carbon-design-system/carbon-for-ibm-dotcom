@@ -163,6 +163,7 @@ export const EmbeddedVideoPlayerWithInlineThumbnail = ({ parameters }) => {
             @dds-expressive-modal-beingclosed="${handleBeforeClose}"
             @dds-expressive-modal-closed="${onClose}"
             render-thumbnail
+            player-mode="thumbnail"
           >
           </dds-lightbox-video-player-container>
         </div>
@@ -174,7 +175,18 @@ export const EmbeddedVideoPlayerWithInlineThumbnail = ({ parameters }) => {
 EmbeddedVideoPlayerWithInlineThumbnail.story = {
   parameters: {
     knobs: {
+      Modal: ({ groupId }) => ({
+        open: boolean('Open (open)', false, groupId),
+        disableClose: boolean(
+          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          false,
+          groupId
+        ),
+        onBeforeClose: action('dds-expressive-modal-beingclosed'),
+        onClose: action('dds-expressive-modal-closed'),
+      }),
       LightboxVideoPlayerContainer: ({ groupId }) => ({
+        open: boolean('Open (open)', false, groupId),
         hideCaption: boolean('hide caption (hide-caption)', false, groupId),
         videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
       }),
