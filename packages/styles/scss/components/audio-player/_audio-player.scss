@@ -51,8 +51,10 @@
     min-width: 280px;
     height: 40px;
 
-    .bx--form-item .bx--slider-container .bx--slider__range-label:last-of-type {
-      margin-right: 0;
+    .bx--form-item
+      .bx--slider-container
+      .bx--slider__range-label:first-of-type {
+      margin-left: 1rem;
     }
   }
 
