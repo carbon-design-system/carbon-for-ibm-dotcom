@@ -26,16 +26,20 @@
   @extend .#{$prefix}--col-lg-12;
 }
 
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__content {
+  margin-top: 3rem;
+}
+
 .#{$dds-prefix}-ce--table-of-contents__container,
 .#{$dds-prefix}-ce--table-of-contents-horizontal__container {
   @include carbon--make-row();
 }
 
-.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
-  position: relative;
-
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
   @include carbon--breakpoint('lg') {
     width: 100vw;
+    position: fixed;
+    left: 0;
   }
 }
 
