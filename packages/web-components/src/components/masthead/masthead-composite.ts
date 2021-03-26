@@ -53,7 +53,7 @@ import './left-nav-menu';
 import './left-nav-menu-item';
 import './left-nav-menu-category-heading';
 import './left-nav-overlay';
-import './masthead-search-container';
+import './masthead-search-composite';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
