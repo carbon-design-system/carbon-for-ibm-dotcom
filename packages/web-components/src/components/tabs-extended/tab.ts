@@ -7,7 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, property, LitElement } from 'lit-element';
+import {
+  html,
+  customElement,
+  property,
+  LitElement,
+  internalProperty,
+} from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -37,23 +43,37 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines the disabled state of the tab.
    */
   @property({ reflect: true })
-  disabled = null;
+  disabled: Boolean = false;
+
+  /**
+   * Defines the active state of the tab.
+   */
+  @property({ reflect: true })
+  selected: Boolean = false;
+  // @internalProperty()
+  // private active: Boolean = false;
 
   /**
    * Defines the disabled state of the tab.
    */
-  @property({ reflect: true })
-  active = false;
+  @internalProperty()
+  private index: Number;
 
-  /**
-   * Defines the disabled state of the tab.
-   */
-  @property({ reflect: true })
-  index = 0;
+  // setActive(active: Boolean) {
+  //   this.active = active;
+  // }
+
+  setIndex(index: Number) {
+    this.index = index;
+  }
 
   render() {
-    return html`
-      <div class="tab-${this.index}-container" aria-hidden="${this.active}">
+    return (this.selected) ? html`
+      <div class="tab-${this.index}-container" aria-hidden="${!this.selected}">
+        <slot></slot>
+      </div>
+    ` : html`
+      <div class="tab-${this.index}-container" aria-hidden="${!this.selected}" hidden>
         <slot></slot>
       </div>
     `;

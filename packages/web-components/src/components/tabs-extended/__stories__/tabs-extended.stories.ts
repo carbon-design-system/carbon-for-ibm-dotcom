@@ -24,19 +24,24 @@ export const Default = ({ parameters }) => {
       <dds-tab label="Ipsum">
         Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
       </dds-tab>
-      <dds-tab label="Dolor" disabled>
+      <dds-tab label="Dolor" selected="true">
         Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
       </dds-tab>
-      <dds-tab label="Sit">
+      <dds-tab label="Sit" disabled="true">
         Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
       </dds-tab>
     </dds-tabs-extended>
   `;
 };
 
+Default.story = {
+  parameters: {
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--tabs-extended',
+  },
+};
+
 export default {
   title: 'Components/Tabs extended',
-  gridContentClasses: 'dds-ce-demo-devenv--simple-grid--tabs-extended',
   decorators: [
     (story, { parameters }) => html`
       <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">

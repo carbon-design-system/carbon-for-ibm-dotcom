@@ -12,15 +12,12 @@ import {
   html,
   internalProperty,
   LitElement, property,
-  TemplateResult,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
-import { LINK_LIST_ITEM_TYPE, LINK_LIST_TYPE } from '../link-list/defs';
-import DDSLinkListItem from '../link-list/link-list-item';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -36,13 +33,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
    * Child items
    */
   @internalProperty()
-  private _tabItems: DDSTab[] = [];
+  private _tabItems: Node[] = [];
 
   /**
-   * Defines the disabled state of the tab.
+   * Defines the active tab index.
    */
-  @property({ reflect: true })
-  active = 0;
+  @internalProperty()
+  private active = 0;
 
   /**
    * Handler for @slotChange, creates tabs from dds-tab components.
@@ -53,6 +50,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._tabItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => (new DDSTab)?.nodeName === node.nodeName);
+    this._tabItems.forEach((tab:DDSTab, index) => {
+      this.active = tab.selected ? index : this.active;
+    });
   }
 
   private _setActiveTab(index) {
@@ -60,10 +60,10 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    this._tabItems.map((tab, index) => {
-      tab.active = (index === this.active);
-      tab.index = index;
-    })
+    this._tabItems.map((tab:DDSTab, index) => {
+      tab.selected = (index === this.active);
+      tab.setIndex(index);
+    });
   }
 
   render() {
@@ -73,13 +73,21 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--tabs-extended">
         <div data-tabs class="${prefix}--tabs">
-          <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
-            ${tabs.map((tab, index) => {
-              const active = (index === this.active) ? `${prefix}--tabs__nav-item--selected` : ``;
+          <div class="${prefix}--tabs-trigger" tabindex="0">
+            <a href="javascript:void(0)" class="${prefix}--tabs-trigger-text" tabindex="-1"></a>
+            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"></path>
+            </svg>
+          </div>
+          <ul class="${prefix}--tabs__nav ${prefix}--tabs--scrollable__nav" role="tablist">
+            ${tabs.map((tab:DDSTab, index) => {
+              const classes = [
+                index === this.active && `${prefix}--tabs__nav-item--selected` || null,
+                tab.disabled && `${prefix}--tabs__nav-item--disabled` || null,
+              ];
               return html`
                 <li
-                  class="${prefix}--tabs__nav-item ${active}"
-                  data-target=".tab-${index}-default" role="tab" aria-selected="true">
+                  class="${prefix}--tabs__nav-item ${classes.join(' ')}" role="tab" aria-selected="true" disabled="${tab.disabled}">
                   <a tabindex="${index}" id="tab-link-${index}-default" class="${prefix}--tabs__nav-link" href="javascript:void(0)" role="tab"
                      aria-controls="tab-panel-${index}-default" @click="${(e) => this._setActiveTab(index)}" >${tab.label}</a>
                 </li>
