@@ -23,7 +23,7 @@ import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1
 import { TOC_TYPES } from '../defs';
 
 export const Default = () => html`
-  <dds-table-of-contents stickyoffset="40">
+  <dds-table-of-contents>
     ${content('bx--tableofcontents__contents')}
   </dds-table-of-contents>
 `;
@@ -31,7 +31,7 @@ export const Default = () => html`
 export const WithHeadingContent = ({ parameters }) => {
   const { menuRule } = parameters?.props?.Other ?? {};
   return html`
-    <dds-table-of-contents stickyoffset="40">
+    <dds-table-of-contents>
       <dds-image slot="heading" alt="Alt text" default-src="${imgLg1x1}">
         <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
@@ -58,7 +58,7 @@ WithHeadingContent.story = {
 };
 
 export const Horizontal = () => html`
-  <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}" stickyoffset="40">
+  <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
     ${content('bx--tableofcontents-horizontal__contents')}
   </dds-table-of-contents>
 `;
