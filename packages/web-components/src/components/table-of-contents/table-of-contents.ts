@@ -106,13 +106,13 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   /**
    * The left-hand paginator button.
    */
-  @query(`.${prefix}--header__nav-caret-left`)
+  @query(`.${prefix}--toc__navbar-caret-left`)
   private _caretLeftNode?: HTMLElement;
 
   /**
    * The right-hand paginator button.
    */
-  @query(`.${prefix}--header__nav-caret-right`)
+  @query(`.${prefix}--toc__navbar-caret-right`)
   private _caretRightNode?: HTMLElement;
 
   /**
@@ -495,13 +495,13 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     });
 
     const caretLeftContainerClasses = classMap({
-      [`${prefix}--header__nav-caret-left-container`]: true,
-      [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]: isIntersectionLeftTrackerInContent,
+      [`${prefix}--toc__navbar-caret-left-container`]: true,
+      [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]: isIntersectionLeftTrackerInContent,
     });
 
     const caretRightContainerClasses = classMap({
-      [`${prefix}--header__nav-caret-right-container`]: true,
-      [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]: isIntersectionRightTrackerInContent,
+      [`${prefix}--toc__navbar-caret-right-container`]: true,
+      [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
 
     return html`
@@ -521,12 +521,12 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
               part="prev-button"
               tabindex="-1"
               aria-hidden="true"
-              class="${prefix}--header__nav-caret-left"
+              class="${prefix}--toc__navbar-caret-left"
               @click="${paginateLeft}"
             >
               ${CaretLeft20()}
             </button>
-            <div class="${prefix}--header__nav-caret-left-gradient"></div>
+            <div class="${prefix}--toc__navbar-caret-left-gradient"></div>
           </div>
           <div
             class="${ddsPrefix}-ce--table-of-contents__items-container"
@@ -574,12 +574,12 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
             </div>
           </div>
           <div class="${caretRightContainerClasses}">
-            <div class="${prefix}--header__nav-caret-right-gradient"></div>
+            <div class="${prefix}--toc__navbar-caret-right-gradient"></div>
             <button
               part="next-button"
               tabindex="-1"
               aria-hidden="true"
-              class="${prefix}--header__nav-caret-right"
+              class="${prefix}--toc__navbar-caret-right"
               @click="${paginateRight}"
             >
               ${CaretRight20()}

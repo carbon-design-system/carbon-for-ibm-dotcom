@@ -61,8 +61,8 @@
   }
 }
 
-.#{$prefix}--header__nav-caret-left-container,
-.#{$prefix}--header__nav-caret-right-container {
+.#{$prefix}--toc__navbar-caret-left-container,
+.#{$prefix}--toc__navbar-caret-right-container {
   bottom: 0;
   z-index: 1;
   position: absolute;
@@ -73,22 +73,22 @@
   }
 }
 
-.#{$prefix}--header__nav-caret-right-container {
+.#{$prefix}--toc__navbar-caret-right-container {
   right: 0;
 }
 
-.#{$prefix}--header__nav-caret-left-container {
+.#{$prefix}--toc__navbar-caret-left-container {
   left: 0;
 }
 
-.#{$prefix}--header__nav-caret-left,
-.#{$prefix}--header__nav-caret-right {
+.#{$prefix}--toc__navbar-caret-left,
+.#{$prefix}--toc__navbar-caret-right {
   position: relative;
   // 40px caret width & 8px gradient
   height: 48px;
 }
 
-.#{$dds-prefix}-ce--header__nav-caret-container--hidden {
+.#{$dds-prefix}-ce--toc__navbar-caret-container--hidden {
   position: absolute;
   visibility: hidden;
 }
