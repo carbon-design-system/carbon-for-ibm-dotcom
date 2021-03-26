@@ -10,7 +10,7 @@
 @import '../../globals/utils/ratio-base';
 @import 'carbon-components/scss/components/slider/slider';
 
-$aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
+// $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin audio-player {
   .#{$prefix}--audio-player__audio-container {
@@ -21,7 +21,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     padding: 8px 16px;
     background-color: $ui-01;
 
-    &-container-captions {
+    &-captions {
       position: absolute;
       bottom: 48px;
       left: 0;
@@ -34,17 +34,14 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       border-bottom: 1px solid $ui-03;
       // outline: 1px solid blue;
 
-      // & > .bx--slider-container {
-      //   transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      // }
-
-      &-captions-text {
+      &-text {
         @include carbon--type-style('caption-01');
 
         color: $text-01;
-        // display: -webkit-box;
-        // -webkit-line-clamp: 2;
-        // -webkit-box-orient: vertical;
+        // needed to set only two lines for the captions and avoid breaking the view
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         overflow: hidden;
       }
     }
@@ -85,14 +82,13 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       height: 48px;
       padding: 0 8px 8px;
       background-color: $ui-01;
-      box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
-      overflow: auto;
+      // overflow: auto;
       // outline: 1px solid blue;
-
-      // & > .bx--slider-container {
-      //   transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      // }
     }
+  }
+
+  .#{$prefix}--audio-player__container-shadow {
+    box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
   }
 
   .#{$prefix}--audio-player__audio-settings {
@@ -107,15 +103,11 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       width: 240px;
       height: 150px;
       background-color: $ui-01;
-      box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
       overflow: auto;
-
-      // & > .bx--slider-container {
-      //   transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      // }
 
       &-settings-options {
         padding: 16px;
+
         &-border {
           border-bottom: 1px solid $gray-30;
         }
@@ -135,15 +127,11 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       width: 240px;
       height: 150px;
       background-color: $ui-01;
-      box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
       // outline: 1px solid blue;
 
-      // & > .bx--slider-container {
-      //   transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      // }
-
-      &-captions-options {
+      &-options {
         padding: 16px;
+
         &-border {
           border-bottom: 1px solid $gray-30;
         }
@@ -153,7 +141,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     &-button {
       svg.bx--btn__icon path:not([data-icon-path]) {
         fill: $blue-60;
-        // fill: $blue-60 !important;
       }
     }
   }

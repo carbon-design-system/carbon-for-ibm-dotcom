@@ -161,7 +161,8 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const volumeControl = () => {
     return (
       displayVolumeControl && (
-        <div className={`${prefix}--audio-player__volume-control-container`}>
+        <div
+          className={`${prefix}--audio-player__volume-control-container ${prefix}--audio-player__container-shadow`}>
           <Slider
             max={100}
             min={0}
@@ -182,7 +183,8 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const audioSettings = () => {
     return (
       displayAudioSettings && (
-        <div className={`${prefix}--audio-player__audio-settings-container`}>
+        <div
+          className={`${prefix}--audio-player__audio-settings-container ${prefix}--audio-player__container-shadow`}>
           <div
             role="button"
             tabIndex="0"
@@ -224,13 +226,14 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const audioCaptions = () => {
     return (
       displayAudioCaptionsOptions && (
-        <div className={`${prefix}--audio-player__captions-container`}>
+        <div
+          className={`${prefix}--audio-player__captions-container ${prefix}--audio-player__container-shadow`}>
           <div
             role="button"
             tabIndex="0"
             onClick={() => handleAudioCaptions('options')}
             onKeyDown={() => handleAudioCaptions('options')}
-            className={`${prefix}--audio-player__captions-container-captions-options ${prefix}--audio-player__captions-container-captions-options-border`}>
+            className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
             Options
           </div>
           <div
@@ -238,7 +241,7 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
             tabIndex="0"
             onClick={() => handleAudioCaptions('off')}
             onKeyDown={() => handleAudioCaptions('off')}
-            className={`${prefix}--audio-player__captions-container-captions-options ${prefix}--audio-player__captions-container-captions-options-border`}>
+            className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
             Off
           </div>
           <div
@@ -246,7 +249,7 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
             tabIndex="0"
             onClick={() => handleAudioCaptions('english')}
             onKeyDown={() => handleAudioCaptions('english')}
-            className={`${prefix}--audio-player__captions-container-captions-options`}>
+            className={`${prefix}--audio-player__captions-container-options`}>
             English
           </div>
         </div>
@@ -257,12 +260,13 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const captions = () => {
     return (
       displayAudioCaptions && (
-        <div
-          className={`${prefix}--audio-player__audio-container-container-captions`}>
+        <div className={`${prefix}--audio-player__audio-container-captions`}>
           <p
-            className={`${prefix}--audio-player__audio-container-container-captions-captions-text`}>
+            className={`${prefix}--audio-player__audio-container-captions-text`}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            industry. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry.
           </p>
         </div>
       )
