@@ -73,6 +73,9 @@
 
   .#{$prefix}--masthead {
     .#{$prefix}--side-nav {
+      left: -100vw;
+      transition: left $duration--fast-02 motion(standard, productive);
+
       &:not(.#{$prefix}--side-nav--fixed):hover {
         @include carbon--breakpoint-down(md) {
           max-width: 100vw;
@@ -86,12 +89,19 @@
       }
     }
 
+    // need to set width so transition works on tablet
+    .#{$prefix}--side-nav,
+    .#{$prefix}--side-nav--expanded {
+      max-width: 16rem;
+      width: 16rem;
+    }
+
     .#{$prefix}--side-nav__items {
       padding-top: 0;
       height: 100%;
     }
 
-    .#{$prefix}--side-nav--expanded .#{$prefix}--side-nav__item {
+    .#{$prefix}--side-nav__item {
       height: $container-04;
 
       .#{$prefix}--side-nav__submenu {
@@ -117,7 +127,12 @@
 
     .#{$prefix}--side-nav--expanded {
       overflow-y: auto;
+      left: 0;
+    }
 
+    .#{$prefix}--side-nav--ux,
+    .#{$prefix}--side-nav,
+    .#{$prefix}--side-nav--expanded {
       @include carbon--breakpoint-down(md) {
         max-width: 100vw;
         width: 100vw;
@@ -281,7 +296,8 @@
     }
   }
 
-  .#{$prefix}--side-nav__submenu-chevron {
+  .#{$prefix}--side-nav__submenu-chevron,
+  .#{$prefix}--side-nav__submenu[aria-expanded='true'] {
     svg {
       transform: rotate(-90deg) scale(1.25);
       fill: $text-01;
