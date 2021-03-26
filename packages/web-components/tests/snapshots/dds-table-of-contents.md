@@ -9,6 +9,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div
       class="bx--tableofcontents__desktop__children"
@@ -83,6 +84,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div class="bx--tableofcontents__desktop__children">
       <slot name="heading">
@@ -154,6 +156,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>

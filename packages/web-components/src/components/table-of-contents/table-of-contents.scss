@@ -48,10 +48,6 @@
   }
 }
 
-:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__desktop {
-  top: -40px;
-}
-
 .#{$dds-prefix}-ce--table-of-contents__container {
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
   ::slotted(#{$dds-prefix}-content-block-simple),

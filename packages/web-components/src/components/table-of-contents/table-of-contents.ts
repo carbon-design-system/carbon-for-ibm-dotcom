@@ -530,7 +530,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
           </div>
           <div
             class="${ddsPrefix}-ce--table-of-contents__items-container"
-            style="position: sticky; top: ${stickyOffset ? `${stickyOffset}px` : 0}"
+            style="position: sticky; top: ${stickyOffset && this.layout !== 'horizontal' ? `${stickyOffset}px` : 0}"
           >
             <div class="${prefix}--tableofcontents__desktop" style="left: -${currentScrollPosition}px">
               <div class="${prefix}--sub-content-left"></div>
