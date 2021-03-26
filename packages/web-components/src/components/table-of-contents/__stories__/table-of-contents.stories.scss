@@ -13,6 +13,8 @@
 .dds-ce-demo-devenv--container {
   padding-top: 0;
   padding-bottom: 0;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 .dds-ce-demo--table-of-contents {
