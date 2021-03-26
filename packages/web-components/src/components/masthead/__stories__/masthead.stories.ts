@@ -287,26 +287,54 @@ withAlternateLogoAndTooltip.story = {
   },
 };
 
-export const WithCloudVariant = ({ parameters }) => {
-  const { selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } = parameters?.props?.MastheadComposite ?? {};
+export const withCloudNavigation = ({ parameters }) => {
+  const { hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+  const cloudUserStatus = { user: userStatus };
   return html`
     <style>
       ${styles}
     </style>
-    <dds-cloud-masthead-container
-      platform="Cloud"
-      platform-url="${ifNonNull(platformData.url)}"
-      selected-menu-item="${ifNonNull(selectedMenuItem)}"
-      user-status="${ifNonNull(userStatus)}"
-      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-      .navLinks="${customLinks}"
-      ?has-profile="${hasProfile}"
-      ?has-search="${hasSearch}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-      data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
-    ></dds-cloud-masthead-container>
+    ${useMock
+      ? html`
+          <dds-cloud-masthead-composite
+            platform="Cloud"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(cloudUserStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
+          ></dds-cloud-masthead-composite>
+        `
+      : html`
+          <dds-cloud-masthead-container
+            platform="Cloud"
+            platform-url="${ifNonNull(platformData.url)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            user-status="${ifNonNull(cloudUserStatus)}"
+            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead/jsononly"
+          ></dds-cloud-masthead-container>
+        `}
   `;
+};
+
+withCloudNavigation.story = {
+  parameters: {
+    knobs: {
+      MastheadComposite: ({ groupId }) => ({
+        userStatus: select('The user authenticated status (user-status)', ['authenticated', 'anonymous'], 'anonymous', groupId),
+      }),
+    },
+  },
 };
 
 export default {

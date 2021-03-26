@@ -11,36 +11,7 @@ import { html, property, customElement } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import Cookies from 'js-cookie';
-import '../masthead';
-import '../masthead-logo';
-import '../masthead-l1';
-import '../masthead-l1-name';
-import '../masthead-menu-button';
-import '../masthead-global-bar';
 import './cloud-masthead-profile';
-import '../masthead-profile-item';
-import '../megamenu';
-import '../megamenu-top-nav-menu';
-import '../megamenu-left-navigation';
-import '../megamenu-category-link';
-import '../megamenu-category-group';
-import '../megamenu-category-group-copy';
-import '../megamenu-link-with-icon';
-import '../megamenu-overlay';
-import '../top-nav';
-import '../top-nav-l1';
-import '../top-nav-name';
-import '../top-nav-item';
-import '../top-nav-menu';
-import '../top-nav-menu-item';
-import '../left-nav';
-import '../left-nav-name';
-import '../left-nav-item';
-import '../left-nav-menu';
-import '../left-nav-menu-item';
-import '../left-nav-menu-category-heading';
-import '../left-nav-overlay';
-import '../masthead-search-composite';
 import styles from '../masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -61,7 +32,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   }
 
   /**
-   * The cookie name for determining user login status.
+   * The cookie name for determining user login status for cloud.ibm.com.
    */
   @property({ type: String, reflect: true })
   loginStatusCookieName = 'com.ibm.cloud.iam.LoggedIn.manual';

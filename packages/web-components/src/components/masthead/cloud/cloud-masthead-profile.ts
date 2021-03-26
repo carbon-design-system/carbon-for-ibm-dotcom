@@ -8,15 +8,13 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import User20 from 'carbon-web-components/es/icons/user/20.js';
 import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import styles from '../masthead.scss';
+import DDSMastheadProfile from '../masthead-profile';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,92 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-masthead-profile
  */
 @customElement(`${ddsPrefix}-cloud-masthead-profile`)
-class DDSCloudMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
-  /**
-   * The trigger button.
-   */
-  @query('a')
-  private _trigger!: HTMLElement;
-
-  /**
-   * Handles `click` event handler on this element.
-   */
-  private _handleClick() {
-    this._handleUserInitiatedToggle();
-  }
-
-  /**
-   * Handles user-initiated toggling the open state.
-   *
-   * @param [force] If specified, forces the open state to the given one.
-   */
-  private _handleUserInitiatedToggle(force: boolean = !this.expanded) {
-    this.expanded = force;
-    if (!force) {
-      this._trigger.focus();
-    }
-  }
-
-  /**
-   * Handles `blur` event handler on this element.
-   */
-  @HostListener('focusout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleBlur({ relatedTarget }: FocusEvent) {
-    if (!this.contains(relatedTarget as Node)) {
-      this.expanded = false;
-    }
-  }
-
-  /**
-   * Handler for the `keydown` event.
-   */
-  @HostListener('keydown')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleKeydown({ key }: KeyboardEvent) {
-    if (key === 'Esc' || key === 'Escape') {
-      this._handleUserInitiatedToggle(false);
-    }
-  }
-
-  /**
-   * `true` if the trigger button should show the UI of the authenticated state.
-   */
-  @property({ type: Boolean, reflect: true })
-  authenticated = false;
-
-  /**
-   * `true` if the menu should be expanded.
-   */
-  @property({ type: Boolean, reflect: true })
-  expanded = false;
-
-  /**
-   * The `aria-label` attribute for the menu UI.
-   */
-  @property({ attribute: 'menu-label' })
-  menuLabel?: string;
-
-  /**
-   * The `aria-label` attribute for the trigger button.
-   */
-  @property({ attribute: 'trigger-label' })
-  triggerLabel = 'User profile';
-
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
-    });
-  }
-
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'listitem');
-    }
-    super.connectedCallback();
-  }
-
+class DDSCloudMastheadProfile extends DDSMastheadProfile {
   render() {
     const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
