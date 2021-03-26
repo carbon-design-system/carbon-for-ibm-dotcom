@@ -56,10 +56,6 @@ $hover-transition-timing: 95ms;
       border-left-color: $link-01;
     }
 
-    a:focus {
-      border-bottom: none;
-    }
-
     &:hover {
       border-left-color: $link-01;
     }
@@ -79,8 +75,6 @@ $hover-transition-timing: 95ms;
 
     @include themed-items;
   }
-
-  //@extend overflow-buttons;
 
   .#{$prefix}--tableofcontents__sidebar {
     position: sticky;
@@ -245,8 +239,14 @@ $hover-transition-timing: 95ms;
 
         &:focus {
           outline: 2px solid $focus;
-          height: carbon--rem(48px);
-          outline-offset: -2px;
+          z-index: 1;
+          position: relative;
+          margin-bottom: 0;
+          margin-top: carbon--rem(3px);
+          height: carbon--rem(43px);
+          padding-top: carbon--rem(9px);
+          padding-bottom: carbon--rem(9px);
+          outline-offset: 0;
         }
       }
     }
@@ -287,8 +287,8 @@ $hover-transition-timing: 95ms;
     height: 100%;
   }
 
-  .#{$prefix}--toc__navbar-caret-left,
-  .#{$prefix}--toc__navbar-caret-right {
+  .#{$prefix}--header__nav-caret-left,
+  .#{$prefix}--header__nav-caret-right {
     width: rem(40px);
     height: 100%;
     display: none;
@@ -329,32 +329,30 @@ $hover-transition-timing: 95ms;
       display: block;
     }
   }
-
-  .#{$prefix}--toc__navbar-caret-left-container[hidden],
-  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
+  .#{$prefix}--header__nav-caret-left-container[hidden],
+  .#{$prefix}--header__nav-caret-right-container[hidden] {
     display: none;
   }
-
-  .#{$prefix}--toc__navbar-caret-left {
+  .#{$prefix}--header__nav-caret-left {
     left: 0;
   }
 
-  .#{$prefix}--toc__navbar-caret-left-gradient {
+  .#{$prefix}--header__nav-caret-left-gradient {
     display: block;
     position: absolute;
     left: rem(40px);
     top: 0;
     height: 100%;
     width: rem(8px);
-    z-index: 1;
     background: linear-gradient(to right, $ui-01, rgba(255, 255, 255, 0));
+    z-index: 1;
   }
 
-  .#{$prefix}--toc__navbar-caret-right {
+  .#{$prefix}--header__nav-caret-right {
     right: 0;
   }
 
-  .#{$prefix}--toc__navbar-caret-right-gradient {
+  .#{$prefix}--header__nav-caret-right-gradient {
     display: block;
     position: absolute;
     top: 0;
