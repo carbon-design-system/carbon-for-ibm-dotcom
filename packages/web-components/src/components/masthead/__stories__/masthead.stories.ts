@@ -303,7 +303,6 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    'carbon-theme': { disabled: true },
     knobs: {
       escapeHTML: false,
       MastheadComposite: ({ groupId }) => ({
