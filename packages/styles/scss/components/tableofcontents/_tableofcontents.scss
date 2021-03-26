@@ -55,6 +55,10 @@
       border-left-color: $link-01;
     }
 
+    a:focus {
+      border-bottom: none;
+    }
+
     &:hover {
       border-left-color: $link-01;
     }
@@ -74,8 +78,6 @@
 
     @include themed-items;
   }
-
-  //@extend overflow-buttons;
 
   .#{$prefix}--tableofcontents__sidebar {
     position: sticky;
