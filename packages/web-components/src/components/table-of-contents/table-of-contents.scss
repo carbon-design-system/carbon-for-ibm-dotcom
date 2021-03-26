@@ -27,7 +27,9 @@
 }
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__content {
-  margin-top: 3rem;
+  @include carbon--breakpoint('lg') {
+    margin-top: 3rem;
+  }
 }
 
 .#{$dds-prefix}-ce--table-of-contents__container,
