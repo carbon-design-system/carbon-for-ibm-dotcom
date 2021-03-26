@@ -40,6 +40,8 @@
   .#{$prefix}--modal-content {
     display: grid;
     grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    overflow-y: overlay;
   }
 
   .#{$dds-prefix}-ce--modal__hedaer--with-body {
