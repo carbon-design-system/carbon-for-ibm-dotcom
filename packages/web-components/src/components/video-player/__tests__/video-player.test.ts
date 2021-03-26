@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,8 @@ import '../video-player';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId } = props ?? {};
+  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId, playerMode } =
+    props ?? {};
   return html`
     <dds-video-player
       content-state="${ifNonNull(contentState)}"
@@ -27,6 +28,7 @@ const template = (props?) => {
       video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
+      .playerMode="${ifNonNull(playerMode)}"
     >
     </dds-video-player>
   `;
@@ -48,6 +50,7 @@ describe('dds-video-player', function() {
     render(
       template({
         contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
+        playMode: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
         duration: 30,
         name: 'video-name-foo',
         videoId: 'video-id-foo',
