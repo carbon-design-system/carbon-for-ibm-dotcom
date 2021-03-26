@@ -38,11 +38,18 @@
 }
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
+  margin: 0 1rem;
+
   @include carbon--breakpoint('lg') {
     width: 100vw;
     position: fixed;
     left: 0;
+    margin: 0;
   }
+}
+
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__desktop {
+  top: -40px;
 }
 
 .#{$dds-prefix}-ce--table-of-contents__container {
