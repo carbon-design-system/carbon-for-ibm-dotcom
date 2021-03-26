@@ -79,6 +79,8 @@
     @include themed-items;
   }
 
+  //@extend overflow-buttons;
+
   .#{$prefix}--tableofcontents__sidebar {
     position: sticky;
     top: 0;
