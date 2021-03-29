@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AudioImageOverlay from './AudioImageOverlay';
 import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 
@@ -42,7 +42,8 @@ const { prefix } = settings;
  */
 
 const AudioPlayer = ({ hasSettings, audioId }) => {
-  // const [, setVideoData] = useState({ description: '', name: '' });
+  const inputRef = useRef(null);
+  const [videoData, setVideoData] = useState({ description: '', name: '' });
   const [volume, setVolume] = useState(0);
   const [audioTime, setAudioTime] = useState(0);
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
@@ -57,33 +58,29 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   // embedVideo is set to true when overlay thumbnail is clicked
-  // const [embedAudio] = useState(true);
+  const [embedAudio, setEmbedAudio] = useState(false);
   // const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
   // const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
-  // useEffect(() => {
-  //   let stale = false;
-  //   (async () => {
-  //     if (autoPlay || embedAudio) {
-  //       await VideoPlayerAPI.embedVideo(
-  //         videoId,
-  //         `${prefix}--${videoPlayerId}`,
-  //         true
-  //       );
-  //     }
-  //     if (stale) {
-  //       return;
-  //     }
-  //     const newVideoData = await VideoPlayerAPI.api(videoId);
-  //     if (stale) {
-  //       return;
-  //     }
-  //     setVideoData(newVideoData);
-  //   })();
-  //   return () => {
-  //     stale = true;
-  //   };
-  // }, [autoPlay, videoId, videoPlayerId, embedAudio]);
+  useEffect(() => {
+    let stale = false;
+    (async () => {
+      if (embedAudio) {
+        await AudioPlayerAPI.embedVideo(audioId, `${prefix}--${audioId}`, true);
+      }
+      if (stale) {
+        return;
+      }
+      const newVideoData = await AudioPlayerAPI.api(audioId);
+      if (stale) {
+        return;
+      }
+      setVideoData(newVideoData);
+    })();
+    return () => {
+      stale = true;
+    };
+  }, [audioId, embedAudio]);
 
   // const classnames = cx(`${prefix}--video-player`, customClassName);
 
@@ -155,7 +152,12 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   };
 
   const handlePlayPauseAudio = () => {
-    setPlayAudio(prev => !prev);
+    if (!embedAudio) {
+      setPlayAudio(prev => !prev);
+      setEmbedAudio(true);
+    } else {
+      // Here will be the logic to start and stop audio
+    }
   };
 
   const volumeControl = () => {
@@ -277,10 +279,15 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
     <>
       <div className={`${prefix}--audio-player__audio-container`}>
         {audioHasThumbnail && (
-          <AudioImageOverlay
-            src={thumbnailUrl}
-            styleOfComponent={`${prefix}--audio-player__thumbnail`}
-          />
+          <div
+            className={`${prefix}--audio-player__thumbnail-container`}
+            id={`${prefix}--${audioId}`}
+            ref={inputRef}>
+            <AudioImageOverlay
+              src={thumbnailUrl}
+              styleOfComponent={`${prefix}--audio-player__thumbnail`}
+            />
+          </div>
         )}
         {captions()}
         {playAudio ? (
@@ -289,7 +296,7 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
             iconDescription="Pause"
             hasIconOnly
             kind="ghost"
-            onClick={() => handlePlayPauseAudio()}
+            onClick={e => handlePlayPauseAudio(e)}
             tooltipPosition="bottom"
           />
         ) : (
@@ -298,7 +305,7 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
             iconDescription="Play"
             hasIconOnly
             kind="ghost"
-            onClick={() => handlePlayPauseAudio()}
+            onClick={e => handlePlayPauseAudio(e)}
             tooltipPosition="bottom"
           />
         )}

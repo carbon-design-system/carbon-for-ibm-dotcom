@@ -54,7 +54,7 @@ Default.story = {
       AudioPlayer: ({ groupId }) => ({
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         aspectRatio: 'default',
-        audioId: '1_9h94wo6b',
+        audioId: '1_8ki0vj70',
       }),
     },
   },

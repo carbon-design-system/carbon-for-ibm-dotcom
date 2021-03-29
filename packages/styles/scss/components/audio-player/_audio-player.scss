@@ -150,6 +150,12 @@
   .#{$prefix}--audio-player__thumbnail {
     border: 1px solid $ui-03;
   }
+
+  .#{$prefix}--audio-player__thumbnail-container {
+    width: 48px;
+    height: 48px;
+    border: 1px solid $ui-03;
+  }
 }
 
 @include exports('audio-player') {
