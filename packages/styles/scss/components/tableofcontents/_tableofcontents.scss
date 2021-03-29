@@ -8,7 +8,8 @@
 @import '../../globals/vars';
 @import '../../globals/imports';
 @import '../layout/layout';
-@import '../../internal/overflow-buttons/overflow-buttons';
+
+$hover-transition-timing: 95ms;
 
 // items that change according to the theme applied
 @mixin themed-items {
@@ -244,14 +245,8 @@
 
         &:focus {
           outline: 2px solid $focus;
-          z-index: 1;
-          position: relative;
-          margin-bottom: 0;
-          margin-top: carbon--rem(3px);
-          height: carbon--rem(43px);
-          padding-top: carbon--rem(9px);
-          padding-bottom: carbon--rem(9px);
-          outline-offset: 0;
+          height: carbon--rem(48px);
+          outline-offset: -2px;
         }
       }
     }
@@ -276,7 +271,98 @@
     }
   }
 
-  @extend overflow--buttons;
+  .#{$prefix}--sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left,
+  .#{$prefix}--toc__navbar-caret-right {
+    width: rem(40px);
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    border: none;
+    background-color: $ui-01;
+    > {
+      svg {
+        position: absolute;
+        fill: currentColor;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    &:hover {
+      background-color: $hover-ui;
+      transition-duration: $hover-transition-timing;
+      > {
+        svg {
+          fill: $text-01;
+        }
+      }
+    }
+    &:focus,
+    &:active {
+      display: block;
+      background-color: $hover-ui;
+      outline: 2px solid $interactive-01;
+      outline-offset: -2px;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    @media (min-width: 800px) {
+      display: block;
+    }
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container[hidden],
+  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
+    display: none;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left {
+    left: 0;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-gradient {
+    display: block;
+    position: absolute;
+    left: rem(40px);
+    top: 0;
+    height: 100%;
+    width: rem(8px);
+    z-index: 1;
+    background: linear-gradient(to right, $ui-01, rgba(255, 255, 255, 0));
+  }
+
+  .#{$prefix}--toc__navbar-caret-right {
+    right: 0;
+  }
+
+  .#{$prefix}--toc__navbar-caret-right-gradient {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: rem(40px);
+    height: 100%;
+    width: rem(8px);
+    background: linear-gradient(to left, $ui-01, rgba(255, 255, 255, 0));
+  }
 
   @include carbon--breakpoint('sm') {
     .#{$prefix}--tableofcontents__desktop {
