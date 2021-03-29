@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -67,7 +67,10 @@ const FeatureCTA = ({
 const _renderFeatureCard = ({ card }) => {
   if (card.type === 'jump') card.cta.type = 'jump';
   else if (card.type === 'video') card.cta.href = '#';
-  card.cta.icon.src = CTALogic.iconSelector(card.type);
+  card.cta = {
+    ...card.cta,
+    icon: { src: CTALogic.iconSelector(card.type) },
+  };
   card.target = CTALogic.external(card.type);
   card.type = 'link';
   return card;

@@ -56,8 +56,8 @@ describe('Callout quote', () => {
   it('should load g100 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     await page.evaluate(
@@ -72,8 +72,8 @@ describe('Callout quote', () => {
   it('should load g90 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     await page.evaluate(
@@ -88,8 +88,8 @@ describe('Callout quote', () => {
   it('should load g10 theme', async () => {
     page = await browser.newPage();
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
     await page.evaluate(
       'document.documentElement.setAttribute("storybook-carbon-theme","g10")'

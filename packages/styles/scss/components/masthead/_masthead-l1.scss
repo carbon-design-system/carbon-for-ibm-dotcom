@@ -17,6 +17,8 @@ $search-transition-timing: 95ms;
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1,
   :host(#{$dds-prefix}-masthead-l1) {
+    @include carbon--theme($carbon--theme--white, true);
+
     display: flex;
     max-width: 98rem;
     margin-left: auto;
