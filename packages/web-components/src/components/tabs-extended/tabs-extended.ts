@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   /**
-   * Child items
+   * Child tab components.
    */
   @internalProperty()
   private _tabItems: Node[] = [];
@@ -79,7 +79,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
               <path d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"></path>
             </svg>
           </div>
-          <ul class="${prefix}--tabs__nav ${prefix}--tabs--scrollable__nav" role="tablist">
+          <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
             ${tabs.map((tab:DDSTab, index) => {
               const classes = [
                 index === this.active && `${prefix}--tabs__nav-item--selected` || null,
@@ -87,7 +87,11 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
               ];
               return html`
                 <li
-                  class="${prefix}--tabs__nav-item ${classes.join(' ')}" role="tab" aria-selected="true" disabled="${tab.disabled}">
+                  class="${prefix}--tabs__nav-item ${classes.join(' ')}"
+                  data-target=".tab-${index}-default"
+                  role="tab"
+                  aria-selected="true"
+                  disabled="${tab.disabled}">
                   <a tabindex="${index}" id="tab-link-${index}-default" class="${prefix}--tabs__nav-link" href="javascript:void(0)" role="tab"
                      aria-controls="tab-panel-${index}-default" @click="${(e) => this._setActiveTab(index)}" >${tab.label}</a>
                 </li>

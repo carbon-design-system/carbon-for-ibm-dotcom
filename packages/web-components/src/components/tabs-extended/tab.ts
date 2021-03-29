@@ -46,34 +46,40 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   disabled: Boolean = false;
 
   /**
-   * Defines the active state of the tab.
+   * Defines the selected state of the tab.
    */
   @property({ reflect: true })
   selected: Boolean = false;
-  // @internalProperty()
-  // private active: Boolean = false;
 
   /**
-   * Defines the disabled state of the tab.
+   * Defines the index of the tab relative to other tabs.
    */
   @internalProperty()
   private index: Number;
 
-  // setActive(active: Boolean) {
-  //   this.active = active;
-  // }
-
+  /**
+   * Sets the index of the tab.
+   */
   setIndex(index: Number) {
     this.index = index;
   }
 
   render() {
     return (this.selected) ? html`
-      <div class="tab-${this.index}-container" aria-hidden="${!this.selected}">
+      <div id="tab-panel-${this.index}-default"
+           class="tab-${this.index}-container"
+           role="tabpanel"
+           aria-labelledby="tab-link-${this.index}-default"
+           aria-hidden="${!this.selected}">
         <slot></slot>
       </div>
     ` : html`
-      <div class="tab-${this.index}-container" aria-hidden="${!this.selected}" hidden>
+      <div id="tab-panel-${this.index}-default"
+           class="tab-${this.index}-container"
+           role="tabpanel"
+           aria-labelledby="tab-link-${this.index}-default"
+           aria-hidden="${!this.selected}"
+           hidden>
         <slot></slot>
       </div>
     `;
