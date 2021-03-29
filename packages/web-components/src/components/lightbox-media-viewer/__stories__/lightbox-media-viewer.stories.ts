@@ -187,7 +187,7 @@ EmbeddedVideoPlayerWithInlineThumbnail.story = {
       }),
       LightboxVideoPlayerContainer: ({ groupId }) => ({
         open: boolean('Open (open)', false, groupId),
-        hideCaption: boolean('hide caption (hide-caption)', false, groupId),
+        hideCaption: boolean('hide caption (hide-caption)', true, groupId),
         videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
       }),
     },
