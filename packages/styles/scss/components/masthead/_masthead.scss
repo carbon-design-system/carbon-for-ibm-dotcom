@@ -156,6 +156,8 @@ $search-transition-timing: 95ms;
 @mixin masthead {
   .#{$prefix}--masthead,
   :host(#{$dds-prefix}-masthead) {
+    @include carbon--theme($carbon--theme--white, true);
+
     position: fixed;
     top: 0;
     left: 0;
@@ -218,7 +220,10 @@ $search-transition-timing: 95ms;
   }
 
   .#{$prefix}--masthead__l0 {
+    @include carbon--theme($carbon--theme--white, true);
+
     position: relative;
+    background: $ui-background;
 
     &::after {
       content: '';
@@ -451,6 +456,8 @@ $search-transition-timing: 95ms;
 
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
+    @include carbon--theme($carbon--theme--white, true);
+
     background-color: $ui-background;
     position: fixed;
     z-index: 99999;

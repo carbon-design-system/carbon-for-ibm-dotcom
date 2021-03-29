@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,12 +54,10 @@ const feature = {
   style: "feature",
   heading: "Lorem ipsum dolor sit amet",
   card: {
+    type: 'local',
     heading: "Consectetur adipisicing elit",
     cta: {
       href: "https://www.example.com",
-      icon: {
-        src: ArrowRight20,
-      },
     },
     image: {
       defaultSrc: "https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616",
