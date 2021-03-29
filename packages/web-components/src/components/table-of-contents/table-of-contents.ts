@@ -242,6 +242,28 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Handles `click` event on a menu item.
+   *
+   * @param event The event.
+   */
+  private _handleOnKeyDown(event: KeyboardEvent) {
+    const { selectorDesktopItem } = this.constructor as typeof DDSTableOfContents;
+    const target = event.target as HTMLAnchorElement;
+    if (target.matches?.(selectorDesktopItem)) {
+      if (event.key === 'Tab') {
+        if (event.shiftKey) {
+          // 48 = buttonSize
+          if (target.parentElement?.previousElementSibling!.getBoundingClientRect().left < 48) {
+            this._paginateLeft();
+          }
+        } else if (target.parentElement?.nextElementSibling!.getBoundingClientRect().right >= this._navBar!.offsetWidth - 48) {
+          this._paginateRight();
+        }
+      }
+    }
+  }
+
+  /**
    * Handles `slotchange` event on the default `<slot>`.
    *
    * @param event The event.
@@ -478,6 +500,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       _targets: targets,
       _handleChangeSelect: handleChangeSelect,
       _handleClickItem: handleClickItem,
+      _handleOnKeyDown: handleOnKeyDown,
       _handleSlotChange: handleSlotChange,
       _handleSlotChangeHeading: handleSlotChangeHeading,
       _paginateLeft: paginateLeft,
@@ -544,7 +567,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
                     [`${prefix}--tableofcontents__desktop__item--active`]: selected,
                   });
                   return html`
-                    <li class="${itemClasses}" @click="${handleClickItem}">
+                    <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
                       <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
                         ${title}
                       </a>
