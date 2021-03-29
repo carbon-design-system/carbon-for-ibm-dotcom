@@ -1,16 +1,17 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -20,6 +21,46 @@ const { prefix } = settings;
  */
 const CardGroup = ({ cards, cta }) => {
   const containerRef = useRef();
+
+  /**
+   * Resize observer to trigger same height function.
+   *
+   * @private
+   */
+  const resizeObserver = useRef(null);
+
+  useEffect(() => {
+    resizeObserver.current = new ResizeObserver(setSameHeight);
+    resizeObserver.current.observe(document.documentElement);
+    return () => (resizeObserver.current = null);
+  }, []);
+
+  /**
+   * Function that activates the sameHeight utility
+   */
+  const setSameHeight = () => {
+    window.requestAnimationFrame(() => {
+      const { current: containerNode } = containerRef;
+      if (containerNode) {
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
+          'md'
+        );
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--card__heading`),
+          'md'
+        );
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--card__copy`),
+          'md'
+        );
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--card__footer`),
+          'md'
+        );
+      }
+    });
+  };
   return _renderCards(cards, containerRef, cta);
 };
 
