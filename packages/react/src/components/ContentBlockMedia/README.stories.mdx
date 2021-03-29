@@ -97,11 +97,13 @@ function App() {
   ]};
 
   const cta = {
-    type: 'local'|'jump'|'external'
     heading: 'Feature Link heading',
     card: {
-      href: 'https://www.example.com',
-      title: 'Consectetur adipisicing elit',
+      type: 'local'|'jump'|'external',
+      cta: {
+        href: 'https://www.example.com',
+      },
+      heading: 'Feature Card title',
       image: {
         defaultSrc: 'https://fpoimg.com/672x672?text=1:1&bg_color=ee5396&text_color=161616',
         alt: 'Image alt text',

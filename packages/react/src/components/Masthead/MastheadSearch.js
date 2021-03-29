@@ -97,6 +97,7 @@ function _reducer(state, action) {
  */
 const MastheadSearch = ({
   placeHolderText,
+  initialSearchTerm,
   renderValue,
   searchOpenOnload,
   navType,
@@ -111,7 +112,7 @@ const MastheadSearch = ({
    * @private
    */
   const _initialState = {
-    val: '',
+    val: initialSearchTerm || getValueFromQueryString() || '',
     suggestions: [],
     prevSuggestions: [],
     suggestionContainerVisible: false,
@@ -265,6 +266,15 @@ const MastheadSearch = ({
     onChange,
     onKeyDown,
     className: `${prefix}--header__search--input`,
+  };
+
+  /**
+   * Autosuggest will pass through all these props to the container.
+   *
+   * @type {{'aria-label': string}}
+   */
+  const containerProps = {
+    'aria-label': placeHolderText,
   };
 
   /**
@@ -474,6 +484,19 @@ const MastheadSearch = ({
     return section.items;
   }
 
+  /**
+   * Get inital search term from query string
+   *
+   * @returns {string} Search term
+   */
+  function getValueFromQueryString() {
+    try {
+      return new URLSearchParams(root.location.search).get('q');
+    } catch (e) {
+      return '';
+    }
+  }
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
@@ -495,6 +518,7 @@ const MastheadSearch = ({
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
             inputProps={inputProps}
+            containerProps={containerProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
             {...(rest.multiSection
@@ -537,6 +561,11 @@ MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
 
   /**
+   * Initial value for the search field.
+   */
+  initialSearchTerm: PropTypes.string,
+
+  /**
    * Number of characters to begin showing suggestions.
    */
   renderValue: PropTypes.number,
@@ -554,6 +583,7 @@ MastheadSearch.propTypes = {
 
 MastheadSearch.defaultProps = {
   placeHolderText: 'Search all of IBM',
+  initialSearchTerm: '',
   renderValue: 3,
   searchOpenOnload: false,
 };

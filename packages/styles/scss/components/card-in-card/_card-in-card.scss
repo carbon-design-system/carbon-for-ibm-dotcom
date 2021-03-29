@@ -1,0 +1,155 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '../../globals/vars';
+@import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
+@import '../../globals/utils/ratio-base';
+@import '../image/image';
+@import '../card/index';
+
+@mixin card-in-card {
+  :host(#{$dds-prefix}-card-in-card),
+  .#{$prefix}--card-in-card {
+    width: 100%;
+
+    .#{$prefix}--card-in-card__container {
+      color: $text-01;
+      background: $ui-background;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .#{$prefix}--card {
+      display: block;
+
+      @include carbon--breakpoint('lg') {
+        position: relative;
+      }
+
+      &:focus {
+        outline-width: 3px;
+        outline-offset: 1px;
+      }
+
+      &:hover,
+      &:focus {
+        ::slotted([slot='image']),
+        .#{$prefix}--image {
+          &::before {
+            opacity: 0.2;
+          }
+        }
+      }
+
+      // Apply dark overlay on the Image slot and its parent class.
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          z-index: 1;
+          background-color: $inverse-02;
+          transition: opacity $transition--base motion(standard, productive);
+        }
+      }
+    }
+
+    .#{$prefix}--card__wrapper {
+      width: 100%;
+      background-color: $ui-01;
+      height: auto;
+      padding: $carbon--spacing-05;
+      z-index: 5;
+
+      @include carbon--breakpoint('lg') {
+        width: 33.33%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .#{$prefix}--card__eyebrow,
+      .#{$prefix}--card__heading,
+      ::slotted(#{$dds-prefix}-card-eyebrow),
+      ::slotted(#{$dds-prefix}-card-heading) {
+        width: 100%;
+
+        @include carbon--breakpoint('md') {
+          width: 90%;
+        }
+      }
+
+      .#{$prefix}--card__content {
+        padding: 0;
+      }
+
+      .#{$prefix}--card__eyebrow,
+      ::slotted(#{$dds-prefix}-card-eyebrow) {
+        @include carbon--type-style('label-01');
+
+        margin-bottom: $carbon--spacing-03;
+        color: $text-02;
+      }
+
+      .#{$prefix}--card__heading,
+      ::slotted(#{$dds-prefix}-card-heading) {
+        @include carbon--type-style('expressive-heading-03');
+
+        margin-bottom: $carbon--layout-05;
+      }
+    }
+
+    ::slotted([slot='footer']),
+    .#{$prefix}--card__footer {
+      position: absolute;
+      bottom: $carbon--spacing-05;
+    }
+  }
+}
+
+// Adjust the card width when grid mode is equal to "narrow".
+:host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
+.#{$prefix}--card-in-card--narrow {
+  .#{$prefix}--card__wrapper {
+    @include carbon--breakpoint('lg') {
+      width: calc(33.33% - #{$carbon--spacing-04});
+    }
+  }
+}
+
+// Add a $ui-03 border line color when the grid mode is equal "collapsed".
+:host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
+.#{$prefix}--card-in-card--narrow {
+  .#{$prefix}--card__wrapper {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      pointer-events: none;
+      z-index: 1;
+      background-color: $ui-03;
+    }
+  }
+}
+
+@include exports('card-in-card') {
+  @include card-in-card;
+}

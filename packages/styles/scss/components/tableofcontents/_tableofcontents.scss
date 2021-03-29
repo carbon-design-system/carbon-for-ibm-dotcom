@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,6 +30,19 @@
       &:hover {
         border-left-color: $hover-selected-ui;
       }
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar
+    .#{$prefix}--tableofcontents__desktop__item {
+    margin-bottom: 1px;
+    a {
+      border-left: none;
+      color: $text-02;
+    }
+
+    &:hover {
+      background-color: $hover-ui;
     }
   }
 
@@ -187,6 +200,82 @@
     }
   }
 
+  .#{$prefix}--tableofcontents-horizontal__contents {
+    a[name] {
+      display: block;
+      color: $text-01;
+      transform: translateY(calc(-1 * #{$layout-03}));
+
+      > * {
+        transform: translateY($layout-03);
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: $ui-01;
+    width: 100%;
+
+    @include carbon--breakpoint('lg') {
+      &::before {
+        border-bottom: 1px solid $ui-04;
+        content: '';
+        background-color: $ui-01;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: calc((100vw - 100%) / -2);
+        left: calc((100vw - 100%) / -2);
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+      }
+    }
+
+    .#{$prefix}--tableofcontents__desktop__item {
+      a {
+        border-left: none;
+        color: $text-02;
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+
+        &:hover {
+          border-bottom-color: $hover-selected-ui;
+        }
+
+        &:focus {
+          outline: 2px solid $focus;
+          z-index: 1;
+          position: relative;
+          margin-bottom: 0;
+          margin-top: carbon--rem(3px);
+          height: carbon--rem(43px);
+          padding-top: carbon--rem(9px);
+          padding-bottom: carbon--rem(9px);
+          outline-offset: 0;
+        }
+      }
+    }
+
+    .#{$prefix}--tableofcontents__desktop__item--active a {
+      border-bottom: 2px solid $interactive-04;
+      padding-bottom: carbon--rem(10px);
+    }
+
+    .#{$prefix}--tableofcontents__desktop {
+      flex: 1;
+      max-width: none;
+      padding-top: 0;
+      margin-top: 0;
+
+      ul {
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+
   @include carbon--breakpoint('sm') {
     .#{$prefix}--tableofcontents__desktop {
       display: none;
@@ -195,7 +284,7 @@
 
   @include carbon--breakpoint('md') {
     .#{$prefix}--tableofcontents__mobile {
-      padding-left: $carbon--spacing-07;
+      padding-left: $carbon--spacing-05;
     }
   }
 

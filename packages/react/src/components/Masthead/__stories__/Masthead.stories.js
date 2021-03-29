@@ -23,7 +23,6 @@ export default {
 
   parameters: {
     ...readme.parameters,
-    'carbon-theme': { disabled: true },
   },
 };
 
@@ -79,6 +78,11 @@ Default.story = {
           placeHolderText: text(
             'search placeholder (placeHolderText)',
             'Search all of IBM',
+            groupId
+          ),
+          initialSearchTerm: text(
+            'initial search term (initialSearchTerm)',
+            '',
             groupId
           ),
           selectedMenuItem: text(
