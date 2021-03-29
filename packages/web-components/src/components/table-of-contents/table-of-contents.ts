@@ -242,7 +242,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Handles `click` event on a menu item.
+   * Handles `click` event on a toc navigation items.
    *
    * @param event The event.
    */

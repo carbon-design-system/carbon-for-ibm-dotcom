@@ -13,6 +13,10 @@
 .dds-ce-demo-devenv--container {
   padding-top: 0;
   padding-bottom: 0;
+
+  @include carbon--breakpoint-down('lg') {
+    padding: 0;
+  }
 }
 
 .dds-ce-demo--table-of-contents {
