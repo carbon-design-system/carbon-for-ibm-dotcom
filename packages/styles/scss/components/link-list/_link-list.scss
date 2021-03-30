@@ -132,6 +132,10 @@
         &:hover {
           text-decoration: none;
         }
+
+        &:focus {
+          outline: none;
+        }
       }
 
       svg {
@@ -147,6 +151,10 @@
 
     &:hover {
       background: $hover-ui;
+    }
+
+    &:focus-within {
+      outline: 2px solid $focus;
     }
 
     &:first-of-type {
