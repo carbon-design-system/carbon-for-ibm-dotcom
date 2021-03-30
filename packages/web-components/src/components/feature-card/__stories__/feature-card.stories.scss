@@ -1,0 +1,19 @@
+//
+// @license
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+
+.dds-ce-demo-devenv--simple-grid--card > * {
+  @include carbon--breakpoint('md') {
+    grid-column: 2 / span 6;
+  }
+  @include carbon--breakpoint('lg') {
+    grid-column: 5 / span 8;
+  }
+}

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,9 +60,9 @@ export const Default = ({ parameters }) => {
         commodo elit. In venenatis sapien eu nisl congue suscipit.
       </dds-expressive-modal-body>
       <dds-expressive-modal-footer>
-        <dds-btn>
+        <dds-button-expressive>
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
-        </dds-btn>
+        </dds-button-expressive>
       </dds-expressive-modal-footer>
     </dds-expressive-modal>
   `;

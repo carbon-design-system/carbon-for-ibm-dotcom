@@ -423,7 +423,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     return `
       [data-modal-primary-focus],
       ${ddsPrefix}-expressive-modal-footer ${prefix}-btn[kind="primary"],
-      ${ddsPrefix}-expressive-modal-footer ${ddsPrefix}-btn[kind="primary"]
+      ${ddsPrefix}-expressive-modal-footer ${ddsPrefix}-button-expressive[kind="primary"]
     `;
   }
 

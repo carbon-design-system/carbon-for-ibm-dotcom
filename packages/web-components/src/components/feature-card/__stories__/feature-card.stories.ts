@@ -17,12 +17,13 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import styles from './feature-card.stories.scss';
 
 export const Default = ({ parameters }) => {
-  const { heading, defaultSrc, alt, href } = parameters?.props?.['dds-feature-card'] ?? {};
+  const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
-      <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+      <dds-image slot="image" alt="Image alt text" default-src="${imgLg1x1}"></dds-image>
       <dds-card-heading>${heading}</dds-card-heading>
       <dds-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
@@ -35,6 +36,9 @@ export default {
   title: 'Components/Feature Card',
   decorators: [
     story => html`
+      <style>
+        ${styles}
+      </style>
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">
         ${story()}
       </div>
@@ -46,8 +50,6 @@ export default {
     knobs: {
       'dds-feature-card': () => ({
         heading: textNullable('Card Heading (heading):', 'Explore AI use cases in all industries'),
-        defaultSrc: textNullable('Image src (defaultSrc):', imgLg1x1),
-        alt: textNullable('Image alt text (alt):', 'Image alt text'),
         href: textNullable('Card Href (href):', 'https://example.com'),
       }),
     },
