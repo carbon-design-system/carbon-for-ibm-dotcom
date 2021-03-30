@@ -128,6 +128,10 @@
       a {
         padding: $carbon--spacing-05 0;
         justify-content: space-between;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
 
       svg {
