@@ -156,9 +156,8 @@ $hover-transition-timing: 95ms;
       padding-bottom: carbon--rem(12px);
       padding-left: carbon--rem(12px);
       @include carbon--type-style('body-long-02');
-
-      transition: all $duration--fast-01 motion(standard, productive);
     }
+
     a:hover {
       cursor: pointer;
     }
