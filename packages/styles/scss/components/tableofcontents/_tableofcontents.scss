@@ -31,6 +31,7 @@ $hover-transition-timing: 95ms;
 
       &:hover {
         border-left-color: $hover-selected-ui;
+        color: $text-01;
       }
     }
   }
