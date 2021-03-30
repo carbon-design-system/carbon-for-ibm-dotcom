@@ -1,0 +1,36 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../internal/content-group/content-group';
+@import '../../globals/imports';
+
+@mixin content-group-banner {
+  :host(#{$dds-prefix}-content-group-banner),
+  .#{$prefix}--content-group-banner {
+    background: $ui-background;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-07;
+
+    ::slotted(#{$dds-prefix}-content-group-heading),
+    .#{$prefix}--content-group__title {
+      margin-bottom: 0;
+    }
+
+    ::slotted(#{$dds-prefix}-link-list),
+    ::slotted([slot='complementary']),
+    .#{$prefix}--link-list__list {
+      grid-area: auto;
+      border-left: 1px solid $ui-03;
+      padding-left: $spacing-05;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@include exports('content-group-banner') {
+  @include content-group-banner;
+}
