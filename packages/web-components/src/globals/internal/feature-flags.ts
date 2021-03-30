@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,3 +40,10 @@ export const DDS_CONTENT_BLOCK_HEADLINES: boolean = process!.env.DDS_CONTENT_BLO
  * @type {boolean}
  */
 export const DDS_PROMO_GROUP: boolean = process!.env.DDS_PROMO_GROUP === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * Enables Cloud Masthead Components
+ *
+ * @type {boolean}
+ */
+export const DDS_CLOUD_MASTHEAD: boolean = process!.env.DDS_CLOUD_MASTHEAD === 'true' || DDS_FLAGS_ALL || false;
