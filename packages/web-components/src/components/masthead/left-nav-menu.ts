@@ -60,6 +60,15 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   }
 
   /**
+   * Handler for the `keypress` event on the expando button.
+   */
+  private _handleKeydownExpando({ key }: KeyboardEvent) {
+    if (key === 'Enter') {
+      this._handleUserInitiatedToggle();
+    }
+  }
+
+  /**
    * `true` if the menu should be in its active state.
    */
   @property({ type: Boolean, reflect: true })
@@ -94,7 +103,14 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { active, backButtonText, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const {
+      active,
+      backButtonText,
+      expanded,
+      title,
+      _handleClickExpando: handleClickExpando,
+      _handleKeydownExpando: handleKeydownExpando,
+    } = this;
     const buttonClasses = classMap({
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
@@ -115,8 +131,14 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         </div>
       </button>
       <ul class="${prefix}--side-nav__menu" role="menu">
-        <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
-          <a class="bx--side-nav__link" role="menuitem" @click="${handleClickExpando}">
+        <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back">
+          <a
+            class="bx--side-nav__link"
+            role="menuitem"
+            @keydown="${handleKeydownExpando}"
+            @click="${handleClickExpando}"
+            tabindex="0"
+          >
             <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
           </a>
         </li>
