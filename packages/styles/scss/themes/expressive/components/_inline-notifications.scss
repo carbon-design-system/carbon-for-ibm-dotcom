@@ -15,6 +15,13 @@
 /// @group inline-notifications-expressive
 @mixin inline-notifications-expressive {
   .#{$prefix}--inline-notification {
+    .#{$prefix}--inline-notification__details {
+      margin-left: 0.85rem;
+
+      .#{$prefix}--inline-notification__icon {
+        margin-right: 0.875rem;
+      }
+    }
     .#{$prefix}--inline-notification__text-wrapper {
       padding: 0.8rem 0;
     }
