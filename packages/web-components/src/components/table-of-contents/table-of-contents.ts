@@ -541,27 +541,29 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
             class="${ddsPrefix}-ce--table-of-contents__items-container"
             style="position: sticky; top: ${stickyOffset && this.layout !== 'horizontal' ? `${stickyOffset}px` : 0}"
           >
-            <div class="${prefix}--tableofcontents__desktop" style="left: -${currentScrollPosition}px">
-              <div class="${prefix}--sub-content-left"></div>
-              <ul>
-                ${targets.map(item => {
-                  const name = item.getAttribute('name');
-                  const title = (item.dataset.title ?? item.textContent ?? '').trim();
-                  const selected = item === currentTarget;
-                  const itemClasses = classMap({
-                    [`${prefix}--tableofcontents__desktop__item`]: true,
-                    [`${prefix}--tableofcontents__desktop__item--active`]: selected,
-                  });
-                  return html`
-                    <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
-                      <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
-                        ${title}
-                      </a>
-                    </li>
-                  `;
-                })}
-              </ul>
-              <div class="${prefix}--sub-content-right"></div>
+            <div class="${prefix}--tableofcontents__desktop-container">
+              <div class="${prefix}--tableofcontents__desktop" style="left: -${currentScrollPosition}px">
+                <div class="${prefix}--sub-content-left"></div>
+                <ul>
+                  ${targets.map(item => {
+                    const name = item.getAttribute('name');
+                    const title = (item.dataset.title ?? item.textContent ?? '').trim();
+                    const selected = item === currentTarget;
+                    const itemClasses = classMap({
+                      [`${prefix}--tableofcontents__desktop__item`]: true,
+                      [`${prefix}--tableofcontents__desktop__item--active`]: selected,
+                    });
+                    return html`
+                      <li class="${itemClasses}" @click="${handleClickItem}" @keydown="${handleOnKeyDown}">
+                        <a aria-current="${ifDefined(!selected ? undefined : 'location')}" data-target="${name}" href="#${name}">
+                          ${title}
+                        </a>
+                      </li>
+                    `;
+                  })}
+                </ul>
+                <div class="${prefix}--sub-content-right"></div>
+              </div>
             </div>
             <div class="${prefix}--tableofcontents__mobile">
               <div class="${prefix}--tableofcontents__mobile__select__wrapper">
