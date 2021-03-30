@@ -31,6 +31,10 @@
       fill: currentColor;
     }
 
+    &.#{$prefix}--link:hover {
+      text-decoration: none;
+    }
+
     &.#{$prefix}--link--disabled {
       &:not([href]),
       &:not([button]) {

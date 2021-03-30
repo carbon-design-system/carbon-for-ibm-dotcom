@@ -141,6 +141,10 @@
     max-width: 640px;
     @include hang;
 
+    &:hover {
+      background: $hover-ui;
+    }
+
     &:first-of-type {
       border-top: 1px solid $ui-03;
     }
