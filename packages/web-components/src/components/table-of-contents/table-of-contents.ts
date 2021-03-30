@@ -234,16 +234,16 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     if (target.matches?.(selectorDesktopItem)) {
       if (event.key === 'Tab') {
         if (event.shiftKey) {
-          // 28 = buttonSize/2 + gradient width
+          // 32 = total button width - grid offset
           if (
             target.parentElement?.previousElementSibling!.getBoundingClientRect().left <
-            this._navBar!.getBoundingClientRect().left + 28
+            this._navBar!.getBoundingClientRect().left + 32
           ) {
             this._paginateLeft();
           }
         } else if (
           target.parentElement?.nextElementSibling!.getBoundingClientRect().right >
-          this._navBar!.getBoundingClientRect().right - 28
+          this._navBar!.getBoundingClientRect().right - 32
         ) {
           this._paginateRight();
         }
@@ -366,14 +366,14 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 28 = buttonSize/2 + gradient width
+      // 32 = total button width - grid offset
       const lastVisibleElementIndex = findLastIndex(
         elems,
-        elem => elem.getBoundingClientRect().left < 28 + navBar!.getBoundingClientRect().left
+        elem => elem.getBoundingClientRect().left < 32 + navBar!.getBoundingClientRect().left
       );
       if (lastVisibleElementIndex >= 0) {
         const lastVisibleElementRight = elems[lastVisibleElementIndex].getBoundingClientRect().right;
-        const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 28;
+        const newScrollPosition = lastVisibleElementRight + currentScrollPosition - navBar!.getBoundingClientRect().right + 32;
         // If the new scroll position is less than the width of the left caret button,
         // it means that hiding the left caret button reveals the whole of the left-most nav item.
         // Snaps the left-most nav item to the left edge of nav container in this case.
@@ -395,11 +395,11 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
     const interimLeft = navBar!.getBoundingClientRect().right;
     const elems = Array.prototype.slice.call(itemNodes);
     if (elems) {
-      // 28 = buttonSize/2 + gradient width
-      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimLeft - 28);
+      // 32 = total button width - grid offset
+      const firstVisibleElementIndex = elems.findIndex(elem => elem.getBoundingClientRect().right > interimLeft - 32);
       if (firstVisibleElementIndex > 0) {
         const firstVisibleElementLeft =
-          elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 28;
+          elems[firstVisibleElementIndex].getBoundingClientRect().left - navBar!.getBoundingClientRect().left - 32;
         // Ensures that is there is no blank area at the right hand side in scroll area
         // if we see the right remainder nav items can be contained in a page
         const maxLeft = contentNode!.scrollWidth - navBar!.offsetWidth;
