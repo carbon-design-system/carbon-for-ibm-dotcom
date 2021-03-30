@@ -45,7 +45,7 @@ import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressi
     eu nisl congue suscipit.
   </dds-expressive-modal-body>
   <dds-expressive-modal-footer slot="footer">
-    <dds-btn kind="primary">
+    <dds-button-expressive kind="primary">
       Lorem ipsum dolor
       <svg
         slot="icon"
@@ -59,7 +59,7 @@ import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressi
       >
         <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
       </svg>
-    </dds-btn>
+    </dds-button-expressive>
   </dds-expressive-modal-footer>
 </dds-expressive-modal>
 ```
@@ -69,7 +69,7 @@ import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/expressi
 Opening/closing modal from code can be done by changing `open` attribute/property. For example we have HTML like this:
 
 ```html
-<dds-btn id="my-btn">Open modal</dds-btn>
+<dds-button-expressive id="my-btn">Open modal</dds-button-expressive>
 <dds-expressive-modal id="my-modal">
   ...
 </dds-expressive-modal>
@@ -78,7 +78,7 @@ Opening/closing modal from code can be done by changing `open` attribute/propert
 We can make the button open the modal by:
 
 ```javascript
-document.getElementById('dds-btn').addEventListener('click', () => {
+document.getElementById('my-btn').addEventListener('click', () => {
   document.getElementById('my-modal').open = true;
 });
 ```
