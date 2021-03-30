@@ -22,13 +22,11 @@
   class="bx--side-nav__menu"
   role="menu"
 >
-  <li
-    class="bx--masthead__side-nav--submemu-back bx--side-nav__menu-item"
-    role="none"
-  >
+  <li class="bx--masthead__side-nav--submemu-back bx--side-nav__menu-item">
     <a
       class="bx--side-nav__link"
       role="menuitem"
+      tabindex="0"
     >
       <span class="bx--side-nav__link-text">
         Back
@@ -64,13 +62,11 @@
   class="bx--side-nav__menu"
   role="menu"
 >
-  <li
-    class="bx--masthead__side-nav--submemu-back bx--side-nav__menu-item"
-    role="none"
-  >
+  <li class="bx--masthead__side-nav--submemu-back bx--side-nav__menu-item">
     <a
       class="bx--side-nav__link"
       role="menuitem"
+      tabindex="0"
     >
       <span class="bx--side-nav__link-text">
         back-button-text-foo
