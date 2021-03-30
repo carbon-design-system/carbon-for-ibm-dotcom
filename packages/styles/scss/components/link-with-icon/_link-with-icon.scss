@@ -76,6 +76,10 @@
     &:focus {
       outline: 2px solid $focus;
     }
+
+    &:active {
+      text-decoration: none;
+    }
   }
 
   :host(#{$dds-prefix}-link-with-icon),
