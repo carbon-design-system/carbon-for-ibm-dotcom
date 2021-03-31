@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
@@ -41,6 +41,13 @@ const MastheadLeftNav = ({
    * 5. User then clicks back button again, going back to first panel --> {level0: -1, level1: -1}
    */
   const [menuState, setMenuState] = useState({ level0: -1, level1: -1 });
+
+  // reset the left nav to default menu section when closed
+  useEffect(() => {
+    if (!isSideNavExpanded) {
+      setMenuState({ level0: -1, level1: -1 });
+    }
+  }, [isSideNavExpanded]);
 
   const sideNavRef = useRef();
 
