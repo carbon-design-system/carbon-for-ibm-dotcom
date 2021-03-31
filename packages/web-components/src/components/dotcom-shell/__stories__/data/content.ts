@@ -214,9 +214,9 @@ const StoryContent = ({ type = 'default' }) =>
         <dds-quote-source-bottom-copy>
           IBM Cloud
         </dds-quote-source-bottom-copy>
-        <dds-link-with-icon slot="footer" href="https://example.com">
+        <dds-callout-link-with-icon slot="footer" href="https://example.com">
           Link with Icon ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-with-icon>
+        </dds-callout-link-with-icon>
       </dds-callout-quote>
 
         <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
