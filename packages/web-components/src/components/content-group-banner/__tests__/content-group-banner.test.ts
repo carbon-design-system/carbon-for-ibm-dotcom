@@ -8,6 +8,8 @@
  */
 
 import { html, render } from 'lit-html';
+import '../../content-group/content-group-heading';
+import '../../link-list/link-list';
 import '../content-group-banner';
 import { CTA_TYPE } from '../../cta/defs';
 
