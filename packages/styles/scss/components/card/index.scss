@@ -26,6 +26,7 @@
     height: 100%;
     background-color: $ui-01;
     text-decoration: none;
+    cursor: pointer;
 
     .#{$prefix}--card__wrapper {
       display: flex;
@@ -60,6 +61,11 @@
       @include carbon--type-style('body-short-02');
 
       margin-bottom: $carbon--spacing-07;
+    }
+
+    a {
+      text-decoration: none;
+      margin-top: auto;
     }
 
     .#{$prefix}--card:focus,
