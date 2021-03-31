@@ -62,9 +62,11 @@
 }
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__desktop-container {
-  position: relative;
-  overflow: hidden;
-  height: 48px;
+  @include carbon--breakpoint('lg') {
+    position: relative;
+    overflow: hidden;
+    height: 48px;
+  }
 }
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__mobile {
