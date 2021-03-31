@@ -175,6 +175,9 @@ export const withMixedMedia = ({ parameters }) => {
 withMixedMedia.story = {
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
     knobs: {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
