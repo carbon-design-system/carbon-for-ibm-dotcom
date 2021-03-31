@@ -38,12 +38,20 @@ const SideNavMenuSection = ({
     onBackClick();
   };
 
+  const handleBackButtonKeyPress = event => {
+    if (event.key === 'Enter' || event.charCode === ' ') {
+      event.preventDefault();
+      onBackClick();
+    }
+  };
+
   return (
-    <div className={className}>
+    <div className={className} id={rest.id}>
       {rest.backButtonText && (
         <>
           <SideNavMenuItem
             onClick={handleBackButtonClick}
+            onKeyPress={handleBackButtonKeyPress}
             className={`${prefix}--masthead__side-nav--submemu-back`}
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
             isbackbutton="true"
@@ -75,6 +83,17 @@ const SideNavMenuSection = ({
         </>
       )}
       {children}
+      <button
+        className={`${prefix}--masthead__focus`}
+        onFocus={e => {
+          if (rest.focusNode) {
+            rest.focusNode.focus();
+          } else {
+            e.target.parentElement.querySelector('a').focus();
+          }
+        }}
+        aria-hidden={true}
+      />
     </div>
   );
 };
@@ -91,14 +110,14 @@ SideNavMenuSection.propTypes = {
   children: PropTypes.node,
 
   /**
-   * Determine whether to show SideNavMenuSection
-   */
-  show: PropTypes.bool,
-
-  /**
    * action on back click
    */
   onBackClick: PropTypes.func,
+
+  /**
+   * Determine whether to show SideNavMenuSection
+   */
+  show: PropTypes.bool,
 };
 
 SideNavMenuSection.defaultProps = {

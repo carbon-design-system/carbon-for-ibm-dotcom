@@ -29,8 +29,19 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
-  //track which menu section is visible/expanded
+  /**
+   * Keep track of which menu section is visible/expanded and ties current visible panel
+   * back to its parent menu panel
+   *
+   * Example interaction and menuState change:
+   * 1. When left nav is first opened - default state --> {level0: -1, level1: -1}
+   * 2. User then clicks on first menu item (item index is 0) --> {level0: 0, level1: -1}
+   * 3. User then clicks on second menu item (item index is 1) of current visible panel --> {level0: 0, level1: 1}
+   * 4. User then clicks back button --> {level0: 0, level1: -1}
+   * 5. User then clicks back button again, going back to first panel --> {level0: -1, level1: -1}
+   */
   const [menuState, setMenuState] = useState({ level0: -1, level1: -1 });
+
   const sideNavRef = useRef();
 
   const level0Items = [];
@@ -47,12 +58,15 @@ const MastheadLeftNav = ({
             .toLowerCase()
         : null;
 
-      const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
+      const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__${
+        rest.hasL1Data ? 'l1' : 'l0'
+      }-nav${i}`;
 
       if (link.hasMenu || link.hasMegaPanel || link.menuSections.length !== 0) {
         level1Items.push({
           title: link.title,
           autoid,
+          parentKey: i,
           sections: link.menuSections,
         });
 
@@ -80,20 +94,6 @@ const MastheadLeftNav = ({
         );
       }
     });
-    level0Items.push(
-      <button
-        className={`${prefix}--masthead__focus`}
-        onFocus={() => {
-          preventOutFocus(
-            sideNavRef.current?.parentNode.querySelector(
-              `.${prefix}--header__menu-toggle`
-            ),
-            isSideNavExpanded
-          );
-        }}
-        aria-hidden={true}></button>
-    );
-
     const level1 = _renderLevel1Submenus(
       level1Items,
       backButtonText,
@@ -112,7 +112,12 @@ const MastheadLeftNav = ({
 
     return (
       <div>
-        <SideNavMenuSection show={menuState.level0 === -1}>
+        <SideNavMenuSection
+          id={`panel__(-1,-1)`}
+          focusNode={sideNavRef.current?.parentNode.querySelector(
+            `.${prefix}--header__menu-toggle`
+          )}
+          show={menuState.level0 === -1}>
           {level0Items}
         </SideNavMenuSection>
         {level1.menuSections}
@@ -144,12 +149,6 @@ const MastheadLeftNav = ({
       </nav>
     </SideNav>
   );
-};
-
-const preventOutFocus = (target, isSideNavExpanded) => {
-  if (isSideNavExpanded) {
-    target.focus();
-  }
 };
 
 /**
@@ -190,21 +189,22 @@ function _renderLevel1Submenus(
         className={cx({
           [`${prefix}--side-nav__menu-section-submenu`]: true,
           [`${prefix}--side-nav__menu-section-submenu--expanded`]:
-            menuState.level0 === i && menuState.level1 >= 0,
+            menuState.level0 === menu.parentKey && menuState.level1 >= 0,
         })}
+        id={`panel__(${menu.parentKey},-1)`}
         heading={menu.sections[0]?.heading}
         title={menu.title}
         navType={navType}
         backButtonText={backButtonText}
         onBackClick={() => setMenuState({ level0: -1, level1: -1 })}
-        show={menuState.level0 === i && menuState.level1 === -1}>
+        show={menuState.level0 === menu.parentKey && menuState.level1 === -1}>
         {sortedMenu.map((item, k) => {
           submenus.push({
             title: item.title,
             titleUrl: item.url,
             autoid: `${menu.autoid}-list${k}`,
             sections: item.megapanelContent?.quickLinks?.links,
-            parentKey: i,
+            parentKey: menu.parentKey,
             index: k,
           });
 
@@ -265,6 +265,7 @@ function _renderLevel2Submenus(
     return (
       <SideNavMenuSection
         className={`${prefix}--side-nav__menu-section-submenu`}
+        id={`panel__(${menu.parentKey},${menu.index})`}
         title={menu.title}
         titleUrl={menu.titleUrl}
         navType={navType}

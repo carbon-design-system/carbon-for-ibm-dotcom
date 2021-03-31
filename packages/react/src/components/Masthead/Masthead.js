@@ -228,6 +228,7 @@ const Masthead = ({
                     {...mastheadProps}
                     backButtonText="Back"
                     platform={platform}
+                    hasL1Data={!!mastheadL1Data}
                     navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
