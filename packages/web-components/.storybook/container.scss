@@ -40,6 +40,8 @@ body,
 [name='main-content'] {
   position: relative;
   height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 body {
