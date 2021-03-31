@@ -1,0 +1,43 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../internal/content-section/content-section';
+
+@mixin card-section-banner {
+  :host(#{$dds-prefix}-card-section-banner),
+  .#{$prefix}--card-section-banner {
+    .#{$prefix}--content-section {
+      padding-top: 0;
+      padding-bottom: 0;
+      row-gap: 0;
+
+      @include carbon--breakpoint('lg') {
+        row-gap: $spacing-03;
+      }
+    }
+
+    .#{$prefix}--content-section__leading {
+      padding-top: $spacing-05;
+      padding-bottom: 0;
+
+      @include carbon--breakpoint('lg') {
+        padding-top: $spacing-07;
+        padding-bottom: $spacing-07;
+      }
+    }
+
+    ::slotted([slot='heading']),
+    .#{$prefix}--content-section__heading {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@include exports('card-section-banner') {
+  @include card-section-banner;
+}
