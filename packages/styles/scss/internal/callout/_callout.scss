@@ -12,10 +12,8 @@
 @mixin callout {
   .#{$prefix}--callout__container,
   :host(#{$dds-prefix}-callout) {
-    @include carbon--theme($carbon--theme--g90, true);
+    background-color: $inverse-02;
     @include carbon--make-row;
-
-    background-color: $ui-01;
   }
   .#{$prefix}--callout__column {
     @include carbon--make-col-ready;
@@ -51,7 +49,7 @@
     ::slotted(#{$dds-prefix}-quote-source-copy),
     ::slotted(#{$dds-prefix}-quote-source-heading),
     .#{$prefix}--quote__mark {
-      color: $text-01;
+      color: $inverse-01;
     }
   }
 }

@@ -54,7 +54,6 @@ export default {
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--callout',
-    'carbon-theme': { disabled: true },
     knobs: {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
