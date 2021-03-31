@@ -12,8 +12,13 @@
   :host(#{$dds-prefix}-content-group-banner),
   .#{$prefix}--content-group-banner {
     background: $ui-background;
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-07;
+    padding-top: $spacing-03;
+    padding-bottom: $spacing-03;
+
+    @include carbon--breakpoint('md') {
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-07;
+    }
 
     ::slotted(#{$dds-prefix}-content-group-heading),
     .#{$prefix}--content-group__title {
@@ -21,12 +26,18 @@
     }
 
     ::slotted(#{$dds-prefix}-link-list),
-    ::slotted([slot='complementary']),
+    .#{$prefix}--content-layout ::slotted([slot='complementary']),
     .#{$prefix}--link-list__list {
       grid-area: auto;
-      border-left: 1px solid $ui-03;
-      padding-left: $spacing-05;
+      margin-top: $spacing-07;
+      margin-bottom: 0;
       padding-bottom: 0;
+
+      @include carbon--breakpoint('lg') {
+        margin-top: 0;
+        border-left: 1px solid $ui-03;
+        padding-left: $spacing-05;
+      }
     }
   }
 }
