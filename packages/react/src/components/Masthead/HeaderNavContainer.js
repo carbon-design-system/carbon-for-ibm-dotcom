@@ -192,29 +192,29 @@ const HeaderNavContainer = ({ children }) => {
         </div>
         <div
           ref={caretLeftRef}
-          className={`${prefix}--header__nav-caret-left-container`}>
+          className={`${prefix}--header__nav-caret-left-container`}
+          hidden>
           <button
             className={`${prefix}--header__nav-caret-left`}
             aria-label="Masthead left caret"
             onClick={paginateLeft}
             tabIndex="-1"
-            aria-hidden="true"
-            hidden>
+            aria-hidden="true">
             <CaretLeft20 />
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
         </div>
         <div
           ref={caretRightRef}
-          className={`${prefix}--header__nav-caret-right-container`}>
+          className={`${prefix}--header__nav-caret-right-container`}
+          hidden>
           <div className={`${prefix}--header__nav-caret-right-gradient`} />
           <button
             className={`${prefix}--header__nav-caret-right`}
             aria-label="Masthead right caret"
             onClick={paginateRight}
             tabIndex="-1"
-            aria-hidden="true"
-            hidden>
+            aria-hidden="true">
             <CaretRight20 />
           </button>
         </div>
