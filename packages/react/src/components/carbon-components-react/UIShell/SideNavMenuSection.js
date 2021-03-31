@@ -20,15 +20,24 @@ const { prefix } = settings;
 /**
  * SideNavMenuSection component
  */
-const SideNavMenuSection = ({ children, show, onBackClick, ...rest }) => {
+const SideNavMenuSection = ({
+  className: customClassName,
+  children,
+  onBackClick,
+  show,
+  ...rest
+}) => {
   const className = cx({
     [`${prefix}--side-nav__menu-section`]: true,
     [`${prefix}--side-nav__menu-section--expanded`]: show,
+    [customClassName]: !!customClassName,
   });
+
   const handleBackButtonClick = event => {
     event.preventDefault();
     onBackClick();
   };
+
   return (
     <div className={className}>
       {rest.backButtonText && (
@@ -71,6 +80,11 @@ const SideNavMenuSection = ({ children, show, onBackClick, ...rest }) => {
 };
 
 SideNavMenuSection.propTypes = {
+  /**
+   * Provide an optional class to be applied to the containing node
+   */
+  className: PropTypes.string,
+
   /**
    * <SideNavMenuItem>'s within SideNavMenuSection
    */

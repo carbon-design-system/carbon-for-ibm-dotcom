@@ -4,8 +4,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import React, { useRef, useState } from 'react';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
@@ -29,7 +29,8 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
-  const [menuState, setMenuState] = useState({ level0: -1, level1: -1 }); //default state
+  //track which menu section is visible/expanded
+  const [menuState, setMenuState] = useState({ level0: -1, level1: -1 });
   const sideNavRef = useRef();
 
   const level0Items = [];
@@ -186,6 +187,11 @@ function _renderLevel1Submenus(
 
     return (
       <SideNavMenuSection
+        className={cx({
+          [`${prefix}--side-nav__menu-section-submenu`]: true,
+          [`${prefix}--side-nav__menu-section-submenu--expanded`]:
+            menuState.level0 === i && menuState.level1 >= 0,
+        })}
         heading={menu.sections[0]?.heading}
         title={menu.title}
         navType={navType}
@@ -258,6 +264,7 @@ function _renderLevel2Submenus(
   const sideNavMenuSections = menuItems.map(menu => {
     return (
       <SideNavMenuSection
+        className={`${prefix}--side-nav__menu-section-submenu`}
         title={menu.title}
         titleUrl={menu.titleUrl}
         navType={navType}
