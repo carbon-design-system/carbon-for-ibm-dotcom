@@ -63,6 +63,18 @@ $search-transition-timing: 95ms;
       min-width: rem(208px);
       padding-left: 0;
     }
+
+    &[aria-selected='true'] a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: rem(3px);
+      background-color: $link-01;
+    }
   }
 
   .#{$prefix}--masthead__l1-name-title {
@@ -80,20 +92,21 @@ $search-transition-timing: 95ms;
       color: $text-01;
       position: relative;
       text-decoration: none;
-
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        box-sizing: border-box;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: $spacing-02;
-        background-color: $link-01;
-      }
     }
   }
+
+  // :host(#{$dds-prefix}-masthead-l1-name)
+  // .#{$prefix}--masthead__l1-name-title[aria-selected='true'] a::after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   box-sizing: border-box;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: rem(3px);
+  //   background-color: $link-01;
+  // }
 
   .#{$prefix}--masthead__l1-nav {
     padding-left: 0;

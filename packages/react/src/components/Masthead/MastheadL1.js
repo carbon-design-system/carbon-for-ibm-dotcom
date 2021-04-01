@@ -60,7 +60,9 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
   return (
     <>
       <div className={className}>
-        <div className={`${prefix}--masthead__l1-name`}>
+        <div
+          className={`${prefix}--masthead__l1-name`}
+          aria-selected={!rest.selectedMenuItem}>
           <span className={`${prefix}--masthead__l1-name-title`}>
             <a href={titleLink}>{title}</a>
           </span>
