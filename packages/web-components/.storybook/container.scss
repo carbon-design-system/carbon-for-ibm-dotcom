@@ -40,8 +40,6 @@ body,
 [name='main-content'] {
   position: relative;
   height: 100%;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -50,6 +48,10 @@ body {
   color: $text-01;
   background-color: $ui-background;
   line-height: 1;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 // hide the cookie button
