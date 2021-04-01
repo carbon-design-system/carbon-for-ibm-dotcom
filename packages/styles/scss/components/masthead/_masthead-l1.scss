@@ -95,19 +95,6 @@ $search-transition-timing: 95ms;
     }
   }
 
-  // :host(#{$dds-prefix}-masthead-l1-name)
-  // .#{$prefix}--masthead__l1-name-title[aria-selected='true'] a::after {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   box-sizing: border-box;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   height: rem(3px);
-  //   background-color: $link-01;
-  // }
-
   .#{$prefix}--masthead__l1-nav {
     padding-left: 0;
 
