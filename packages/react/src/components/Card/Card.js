@@ -64,35 +64,6 @@ export const Card = ({
   }, [handleClick]);
 
   return (
-    // <TileType
-    //   data-autoid={`${stablePrefix}--card`}
-    //   className={classNames(
-    //     `${prefix}--card`,
-    //     {
-    //       [`${prefix}--card--inverse`]: inverse,
-    //       [`${prefix}--card__CTA--disabled`]: props.disabled,
-    //     },
-    //     customClassName
-    //   )}
-    //   href={cta?.href}
-    //   target={CTALogic.external(cta?.type)}
-    //   {...props}>
-    //   {image && <Image {...image} classname={`${prefix}--card__img`} />}
-    //   <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
-    //     <div className={`${prefix}--card__content`}>
-    //       {eyebrow && (
-    //         <p className={`${prefix}--card__eyebrow`} aria-hidden={true}>
-    //           {eyebrow}
-    //         </p>
-    //       )}
-    //       {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
-    //       {optionalContent(copy)}
-    //       {renderFooter(cta, pictogram)}
-    //     </div>
-    //   </div>
-    // </TileType>
-    // <div>
-
     <div
       className={classNames(
         `${prefix}--card`,
@@ -114,7 +85,7 @@ export const Card = ({
           {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
           {optionalContent(copy)}
-          {renderFooter(cta, pictogram)}
+          {renderFooter(cta, copy, heading, pictogram)}
         </div>
       </div>
     </div>
@@ -143,27 +114,15 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, pictogram) {
+function renderFooter(cta, copy, heading, pictogram) {
   return (
-    // cta && (
-    //   <div
-    //     className={classNames(`${prefix}--card__footer`, {
-    //       [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
-    //       [`${prefix}--card__footer__copy`]: cta?.copy,
-    //     })}>
-    //     {cta?.copy && !pictogram && (
-    //       <span className={`${prefix}--card__cta__copy`} aria-hidden={true}>
-    //         {cta?.copy}
-    //       </span>
-    //     )}
-    //     {cta?.icon?.src && !pictogram && (
-    //       <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
-    //     )}
-    //     {pictogram && pictogram}
-    //   </div>
-    // )
     cta && (
-      <a href={cta?.href}>
+      <a
+        href={cta?.href}
+        aria-label={
+          (cta?.copy ? '' : heading ? heading : copy) +
+          CTALogic.getDefaultLabel(cta?.type)
+        }>
         <div
           className={classNames(`${prefix}--card__footer`, {
             [`${prefix}--card__footer__icon-left`]:
