@@ -68,10 +68,22 @@ const footerSizes = {
 };
 
 export const Default = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -123,24 +135,25 @@ export const Default = ({ parameters }) => {
           </dds-dotcom-shell-container>
         `}
   `;
-};
-
-Default.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        footerSize: select('Size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
-      }),
-    },
-  },
 };
 
 export const DefaultFooterLanguageOnly = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    langList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -200,22 +213,22 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
   `;
 };
 
-DefaultFooterLanguageOnly.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
-      }),
-    },
-  },
-};
-
 export const searchOpen = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -274,10 +287,20 @@ export const searchOpen = ({ parameters }) => {
 };
 
 export const withPlatform = ({ parameters }) => {
-  const { hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -328,26 +351,22 @@ export const withPlatform = ({ parameters }) => {
         `}
   `;
 };
-
-withPlatform.story = {
-  parameters: {
-    knobs: {
-      MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-      }),
-    },
-  },
-};
-
 export const withShortFooter = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -402,10 +421,22 @@ export const withShortFooter = ({ parameters }) => {
 };
 
 export const withShortFooterLanguageOnly = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    langList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -467,22 +498,22 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
   `;
 };
 
-withShortFooterLanguageOnly.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
-      }),
-    },
-  },
-};
-
 export const withMicroFooter = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -537,10 +568,22 @@ export const withMicroFooter = ({ parameters }) => {
 };
 
 export const withMicroFooterLanguageOnly = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, langList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    langList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -614,10 +657,21 @@ withMicroFooterLanguageOnly.story = {
 };
 
 export const withL1 = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -672,10 +726,22 @@ export const withL1 = ({ parameters }) => {
 };
 
 export const WithHorizontalTOC = ({ parameters }) => {
-  const { platform, hasProfile, userStatus, navLinks, hasSearch, searchPlaceholder, selectedMenuItem } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { langDisplay, language, footerSize, legalLinks, links: footerLinks, localeList, disableLocaleButton } =
-    parameters?.props?.FooterComposite ?? {};
+  const {
+    platform,
+    hasProfile,
+    userStatus,
+    navLinks,
+    hasSearch,
+    searchPlaceholder,
+    selectedMenuItem,
+    langDisplay,
+    language,
+    footerSize,
+    legalLinks,
+    links: footerLinks,
+    localeList,
+    disableLocaleButton,
+  } = parameters?.props?.DotcomShell ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -730,14 +796,7 @@ export const WithHorizontalTOC = ({ parameters }) => {
 };
 
 WithHorizontalTOC.story = {
-  parameters: {
-    knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        footerSize: select('Size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
-      }),
-    },
-  },
+  name: 'With ToC horizontal',
 };
 
 export default {
@@ -760,26 +819,23 @@ export default {
     useRawContainer: true,
     knobs: {
       escapeHTML: false,
-      MastheadComposite: ({ groupId }) => ({
+      DotcomShell: ({ groupId }) => ({
         platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
-        hasProfile: boolean('show the profile functionality (profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-      }),
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
+        hasSearch: boolean('Show search in masthead (search)', true, groupId),
+        searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('Selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+        disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
+        footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
       }),
     },
     props: (() => {
       // Lets `<dds-masthead-container>` load the nav links and lets `<dds-footer-container>` load the footer links
       const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        MastheadComposite: {
+        DotcomShell: {
           navLinks: !useMock ? undefined : mastheadLinks,
-        },
-        FooterComposite: {
           langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockFooterLinks,
