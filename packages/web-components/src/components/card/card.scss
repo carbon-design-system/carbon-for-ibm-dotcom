@@ -17,6 +17,11 @@
   &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
     color: $inverse-link;
   }
+
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
 }
 
 :host(#{$dds-prefix}-card)[pictogram-placement='bottom']:hover {
