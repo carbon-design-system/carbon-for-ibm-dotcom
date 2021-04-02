@@ -13,6 +13,7 @@ Here's a quick example to get you started.
 ##### JS
 
 ```javascript
+import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-group-banner/content-group-banner.js';
@@ -25,15 +26,22 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-banner/card-
 <dds-card-section-banner heading="Aliquam condimentum interdum">
 
   <dds-content-group-banner>
-    <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-
-    <dds-link-list type="vertical" slot="complementary">
-      <dds-link-list-item icon-placement="right" href="https://example.com">
-        Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-list-item>
-      <dds-link-list-item icon-placement="right" href="https://example.com">
-        Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-list-item>
+    <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
+    <dds-link-list slot="footer" type="vertical" slot="complementary">
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="local"
+      >
+        Link text
+      </dds-link-list-item-cta>
+      <dds-link-list-item-cta
+        icon-placement="right"
+        href="https://www.ibm.com"
+        cta-type="external"
+      >
+        External link text
+      </dds-link-list-item-cta>
     </dds-link-list>
   </dds-content-group-banner>
 </dds-card-section-banner>

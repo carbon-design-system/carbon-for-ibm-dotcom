@@ -9,6 +9,7 @@
 
 import { html, render } from 'lit-html';
 import '../../content-group/content-group-heading';
+import '../../cta/link-list-item-cta';
 import '../../link-list/link-list';
 import '../content-group-banner';
 import { CTA_TYPE } from '../../cta/defs';

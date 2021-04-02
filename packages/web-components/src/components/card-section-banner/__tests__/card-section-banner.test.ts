@@ -11,6 +11,7 @@ import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { CTA_TYPE } from '../../cta/defs';
 import '../../content-group/content-group-heading';
+import '../../cta/link-list-item-cta';
 import '../../link-list/link-list';
 import '../../content-group-banner/content-group-banner';
 import '../card-section-banner';
@@ -38,7 +39,7 @@ describe('dds-card-section-banner', function() {
           heading: 'heading-foo',
           children: html`
             <dds-content-group-heading>heading-foo</dds-content-group-heading>
-            <dds-link-list slot="footer" type="vertical">
+            <dds-link-list type="vertical" slot="complementary">
               <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="${CTA_TYPE.LOCAL}">
                 cta-copy-foo
               </dds-link-list-item-cta>
