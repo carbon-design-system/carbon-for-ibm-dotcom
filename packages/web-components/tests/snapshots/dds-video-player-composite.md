@@ -4,7 +4,7 @@
 
 ```
 <dds-video-player-composite
-  player-mode="video"
+  playing-mode="inline"
   video-id="video-id-foo"
 >
   <dds-video-player

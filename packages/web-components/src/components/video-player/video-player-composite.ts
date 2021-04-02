@@ -17,7 +17,7 @@ import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
-import { VIDEO_PLAYER_CONTENT_STATE } from './video-player';
+import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
 /* eslint-enable import/no-duplicates */
@@ -77,8 +77,8 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   @HostListener('eventContentStateChange')
   protected _handleContentStateChange(event: CustomEvent) {
-    const { contentState, videoId } = event.detail;
-    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId) {
+    const { contentState, playingMode, videoId } = event.detail;
+    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
       this._embedVideo?.(videoId);
     }
   }
@@ -134,10 +134,10 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   aspectRatio?: '';
 
   /**
-   * The video player's content state showing Video or Thumbnail.
+   * The video player's mode showing Inline or Lightbox.
    */
-  @property({ reflect: true, attribute: 'player-mode' })
-  playerMode = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+  @property({ reflect: true, attribute: 'playing-mode' })
+  playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
 
   /**
    * The video thumbnail width.
@@ -167,7 +167,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
       videoData = {},
       videoId,
       videoThumbnailWidth,
-      playerMode,
+      playingMode,
     } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
@@ -185,7 +185,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         aspect-ratio="${ifNonNull(aspectRatio)}"
         .formatCaption="${ifNonNull(formatCaption)}"
         .formatDuration="${ifNonNull(formatDuration)}"
-        .playerMode="${ifNonNull(playerMode)}"
+        .playingMode="${ifNonNull(playingMode)}"
       >
       </dds-video-player>
     `;

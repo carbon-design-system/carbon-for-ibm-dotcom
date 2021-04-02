@@ -140,60 +140,6 @@ Default.story = {
   },
 };
 
-export const EmbeddedVideoPlayerWithInlineThumbnail = ({ parameters }) => {
-  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
-  const { hideCaption, videoId } = parameters?.props?.LightboxVideoPlayerContainer ?? {};
-  const handleBeforeClose = (event: CustomEvent) => {
-    onBeforeClose?.(event);
-    if (disableClose) {
-      event.preventDefault();
-    }
-  };
-  return html`
-    <style>
-      ${styles}
-    </style>
-    <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-      <div class="bx--row">
-        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <dds-lightbox-video-player-container
-            ?hide-caption="${hideCaption}"
-            ?open="${open}"
-            video-id="${videoId}"
-            @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-            @dds-expressive-modal-closed="${onClose}"
-            render-thumbnail
-            player-mode="thumbnail"
-          >
-          </dds-lightbox-video-player-container>
-        </div>
-      </div>
-    </div>
-  `;
-};
-
-EmbeddedVideoPlayerWithInlineThumbnail.story = {
-  parameters: {
-    knobs: {
-      Modal: ({ groupId }) => ({
-        open: boolean('Open (open)', false, groupId),
-        disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
-          false,
-          groupId
-        ),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
-      }),
-      LightboxVideoPlayerContainer: ({ groupId }) => ({
-        open: boolean('Open (open)', false, groupId),
-        hideCaption: boolean('hide caption (hide-caption)', true, groupId),
-        videoId: textNullable('Video ID (video-id)', '1_9h94wo6b', groupId),
-      }),
-    },
-  },
-};
-
 export default {
   title: 'Components/Lightbox media viewer',
   parameters: {

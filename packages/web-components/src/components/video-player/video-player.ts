@@ -18,11 +18,12 @@ import {
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import { VIDEO_PLAYER_CONTENT_STATE } from './defs';
+import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
+export { VIDEO_PLAYER_PLAYING_MODE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -35,16 +36,18 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-video-player`)
 class DDSVideoPlayer extends FocusMixin(LitElement) {
   /**
-   * The video player's content state showing Video or Thumbnail.
+   * The video player's mode showing Inline or Lightbox.
    */
-  @property({ reflect: true, attribute: 'player-mode' })
-  playerMode = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+  @property({ reflect: true, attribute: 'playing-mode' })
+  playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
 
   /**
    * Handles `click` event on the video thumbnail.
    */
   private _handleClickOverlay() {
-    this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+    if (this.playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE) {
+      this.contentState = VIDEO_PLAYER_CONTENT_STATE.VIDEO;
+    }
     const { videoId } = this;
     const { eventContentStateChange } = this.constructor as typeof DDSVideoPlayer;
     this.dispatchEvent(
@@ -53,7 +56,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
         composed: true,
         detail: {
           videoId,
-          contentState: this.contentState,
+          contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
+          playingMode: this.playingMode,
         },
       })
     );
@@ -63,8 +67,8 @@ class DDSVideoPlayer extends FocusMixin(LitElement) {
    * @returns The video content.
    */
   private _renderContent() {
-    const { contentState, name, thumbnailUrl, playerMode } = this;
-    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL || playerMode === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
+    const { contentState, name, thumbnailUrl } = this;
+    return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL
       ? html`
           <div class="${prefix}--video-player__video">
             <button class="${prefix}--video-player__image-overlay" @click="${this._handleClickOverlay}">

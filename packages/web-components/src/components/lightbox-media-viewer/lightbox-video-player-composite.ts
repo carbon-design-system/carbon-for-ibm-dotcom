@@ -88,12 +88,6 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   @property({ type: Boolean, reflect: true })
   open = false;
 
-  /**
-   * Set to `true` if you want the thumbnail to be rendered as the trigger/onClick element.
-   */
-  @property({ reflect: true, type: Boolean, attribute: 'render-thumbnail' })
-  renderThumbnail = false;
-
   connectedCallback() {
     super.connectedCallback();
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
@@ -127,11 +121,10 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   }
 
   renderLightDOM() {
-    const { renderThumbnail } = this;
     // In this class we render that in modal instead of in light DOM.
     // Overriding `.renderLightDOM()` here
     // to prevent the parent `<dds-video-player-composite>` from rendering `<dds-video-player>` in light DOM.
-    return renderThumbnail ? super.renderLightDOM() : html``;
+    return html``;
   }
 
   renderModal() {

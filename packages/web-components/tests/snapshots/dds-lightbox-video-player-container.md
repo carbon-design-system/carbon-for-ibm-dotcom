@@ -4,7 +4,7 @@
 
 ```
 <dds-lightbox-video-player-container
-  player-mode="video"
+  playing-mode="inline"
   video-id="video-id-foo"
 >
 </dds-lightbox-video-player-container>

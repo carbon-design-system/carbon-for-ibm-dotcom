@@ -16,7 +16,7 @@ import '../video-player';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId, playerMode } =
+  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId, playingMode } =
     props ?? {};
   return html`
     <dds-video-player
@@ -28,7 +28,7 @@ const template = (props?) => {
       video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
-      .playerMode="${ifNonNull(playerMode)}"
+      .playingMode="${ifNonNull(playingMode)}"
     >
     </dds-video-player>
   `;

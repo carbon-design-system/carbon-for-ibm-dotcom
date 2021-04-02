@@ -13,34 +13,28 @@ import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 export const Default = () => html`
-  <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+  <dds-video-player-container playing-mode video-id="1_9h94wo6b"></dds-video-player-container>
 `;
 
 export const aspectRatio1x1 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container playing-mode video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
   `;
 };
 
 export const aspectRatio4x3 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container playing-mode video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
   `;
 };
 
 export const withLightboxMediaViewer = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-lightbox-video-player-container
-      render-thumbnail
-      player-mode="thumbnail"
-      hide-caption
-      video-id=${videoId}
-      aspect-ratio=${aspectRatio}
-    >
-    </dds-lightbox-video-player-container>
+    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio} playing-mode="lightbox">
+    </dds-video-player-container>
   `;
 };
 
@@ -93,7 +87,9 @@ export default {
       <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            ${story()}
+            <lightbox-video-player-container>
+              ${story()}
+            </lightbox-video-player-container>
           </div>
         </div>
       </div>
