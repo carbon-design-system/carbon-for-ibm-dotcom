@@ -193,6 +193,7 @@ function _renderLevel1Submenus(
 
     return (
       <SideNavMenuSection
+        isSubmenu
         className={cx({
           [`${prefix}--side-nav__menu-section-submenu`]: true,
           [`${prefix}--side-nav__menu-section-submenu--expanded`]:
@@ -271,6 +272,7 @@ function _renderLevel2Submenus(
   const sideNavMenuSections = menuItems.map(menu => {
     return (
       <SideNavMenuSection
+        isSubmenu
         className={`${prefix}--side-nav__menu-section-submenu`}
         id={`panel__(${menu.parentKey},${menu.index})`}
         title={menu.title}

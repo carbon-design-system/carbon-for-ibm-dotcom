@@ -12,7 +12,7 @@ import SideNavMenuItem from '../../../internal/vendor/carbon-components-react/co
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -27,6 +27,41 @@ const SideNavMenuSection = ({
   show,
   ...rest
 }) => {
+  const menuSectionRef = useRef(null);
+  const backButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (show) {
+      /**
+       * In order for tabbing to work, focus has to be set in the menu section when it
+       * is visible. If menu section is a submenu, set focus to the back button. If menu section
+       * is the first parent section, set focus to the hamburger toggle button.
+       *
+       * @param {Node} focusElement node element to focus
+       */
+      const setFocus = focusElement => {
+        menuSectionRef.current?.addEventListener(
+          'transitionend',
+          function focus(event) {
+            if (
+              event.propertyName === 'left' ||
+              event.propertyName === 'transform'
+            ) {
+              focusElement.focus();
+            }
+            menuSectionRef.current?.removeEventListener('transitionend', focus);
+          }
+        );
+      };
+
+      if (rest.isSubmenu) {
+        setFocus(backButtonRef.current);
+      } else {
+        setFocus(rest.focusNode);
+      }
+    }
+  }, [rest.focusNode, rest.id, rest.isSubmenu, show]);
+
   const className = cx({
     [`${prefix}--side-nav__menu-section`]: true,
     [`${prefix}--side-nav__menu-section--expanded`]: show,
@@ -46,10 +81,11 @@ const SideNavMenuSection = ({
   };
 
   return (
-    <div className={className} id={rest.id}>
+    <div className={className} id={rest.id} ref={menuSectionRef}>
       {rest.backButtonText && (
         <>
           <SideNavMenuItem
+            ref={backButtonRef}
             onClick={handleBackButtonClick}
             onKeyPress={handleBackButtonKeyPress}
             className={`${prefix}--masthead__side-nav--submemu-back`}
