@@ -41,6 +41,16 @@ jobs:
           cf-app: ibmdotcom-react-canary
           cf-manifest: manifest-canary.yml
           deploy-dir: packages/react
+      - name: Set env vars for e2e percy snapshots
+        uses: ./.github/actions/set-dotenv
+        with:
+          env-file: packages/tests-e2e/.env
+        env:
+          SELENIUM_HOST: https://ibmdotcom-react-canary.mybluemix.net
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT_E2E }}
+      - name: Create e2e percy snapshots
+        run: yarn test:e2e
+        working-directory: packages/tests-e2e
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
