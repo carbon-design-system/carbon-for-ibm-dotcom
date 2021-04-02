@@ -19,6 +19,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import { select, number } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import inPercy from '@percy-io/in-percy';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -29,7 +30,7 @@ import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
 
-const cardRandomPhrase = () => {
+const cardRandomPhrase = randomTitles => {
   const phraseArray = [
     'Lorem ipsum dolor sit amet',
     'Nunc convallis lobortis',
@@ -37,7 +38,10 @@ const cardRandomPhrase = () => {
     'Te sint disputando pri, at his aliquip corrumpit',
   ];
 
-  const randomSampleText = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+  const randomSampleText = randomTitles
+    ? 'Lorem ipsum dolor sit amet, consectetur'
+    : phraseArray[Math.floor(Math.random() * phraseArray.length)];
+
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com">
       <dds-card-heading>${randomSampleText}</dds-card-heading>
@@ -243,7 +247,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardRandomPhrase()),
+        }).map(() => cardRandomPhrase(inPercy())),
       }),
     },
     decorators: [
