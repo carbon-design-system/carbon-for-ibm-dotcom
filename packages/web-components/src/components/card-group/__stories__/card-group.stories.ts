@@ -38,7 +38,7 @@ const phraseArray = [
   'Disputando lorem covallis',
 ];
 
-const cardsDiffLenghtPhrase = () => {
+const cardsDiffLengthPhrase = () => {
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com">
       <dds-card-heading>${phraseArray[count]}</dds-card-heading>
@@ -246,7 +246,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardsDiffLenghtPhrase()),
+        }).map(() => cardsDiffLengthPhrase()),
       }),
     },
     decorators: [
