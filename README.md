@@ -43,6 +43,15 @@ we support!
 If you are building pages for IBM.com,
 [see what is needed on the page](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/docs/building-for-ibm-dotcom.md).
 
+## Requirements
+
+This repo requires [Node](https://nodejs.org/) `v12.x`.
+
+[nvm](https://github.com/nvm-sh/nvm) is a useful tool for managing multiple
+versions of Node. If you choose to install and use this tool, running `nvm use`
+before starting work will automatically switch your environment to the correct
+version of Node.
+
 ## Documentation
 
 - See our documentation site
