@@ -19,6 +19,7 @@ import {
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import { VIDEO_PLAYER_CONTENT_STATE } from './defs';
+import '../image/image';
 import styles from './video-player.scss';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
