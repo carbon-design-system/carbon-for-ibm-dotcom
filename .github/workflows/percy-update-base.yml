@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - release/*
+      - chore/carbon-10.31.0-upgrade
 
 jobs:
   react:
