@@ -102,7 +102,7 @@ class DDSMastheadComposite extends LitElement {
                         ?active="${selected}"
                         menu-label="${elem.title}"
                         trigger-content="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
                       >
                         ${elem.menuItems.map(
                           (item, j) => html`
@@ -120,7 +120,7 @@ class DDSMastheadComposite extends LitElement {
                         ?active="${selected}"
                         href="${elem.url}"
                         title="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
                       ></dds-top-nav-item>
                     `;
               })}
@@ -133,7 +133,7 @@ class DDSMastheadComposite extends LitElement {
                   <dds-left-nav-menu
                     ?active="${selected}"
                     title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
                   >
                     ${elem.menuItems.map(
                       (item, j) => html`
@@ -151,7 +151,7 @@ class DDSMastheadComposite extends LitElement {
                     ?active="${selected}"
                     href="${elem.url}"
                     title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
                   ></dds-left-nav-item>
                 `;
           });
@@ -323,7 +323,7 @@ class DDSMastheadComposite extends LitElement {
               <dds-left-nav-menu
                 ?last-highlighted=${lastHighlighted}
                 title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
               >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
                   return html`
@@ -395,7 +395,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
                 ></dds-top-nav-item>
               `;
             }
@@ -405,7 +405,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
                 >
                   ${sections}
                 </dds-megamenu-top-nav-menu>
@@ -416,7 +416,7 @@ class DDSMastheadComposite extends LitElement {
                 ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
-                data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
               >
                 ${sections}
               </dds-top-nav-menu>
@@ -428,14 +428,14 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 ></dds-left-nav-item>
               `
             : html`
                 <dds-left-nav-menu
                   ?active="${selected}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 >
                   ${mobileSections}
                 </dds-left-nav-menu>

@@ -1,0 +1,37 @@
+{
+  "name": "@carbon/tests-e2e",
+  "description": "e2e test package for Carbon for IBM.com",
+  "private": true,
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom",
+  "bugs": "https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues",
+  "scripts": {
+    "clean": "rimraf node_modules",
+    "test:e2e": "percy exec -- jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.10.1",
+    "@percy/cli": "^1.0.0-beta.41",
+    "@percy/puppeteer": "^2.0.0",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-macros": "^2.6.1",
+    "chromedriver": "^89.0.0",
+    "dotenv": "^8.2.0",
+    "expect-puppeteer": "^4.4.0",
+    "jest": "25.5.4",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^8.0.0",
+    "rimraf": "^3.0.2"
+  }
+}

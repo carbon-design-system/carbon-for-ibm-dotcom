@@ -50,13 +50,13 @@
   role="navigation"
 >
   <dds-top-nav-item
-    data-autoid="dds--masthead__l0-nav--nav-0"
+    data-autoid="dds--masthead__l0-nav--nav0"
     href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
     title="item-title-foo"
   >
   </dds-top-nav-item>
   <dds-top-nav-menu
-    data-autoid="dds--masthead__l0-nav--nav-1"
+    data-autoid="dds--masthead__l0-nav--nav1"
     menu-label="menu-title-foo"
     role="listitem"
     trigger-content="menu-title-foo"
@@ -80,14 +80,14 @@
   role="navigation"
 >
   <dds-left-nav-item
-    data-autoid="dds--masthead__l0-sidenav--nav-0"
+    data-autoid="dds--masthead__l0-sidenav--nav0"
     href="https://ibmdotcom-webcomponents.mybluemix.net/foo"
     role="listitem"
     title="item-title-foo"
   >
   </dds-left-nav-item>
   <dds-left-nav-menu
-    data-autoid="dds--masthead__l0-sidenav--nav-1"
+    data-autoid="dds--masthead__l0-sidenav--nav1"
     title="menu-title-foo"
   >
   </dds-left-nav-menu>

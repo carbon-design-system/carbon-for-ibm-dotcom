@@ -14,6 +14,8 @@
 // TODO: Apply `.#{$prefix}--grid` to React version, too, so we can merge the style to React version
 :host(#{$dds-prefix}-table-of-contents) {
   @extend .#{$prefix}--grid;
+
+  margin: 0;
 }
 
 // TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version
@@ -31,8 +33,44 @@
   @include carbon--make-row();
 }
 
-.#{$dds-prefix}-ce--table-of-contents-horizontal__container {
-  position: relative;
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
+  @include carbon--breakpoint('lg') {
+    &::before {
+      border-bottom: 1px solid $ui-04;
+      content: '';
+      background-color: $ui-01;
+      position: absolute;
+      top: 0;
+      height: 48px;
+      left: calc(-50vw + 50%);
+      right: 100%;
+      z-index: 1;
+    }
+
+    &::after {
+      border-bottom: 1px solid $ui-04;
+      content: '';
+      background-color: $ui-01;
+      position: absolute;
+      top: 0;
+      height: 48px;
+      left: 100%;
+      right: calc(-50vw + 50%);
+      z-index: 1;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__desktop-container {
+  @include carbon--breakpoint('lg') {
+    position: relative;
+    overflow: hidden;
+    height: 48px;
+  }
+}
+
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__mobile {
+  margin: 0;
 }
 
 .#{$dds-prefix}-ce--table-of-contents__container {
@@ -46,4 +84,37 @@
   .#{$prefix}--tableofcontents__sidebar {
     top: 48px;
   }
+}
+
+.#{$prefix}--toc__navbar-caret-left-container,
+.#{$prefix}--toc__navbar-caret-right-container {
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  display: none;
+
+  @include carbon--breakpoint('lg') {
+    display: block;
+  }
+}
+
+.#{$prefix}--toc__navbar-caret-right-container {
+  right: -1rem;
+  z-index: 2;
+}
+
+.#{$prefix}--toc__navbar-caret-left-container {
+  left: -1rem;
+}
+
+.#{$prefix}--toc__navbar-caret-left,
+.#{$prefix}--toc__navbar-caret-right {
+  position: relative;
+  // 40px caret width & 8px gradient
+  height: 48px;
+}
+
+.#{$dds-prefix}-ce--toc__navbar-caret-container--hidden {
+  position: absolute;
+  visibility: hidden;
 }

@@ -127,6 +127,7 @@ const App = () => (
           cta={{
             heading: "Feature Card",
             card: {
+              type: 'local',
               heading: "Consectetur adipisicing elit",
               image: {
                 defaultSrc:
@@ -135,9 +136,6 @@ const App = () => (
               },
               cta: {
                 href: 'https://www.example.com',
-                icon: {
-                  src: ArrowRight20,
-                },
               },
             },
           }}
