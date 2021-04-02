@@ -94,7 +94,7 @@ $search-transition-timing: 95ms;
       display: block;
       position: absolute;
       box-sizing: border-box;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       right: 0;
       height: rem(3px);

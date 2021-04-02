@@ -312,8 +312,16 @@ $search-transition-timing: 95ms;
         }
       }
 
-      &[aria-selected='true'] {
-        border-bottom: solid 3px $interactive-01;
+      &[aria-selected='true']::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        height: rem(3px);
+        background-color: $link-01;
       }
     }
 
@@ -325,8 +333,16 @@ $search-transition-timing: 95ms;
         }
       }
 
-      &[aria-selected='true'][aria-expanded='false'] {
-        border-bottom: solid 3px $interactive-01;
+      &[aria-selected='true'][aria-expanded='false']::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        height: rem(3px);
+        background-color: $link-01;
       }
     }
   }
