@@ -13,20 +13,28 @@ import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 export const Default = () => html`
-  <dds-video-player-container playing-mode video-id="1_9h94wo6b"></dds-video-player-container>
+  <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b"></dds-video-player-container>
 `;
 
 export const aspectRatio1x1 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container playing-mode video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+    ></dds-video-player-container>
   `;
 };
 
 export const aspectRatio4x3 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container playing-mode video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+    ></dds-video-player-container>
   `;
 };
 

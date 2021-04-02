@@ -185,7 +185,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         aspect-ratio="${ifNonNull(aspectRatio)}"
         .formatCaption="${ifNonNull(formatCaption)}"
         .formatDuration="${ifNonNull(formatDuration)}"
-        .playingMode="${ifNonNull(playingMode)}"
+        playing-mode="${ifNonNull(playingMode)}"
       >
       </dds-video-player>
     `;
