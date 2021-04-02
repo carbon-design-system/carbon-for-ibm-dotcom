@@ -38,7 +38,7 @@ const cardRandomPhrase = () => {
     'Te sint disputando pri, at his aliquip corrumpit',
   ];
 
-  const randomSampleText = !inPercy()
+  const randomSampleText = inPercy()
     ? 'Lorem ipsum dolor sit amet, consectetur'
     : phraseArray[Math.floor(Math.random() * phraseArray.length)];
 
