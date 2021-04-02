@@ -12,6 +12,7 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { sameHeight } from '@carbon/ibmdotcom-utilities';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 
@@ -19,6 +20,8 @@ export { GRID_MODE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Card Group.
@@ -83,11 +86,11 @@ class DDSCardGroup extends LitElement {
     // retrieve item heading, eyebrows, and footers to set same height
     if (childItems) {
       childItems.forEach(e => {
-        this._childItemHeadings.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemHeading)
-        );
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemEyebrow)
+        );
+        this._childItemHeadings.push(
+          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemHeading)
         );
         this._childItemFooters.push(
           (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
@@ -99,27 +102,61 @@ class DDSCardGroup extends LitElement {
   /**
    * The observer for the resize of the viewport, calls sameHeight utility function
    */
-  private _setSameHeight = () => {
+  private _setSameHeight = entries => {
     window.requestAnimationFrame(() => {
-      sameHeight(
-        this._childItemHeadings.filter(e => {
-          return e;
-        }),
-        'md'
-      );
-      sameHeight(
-        this._childItemEyebrows.filter(e => {
-          return e;
-        }),
-        'md'
-      );
-      sameHeight(
-        this._childItemFooters.filter(e => {
-          return e;
-        }),
-        'md'
-      );
+      const documentWidth = entries[0].contentRect.width;
+      const columns = documentWidth < gridBreakpoint ? 2 : 3;
+
+      // split arrays into chunks to handle height setting in each row separately
+      const splitItemEyebrows = this._splitArrayPerRows(this._childItemEyebrows, columns);
+      const splitItemHeadings = this._splitArrayPerRows(this._childItemHeadings, columns);
+      const splitItemFooters = this._splitArrayPerRows(this._childItemFooters, columns);
+
+      splitItemEyebrows.forEach(row => {
+        sameHeight(
+          row.filter(e => {
+            return e;
+          }),
+          'md'
+        );
+      });
+      splitItemHeadings.forEach(row => {
+        sameHeight(
+          row.filter(e => {
+            return e;
+          }),
+          'md'
+        );
+      });
+      splitItemFooters.forEach(row => {
+        sameHeight(
+          row.filter(e => {
+            return e;
+          }),
+          'md'
+        );
+      });
     });
+  };
+
+  /**
+   * Helper function that splits an array into smaller groups to ensure the sameHeight function
+   * handles rows independently from one another.
+   *
+   * @param array to be partitioned
+   * @param columns the amount of currently displayed columns in a row
+   */
+  private _splitArrayPerRows = (array, columns) => {
+    return array.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / columns);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = [];
+      }
+
+      resultArray[chunkIndex].push(item);
+      return resultArray;
+    }, []);
   };
 
   /**

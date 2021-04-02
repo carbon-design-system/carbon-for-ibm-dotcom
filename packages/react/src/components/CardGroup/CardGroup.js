@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useRef, useEffect } from 'react';
+import { baseFontSize, breakpoints } from '@carbon/layout';
+import React, { useRef, useCallback, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
 import { CTA } from '../CTA';
@@ -16,6 +17,9 @@ import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+
 /**
  * CardGroup component
  */
@@ -33,33 +37,90 @@ const CardGroup = ({ cards, cta }) => {
     resizeObserver.current = new ResizeObserver(setSameHeight);
     resizeObserver.current.observe(document.documentElement);
     return () => (resizeObserver.current = null);
-  }, []);
+  }, [setSameHeight]);
 
   /**
    * Function that activates the sameHeight utility
    */
-  const setSameHeight = () => {
+  const setSameHeight = useCallback(entries => {
     window.requestAnimationFrame(() => {
+      const documentWidth = entries[0].contentRect.width;
+      const columns = documentWidth < gridBreakpoint ? 2 : 3;
       const { current: containerNode } = containerRef;
       if (containerNode) {
-        sameHeight(
+        // split arrays into chunks to handle height setting in each row separately
+        const splitItemEyebrows = splitArrayPerRows(
           containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
-          'md'
+          columns
         );
-        sameHeight(
+        const splitItemHeadings = splitArrayPerRows(
           containerNode.getElementsByClassName(`${prefix}--card__heading`),
-          'md'
+          columns
         );
-        sameHeight(
+        const splitItemCopies = splitArrayPerRows(
           containerNode.getElementsByClassName(`${prefix}--card__copy`),
-          'md'
+          columns
         );
-        sameHeight(
+        const splitItemFooters = splitArrayPerRows(
           containerNode.getElementsByClassName(`${prefix}--card__footer`),
-          'md'
+          columns
         );
+
+        splitItemEyebrows.forEach(row => {
+          console.log(row);
+          sameHeight(
+            row.filter(e => {
+              return e;
+            }),
+            'md'
+          );
+        });
+        splitItemHeadings.forEach(row => {
+          sameHeight(
+            row.filter(e => {
+              return e;
+            }),
+            'md'
+          );
+        });
+        splitItemCopies.forEach(row => {
+          sameHeight(
+            row.filter(e => {
+              return e;
+            }),
+            'md'
+          );
+        });
+        splitItemFooters.forEach(row => {
+          sameHeight(
+            row.filter(e => {
+              return e;
+            }),
+            'md'
+          );
+        });
       }
     });
+  }, []);
+
+  /**
+   * Helper function that splits an array into smaller groups to ensure the sameHeight function
+   * handles rows independently from one another.
+   *
+   * @param {*} array to be partitioned
+   * @param {number} columns the amount of currently displayed columns in a row
+   */
+  const splitArrayPerRows = (array, columns) => {
+    return Array.from(array).reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / columns);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = [];
+      }
+
+      resultArray[chunkIndex].push(item);
+      return resultArray;
+    }, []);
   };
   return _renderCards(cards, containerRef, cta);
 };
