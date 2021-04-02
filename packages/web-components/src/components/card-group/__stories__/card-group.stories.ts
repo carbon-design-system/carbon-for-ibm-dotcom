@@ -30,7 +30,7 @@ import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
 
-const cardRandomPhrase = randomTitles => {
+const cardRandomPhrase = () => {
   const phraseArray = [
     'Lorem ipsum dolor sit amet',
     'Nunc convallis lobortis',
@@ -38,7 +38,7 @@ const cardRandomPhrase = randomTitles => {
     'Te sint disputando pri, at his aliquip corrumpit',
   ];
 
-  const randomSampleText = randomTitles
+  const randomSampleText = !inPercy()
     ? 'Lorem ipsum dolor sit amet, consectetur'
     : phraseArray[Math.floor(Math.random() * phraseArray.length)];
 
@@ -247,7 +247,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardRandomPhrase(inPercy())),
+        }).map(() => cardRandomPhrase()),
       }),
     },
     decorators: [
