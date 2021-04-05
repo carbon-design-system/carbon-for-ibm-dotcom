@@ -8,6 +8,7 @@
  */
 
 const path = require('path');
+const sass = require('node-sass');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
@@ -124,6 +125,7 @@ module.exports = ({ config, mode }) => {
       test: /\.scss$/,
       sideEffects: true,
       use: [
+        'cache-loader',
         require.resolve('../tools/css-result-loader'),
         {
           loader: 'postcss-loader',
@@ -139,16 +141,20 @@ module.exports = ({ config, mode }) => {
           },
         },
         {
-          loader: 'fast-sass-loader',
+          loader: 'sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, '..', 'node_modules'), path.resolve(__dirname, '../../..', 'node_modules')],
-            data: `
+            additionalData: `
               $feature-flags: (
                 enable-css-custom-properties: true,
                 grid-columns-16: true,
               );
             `,
+            implementation: sass,
             sourceMap: useStyleSourceMap,
+            webpackImporter: false,
+            sassOptions: {
+              includePaths: [path.resolve(__dirname, '..', 'node_modules'), path.resolve(__dirname, '../../..', 'node_modules')],
+            },
           },
         },
       ],
