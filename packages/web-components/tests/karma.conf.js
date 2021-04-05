@@ -12,6 +12,7 @@
 /* eslint-disable global-require */
 
 const path = require('path');
+const sass = require('node-sass');
 const webpack = require('webpack');
 
 function normalizeBrowser(browser) {
@@ -128,12 +129,16 @@ module.exports = function setupKarma(config) {
                 },
               },
               {
-                loader: 'fast-sass-loader',
+                loader: 'sass-loader',
                 options: {
-                  includePaths: [
-                    path.resolve(__dirname, '..', 'node_modules'),
-                    path.resolve(__dirname, '../../..', 'node_modules'),
-                  ],
+                  implementation: sass,
+                  webpackImporter: false,
+                  sassOptions: {
+                    includePaths: [
+                      path.resolve(__dirname, '..', 'node_modules'),
+                      path.resolve(__dirname, '../../..', 'node_modules'),
+                    ],
+                  },
                 },
               },
             ],
