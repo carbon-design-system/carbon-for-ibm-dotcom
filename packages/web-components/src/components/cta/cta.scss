@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -18,4 +18,10 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
+}
+
+:host(#{$dds-prefix}-card-cta) {
+  .#{$prefix}--card__copy {
+    @include carbon--type-style('expressive-heading-02');
+  }
 }
