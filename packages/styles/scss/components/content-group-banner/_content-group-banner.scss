@@ -21,22 +21,51 @@
     }
 
     ::slotted(#{$dds-prefix}-content-group-heading),
+    .#{$prefix}--content-layout ::slotted([slot='heading']),
     .#{$prefix}--content-group__title {
       margin-bottom: 0;
+
+      @include carbon--breakpoint('md') {
+        grid-column: 1 / span 6;
+      }
+
+      @include carbon--breakpoint('lg') {
+        grid-column: 1 / span 2;
+      }
     }
 
     ::slotted(#{$dds-prefix}-link-list),
     .#{$prefix}--content-layout ::slotted([slot='complementary']),
     .#{$prefix}--link-list__list {
+      position: relative;
       grid-area: auto;
       margin-top: $spacing-07;
       margin-bottom: 0;
       padding-bottom: 0;
 
+      @include carbon--breakpoint('md') {
+        grid-column: 1 / span 6;
+      }
+
       @include carbon--breakpoint('lg') {
         margin-top: 0;
-        border-left: 1px solid $ui-03;
-        padding-left: $spacing-05;
+        grid-column: 3 / span 12;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -#{$carbon--spacing-07};
+          width: 1px;
+          height: 100%;
+          background-color: $ui-03;
+
+          // Adjust the direction of the border line on RTL.
+          [dir='rtl'] & {
+            left: inherit;
+            right: -#{$carbon--spacing-07};
+          }
+        }
       }
     }
   }

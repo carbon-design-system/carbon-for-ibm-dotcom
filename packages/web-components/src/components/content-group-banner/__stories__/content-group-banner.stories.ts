@@ -23,27 +23,21 @@ import { CTA_TYPE } from '../../cta/defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 
 const hrefsForType = {
-  [CTA_TYPE.REGULAR]: 'https://www.example.com',
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
-  [CTA_TYPE.JUMP]: '#example',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
 const knobNamesForType = {
-  [CTA_TYPE.REGULAR]: 'Content link href (href)',
   [CTA_TYPE.LOCAL]: 'Content link href (href)',
-  [CTA_TYPE.JUMP]: 'Anchor href (href)',
   [CTA_TYPE.EXTERNAL]: 'Content link href (href)',
   [CTA_TYPE.DOWNLOAD]: 'Download link href (href)',
   [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
 const types = {
-  None: null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
   [`Download (${CTA_TYPE.DOWNLOAD})`]: CTA_TYPE.DOWNLOAD,
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
@@ -93,10 +87,10 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Content Group Banner',
+  title: 'Components/Content group banner',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout--with-complementary">
+      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-group-banner">
         ${story()}
       </div>
     `,
@@ -121,7 +115,7 @@ export default {
           heading,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
         };
       },
     },
