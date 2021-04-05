@@ -18,7 +18,7 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead-logo {
   height: 100%;
-  z-index: 1;
+  z-index: 2;
   background-color: $ui-background;
 
   a {
@@ -247,6 +247,24 @@ $search-transition-timing: 95ms;
     position: relative;
     z-index: 5999;
 
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $ui-background;
+      height: 48px;
+      left: calc(-50vw + 50%);
+      right: 100%;
+      z-index: 1;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $ui-background;
+      height: 48px;
+      left: 100%;
+      right: calc(-50vw + 50%);
+    }
+
     .#{$prefix}--header__menu-arrow {
       fill: $text-01;
       &:hover {
@@ -359,11 +377,13 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__action {
     border: 2px solid transparent;
     background-color: $ui-background;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     > {
       svg {
         position: relative;
         fill: currentColor;
-        top: 2px;
       }
     }
     &:hover {
@@ -564,7 +584,6 @@ $search-transition-timing: 95ms;
 
     svg {
       position: relative;
-      top: 2px;
     }
   }
 

@@ -1,17 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -26,8 +28,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   render() {
     return html`
-      <slot name="name"></slot>
-      <slot></slot>
+      <div class="${prefix}--masthead__l1-inner-container">
+        <slot name="name"></slot>
+        <slot></slot>
+      </div>
     `;
   }
 
