@@ -128,6 +128,14 @@
       a {
         padding: $carbon--spacing-05 0;
         justify-content: space-between;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &:focus {
+          outline: none;
+        }
       }
 
       svg {
@@ -140,6 +148,14 @@
     border-bottom: 1px solid $ui-03;
     max-width: 640px;
     @include hang;
+
+    &:hover {
+      background: $hover-ui;
+    }
+
+    &:focus-within {
+      outline: 2px solid $focus;
+    }
 
     &:first-of-type {
       border-top: 1px solid $ui-03;
