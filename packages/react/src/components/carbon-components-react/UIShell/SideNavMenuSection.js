@@ -104,7 +104,7 @@ const SideNavMenuSection = ({
           if (rest.focusNode) {
             rest.focusNode.focus();
           } else {
-            e.target.parentElement.querySelector('a').focus();
+            e.target.parentElement.querySelector('button').focus();
           }
         }}
         aria-hidden={true}
