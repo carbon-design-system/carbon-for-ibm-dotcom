@@ -41,8 +41,10 @@ export const aspectRatio4x3 = ({ parameters }) => {
 export const withLightboxMediaViewer = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio} playing-mode="lightbox">
-    </dds-video-player-container>
+    <dds-lightbox-video-player-container>
+      <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio} playing-mode="lightbox">
+      </dds-video-player-container>
+    </dds-lightbox-video-player-container>
   `;
 };
 
@@ -95,9 +97,7 @@ export default {
       <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <lightbox-video-player-container>
-              ${story()}
-            </lightbox-video-player-container>
+            ${story()}
           </div>
         </div>
       </div>
