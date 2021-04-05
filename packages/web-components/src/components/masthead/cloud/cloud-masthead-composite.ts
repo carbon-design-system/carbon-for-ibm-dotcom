@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import './cloud-masthead-profile';
+import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import styles from '../masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -24,6 +25,18 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
 class DDSCloudMastheadComposite extends DDSMastheadComposite {
+  /**
+   * The profile items for unauthenticated state.
+   */
+  @property({ attribute: false })
+  authenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * The profile items for unauthenticated state.
+   */
+  @property({ attribute: false })
+  unauthenticatedCtaButtons?: MastheadProfileItem[];
+
   render() {
     const {
       activateSearch,

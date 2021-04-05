@@ -136,6 +136,15 @@ export interface MastheadLogoData {
 }
 
 /**
+ * Cloud Masthead Profile content
+ */
+export interface MastheadProfileContent {
+  iconLabel: string;
+  links: MastheadProfileItem[];
+  ctaButtons: MastheadProfileItem[];
+}
+
+/**
  * Misc labels
  */
 export interface MiscLabels {
@@ -175,6 +184,16 @@ export interface Translation {
      * The profile menu for logged out state.
      */
     signedout: MastheadProfileItem[];
+  };
+
+  /**
+   * Cloud masthead profile items
+   */
+  masthead: {
+    profileMenu: {
+      signedout: MastheadProfileContent;
+      signedin: MastheadProfileContent;
+    };
   };
 
   /**
