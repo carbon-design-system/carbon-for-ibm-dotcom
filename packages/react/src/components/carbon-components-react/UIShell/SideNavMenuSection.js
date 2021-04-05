@@ -60,7 +60,7 @@ const SideNavMenuSection = ({
         setFocus(rest.focusNode);
       }
     }
-  }, [rest.focusNode, rest.id, rest.isSubmenu, show]);
+  }, [rest.focusNode, rest.isSubmenu, show]);
 
   const className = cx({
     [`${prefix}--side-nav__menu-section`]: true,

@@ -147,9 +147,9 @@
     height: 100%;
     overflow-y: auto;
     z-index: 0;
-    right: 100%;
+    left: -100%;
     background-color: $ui-background;
-    transition: right $duration--fast-02 motion(standard, productive);
+    transition: left $duration--fast-02 motion(standard, productive);
 
     a {
       @include carbon--type-style(body-short-02);
@@ -224,7 +224,7 @@
 
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
-    right: 0;
+    left: 0;
   }
 
   .#{$prefix}--side-nav__menu-section-submenu {
