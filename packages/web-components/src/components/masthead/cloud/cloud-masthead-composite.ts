@@ -28,6 +28,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const {
       activateSearch,
       authenticatedProfileItems,
+      authenticatedCtaButtons,
       currentSearchResults,
       platform,
       platformUrl,
@@ -41,12 +42,14 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
+      unauthenticatedCtaButtons,
       userStatus,
       l1Data,
       _loadSearchResults: loadSearchResults,
     } = this;
     const authenticated = userStatus !== 'anonymous';
     const profileItems = authenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+    const ctaButtons = authenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
     return html`
       <dds-left-nav-overlay></dds-left-nav-overlay>
       <dds-left-nav>
@@ -96,6 +99,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 `
             )}
           </dds-cloud-masthead-profile>
+          ${ctaButtons?.map(
+            ({ title, url }) =>
+              html`
+                <dds-button-cta href="${ifNonNull(url)}" role icon-layout size cta-type kind="primary">${title}</dds-button-cta>
+              `
+          )}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

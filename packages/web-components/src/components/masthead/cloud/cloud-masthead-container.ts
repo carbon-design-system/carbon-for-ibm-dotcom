@@ -51,9 +51,11 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
   }
   return pickBy(
     {
-      authenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedin,
+      authenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.links,
+      authenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
-      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.profileMenu.signedout,
+      unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
+      unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
       userStatus: getUserLoginStatus(),
       currentSearchResults: currentSearchResults ?? [],
     },
@@ -91,7 +93,6 @@ class DDSCloudMastheadContainer extends ConnectMixin<
   store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | SearchAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-  // @ts-ignore: Behind feature flag
 )(DDSCloudMastheadComposite) {}
 
 export default DDSCloudMastheadContainer;
