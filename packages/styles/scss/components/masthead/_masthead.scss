@@ -377,11 +377,13 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__action {
     border: 2px solid transparent;
     background-color: $ui-background;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     > {
       svg {
         position: relative;
         fill: currentColor;
-        top: 2px;
       }
     }
     &:hover {
@@ -582,7 +584,6 @@ $search-transition-timing: 95ms;
 
     svg {
       position: relative;
-      top: 2px;
     }
   }
 
