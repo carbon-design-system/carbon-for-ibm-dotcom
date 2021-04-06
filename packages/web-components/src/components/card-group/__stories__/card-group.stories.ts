@@ -29,18 +29,19 @@ import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
 
-const cardRandomPhrase = () => {
-  const phraseArray = [
-    'Lorem ipsum dolor sit amet',
-    'Nunc convallis lobortis',
-    'Lorem ipsum dolor sit amet, consectetur.',
-    'Te sint disputando pri, at his aliquip corrumpit',
-  ];
+let count = 0;
+const phraseArray = [
+  'Lorem ipsum dolor sit amet',
+  'Nunc convallis lobortis',
+  'Lorem ipsum dolor sit amet, consectetur.',
+  'Te sint disputando pri, at his aliquip corrumpit',
+  'Disputando lorem covallis',
+];
 
-  const randomSampleText = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+const cardsDiffLengthPhrase = () => {
   const defaultCardGroupItem = html`
     <dds-card-group-item href="https://example.com">
-      <dds-card-heading>${randomSampleText}</dds-card-heading>
+      <dds-card-heading>${phraseArray[count]}</dds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.'
       </p>
@@ -49,8 +50,23 @@ const cardRandomPhrase = () => {
       </dds-card-footer>
     </dds-card-group-item>
   `;
+
+  count = count > 3 ? 0 : count + 1;
   return defaultCardGroupItem;
 };
+
+const longHeadingCardGroupItem = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
 
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
@@ -82,7 +98,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>${cards}</dds-card-group>
+    <dds-card-group>${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
@@ -175,6 +191,9 @@ export const withMixedMedia = ({ parameters }) => {
 withMixedMedia.story = {
   parameters: {
     ...readme.parameters,
+    percy: {
+      skip: true,
+    },
     knobs: {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
@@ -240,7 +259,7 @@ export default {
       CardGroup: ({ groupId }) => ({
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
-        }).map(() => cardRandomPhrase()),
+        }).map(() => cardsDiffLengthPhrase()),
       }),
     },
     decorators: [
