@@ -15,6 +15,7 @@
     padding: 0;
     height: 0;
     width: 0;
+    border: none;
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
@@ -74,7 +75,10 @@
   .#{$prefix}--masthead {
     .#{$prefix}--side-nav {
       left: -100vw;
-      transition: left $duration--fast-02 motion(exit, productive);
+      visibility: hidden;
+      /* stylelint-disable-next-line  time-min-milliseconds */
+      transition: visibility 1ms motion(exit, productive) $duration--fast-02,
+        left $duration--fast-02 motion(exit, productive) 1ms;
 
       &:not(.#{$prefix}--side-nav--fixed):hover {
         @include carbon--breakpoint-down(md) {
@@ -128,7 +132,10 @@
     .#{$prefix}--side-nav--expanded {
       overflow-y: auto;
       left: 0;
-      transition: left $duration--moderate-01 motion(standard, productive);
+      visibility: visible;
+      /* stylelint-disable-next-line time-min-milliseconds */
+      transition: visibility 1ms motion(exit, productive) 0ms,
+        left $duration--fast-02 motion(exit, productive) 1ms;
     }
 
     .#{$prefix}--side-nav--ux,
