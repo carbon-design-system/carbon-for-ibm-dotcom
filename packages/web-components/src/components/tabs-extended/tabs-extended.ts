@@ -11,7 +11,7 @@ import {
   customElement,
   html,
   internalProperty,
-  LitElement, property,
+  LitElement,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -72,13 +72,29 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     } = this;
     return html`
       <div class="${prefix}--tabs-extended">
+
+        <div class="${prefix}--accordion">
+          <ul data-accordion class="bx--accordion">
+            ${tabs.map((tab:DDSTab, index) => {
+              const classes = [
+                index === this.active && `${prefix}--accordion__item--active` || null,
+              ];
+              return html`
+                <li data-accordion-item class="bx--accordion__item ${classes.join(' ')}">
+                  <button class="bx--accordion__heading" aria-expanded="${index === this.active}" aria-controls="pane-${index}" @click="${(e) => this._setActiveTab(index)}">
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--accordion__arrow" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"></path></svg>
+                    <div class="bx--accordion__title">${tab.label}</div>
+                  </button>
+                  <div id="pane-${index}" class="bx--accordion__content">
+                    ${tab.innerHTML}
+                  </div>
+                </li>
+              `;
+            })}
+          </ul>
+        </div>
+
         <div data-tabs class="${prefix}--tabs">
-          <div class="${prefix}--tabs-trigger" tabindex="0">
-            <a href="javascript:void(0)" class="${prefix}--tabs-trigger-text" tabindex="-1"></a>
-            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"></path>
-            </svg>
-          </div>
           <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
             ${tabs.map((tab:DDSTab, index) => {
               const classes = [
@@ -93,15 +109,17 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                   aria-selected="true"
                   disabled="${tab.disabled}">
                   <a tabindex="${index}" id="tab-link-${index}-default" class="${prefix}--tabs__nav-link" href="javascript:void(0)" role="tab"
-                     aria-controls="tab-panel-${index}-default" @click="${(e) => this._setActiveTab(index)}" >${tab.label}</a>
+                     aria-controls="tab-panel-${index}-default" @click="${(e) => this._setActiveTab(index)}">${tab.label}</a>
                 </li>
               `;
             })}
           </ul>
         </div>
+
         <div class="${prefix}--tab-content">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </div>
+
       </div>
     `;
   }

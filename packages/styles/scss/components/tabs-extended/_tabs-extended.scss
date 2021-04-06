@@ -9,22 +9,31 @@
 @import '../link-list/index';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
 @import 'carbon-components/scss/components/tabs/tabs';
+@import 'carbon-components/scss/components/accordion/accordion';
+@import 'carbon-components/scss/components/accordion/keyframes';
 
-//@mixin tabs-extended {
-//  :host(#{$dds-prefix}-tabs-extended) {
-//
-//    @include carbon--breakpoint(md) {
-//      padding-bottom: $carbon--spacing-10;
-//    }
-//
-//    @include carbon--breakpoint(lg) {
-//      padding-top: $carbon--spacing-10;
-//      padding-bottom: $carbon--spacing-10;
-//    }
-//
-//  }
-//}
-//
-//@include exports('tabs-extended') {
-//  @include tabs-extended;
-//}
+@mixin tabs-extended {
+  :host(#{$dds-prefix}-tabs-extended) {
+    .#{$prefix}--tabs,
+    .#{$prefix}--tab-content {
+      @include carbon--breakpoint(md)  {
+        display: none;
+      }
+      @include carbon--breakpoint(lg)  {
+        display: block;
+      }
+    }
+    .#{$prefix}--accordion {
+      @include carbon--breakpoint(md)  {
+        display: block;
+      }
+      @include carbon--breakpoint(lg)  {
+        display: none;
+      }
+    }
+  }
+}
+
+@include exports('tabs-extended') {
+  @include tabs-extended;
+}

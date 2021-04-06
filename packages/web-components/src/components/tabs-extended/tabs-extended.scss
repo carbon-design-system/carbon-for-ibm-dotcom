@@ -8,9 +8,9 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
+@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 @import '@carbon/ibmdotcom-styles/scss/components/tabs-extended/tabs-extended';
 
 :host(#{$dds-prefix}-tabs-extended) {
   margin: 0;
 }
-
