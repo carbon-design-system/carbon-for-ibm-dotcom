@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,8 +11,8 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import User20 from 'carbon-web-components/es/icons/user/20.js';
-import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
+import User16 from 'carbon-web-components/es/icons/user/16.js';
+import UserOnline16 from 'carbon-web-components/es/icons/user--online/16.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
@@ -126,7 +126,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}
       >
-        ${authenticated ? UserOnline20() : User20()}
+        ${authenticated ? UserOnline16() : User16()}
       </a>
       <ul role="menu" class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
         <slot></slot>
