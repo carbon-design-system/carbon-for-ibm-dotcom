@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -116,13 +116,13 @@ $carbon-productive-type-tokens: (
 /// @group carbon-expressive
 $carbon-expressive-type-tokens: (
   body-short-01: (
-    font-size: carbon--type-scale(3),
+    font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
     line-height: carbon--rem(22px),
     letter-spacing: 0,
   ),
   body-long-01: (
-    font-size: carbon--type-scale(3),
+    font-size: carbon--type-scale(2),
     font-weight: carbon--font-weight('regular'),
     line-height: carbon--rem(24px),
     letter-spacing: 0,
