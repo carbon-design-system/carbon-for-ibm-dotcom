@@ -177,7 +177,7 @@
 
       .#{$prefix}--header__search--close {
         width: $carbon--spacing-09;
-        display: inline-block;
+        display: inline-flex;
       }
 
       .#{$prefix}--header__search--close,
