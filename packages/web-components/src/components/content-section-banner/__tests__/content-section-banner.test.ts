@@ -14,23 +14,23 @@ import '../../content-group/content-group-heading';
 import '../../cta/link-list-item-cta';
 import '../../link-list/link-list';
 import '../../content-group-banner/content-group-banner';
-import '../card-section-banner';
+import '../content-section-banner';
 
 const template = (props?) => {
   const { heading, children } = props ?? {};
   return html`
-    <dds-card-section-banner heading=${ifNonNull(heading)}>
+    <dds-content-section-banner heading=${ifNonNull(heading)}>
       <dds-content-group-banner>${children}</dds-content-group-banner>
-    </dds-card-section-banner>
+    </dds-content-section-banner>
   `;
 };
 
-describe('dds-card-section-banner', function() {
+describe('dds-content-section-banner', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-card-section-banner')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-section-banner')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
@@ -51,10 +51,10 @@ describe('dds-card-section-banner', function() {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-card-section-banner>`
+      await Promise.resolve(); // The update cycle of `<dds-content-section-banner>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-card-section-banner')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-content-section-banner')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 

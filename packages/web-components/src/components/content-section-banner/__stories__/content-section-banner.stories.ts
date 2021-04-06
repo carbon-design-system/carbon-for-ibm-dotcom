@@ -16,12 +16,12 @@ import '../../content-section/content-section-heading';
 import '../../content-group/content-group-heading';
 import '../../link-list/link-list';
 import '../../content-group-banner/content-group-banner';
-import '../card-section-banner';
+import '../content-section-banner';
 
 export const Default = ({ parameters }) => {
-  const { sectionHeading, groupHeading } = parameters?.props?.CardSectionBanner ?? {};
+  const { sectionHeading, groupHeading } = parameters?.props?.ContentSectionBanner ?? {};
   return html`
-    <dds-card-section-banner>
+    <dds-content-section-banner>
       <dds-content-section-heading>${sectionHeading}</dds-content-section-heading>
 
       <dds-content-group-banner>
@@ -36,12 +36,12 @@ export const Default = ({ parameters }) => {
           </dds-link-list-item>
         </dds-link-list>
       </dds-content-group-banner>
-    </dds-card-section-banner>
+    </dds-content-section-banner>
   `;
 };
 
 export default {
-  title: 'Components/Card Section Banner',
+  title: 'Components/Content section banner',
   decorators: [
     story => html`
       <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">
@@ -58,7 +58,7 @@ export default {
     hasGrid: true,
     hasVerticalSpacingInComponent: true,
     knobs: {
-      CardSectionBanner: ({ groupId }) => ({
+      ContentSectionBanner: ({ groupId }) => ({
         sectionHeading: textNullable('Section Heading (optional)', 'Section text headline', groupId),
         groupHeading: textNullable(
           'Heading (required)',

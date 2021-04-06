@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/card-section-banner/card-section-banner';
+@import '@carbon/ibmdotcom-styles/scss/components/content-section-banner/content-section-banner';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
-:host(#{$dds-prefix}-card-section-banner) {
+:host(#{$dds-prefix}-content-section-banner) {
   display: block;
 }

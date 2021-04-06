@@ -8,9 +8,9 @@
 @import '../../globals/imports';
 @import '../../internal/content-section/content-section';
 
-@mixin card-section-banner {
-  :host(#{$dds-prefix}-card-section-banner),
-  .#{$prefix}--card-section-banner {
+@mixin content-section-banner {
+  :host(#{$dds-prefix}-content-section-banner),
+  .#{$prefix}--content-section-banner {
     .#{$prefix}--content-section {
       padding-top: 0;
       padding-bottom: 0;
@@ -38,6 +38,6 @@
   }
 }
 
-@include exports('card-section-banner') {
-  @include card-section-banner;
+@include exports('content-section-banner') {
+  @include content-section-banner;
 }
