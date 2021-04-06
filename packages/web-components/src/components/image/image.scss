@@ -9,6 +9,7 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/utils/ratio-base';
 @import '@carbon/ibmdotcom-styles/scss/components/image/image';
 
+:host(#{$dds-prefix}-card-in-card-image),
 :host(#{$dds-prefix}-card-cta-image),
 :host(#{$dds-prefix}-image) {
   @extend .#{$prefix}--image;
@@ -26,6 +27,41 @@
 
 :host(#{$dds-prefix}-card-cta-image) {
   @include ratio-base(4, 3, true);
+
+  .#{$prefix}--image__img {
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+}
+
+:host(#{$dds-prefix}-card-in-card-image) {
+  position: relative;
+
+  @include ratio-base(4, 3, true);
+
+  @include carbon--breakpoint('md') {
+    @include ratio-base(16, 9, true);
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.2;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    background-color: $inverse-02;
+    transition: opacity $transition--base motion(standard, productive);
+  }
 
   .#{$prefix}--image__img {
     position: absolute;

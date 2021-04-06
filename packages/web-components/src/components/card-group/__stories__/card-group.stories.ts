@@ -10,10 +10,10 @@
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
 import '../../card-in-card/card-in-card';
-import '../../card-in-card/card-in-card-footer';
 import '../../card-in-card/card-in-card-image';
 import '../card-group';
 import '../card-group-item';
+import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
@@ -132,9 +132,9 @@ export const withCardInCard = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-in-card-footer>
+      <dds-card-cta-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
+      </dds-card-cta-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}
@@ -199,9 +199,9 @@ export const withCardInCardAndImageCards = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-in-card-footer>
+      <dds-card-cta-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
+      </dds-card-cta-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}

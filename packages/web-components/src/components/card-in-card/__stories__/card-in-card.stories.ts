@@ -11,8 +11,9 @@ import '../../card/card-eyebrow';
 import '../../card/card-heading';
 import '../../image/image';
 import '../card-in-card';
-import '../card-in-card-footer';
 import '../card-in-card-image';
+import '../../cta/card-cta-footer';
+import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
@@ -35,11 +36,30 @@ export const Default = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-in-card-footer>
+      <dds-card-cta-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
+      </dds-card-cta-footer>
     </dds-card-in-card>
   `;
+};
+
+export const withVideo = () => {
+  return html`
+    <dds-video-cta-container>
+      <dds-card-in-card href="1_9h94wo6b" cta-type="video">
+        <dds-card-cta-footer cta-type="video" href="1_9h94wo6b"></dds-card-cta-footer>
+      </dds-card-in-card>
+    </dds-video-cta-container>
+  `;
+};
+
+withVideo.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      'dds-card-in-card': () => ({}),
+    },
+  },
 };
 
 export default {
