@@ -11,8 +11,8 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import settings from 'carbon-components/es/globals/js/settings';
-import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
-import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
+import ChevronLeft16 from 'carbon-web-components/es/icons/chevron--left/16.js';
+import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
@@ -110,14 +110,14 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
         <div class="${prefix}--side-nav__submenu-content">
           <span class="${prefix}--side-nav__submenu-title">${title}</span>
           <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-            ${ChevronDown20()}
+            ${ChevronDown16()}
           </div>
         </div>
       </button>
       <ul class="${prefix}--side-nav__menu" role="menu">
         <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
           <a class="bx--side-nav__link" role="menuitem" @click="${handleClickExpando}">
-            <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
+            <span class="bx--side-nav__link-text">${ChevronLeft16()}${backButtonText}</span>
           </a>
         </li>
         <li class="bx--masthead__side-nav--submemu-title">${title}</li>
