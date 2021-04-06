@@ -123,20 +123,20 @@ $search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead-top-nav-link {
-  @include carbon--type-style(body-short-02, true);
+  @include carbon--type-style(body-short-01, true);
   $menu-item-padding: calc(#{$spacing-01} + #{$spacing-05});
 
   border: none;
   border-bottom: $spacing-01 solid transparent;
   padding: $spacing-01 $menu-item-padding 0 $menu-item-padding;
-  color: $text-01;
+  color: $text-02;
   white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
     cursor: pointer;
     > svg {
-      fill: $text-01;
+      fill: currentColor;
     }
   }
 
@@ -327,6 +327,7 @@ $search-transition-timing: 95ms;
 
       &[aria-selected='true'][aria-expanded='false'] {
         border-bottom: solid 3px $interactive-01;
+        color: $text-01;
       }
     }
   }
