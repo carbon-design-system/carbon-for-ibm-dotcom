@@ -38,6 +38,14 @@
     }
 
     &.#{$prefix}--header__action--active {
+      border-color: transparent;
+      background-color: $ui-background;
+
+      &:focus {
+        border-color: $focus;
+        background-color: $hover-ui;
+      }
+
       + .#{$prefix}--header__logo {
         z-index: 6001;
         margin-left: $carbon--spacing-09;
