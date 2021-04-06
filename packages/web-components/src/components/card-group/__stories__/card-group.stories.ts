@@ -55,6 +55,19 @@ const cardsDiffLengthPhrase = () => {
   return defaultCardGroupItem;
 };
 
+const longHeadingCardGroupItem = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
+
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
@@ -85,7 +98,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>${cards}</dds-card-group>
+    <dds-card-group>${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
