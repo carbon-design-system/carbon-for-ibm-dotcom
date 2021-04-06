@@ -13,14 +13,9 @@
 
 /// Combo Box styles (expressive)
 /// @access private
-/// @group combo-box-expressive
-@mixin combo-box-expressive {
-  .#{$prefix}--list-box__invalid-icon,
-  .#{$prefix}--list-box__selection svg {
-    width: carbon--rem(20px);
-    height: carbon--rem(20px);
-  }
-  .#{$prefix}--combo-box.#{$prefix}--list-box {
+/// @group multi-select-expressive
+@mixin multi-select-expressive {
+  .#{$prefix}--multi-select.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
       top: 0.75rem;
       svg {

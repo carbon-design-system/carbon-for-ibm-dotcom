@@ -27,6 +27,7 @@
 @import 'components/list-box';
 @import 'components/loading';
 @import 'components/modal';
+@import 'components/multi-select';
 @import 'components/number-input';
 @import 'components/overflow-menu';
 @import 'components/progressive-indicator';
@@ -74,6 +75,7 @@
   @include list-box-expressive;
   @include loading-expressive;
   @include modal-expressive;
+  @include multi-select-expressive;
   @include number-input-expressive;
   @include overflow-menu-expressive;
   @include progressive-indicator-expressive;
