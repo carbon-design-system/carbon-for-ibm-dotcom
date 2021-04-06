@@ -11,6 +11,7 @@ import { html, property, customElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
@@ -67,9 +68,14 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     this._handleAriaState();
   };
 
-  protected _handleContentStateChange(event: CustomEvent) {
-    const { contentState, videoId } = event.detail;
-    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId) {
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
+  protected _handleContentStateChange(_: CustomEvent) {}
+
+  @HostListener('document:eventContentStateChange')
+  protected _handleContentStateChangeDocument(event: CustomEvent) {
+    const { contentState, videoId: requestedVideoId } = event.detail;
+    const { videoId } = this;
+    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId === requestedVideoId) {
       this.open = true;
     }
   }
