@@ -18,7 +18,7 @@
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
-    height: calc(100vh - #{mini-units(6)});
+    height: calc(100% - #{mini-units(6)});
 
     > nav {
       height: 100%;
@@ -150,7 +150,7 @@
     z-index: 0;
     left: -100%;
     background-color: $ui-background;
-    transition: left $duration--fast-02 motion(exit, productive);
+    transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
       @include carbon--type-style(body-short-02);
@@ -241,22 +241,18 @@
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     left: 0;
-    transition: left $duration--moderate-01 motion(standard, productive);
   }
 
   .#{$prefix}--side-nav__menu-section-submenu {
     left: 100%;
-    transition: left $duration--fast-02 motion(exit, productive);
   }
 
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
     left: 0;
-    transition: left $duration--moderate-01 motion(standard, productive);
   }
 
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
     left: -100%;
-    transition: left $duration--moderate-01 motion(standard, productive);
   }
 
   .#{$prefix}--side-nav__menu--hasactivechildren {
@@ -329,8 +325,9 @@
   }
 
   .#{$prefix}--side-nav__submenu-chevron,
-  .#{$prefix}--side-nav__submenu[aria-expanded='true'] {
-    svg {
+  .#{$prefix}--side-nav__submenu[aria-expanded='true']
+    .#{$prefix}--side-nav__submenu-chevron {
+    > svg {
       transform: rotate(-90deg) scale(1.25);
       fill: $text-01;
     }
