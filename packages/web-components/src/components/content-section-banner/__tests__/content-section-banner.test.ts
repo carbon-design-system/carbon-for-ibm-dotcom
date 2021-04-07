@@ -19,7 +19,8 @@ import '../content-section-banner';
 const template = (props?) => {
   const { heading, children } = props ?? {};
   return html`
-    <dds-content-section-banner heading=${ifNonNull(heading)}>
+    <dds-content-section-banner>
+      <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>
       <dds-content-group-banner>${children}</dds-content-group-banner>
     </dds-content-section-banner>
   `;
