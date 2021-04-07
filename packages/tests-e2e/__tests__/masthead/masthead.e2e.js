@@ -70,7 +70,7 @@ describe('Masthead: Default', () => {
     await browser.close();
   });
 
-  it('should take a snapshot of the megamenu', async () => {
+  it('should take a snapshot of the megamenu - first nav item', async () => {
     page = await browser.newPage();
     await page.setViewport({
       width: 1280,
@@ -78,8 +78,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -101,13 +101,29 @@ describe('Masthead: Default', () => {
         widths: [1280],
       }
     );
+  });
+
+  it('should take a snapshot of the megamenu - second nav item', async () => {
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1280,
+      height: 780,
+    });
+
+    await page.goto(`${_url}${_pathDefault}`, {
+      waitUntil: 'networkidle0',
+      timeout: 100000,
+    });
 
     if (_webcomponentsTests) {
-      const nav1 = await page.evaluateHandle(
+      const nav0 = await page.evaluateHandle(
         `document.querySelector('dds-top-nav > dds-megamenu-top-nav-menu:nth-child(2)').shadowRoot.querySelector('a')`
       );
-      nav1.click();
+      nav0.click();
     } else {
+      await page.waitForSelector(
+        '[data-autoid="dds--masthead-default__l0-nav1"]'
+      );
       await page.click('[data-autoid="dds--masthead-default__l0-nav1"]');
     }
 
@@ -128,8 +144,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -161,8 +177,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -190,8 +206,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathDefault}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
@@ -240,8 +256,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathCustom}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     // Removes the animation of the nav container
@@ -258,6 +274,7 @@ describe('Masthead: Default', () => {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-default__l0-nav0"]'
       );
+      await page.waitForTimeout(1500); // still seeing flakiness in test results, adding additional wait to be safe
       await page.click('.bx--header__nav-caret-right');
     }
 
@@ -274,8 +291,8 @@ describe('Masthead: Default', () => {
     });
 
     await page.goto(`${_url}${_pathPlatform}`, {
-      waitUntil: 'load',
-      timeout: 30000,
+      waitUntil: 'networkidle0',
+      timeout: 100000,
     });
 
     if (_webcomponentsTests) {
