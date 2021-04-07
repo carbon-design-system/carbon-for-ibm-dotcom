@@ -115,7 +115,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           ${ctaButtons?.map(
             ({ title, url }) =>
               html`
-                <dds-button-cta href="${ifNonNull(url)}" role icon-layout size cta-type kind="primary">${title}</dds-button-cta>
+                <dds-cloud-button-cta href="${ifNonNull(url)}" role icon-layout size cta-type kind="primary"
+                  >${title}</dds-cloud-button-cta
+                >
               `
           )}
         </dds-masthead-global-bar>
