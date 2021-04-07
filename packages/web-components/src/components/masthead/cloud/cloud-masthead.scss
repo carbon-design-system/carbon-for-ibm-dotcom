@@ -10,6 +10,7 @@
 :host(#{$dds-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
+  margin-top: rem(18px);
   @include carbon--make-col(4, 16);
 
   .#{$prefix}--tabs-trigger {
@@ -17,6 +18,28 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-tab) a {
-  @include carbon--type-style('body-long-01');
+:host(#{$dds-prefix}-cloud-megamenu-tab) {
+  button {
+    @include carbon--type-style('body-long-01');
+
+    color: $text-02;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: 6px $spacing-05;
+    background-color: $ui-background;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+
+  &:focus {
+    outline: 1px solid $focus;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
+  background-color: $selected-ui;
 }

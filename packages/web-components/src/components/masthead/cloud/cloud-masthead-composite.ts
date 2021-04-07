@@ -14,6 +14,7 @@ import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
 import './cloud-megamenu-tab-content';
+import './cloud-megamenu-category-heading';
 import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
@@ -64,6 +65,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             item =>
               html`
                 <div id="panel-${item.title}" role="tabpanel" aria-labelledby="tab-${item.title}" hidden>
+                  <dds-cloud-megamenu-category-heading>${item.title}</dds-cloud-megamenu-category-heading>
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     link =>
                       html`

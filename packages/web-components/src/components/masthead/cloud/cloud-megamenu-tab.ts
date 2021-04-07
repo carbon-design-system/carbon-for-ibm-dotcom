@@ -7,11 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement, html } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXTab from 'carbon-web-components/es/components/tabs/tab';
 import styles from './cloud-masthead.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -21,6 +23,15 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tab`)
 class DDSCloudMegamenuTab extends BXTab {
+  render() {
+    const { disabled, selected } = this;
+    return html`
+      <button class="${prefix}--tabs__nav-link" role="tab" ?disabled="${disabled}" aria-selected="${Boolean(selected)}">
+        <slot></slot>
+      </button>
+    `;
+  }
+
   static styles = styles;
 }
 
