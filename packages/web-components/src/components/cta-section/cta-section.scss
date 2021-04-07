@@ -75,18 +75,11 @@
 :host(#{$dds-prefix}-cta-section-item-heading) {
   @include carbon--type-style('expressive-heading-02', true);
 
+  display: block;
   width: 100%;
 
   @include carbon--breakpoint('md') {
     width: 90%;
-  }
-}
-
-:host(#{$dds-prefix}-cta-section-item-copy) {
-  ::slotted(#{$dds-prefix}-content-item-paragraph) {
-    display: grid;
-    height: 100%;
-    margin-bottom: -$carbon--spacing-05;
   }
 }
 
