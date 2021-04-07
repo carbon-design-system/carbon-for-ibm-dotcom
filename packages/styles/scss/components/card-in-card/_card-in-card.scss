@@ -21,6 +21,8 @@
 
     &:focus {
       outline: 2px solid $focus;
+      position: relative;
+      z-index: 1;
     }
 
     .#{$prefix}--card-in-card__container {
