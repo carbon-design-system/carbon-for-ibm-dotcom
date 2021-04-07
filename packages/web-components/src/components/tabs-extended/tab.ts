@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  customElement,
-  property,
-  LitElement,
-  internalProperty,
-} from 'lit-element';
+import { html, customElement, property, LitElement, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -55,31 +49,25 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines the index of the tab relative to other tabs.
    */
   @internalProperty()
-  private index: Number;
+  private _index: Number;
 
   /**
    * Sets the index of the tab.
    */
   setIndex(index: Number) {
-    this.index = index;
+    this._index = index;
   }
 
   render() {
-    return (this.selected) ? html`
-      <div id="tab-panel-${this.index}-default"
-           class="tab-${this.index}-container"
-           role="tabpanel"
-           aria-labelledby="tab-link-${this.index}-default"
-           aria-hidden="${!this.selected}">
-        <slot></slot>
-      </div>
-    ` : html`
-      <div id="tab-panel-${this.index}-default"
-           class="tab-${this.index}-container"
-           role="tabpanel"
-           aria-labelledby="tab-link-${this.index}-default"
-           aria-hidden="${!this.selected}"
-           hidden>
+    return html`
+      <div
+        id="tab-panel-${this.index}-default"
+        class="tab-${this.index}-container"
+        role="tabpanel"
+        aria-labelledby="tab-link-${this.index}-default"
+        aria-hidden="${!this.selected}"
+        ?hidden="${!this.selected}"
+      >
         <slot></slot>
       </div>
     `;

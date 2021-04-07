@@ -2,13 +2,13 @@ import { Props, Description } from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import markdownContents from '../../../../docs/markdown-contents.md';
 
-# `<dds-content-item-horizontal>`
+# `<dds-tabs-extended>`
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-item-horizontal)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/tabs-extended)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/content-item-horizontal)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/tabs-extended)
 
 ## Getting started
 
@@ -24,6 +24,18 @@ import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extend
 
 ```html
 <dds-tabs-extended>
+  <dds-tab label="Lorem">
+    Maecenas faucibus mollis interdum.
+  </dds-tab>
+  <dds-tab label="Ipsum">
+    Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+  </dds-tab>
+  <dds-tab label="Dolor" selected="true">
+    Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+  </dds-tab>
+  <dds-tab label="Sit" disabled="true">
+    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  </dds-tab>
 </dds-tabs-extended>
 ```
 
@@ -36,8 +48,8 @@ import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extend
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector               | Compatibility selector                             | Description |
-| ------------------------------------- | -------------------------------------------------- | ----------- |
-| `<dds-tabs-extended>`                 | `data-autoid="dds--tabs-extended"`                 | Component   |
+| Web Components selector | Compatibility selector             | Description |
+| ----------------------- | ---------------------------------- | ----------- |
+| `<dds-tabs-extended>`   | `data-autoid="dds--tabs-extended"` | Component   |
 
 <Description markdown={contributing} />

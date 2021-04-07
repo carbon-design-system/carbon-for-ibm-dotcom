@@ -14,8 +14,7 @@ import '../tabs-extended';
 import '../tab';
 
 export const Default = ({ parameters }) => {
-  const { copy } =
-    parameters?.props?.TabsExtended ?? {};
+  const { copy } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended>
       <dds-tab label="Lorem">
