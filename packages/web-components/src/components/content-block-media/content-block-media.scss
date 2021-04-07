@@ -27,13 +27,9 @@
       margin: $layout-05 0;
     }
   }
+}
 
-  ::slotted(*) {
-    margin-left: $carbon--spacing-05;
-    margin-right: $carbon--spacing-05;
-  }
-
-  ::slotted([slot='media']) {
-    margin-top: 0;
-  }
+:host(#{$dds-prefix}-content-block-media-content) ::slotted(*) {
+  margin-left: $carbon--spacing-05;
+  margin-right: $carbon--spacing-05;
 }
