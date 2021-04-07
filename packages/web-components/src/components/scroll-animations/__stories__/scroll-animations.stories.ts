@@ -168,4 +168,11 @@ export default {
       skip: true,
     },
   },
+  decorators: [
+    story => html`
+      <div class="story--container">
+        ${story()}
+      </div>
+    `,
+  ],
 };
