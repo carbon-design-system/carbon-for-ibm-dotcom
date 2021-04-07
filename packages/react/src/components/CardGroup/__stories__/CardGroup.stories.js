@@ -119,9 +119,6 @@ Default.story = {
         }).map(_ => defaultCard),
       }),
     },
-    percy: {
-      skip: true,
-    },
   },
 };
 
@@ -148,9 +145,6 @@ WithCTA.story = {
         }).map(_ => defaultCard),
         cta: groupCTA,
       }),
-    },
-    percy: {
-      skip: true,
     },
   },
 };
