@@ -54,7 +54,6 @@
     opacity: 0;
     z-index: 1;
     background-color: $inverse-02;
-    transition: opacity $transition--base motion(standard, productive);
   }
 
   .#{$prefix}--image__img {
