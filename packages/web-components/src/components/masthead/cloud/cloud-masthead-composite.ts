@@ -11,8 +11,11 @@ import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import './cloud-masthead-profile';
+import './cloud-megamenu-tabs';
+import './cloud-megamenu-tab';
+import './cloud-megamenu-tab-content';
 import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import styles from '../masthead.scss';
+import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -36,6 +39,44 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ attribute: false })
   unauthenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   *  Render MegaMenu content
+   *
+   * @param sections menu section data object
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegaMenu(sections) {
+    return html`
+      <dds-megamenu>
+        <dds-cloud-megamenu-tabs value="${sections[0].menuItems[1].title}">
+          ${sections[0].menuItems.map(
+            item =>
+              html`
+                <dds-cloud-megamenu-tab id="tab-${item.title}" target="panel-${item.title}" value="${item.title}"
+                  >${item.title}</dds-cloud-megamenu-tab
+                >
+              `
+          )}
+        </dds-cloud-megamenu-tabs>
+        <dds-cloud-megamenu-tab-content>
+          ${sections[0].menuItems.map(
+            item =>
+              html`
+                <div id="panel-${item.title}" role="tabpanel" aria-labelledby="tab-${item.title}" hidden>
+                  ${item?.megapanelContent?.quickLinks?.links.map(
+                    link =>
+                      html`
+                        <h4>${link.title}</h4>
+                      `
+                  )}
+                </div>
+              `
+          )}
+        </dds-cloud-megamenu-tab-content>
+      </dds-megamenu>
+    `;
+  }
 
   render() {
     const {

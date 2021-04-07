@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import User20 from 'carbon-web-components/es/icons/user/20.js';
 import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
-import styles from '../masthead.scss';
+import styles from './cloud-masthead.scss';
 import DDSMastheadProfile from '../masthead-profile';
 
 const { prefix } = settings;
