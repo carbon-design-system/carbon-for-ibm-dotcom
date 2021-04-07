@@ -132,11 +132,13 @@ WithCustomNavigation.story = {
             true,
             groupId
           ),
-          placeHolderText: text(
-            'search placeholder (placeHolderText)',
-            'Search all of IBM',
-            groupId
-          ),
+          placeHolderText: inPercy()
+            ? ''
+            : text(
+                'search placeholder (placeHolderText)',
+                'Search all of IBM',
+                groupId
+              ),
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
             'Lorem ipsum dolor sit amet',
