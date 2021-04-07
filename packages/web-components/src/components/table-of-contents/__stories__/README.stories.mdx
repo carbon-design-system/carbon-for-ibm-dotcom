@@ -30,7 +30,14 @@ import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-o
 ```scss
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+
+body {
+  scroll-behaviour: smooth;
+  overflow-y: scroll;
+}
 ```
+
+> 💡 `scroll-behaviour: smooth` ensures that scrolling triggered by `table-of-contents` is smooth.
 
 ### HTML
 
