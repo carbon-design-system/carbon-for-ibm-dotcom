@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,7 +65,7 @@ const CardCTA = ({
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
               },
               image: image,
-              copy: videoTitle[0].title,
+              heading: videoTitle[0].title,
               handleClick: e => CTALogic.setLightBox(e, openLightBox),
             }}
           />

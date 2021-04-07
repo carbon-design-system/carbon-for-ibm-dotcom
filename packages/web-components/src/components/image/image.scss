@@ -44,12 +44,6 @@
     @include ratio-base(16, 9, true);
   }
 
-  &:hover {
-    &::before {
-      opacity: 0.2;
-    }
-  }
-
   &::before {
     content: '';
     position: absolute;

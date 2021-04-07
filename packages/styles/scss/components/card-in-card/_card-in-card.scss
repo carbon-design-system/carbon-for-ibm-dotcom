@@ -20,9 +20,22 @@
     width: 100%;
 
     &:focus {
-      outline: 2px solid $focus;
-      position: relative;
-      z-index: 1;
+      outline: none;
+
+      ::slotted([slot='image']),
+      #{$dds-prefix}-card-in-card-image,
+      .#{$prefix}--card__wrapper {
+        z-index: -1;
+      }
+    }
+
+    &:hover {
+      ::slotted([slot='image']),
+      #{$dds-prefix}-card-in-card-image {
+        &::before {
+          opacity: 0.2;
+        }
+      }
     }
 
     .#{$prefix}--card-in-card__container {
