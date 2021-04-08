@@ -8,7 +8,8 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import {html, property, customElement, LitElement, query} from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
@@ -25,6 +26,7 @@ import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 
+const {prefix} = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -45,6 +47,19 @@ class DDSDotcomShellComposite extends LitElement {
   private _mastheadRenderRoot: Element | null = null;
 
   /**
+   * The masthead
+   */
+  @query(`.${ddsPrefix}-masthead`)
+  private _masthead?: HTMLElement;
+
+  /**
+   *
+   */
+  @query(`.${prefix}--tableofcontents__sidebar`)
+  private _tableOfContents?: HTMLElement;
+
+
+  /**
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
@@ -60,6 +75,62 @@ class DDSDotcomShellComposite extends LitElement {
     const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
+  }
+
+  /**
+   * The observer for the intersection of left-side content edge.
+   */
+  private _intersectionObserver: IntersectionObserver | null = null;
+
+  /**
+   * Cleans-up and creats the intersection observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new intersection observer.
+   */
+  private _cleanAndCreateIntersectionObserverContainer({ create }: { create?: boolean } = {}) {
+    console.log("HELLO")
+
+    const {  _tableOfContents: tableOfContents } = this;
+    if (this._intersectionObserver) {
+      this._intersectionObserver.disconnect();
+      this._intersectionObserver = null;
+    }
+    if (create) {
+      this._intersectionObserver = new IntersectionObserver(this._handleIntersect, {
+        root: this,
+        threshold: 0,
+      });
+      console.log(this._intersectionObserver, tableOfContents)
+      if(tableOfContents!){
+        this._intersectionObserver.observe(tableOfContents!);
+      }
+    }
+  }
+
+  /**
+   * The intersection observer callback for the scrolling container.
+   *
+   * @param records The intersection observer records.
+   */
+  private _handleIntersect = records => {
+    console.log("INTERSECT")
+    const { _tableOfContents: tableOfContents } = this;
+    records.forEach(({ isIntersecting, target }) => {
+      if (target ===  document.querySelector(`${prefix}--tableofcontents__sidebar`) ) {
+
+      }
+    });
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._cleanAndCreateIntersectionObserverContainer({ create: true });
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateIntersectionObserverContainer();
+    super.disconnectedCallback();
   }
 
   /**
