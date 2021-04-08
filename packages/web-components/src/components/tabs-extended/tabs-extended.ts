@@ -9,6 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, html, internalProperty, LitElement, TemplateResult } from 'lit-element';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
 import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -86,7 +87,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 aria-expanded="${index === this._activeTab}"
                 aria-controls="pane-${index}"
                 @click="${e => this._handleClick(index, e)}"
-                ?disabled="${(tab as DDSTab).disabled}">
+                ?disabled="${(tab as DDSTab).disabled}"
+              >
                 ${ChevronRight16({
                   part: 'expando-icon',
                   class: `${prefix}--accordion__arrow`,
@@ -94,7 +96,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 <div class="${prefix}--accordion__title">${(tab as DDSTab).label}</div>
               </button>
               <div id="pane-${index}" class="${prefix}--accordion__content">
-                ${(tab as DDSTab).innerHTML}
+                ${unsafeHTML((tab as DDSTab).innerHTML)}
               </div>
             </li>
           `;
@@ -119,7 +121,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
               data-target=".tab-${index}-default"
               role="tab"
               aria-selected="true"
-              ?disabled="${(tab as DDSTab).disabled}">
+              ?disabled="${(tab as DDSTab).disabled}"
+            >
               <a
                 tabindex="${index}"
                 id="tab-link-${index}-default"
@@ -128,7 +131,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 role="tab"
                 aria-controls="tab-panel-${index}-default"
                 @click="${e => this._handleClick(index, e)}"
-                >${(tab as DDSTab).label}</a>
+                >${(tab as DDSTab).label}</a
+              >
             </li>
           `;
         })}
