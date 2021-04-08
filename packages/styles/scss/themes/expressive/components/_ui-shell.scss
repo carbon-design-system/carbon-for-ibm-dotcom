@@ -46,7 +46,7 @@
 
   .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
     outline: none;
-    border-color: #f4f4f4;
+    border-color: $ui-01;
     box-shadow: none;
   }
 }
