@@ -25,7 +25,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines label of the tab.
    */
   @property({ reflect: true })
-  label = null;
+  label = '';
 
   /**
    * Defines the disabled state of the tab.

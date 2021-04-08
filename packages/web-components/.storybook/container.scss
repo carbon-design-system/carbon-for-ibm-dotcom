@@ -133,10 +133,15 @@ html {
     }
   }
 
-  .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
-  .dds-ce-demo-devenv--simple-grid--tabs-extended {
+  .dds-ce-demo-devenv--simple-grid--content-horizontal-media {
     > * {
       grid-column: 3 / span 12;
+    }
+  }
+
+  .dds-ce-demo-devenv--simple-grid--tabs-extended {
+    > * {
+      grid-column: 1 / span 12;
     }
   }
 

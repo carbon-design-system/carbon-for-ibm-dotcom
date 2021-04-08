@@ -16,21 +16,26 @@
   :host(#{$dds-prefix}-tabs-extended) {
     .#{$prefix}--tabs {
       display: none;
-      @include carbon--breakpoint(lg)  {
+      @include carbon--breakpoint(lg) {
         display: block;
       }
     }
     .#{$prefix}--tab-content {
       display: none;
-      @include carbon--breakpoint(lg)  {
+      @include carbon--breakpoint(lg) {
         display: block;
       }
     }
     .#{$prefix}--accordion {
       display: block;
-      @include carbon--breakpoint(lg)  {
+      @include carbon--breakpoint(lg) {
         display: none;
       }
+    }
+    .#{$prefix}--accordion__arrow {
+      flex: 0 0 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
     }
   }
 }
