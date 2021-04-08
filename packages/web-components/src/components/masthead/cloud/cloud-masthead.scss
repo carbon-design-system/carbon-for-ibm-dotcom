@@ -8,8 +8,30 @@
 @import '../masthead.scss';
 @import '../../cta/cta.scss';
 
+:host(#{$dds-prefix}-cloud-masthead-global-bar) {
+  @extend :host(#{$dds-prefix}-masthead-global-bar);
+
+  background-color: $ui-background;
+  flex: none;
+  z-index: 0;
+}
+
 :host(#{$dds-prefix}-cloud-button-cta) {
   @extend :host(#{$dds-prefix}-button-cta);
 
   margin: 0;
+  padding-right: 0;
+
+  &.console .bx--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-01;
+  }
+
+  .bx--btn {
+    padding: calc(0.875rem - 3px) 15px;
+  }
+
+  .bx--btn--ghost {
+    color: $text-01;
+  }
 }

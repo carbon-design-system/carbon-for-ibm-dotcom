@@ -10,8 +10,9 @@
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import './cloud-masthead-profile';
 import './cloud-button-cta';
+import './cloud-masthead-global-bar';
+import './cloud-masthead-profile';
 import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
@@ -111,7 +112,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
-        <dds-masthead-global-bar>
+        <dds-cloud-masthead-global-bar>
           ${authenticated
             ? html`
                 <dds-cloud-masthead-profile>
@@ -126,7 +127,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 ${ctaButtons?.map(
                   ({ title, url }) =>
                     html`
-                      <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
+                      <dds-cloud-button-cta href="${ifNonNull(url)}" class="console" kind="ghost">${title}</dds-cloud-button-cta>
                     `
                 )}
               `
@@ -145,7 +146,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                     `
                 )}
               `}
-        </dds-masthead-global-bar>
+        </dds-cloud-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
