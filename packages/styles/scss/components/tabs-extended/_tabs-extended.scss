@@ -15,25 +15,19 @@
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended) {
     .#{$prefix}--tabs {
-      @include carbon--breakpoint(md)  {
-        display: none;
-      }
+      display: none;
       @include carbon--breakpoint(lg)  {
         display: block;
       }
     }
     .#{$prefix}--tab-content {
-      @include carbon--breakpoint(md)  {
-        display: none;
-      }
+      display: none;
       @include carbon--breakpoint(lg)  {
         display: block;
       }
     }
     .#{$prefix}--accordion {
-      @include carbon--breakpoint(md)  {
-        display: block;
-      }
+      display: block;
       @include carbon--breakpoint(lg)  {
         display: none;
       }
