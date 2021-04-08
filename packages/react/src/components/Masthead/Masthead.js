@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -40,7 +40,6 @@ const { prefix } = settings;
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
- * @param {boolean} props.searchOpenOnloadNoBlur Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
  * @param {string} props.initialSearchTerm Initial value for search input
  * @param {object} props.platform Platform name that appears on L0.
@@ -55,7 +54,6 @@ const Masthead = ({
   hasProfile,
   hasSearch,
   searchOpenOnload,
-  searchOpenOnloadNoBlur,
   placeHolderText,
   initialSearchTerm,
   platform,
@@ -77,12 +75,10 @@ const Masthead = ({
    * @param {boolean} isSearchActive Whether the search bar is open
    * @returns {*} The active search status
    */
-  const [isSearchActive, setIsSearchActive] = useState(
-    searchOpenOnload || searchOpenOnloadNoBlur
-  );
-  const handleSearchActive = e => {
-    setIsSearchActive(e);
-  };
+  const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  const handleChangeSearchActive = useCallback((event, { isOpen }) => {
+    setIsSearchActive(isOpen);
+  }, []);
 
   useEffect(() => {
     // initialize global execution calls
@@ -260,15 +256,13 @@ const Masthead = ({
                     <MastheadSearch
                       {...mastheadProps}
                       {...(searchOpenOnload
-                        ? { searchOpenOnload: isSearchActive }
-                        : {})}
-                      {...(searchOpenOnloadNoBlur
-                        ? { searchOpenOnloadNoBlur: isSearchActive }
+                        ? { searchOpenOnload: searchOpenOnload }
                         : {})}
                       placeHolderText={placeHolderText}
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
-                      isSearchActive={handleSearchActive}
+                      isSearchActive={isSearchActive}
+                      onChangeSearchActive={handleChangeSearchActive}
                     />
                   )}
                 </div>
@@ -373,14 +367,9 @@ Masthead.propTypes = {
   hasSearch: PropTypes.bool,
 
   /**
-   * `true` to have search field open on page load.
+   * `true` to have search field open on page load. Does not close `onBlur`
    */
   searchOpenOnload: PropTypes.bool,
-
-  /**
-   * `true` to have search field open on page load. Search will not close on blur, but with close button only.
-   */
-  searchOpenOnloadNoBlur: PropTypes.bool,
 
   /**
    * Platform name that appears on L0.

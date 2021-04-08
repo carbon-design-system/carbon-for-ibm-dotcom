@@ -159,16 +159,6 @@ SearchOpenOnload.story = {
   },
 };
 
-export const SearchOpenOnloadNoBlur = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnloadNoBlur />
-);
-
-SearchOpenOnloadNoBlur.story = {
-  parameters: {
-    knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
-  },
-};
-
 export const WithPlatform = ({ parameters }) => (
   <Default parameters={parameters} />
 );

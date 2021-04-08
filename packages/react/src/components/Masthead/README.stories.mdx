@@ -159,7 +159,7 @@ ${SEARCH_REDIRECT_ENDPOINT}&q=${encodeURIComponent(value)}&lang=${state.lc}&cc=$
 
 **Custom typeahead API**
 
-To use a custom endpoint, pass `customTypeaheadApi` to get the response 
+To use a custom endpoint, pass `customTypeaheadApi` to get the response
 and transform the data if needed.
 
 ```javascript
@@ -205,7 +205,6 @@ async function customTypeaheadApi(searchVal) {
 }
 
 <Masthead customTypeaheadApi={customTypeaheadApi} multiSection />;
-
 ```
 
 The results must follow this stucture:
@@ -223,9 +222,7 @@ The results must follow this stucture:
   },
   // additional sections
 ]
-
 ```
-
 
 
 ## platform
@@ -240,16 +237,6 @@ const platformData = {
 };
 
 <Masthead platform={platformData} navigation="default" />;
-```
-
-## searchAlwaysOpen
-
-Search will always be open, it cannot be closed.
-Clicking the close button will clear and focus the search input only.
-> This should only be used when there are no navigation items in the masthead.
-
-```javascript
-<Masthead navigation="default" searchAlwaysOpen />;
 ```
 
 ## searchNoRedirect
