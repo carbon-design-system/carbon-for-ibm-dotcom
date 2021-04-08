@@ -8,19 +8,14 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
 
 //-----------------------------
-// Date Picker (expressive)
+// Combo Box (expressive)
 //-----------------------------
 
-/// Date picker styles (expressive)
+/// Combo Box styles (expressive)
 /// @access private
-/// @group dropdown-expressive
-@mixin dropdown-expressive {
-  .#{$prefix}--dropdown.#{$prefix}--list-box--sm,
-  .#{$prefix}--dropdown.#{$prefix}--list-box--sm .#{$prefix}--list-box__field {
-    height: 2.5rem;
-  }
-
-  .#{$prefix}--dropdown.#{$prefix}--list-box {
+/// @group multi-select-expressive
+@mixin multi-select-expressive {
+  .#{$prefix}--multi-select.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
       top: 0.75rem;
       svg {
