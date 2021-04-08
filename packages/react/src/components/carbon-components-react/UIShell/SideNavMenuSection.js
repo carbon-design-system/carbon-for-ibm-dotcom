@@ -71,8 +71,12 @@ const SideNavMenuSection = ({
         <>
           <button
             className={`${prefix}--masthead__focus`}
-            onFocus={() => {
-              rest.focusNode.focus();
+            onFocus={e => {
+              const lastMenuItem =
+                e.target.parentElement.querySelector(
+                  'li:last-of-type button'
+                ) || e.target.parentElement.querySelector('li:last-of-type a');
+              return lastMenuItem.focus();
             }}
             aria-hidden={true}
           />
@@ -108,7 +112,7 @@ const SideNavMenuSection = ({
       <button
         className={`${prefix}--masthead__focus`}
         onFocus={e => {
-          if (rest.focusNode && !rest.isSubmenu) {
+          if (rest.focusNode) {
             rest.focusNode.focus();
           } else {
             e.target.parentElement
