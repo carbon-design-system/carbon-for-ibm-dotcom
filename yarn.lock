@@ -3776,14 +3776,6 @@
     "@carbon/icon-helpers" "^10.15.0"
     prop-types "^15.7.2"
 
-"@carbon/icons-react@^10.26.0":
-  version "10.29.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.29.0.tgz#dea9920921f087b2c0e969f2ae2d95cee70e7ae9"
-  integrity sha512-EIupNXYnz9nJQyJO0/ZW4c8vrVjrWzXrJCFkN+x6Y7wtjDrrmN/AgRlp/m8D+AmojsdDAtY9fXBLN/93XowmRw==
-  dependencies:
-    "@carbon/icon-helpers" "^10.15.0"
-    prop-types "^15.7.2"
-
 "@carbon/icons@10.28.0":
   version "10.28.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.28.0.tgz#54d94972e5c0cf56aab9c424e8c436a4c7fe9818"
@@ -9601,27 +9593,6 @@ capture-exit@^2.0.0:
   integrity sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g==
   dependencies:
     rsvp "^4.8.4"
-
-carbon-components-react@7.29.0:
-  version "7.29.0"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.29.0.tgz#1869b3070aa1e80cdcebe95c23c476e2af72852c"
-  integrity sha512-fcCo46EeGk+6aemmjaQtPkkjN7niVBG51uIM6HJx8Xug2f+APqt9k+B0zgViYLkeXm471p5qtxqBtcA//5xKog==
-  dependencies:
-    "@carbon/icons-react" "^10.26.0"
-    "@carbon/telemetry" "0.0.0-alpha.6"
-    classnames "2.2.6"
-    downshift "5.2.1"
-    flatpickr "4.6.1"
-    invariant "^2.2.3"
-    lodash.debounce "^4.0.8"
-    lodash.findlast "^4.5.0"
-    lodash.isequal "^4.5.0"
-    lodash.omit "^4.5.0"
-    lodash.throttle "^4.1.1"
-    react-is "^16.8.6"
-    use-resize-observer "^6.0.0"
-    warning "^3.0.0"
-    window-or-global "^1.0.1"
 
 carbon-components-react@7.31.0:
   version "7.31.0"

@@ -61,7 +61,7 @@
     "babel-loader": "^8.0.6",
     "browserslist-config-carbon": "^10.4.0",
     "cache-loader": "^4.1.0",
-    "carbon-components-react": "7.29.0",
+    "carbon-components-react": "7.31.0",
     "css-loader": "^5.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
