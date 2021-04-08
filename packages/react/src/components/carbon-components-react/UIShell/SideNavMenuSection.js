@@ -42,7 +42,8 @@ const SideNavMenuSection = ({
           function focus(event) {
             if (
               event.propertyName === 'left' ||
-              event.propertyName === 'background-color'
+              event.propertyName === 'background-color' ||
+              event.propertyName === 'color'
             ) {
               focusElement.focus();
             }
