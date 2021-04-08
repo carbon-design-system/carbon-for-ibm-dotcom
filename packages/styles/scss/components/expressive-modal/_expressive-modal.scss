@@ -38,6 +38,11 @@
     }
   }
 
+  :host(#{$dds-prefix}-expressive-modal-footer) #{$modal}-footer {
+    justify-content: flex-start;
+    height: rem(48px);
+  }
+
   :host(#{$dds-prefix}-expressive-modal-close-button) {
     #{$modal}-close {
       position: fixed;

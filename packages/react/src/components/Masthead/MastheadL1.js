@@ -60,18 +60,22 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
   return (
     <>
       <div className={className}>
-        <div className={`${prefix}--masthead__l1-name`}>
-          <span className={`${prefix}--masthead__l1-name-title`}>
-            <a href={titleLink}>{title}</a>
-          </span>
+        <div className={`${prefix}--masthead__l1-inner-container`}>
+          <div
+            className={`${prefix}--masthead__l1-name`}
+            aria-selected={!rest.selectedMenuItem}>
+            <span className={`${prefix}--masthead__l1-name-title`}>
+              <a href={titleLink}>{title}</a>
+            </span>
+          </div>
+          <HeaderNavContainer>
+            <HeaderNavigation
+              className={`${prefix}--masthead__l1-nav`}
+              aria-label="">
+              {mastheadL1Links}
+            </HeaderNavigation>
+          </HeaderNavContainer>
         </div>
-        <HeaderNavContainer>
-          <HeaderNavigation
-            className={`${prefix}--masthead__l1-nav`}
-            aria-label="">
-            {mastheadL1Links}
-          </HeaderNavigation>
-        </HeaderNavContainer>
       </div>
     </>
   );

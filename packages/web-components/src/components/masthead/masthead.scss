@@ -132,6 +132,7 @@
 :host(#{$dds-prefix}-top-nav),
 :host(#{$dds-prefix}-top-nav-l1) {
   display: none;
+  background-color: $ui-background;
 
   @include carbon--breakpoint(800px) {
     flex: 1;
