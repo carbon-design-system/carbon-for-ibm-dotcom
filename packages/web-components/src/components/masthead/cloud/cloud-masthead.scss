@@ -1,11 +1,40 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../../../scss/components/masthead/masthead';
+@import '../masthead.scss';
+@import '../../cta/cta.scss';
+
+:host(#{$dds-prefix}-cloud-masthead-global-bar) {
+  @extend :host(#{$dds-prefix}-masthead-global-bar);
+
+  background-color: $ui-background;
+  flex: none;
+  z-index: 0;
+}
+
+:host(#{$dds-prefix}-cloud-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-right: 0;
+
+  &.console .bx--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-01;
+  }
+
+  .bx--btn {
+    padding: calc(0.875rem - 3px) 15px;
+  }
+
+  .bx--btn--ghost {
+    color: $text-01;
+  }
+}
 
 :host(#{$dds-prefix}-cloud-megamenu-tabs) {
   display: flex;

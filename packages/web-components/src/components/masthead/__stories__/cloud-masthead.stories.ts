@@ -70,41 +70,48 @@ export const Default = !DDS_CLOUD_MASTHEAD
       `;
     };
 
-export default {
-  title: 'Components/Cloud Masthead',
-  decorators: [
-    story => {
-      if (!(window as any)._hPageShow) {
-        (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
-          if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+export default !DDS_CLOUD_MASTHEAD
+  ? undefined
+  : {
+      title: 'Components/Cloud Masthead',
+      decorators: [
+        story => {
+          if (!(window as any)._hPageShow) {
+            (window as any)._hPageShow = on(window, 'pageshow', () => {
+              const leftNav = document.querySelector('dds-left-nav');
+              if (leftNav) {
+                (leftNav as DDSLeftNav).expanded = false;
+              }
+            });
           }
-        });
-      }
-      return story();
-    },
-  ],
-  parameters: {
-    ...readme.parameters,
-    'carbon-theme': { disabled: true },
-    knobs: {
-      escapeHTML: false,
-      CloudMastheadComposite: ({ groupId }) => ({
-        userStatus: select('The user authenticated status (user-status)', ['authenticated', 'anonymous'], 'anonymous', groupId),
-      }),
-    },
-    props: (() => {
-      // Lets `<dds-cloud-masthead-container>` load the nav links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
-      return {
-        MastheadComposite: {
-          navLinks: !useMock ? undefined : links,
+          return story();
         },
-        Other: {
-          useMock,
+      ],
+      parameters: {
+        ...readme.parameters,
+        'carbon-theme': { disabled: true },
+        knobs: {
+          escapeHTML: false,
+          CloudMastheadComposite: ({ groupId }) => ({
+            userStatus: select(
+              'The user authenticated status (user-status)',
+              ['authenticated', 'anonymous'],
+              'anonymous',
+              groupId
+            ),
+          }),
         },
-      };
-    })(),
-  },
-};
+        props: (() => {
+          // Lets `<dds-cloud-masthead-container>` load the nav links
+          const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+          return {
+            MastheadComposite: {
+              navLinks: !useMock ? undefined : links,
+            },
+            Other: {
+              useMock,
+            },
+          };
+        })(),
+      },
+    };

@@ -10,6 +10,8 @@
 import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import './cloud-button-cta';
+import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
@@ -34,6 +36,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ attribute: false })
   authenticatedCtaButtons?: MastheadProfileItem[];
+
+  /**
+   * Text for Contact us button
+   */
+  @property({ attribute: false })
+  contactUsButton?: MastheadProfileItem;
 
   /**
    * The profile items for unauthenticated state.
@@ -85,6 +93,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       activateSearch,
       authenticatedProfileItems,
       authenticatedCtaButtons,
+      contactUsButton,
       currentSearchResults,
       platform,
       platformUrl,
@@ -146,24 +155,41 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
-        <dds-masthead-global-bar>
-          <dds-cloud-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems?.map(
-              ({ title, url }) =>
-                html`
-                  <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
-                `
-            )}
-          </dds-cloud-masthead-profile>
-          ${ctaButtons?.map(
-            ({ title, url }) =>
-              html`
-                <dds-cloud-button-cta href="${ifNonNull(url)}" role icon-layout size cta-type kind="primary"
-                  >${title}</dds-cloud-button-cta
-                >
+        <dds-cloud-masthead-global-bar>
+          ${authenticated
+            ? html`
+                <dds-cloud-masthead-profile>
+                  ${profileItems?.map(
+                    ({ title, url }) =>
+                      html`
+                        <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
+                      `
+                  )}
+                </dds-cloud-masthead-profile>
+                <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                ${ctaButtons?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta href="${ifNonNull(url)}" class="console" kind="ghost">${title}</dds-cloud-button-cta>
+                    `
+                )}
               `
-          )}
-        </dds-masthead-global-bar>
+            : html`
+                <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                ${profileItems?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta href="${ifNonNull(url)}" kind="ghost">${title}</dds-cloud-button-cta>
+                    `
+                )}
+                ${ctaButtons?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta href="${ifNonNull(url)}" kind="primary">${title}</dds-cloud-button-cta>
+                    `
+                )}
+              `}
+        </dds-cloud-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>

@@ -17,11 +17,6 @@
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
-@import '../cta/cta.scss';
-
-:host(#{$dds-prefix}-cloud-button-cta) {
-  @extend :host(#{$dds-prefix}-button-cta);
-}
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
