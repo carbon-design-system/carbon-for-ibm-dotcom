@@ -8,8 +8,7 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import {html, property, customElement, LitElement, query} from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
@@ -26,7 +25,6 @@ import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 
-const {prefix} = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -45,19 +43,6 @@ class DDSDotcomShellComposite extends LitElement {
    * The render target of the masthead contents.
    */
   private _mastheadRenderRoot: Element | null = null;
-
-  /**
-   * The masthead
-   */
-  @query(`.${ddsPrefix}-masthead`)
-  private _masthead?: HTMLElement;
-
-  /**
-   *
-   */
-  @query(`.${prefix}--tableofcontents__sidebar`)
-  private _tableOfContents?: HTMLElement;
-
 
   /**
    * @returns The render root of the footer contents.
@@ -82,43 +67,35 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _intersectionObserver: IntersectionObserver | null = null;
 
-  /**
-   * Cleans-up and creats the intersection observer for the scrolling container.
-   *
-   * @param [options] The options.
-   * @param [options.create] `true` to create the new intersection observer.
-   */
-  private _cleanAndCreateIntersectionObserverContainer({ create }: { create?: boolean } = {}) {
-    console.log("HELLO")
+  private _tableOfContents?: HTMLElement;
 
-    const {  _tableOfContents: tableOfContents } = this;
+  private _masthead?: HTMLElement;
+
+  private _cleanAndCreateIntersectionObserverContainer({ create }: { create?: boolean } = {}) {
+    const { _tableOfContents: tableOfContents } = this;
     if (this._intersectionObserver) {
       this._intersectionObserver.disconnect();
       this._intersectionObserver = null;
     }
     if (create) {
       this._intersectionObserver = new IntersectionObserver(this._handleIntersect, {
-        root: this,
-        threshold: 0,
+        rootMargin: ' -145px 0px -48px 0px',
+        threshold: 0.1,
       });
-      console.log(this._intersectionObserver, tableOfContents)
-      if(tableOfContents!){
+      if (tableOfContents) {
         this._intersectionObserver.observe(tableOfContents!);
       }
     }
   }
 
-  /**
-   * The intersection observer callback for the scrolling container.
-   *
-   * @param records The intersection observer records.
-   */
   private _handleIntersect = records => {
-    console.log("INTERSECT")
-    const { _tableOfContents: tableOfContents } = this;
-    records.forEach(({ isIntersecting, target }) => {
-      if (target ===  document.querySelector(`${prefix}--tableofcontents__sidebar`) ) {
-
+    records.forEach(({ isIntersecting }) => {
+      if (!isIntersecting) {
+        this._masthead!.style.transform = 'translateY(-48px)';
+        this._masthead!.style.transition = 'transform 240ms cubic-bezier(0.4, 0.14, 1, 1);';
+      } else {
+        this._masthead!.style.transform = 'translateY(0)';
+        this._masthead!.style.transition = 'transform 240ms cubic-bezier(0.4, 0.14, 1, 1);';
       }
     });
   };
@@ -399,6 +376,15 @@ class DDSDotcomShellComposite extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
+
+    if (!this._tableOfContents) {
+      this._tableOfContents = document
+        .querySelector('dds-table-of-contents')
+        ?.shadowRoot?.querySelector('.bx--tableofcontents__sidebar') as HTMLElement;
+      this._masthead = document.querySelector('dds-masthead') as HTMLElement;
+      this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    }
+
     if (!this._mastheadRenderRoot) {
       this._mastheadRenderRoot = this._createMastheadRenderRoot();
     }
