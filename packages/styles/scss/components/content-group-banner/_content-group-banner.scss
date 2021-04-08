@@ -12,12 +12,11 @@
   :host(#{$dds-prefix}-content-group-banner),
   .#{$prefix}--content-group-banner {
     background: $ui-background;
-    padding-top: $spacing-03;
-    padding-bottom: $spacing-03;
+    padding-top: $spacing-07;
+    padding-bottom: $spacing-07;
 
     @include carbon--breakpoint('md') {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-07;
+      padding-bottom: $spacing-09;
     }
 
     ::slotted(#{$dds-prefix}-content-group-heading),

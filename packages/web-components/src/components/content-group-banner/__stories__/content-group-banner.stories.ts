@@ -14,6 +14,7 @@ import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../content-group/content-group-heading';
 import '../../cta/link-list-item-cta';
+import '../../cta/video-cta-container';
 import '../../link-list/link-list';
 import '../../link-list/link-list-item';
 import '../content-group-banner';
@@ -90,9 +91,9 @@ export default {
   title: 'Components/Content group banner',
   decorators: [
     story => html`
-      <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-group-banner">
+      <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-group-banner">
         ${story()}
-      </div>
+      </dds-video-cta-container>
     `,
   ],
   parameters: {
