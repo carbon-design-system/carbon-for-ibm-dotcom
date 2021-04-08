@@ -17,6 +17,7 @@ import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { boolean } from '@storybook/addon-knobs';
 
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
@@ -26,7 +27,17 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
+  const { video, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
+  if (video) {
+    return html`
+      <dds-video-cta-container>
+        <dds-card-in-card href="1_9h94wo6b" cta-type="video">
+          <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+          <dds-card-cta-footer cta-type="video" href="1_9h94wo6b"></dds-card-cta-footer>
+        </dds-card-in-card>
+      </dds-video-cta-container>
+    `;
+  }
   return html`
     <dds-card-in-card href=${ifNonNull(href || undefined)}>
       <dds-card-in-card-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
@@ -43,29 +54,6 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const withVideo = ({ parameters }) => {
-  const { eyebrow } = parameters?.props?.['dds-card-in-card'] ?? {};
-  return html`
-    <dds-video-cta-container>
-      <dds-card-in-card href="1_9h94wo6b" cta-type="video">
-        <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-        <dds-card-cta-footer cta-type="video" href="1_9h94wo6b"></dds-card-cta-footer>
-      </dds-card-in-card>
-    </dds-video-cta-container>
-  `;
-};
-
-withVideo.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      'dds-card-in-card': () => ({
-        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
-      }),
-    },
-  },
-};
-
 export default {
   title: 'Components/Card in Card',
   decorators: [
@@ -79,13 +67,23 @@ export default {
     ...readme.parameters,
     hasGrid: true,
     knobs: {
-      'dds-card-in-card': () => ({
-        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
-        heading: textNullable('Card Heading (heading):', 'Standard Bank Group prepares to embrace Africa’s AI opportunity'),
-        defaultSrc: textNullable('Image src (defaultSrc):', imgSm4x3),
-        alt: textNullable('Image alt text (alt):', 'Image alt text'),
-        href: textNullable('Card Href (href):', 'https://example.com'),
-      }),
+      'dds-card-in-card': () => {
+        const video = boolean('video', false);
+        const alt = video ? undefined : textNullable('Image alt text (alt):', 'Image alt text');
+        const defaultSrc = video ? undefined : textNullable('Image src (defaultSrc):', imgSm4x3);
+        const heading = video
+          ? undefined
+          : textNullable('Card Heading (heading):', 'Standard Bank Group prepares to embrace Africa’s AI opportunity');
+        const href = video ? undefined : textNullable('Card Href (href):', 'https://example.com');
+        return {
+          video,
+          alt,
+          defaultSrc,
+          heading,
+          href,
+          eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Label'),
+        };
+      },
     },
   },
 };
