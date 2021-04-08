@@ -18,11 +18,14 @@ import '../../button-group/button-group-item';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
+import '../../cta-block/cta-block';
 import '../cta-section';
-import '../cta-section-copy';
-import '../cta-section-item';
-import '../cta-section-item-heading';
-import '../cta-section-item-copy';
+import '../../cta-block/cta-block';
+import '../../content-item/content-item';
+import '../../content-item/content-item-copy';
+import '../../content-item/content-item-heading';
+import '../../content-block/content-block-heading';
+import '../../content-block/content-block-copy';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -37,100 +40,14 @@ const iconOptions = {
 
 export const Default = ({ parameters }) => {
   const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   return html`
     <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${copy}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-    </dds-cta-section>
-  `;
-};
-
-export const WithContentItems = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
-
-  return html`
-    <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
-        <dds-cta-section-item-copy
-          >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
-          you.</dds-cta-section-item-copy
-        >
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-      </dds-cta-section-item>
-
-      <dds-cta-section-item>
-        <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-        <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
-        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-      </dds-cta-section-item>
-    </dds-cta-section>
-  `;
-};
-
-export const WithLinkList = ({ parameters }) => {
-  const { heading, copy, renderIcon } = parameters?.props?.CTASection ?? {};
-  const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
-
-  return html`
-    <dds-cta-section>
-      <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
-
-      <dds-button-group slot="action">
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Secondary Button ${renderIcon}
-        </dds-button-group-item>
-        <dds-button-group-item target="${target}" href="https://example.com">
-          Primary button ${renderIcon}
-        </dds-button-group-item>
-      </dds-button-group>
-
-      <dds-link-list slot="link-list" type="end">
-        <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
-        <dds-link-list-item href="https://example.com">
-          Events ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Blogs ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Training ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Developer resources ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          Research ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
-          News ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-      </dds-link-list>
+      <dds-content-section-heading>Optional title heading-01, color text-01</dds-content-section-heading>
+      <dds-cta-block>
+        <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
+        <dds-content-block-copy>${copy}</dds-content-block-copy>
+        <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
     </dds-cta-section>
   `;
 };
@@ -139,7 +56,7 @@ export default {
   title: 'Components/CTA Section',
   decorators: [
     (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+      <div class="">
         ${story()}
       </div>
     `,
@@ -150,10 +67,10 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       CTASection: ({ groupId }) => ({
-        heading: textNullable('Heading (required)', 'Take the next step', groupId),
+        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
         copy: textNullable(
           'Copy text (copy)',
-          'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
+          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose. eiusmode tempor incididunt ut labore et dolore magnae aliqua. Ut enim ad minim veni',
           groupId
         ),
         renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],

@@ -9,25 +9,25 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import '../cta-section';
+import '../cta-block';
 
 const template = (props?) => {
   const { copy, heading, children } = props ?? {};
   return html`
-    <dds-cta-section>
+    <dds-cta-block>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
-      <dds-cta-section-copy>${ifNonNull(copy)}</dds-cta-section-copy>
+      <dds-cta-block-copy>${ifNonNull(copy)}</dds-cta-block-copy>
       ${children}
-    </dds-cta-section>
+    </dds-cta-block>
   `;
 };
 
-describe('dds-cta-section', function() {
+describe('dds-cta-block', function() {
   describe('Misc attributes', function() {
     it('should render with minimum attributes', async function() {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-cta-section')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({ mode: 'shadow' });
     });
 
     it('should render with various attributes', async function() {
@@ -45,7 +45,7 @@ describe('dds-cta-section', function() {
       await Promise.resolve(); // The update cycle of `<dds-cta-section>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-cta-section')).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 

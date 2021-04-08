@@ -13,6 +13,7 @@
 :host(#{$dds-prefix}-content-item-copy),
 :host(#{$dds-prefix}-content-item-paragraph) {
   display: block;
+  flex: 1;
 }
 
 :host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-image-with-caption),

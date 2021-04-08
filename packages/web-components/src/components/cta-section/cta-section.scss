@@ -5,84 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/ctasection/ctasection';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
 
 :host(#{$dds-prefix}-cta-section) {
-  padding-left: $carbon--layout-01;
-  @include cta-section--pattern;
-
   display: block;
-
-  @include carbon--breakpoint('sm') {
-    padding-top: $carbon--layout-03;
+  ::slotted(#{$dds-prefix}-cta-block) {
+    padding-left: $carbon--spacing-03;
   }
-
-  @include carbon--breakpoint('lg') {
-    padding-top: $carbon--layout-05;
-  }
-
-  ::slotted([slot='action']) {
-    margin-top: $carbon--layout-01;
-    padding-bottom: $carbon--layout-03;
-
-    @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-05;
-    }
-
-    @include carbon--breakpoint('lg') {
-      padding-bottom: $carbon--layout-06;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-cta-section-copy) {
-  @include carbon--type-style('expressive-heading-03', true);
-
-  display: inline-block;
-  max-width: 640px;
-
-  ::slotted(p) {
-    margin-bottom: 0;
-
-    /* stylelint-disable-next-line declaration-no-important */
-    font-size: calc(1.25rem + 0 * ((100vw - 20rem) / 62)) !important;
-  }
-
-  @include carbon--breakpoint('sm') {
-    width: 100%;
-  }
-
-  @include carbon--breakpoint('md') {
-    width: 90%;
-  }
-}
-
-:host(#{$dds-prefix}-cta-section-item) {
-  width: 100%;
-  margin-top: $carbon--spacing-07;
-  margin-bottom: 0;
-  padding-bottom: $carbon--spacing-05;
-  position: relative;
-
-  @include carbon--make-col-ready;
-
-  @include carbon--breakpoint('md') {
-    @include carbon--make-col(4, 8);
-  }
-}
-
-:host(#{$dds-prefix}-cta-section-item-heading) {
-  @include carbon--type-style('expressive-heading-02', true);
-
-  display: block;
-  width: 100%;
-
-  @include carbon--breakpoint('md') {
-    width: 90%;
-  }
-}
-
-.#{$dds-prefix}-ce--cta-section__col {
-  @include dds--make-col(2, 3);
 }
