@@ -31,7 +31,7 @@ const SideNavMenuSection = ({
     if (show) {
       /**
        * In order for tabbing to work, focus has to be set in the menu section when it
-       * is visible. If menu section is a submenu, set focus to the back button. If menu section
+       * becomes visible. If menu section is a submenu, set focus to the back button. If menu section
        * is the first parent section, set focus to the hamburger toggle button.
        *
        * @param {Node} focusElement node element to focus
@@ -69,6 +69,13 @@ const SideNavMenuSection = ({
     <div className={className} id={rest.id} ref={menuSectionRef}>
       {rest.isSubmenu && (
         <>
+          <button
+            className={`${prefix}--masthead__focus`}
+            onFocus={() => {
+              rest.focusNode.focus();
+            }}
+            aria-hidden={true}
+          />
           <SideNavMenuBackButton
             ref={backButtonRef}
             onBackClick={onBackClick}
@@ -101,10 +108,12 @@ const SideNavMenuSection = ({
       <button
         className={`${prefix}--masthead__focus`}
         onFocus={e => {
-          if (rest.focusNode) {
+          if (rest.focusNode && !rest.isSubmenu) {
             rest.focusNode.focus();
           } else {
-            e.target.parentElement.querySelector('button').focus();
+            e.target.parentElement
+              .querySelector('button[isbackbutton="true"]')
+              .focus();
           }
         }}
         aria-hidden={true}

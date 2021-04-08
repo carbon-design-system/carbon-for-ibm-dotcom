@@ -101,12 +101,18 @@ const MastheadLeftNav = ({
         );
       }
     });
+
+    const menuToggleButton = sideNavRef.current?.parentNode.querySelector(
+      `.${prefix}--header__menu-toggle`
+    );
+
     const level1 = _renderLevel1Submenus(
       level1Items,
       backButtonText,
       setMenuState,
       menuState,
-      rest.navType
+      rest.navType,
+      menuToggleButton
     );
 
     const level2Submenus = _renderLevel2Submenus(
@@ -114,16 +120,15 @@ const MastheadLeftNav = ({
       backButtonText,
       setMenuState,
       menuState,
-      rest.navType
+      rest.navType,
+      menuToggleButton
     );
 
     return (
       <div>
         <SideNavMenuSection
           id={`panel__(-1,-1)`}
-          focusNode={sideNavRef.current?.parentNode.querySelector(
-            `.${prefix}--header__menu-toggle`
-          )}
+          focusNode={menuToggleButton}
           show={menuState.level0 === -1}>
           {level0Items}
         </SideNavMenuSection>
@@ -166,6 +171,7 @@ const MastheadLeftNav = ({
  * @param {Function} setMenuState setState func
  * @param {object} menuState currrent menu that is visible
  * @param {string} navType navigation type
+ * @param {Node} focusNode menu toggle button
  * @returns {object} JSX object
  */
 function _renderLevel1Submenus(
@@ -173,7 +179,8 @@ function _renderLevel1Submenus(
   backButtonText,
   setMenuState,
   menuState,
-  navType
+  navType,
+  focusNode
 ) {
   // gather submenu items for next level
   const submenus = [];
@@ -203,6 +210,7 @@ function _renderLevel1Submenus(
         heading={menu.sections[0]?.heading}
         title={menu.title}
         navType={navType}
+        focusNode={focusNode}
         backButtonText={backButtonText}
         onBackClick={() => setMenuState({ level0: -1, level1: -1 })}
         show={menuState.level0 === menu.parentKey && menuState.level1 === -1}>
@@ -260,6 +268,7 @@ function _renderLevel1Submenus(
  * @param {Function} setMenuState setState func
  * @param {object} menuState currrent menu that is visible
  * @param {string} navType navigation type
+ * @param {Node} focusNode menu toggle button
  * @returns {object} JSX object
  */
 function _renderLevel2Submenus(
@@ -267,7 +276,8 @@ function _renderLevel2Submenus(
   backButtonText,
   setMenuState,
   menuState,
-  navType
+  navType,
+  focusNode
 ) {
   const sideNavMenuSections = menuItems.map(menu => {
     return (
@@ -278,6 +288,7 @@ function _renderLevel2Submenus(
         title={menu.title}
         titleUrl={menu.titleUrl}
         navType={navType}
+        focusNode={focusNode}
         backButtonText={backButtonText}
         onBackClick={() => setMenuState({ ...menuState, level1: -1 })}
         show={
