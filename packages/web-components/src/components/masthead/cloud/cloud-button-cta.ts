@@ -10,8 +10,8 @@
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { CTA_TYPE } from '../../cta/defs';
-import DDSButtonCTA from '../../cta/button-cta';
-import styles from '../masthead.scss';
+import DDSButtonExpressive from '../../button/button';
+import styles from './cloud-masthead.scss';
 
 export { CTA_TYPE };
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-button-cta
  */
 @customElement(`${ddsPrefix}-cloud-button-cta`)
-class DDSCloudButtonCTA extends DDSButtonCTA {
+class DDSCloudButtonCTA extends DDSButtonExpressive {
   static styles = styles;
 }
 

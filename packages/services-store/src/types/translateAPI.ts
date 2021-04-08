@@ -142,6 +142,7 @@ export interface MastheadProfileContent {
   iconLabel: string;
   links: MastheadProfileItem[];
   ctaButtons: MastheadProfileItem[];
+  contactUsButton: string;
 }
 
 /**
@@ -190,6 +191,7 @@ export interface Translation {
    * Cloud masthead profile items
    */
   masthead: {
+    contact: MastheadProfileContent;
     profileMenu: {
       signedout: MastheadProfileContent;
       signedin: MastheadProfileContent;

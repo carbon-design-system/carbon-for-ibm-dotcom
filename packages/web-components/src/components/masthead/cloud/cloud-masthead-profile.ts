@@ -12,8 +12,7 @@ import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import User20 from 'carbon-web-components/es/icons/user/20.js';
-import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
-import styles from '../masthead.scss';
+import styles from './cloud-masthead.scss';
 import DDSMastheadProfile from '../masthead-profile';
 
 const { prefix } = settings;
@@ -27,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-cloud-masthead-profile`)
 class DDSCloudMastheadProfile extends DDSMastheadProfile {
   render() {
-    const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
+    const { expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
     return html`
       <a
         role="menuitem"
@@ -39,7 +38,7 @@ class DDSCloudMastheadProfile extends DDSMastheadProfile {
         aria-label="${ifDefined(triggerLabel)}"
         @click=${handleClick}
       >
-        ${authenticated ? UserOnline20() : User20()}
+        ${User20()}
       </a>
       <ul role="menu" class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">
         <slot></slot>
