@@ -300,3 +300,78 @@ WithAlternateLogoAndTooltip.story = {
     },
   },
 };
+
+export const WithAnnouncementBand = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} />
+);
+
+WithAnnouncementBand.story = {
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      Masthead: ({ groupId }) => {
+        const useMockData = boolean('Use mock data', inPercy());
+
+        // For mocking in integration tests
+        // TODO: See if `TranslationAPI.getTranslation()` call can be avoided when we use mock data
+        TranslationAPI.getTranslation = !useMockData
+          ? origGetTranslation
+          : () =>
+              new Promise(resolve => {
+                setTimeout(resolve, 300000);
+              });
+
+        const customProfileLogin = DDS_CUSTOM_PROFILE_LOGIN
+          ? text(
+              'custom profile login url (customProfileLogin)',
+              'https://www.example.com/',
+              groupId
+            )
+          : null;
+
+        return {
+          navigation: useMockData
+            ? mastheadKnobs.navigation.custom
+            : mastheadKnobs.navigation.default,
+          platform: select(
+            'platform name (platform)',
+            mastheadKnobs.platform,
+            mastheadKnobs.platform.none,
+            groupId
+          ),
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          customProfileLogin,
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          hasAnnouncementBand: boolean(
+            'show the announcement band functionality (hasAnnouncementBand)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+          initialSearchTerm: text(
+            'initial search term (initialSearchTerm)',
+            '',
+            groupId
+          ),
+          selectedMenuItem: text(
+            'selected menu item (selectedMenuItem)',
+            'Services & Consulting',
+            groupId
+          ),
+        };
+      },
+    },
+  },
+};

@@ -22,7 +22,7 @@ const { prefix } = settings;
 /**
  * MastHead L1 component.
  */
-const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
+const MastheadL1 = ({ title, titleLink, navigationL1, isScrolledBelowAnnouncement, ...rest }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
   });
@@ -40,6 +40,9 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
           })}
           selected={selected}
           autoId={autoid}
+          hasL1={true}
+          isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
+          hasMegapanel={link.hasMegapanel}
           key={index}>
           {renderNav(link, rest.navType, autoid)}
         </HeaderMenu>

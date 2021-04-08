@@ -86,14 +86,17 @@ class HeaderMenu extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(this.props.hasL1)
     this.state = {
       // Used to manage the expansion state of the menu
       expanded: false,
       // Refers to the menuitem that is currently focused
       // Note: children should have `role="menuitem"` on node consuming ref
       selectedIndex: null,
+      megamenuOffset: this.props.hasL1 ? 96 : 48
     };
     this.items = [];
+    this.handleScroll = this.handleScroll.bind(this);
     this.menuLinkRef = React.createRef();
   }
 
@@ -141,6 +144,40 @@ class HeaderMenu extends React.Component {
       return;
     }
   };
+
+  componentDidMount() {
+    root.addEventListener('scroll', this.handleScroll);
+    if(this.props.isScrolledBelowAnnouncement == false) {
+      this.setState({
+        ...this.state,
+        megamenuOffset: this.props.hasL1 ? 250 : 154
+      })
+    } else {
+      this.setState({
+        ...this.state,
+        megamenuOffset: this.props.hasL1 ? 96 : 48
+      })
+    }
+  }
+
+  handleScroll() {
+    if(this.props.isScrolledBelowAnnouncement == false) {
+      let announcement = document.getElementById('think-banner-container');
+      console.log(announcement)
+      if(announcement) {
+        if(root.pageYOffset < 106) {
+            this.setState({
+              ...this.state,
+              megamenuOffset: (106 - root.pageYOffset) + (this.props.hasL1 ? 96 : 48)
+            })
+        }
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    root.removeEventListener('scroll', this.handleScroll);
+  }
 
   /**
    * Checks if user has tabbed to menu items within the megamenu,
@@ -270,9 +307,17 @@ class HeaderMenu extends React.Component {
           {menuLinkName}
           <MenuContent />
         </a>
-        <ul {...accessibilityLabel} className={`${prefix}--header__menu`}>
-          {React.Children.map(children, this._renderMenuItem)}
-        </ul>
+        { this.props.hasMegapanel ? (
+          <ul {...accessibilityLabel} className={`${prefix}--header__menu ${!this.props.isScrolledBelowAnnouncement ? `${prefix}--header__menu-announcement-adjustment` : ''}`} style={{top: this.state.megamenuOffset}}>
+            {React.Children.map(children, this._renderMenuItem)}
+          </ul>
+        ) : (
+          <ul {...accessibilityLabel} className={`${prefix}--header__menu ${!this.props.isScrolledBelowAnnouncement ? `${prefix}--header__menu-announcement-adjustment` : ''}`}>
+            {React.Children.map(children, this._renderMenuItem)}
+          </ul>
+        )
+      }
+
       </li>
     );
   }

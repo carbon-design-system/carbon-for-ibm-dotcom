@@ -1,0 +1,303 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+#masthead-banner {
+  text-decoration: none;
+  color: #ffffff;
+  background: #262626;
+  border-top: 3px solid #262626;
+  border-left: 3px solid #262626;
+  border-right: 3px solid #262626;
+  border-bottom: 3px solid #00bab6;
+  box-sizing: border-box;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  &:hover {
+    background: #161616 !important;
+    border-color: transparent;
+    border-bottom: 3px solid #00bab6;
+  }
+
+  &:focus {
+    border: 3px solid #00bab6;
+    outline: none;
+
+    #masthead-banner-content {
+      outline: 1px solid #fff;
+    }
+  }
+
+  .masthead-banner--align-center {
+    align-items: center;
+  }
+
+  .masthead-banner--space-between {
+    justify-content: space-between;
+  }
+
+  .masthead-banner--flex {
+    display: flex;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffffff;
+    line-height: 17.5px;
+    min-width: 150px;
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 16px;
+    white-space: nowrap;
+  }
+
+  .cta__text::after {
+    font-family: icons-ibm-v12;
+    content: '\f1b3';
+    margin-left: 32px;
+  }
+
+  .forward-icon {
+    font-family: icons-ibm-v12;
+    content: '\f1b3';
+    font-size: 22px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .forward-icon::after {
+    font-family: icons-ibm-v12;
+    content: '\f1b3';
+    font-size: 22px;
+    padding-top: 48px;
+  }
+
+  .masthead-banner__icon {
+    margin: 0 24px;
+  }
+}
+
+#masthead-banner-content {
+  box-sizing: border-box;
+}
+
+#masthead-banner-desktop {
+  height: 75px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#masthead-banner-mobile {
+  height: 75px !important;
+}
+
+@media (max-width: 659px) {
+  #masthead-banner-desktop {
+    display: none;
+  }
+
+  #masthead-banner-mobile {
+    display: flex;
+  }
+}
+
+@media (min-width: 660px) {
+  #masthead-banner-desktop {
+    display: flex;
+  }
+
+  #masthead-banner-mobile {
+    display: none;
+  }
+}
+
+// THINK BANNER 2020
+#think-banner-link {
+  text-decoration: none;
+  background: #f4f5f6;
+  color: #000000;
+  border: 1px solid #0062ff;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  display: block;
+
+  .ibm-bold {
+    font-weight: 600;
+  }
+
+  &.ibm-alternate-background {
+    color: #ffffff;
+    background: #102c95;
+  }
+
+  &:hover {
+    border-color: transparent !important;
+  }
+
+  &:focus {
+    border-color: transparent !important;
+    outline: none;
+
+    #think-banner-content {
+      outline: 1px solid #fff;
+    }
+  }
+
+  .think-banner__icon {
+    margin: 0 24px;
+  }
+  @media only screen and (min-width: 0px) and (max-width: 579px) {
+    .ibm-hidden-small {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 580px) and (max-width: 759px) {
+    .ibm-hidden-medium {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 760px) and (max-width: 999px) {
+    .ibm-hidden-medium {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    .ibm-hidden-large {
+      display: none;
+    }
+  }
+}
+
+#think-banner-content {
+  box-sizing: border-box;
+
+  .video-background {
+    width: auto !important;
+    height: auto !important;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50% !important;
+    left: 65% !important;
+    transform: translateY(-50%) translateX(-65%);
+    z-index: 0;
+    display: none;
+
+    @media (min-width: 1000px) {
+      display: block;
+    }
+
+    video {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .space-between {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .flex {
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
+
+  .think-counter {
+    font-size: 60px;
+    letter-spacing: 0;
+    line-height: 70px;
+    padding-right: 16px;
+
+    &__container {
+      flex: 1 1 auto;
+    }
+  }
+
+  .counter-text {
+    line-height: 22px;
+  }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background: #0062ff;
+    border-color: #0062ff;
+    outline-color: #0062ff;
+    line-height: 17.5px;
+    min-width: 250px;
+    height: 48px;
+    padding-left: 16px;
+    margin: 0 16px;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .cta__text::after {
+    font-family: icons-ibm-v12;
+    content: '\f1b3';
+    margin-left: 32px;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 16px;
+  }
+
+  .forward-icon {
+    font-family: icons-ibm-v12;
+    content: '\f1b3';
+    font-size: 22px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    &::after {
+      font-family: icons-ibm-v12;
+      content: '\f1b3';
+      font-size: 22px;
+      padding-top: 48px;
+    }
+  }
+}
+
+#think-banner-desktop {
+  height: 104px !important;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width: 850px) {
+    display: flex;
+  }
+}
+
+#think-banner-mobile {
+  height: 75px !important;
+  display: flex;
+
+  @media (min-width: 850px) {
+    display: none;
+  }
+}

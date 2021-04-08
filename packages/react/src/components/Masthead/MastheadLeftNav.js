@@ -15,6 +15,7 @@ import SideNavItems from '../../internal/vendor/carbon-components-react/componen
 import SideNavLink from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
 import SideNavMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
 import SideNavMenuWithBackFoward from '../carbon-components-react/UIShell/SideNavMenuWithBackForward';
+import root from 'window-or-global';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -26,6 +27,7 @@ const MastheadLeftNav = ({
   backButtonText,
   navigation,
   isSideNavExpanded,
+  isScrolledBelowAnnouncement,
   platform,
   ...rest
 }) => {
@@ -143,6 +145,7 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}
+      className={!isScrolledBelowAnnouncement && root.document?.getElementById('think-banner-container') ? 'bx--side-nav__announcement-adjustment' : ''}
       ref={sideNavRef}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>

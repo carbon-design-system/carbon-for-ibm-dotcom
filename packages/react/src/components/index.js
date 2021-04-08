@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './AnnouncementBand';
 export * from './ButtonGroup';
 export * from './CalloutData';
 export * from './CalloutQuote';

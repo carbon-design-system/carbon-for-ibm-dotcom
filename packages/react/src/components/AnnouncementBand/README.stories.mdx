@@ -1,0 +1,42 @@
+# Announcement band
+
+> This section allows the DDS team to display a global banner directly to users. It can be added to a page or toggled above the masthead through the hasAnnouncementBand prop on the masthead.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/announcement-band/announcement-band';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the
+> promo-banner styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/styles).
+
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AnnouncementBand } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+
+  return (
+    <AnnouncementBand />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```

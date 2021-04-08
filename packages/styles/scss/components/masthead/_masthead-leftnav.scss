@@ -20,6 +20,10 @@
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
     height: calc(100vh - #{mini-units(6)});
 
+    // &.#{$prefix}--side-nav__announcement-adjustment {
+    //   position: absolute;
+    // }
+
     > nav {
       height: 100%;
     }
@@ -27,6 +31,12 @@
     @include carbon--breakpoint-up(800px) {
       display: none;
     }
+  }
+
+  #think-banner-container + .bx--masthead__announcement-adjustment {
+    .#{$prefix}--masthead .#{$prefix}--side-nav__navigation.#{$prefix}--side-nav__announcement-adjustment {
+        position: absolute;
+      }
   }
 
   .#{$prefix}--header__menu-trigger {

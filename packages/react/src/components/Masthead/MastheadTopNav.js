@@ -15,6 +15,7 @@ import HeaderNavContainer from './HeaderNavContainer';
 import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import MegaMenu from './MastheadMegaMenu/MegaMenu';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -54,6 +55,9 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           key={i}
           disableScroll={link.hasMegapanel}
           setOverlay={setOverlay}
+          isScrolledBelowAnnouncement={topNavProps.isScrolledBelowAnnouncement}
+          hasL1={topNavProps.hasL1}
+          hasMegapanel={link.hasMegapanel}
           dataTitle={dataTitle}>
           {renderNav(link, autoid)}
         </HeaderMenu>
@@ -91,6 +95,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       <div
         className={classnames(`${prefix}--masthead__overlay`, {
           [`${prefix}--masthead__overlay-show`]: overlay,
+        }, {
+          [`${prefix}--masthead__overlay-announcement-adjustment`]: !topNavProps.isScrolledBelowAnnouncement && root.document?.getElementById('think-banner-container'),
         })}></div>
     </>
   );

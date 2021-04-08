@@ -11,6 +11,8 @@ import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
+import { WithAnnouncementBand as announcementBandStory } from '../../Masthead/__stories__/Masthead.stories.js';
+
 import languageItems from '../../Footer/__data__/language-items.json';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
@@ -292,6 +294,25 @@ WithL1.story = {
       escapeHTML: false,
       DotcomShell: () => {
         const { Masthead: mastheadKnobs } = l1Story.story.parameters.knobs;
+        return {
+          mastheadProps: {
+            ...mastheadKnobs({ groupId: 'Masthead' }),
+          },
+        };
+      },
+    },
+  },
+};
+
+export const WithAnnouncementBand = ({ parameters }) => <Default parameters={parameters} />;
+
+WithAnnouncementBand.story = {
+  name: 'With AnnouncementBand',
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+      DotcomShell: () => {
+        const { Masthead: mastheadKnobs } = announcementBandStory.story.parameters.knobs;
         return {
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),

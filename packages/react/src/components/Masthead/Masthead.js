@@ -14,6 +14,7 @@ import Header from '../../internal/vendor/carbon-components-react/components/UIS
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
 import HeaderMenuButton from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuButton';
+import AnnouncementBand from '../AnnouncementBand/AnnouncementBand';
 import { IbmLogo } from '../Icon';
 import MastheadL1 from './MastheadL1';
 import MastheadLeftNav from './MastheadLeftNav';
@@ -29,6 +30,9 @@ import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/T
 import User20 from '@carbon/icons-react/es/user/20';
 import UserOnline20 from '@carbon/icons-react/es/user--online/20';
 
+import customAnnouncementData from '../AnnouncementBand/__stories__/data/customData.js';
+
+
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
@@ -39,6 +43,7 @@ const { prefix } = settings;
  * @param {object} props.navigation Object containing navigation elements
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
+ * @param {string} props.hasAnnouncementBand Determines whether to render announcement band
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
  * @param {string} props.initialSearchTerm Initial value for search input
@@ -47,12 +52,14 @@ const { prefix } = settings;
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
  * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
+
  * @returns {*} Masthead component
  */
 const Masthead = ({
   navigation,
   hasProfile,
   hasSearch,
+  hasAnnouncementBand,
   searchOpenOnload,
   placeHolderText,
   initialSearchTerm,
@@ -135,6 +142,9 @@ const Masthead = ({
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);
+  const [isScrolledBelowAnnouncement, setIsScrolledBelowAnnouncement] = useState(!hasAnnouncementBand);
+
+
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
 
@@ -163,6 +173,20 @@ const Masthead = ({
         setIsMastheadSticky(
           root.pageYOffset > root.innerHeight * hideTopnavThreshold
         );
+      }
+
+      if(hasAnnouncementBand) {
+        if(root.innerWidth < 850) {
+          setIsScrolledBelowAnnouncement(
+            root.pageYOffset > 75
+          )
+        } else {
+          setIsScrolledBelowAnnouncement(
+            root.pageYOffset > 106
+          )
+        }
+      } else {
+        setIsScrolledBelowAnnouncement(true)
       }
     });
 
@@ -195,6 +219,8 @@ const Masthead = ({
     navType = 'eco';
   }
 
+  let announcementAdjustmentClass = !isScrolledBelowAnnouncement ? `${prefix}--masthead__announcement-adjustment` : '';
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => {
@@ -204,8 +230,14 @@ const Masthead = ({
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         }
         return (
+          <>
+          {
+            hasAnnouncementBand && (
+              <AnnouncementBand customData={customAnnouncementData} />
+            )
+          }
           <div
-            className={`${prefix}--masthead ${mastheadSticky}`}
+            className={`${prefix}--masthead ${mastheadSticky} ${announcementAdjustmentClass}`}
             ref={stickyRef}>
             <div className={`${prefix}--masthead__l0`}>
               <Header
@@ -230,6 +262,7 @@ const Masthead = ({
                     platform={platform}
                     navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                     isSideNavExpanded={isSideNavExpanded}
+                    isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
                     navType={navType}
                     selectedMenuItem={selectedMenuItem}
                   />
@@ -246,6 +279,8 @@ const Masthead = ({
                   {navigation && !mastheadL1Data && (
                     <MastheadTopNav
                       {...mastheadProps}
+                      isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
+                      hasL1={false}
                       platform={platform}
                       navigation={mastheadData}
                       navType={navType}
@@ -302,12 +337,14 @@ const Masthead = ({
                 <MastheadL1
                   {...mastheadL1Data}
                   isShort={isMastheadSticky}
+                  isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
                   navType={navType}
                   selectedMenuItem={selectedMenuItem}
                 />
               </div>
             )}
           </div>
+          </>
         );
       }}
     />
@@ -362,6 +399,11 @@ Masthead.propTypes = {
    * `true` to render SearchBar component.
    */
   hasSearch: PropTypes.bool,
+
+  /**
+   * `true` to render AnnouncementBand component. The data for the announcement band is pulled from a translation file controlled by the Carbon for IBM team. This will have no effect if an announcement is not currently active.
+   */
+  hasAnnouncementBand: PropTypes.bool,
 
   /**
    * `true` to have search field open on page load.
