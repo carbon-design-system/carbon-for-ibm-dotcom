@@ -37,5 +37,16 @@
 
   .#{$prefix}--header__action {
     padding: 0;
+
+    &--active {
+      border: rem(2px) solid transparent;
+      outline: none;
+    }
+  }
+
+  .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
+    outline: none;
+    border-color: #f4f4f4;
+    box-shadow: none;
   }
 }
