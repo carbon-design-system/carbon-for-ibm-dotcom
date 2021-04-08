@@ -44,7 +44,7 @@
     }
 
     .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-03');
+      @include carbon--type-style('expressive-heading-03', true);
 
       margin-bottom: $carbon--layout-05;
     }
@@ -207,7 +207,7 @@
   }
 
   :host(#{$dds-prefix}-card-heading) {
-    @include carbon--type-style('expressive-heading-03');
+    @include carbon--type-style('expressive-heading-03', true);
     @include content-width;
 
     color: $text-01;
