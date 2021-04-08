@@ -39,7 +39,7 @@
     padding: 0;
 
     &--active {
-      border: rem(2px) solid transparent;
+      border-top: rem(1px) solid $interactive-02;
       outline: none;
     }
   }
