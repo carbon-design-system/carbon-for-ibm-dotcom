@@ -14,7 +14,14 @@
 
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended) {
-    .#{$prefix}--tabs,
+    .#{$prefix}--tabs {
+      @include carbon--breakpoint(md)  {
+        display: none;
+      }
+      @include carbon--breakpoint(lg)  {
+        display: block;
+      }
+    }
     .#{$prefix}--tab-content {
       @include carbon--breakpoint(md)  {
         display: none;

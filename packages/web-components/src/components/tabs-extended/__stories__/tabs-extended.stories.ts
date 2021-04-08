@@ -18,16 +18,19 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-tabs-extended>
       <dds-tab label="Lorem">
-        Maecenas faucibus mollis interdum.
+        <h2>Fusce Magna</h2>
+        <p>Maecenas faucibus mollis interdum.</p>
       </dds-tab>
       <dds-tab label="Ipsum">
-        Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+        <h2>Dapibus Vehicula Ultricies</h2>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
       </dds-tab>
       <dds-tab label="Dolor" selected="true">
-        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        ${copy}
       </dds-tab>
       <dds-tab label="Sit" disabled="true">
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+        <h2>Dapibus Mattis</h2>
+        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
       </dds-tab>
     </dds-tabs-extended>
   `;
@@ -56,7 +59,7 @@ export default {
       TabsExtended: () => ({
         copy: textNullable(
           'Copy (copy):',
-          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
             'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
             'Phasellus at elit sollicitudin.'
         ),

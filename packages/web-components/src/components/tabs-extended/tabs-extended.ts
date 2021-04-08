@@ -47,9 +47,14 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._tabItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => new DDSTab()?.nodeName === node.nodeName);
-    this._tabItems.forEach((tab: DDSTab, index) => {
-      this._activeTab = tab.selected ? index : this._activeTab;
+    this._tabItems.forEach((tab, index) => {
+      this._activeTab = (tab as DDSTab).selected ? index : this._activeTab;
     });
+  }
+
+  private _handleClick(index, e) {
+    e.preventDefault();
+    this._setActiveItem(index);
   }
 
   private _setActiveItem(index) {
@@ -57,20 +62,22 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    this._tabItems.map((tab: DDSTab, index) => {
-      tab.selected = index === this._activeTab;
-      tab.setIndex(index);
+    this._tabItems.map((tab, index) => {
+      (tab as DDSTab).selected = index === this._activeTab;
+      (tab as DDSTab).setIndex(index);
+      return tab;
     });
   }
 
-  protected _renderAccordionItems(): TemplateResult | string | void {
+  protected _renderAccordion(): TemplateResult | string | void {
     const { _tabItems: tabs } = this;
     return html`
       <ul class="${prefix}--accordion">
-        ${tabs.map((tab: DDSTab, index) => {
+        ${tabs.map((tab, index) => {
           const classes = classMap({
             'bx--accordion__item': true,
             'bx--accordion__item--active': index === this._activeTab,
+            'bx--accordion__item--disabled': (tab as DDSTab).disabled && true,
           });
           return html`
             <li class="${classes}">
@@ -78,16 +85,16 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 class="${prefix}--accordion__heading"
                 aria-expanded="${index === this._activeTab}"
                 aria-controls="pane-${index}"
-                @click="${e => this._setActiveItem(index)}"
-              >
+                @click="${e => this._handleClick(index, e)}"
+                ?disabled="${(tab as DDSTab).disabled}">
                 ${ChevronRight16({
                   part: 'expando-icon',
                   class: `${prefix}--accordion__arrow`,
                 })}
-                <div class="${prefix}--accordion__title">${tab.label}</div>
+                <div class="${prefix}--accordion__title">${(tab as DDSTab).label}</div>
               </button>
               <div id="pane-${index}" class="${prefix}--accordion__content">
-                ${tab.innerHTML}
+                ${(tab as DDSTab).innerHTML}
               </div>
             </li>
           `;
@@ -100,14 +107,19 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     const { _tabItems: tabs } = this;
     return html`
       <ul class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden" role="tablist">
-        ${tabs.map((tab: DDSTab, index) => {
+        ${tabs.map((tab, index) => {
           const classes = classMap({
             'bx--tabs__nav-item': true,
             'bx--tabs__nav-item--selected': index === this._activeTab,
-            'bx--tabs__nav-item--disabled': tab.disabled,
+            'bx--tabs__nav-item--disabled': (tab as DDSTab).disabled && true,
           });
           return html`
-            <li class="${classes}" data-target=".tab-${index}-default" role="tab" aria-selected="true" disabled="${tab.disabled}">
+            <li
+              class="${classes}"
+              data-target=".tab-${index}-default"
+              role="tab"
+              aria-selected="true"
+              ?disabled="${(tab as DDSTab).disabled}">
               <a
                 tabindex="${index}"
                 id="tab-link-${index}-default"
@@ -115,9 +127,8 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 href="javascript:void(0)"
                 role="tab"
                 aria-controls="tab-panel-${index}-default"
-                @click="${e => this._setActiveItem(index)}"
-                >${tab.label}</a
-              >
+                @click="${e => this._handleClick(index, e)}"
+                >${(tab as DDSTab).label}</a>
             </li>
           `;
         })}
@@ -129,7 +140,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--tabs-extended">
         <div class="${prefix}--accordion">
-          ${this._renderAccordionItems()}
+          ${this._renderAccordion()}
         </div>
         <div class="${prefix}--tabs">
           ${this._renderTabs()}

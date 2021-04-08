@@ -28,12 +28,6 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   label = null;
 
   /**
-   * Defines title of the tab.
-   */
-  @property({ reflect: true })
-  title = null;
-
-  /**
    * Defines the disabled state of the tab.
    */
   @property({ reflect: true })
@@ -49,7 +43,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines the index of the tab relative to other tabs.
    */
   @internalProperty()
-  private _index: Number;
+  private _index: Number = 0;
 
   /**
    * Sets the index of the tab.
@@ -61,10 +55,10 @@ class DDSTab extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div
-        id="tab-panel-${this.index}-default"
-        class="tab-${this.index}-container"
+        id="tab-panel-${this._index}-default"
+        class="tab-${this._index}-container"
         role="tabpanel"
-        aria-labelledby="tab-link-${this.index}-default"
+        aria-labelledby="tab-link-${this._index}-default"
         aria-hidden="${!this.selected}"
         ?hidden="${!this.selected}"
       >
