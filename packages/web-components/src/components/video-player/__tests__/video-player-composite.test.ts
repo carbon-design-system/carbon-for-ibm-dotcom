@@ -17,7 +17,7 @@ import '../video-player-composite';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData } = props ?? {};
+  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData, playingMode } = props ?? {};
   return html`
     <dds-video-player-composite
       ?hide-caption="${hideCaption}"
@@ -26,6 +26,7 @@ const template = (props?) => {
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
       .videoData="${ifNonNull(videoData)}"
+      .playingMode="${ifNonNull(playingMode)}"
     >
     </dds-video-player-composite>
   `;
