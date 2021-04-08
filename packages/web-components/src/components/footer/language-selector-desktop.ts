@@ -9,11 +9,11 @@
 
 import { property, customElement, query, internalProperty } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXComboBox, { DROPDOWN_SIZE } from 'carbon-web-components/es/components/combo-box/combo-box.js';
-import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item.js';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
+import DDSComboBox, { DROPDOWN_SIZE } from './combo-box';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @internal
  */
 @customElement(`${ddsPrefix}-language-selector-desktop`)
-class DDSLanguageSelectorDesktop extends HostListenerMixin(BXComboBox) {
+class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
   /**
    * Property that saves the last valid language to use on reset cases.
    */
@@ -60,7 +60,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(BXComboBox) {
    * Highlights and scrolls into the view the matched item.
    */
   protected _handleInput() {
-    const items = this.querySelectorAll((this.constructor as typeof BXComboBox).selectorItem);
+    const items = this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem);
     const index = !this._filterInputNode.value ? -1 : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
       if (i === index) item.scrollIntoView();
@@ -77,7 +77,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(BXComboBox) {
    * Also saves the current valid language.
    */
   protected _handleUserInitiatedClearInput() {
-    forEach(this.querySelectorAll((this.constructor as typeof BXComboBox).selectorItem), item => {
+    forEach(this.querySelectorAll((this.constructor as typeof DDSComboBox).selectorItem), item => {
       (item as BXComboBoxItem).highlighted = false;
       (item as BXComboBoxItem).selected = false;
     });
