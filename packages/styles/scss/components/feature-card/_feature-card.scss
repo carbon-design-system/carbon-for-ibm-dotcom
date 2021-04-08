@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,14 +27,32 @@
     flex-direction: row;
   }
 
-  &:focus {
-    outline: 2px solid $focus;
-    outline-offset: 2px;
-  }
-
   .#{$prefix}--card__heading,
   ::slotted(#{$dds-prefix}-card-heading) {
     margin-bottom: $layout-03;
+  }
+
+  &:focus {
+    outline: none;
+    outline-offset: 0;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid $focus;
+      outline: 1px solid #ffffff;
+      outline-offset: -3px;
+
+      @include carbon--breakpoint-down('md') {
+        min-height: 292px;
+      }
+    }
   }
 }
 
@@ -68,25 +86,68 @@
   :host(#{$dds-prefix}-feature-cta) {
     position: relative;
 
+    &:hover {
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        filter: brightness(80%);
+      }
+
+      .#{$prefix}--card__content {
+        background-color: $hover-ui;
+      }
+    }
+
     @include carbon--breakpoint-down('md') {
       padding-top: aspect-ratio(1, 1);
-    }
 
-    .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
-      flex-direction: row-reverse;
-    }
+      .#{$prefix}--card__content {
+        padding: carbon--mini-units(2);
+        padding-bottom: carbon--mini-units(6);
+        justify-content: space-between;
+        background-color: $ui-01;
+      }
 
-    ::slotted(svg[slot='footer']) {
-      margin-top: auto;
-      margin-left: auto;
+      #{$prefix}--card__heading {
+        margin: 0;
+        width: 100%;
+        padding: carbon--mini-units(2);
+        padding-right: 10%;
+        padding-bottom: $layout-03;
+      }
+
+      #{$prefix}--card__footer {
+        padding: carbon--mini-units(2);
+        padding-top: 0;
+        margin-top: carbon--mini-units(-4);
+      }
+
+      .#{$prefix}--card__wrapper {
+        display: block;
+        min-height: 0;
+        height: auto;
+      }
+      .#{$prefix}--card {
+        display: block;
+      }
     }
 
     .#{$prefix}--card {
       @include card;
+
+      margin: 0;
     }
 
     .#{$prefix}--card__heading {
       margin-bottom: $layout-03;
+    }
+
+    .#{$prefix}--card__content {
+      @include carbon--breakpoint('sm') {
+        position: relative;
+      }
+      @include carbon--breakpoint(400px) {
+        position: static;
+      }
     }
 
     .#{$prefix}--card__wrapper {
@@ -102,6 +163,8 @@
       }
     }
 
+    // image
+
     ::slotted([slot='image']),
     .#{$prefix}--image {
       width: 100%;
@@ -111,6 +174,22 @@
         width: 50%;
         height: 100%;
       }
+    }
+
+    // footer
+
+    .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
+      flex-direction: row-reverse;
+
+      @include carbon--breakpoint-down('md') {
+        position: absolute;
+        width: calc(100% - #{carbon--mini-units(4)});
+        bottom: carbon--mini-units(2);
+      }
+    }
+    ::slotted(svg[slot='footer']) {
+      margin-top: auto;
+      margin-left: auto;
     }
   }
 }
