@@ -30,11 +30,6 @@ interface Cancelable {
 @customElement(`${ddsPrefix}-back-to-top`)
 class DDSBackToTop extends HostListenerMixin(LitElement) {
   /**
-   * The observer for the resize of the viewport.
-   */
-  private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-
-  /**
    * The observer for the resize of the document body.
    */
   private _observerResizeBody: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -67,7 +62,7 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
    */
   private _handleOnScroll() {
     if (this._showBackToTop()) {
-      this.hidden = this.ownerDocument!.documentElement.scrollTop <= this._windowHeight;
+      this.hidden = this.ownerDocument!.scrollingElement!.scrollTop <= this._windowHeight;
     }
   }
 
@@ -78,10 +73,6 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
    * @param [options.create] `true` to create the new resize observer.
    */
   private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
-    if (this._observerResizeRoot) {
-      this._observerResizeRoot.disconnect();
-      this._observerResizeRoot = null;
-    }
     if (this._observerResizeBody) {
       this._observerResizeBody.disconnect();
       this._observerResizeBody = null;
@@ -89,18 +80,10 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
-      this._observerResizeRoot = new ResizeObserver(this._observeResizeRoot);
-      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
-      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-      // @ts-ignore
       this._observerResizeBody = new ResizeObserver(this._observeResizeBody);
       this._observerResizeBody.observe(this.ownerDocument!.body);
     }
   }
-
-  private _observeResizeRoot = entries => {
-    this._windowHeight = entries[entries.length - 1].contentRect.height;
-  };
 
   private _observeResizeBody = entries => {
     this._bodyHeight = entries[entries.length - 1].target.scrollHeight;
@@ -110,6 +93,8 @@ class DDSBackToTop extends HostListenerMixin(LitElement) {
    * Show button only when document height is 3x greater than viewport
    */
   private _showBackToTop() {
+    // @ts-ignore
+    this._windowHeight = this.ownerDocument.defaultView?.innerHeight;
     return this._bodyHeight > this._windowHeight * 3;
   }
 
