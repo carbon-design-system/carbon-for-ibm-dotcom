@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,13 +10,14 @@
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 /* eslint-disable import/no-duplicates */
-import { VIDEO_PLAYER_CONTENT_STATE } from '../video-player';
+import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from '../video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../video-player';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId } = props ?? {};
+  const { contentState, duration, formatCaption, formatDuration, hideCaption, name, thumbnailUrl, videoId, playingMode } =
+    props ?? {};
   return html`
     <dds-video-player
       content-state="${ifNonNull(contentState)}"
@@ -27,6 +28,7 @@ const template = (props?) => {
       video-id="${ifNonNull(videoId)}"
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
+      .playingMode="${ifNonNull(playingMode)}"
     >
     </dds-video-player>
   `;
@@ -48,6 +50,7 @@ describe('dds-video-player', function() {
     render(
       template({
         contentState: VIDEO_PLAYER_CONTENT_STATE.VIDEO,
+        playingMode: VIDEO_PLAYER_PLAYING_MODE.INLINE,
         duration: 30,
         name: 'video-name-foo',
         videoId: 'video-id-foo',
