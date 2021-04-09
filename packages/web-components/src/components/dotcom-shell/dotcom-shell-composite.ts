@@ -112,7 +112,7 @@ class DDSDotcomShellComposite extends LitElement {
   private _handleResize() {
     if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
       this._masthead!.style.top = '0';
-    } else if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+    } else {
       this._handleIntersect();
     }
   }
