@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -76,9 +76,9 @@ const Masthead = ({
    * @returns {*} The active search status
    */
   const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
-  const handleSearchActive = e => {
-    setIsSearchActive(e);
-  };
+  const handleChangeSearchActive = useCallback((event, { isOpen }) => {
+    setIsSearchActive(isOpen);
+  }, []);
 
   useEffect(() => {
     // initialize global execution calls
@@ -256,11 +256,14 @@ const Masthead = ({
                   {hasSearch && (
                     <MastheadSearch
                       {...mastheadProps}
-                      searchOpenOnload={isSearchActive}
+                      {...(searchOpenOnload
+                        ? { searchOpenOnload: searchOpenOnload }
+                        : {})}
                       placeHolderText={placeHolderText}
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
-                      isSearchActive={handleSearchActive}
+                      isSearchActive={isSearchActive}
+                      onChangeSearchActive={handleChangeSearchActive}
                     />
                   )}
                 </div>
@@ -365,7 +368,7 @@ Masthead.propTypes = {
   hasSearch: PropTypes.bool,
 
   /**
-   * `true` to have search field open on page load.
+   * `true` to have search field open on page load. Does not close `onBlur`
    */
   searchOpenOnload: PropTypes.bool,
 
