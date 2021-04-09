@@ -36,7 +36,9 @@
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include hang;
+      @include carbon--breakpoint('md') {
+        @include hang;
+      }
     }
 
     @include carbon--breakpoint('lg') {
@@ -200,8 +202,17 @@
 
   .#{$prefix}--content-block__cta-col {
     @include carbon--make-col-ready;
+
+    @include carbon--breakpoint('sm') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     @include carbon--breakpoint('md') {
       @include carbon--make-col(4, 8);
+
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
     }
   }
 }
