@@ -141,6 +141,7 @@ html {
 
   .dds-ce-demo-devenv--simple-grid--tabs-extended {
     > * {
+      margin-top: $carbon--spacing-05;
       grid-column: 1 / span 12;
     }
   }
