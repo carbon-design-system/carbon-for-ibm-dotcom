@@ -14,23 +14,22 @@ import '../tabs-extended';
 import '../tab';
 
 export const Default = ({ parameters }) => {
-  const { copy } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended>
-      <dds-tab label="Lorem">
-        <h2>Fusce Magna</h2>
-        <p>Maecenas faucibus mollis interdum.</p>
+      <dds-tab label="First tab">
+        <p>Content for first tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Ipsum">
-        <h2>Dapibus Vehicula Ultricies</h2>
-        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+      <dds-tab label="Second tab">
+        <p>Content for second tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Dolor" selected="true">
-        ${copy}
+      <dds-tab label="Third tab" selected="true">
+        <p>Content for third tab goes here.</p>
       </dds-tab>
-      <dds-tab label="Sit" disabled="true">
-        <h2>Dapibus Mattis</h2>
-        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      <dds-tab label="Fourth tab">
+        <p>Content for fourth tab goes here.</p>
+      </dds-tab>
+      <dds-tab label="Fifth tab" disabled="true">
+        <p>Content for fifth tab goes here.</p>
       </dds-tab>
     </dds-tabs-extended>
   `;
@@ -55,15 +54,6 @@ export default {
     ...readme.parameters,
     hasVerticalSpacingInComponent: true,
     hasGrid: true,
-    knobs: {
-      TabsExtended: () => ({
-        copy: textNullable(
-          'Copy (copy):',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin.'
-        ),
-      }),
-    },
+    knobs: {},
   },
 };
