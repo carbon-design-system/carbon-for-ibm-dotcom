@@ -57,10 +57,7 @@ const cardGroupItemWithImages = html`
 
 const cardGroupItemWithVideos = html`
   <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-    Test Video - 1:1
-    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-      0:18
-    </dds-card-cta-footer>
+    <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
 
