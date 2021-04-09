@@ -609,12 +609,6 @@ MastheadSearch.propTypes = {
   searchOpenOnload: PropTypes.bool,
 
   /**
-   * `true` to make the search field open in the initial state.
-   * Search will not close on blur, but with close button only.
-   */
-  searchOpenOnloadNoBlur: PropTypes.bool,
-
-  /**
    * navigation type for autoids
    */
   navType: PropTypes.oneOf(['default', 'alt', 'eco']),
