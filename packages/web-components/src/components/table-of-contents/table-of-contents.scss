@@ -16,7 +16,6 @@
   @extend .#{$prefix}--grid;
 
   margin: 0;
-  display: block;
 }
 
 // TODO: Apply `.#{$prefix}--col-lg-4` to React version, too, so we can merge the style to React version

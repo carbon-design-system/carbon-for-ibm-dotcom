@@ -158,7 +158,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Cleans-up and creats the resize observer.
+   * Cleans-up and creates the resize observer.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new resize observer.

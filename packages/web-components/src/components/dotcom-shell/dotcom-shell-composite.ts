@@ -9,6 +9,7 @@
 
 import pickBy from 'lodash-es/pickBy.js';
 import { html, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
@@ -26,7 +27,10 @@ import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
@@ -61,6 +65,11 @@ class DDSDotcomShellComposite extends LitElement {
   private _tableOfContentsLayout?: String;
 
   /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null;
+
+  /**
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
@@ -79,10 +88,39 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
+   * Cleans-up and creates the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._handleResize.bind(this));
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+    }
+  }
+
+  /**
+   * Resets masthead to top upon resize in larger breakpoints
+   */
+  private _handleResize() {
+    if (window.innerWidth >= gridBreakpoint || this._tableOfContentsLayout !== 'horizontal') {
+      this._masthead!.style.top = '0';
+    } else if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+      this._handleIntersect();
+    }
+  }
+
+  /**
    * Scrolls the masthead out of view if toc is present
    */
   private _handleIntersect = () => {
-    const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
     if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
       const top = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
       this._masthead!.style.top = `${top}px`;
@@ -92,10 +130,12 @@ class DDSDotcomShellComposite extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
     window.addEventListener('scroll', this._handleIntersect);
   }
 
   disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
     window.removeEventListener('scroll', this._handleIntersect);
     super.disconnectedCallback();
   }
@@ -368,14 +408,14 @@ class DDSDotcomShellComposite extends LitElement {
     super.update(changedProperties);
 
     if (!this._tableOfContentsInnerBar) {
-      const toc = document.querySelector('dds-table-of-contents');
+      const toc = document.querySelector(`${ddsPrefix}-table-of-contents`);
       if (toc?.getAttribute('toc-layout') === 'horizontal') {
-        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector('.bx--tableofcontents__navbar') as HTMLElement;
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__navbar`) as HTMLElement;
         this._tableOfContentsLayout = 'horizontal';
       } else {
-        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector('.bx--tableofcontents__sidebar') as HTMLElement;
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__sidebar`) as HTMLElement;
       }
-      this._masthead = document.querySelector('dds-masthead') as HTMLElement;
+      this._masthead = document.querySelector(`${ddsPrefix}-masthead`) as HTMLElement;
     }
 
     if (!this._mastheadRenderRoot) {
