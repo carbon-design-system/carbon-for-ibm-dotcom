@@ -153,12 +153,6 @@
     .#{$prefix}--card--inverse {
       height: 100%;
     }
-
-    .#{$prefix}--card__CTA.#{$prefix}--card {
-      .#{$prefix}--card__copy p {
-        @include carbon--type-style('body-long-02');
-      }
-    }
   }
 
   .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {

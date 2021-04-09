@@ -19,9 +19,3 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
-:host(#{$dds-prefix}-card-cta) {
-  .#{$prefix}--card__copy {
-    @include carbon--type-style('expressive-heading-02');
-  }
-}
