@@ -86,7 +86,6 @@ class HeaderMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.hasL1);
     this.state = {
       // Used to manage the expansion state of the menu
       expanded: false,
@@ -163,7 +162,6 @@ class HeaderMenu extends React.Component {
   handleScroll() {
     if (this.props.isScrolledBelowAnnouncement == false) {
       let announcement = document.getElementById('think-banner-container');
-      console.log(announcement);
       if (announcement) {
         if (root.pageYOffset < 106) {
           this.setState({
