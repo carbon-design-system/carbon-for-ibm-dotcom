@@ -38,6 +38,10 @@
       width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
     }
   }
+
+  ::slotted([slot='footer']) {
+    margin-top: $carbon--spacing-07;
+  }
 }
 
 .#{$dds-prefix}-ce--content-layout--with-adjacent-heading-content ::slotted([slot='heading']) {
