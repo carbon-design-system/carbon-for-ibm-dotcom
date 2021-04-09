@@ -90,7 +90,8 @@ html {
 .dds-ce-demo-devenv--simple-grid--content-section,
 .dds-ce-demo-devenv--simple-grid--content-block-cards,
 .dds-ce-demo-devenv--simple-grid--logo-grid,
-.dds-ce-demo-devenv--simple-grid--card-in-card {
+.dds-ce-demo-devenv--simple-grid--card-in-card,
+.dds-ce-demo-devenv--simple-grid--content-group-banner {
   > * {
     grid-column: 1 / span 4;
   }
@@ -99,6 +100,11 @@ html {
 @include carbon--breakpoint('md') {
   .dds-ce-demo-devenv--simple-grid--card > * {
     grid-column: 1 / span 3;
+  }
+  .dds-ce-demo-devenv--simple-grid--content-group-banner {
+    > * {
+      grid-column: 1 / span 6;
+    }
   }
   .dds-ce-demo-devenv--simple-grid--callout,
   .dds-ce-demo-devenv--simple-grid--card-group,
@@ -162,7 +168,8 @@ html {
 
   .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
   .dds-ce-demo-devenv--simple-grid--content-block-headlines,
-  .dds-ce-demo-devenv--simple-grid--content-block-cards {
+  .dds-ce-demo-devenv--simple-grid--content-block-cards,
+  .dds-ce-demo-devenv--simple-grid--content-group-banner {
     > * {
       grid-column: 5 / span 12;
     }
