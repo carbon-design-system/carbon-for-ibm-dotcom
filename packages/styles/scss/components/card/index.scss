@@ -19,6 +19,7 @@
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$dds-prefix}-card-cta),
   :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$dds-prefix}-card-in-card),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
     display: flex;
     flex-direction: column;
@@ -142,6 +143,7 @@
   .#{$prefix}--card .#{$prefix}--card__footer,
   :host(#{$dds-prefix}-card-footer),
   :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-card-in-card-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;
