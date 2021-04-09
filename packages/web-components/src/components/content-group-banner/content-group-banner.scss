@@ -1,0 +1,16 @@
+//
+// Copyright IBM Corp. 2020, 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '../../globals/scss/box-sizing';
+@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
+@import '@carbon/ibmdotcom-styles/scss/components/content-group-banner/content-group-banner';
+
+:host(#{$dds-prefix}-content-group-banner) {
+  display: block;
+}

@@ -23,9 +23,14 @@
         </slot>
       </div>
     </div>
-    <div hidden="">
-      <slot name="footer">
-      </slot>
+    <div
+      class="bx--content-block__cta-row"
+      hidden=""
+    >
+      <div class="bx--content-block__cta bx-content-block__cta-col">
+        <slot name="footer">
+        </slot>
+      </div>
     </div>
   </div>
 </div>
