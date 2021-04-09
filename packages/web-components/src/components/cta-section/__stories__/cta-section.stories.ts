@@ -18,14 +18,16 @@ import '../../button-group/button-group-item';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
-import '../../cta-block/cta-block';
 import '../cta-section';
 import '../../cta-block/cta-block';
+import '../../cta-block/cta-block-item-row';
 import '../../content-item/content-item';
 import '../../content-item/content-item-copy';
 import '../../content-item/content-item-heading';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
+
+import styles from './cta-section.stories.scss';
 
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
@@ -43,11 +45,38 @@ export const Default = ({ parameters }) => {
 
   return html`
     <dds-cta-section>
-      <dds-content-section-heading>Optional title heading-01, color text-01</dds-content-section-heading>
+      <dds-content-section-heading>Related products and services</dds-content-section-heading>
+      <dds-content-section-copy>A full stack cloud platform with over 170 products and services</dds-content-section-copy>
+      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+
       <dds-cta-block>
         <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
         <dds-content-block-copy>${copy}</dds-content-block-copy>
         <dds-text-cta slot="action" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+
+        <dds-cta-block-item-row>
+          <dds-content-item>
+            <dds-content-item-heading>Get connected</dds-content-item-heading>
+            <dds-content-item-copy
+              >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for
+              you.</dds-content-item-copy
+            >
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
+          </dds-content-item>
+
+          <dds-content-item>
+            <dds-content-item-heading>Learn how</dds-content-item-heading>
+            <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+          </dds-content-item>
+
+          <dds-content-item>
+            <dds-content-item-heading>Learn how</dds-content-item-heading>
+            <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+          </dds-content-item>
+        </dds-cta-block-item-row>
+      </dds-cta-block>
     </dds-cta-section>
   `;
 };
@@ -55,16 +84,14 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/CTA Section',
   decorators: [
-    (story, { parameters }) => html`
-      <div class="">
-        ${story()}
-      </div>
+    story => html`
+      <style>
+        ${styles}
+      </style>
+      ${story()}
     `,
   ],
   parameters: {
-    hasGrid: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
-    hasVerticalSpacingInComponent: true,
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),

@@ -10,7 +10,17 @@
 
 :host(#{$dds-prefix}-cta-section) {
   display: block;
+
+  .#{$prefix}--content-section {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .#{$prefix}--content-section__leading {
+    padding: $spacing-05;
+  }
+
   ::slotted(#{$dds-prefix}-cta-block) {
-    padding-left: $carbon--spacing-03;
+    padding-right: $spacing-05;
   }
 }

@@ -23,7 +23,7 @@
     }
 
     @include carbon--breakpoint('lg') {
-      padding-bottom: $carbon--layout-06;
+      padding-bottom: $carbon--layout-05;
     }
   }
 
@@ -42,38 +42,15 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-content-item) {
-    width: 100%;
-    margin-top: $carbon--spacing-07;
-    margin-bottom: 0;
-    padding-bottom: $carbon--spacing-05;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    @include carbon--make-col-ready;
-  }
-
   ::slotted(#{$dds-prefix}-content-block-heading) {
     @include dds--make-col(7, 12);
     margin-left: -$carbon--spacing-02;
+    padding-left: 0;
   }
 
   ::slotted(#{$dds-prefix}-content-block-copy) {
     @include dds--make-col(7, 12);
-  }
-
-  ::slotted(#{$dds-prefix}-text-cta) {
-    margin-left: $carbon--spacing-05;
-  }
-
-  .#{$prefix}--helper-wrapper > .#{$prefix}--content-item-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-
-    @include carbon--breakpoint('md') {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    padding-left: 0;
   }
 }
 
@@ -85,6 +62,30 @@
 
   @include carbon--breakpoint('md') {
     width: 90%;
+  }
+}
+
+:host(#{$dds-prefix}-cta-block-item-row) {
+  padding-bottom: $carbon--layout-05;
+  border-bottom: 1px solid $ui-03;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  @include carbon--breakpoint('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  ::slotted(#{$dds-prefix}-content-item) {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: $carbon--spacing-05;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include carbon--make-col-ready;
   }
 }
 
