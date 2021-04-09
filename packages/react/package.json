@@ -49,6 +49,8 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
+    "carbon-components": "10.29.0",
+    "carbon-components-react": "7.29.0",
     "react": "16.9.0",
     "react-dom": "16.9.0"
   },

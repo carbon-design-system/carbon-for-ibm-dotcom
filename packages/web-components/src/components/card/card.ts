@@ -73,6 +73,16 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * @returns The heading content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderHeading(): TemplateResult | string | void {
+    return html`
+      <slot name="heading"></slot>
+    `;
+  }
+
+  /**
    * @returns The copy content.
    */
   protected _renderCopy(): TemplateResult | string | void {
@@ -126,11 +136,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
-            ? html`
-                <slot name="heading"></slot>
-              `
-            : null}
+          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram ? this._renderHeading() : null}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM || !hasPictogram ? this._renderCopy() : ''}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
             ? html`
@@ -141,11 +147,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot name="heading"></slot>
-              `
-            : null}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderHeading() : null}
           <slot name="footer"></slot>
         </div>
       </div>
