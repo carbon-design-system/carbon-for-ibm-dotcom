@@ -16,6 +16,7 @@ export interface BasicLink {
   titleEnglish?: string;
   highlightedLink?: boolean;
   url?: string;
+  description?: string;
 }
 
 /**

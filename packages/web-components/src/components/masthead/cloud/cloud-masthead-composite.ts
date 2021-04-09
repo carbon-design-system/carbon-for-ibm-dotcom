@@ -17,7 +17,9 @@ import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
 import './cloud-megamenu-tab-content';
 import './cloud-megamenu-left-navigation';
+import './cloud-megamenu-right-navigation';
 import './cloud-megamenu-category-heading';
+import './cloud-megamenu-category-link';
 import {
   MastheadMenuItem,
   MastheadProfileItem,
@@ -92,21 +94,25 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             })}
           </dds-cloud-megamenu-tabs>
         </dds-cloud-megamenu-left-navigation>
-        <div>
+        <dds-cloud-megamenu-right-navigation>
           ${sortedMenuItems.map(item => {
             return html`
               <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
-                <dds-cloud-megamenu-category-heading>${item.title}</dds-cloud-megamenu-category-heading>
+                <dds-cloud-megamenu-category-heading title="${item.megapanelContent?.headingTitle}"
+                  >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
+                >
                 ${item?.megapanelContent?.quickLinks?.links.map(
                   link =>
                     html`
-                      <h4>${link.title}</h4>
+                      <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
+                        >${link.description}</dds-cloud-megamenu-category-link
+                      >
                     `
                 )}
               </div>
             `;
           })}
-        </div>
+        </dds-cloud-megamenu-right-navigation>
       </dds-megamenu>
     `;
   }
