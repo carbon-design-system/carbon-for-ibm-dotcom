@@ -10,6 +10,7 @@
 import pickBy from 'lodash-es/pickBy.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,
@@ -45,6 +46,21 @@ class DDSDotcomShellComposite extends LitElement {
   private _mastheadRenderRoot: Element | null = null;
 
   /**
+   * The masthead element.
+   */
+  private _masthead?: HTMLElement;
+
+  /**
+   * The tableOfContents inner navBar or sideBar depending on layout.
+   */
+  private _tableOfContentsInnerBar?: HTMLElement;
+
+  /**
+   * The tableOfContents layout.
+   */
+  private _tableOfContentsLayout?: String;
+
+  /**
    * @returns The render root of the footer contents.
    */
   private _createFooterRenderRoot() {
@@ -63,50 +79,24 @@ class DDSDotcomShellComposite extends LitElement {
   }
 
   /**
-   * The observer for the intersection of left-side content edge.
+   * Scrolls the masthead out of view if toc is present
    */
-  private _intersectionObserver: IntersectionObserver | null = null;
-
-  private _tableOfContents?: HTMLElement;
-
-  private _masthead?: HTMLElement;
-
-  private _cleanAndCreateIntersectionObserverContainer({ create }: { create?: boolean } = {}) {
-    const { _tableOfContents: tableOfContents } = this;
-    if (this._intersectionObserver) {
-      this._intersectionObserver.disconnect();
-      this._intersectionObserver = null;
+  private _handleIntersect = () => {
+    const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
+    if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+      const top = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
+      this._masthead!.style.top = `${top}px`;
+      this._masthead!.style.transition = 'none';
     }
-    if (create) {
-      this._intersectionObserver = new IntersectionObserver(this._handleIntersect, {
-        rootMargin: ' -145px 0px -48px 0px',
-        threshold: 0.1,
-      });
-      if (tableOfContents) {
-        this._intersectionObserver.observe(tableOfContents!);
-      }
-    }
-  }
-
-  private _handleIntersect = records => {
-    records.forEach(({ isIntersecting }) => {
-      if (!isIntersecting) {
-        this._masthead!.style.transform = 'translateY(-48px)';
-        this._masthead!.style.transition = 'transform 240ms cubic-bezier(0.4, 0.14, 1, 1);';
-      } else {
-        this._masthead!.style.transform = 'translateY(0)';
-        this._masthead!.style.transition = 'transform 240ms cubic-bezier(0.4, 0.14, 1, 1);';
-      }
-    });
   };
 
   connectedCallback() {
     super.connectedCallback();
-    this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    window.addEventListener('scroll', this._handleIntersect);
   }
 
   disconnectedCallback() {
-    this._cleanAndCreateIntersectionObserverContainer();
+    window.removeEventListener('scroll', this._handleIntersect);
     super.disconnectedCallback();
   }
 
@@ -377,12 +367,15 @@ class DDSDotcomShellComposite extends LitElement {
   update(changedProperties) {
     super.update(changedProperties);
 
-    if (!this._tableOfContents) {
-      this._tableOfContents = document
-        .querySelector('dds-table-of-contents')
-        ?.shadowRoot?.querySelector('.bx--tableofcontents__sidebar') as HTMLElement;
+    if (!this._tableOfContentsInnerBar) {
+      const toc = document.querySelector('dds-table-of-contents');
+      if (toc?.getAttribute('toc-layout') === 'horizontal') {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector('.bx--tableofcontents__navbar') as HTMLElement;
+        this._tableOfContentsLayout = 'horizontal';
+      } else {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector('.bx--tableofcontents__sidebar') as HTMLElement;
+      }
       this._masthead = document.querySelector('dds-masthead') as HTMLElement;
-      this._cleanAndCreateIntersectionObserverContainer({ create: true });
     }
 
     if (!this._mastheadRenderRoot) {
