@@ -8,7 +8,7 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement, internalProperty } from 'lit-element';
+import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -39,6 +39,12 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  */
 @customElement(`${ddsPrefix}-dotcom-shell-composite`)
 class DDSDotcomShellComposite extends LitElement {
+  /**
+   * The last scroll Position
+   */
+  @internalProperty()
+  private _lastScrollPosition = 0;
+
   /**
    * The render target of the footer contents.
    */
@@ -117,18 +123,15 @@ class DDSDotcomShellComposite extends LitElement {
     }
   }
 
-  @internalProperty()
-  private _lastScrollDirection = 0;
-
   /**
-   * Scrolls the masthead in/out of view if toc is present depending on scroll direction
+   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
    */
   private _handleIntersect = () => {
     if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
       const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
-      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollDirection - window.scrollY;
+      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
       this._masthead!.style.transition = 'none';
-      if (window.scrollY < this._lastScrollDirection) {
+      if (window.scrollY < this._lastScrollPosition) {
         this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
         this._masthead!.style.top = `${mastheadTop}px`;
       } else {
@@ -136,8 +139,7 @@ class DDSDotcomShellComposite extends LitElement {
         this._masthead!.style.top = `${mastheadTop}px`;
       }
     }
-
-    this._lastScrollDirection = window.scrollY;
+    this._lastScrollPosition = window.scrollY;
   };
 
   connectedCallback() {
