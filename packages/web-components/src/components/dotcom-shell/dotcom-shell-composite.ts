@@ -110,7 +110,7 @@ class DDSDotcomShellComposite extends LitElement {
    * Resets masthead to top upon resize in larger breakpoints
    */
   private _handleResize() {
-    if (window.innerWidth >= gridBreakpoint || this._tableOfContentsLayout !== 'horizontal') {
+    if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
       this._masthead!.style.top = '0';
     } else if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
       this._handleIntersect();
