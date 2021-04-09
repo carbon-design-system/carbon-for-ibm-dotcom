@@ -469,7 +469,6 @@ Masthead.defaultProps = {
   hasProfile: true,
   hasSearch: true,
   searchOpenOnload: false,
-  searchOpenOnloadNoBlur: false,
   selectedMenuItem: '',
   platform: null,
   placeHolderText: 'Search all of IBM',

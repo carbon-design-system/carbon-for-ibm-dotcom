@@ -619,7 +619,6 @@ MastheadSearch.defaultProps = {
   initialSearchTerm: '',
   renderValue: 3,
   searchOpenOnload: false,
-  searchOpenOnloadNoBlur: false,
 };
 
 // Export the react component
