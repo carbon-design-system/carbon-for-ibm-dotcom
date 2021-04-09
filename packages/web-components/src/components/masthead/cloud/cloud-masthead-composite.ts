@@ -15,11 +15,11 @@ import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
-import './cloud-megamenu-tab-content';
 import './cloud-megamenu-left-navigation';
 import './cloud-megamenu-right-navigation';
 import './cloud-megamenu-category-heading';
 import './cloud-megamenu-category-link';
+import './cloud-megamenu-category-link-group';
 import {
   MastheadMenuItem,
   MastheadProfileItem,
@@ -101,14 +101,16 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 <dds-cloud-megamenu-category-heading title="${item.megapanelContent?.headingTitle}"
                   >${item.megapanelContent?.description}</dds-cloud-megamenu-category-heading
                 >
-                ${item?.megapanelContent?.quickLinks?.links.map(
-                  link =>
-                    html`
-                      <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
-                        >${link.description}</dds-cloud-megamenu-category-link
-                      >
-                    `
-                )}
+                <dds-cloud-megamenu-category-link-group>
+                  ${item?.megapanelContent?.quickLinks?.links.map(
+                    link =>
+                      html`
+                        <dds-cloud-megamenu-category-link href="${link.url}" title="${link.title}"
+                          >${link.description}</dds-cloud-megamenu-category-link
+                        >
+                      `
+                  )}
+                </dds-cloud-megamenu-category-link-group>
               </div>
             `;
           })}

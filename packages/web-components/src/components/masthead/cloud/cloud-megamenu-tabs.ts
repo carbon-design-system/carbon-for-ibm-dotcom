@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-megamenu-tabs
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tabs`)
-class DDSCloudMegamenuTabs extends BXTabs {
+class DDSCloudMegaMenuTabs extends BXTabs {
   /**
    * A selector that will return megamenu tabs.
    */
@@ -38,4 +38,4 @@ class DDSCloudMegamenuTabs extends BXTabs {
   static styles = styles;
 }
 
-export default DDSCloudMegamenuTabs;
+export default DDSCloudMegaMenuTabs;

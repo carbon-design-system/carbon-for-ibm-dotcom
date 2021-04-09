@@ -20,8 +20,8 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-megamenu-right-navigation
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-right-navigation`)
-class DDSCloudMegamenuRightNavigation extends DDSMegaMenuLeftNavigation {
+class DDSCloudMegaMenuRightNavigation extends DDSMegaMenuLeftNavigation {
   static styles = styles;
 }
 
-export default DDSCloudMegamenuRightNavigation;
+export default DDSCloudMegaMenuRightNavigation;

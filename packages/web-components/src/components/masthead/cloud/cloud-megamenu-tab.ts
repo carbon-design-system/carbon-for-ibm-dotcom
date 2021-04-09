@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-megamenu-tab
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tab`)
-class DDSCloudMegamenuTab extends BXTab {
+class DDSCloudMegaMenuTab extends BXTab {
   render() {
     const { disabled, selected } = this;
     return html`
@@ -35,4 +35,4 @@ class DDSCloudMegamenuTab extends BXTab {
   static styles = styles;
 }
 
-export default DDSCloudMegamenuTab;
+export default DDSCloudMegaMenuTab;

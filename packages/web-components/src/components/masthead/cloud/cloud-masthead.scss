@@ -45,6 +45,10 @@
   border-right: carbon--rem(1px) solid $ui-03;
 }
 
+:host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+  margin-bottom: $spacing-07;
+}
+
 :host(#{$dds-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
@@ -79,4 +83,30 @@
 
 :host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
   background-color: $selected-ui;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
+  display: block;
+  column-count: 3;
+  column-gap: 0;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link) a {
+  display: inline-block;
+  padding: $spacing-04 $spacing-05;
+  p {
+    @include carbon--type-style('expressive-heading-01');
+
+    color: $text-01;
+  }
+  span {
+    @include carbon--type-style('body-long-01');
+
+    color: $text-02;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: $hover-ui;
+  }
 }
