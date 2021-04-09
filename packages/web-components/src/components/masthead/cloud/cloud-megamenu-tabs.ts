@@ -21,6 +21,20 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tabs`)
 class DDSCloudMegamenuTabs extends BXTabs {
+  /**
+   * A selector that will return megamenu tabs.
+   */
+  static get selectorItem() {
+    return `${ddsPrefix}-cloud-megamenu-tab`;
+  }
+
+  /**
+   * A selector that will return selected items.
+   */
+  static get selectorItemSelected() {
+    return `${ddsPrefix}-cloud-megamenu-tab[selected]`;
+  }
+
   static styles = styles;
 }
 

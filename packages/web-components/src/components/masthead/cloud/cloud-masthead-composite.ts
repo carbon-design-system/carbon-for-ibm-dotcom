@@ -16,8 +16,12 @@ import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
 import './cloud-megamenu-tab-content';
+import './cloud-megamenu-left-navigation';
 import './cloud-megamenu-category-heading';
-import { MastheadProfileItem } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import {
+  MastheadMenuItem,
+  MastheadProfileItem,
+} from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, { NAV_ITEMS_RENDER_TARGET } from '../masthead-composite';
 
@@ -56,34 +60,53 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(sections) {
+    let viewAllLink;
+    type menuItem = MastheadMenuItem & { itemKey: String };
+    const sortedMenuItems: menuItem[] = [];
+    sections[0].menuItems?.forEach(item => {
+      if (item.megaPanelViewAll) {
+        viewAllLink = item;
+        return viewAllLink;
+      }
+      const title = item.title
+        .replace(/[^-a-zA-Z0-9_ ]/g, '')
+        .replace(/ +/g, '-')
+        .toLowerCase();
+
+      return sortedMenuItems.push({ ...item, itemKey: title });
+    });
+
     return html`
       <dds-megamenu>
-        <dds-cloud-megamenu-tabs value="${sections[0].menuItems[1].title}">
-          ${sections[0].menuItems.map(
-            item =>
-              html`
-                <dds-cloud-megamenu-tab id="tab-${item.title}" target="panel-${item.title}" value="${item.title}"
+        <dds-cloud-megamenu-left-navigation
+          view-all-href="${ifNonNull(viewAllLink?.url)}"
+          view-all-title="${ifNonNull(viewAllLink?.title)}"
+        >
+          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.itemKey}">
+            ${sortedMenuItems.map(item => {
+              return html`
+                <dds-cloud-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.itemKey}"
                   >${item.title}</dds-cloud-megamenu-tab
                 >
-              `
-          )}
-        </dds-cloud-megamenu-tabs>
-        <dds-cloud-megamenu-tab-content>
-          ${sections[0].menuItems.map(
-            item =>
-              html`
-                <div id="panel-${item.title}" role="tabpanel" aria-labelledby="tab-${item.title}" hidden>
-                  <dds-cloud-megamenu-category-heading>${item.title}</dds-cloud-megamenu-category-heading>
-                  ${item?.megapanelContent?.quickLinks?.links.map(
-                    link =>
-                      html`
-                        <h4>${link.title}</h4>
-                      `
-                  )}
-                </div>
-              `
-          )}
-        </dds-cloud-megamenu-tab-content>
+              `;
+            })}
+          </dds-cloud-megamenu-tabs>
+        </dds-cloud-megamenu-left-navigation>
+        <div>
+          ${sortedMenuItems.map(item => {
+            return html`
+              <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
+                <dds-cloud-megamenu-category-heading>${item.title}</dds-cloud-megamenu-category-heading>
+                ${item?.megapanelContent?.quickLinks?.links.map(
+                  link =>
+                    html`
+                      <h4>${link.title}</h4>
+                    `
+                )}
+              </div>
+            `;
+          })}
+        </div>
       </dds-megamenu>
     `;
   }

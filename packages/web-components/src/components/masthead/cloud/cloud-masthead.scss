@@ -36,11 +36,19 @@
   }
 }
 
+:host(#{$dds-prefix}-cloud-megamenu-left-navigation) {
+  @include carbon--make-col(4, 16);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: carbon--rem(1px) solid $ui-03;
+}
+
 :host(#{$dds-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
   margin-top: rem(18px);
-  @include carbon--make-col(4, 16);
 
   .#{$prefix}--tabs-trigger {
     display: none;
