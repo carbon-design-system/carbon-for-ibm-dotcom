@@ -223,11 +223,12 @@ const Masthead = ({
                   />
                 )}
 
-                {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                {(navigation || mastheadL1Data) && (
                   <MastheadLeftNav
                     {...mastheadProps}
                     backButtonText="Back"
                     platform={platform}
+                    hasL1Data={!!mastheadL1Data}
                     navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
