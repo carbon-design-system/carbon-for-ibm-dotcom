@@ -13,25 +13,3 @@
 :host(#{$dds-prefix}-card-in-card) {
   display: block;
 }
-
-// Extends the "Image" component so that the aspect-ratio style can be appiled.
-:host(#{$dds-prefix}-card-in-card-image) {
-  display: block;
-  position: relative;
-  overflow-y: hidden;
-  width: 100%;
-  padding-top: aspect-ratio(4, 3);
-
-  @include carbon--breakpoint('md') {
-    padding-top: aspect-ratio(16, 9);
-  }
-
-  .#{$prefix}--image__img {
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}
