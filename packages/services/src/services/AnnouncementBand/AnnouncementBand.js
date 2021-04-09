@@ -7,7 +7,6 @@
 
 import axios from 'axios';
 import { LocaleAPI } from '../Locale';
-import root from 'window-or-global';
 
 /**
  * @constant {string | string} Host for the Translation API call
@@ -24,8 +23,7 @@ const _host =
  * @type {string}
  * @private
  */
-const _ddsEndpointDefault =
-  '/common/v18/mastheadbanner/masthead-banner.json';
+const _ddsEndpointDefault = '/common/v18/mastheadbanner/masthead-banner.json';
 
 /**
  * Translation API endpoint
@@ -116,7 +114,6 @@ class AnnouncementBandAPI {
       const locale = await LocaleAPI.getLocale();
       lang = locale.lc;
       country = locale.cc;
-
     }
 
     return new Promise((resolve, reject) => {
@@ -145,8 +142,7 @@ class AnnouncementBandAPI {
     } else {
       const key = `${lang}-${country}`;
       if (!_requestsTranslation[key]) {
-        const url = `${_host}${endpoint ||
-          _ddsEndpoint}`;
+        const url = `${_host}${endpoint || _ddsEndpoint}`;
 
         _requestsTranslation[key] = axios
           .get(url, {

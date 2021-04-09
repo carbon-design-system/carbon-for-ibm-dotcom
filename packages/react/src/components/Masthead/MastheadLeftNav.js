@@ -9,13 +9,13 @@ import React, { useRef } from 'react';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
 import SideNavLink from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
 import SideNavMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
 import SideNavMenuWithBackFoward from '../carbon-components-react/UIShell/SideNavMenuWithBackForward';
-import root from 'window-or-global';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -145,7 +145,12 @@ const MastheadLeftNav = ({
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}
-      className={!isScrolledBelowAnnouncement && root.document?.getElementById('think-banner-container') ? 'bx--side-nav__announcement-adjustment' : ''}
+      className={
+        !isScrolledBelowAnnouncement &&
+        root.document?.getElementById('think-banner-container')
+          ? 'bx--side-nav__announcement-adjustment'
+          : ''
+      }
       ref={sideNavRef}>
       <nav
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0`}>
@@ -279,6 +284,11 @@ MastheadLeftNav.propTypes = {
    * Back button text
    */
   backButtonText: PropTypes.string,
+
+  /**
+   * Determines if the screen is scrolled below the announcement band.
+   */
+  isScrolledBelowAnnouncement: PropTypes.bool,
 
   /**
    * Object containing left navigation elements.

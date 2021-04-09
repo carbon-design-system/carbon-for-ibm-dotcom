@@ -34,9 +34,10 @@
   }
 
   #think-banner-container + .bx--masthead__announcement-adjustment {
-    .#{$prefix}--masthead .#{$prefix}--side-nav__navigation.#{$prefix}--side-nav__announcement-adjustment {
-        position: absolute;
-      }
+    .#{$prefix}--masthead
+      .#{$prefix}--side-nav__navigation.#{$prefix}--side-nav__announcement-adjustment {
+      position: absolute;
+    }
   }
 
   .#{$prefix}--header__menu-trigger {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -93,11 +93,17 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         </HeaderNavigation>
       </HeaderNavContainer>
       <div
-        className={classnames(`${prefix}--masthead__overlay`, {
-          [`${prefix}--masthead__overlay-show`]: overlay,
-        }, {
-          [`${prefix}--masthead__overlay-announcement-adjustment`]: !topNavProps.isScrolledBelowAnnouncement && root.document?.getElementById('think-banner-container'),
-        })}></div>
+        className={classnames(
+          `${prefix}--masthead__overlay`,
+          {
+            [`${prefix}--masthead__overlay-show`]: overlay,
+          },
+          {
+            [`${prefix}--masthead__overlay-announcement-adjustment`]:
+              !topNavProps.isScrolledBelowAnnouncement &&
+              root.document?.getElementById('think-banner-container'),
+          }
+        )}></div>
     </>
   );
 };
@@ -131,6 +137,11 @@ function renderNav(link, autoid) {
 }
 
 MastheadTopNav.propTypes = {
+  /**
+   * Determines if the screen is scrolled below the announcement band.
+   */
+  isScrolledBelowAnnouncement: PropTypes.bool,
+
   /**
    * Object containing top navigation elements.
    */

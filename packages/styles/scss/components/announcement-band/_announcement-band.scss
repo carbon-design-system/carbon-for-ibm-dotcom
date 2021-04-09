@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-
 #masthead-banner {
   text-decoration: none;
   color: #ffffff;
@@ -17,13 +16,17 @@
   box-sizing: border-box;
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: inherit;
   }
 
+  #masthead-banner-content {
+    box-sizing: border-box;
+  }
+
   &:hover {
-    background: #161616 !important;
+    background: #161616;
     border-color: transparent;
     border-bottom: 3px solid #00bab6;
   }
@@ -33,7 +36,7 @@
     outline: none;
 
     #masthead-banner-content {
-      outline: 1px solid #fff;
+      outline: 1px solid #ffffff;
     }
   }
 
@@ -49,58 +52,20 @@
     display: flex;
   }
 
-  .cta {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ffffff;
-    line-height: 17.5px;
-    min-width: 150px;
-    height: 40px;
-    padding-left: 16px;
-    padding-right: 16px;
-    margin: 0 16px;
-    white-space: nowrap;
-  }
-
-  .cta__text::after {
-    font-family: icons-ibm-v12;
-    content: '\f1b3';
-    margin-left: 32px;
-  }
-
-  .forward-icon {
-    font-family: icons-ibm-v12;
-    content: '\f1b3';
-    font-size: 22px;
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-  .forward-icon::after {
-    font-family: icons-ibm-v12;
-    content: '\f1b3';
-    font-size: 22px;
-    padding-top: 48px;
-  }
-
   .masthead-banner__icon {
     margin: 0 24px;
   }
 }
 
-#masthead-banner-content {
-  box-sizing: border-box;
-}
-
 #masthead-banner-desktop {
-  height: 75px !important;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 #masthead-banner-mobile {
-  height: 75px !important;
+  height: 75px;
 }
 
 @media (max-width: 659px) {
@@ -143,23 +108,85 @@
     background: #102c95;
   }
 
+  #think-banner-content {
+    box-sizing: border-box;
+
+    .video-background {
+      width: auto;
+      height: auto;
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 65%;
+      transform: translateY(-50%) translateX(-65%);
+      z-index: 0;
+      display: none;
+
+      @media (min-width: 1000px) {
+        display: block;
+      }
+
+      video {
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+      }
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .space-between {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .flex {
+      display: flex;
+      position: relative;
+      z-index: 2;
+    }
+
+    .think-counter {
+      font-size: 3.75rem;
+      letter-spacing: 0;
+      line-height: 4.375rem;
+      padding-right: 16px;
+
+      &__container {
+        flex: 1 1 auto;
+      }
+    }
+
+    .counter-text {
+      line-height: 1.375rem;
+    }
+  }
+
   &:hover {
-    border-color: transparent !important;
+    border-color: transparent;
   }
 
   &:focus {
-    border-color: transparent !important;
+    border-color: transparent;
     outline: none;
 
     #think-banner-content {
-      outline: 1px solid #fff;
+      outline: 1px solid #ffffff;
     }
   }
 
   .think-banner__icon {
-    margin: 0 24px;
+    margin-left: 24px;
+    margin-right: 24px;
   }
-  @media only screen and (min-width: 0px) and (max-width: 579px) {
+  @media only screen and (min-width: 0) and (max-width: 579px) {
     .ibm-hidden-small {
       display: none;
     }
@@ -181,109 +208,8 @@
   }
 }
 
-#think-banner-content {
-  box-sizing: border-box;
-
-  .video-background {
-    width: auto !important;
-    height: auto !important;
-    min-width: 100%;
-    min-height: 100%;
-    position: absolute;
-    top: 50% !important;
-    left: 65% !important;
-    transform: translateY(-50%) translateX(-65%);
-    z-index: 0;
-    display: none;
-
-    @media (min-width: 1000px) {
-      display: block;
-    }
-
-    video {
-      width: 50%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateY(-50%) translateX(-50%);
-    }
-  }
-
-  .align-center {
-    align-items: center;
-  }
-
-  .space-between {
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .flex {
-    display: flex;
-    position: relative;
-    z-index: 2;
-  }
-
-  .think-counter {
-    font-size: 60px;
-    letter-spacing: 0;
-    line-height: 70px;
-    padding-right: 16px;
-
-    &__container {
-      flex: 1 1 auto;
-    }
-  }
-
-  .counter-text {
-    line-height: 22px;
-  }
-
-  .cta {
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    background: #0062ff;
-    border-color: #0062ff;
-    outline-color: #0062ff;
-    line-height: 17.5px;
-    min-width: 250px;
-    height: 48px;
-    padding-left: 16px;
-    margin: 0 16px;
-    white-space: nowrap;
-    position: relative;
-  }
-
-  .cta__text::after {
-    font-family: icons-ibm-v12;
-    content: '\f1b3';
-    margin-left: 32px;
-    font-size: 1.5rem;
-    position: absolute;
-    right: 16px;
-  }
-
-  .forward-icon {
-    font-family: icons-ibm-v12;
-    content: '\f1b3';
-    font-size: 22px;
-    margin-left: 16px;
-    margin-right: 16px;
-
-    &::after {
-      font-family: icons-ibm-v12;
-      content: '\f1b3';
-      font-size: 22px;
-      padding-top: 48px;
-    }
-  }
-}
-
 #think-banner-desktop {
-  height: 104px !important;
+  height: 104px;
   display: none;
   align-items: center;
   justify-content: space-between;
@@ -294,7 +220,7 @@
 }
 
 #think-banner-mobile {
-  height: 75px !important;
+  height: 75px;
   display: flex;
 
   @media (min-width: 850px) {

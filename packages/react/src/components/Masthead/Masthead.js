@@ -6,6 +6,9 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+
+import AnnouncementBand from '../AnnouncementBand/AnnouncementBand';
+import customAnnouncementData from '../AnnouncementBand/__stories__/data/customData.js';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -14,7 +17,6 @@ import Header from '../../internal/vendor/carbon-components-react/components/UIS
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
 import HeaderMenuButton from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuButton';
-import AnnouncementBand from '../AnnouncementBand/AnnouncementBand';
 import { IbmLogo } from '../Icon';
 import MastheadL1 from './MastheadL1';
 import MastheadLeftNav from './MastheadLeftNav';
@@ -29,9 +31,6 @@ import SkipToContent from '../../internal/vendor/carbon-components-react/compone
 import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import User20 from '@carbon/icons-react/es/user/20';
 import UserOnline20 from '@carbon/icons-react/es/user--online/20';
-
-import customAnnouncementData from '../AnnouncementBand/__stories__/data/customData.js';
-
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -52,7 +51,6 @@ const { prefix } = settings;
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
  * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
-
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -142,8 +140,10 @@ const Masthead = ({
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);
-  const [isScrolledBelowAnnouncement, setIsScrolledBelowAnnouncement] = useState(!hasAnnouncementBand);
-
+  const [
+    isScrolledBelowAnnouncement,
+    setIsScrolledBelowAnnouncement,
+  ] = useState(!hasAnnouncementBand);
 
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
@@ -175,25 +175,21 @@ const Masthead = ({
         );
       }
 
-      if(hasAnnouncementBand) {
-        if(root.innerWidth < 850) {
-          setIsScrolledBelowAnnouncement(
-            root.pageYOffset > 75
-          )
+      if (hasAnnouncementBand) {
+        if (root.innerWidth < 850) {
+          setIsScrolledBelowAnnouncement(root.pageYOffset > 75);
         } else {
-          setIsScrolledBelowAnnouncement(
-            root.pageYOffset > 106
-          )
+          setIsScrolledBelowAnnouncement(root.pageYOffset > 106);
         }
       } else {
-        setIsScrolledBelowAnnouncement(true)
+        setIsScrolledBelowAnnouncement(true);
       }
     });
 
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };
-  }, []);
+  }, [hasAnnouncementBand]);
 
   if (navigation) {
     switch (typeof navigation) {
@@ -219,7 +215,9 @@ const Masthead = ({
     navType = 'eco';
   }
 
-  let announcementAdjustmentClass = !isScrolledBelowAnnouncement ? `${prefix}--masthead__announcement-adjustment` : '';
+  let announcementAdjustmentClass = !isScrolledBelowAnnouncement
+    ? `${prefix}--masthead__announcement-adjustment`
+    : '';
 
   return (
     <HeaderContainer
@@ -231,119 +229,121 @@ const Masthead = ({
         }
         return (
           <>
-          {
-            hasAnnouncementBand && (
+            {hasAnnouncementBand && (
               <AnnouncementBand customData={customAnnouncementData} />
-            )
-          }
-          <div
-            className={`${prefix}--masthead ${mastheadSticky} ${announcementAdjustmentClass}`}
-            ref={stickyRef}>
-            <div className={`${prefix}--masthead__l0`}>
-              <Header
-                aria-label="IBM"
-                data-autoid={`${stablePrefix}--masthead`}>
-                <SkipToContent />
+            )}
+            <div
+              className={`${prefix}--masthead ${mastheadSticky} ${announcementAdjustmentClass}`}
+              ref={stickyRef}>
+              <div className={`${prefix}--masthead__l0`}>
+                <Header
+                  aria-label="IBM"
+                  data-autoid={`${stablePrefix}--masthead`}>
+                  <SkipToContent />
 
-                {(mastheadL1Data || navigation) && (
-                  <HeaderMenuButton
-                    aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
-                    data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
-                    onClick={onClickSideNavExpand}
-                    isActive={isSideNavExpanded}
-                    className={headerSearchClasses}
-                  />
-                )}
+                  {(mastheadL1Data || navigation) && (
+                    <HeaderMenuButton
+                      aria-label={
+                        isSideNavExpanded ? 'Close menu' : 'Open menu'
+                      }
+                      data-autoid={`${stablePrefix}--masthead-${navType}-sidenav__l0-menu`}
+                      onClick={onClickSideNavExpand}
+                      isActive={isSideNavExpanded}
+                      className={headerSearchClasses}
+                    />
+                  )}
 
-                {(navigation || mastheadL1Data) && isSideNavExpanded && (
-                  <MastheadLeftNav
-                    {...mastheadProps}
-                    backButtonText="Back"
-                    platform={platform}
-                    navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
-                    isSideNavExpanded={isSideNavExpanded}
-                    isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
-                    navType={navType}
-                    selectedMenuItem={selectedMenuItem}
-                  />
-                )}
-
-                <IbmLogo
-                  logoData={mastheadProps.mastheadLogo}
-                  autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
-                  isSearchActive={isSearchActive}
-                />
-
-                <div
-                  className={`${prefix}--header__search ${headerSearchClasses}`}>
-                  {navigation && !mastheadL1Data && (
-                    <MastheadTopNav
+                  {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                    <MastheadLeftNav
                       {...mastheadProps}
-                      isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
-                      hasL1={false}
+                      backButtonText="Back"
                       platform={platform}
-                      navigation={mastheadData}
+                      navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
+                      isSideNavExpanded={isSideNavExpanded}
+                      isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
                       navType={navType}
                       selectedMenuItem={selectedMenuItem}
                     />
                   )}
-                  {hasSearch && (
-                    <MastheadSearch
-                      {...mastheadProps}
-                      searchOpenOnload={isSearchActive}
-                      placeHolderText={placeHolderText}
-                      initialSearchTerm={initialSearchTerm}
-                      navType={navType}
-                      isSearchActive={handleSearchActive}
-                    />
-                  )}
-                </div>
 
-                {hasProfile && (
-                  <HeaderGlobalBar className={`${prefix}--header__profile`}>
-                    <MastheadProfile
-                      overflowMenuProps={{
-                        ariaLabel: 'User Profile',
-                        'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
-                        flipped: true,
-                        style: { width: '3rem' },
-                        onOpen: () => _setProfileListPosition(),
-                        renderIcon: () =>
-                          isAuthenticated ? <UserOnline20 /> : <User20 />,
-                      }}
-                      overflowMenuItemProps={{
-                        wrapperClassName: `${prefix}--masthead__profile-item`,
-                      }}
-                      profileMenu={
-                        isAuthenticated
-                          ? profileData.signedin
-                          : profileData.signedout
-                      }
-                      {...(mastheadProps.customProfileLogin &&
-                      DDS_CUSTOM_PROFILE_LOGIN
-                        ? {
-                            customProfileLogin:
-                              mastheadProps.customProfileLogin,
-                          }
-                        : {})}
-                      navType={navType}
-                    />
-                  </HeaderGlobalBar>
-                )}
-              </Header>
-            </div>
-            {mastheadL1Data && (
-              <div ref={mastheadL1Ref}>
-                <MastheadL1
-                  {...mastheadL1Data}
-                  isShort={isMastheadSticky}
-                  isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
-                  navType={navType}
-                  selectedMenuItem={selectedMenuItem}
-                />
+                  <IbmLogo
+                    logoData={mastheadProps.mastheadLogo}
+                    autoid={`${stablePrefix}--masthead-${navType}__l0-logo`}
+                    isSearchActive={isSearchActive}
+                  />
+
+                  <div
+                    className={`${prefix}--header__search ${headerSearchClasses}`}>
+                    {navigation && !mastheadL1Data && (
+                      <MastheadTopNav
+                        {...mastheadProps}
+                        isScrolledBelowAnnouncement={
+                          isScrolledBelowAnnouncement
+                        }
+                        hasL1={false}
+                        platform={platform}
+                        navigation={mastheadData}
+                        navType={navType}
+                        selectedMenuItem={selectedMenuItem}
+                      />
+                    )}
+                    {hasSearch && (
+                      <MastheadSearch
+                        {...mastheadProps}
+                        searchOpenOnload={isSearchActive}
+                        placeHolderText={placeHolderText}
+                        initialSearchTerm={initialSearchTerm}
+                        navType={navType}
+                        isSearchActive={handleSearchActive}
+                      />
+                    )}
+                  </div>
+
+                  {hasProfile && (
+                    <HeaderGlobalBar className={`${prefix}--header__profile`}>
+                      <MastheadProfile
+                        overflowMenuProps={{
+                          ariaLabel: 'User Profile',
+                          'data-autoid': `${stablePrefix}--masthead-${navType}__l0-account`,
+                          flipped: true,
+                          style: { width: '3rem' },
+                          onOpen: () => _setProfileListPosition(),
+                          renderIcon: () =>
+                            isAuthenticated ? <UserOnline20 /> : <User20 />,
+                        }}
+                        overflowMenuItemProps={{
+                          wrapperClassName: `${prefix}--masthead__profile-item`,
+                        }}
+                        profileMenu={
+                          isAuthenticated
+                            ? profileData.signedin
+                            : profileData.signedout
+                        }
+                        {...(mastheadProps.customProfileLogin &&
+                        DDS_CUSTOM_PROFILE_LOGIN
+                          ? {
+                              customProfileLogin:
+                                mastheadProps.customProfileLogin,
+                            }
+                          : {})}
+                        navType={navType}
+                      />
+                    </HeaderGlobalBar>
+                  )}
+                </Header>
               </div>
-            )}
-          </div>
+              {mastheadL1Data && (
+                <div ref={mastheadL1Ref}>
+                  <MastheadL1
+                    {...mastheadL1Data}
+                    isShort={isMastheadSticky}
+                    isScrolledBelowAnnouncement={isScrolledBelowAnnouncement}
+                    navType={navType}
+                    selectedMenuItem={selectedMenuItem}
+                  />
+                </div>
+              )}
+            </div>
           </>
         );
       }}

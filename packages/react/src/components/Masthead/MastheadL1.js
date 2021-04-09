@@ -22,7 +22,13 @@ const { prefix } = settings;
 /**
  * MastHead L1 component.
  */
-const MastheadL1 = ({ title, titleLink, navigationL1, isScrolledBelowAnnouncement, ...rest }) => {
+const MastheadL1 = ({
+  title,
+  titleLink,
+  navigationL1,
+  isScrolledBelowAnnouncement,
+  ...rest
+}) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
   });
@@ -123,6 +129,11 @@ MastheadL1.propTypes = {
    * The optional title link (experimental)
    */
   titleLink: PropTypes.string,
+
+  /**
+   * Determines if the screen is scrolled below the announcement band.
+   */
+  isScrolledBelowAnnouncement: PropTypes.bool,
 
   /**
    * Object containing masthead l1 navigation elements.

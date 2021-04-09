@@ -176,12 +176,18 @@ $search-transition-timing: 95ms;
   }
 
   #think-banner-container + .bx--masthead__announcement-adjustment {
-      position: absolute;
-      top: 75px;
+    position: absolute;
+    top: 75px;
+    @media screen and (min-width: 850px) {
+      top: 106px;
+    }
+    .#{$prefix}--masthead__overlay-announcement-adjustment {
+      top: 123px;
       @media screen and (min-width: 850px) {
-        top: 106px;
+        top: 154px;
       }
     }
+  }
 
   :host(#{$dds-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
@@ -203,15 +209,6 @@ $search-transition-timing: 95ms;
     //     top: 154px;
     //   }
     // }
-  }
-
-  #think-banner-container + .bx--masthead__announcement-adjustment {
-    .#{$prefix}--masthead__overlay-announcement-adjustment{
-      top: 123px;
-      @media screen and (min-width: 850px) {
-        top: 154px;
-      }
-    }
   }
 
   :host(#{$dds-prefix}-megamenu-overlay)[active],

@@ -6,12 +6,12 @@
  */
 
 import { select, object } from '@storybook/addon-knobs';
+import { WithAnnouncementBand as announcementBandStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Micro as footerMicroStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { WithL1 as l1Story } from '../../Masthead/__stories__/Masthead.stories.js';
-import { WithAnnouncementBand as announcementBandStory } from '../../Masthead/__stories__/Masthead.stories.js';
 
 import languageItems from '../../Footer/__data__/language-items.json';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
@@ -304,7 +304,9 @@ WithL1.story = {
   },
 };
 
-export const WithAnnouncementBand = ({ parameters }) => <Default parameters={parameters} />;
+export const WithAnnouncementBand = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
 
 WithAnnouncementBand.story = {
   name: 'With AnnouncementBand',
@@ -312,7 +314,9 @@ WithAnnouncementBand.story = {
     knobs: {
       escapeHTML: false,
       DotcomShell: () => {
-        const { Masthead: mastheadKnobs } = announcementBandStory.story.parameters.knobs;
+        const {
+          Masthead: mastheadKnobs,
+        } = announcementBandStory.story.parameters.knobs;
         return {
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),

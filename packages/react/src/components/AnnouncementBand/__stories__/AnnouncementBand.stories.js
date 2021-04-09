@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
 import AnnouncementBand from '../AnnouncementBand';
+
 import { boolean } from '@storybook/addon-knobs';
 import customData from './data/customData.js';
-
+import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
@@ -17,11 +17,8 @@ export default {
 
   parameters: {
     ...readme.parameters,
-    knobs:{
-      useMockData: boolean(
-        'Use mock data',
-        true
-      )
+    knobs: {
+      useMockData: boolean('Use mock data', true),
     },
     percy: {
       skip: true,
@@ -31,5 +28,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => (
-  <AnnouncementBand customData={parameters.knobs.useMockData ? customData : null} />
+  <AnnouncementBand
+    customData={parameters.knobs.useMockData ? customData : null}
+  />
 );
