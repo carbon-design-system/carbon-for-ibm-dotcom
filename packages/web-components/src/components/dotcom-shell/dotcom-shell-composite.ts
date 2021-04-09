@@ -8,7 +8,7 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, customElement, LitElement, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -117,15 +117,27 @@ class DDSDotcomShellComposite extends LitElement {
     }
   }
 
+  @internalProperty()
+  private _lastScrollDirection = 0;
+
   /**
-   * Scrolls the masthead out of view if toc is present
+   * Scrolls the masthead in/out of view if toc is present depending on scroll direction
    */
   private _handleIntersect = () => {
     if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
-      const top = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
-      this._masthead!.style.top = `${top}px`;
+      const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
+      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollDirection - window.scrollY;
       this._masthead!.style.transition = 'none';
+      if (window.scrollY < this._lastScrollDirection) {
+        this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      } else {
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      }
     }
+
+    this._lastScrollDirection = window.scrollY;
   };
 
   connectedCallback() {
