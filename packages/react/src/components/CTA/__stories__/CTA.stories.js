@@ -38,7 +38,7 @@ const miscCTAData = {
   },
   card({ type }) {
     return {
-      copy: copy[0],
+      copy: type !== 'video' ? copy[0] : '',
       cta: {
         href: urlBy[type],
       },

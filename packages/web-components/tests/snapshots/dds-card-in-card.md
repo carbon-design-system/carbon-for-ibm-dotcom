@@ -39,7 +39,7 @@
 ```
 <div class="bx--card-in-card__container">
   <a
-    class="bx--card bx--card--link bx--card-in-card bx--feature-card__card bx--tile bx--tile--clickable"
+    class="bx--card bx--card--link bx--card-in-card bx--link bx--tile bx--tile--clickable"
     href="https://example.com"
     id="link"
     part="link"
