@@ -28,6 +28,7 @@
     }
     .#{$prefix}--tab-content {
       @include carbon--type-style('body-long-02', true);
+
       display: none;
       @include carbon--breakpoint(lg) {
         display: block;

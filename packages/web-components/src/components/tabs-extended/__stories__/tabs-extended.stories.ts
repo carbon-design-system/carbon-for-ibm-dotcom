@@ -9,11 +9,10 @@
 
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../tabs-extended';
 import '../tab';
 
-export const Default = ({ parameters }) => {
+export const Default = () => {
   return html`
     <dds-tabs-extended>
       <dds-tab label="First tab">

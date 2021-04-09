@@ -11,10 +11,10 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, html, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { classMap } from 'lit-html/directives/class-map';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './tabs-extended.scss';
 
 const { prefix } = settings;
