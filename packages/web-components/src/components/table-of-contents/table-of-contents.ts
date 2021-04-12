@@ -511,7 +511,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
 
     return html`
       <div class="${containerClasses}">
-        <div part="table" class="${navigationClasses}" style="top: ${stickyOffset ? `${stickyOffset}px` : 0}">
+        <div part="table" class="${navigationClasses}" style="top: ${this.layout === 'horizontal' ? `${stickyOffset}px` : 0}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
