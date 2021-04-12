@@ -50,9 +50,6 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   @internalProperty()
   protected _hasLinkList = false;
 
-  @internalProperty()
-  protected _contentItemLength: number;
-
   /**
    * Checks if the no-border attribute has changed and applies the border class accordingly
    */
@@ -135,10 +132,6 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
     // Note: The CTA content of `<dds-cta-section>` is rendered above the main content, instead of as a footer.
     // The slot name reflects that (`action`)
     return undefined;
-  }
-
-  static get contentItemSelector() {
-    return `${ddsPrefix}-content-item`;
   }
 
   static get stableSelector() {

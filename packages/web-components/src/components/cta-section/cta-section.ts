@@ -8,14 +8,12 @@
  */
 
 import { customElement, css } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-section.scss';
 import DDSContentSection from '../content-section/content-section';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
