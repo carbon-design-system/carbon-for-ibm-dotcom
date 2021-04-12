@@ -90,6 +90,6 @@
   },
   "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784",
   "peerDependencies": {
-    "carbon-components": "10.29.0"
+    "carbon-components": "10.31.0"
   }
 }
