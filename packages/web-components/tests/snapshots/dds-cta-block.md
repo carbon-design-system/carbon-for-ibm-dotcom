@@ -1,4 +1,4 @@
-# `dds-cta-section`
+# `dds-cta-block`
 
 ## `Misc attributes`
 
@@ -54,10 +54,7 @@
     </div>
     <slot name="link-list">
     </slot>
-    <div
-      class="bx--helper-wrapper"
-      hidden=""
-    >
+    <div class="bx--helper-wrapper">
       <div class="bx--content-item-wrapper">
         <slot>
         </slot>

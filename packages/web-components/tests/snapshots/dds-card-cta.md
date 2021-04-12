@@ -54,18 +54,10 @@
     </slot>
     <slot name="heading">
     </slot>
-    <dds-card-heading
-      aria-level="3"
-      role="heading"
-    >
-      video-name-foo-caption
-    </dds-card-heading>
-    <div
-      class="bx--card__copy"
-      hidden=""
-    >
+    <div class="bx--card__copy">
       <slot>
       </slot>
+      video-name-foo-caption
     </div>
     <slot name="footer">
     </slot>
