@@ -129,6 +129,15 @@
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
       color: $icon-01;
+
+      // prevent tooltip from showing on hover
+      &.#{$prefix}--btn--icon-only::before {
+        display: none;
+      }
+
+      span {
+        visibility: hidden;
+      }
     }
   }
 
