@@ -15,19 +15,46 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
-@mixin tabs-extended-media {
-  :host(#{$dds-prefix}-tabs-extended-media) {
-
-    .#{$prefix}--tabs-extended-media__row {
-      grid-column: 1 / span 16;
-      @include carbon--breakpoint(lg) {
-        grid-template-columns: repeat(16, 1fr);
-      }
-    }
-
-  }
-}
-
-@include exports('tabs-extended-media') {
-  @include tabs-extended-media;
-}
+//@mixin tabs-extended-media {
+//  :host(#{$dds-prefix}-tabs-extended-media) {
+//    margin: 0;
+//    grid-column: 1 / span 16;
+//    padding-top: $carbon--spacing-10;
+//    padding-bottom: 10rem;
+//
+//    .#{$prefix}--tabs-extended-media {
+//      display: grid;
+//      column-gap: $carbon--spacing-07;
+//      @include carbon--breakpoint(lg) {
+//        grid-template-columns: repeat(1, 1fr);
+//      }
+//      @include carbon--breakpoint(max) {
+//        grid-template-columns: repeat(4, 1fr);
+//      }
+//    }
+//
+//    ::slotted([slot='heading']) {
+//      grid-column: 1 / span 1;
+//      grid-row: 1;
+//    }
+//
+//    .#{$prefix}--tabs-extended {
+//      grid-column: 2 / span 3;
+//    }
+//
+//    .#{$prefix}--tab-content {
+//      padding-top: $carbon--spacing-10;
+//    }
+//
+//    .#{$prefix}--accordion {
+//      grid-column: 1 / span 1;
+//      grid-row: 2;
+//    }
+//
+//  }
+//
+//}
+//
+//@include exports('tabs-extended-media') {
+//  @include tabs-extended-media;
+//}

@@ -25,8 +25,10 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSTabsExtendedMedia extends DDSTabsExtended {
   render() {
     return html`
-      <div class="${prefix}--tabs-extended-media__row">
-        <slot name="heading"></slot>
+      <div class="${prefix}--tabs-extended-media">
+        <div class="${prefix}--heading">
+          <slot name="heading"></slot>
+        </div>
         <div class="${prefix}--tabs-extended">
           ${this._renderAccordion()} ${this._renderTabs()}
           <div class="${prefix}--tab-content">
