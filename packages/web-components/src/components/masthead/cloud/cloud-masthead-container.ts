@@ -8,9 +8,9 @@
  */
 import pickBy from 'lodash-es/pickBy.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import cloudLoginStatusCookie from '@carbon/ibmdotcom-utilities/es/utilities/cloudLoginStatusCookie/cloudLoginStatusCookie';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
-import Cookies from 'js-cookie';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { LocaleAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import { TranslateAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/translateAPI.d';
@@ -23,18 +23,6 @@ import { MastheadContainerState, MastheadContainerStateProps, MastheadContainerA
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * The cookie name for determining user login status for cloud.ibm.com.
- */
-const loginStatusCookieName = 'com.ibm.cloud.iam.LoggedIn.manual';
-
-/**
- * Returns user login status (authenticated or anonymous)
- */
-function getUserLoginStatus() {
-  return Cookies.get(loginStatusCookieName) === '1' ? 'authenticated' : 'anonymous';
-}
 
 /**
  * @param state The Redux state for masthead.
@@ -57,7 +45,7 @@ export function mapStateToProps(state: MastheadContainerState): MastheadContaine
       navLinks: !language ? undefined : translations?.[language]?.mastheadNav?.links,
       unauthenticatedProfileItems: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.links,
       unauthenticatedCtaButtons: !language ? undefined : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
-      userStatus: getUserLoginStatus(),
+      userStatus: cloudLoginStatusCookie.get(),
       currentSearchResults: currentSearchResults ?? [],
     },
     value => value !== undefined
