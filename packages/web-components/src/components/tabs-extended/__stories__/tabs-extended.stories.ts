@@ -69,15 +69,15 @@ export const WithMedia = ({ parameters }) => {
       <dds-tab label="First tab">
         <dds-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
-    ? html`
+            ? html`
                 <dds-image slot="media" alt="${ifNonNull(alt)}" default-src="${imgLg16x9}"></dds-image>
               `
-    : null}
+            : null}
           ${type === MEDIA_TYPE.VIDEO
-    ? html`
+            ? html`
                 <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
               `
-    : null}
+            : null}
           <dds-content-item-heading>${heading}</dds-content-item-heading>
           <dds-content-item-horizontal-media-copy>${copy}</dds-content-item-horizontal-media-copy>
           <dds-link-list slot="footer" type="vertical">
@@ -133,8 +133,8 @@ WithMedia.story = {
         copy: textNullable(
           'Copy (copy):',
           'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +
-          'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-          'Phasellus at elit sollicitudin.'
+            'Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+            'Phasellus at elit sollicitudin.'
         ),
         ctaType1: select('CTA 1 type (cta-type)', types, CTA_TYPE.LOCAL),
         ctaCopy1: textNullable('CTA 1 copy (cta-copy):', 'Learn more'),
