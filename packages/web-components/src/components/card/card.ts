@@ -122,7 +122,11 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''}">
         <div class="${prefix}--card__content">
-          <slot name="eyebrow"></slot>
+          ${hasPictogram
+            ? ''
+            : html`
+                <slot name="eyebrow"></slot>
+              `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? html`
                 <slot
