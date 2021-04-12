@@ -83,6 +83,7 @@ html {
 .dds-ce-demo-devenv--simple-grid--card-group,
 .dds-ce-demo-devenv--simple-grid--content-horizontal,
 .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
+.dds-ce-demo-devenv--simple-grid--tabs-extended,
 .dds-ce-demo-devenv--simple-grid--content-layout,
 .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
 .dds-ce-demo-devenv--simple-grid--content-block-headlines,
@@ -109,6 +110,7 @@ html {
   .dds-ce-demo-devenv--simple-grid--card-group,
   .dds-ce-demo-devenv--simple-grid--content-horizontal,
   .dds-ce-demo-devenv--simple-grid--content-horizontal-media,
+  .dds-ce-demo-devenv--simple-grid--tabs-extended,
   .dds-ce-demo-devenv--simple-grid--content-layout,
   .dds-ce-demo-devenv--simple-grid--content-layout--with-complementary,
   .dds-ce-demo-devenv--simple-grid--content-section,
@@ -140,6 +142,13 @@ html {
   .dds-ce-demo-devenv--simple-grid--content-horizontal-media {
     > * {
       grid-column: 3 / span 12;
+    }
+  }
+
+  .dds-ce-demo-devenv--simple-grid--tabs-extended {
+    > * {
+      margin-top: $carbon--spacing-05;
+      grid-column: 1 / span 12;
     }
   }
 
