@@ -8,8 +8,10 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,
@@ -25,7 +27,10 @@ import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
@@ -35,6 +40,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-dotcom-shell-composite`)
 class DDSDotcomShellComposite extends LitElement {
   /**
+   * The last scroll Position
+   */
+  @internalProperty()
+  private _lastScrollPosition = 0;
+
+  /**
    * The render target of the footer contents.
    */
   private _footerRenderRoot: Element | null = null;
@@ -43,6 +54,26 @@ class DDSDotcomShellComposite extends LitElement {
    * The render target of the masthead contents.
    */
   private _mastheadRenderRoot: Element | null = null;
+
+  /**
+   * The masthead element.
+   */
+  private _masthead?: HTMLElement;
+
+  /**
+   * The tableOfContents inner navBar or sideBar depending on layout.
+   */
+  private _tableOfContentsInnerBar?: HTMLElement;
+
+  /**
+   * The tableOfContents layout.
+   */
+  private _tableOfContentsLayout?: String;
+
+  /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null;
 
   /**
    * @returns The render root of the footer contents.
@@ -60,6 +91,70 @@ class DDSDotcomShellComposite extends LitElement {
     const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
+  }
+
+  /**
+   * Cleans-up and creates the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._handleResize.bind(this));
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+    }
+  }
+
+  /**
+   * Resets masthead to top upon resize in larger breakpoints
+   */
+  private _handleResize() {
+    if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
+      this._masthead!.style.top = '0';
+    } else {
+      if (this._masthead!.getBoundingClientRect().top === 0) {
+        this._tableOfContentsInnerBar!.style.top = `${this._masthead!.offsetHeight}px`;
+      }
+      this._handleIntersect();
+    }
+  }
+
+  /**
+   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
+   */
+  private _handleIntersect = () => {
+    if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+      const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
+      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+      this._masthead!.style.transition = 'none';
+      if (window.scrollY < this._lastScrollPosition) {
+        this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      } else {
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      }
+    }
+    this._lastScrollPosition = window.scrollY;
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
+    window.addEventListener('scroll', this._handleIntersect);
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
+    window.removeEventListener('scroll', this._handleIntersect);
+    super.disconnectedCallback();
   }
 
   /**
@@ -328,6 +423,18 @@ class DDSDotcomShellComposite extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
+
+    if (!this._tableOfContentsInnerBar) {
+      const toc = document.querySelector(`${ddsPrefix}-table-of-contents`);
+      if (toc?.getAttribute('toc-layout') === 'horizontal') {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__navbar`) as HTMLElement;
+        this._tableOfContentsLayout = 'horizontal';
+      } else {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__sidebar`) as HTMLElement;
+      }
+      this._masthead = document.querySelector(`${ddsPrefix}-masthead`) as HTMLElement;
+    }
+
     if (!this._mastheadRenderRoot) {
       this._mastheadRenderRoot = this._createMastheadRenderRoot();
     }

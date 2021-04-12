@@ -148,11 +148,11 @@ WithCustomNavigation.story = {
   },
 };
 
-export const SearchOpenByDefault = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload={true} />
+export const SearchOpenOnload = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload />
 );
 
-SearchOpenByDefault.story = {
+SearchOpenOnload.story = {
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
