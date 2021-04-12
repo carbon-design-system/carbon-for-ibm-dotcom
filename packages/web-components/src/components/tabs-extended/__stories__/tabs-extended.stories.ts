@@ -38,7 +38,6 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-
 export const Default = () => {
   return html`
     <dds-tabs-extended>
@@ -124,25 +123,9 @@ Default.story = {
 WithMedia.story = {
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--tabs-extended-media',
-  },
-};
-
-export default {
-  title: 'Components/Tabs extended',
-  decorators: [
-    (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
-      </div>
-    `,
-  ],
-  parameters: {
-    ...readme.parameters,
-    hasVerticalSpacingInComponent: true,
-    hasGrid: true,
     knobs: {
-      TabsExtended: ({ groupId }) => ({
-        sectionHeading: textNullable('Heading', 'Title heading', groupId),
+      TabsExtended: () => ({
+        sectionHeading: textNullable('Heading', 'Title heading'),
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         alt: textNullable('Image alt text', 'Lorem ipsum'),
@@ -161,5 +144,22 @@ export default {
         href2: textNullable('CTA 2 href (cta-href):', 'https://www.ibm.com'),
       }),
     },
+  },
+};
+
+export default {
+  title: 'Components/Tabs extended',
+  decorators: [
+    (story, { parameters }) => html`
+      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+        ${story()}
+      </div>
+    `,
+  ],
+  parameters: {
+    ...readme.parameters,
+    hasVerticalSpacingInComponent: true,
+    hasGrid: true,
+    knobs: {},
   },
 };

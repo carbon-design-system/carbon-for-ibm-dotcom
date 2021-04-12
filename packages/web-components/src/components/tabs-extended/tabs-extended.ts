@@ -44,7 +44,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
    *
    * @private
    */
-  private _handleSlotChange(event: Event) {
+  protected _handleSlotChange(event: Event) {
     this._tabItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(node => new DDSTab()?.nodeName === node.nodeName);

@@ -15,46 +15,59 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
-//@mixin tabs-extended-media {
-//  :host(#{$dds-prefix}-tabs-extended-media) {
-//    margin: 0;
-//    grid-column: 1 / span 16;
-//    padding-top: $carbon--spacing-10;
-//    padding-bottom: 10rem;
-//
-//    .#{$prefix}--tabs-extended-media {
-//      display: grid;
-//      column-gap: $carbon--spacing-07;
-//      @include carbon--breakpoint(lg) {
-//        grid-template-columns: repeat(1, 1fr);
-//      }
-//      @include carbon--breakpoint(max) {
-//        grid-template-columns: repeat(4, 1fr);
-//      }
-//    }
-//
-//    ::slotted([slot='heading']) {
-//      grid-column: 1 / span 1;
-//      grid-row: 1;
-//    }
-//
-//    .#{$prefix}--tabs-extended {
-//      grid-column: 2 / span 3;
-//    }
-//
-//    .#{$prefix}--tab-content {
-//      padding-top: $carbon--spacing-10;
-//    }
-//
-//    .#{$prefix}--accordion {
-//      grid-column: 1 / span 1;
-//      grid-row: 2;
-//    }
-//
-//  }
-//
-//}
-//
-//@include exports('tabs-extended-media') {
-//  @include tabs-extended-media;
-//}
+@mixin tabs-extended-media {
+  :host(#{$dds-prefix}-tabs-extended-media) {
+    margin: 0;
+    grid-column: 1 / span 16;
+    @include carbon--breakpoint(sm) {
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--spacing-12;
+    }
+    @include carbon--breakpoint(lg) {
+      padding-top: $carbon--spacing-10;
+      padding-bottom: 10rem;
+    }
+
+    ::slotted([slot='heading']) {
+      grid-column: 1 / span 1;
+      grid-row: 1;
+      margin-bottom: $carbon--spacing-09;
+      margin-left: $carbon--spacing-05;
+      margin-right: $carbon--spacing-05;
+      @include carbon--breakpoint(lg) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .#{$prefix}--tabs-extended-media {
+      display: grid;
+      column-gap: $carbon--spacing-07;
+      @include carbon--breakpoint(sm) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @include carbon--breakpoint(lg) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .#{$prefix}--tabs-extended {
+      @include carbon--breakpoint(sm) {
+        grid-column: 1 / span 1;
+        grid-row: 2;
+      }
+      @include carbon--breakpoint(lg) {
+        grid-column: 2 / span 3;
+        grid-row: 1;
+      }
+    }
+
+    .#{$prefix}--tab-content {
+      padding-top: $carbon--spacing-10;
+    }
+  }
+}
+
+@include exports('tabs-extended-media') {
+  @include tabs-extended-media;
+}
