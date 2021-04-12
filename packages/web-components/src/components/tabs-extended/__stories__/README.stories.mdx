@@ -20,6 +20,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extended.js';
+import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extended-media.js';
 ```
 
 ### HTML
@@ -42,6 +43,48 @@ import '@carbon/ibmdotcom-web-components/es/components/tabs-extended/tabs-extend
     <p>Content for fifth tab goes here.</p>
   </dds-tab>
 </dds-tabs-extended>
+```
+
+#### With Media
+
+```
+<dds-tabs-extended-media>
+  <dds-content-section-heading>Section heading</dds-content-section-heading>
+  <dds-tab label="First tab">
+    <dds-content-item-horizontal-media align="right">
+      <dds-image
+        slot="media"
+        alt="Lorem ipsum"
+        default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"
+      ></dds-image>
+      <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+      <dds-content-item-horizontal-copy
+        >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+        Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy
+      >
+      <dds-link-list slot="footer" type="vertical">
+        <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+          Learn more
+        </dds-link-list-item-cta>
+        <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+          Microservices and containers
+        </dds-link-list-item-cta>
+      </dds-link-list>
+    </dds-content-item-horizontal-media>
+  </dds-tab>
+  <dds-tab label="Second tab">
+    <p>Content for second tab goes here.</p>
+  </dds-tab>
+  <dds-tab label="Third tab">
+    <p>Content for third tab goes here.</p>
+  </dds-tab>
+  <dds-tab label="Fourth tab">
+    <p>Content for fourth tab goes here.</p>
+  </dds-tab>
+  <dds-tab label="Fifth tab" disabled="true">
+    <p>Content for fifth tab goes here.</p>
+  </dds-tab>
+</dds-tabs-extended-media>
 ```
 
 ## Props
