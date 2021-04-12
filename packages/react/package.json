@@ -49,6 +49,8 @@
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
+    "carbon-components": "10.31.0",
+    "carbon-components-react": "7.31.0",
     "react": "16.9.0",
     "react-dom": "16.9.0"
   },
@@ -115,7 +117,6 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "browserslist-config-carbon": "10.3.0",
     "cache-loader": "^4.1.0",
-    "carbon-components": "10.29.0",
     "chalk": "^2.3.0",
     "child-process-promise": "^2.2.0",
     "cli-table": "^0.3.0",

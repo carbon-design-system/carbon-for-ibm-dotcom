@@ -24,28 +24,6 @@
   }
 }
 
-:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:hover {
-  ::slotted(svg[slot='pictogram']) {
-    display: none;
-  }
-
-  .#{$prefix}--card__copy {
-    display: flex;
-    margin-bottom: 0;
-  }
-}
-
-:host(#{$dds-prefix}-card)[pictogram-placement='bottom']:focus {
-  ::slotted(svg[slot='pictogram']) {
-    display: none;
-  }
-
-  .#{$prefix}--card__copy {
-    display: flex;
-    margin-bottom: 0;
-  }
-}
-
 :host(#{$dds-prefix}-card) {
   outline: none;
 
@@ -53,6 +31,7 @@
     display: flex;
 
     ::slotted(#{$dds-prefix}-card-heading) {
+      padding-top: $carbon--spacing-07;
       margin-bottom: 0;
       flex: 1;
       display: flex;
@@ -75,8 +54,28 @@
   }
 
   &[pictogram-placement='bottom'] {
+    &:hover,
+    &:focus {
+      ::slotted(svg[slot='pictogram']) {
+        display: none;
+      }
+
+      /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+      .#{$prefix}--card__copy {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+
+        margin-bottom: 0;
+      }
+      /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+    }
+
     .#{$prefix}--card__pictogram {
       ::slotted(#{$dds-prefix}-card-heading) {
+        padding-top: 0;
+        padding-bottom: $carbon--spacing-07;
         align-items: flex-start;
       }
     }

@@ -10,22 +10,40 @@
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import '../video-player-container';
+import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 export const Default = () => html`
-  <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+  <dds-video-player-container playing-mode="inline" video-id="1_9h94wo6b"></dds-video-player-container>
 `;
 
 export const aspectRatio1x1 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+    ></dds-video-player-container>
   `;
 };
 
 export const aspectRatio4x3 = ({ parameters }) => {
   const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio}></dds-video-player-container>
+    <dds-video-player-container
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+    ></dds-video-player-container>
+  `;
+};
+
+export const withLightboxMediaViewer = ({ parameters }) => {
+  const { videoId, aspectRatio } = parameters?.props?.VideoPlayer ?? {};
+  return html`
+    <dds-video-player-container video-id=${videoId} aspect-ratio=${aspectRatio} playing-mode="lightbox">
+    </dds-video-player-container>
+    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
   `;
 };
 
@@ -50,6 +68,20 @@ aspectRatio1x1.story = {
       VideoPlayer: () => {
         return {
           aspectRatio: '1x1',
+          videoId: '1_9h94wo6b',
+        };
+      },
+    },
+  },
+};
+
+withLightboxMediaViewer.story = {
+  name: 'With lightbox media viewer',
+  parameters: {
+    knobs: {
+      VideoPlayer: () => {
+        return {
+          aspectRatio: '16x9',
           videoId: '1_9h94wo6b',
         };
       },
