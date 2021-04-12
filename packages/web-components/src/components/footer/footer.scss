@@ -277,6 +277,22 @@
     bottom: $carbon--spacing-08;
     max-height: 13.5rem;
   }
+
+  .#{$prefix}--list-box {
+    &__menu-icon {
+      top: carbon--mini-units(1.5);
+      svg {
+        height: carbon--mini-units(2.5);
+        width: carbon--mini-units(2.5);
+      }
+    }
+    &__selection {
+      svg {
+        height: carbon--mini-units(2.5);
+        width: carbon--mini-units(2.5);
+      }
+    }
+  }
 }
 
 :host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
