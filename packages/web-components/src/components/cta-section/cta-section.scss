@@ -19,6 +19,12 @@
 
   .#{$prefix}--content-section__leading {
     padding: $spacing-05;
+
+    margin-bottom: $carbon--layout-03;
+
+    @include carbon--breakpoint('lg') {
+      margin-bottom: 0;
+    }
   }
 
   ::slotted(#{$dds-prefix}-cta-block) {

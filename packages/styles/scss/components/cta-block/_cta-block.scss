@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,9 +25,9 @@
   }
 }
 
-@mixin cta-section--pattern {
-  :host(#{$dds-prefix}-cta-section),
-  .#{$prefix}--cta-section {
+@mixin cta-block--pattern {
+  :host(#{$dds-prefix}-cta-block),
+  .#{$prefix}--cta-block {
     &__cta {
       padding-bottom: $carbon--layout-05;
       @include carbon--breakpoint('md') {
@@ -86,8 +86,6 @@
 
     .#{$prefix}--helper-wrapper {
       .#{$prefix}--content-item-wrapper {
-        border-top: 1px solid $ui-03;
-
         @include carbon--make-row;
 
         .#{$prefix}--content-item {
@@ -138,14 +136,14 @@
       }
     }
 
-    &.#{$prefix}--cta-section__has-items {
+    &.#{$prefix}--cta-block__has-items {
       padding-bottom: $carbon--layout-04;
 
       @include carbon--breakpoint('lg') {
         padding-bottom: carbon--mini-units(10);
       }
 
-      .#{$prefix}--cta-section__cta {
+      .#{$prefix}--cta-block__cta {
         padding-bottom: $carbon--spacing-07;
 
         @include carbon--breakpoint('md') {
@@ -162,12 +160,14 @@
       }
     }
 
+    padding-bottom: $carbon--layout-03;
+
     @include carbon--breakpoint('lg') {
       padding-bottom: $carbon--layout-05;
     }
   }
 
-  .#{$prefix}--cta-section--g10 {
+  .#{$prefix}--cta-block--g10 {
     @include carbon--theme(
       $carbon--theme--g10,
       feature-flag-enabled('enable-css-custom-properties')
@@ -176,7 +176,7 @@
     }
   }
 
-  .#{$prefix}--cta-section--g90 {
+  .#{$prefix}--cta-block--g90 {
     @include carbon--theme(
       $carbon--theme--g90,
       feature-flag-enabled('enable-css-custom-properties')
@@ -185,7 +185,7 @@
     }
   }
 
-  .#{$prefix}--cta-section--g100 {
+  .#{$prefix}--cta-block--g100 {
     @include carbon--theme(
       $carbon--theme--g100,
       feature-flag-enabled('enable-css-custom-properties')
@@ -195,6 +195,6 @@
   }
 }
 
-@include exports('cta-section--pattern') {
-  @include cta-section--pattern;
+@include exports('cta-block--pattern') {
+  @include cta-block--pattern;
 }

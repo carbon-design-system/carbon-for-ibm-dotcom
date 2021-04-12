@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/cta-block/cta-block';
+@import '@carbon/ibmdotcom-styles/scss/components/cta-block/index';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-cta-block) {
@@ -78,6 +78,10 @@
   grid-template-rows: auto;
 
   @include carbon--breakpoint('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include carbon--breakpoint('lg') {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -108,6 +112,11 @@
   ::slotted(svg) {
     max-height: 80px;
     max-width: 80px;
+  }
+
+  ::slotted(#{$dds-prefix}-video-player-container) {
+    margin-bottom: $carbon--layout-03;
+    display: block;
   }
 
   .#{$prefix}--cta-block-item__statitics {

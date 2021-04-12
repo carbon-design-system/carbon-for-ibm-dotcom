@@ -16,33 +16,56 @@
 @mixin card-in-card {
   :host(#{$dds-prefix}-card-in-card),
   .#{$prefix}--card-in-card {
-    height: auto;
     width: 100%;
-
-    &:focus {
-      outline: none;
-
-      ::slotted([slot='image']),
-      #{$dds-prefix}-card-in-card-image,
-      .#{$prefix}--card__wrapper {
-        z-index: -1;
-      }
-    }
-
-    &:hover {
-      ::slotted([slot='image']),
-      #{$dds-prefix}-card-in-card-image {
-        &::before {
-          opacity: 0.2;
-        }
-      }
-    }
 
     .#{$prefix}--card-in-card__container {
       color: $text-01;
       background: $ui-background;
       position: relative;
       width: 100%;
+      height: 100%;
+    }
+
+    .#{$prefix}--card {
+      display: block;
+
+      @include carbon--breakpoint('lg') {
+        position: relative;
+      }
+
+      &:focus {
+        outline-width: 3px;
+        outline-offset: 1px;
+      }
+
+      &:hover,
+      &:focus {
+        ::slotted([slot='image']),
+        .#{$prefix}--image {
+          &::before {
+            opacity: 0.2;
+          }
+        }
+      }
+
+      // Apply dark overlay on the Image slot and its parent class.
+      ::slotted([slot='image']),
+      .#{$prefix}--image {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          z-index: 1;
+          background-color: $inverse-02;
+          transition: opacity $transition--base motion(standard, productive);
+        }
+      }
     }
 
     .#{$prefix}--card__wrapper {
@@ -88,6 +111,12 @@
 
         margin-bottom: $carbon--layout-05;
       }
+    }
+
+    ::slotted([slot='footer']),
+    .#{$prefix}--card__footer {
+      position: absolute;
+      bottom: $carbon--spacing-05;
     }
   }
 }
