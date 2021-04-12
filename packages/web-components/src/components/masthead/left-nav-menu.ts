@@ -116,9 +116,9 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
       </button>
       <ul class="${prefix}--side-nav__menu" role="menu">
         <li class="bx--side-nav__menu-item bx--masthead__side-nav--submemu-back" role="none">
-          <button class="bx--side-nav__link" role="menuitem" @click="${handleClickExpando}">
+          <a class="bx--side-nav__link" role="menuitem" @click="${handleClickExpando}">
             <span class="bx--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
-          </button>
+          </a>
         </li>
         <li class="bx--masthead__side-nav--submemu-title">${title}</li>
         <slot></slot>

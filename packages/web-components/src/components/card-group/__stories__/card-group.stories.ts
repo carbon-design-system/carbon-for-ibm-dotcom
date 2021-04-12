@@ -10,10 +10,10 @@
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
 import '../../card-in-card/card-in-card';
+import '../../card-in-card/card-in-card-footer';
 import '../../card-in-card/card-in-card-image';
 import '../card-group';
 import '../card-group-item';
-import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
@@ -81,7 +81,6 @@ const cardGroupItemWithImages = html`
 
 const cardGroupItemWithVideos = html`
   <dds-card-group-item cta-type="video" href="1_9h94wo6b">
-    <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
@@ -149,9 +148,9 @@ export const withCardInCard = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-cta-footer>
+      <dds-card-in-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      </dds-card-in-card-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}
@@ -216,9 +215,9 @@ export const withCardInCardAndImageCards = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-cta-footer>
+      <dds-card-in-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      </dds-card-in-card-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}

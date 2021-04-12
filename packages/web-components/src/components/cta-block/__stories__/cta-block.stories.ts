@@ -20,6 +20,7 @@ import '../../link-list/link-list-heading';
 import '../../link-list/link-list-item';
 import '../cta-block';
 import '../cta-block-item-row';
+import '../cta-block-item';
 import '../../content-item/content-item';
 import '../../content-item/content-item-copy';
 import '../../content-item/content-item-heading';
@@ -42,7 +43,7 @@ export const Default = ({ parameters }) => {
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   return html`
-    <dds-cta-block>
+    <dds-cta-block no-border>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
 
@@ -63,7 +64,7 @@ export const WithContentItems = ({ parameters }) => {
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
   return html`
-    <dds-cta-block>
+    <dds-cta-block no-border>
       <dds-content-block-heading>${ifNonNull(heading)}</dds-content-block-heading>
       <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
 
@@ -77,26 +78,26 @@ export const WithContentItems = ({ parameters }) => {
       </dds-button-group>
 
       <dds-cta-block-item-row>
-        <dds-content-item>
+        <dds-cta-block-item>
           <dds-content-item-heading>Get connected</dds-content-item-heading>
           <dds-content-item-copy
             >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for
             you.</dds-content-item-copy
           >
           <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
-        </dds-content-item>
+        </dds-cta-block-item>
 
-        <dds-content-item>
+        <dds-cta-block-item>
           <dds-content-item-heading>Learn how</dds-content-item-heading>
           <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
           <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-        </dds-content-item>
+        </dds-cta-block-item>
 
-        <dds-content-item>
+        <dds-cta-block-item>
           <dds-content-item-heading>Learn how</dds-content-item-heading>
           <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
           <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
-        </dds-content-item>
+        </dds-cta-block-item>
       </dds-cta-block-item-row>
     </dds-cta-block>
   `;

@@ -12,7 +12,8 @@ import '../card';
 import '../card-eyebrow';
 import '../card-footer';
 import '../card-heading';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
+
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
@@ -54,28 +55,15 @@ const pictogramPlacements = {
   [PICTOGRAM_PLACEMENT.BOTTOM]: PICTOGRAM_PLACEMENT.BOTTOM,
 };
 
-Default.story = {
-  parameters: {
-    ...readme.parameters,
-    hasGrid: true,
-    knobs: {
-      Card: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Card body copy:', '', groupId),
-        href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
-      }),
-    },
-  },
-};
-
 export const Pictogram = ({ parameters }) => {
-  const { href, heading, copy, pictogramPlacement } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, pictogramPlacement, eyebrow, inverse } = parameters?.props?.PictogramCard ?? {};
   return html`
-    <dds-card pictogram-placement="${pictogramPlacement}" href=${ifNonNull(href || undefined)}>
+    <dds-card
+      color-scheme=${inverse ? 'inverse' : ''}
+      pictogram-placement="${pictogramPlacement}"
+      href=${ifNonNull(href || undefined)}
+    >
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
@@ -87,46 +75,26 @@ export const Pictogram = ({ parameters }) => {
         focusable="false"
         preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
+        stroke="currentColor"
         data-autoid="dds--card__pictogram"
         aria-label="Pictogram description"
         width="48"
         height="48"
-        viewBox="0 0 32 32"
+        viewBox="0 0 48 48"
         role="img"
         class="bx--card__pictogram"
       >
         <path
-          id="desktop_1_"
-          d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
-          c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
-          0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
-          18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z"
-        />
+          fill="none"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width=".72"
+          d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+        ></path>
       </svg>
     </dds-card>
   `;
-};
-
-Pictogram.story = {
-  parameters: {
-    ...readme.parameters,
-    knobs: {
-      PictogramCard: ({ groupId }) => ({
-        alt: 'Image alt text',
-        defaultSrc: imgLg2x1,
-        pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
-        heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable(
-          'Card body copy:',
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          groupId
-        ),
-        href: 'https://example.com',
-        footer: 'Card CTA text',
-        iconPlacement: iconPlacement.right,
-      }),
-    },
-  },
 };
 
 export default {
@@ -141,5 +109,36 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
+    knobs: {
+      Card: ({ groupId }) => ({
+        alt: 'Image alt text',
+        defaultSrc: imgLg2x1,
+        image: boolean('image', false, groupId),
+        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Eyebrow text', groupId),
+        heading: textNullable('Card Heading (heading):', 'Lorem ipsum dolor sit amet', groupId),
+        copy: textNullable('Card Copy (copy):', '', groupId),
+        inverse: boolean('inverse', false, groupId),
+        href: textNullable('Card Href (href):', 'https://example.com', groupId),
+        footer: textNullable('Footer copy text (footer.copy)', 'Card CTA text', groupId),
+        iconPlacement: select('Footer icon placement (footer.iconPlacement)', iconPlacement, iconPlacement.right, groupId),
+      }),
+      PictogramCard: ({ groupId }) => ({
+        href: textNullable('Card Href (href):', 'https://example.com', groupId),
+        heading: textNullable('Card Heading (heading):', 'Lorem ipsum dolor sit amet', groupId),
+        eyebrow: textNullable('Card Eyebrow (eyebrow):', 'Eyebrow text', groupId),
+        copy: textNullable(
+          'Card Copy (copy):',
+          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          groupId
+        ),
+        pictogramPlacement: select(
+          'Card pictogram placement (card.pictogramPlacement)',
+          pictogramPlacements,
+          pictogramPlacements.top,
+          groupId
+        ),
+        inverse: boolean('inverse', false, groupId),
+      }),
+    },
   },
 };

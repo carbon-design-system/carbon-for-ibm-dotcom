@@ -9,3 +9,7 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '../../globals/scss/box-sizing';
 @import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
+
+:host(#{$dds-prefix}-video-player) {
+  outline: none;
+}

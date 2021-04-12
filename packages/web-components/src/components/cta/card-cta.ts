@@ -8,6 +8,7 @@
  */
 
 import { html, property, customElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -16,7 +17,6 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCard from '../card/card';
-import '../card/card-heading';
 import './card-cta-image';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
@@ -26,6 +26,7 @@ import styles from './cta.scss';
 
 export { CTA_TYPE };
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -35,14 +36,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-cta`)
 class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
-  protected _renderHeading() {
-    const { ctaType, videoName, formatVideoCaption: formatVideoCaptionInEffect } = this;
+  protected _renderCopy() {
+    const { ctaType, videoName, _hasCopy: hasCopy, formatVideoCaption: formatVideoCaptionInEffect } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return super._renderHeading();
+      return super._renderCopy();
     }
-    const caption = formatVideoCaptionInEffect({ name: videoName });
+    const caption = hasCopy ? undefined : formatVideoCaptionInEffect({ name: videoName });
     return html`
-      <slot name="heading"></slot><dds-card-heading>${caption}</dds-card-heading>
+      <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>${caption}
+      </div>
     `;
   }
 

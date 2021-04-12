@@ -117,7 +117,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Cleans-up and creates the root intersection observer.
+   * Cleans-up and creats the root intersection observer.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new intersection observer.
@@ -134,7 +134,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Cleans-up and creates the inner intersection observer.
+   * Cleans-up and creats the inner intersection observer.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new intersection observer.
@@ -158,7 +158,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Cleans-up and creates the resize observer.
+   * Cleans-up and creats the resize observer.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new resize observer.

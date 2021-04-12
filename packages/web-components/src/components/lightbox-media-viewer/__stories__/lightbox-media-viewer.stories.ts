@@ -119,27 +119,6 @@ EmbeddedVideoPlayer.story = {
   },
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      LightboxImageViewer: ({ groupId }) => ({
-        alt: textNullable('Image alt text (alt)', 'Image alt text', groupId),
-        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
-        description: textNullable(
-          'Description (description)',
-          `
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
-            Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          groupId
-        ),
-        title: textNullable('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
-      }),
-    },
-  },
-};
-
 export default {
   title: 'Components/Lightbox media viewer',
   parameters: {

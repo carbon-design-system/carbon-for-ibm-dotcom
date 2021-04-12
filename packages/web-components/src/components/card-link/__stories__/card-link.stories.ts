@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   const { disabled, href } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      Explore AI use cases in all industries
+      <p>Explore AI use cases in all industries</p>
       <dds-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>

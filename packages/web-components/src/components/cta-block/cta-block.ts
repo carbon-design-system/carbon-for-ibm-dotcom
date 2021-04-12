@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, internalProperty, TemplateResult } from 'lit-element';
+import { customElement, html, internalProperty, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -35,6 +35,9 @@ const slotExistencePropertyNames = {
  */
 @customElement(`${ddsPrefix}-cta-block`)
 class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
+  @property({ type: Boolean, attribute: 'no-border', reflect: true })
+  _noBorder = false;
+
   /**
    * `true` if there are CTA action in the content item area.
    */
@@ -49,6 +52,15 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
 
   @internalProperty()
   protected _contentItemLength: number;
+
+  /**
+   * Checks if the no-border attribute has changed and applies the border class accordingly
+   */
+  updated(changedProperties) {
+    if (changedProperties.has('_noBorder')) {
+      this.classList.toggle(`${prefix}--cta-block__border`, !this._noBorder);
+    }
+  }
 
   /**
    * Handles `slotchange` event, also sets height to all headings to the tallest one.

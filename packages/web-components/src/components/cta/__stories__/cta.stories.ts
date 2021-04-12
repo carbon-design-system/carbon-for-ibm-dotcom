@@ -128,7 +128,7 @@ export const Card = ({ parameters }) => {
   const { copy: footerCopy, download: footerDownload, href: footerHref } = parameters?.props?.CardCTAFooter ?? {};
   return html`
     <dds-card-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${ifNonNull(href)}">
-      ${ctaType !== 'video' ? copy : ''}
+      ${copy}
       <dds-card-cta-footer
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(footerDownload)}"

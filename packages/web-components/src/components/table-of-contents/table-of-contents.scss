@@ -80,6 +80,10 @@
     margin-left: calc(-1 * #{$carbon--spacing-05});
     margin-right: calc(-1 * #{$carbon--spacing-05});
   }
+
+  .#{$prefix}--tableofcontents__sidebar {
+    top: 48px;
+  }
 }
 
 .#{$prefix}--toc__navbar-caret-left-container,

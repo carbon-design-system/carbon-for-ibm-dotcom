@@ -21,17 +21,3 @@ export enum VIDEO_PLAYER_CONTENT_STATE {
    */
   VIDEO = 'video',
 }
-
-/**
- * Video player's playing mode.
- */
-export enum VIDEO_PLAYER_PLAYING_MODE {
-  /**
-   * Plays video inline.
-   */
-  INLINE = 'inline',
-  /**
-   * Plays video in light box.
-   */
-  LIGHTBOX = 'lightbox',
-}

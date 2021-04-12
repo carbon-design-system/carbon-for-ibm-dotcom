@@ -9,5 +9,5 @@
 
 :host(#{$dds-prefix}-video-cta-composite),
 :host(#{$dds-prefix}-video-cta-container) {
-  display: block;
+  display: contents;
 }
