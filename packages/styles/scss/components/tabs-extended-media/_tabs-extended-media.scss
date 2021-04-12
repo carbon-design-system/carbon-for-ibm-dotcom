@@ -15,35 +15,19 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
-@mixin tabs-extended {
-  :host(#{$dds-prefix}-tabs-extended),
+@mixin tabs-extended-media {
   :host(#{$dds-prefix}-tabs-extended-media) {
-    @include tabs-expressive;
-    @include accordion-expressive;
 
-    .#{$prefix}--tabs {
-      display: none;
+    .#{$prefix}--tabs-extended-media__row {
+      grid-column: 1 / span 16;
       @include carbon--breakpoint(lg) {
-        display: block;
+        grid-template-columns: repeat(16, 1fr);
       }
     }
-    .#{$prefix}--tab-content {
-      @include carbon--type-style('body-long-02', true);
 
-      display: none;
-      @include carbon--breakpoint(lg) {
-        display: block;
-      }
-    }
-    .#{$prefix}--accordion {
-      display: block;
-      @include carbon--breakpoint(lg) {
-        display: none;
-      }
-    }
   }
 }
 
-@include exports('tabs-extended') {
-  @include tabs-extended;
+@include exports('tabs-extended-media') {
+  @include tabs-extended-media;
 }
