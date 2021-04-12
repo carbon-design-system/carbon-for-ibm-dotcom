@@ -243,7 +243,7 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "carbon-components": "10.29.0",
+    "carbon-components": "10.31.0",
     "carbon-web-components": "1.13.0",
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
