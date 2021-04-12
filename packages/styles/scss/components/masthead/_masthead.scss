@@ -576,7 +576,7 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--header__search--close {
+  button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
     overflow: hidden;
     width: 0;
     border: none;
