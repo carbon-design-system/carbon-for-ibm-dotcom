@@ -9,6 +9,7 @@
 
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../tabs-extended';
 import '../tabs-extended-media';
@@ -19,7 +20,6 @@ import '../../content-section/content-section-heading';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
-import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
 
