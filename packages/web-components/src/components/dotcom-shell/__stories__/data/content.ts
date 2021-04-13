@@ -218,9 +218,8 @@ const StoryContent = () => html`
         <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
         <dds-cta-block no-border>
           <dds-content-block-heading>Take the next step</dds-content-block-heading>
-          <dds-content-block-copy>
-            Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.
-          </dds-content-block-copy>
+          <dds-content-block-copy>Want to discuss your options with a DevOps expert? 
+          Contact our sales team to evaluate your needs.</dds-content-block-copy>
 
           <dds-button-group slot="action">
             <dds-button-group-item href="https://example.com">
