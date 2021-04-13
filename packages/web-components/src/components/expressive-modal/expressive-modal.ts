@@ -368,6 +368,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     if (changedProperties.has('open')) {
       if (this.open) {
         this.removeAttribute('aria-hidden');
+        this.setAttribute('role', 'dialog');
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector((this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus);
         await this._waitForTransitionEnd();
