@@ -15,12 +15,13 @@
   .#{$prefix}--content-section {
     @include hang;
 
+    padding-top: 0;
     padding-bottom: $carbon--layout-04;
   }
 
   .#{$prefix}--content-section__leading {
+    margin-top: $carbon--layout-04;
     padding: $spacing-05;
-
     padding-bottom: 0;
     margin-bottom: $carbon--layout-01;
 
