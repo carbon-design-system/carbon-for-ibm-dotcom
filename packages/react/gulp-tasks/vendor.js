@@ -18,11 +18,11 @@ const { base, simple } = require('acorn-walk');
 const { extend } = require('acorn-jsx-walk');
 const MagicString = require('magic-string');
 const {
-  carbonComponetsReactESSrcDir,
-  carbonComponetsReactCJSSrcDir,
-  carbonComponetsReactVendorSrcDir,
-  carbonComponetsReactVendorESDstDir,
-  carbonComponetsReactVendorCJSDstDir,
+  carbonComponentsReactESSrcDir,
+  carbonComponentsReactCJSSrcDir,
+  carbonComponentsReactVendorSrcDir,
+  carbonComponentsReactVendorESDstDir,
+  carbonComponentsReactVendorCJSDstDir,
 } = require('./config');
 
 const promisifyStream = promisify(asyncDone);
@@ -165,6 +165,7 @@ const generateTable = (() => {
     if (!promiseTable) {
       const table = {
         '@carbon/icons-react': {},
+        '@carbon/feature-flags': {},
         'carbon-components': {
           settings: 'es/globals/js/settings',
         },
@@ -187,53 +188,53 @@ const generateTable = (() => {
 /**
  * Generates `src/internal/vendor` contents.
  */
-const carbonComponetsReactVendorSrc = async () => {
+const carbonComponentsReactVendorSrc = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
       .src([
-        `${carbonComponetsReactESSrcDir}/**/*`,
+        `${carbonComponentsReactESSrcDir}/**/*`,
         '!**/*-{test,story}.js',
         '!**/stories/*',
       ])
       .pipe(convert({ table }))
-      .pipe(gulp.dest(carbonComponetsReactVendorSrcDir))
+      .pipe(gulp.dest(carbonComponentsReactVendorSrcDir))
   );
 };
 
 /**
  * Generate `es/internal/vendor` contents.
  */
-const carbonComponetsReactVendorESDst = async () => {
+const carbonComponentsReactVendorESDst = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
       .src([
-        `${carbonComponetsReactESSrcDir}/**/*`,
+        `${carbonComponentsReactESSrcDir}/**/*`,
         '!**/*-{test,story}.js',
         '!**/stories/*',
       ])
       .pipe(convert({ table }))
-      .pipe(gulp.dest(carbonComponetsReactVendorESDstDir))
+      .pipe(gulp.dest(carbonComponentsReactVendorESDstDir))
   );
 };
 
 /**
  * The Gulp stream to generate `lib/internal/vendor` contents.
  */
-const carbonComponetsReactVendorCJSDst = () =>
+const carbonComponentsReactVendorCJSDst = () =>
   gulp
     .src([
-      `${carbonComponetsReactCJSSrcDir}/**/*`,
+      `${carbonComponentsReactCJSSrcDir}/**/*`,
       '!**/*-{test,story}.js',
       '!**/stories/*',
     ])
-    .pipe(gulp.dest(carbonComponetsReactVendorCJSDstDir));
+    .pipe(gulp.dest(carbonComponentsReactVendorCJSDstDir));
 
 module.exports = {
   carbonComponentsReact: gulp.parallel(
-    carbonComponetsReactVendorSrc,
-    carbonComponetsReactVendorESDst,
-    carbonComponetsReactVendorCJSDst
+    carbonComponentsReactVendorSrc,
+    carbonComponentsReactVendorESDst,
+    carbonComponentsReactVendorCJSDst
   ),
 };

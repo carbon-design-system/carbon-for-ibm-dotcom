@@ -1,0 +1,27 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+
+//-----------------------------
+// Combo Box (expressive)
+//-----------------------------
+
+/// Combo Box styles (expressive)
+/// @access private
+/// @group multi-select-expressive
+@mixin multi-select-expressive {
+  .#{$prefix}--multi-select.#{$prefix}--list-box {
+    .#{$prefix}--list-box__menu-icon {
+      top: 0.75rem;
+      svg {
+        height: rem(20px);
+        width: rem(20px);
+      }
+    }
+  }
+}
