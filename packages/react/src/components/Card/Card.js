@@ -108,7 +108,7 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, heading, copy, pictogram) {
+function renderFooter(cta, copy, heading, refWrapper, pictogram) {
   return (
     cta && (
       <Link

@@ -21,7 +21,7 @@ const CTA = ({
   style,
   type,
   customClassName,
-  ariaLabel,
+  // ariaLabel,
   ariaRole,
   ...otherProps
 }) => {
@@ -48,7 +48,7 @@ const CTA = ({
     renderLightBox,
     openLightBox,
     videoTitle,
-    ariaLabel,
+    // ariaLabel,
     ...otherProps,
   };
 
@@ -135,12 +135,6 @@ CTA.propTypes = {
    * Custom classname from parent.
    */
   customClassName: PropTypes.string,
-
-  /**
-   * Aria label to convey video playback upon interaction.
-   * Default label is in English, can be overridden by passing in a custom translated label.
-   */
-  ariaLabel: PropTypes.string,
 
   /**
    * Aria role prop to set a custom role depending on the use within other components.
