@@ -117,7 +117,8 @@ function renderFooter(cta, copy, heading, refWrapper, pictogram) {
         aria-label={
           (cta?.copy ? '' : heading ? heading : copy) +
           CTALogic.getDefaultLabel(cta?.type)
-        }>
+        }
+        onClick={cta?.handleClick}>
         <div
           className={classNames(`${prefix}--card__footer`, {
             [`${prefix}--card__footer__icon-left`]:
