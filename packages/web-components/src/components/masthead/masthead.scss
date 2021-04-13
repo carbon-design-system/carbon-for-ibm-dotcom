@@ -113,7 +113,8 @@
   }
 }
 
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
   background-color: $ui-background;
   a.#{$prefix}--header__menu-item {
     padding-left: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
@@ -193,7 +194,8 @@
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
@@ -202,7 +204,8 @@
 }
 
 :host(#{$dds-prefix}-top-nav-menu),
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-02;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -221,6 +224,7 @@
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
