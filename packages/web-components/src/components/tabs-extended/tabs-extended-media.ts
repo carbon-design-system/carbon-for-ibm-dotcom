@@ -17,7 +17,7 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * A component to present content inside a tabbed layout.
+ * A component to present media content inside a tabbed layout.
  *
  * @element dds-tabs-extended-media
  */
