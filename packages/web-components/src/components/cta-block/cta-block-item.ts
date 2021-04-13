@@ -35,7 +35,7 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
       <div class="${prefix}--cta-block-item__statitics">
         <slot name="statistics"></slot>
       </div>
-      <div class="${prefix}-cta-block-item__media">
+      <div class="${prefix}--cta-block-item__media">
         <slot name="media"></slot>
       </div>
       <slot name="heading"></slot>

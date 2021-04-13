@@ -126,20 +126,17 @@
 
   ::slotted(svg) {
     display: block;
-    margin-top: $carbon--spacing-07;
     height: rem(80px);
     width: rem(80px);
   }
 
-  ::slotted(#{$dds-prefix}-video-player-container) {
-    margin-bottom: $carbon--layout-03;
-    display: block;
-  }
-
   .#{$prefix}--cta-block-item__statitics {
-    margin-bottom: $carbon--layout-03;
     font-family: carbon--font-family('mono');
     @include carbon--type-style('display-02', true);
+
+    ::slotted(*[slot='statitics']) {
+      margin-bottom: $carbon--layout-03;
+    }
   }
 
   .#{$prefix}--cta-block-item__media {
