@@ -26,6 +26,8 @@ import '../../content-item/content-item-heading';
 import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
 
+import style from './cta-block-stories.scss';
+
 const iconMap = {
   ArrowRight20: ArrowRight20({ slot: 'icon' }),
   Launch20: Launch20({ slot: 'icon' }),
@@ -148,15 +150,17 @@ export const WithLinkList = ({ parameters }) => {
 export default {
   title: 'Components/CTA Block',
   decorators: [
-    (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
+    story => html`
+      <style>
+        ${style}
+      </style>
+      <div class="dds-ce-demo-devenv--simple-grid">
         ${story()}
       </div>
     `,
   ],
   parameters: {
     hasGrid: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     hasVerticalSpacingInComponent: true,
     knobs: {
       CTABlock: ({ groupId }) => ({
