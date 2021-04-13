@@ -35,7 +35,6 @@ export const Card = ({
   ...props
 }) => {
   const refWrapper = useRef(null);
-  // const TileType = props.disabled ? Tile : Tile;
 
   const handleClick = useCallback(
     e => {
@@ -108,7 +107,7 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, copy, heading, refWrapper, pictogram) {
+function renderFooter(cta, copy, heading, pictogram) {
   return (
     cta && (
       <Link

@@ -126,12 +126,6 @@
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
     }
-
-    //&.#{$prefix}--link:focus,
-    //.#{$prefix}--link:focus {
-    //  outline: 2px solid $focus;
-    //  outline-offset: -2px;
-    //}
   }
 
   :host(#{$dds-prefix}-card-cta),

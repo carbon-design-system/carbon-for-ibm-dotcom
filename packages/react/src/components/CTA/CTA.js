@@ -17,14 +17,7 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 /**
  * CTA component.
  */
-const CTA = ({
-  style,
-  type,
-  customClassName,
-  // ariaLabel,
-  ariaRole,
-  ...otherProps
-}) => {
+const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
   const videoId =
@@ -48,20 +41,11 @@ const CTA = ({
     renderLightBox,
     openLightBox,
     videoTitle,
-    // ariaLabel,
     ...otherProps,
   };
 
-  // const label = `${otherProps?.copy}${
-  //   ariaLabel ? ariaLabel : CTALogic.getDefaultLabel(type)
-  // }`;
-  const ariaProps = style === ('card' || 'text') && {
-    // 'aria-label': label,
-    role: `${ariaRole ? ariaRole : 'region'}`,
-  };
-
   return (
-    <div className={customClassName} {...ariaProps}>
+    <div className={customClassName}>
       <CTAComponent {...ctaProps} />
     </div>
   );
@@ -135,11 +119,6 @@ CTA.propTypes = {
    * Custom classname from parent.
    */
   customClassName: PropTypes.string,
-
-  /**
-   * Aria role prop to set a custom role depending on the use within other components.
-   */
-  ariaRole: PropTypes.string,
 };
 
 CTA.defaultProps = {
