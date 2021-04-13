@@ -1,0 +1,127 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import markdownContents from '../../../../docs/markdown-contents.md';
+
+# `<dds-cta-block>`
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta-block)
+> example implementation.
+> [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components/cta-block)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta-block/cta-block.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta-block/cta-block-item-row.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta-block/cta-block-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
+```
+
+### HTML
+
+```html
+<dds-cta-block no-border>
+  <dds-content-block-heading>DDS Content Block Heading</dds-content-block-heading>
+  <dds-content-block-copy>DDS Content Block Copy</dds-content-block-copy>
+
+  <dds-button-group slot="action">
+    <dds-button-group-item href="https://example.com">
+      Secondary Button
+    </dds-button-group-item>
+    <dds-button-group-item ref="https://example.com">
+      Primary button
+    </dds-button-group-item>
+  </dds-button-group>
+
+  <dds-cta-block-item-row>
+    <dds-cta-block-item>
+      <dds-content-item-heading>Get connected</dds-content-item-heading>
+      <dds-content-item-copy
+        >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</dds-content-item-copy
+      >
+      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
+    </dds-cta-block-item>
+
+    <dds-cta-block-item>
+      <dds-content-item-heading>Learn how</dds-content-item-heading>
+      <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+    </dds-cta-block-item>
+
+    <dds-cta-block-item>
+      <dds-content-item-heading>Learn how</dds-content-item-heading>
+      <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
+      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+    </dds-cta-block-item>
+  </dds-cta-block-item-row>
+</dds-cta-block>
+```
+
+### With Link-list
+
+```html
+<dds-cta-block>
+  <dds-content-block-heading>DDS Content Block Heading</dds-content-block-heading>
+  <dds-content-block-copy>DDS Content Block Copy</dds-content-block-copy>
+
+  <dds-button-group slot="action">
+    <dds-button-group-item target="${target}" href="https://example.com">
+      Secondary Button
+    </dds-button-group-item>
+    <dds-button-group-item target="${target}" href="https://example.com">
+      Primary button
+    </dds-button-group-item>
+  </dds-button-group>
+
+  <dds-link-list slot="link-list" type="end">
+    <dds-link-list-heading>More ways to explore DevOps</dds-link-list-heading>
+    <dds-link-list-item href="https://example.com">
+      Events
+    </dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
+      Blogs
+    </dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
+      Training
+    </dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
+      Developer resources
+    </dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
+      Research
+    </dds-link-list-item>
+    <dds-link-list-item href="https://example.com">
+      News
+    </dds-link-list-item>
+  </dds-link-list>
+</dds-cta-block>
+```
+
+## Props
+
+<Props of="dds-cta-block" />
+<Description markdown={markdownContents} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector    | Compatibility selector              | Description |
+| -------------------------- | ----------------------------------- | ----------- |
+| `<dds-cta-block>`          | `data-autoid="dds--cta-block"`      | Component   |
+| `<dds-cta-block-item>`     | `data-autoid="dds--cta-block-item"` | Component   |
+| `<dds-cta-block-item-row>` | `data-autoid="dds--cta-block-row"`  | Component   |
+
+<Description markdown={contributing} />

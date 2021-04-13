@@ -1,4 +1,34 @@
-# `dds-cta-section`
+# `dds-cta-block`
+
+#### `Renders Default`
+
+```
+<slot name="heading">
+</slot>
+<slot name="copy">
+</slot>
+<div
+  class="bx--content-item__cta"
+  hidden=""
+>
+  <slot name="action">
+  </slot>
+</div>
+<slot name="link-list">
+</slot>
+<div
+  class="bx--helper-wrapper"
+  hidden=""
+>
+  <div class="bx--content-item-wrapper">
+    <slot>
+    </slot>
+  </div>
+</div>
+<slot name="complementary">
+</slot>
+
+```
 
 ## `Misc attributes`
 
@@ -45,10 +75,7 @@
 </div>
 <slot name="link-list">
 </slot>
-<div
-  class="bx--helper-wrapper"
-  hidden=""
->
+<div class="bx--helper-wrapper">
   <div class="bx--content-item-wrapper">
     <slot>
     </slot>
