@@ -79,8 +79,8 @@
     "@carbon/ibmdotcom-services": "1.17.0",
     "@carbon/ibmdotcom-styles": "1.17.0",
     "@carbon/ibmdotcom-utilities": "1.17.0",
-    "@carbon/layout": "10.19.0",
-    "carbon-components": "10.29.0",
+    "@carbon/layout": "10.21.0",
+    "carbon-components": "10.31.0",
     "carbon-web-components": "1.13.0",
     "lodash-es": "^4.17.0",
     "redux": "^4.0.0",
@@ -89,7 +89,7 @@
     "window-or-global": "^1.0.0"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.26.0",
+    "@carbon/icons-react": "10.28.0",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -113,8 +113,8 @@
     "@babel/template": "^7.8.0",
     "@babel/traverse": "^7.8.0",
     "@carbon/ibmdotcom-services-store": "1.17.0",
-    "@carbon/icon-helpers": "10.14.0",
-    "@carbon/icons": "10.26.0",
+    "@carbon/icon-helpers": "10.15.0",
+    "@carbon/icons": "10.28.0",
     "@carbon/telemetry": "0.0.0-alpha.6",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
@@ -142,8 +142,6 @@
     "babel-plugin-istanbul": "^4.1.0",
     "babel-plugin-template-html-minifier": "^4.1.0",
     "cache-loader": "^4.1.0",
-    "carbon-components": "10.29.0",
-    "carbon-web-components": "1.13.0",
     "chalk": "^2.3.0",
     "child-process-promise": "^2.2.0",
     "classnames": "^2.2.0",
@@ -245,7 +243,7 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "carbon-components": "10.29.0",
+    "carbon-components": "10.31.0",
     "carbon-web-components": "1.13.0",
     "lit-element": "^2.3.0",
     "lit-html": "^1.2.0",
