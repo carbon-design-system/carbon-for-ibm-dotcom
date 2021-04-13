@@ -27,6 +27,8 @@
     height: 100%;
     background-color: $ui-01;
     text-decoration: none;
+    padding: 0;
+    cursor: pointer;
 
     .#{$prefix}--card__wrapper {
       display: flex;
@@ -63,6 +65,30 @@
       margin-bottom: $carbon--spacing-07;
     }
 
+    &:focus-within {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
+    }
+
+    .#{$prefix}--link {
+      text-decoration: none;
+      margin-top: auto;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
     .#{$prefix}--card:focus,
     .#{$prefix}--card:visited,
     .#{$prefix}--card:active {
@@ -89,7 +115,7 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    .#{$prefix}--card--link:hover {
+    .#{$prefix}--link:hover {
       text-decoration: none;
 
       .#{$prefix}--card__img {
@@ -101,11 +127,11 @@
       padding: 0;
     }
 
-    &.#{$prefix}--link:focus,
-    .#{$prefix}--link:focus {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-    }
+    //&.#{$prefix}--link:focus,
+    //.#{$prefix}--link:focus {
+    //  outline: 2px solid $focus;
+    //  outline-offset: -2px;
+    //}
   }
 
   :host(#{$dds-prefix}-card-cta),
