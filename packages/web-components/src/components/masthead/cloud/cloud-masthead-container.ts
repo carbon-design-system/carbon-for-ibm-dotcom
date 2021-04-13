@@ -8,7 +8,7 @@
  */
 import pickBy from 'lodash-es/pickBy.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import { cloudLoginStatusCookie } from '@carbon/ibmdotcom-utilities/es/utilities/cloudLoginStatusCookie/cloudLoginStatusCookie';
+import cloudLoginStatusCookie from '@carbon/ibmdotcom-utilities/es/utilities/cloudLoginStatusCookie/cloudLoginStatusCookie';
 import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 'redux';
 import { customElement } from 'lit-element';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
