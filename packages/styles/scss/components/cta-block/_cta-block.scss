@@ -62,7 +62,7 @@
     .#{$prefix}--content-block__heading,
     .#{$prefix}--content-block__copy {
       width: 90%;
-      max-width: 640px;
+      max-width: rem(640px);
 
       @include carbon--breakpoint('sm') {
         width: 100%;
