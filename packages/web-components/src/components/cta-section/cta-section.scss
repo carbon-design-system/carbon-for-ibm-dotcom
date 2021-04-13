@@ -7,12 +7,14 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
+@import '@carbon/ibmdotcom-styles/scss/globals/utils/hang';
 
 :host(#{$dds-prefix}-cta-section) {
   display: block;
 
   .#{$prefix}--content-section {
     @include hang;
+
     padding-bottom: $carbon--layout-04;
   }
 

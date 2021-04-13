@@ -29,6 +29,7 @@ import '../../content-block/content-block-heading';
 import '../../content-block/content-block-copy';
 import '../../cta/link-list-item-cta';
 import '../../video-player/video-player-container';
+import '../../lightbox-media-viewer/lightbox-video-player-container';
 
 import styles from './cta-section.stories.scss';
 
@@ -88,26 +89,23 @@ export const Default = ({ parameters }) => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Get connected</dds-content-item-heading>
             <dds-content-item-copy
@@ -122,41 +120,39 @@ export const Default = ({ parameters }) => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
           </dds-cta-block-item>
         </dds-cta-block-item-row>
-        <dds-cta-block-item-row no-border app cogni>
+        <dds-cta-block-item-row no-border>
           <dds-cta-block-item>
             <dds-video-player-container
               video-id="1_9h94wo6b"
               aspect-ratio="4x3"
-              playing-mode="lightbox"
               slot="media"
               hide-caption
-            ></dds-video-player-container>
+              playing-mode="lightbox"
+            >
+            </dds-video-player-container>
             <dds-content-item-heading>Get connected</dds-content-item-heading>
             <dds-content-item-copy
               >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for
@@ -172,7 +168,6 @@ export const Default = ({ parameters }) => {
               slot="media"
               hide-caption
             ></dds-video-player-container>
-            <dds-lightbox-video-player-container playing-mode="lightbox"></dds-lightbox-video-player-container>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
@@ -181,6 +176,7 @@ export const Default = ({ parameters }) => {
         </dds-cta-block-item-row>
       </dds-cta-block>
     </dds-cta-section>
+    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
   `;
 };
 
@@ -223,26 +219,23 @@ export const ContentSectionHeaderOnly = () => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Get connected</dds-content-item-heading>
             <dds-content-item-copy
@@ -257,26 +250,23 @@ export const ContentSectionHeaderOnly = () => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
@@ -307,7 +297,6 @@ export const ContentSectionHeaderOnly = () => {
               slot="media"
               hide-caption
             ></dds-video-player-container>
-            <dds-lightbox-video-player-container playing-mode="lightbox"></dds-lightbox-video-player-container>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
@@ -316,6 +305,7 @@ export const ContentSectionHeaderOnly = () => {
         </dds-cta-block-item-row>
       </dds-cta-block>
     </dds-cta-section>
+    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
   `;
 };
 
@@ -362,26 +352,23 @@ export const NoContentSectionHeading = ({ parameters }) => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Get connected</dds-content-item-heading>
             <dds-content-item-copy
@@ -396,26 +383,23 @@ export const NoContentSectionHeading = ({ parameters }) => {
               focusable="false"
               preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              data-autoid="dds--pictogram-item__pictogram"
               aria-label="Pictogram description"
-              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
               role="img"
+              class="bx--pictogram-item__pictogram"
             >
               <path
-                d="M13.5 7.36H7v-.72h6.5v.72zm0 8.28H7v.72h6.5v-.72zM7 
-          25.36h6.5v-.72H7v.72zM30.36 7v9a.36.36 0 01-.36.36h-3.64V19a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36v-2.64H2.36v8.28h3.28V22a.36.36 
-          0 01.36-.36h20a.36.36 0 01.36.36v6a.36.36 0 01-.36.36H6a.36.36 
-          0 01-.36-.36v-2.64H2a.36.36 0 01-.36-.36v-9a.36.36 
-          0 01.36-.36h3.64V13a.36.36 0 01.36-.36h20a.36.36 
-          0 01.36.36v2.64h3.279V7.36H26.36V10a.36.36 
-          0 01-.36.36H6a.36.36 0 01-.36-.36V4A.36.36 
-          0 016 3.64h20a.36.36 0 01.36.36v2.64H30a.36.36 
-          0 01.36.36zm-4.72-2.64H6.36v5.28h19.28V4.36zM6.36 
-          27.64h19.28v-5.28H6.36v5.28zm19.28-14.28H6.36v5.28h19.28v-5.28zM24 
-          7a.5.5 0 10-1 0 .5.5 0 001 0zm0 9a.5.5 
-          0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z"
-              />
-              <path fill="none" d="M0 0h32v32H0z" />
+                fill="none"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                stroke-width=".72"
+                d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+        0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+              ></path>
             </svg>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
@@ -446,7 +430,6 @@ export const NoContentSectionHeading = ({ parameters }) => {
               slot="media"
               hide-caption
             ></dds-video-player-container>
-            <dds-lightbox-video-player-container playing-mode="lightbox"></dds-lightbox-video-player-container>
             <dds-content-item-heading>Learn how</dds-content-item-heading>
             <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
@@ -455,6 +438,7 @@ export const NoContentSectionHeading = ({ parameters }) => {
         </dds-cta-block-item-row>
       </dds-cta-block>
     </dds-cta-section>
+    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
   `;
 };
 
