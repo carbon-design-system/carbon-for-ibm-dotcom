@@ -16,7 +16,8 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended {
-  :host(#{$dds-prefix}-tabs-extended) {
+  :host(#{$dds-prefix}-tabs-extended),
+  :host(#{$dds-prefix}-tabs-extended-media) {
     @include tabs-expressive;
     @include accordion-expressive;
 
