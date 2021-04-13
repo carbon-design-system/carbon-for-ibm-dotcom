@@ -132,6 +132,12 @@
     }
   }
 
+  .#{$prefix}--header__profile .#{$prefix}--header__action:focus,
+  .#{$prefix}--header__search--actions
+    .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
+    border-color: $focus;
+  }
+
   // search container
   .#{$prefix}--masthead__search,
   :host(#{$dds-prefix}-masthead-search) {
