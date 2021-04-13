@@ -692,7 +692,7 @@ export default {
         platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('show the profile functionality (profile)', true, groupId),
         hasSearch: boolean('show the search functionality (search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
