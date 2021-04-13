@@ -35,6 +35,7 @@
       margin-left: $carbon--spacing-05;
       margin-right: $carbon--spacing-05;
       @include carbon--breakpoint(lg) {
+        padding-top: var(--cds-spacing-04, 0.75rem);
         margin-left: 0;
         margin-right: 0;
       }
@@ -64,6 +65,10 @@
 
     .#{$prefix}--tab-content {
       padding-top: $carbon--spacing-10;
+    }
+
+    .#{$prefix}--accordion__content {
+      padding-bottom: $carbon--spacing-09;
     }
   }
 }

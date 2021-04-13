@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement, html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSTabsExtended from './tabs-extended';
+import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
 const { prefix } = settings;
