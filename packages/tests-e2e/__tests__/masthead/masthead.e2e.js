@@ -299,7 +299,7 @@ describe('Masthead: Default', () => {
       const search = await page.evaluateHandle(
         `document.querySelector('dds-masthead-search').shadowRoot.querySelector('.bx--header__search--search')`
       );
-      search.click();
+      await search.click();
     } else {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-eco__l0-search"]'
