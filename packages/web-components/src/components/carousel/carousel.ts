@@ -13,10 +13,16 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
+import DDSCard from '../card/card';
 import styles from './carousel.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
+const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
 
 /**
  * Carousel.
@@ -26,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-carousel`)
-class DDSCarousel extends LitElement {
+class DDSCarousel extends HostListenerMixin(LitElement) {
   /**
    * The scrolling contents node.
    */
@@ -82,6 +88,18 @@ class DDSCarousel extends LitElement {
   private _total = 0;
 
   /**
+   * Initial touch position (used to detect swipe gesture)
+   */
+  @internalProperty()
+  private _startPos = 0;
+
+  /**
+   * Initial touch time (used to detect swipe gesture)
+   */
+  @internalProperty()
+  private _startTime = 0;
+
+  /**
    * Cleans-up and creats the resize observer for the scrolling container.
    *
    * @param [options] The options.
@@ -112,6 +130,55 @@ class DDSCarousel extends LitElement {
   }
 
   /**
+   * Stops the container from scrolling when focusing on a card outside of the viewport.
+   *
+   * @param event The event.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  private _handleScrollFocus({ target }: Event) {
+    (target as HTMLElement).scrollTo(0, 0);
+  }
+
+  /**
+   * Handles card focus throughout pages.
+   *
+   * @param event The event.
+   */
+  @HostListener('shadowRoot:focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async ({ target, relatedTarget }: FocusEvent) => {
+    const currentContains = target !== this && this.contains(target as DDSCard);
+    const oldNotContains = target !== this && !this.contains(relatedTarget as DDSCard);
+    const currentCardIndex = Array.from(this.children).indexOf(target as HTMLElement);
+
+    // Confirmed by design team; ensures the carousel remains on the current page when focusing back on the component.
+    // This conforms to the natural flow of the current content on the screen.
+    // The first card on the page should be focused if tabbing from the top,
+    // The last card on the page should be focused if tabbing from the bottom.
+    if (currentContains && oldNotContains) {
+      // focus coming from the top
+      if (currentCardIndex === 0) {
+        (this.children[this.start] as HTMLElement).focus();
+
+        // focus coming from bottom
+      } else if (currentCardIndex === this._total - 1) {
+        (this.children[this.start + this.pageSize - 1] as HTMLElement).focus();
+      }
+      return;
+    }
+
+    // Calculates proper page to display if focus is outside the current page
+    if (currentContains && (currentCardIndex < this.start || currentCardIndex >= this.start + this.pageSize)) {
+      // The `currentIndex` floored by `pageSize`
+      const nextStart = Math.floor(currentCardIndex / this.pageSize) * this.pageSize;
+      const pageOffset = this.start % this.pageSize;
+
+      // Ensures the page moves by `this.pageSize` in either direction
+      this.start = nextStart + pageOffset;
+    }
+  };
+
+  /**
    * Handles `click` event on the next button.
    */
   private _handleClickNextButton() {
@@ -125,6 +192,33 @@ class DDSCarousel extends LitElement {
   private _handleClickPrevButton() {
     const { pageSize, start } = this;
     this.start = Math.max(start - pageSize, 0);
+  }
+
+  /**
+   * Handles `touchstart` event.
+   */
+  private _handleTouchStartEvent(event: TouchEvent) {
+    this._startPos = event.touches[0].clientX;
+    this._startTime = new Date().getTime();
+  }
+
+  /**
+   * Handles `touchend` event.
+   */
+  private _handleTouchEndEvent(event: TouchEvent) {
+    const { _startPos, _startTime } = this;
+    const { pageSize, start, _total: total } = this;
+
+    const distTravelled = event.changedTouches[0].clientX - _startPos; // distance travelled
+    const elapsedTime = new Date().getTime() - _startTime; // elapsed time
+
+    if (elapsedTime <= MAX_GESTURE_DURATION && Math.abs(distTravelled) >= MIN_DISTANCE_TRAVELLED) {
+      if (distTravelled < 0) {
+        this.start = Math.min(start + pageSize, total - 1);
+      } else {
+        this.start = Math.max(start - pageSize, 0);
+      }
+    }
   }
 
   /**
@@ -236,7 +330,10 @@ class DDSCarousel extends LitElement {
       _total: total,
       _handleClickNextButton: handleClickNextButton,
       _handleClickPrevButton: handleClickPrevButton,
+      _handleScrollFocus: handleScrollFocus,
       _handleSlotChange: handleSlotChange,
+      _handleTouchStartEvent: handleTouchStartEvent,
+      _handleTouchEndEvent: handleTouchEndEvent,
     } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
@@ -245,6 +342,9 @@ class DDSCarousel extends LitElement {
     return html`
       <div
         class="${prefix}--carousel__scroll-container"
+        @scroll="${handleScrollFocus}"
+        @touchstart="${handleTouchStartEvent}"
+        @touchend="${handleTouchEndEvent}"
         style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
       >
         <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">

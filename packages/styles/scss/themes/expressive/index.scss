@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,9 +23,11 @@
 @import 'components/file-uploader';
 @import 'components/inline-loading';
 @import 'components/inline-notifications';
+@import 'components/list';
 @import 'components/list-box';
 @import 'components/loading';
 @import 'components/modal';
+@import 'components/multi-select';
 @import 'components/number-input';
 @import 'components/overflow-menu';
 @import 'components/progressive-indicator';
@@ -39,6 +41,7 @@
 @import 'components/search';
 @import 'components/select';
 @import 'components/structured-list';
+@import 'components/toast-notifications';
 @import 'components/ui-shell';
 
 //-------------------------
@@ -68,9 +71,11 @@
   @include file-uploader-expressive;
   @include inline-loading-expressive;
   @include inline-notifications-expressive;
+  @include list-expressive;
   @include list-box-expressive;
   @include loading-expressive;
   @include modal-expressive;
+  @include multi-select-expressive;
   @include number-input-expressive;
   @include overflow-menu-expressive;
   @include progressive-indicator-expressive;
@@ -84,5 +89,6 @@
   @include search-expressive;
   @include select-expressive;
   @include structured-list-expressive;
+  @include toast-notifications-expressive;
   @include ui-shell-expressive;
 }

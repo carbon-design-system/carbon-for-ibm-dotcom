@@ -19,6 +19,7 @@
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$dds-prefix}-card-cta),
   :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$dds-prefix}-card-in-card),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
     display: flex;
     flex-direction: column;
@@ -44,7 +45,7 @@
     }
 
     .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-03');
+      @include carbon--type-style('expressive-heading-03', true);
 
       margin-bottom: $carbon--layout-05;
     }
@@ -67,6 +68,7 @@
     .#{$prefix}--card:active {
       position: relative;
       z-index: 2;
+      text-decoration: none;
 
       .#{$prefix}--image {
         position: relative;
@@ -76,6 +78,11 @@
 
     &:hover {
       background-color: $hover-ui;
+      text-decoration: none;
+
+      .#{$prefix}--card__wrapper {
+        background-color: $hover-ui;
+      }
     }
 
     .#{$prefix}--card__img {
@@ -99,6 +106,11 @@
       outline: 2px solid $focus;
       outline-offset: -2px;
     }
+  }
+
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-link) {
+    outline: none;
   }
 
   :host(#{$dds-prefix}-card-eyebrow),
@@ -131,6 +143,7 @@
   .#{$prefix}--card .#{$prefix}--card__footer,
   :host(#{$dds-prefix}-card-footer),
   :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-card-in-card-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
     margin-top: auto;
@@ -196,7 +209,7 @@
   }
 
   :host(#{$dds-prefix}-card-heading) {
-    @include carbon--type-style('expressive-heading-03');
+    @include carbon--type-style('expressive-heading-03', true);
     @include content-width;
 
     color: $text-01;

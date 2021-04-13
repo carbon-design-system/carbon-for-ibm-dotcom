@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,6 +29,7 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
 
   const mastheadL1Links = navigationL1.map((link, index) => {
     const autoid = `${stablePrefix}--masthead-${rest.navType}__l1-nav${index}`;
+    const selected = link.titleEnglish === rest.selectedMenuItem;
     if (link.hasMenu || link.hasMegapanel) {
       return (
         <HeaderMenu
@@ -37,6 +38,7 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
           className={cx({
             [`${prefix}--masthead__megamenu__l1-nav`]: link.hasMegapanel,
           })}
+          selected={selected}
           autoId={autoid}
           key={index}>
           {renderNav(link, rest.navType, autoid)}
@@ -44,7 +46,11 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
       );
     } else {
       return (
-        <HeaderMenuItem href={link.url} data-autoid={autoid} key={index}>
+        <HeaderMenuItem
+          aria-selected={selected ? 'true' : 'false'}
+          href={link.url}
+          data-autoid={autoid}
+          key={index}>
           {link.title}
         </HeaderMenuItem>
       );
@@ -54,18 +60,22 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
   return (
     <>
       <div className={className}>
-        <div className={`${prefix}--masthead__l1-name`}>
-          <span className={`${prefix}--masthead__l1-name-title`}>
-            <a href={titleLink}>{title}</a>
-          </span>
+        <div className={`${prefix}--masthead__l1-inner-container`}>
+          <div
+            className={`${prefix}--masthead__l1-name`}
+            aria-selected={!rest.selectedMenuItem}>
+            <span className={`${prefix}--masthead__l1-name-title`}>
+              <a href={titleLink}>{title}</a>
+            </span>
+          </div>
+          <HeaderNavContainer>
+            <HeaderNavigation
+              className={`${prefix}--masthead__l1-nav`}
+              aria-label="">
+              {mastheadL1Links}
+            </HeaderNavigation>
+          </HeaderNavContainer>
         </div>
-        <HeaderNavContainer>
-          <HeaderNavigation
-            className={`${prefix}--masthead__l1-nav`}
-            aria-label="">
-            {mastheadL1Links}
-          </HeaderNavigation>
-        </HeaderNavContainer>
       </div>
     </>
   );

@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
 import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
 // Below path will be there when an application installs `carbon-web-components` package.
@@ -26,6 +25,8 @@ import '../carousel';
 import styles from './carousel.stories.scss';
 import readme from './README.stories.mdx';
 
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+
 const hrefDefault = 'https://www.ibm.com/standards/web/carbon-for-ibm-dotcom';
 const headingDefault = 'Lorem ipsum dolor sit amet';
 const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
@@ -34,20 +35,15 @@ const copyOdd = `
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const cardSizes16 = {
-  '1 for sm, 2 for md, 4 for lg and beyond': '',
-  '1 for sm and md, 2 for lg and beyond': 'dds-ce-demo-devenv--carousel--full-16--large',
-};
-
-const cardSizes8 = {
-  '1 for sm and md, 2 for lg and beyond': '',
-  '1 for all breakpoints': 'dds-ce-demo-devenv--carousel--center-8--large',
-};
-
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => html`
+const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
+    ${image
+      ? html`
+          <dds-image slot="image" alt="example image" default-src="${image}"></dds-image>
+        `
+      : null}
     <dds-card-footer>
       ${ArrowRight20({ slot: 'icon' })}
     </dds-card-footer>
@@ -66,45 +62,30 @@ export const Default = ({ parameters }) => {
   `;
 };
 
+export const CardsWithImages = ({ parameters }) => {
+  const { cardSize } = parameters?.props?.Carousel ?? {};
+  const classes = classMap({
+    [cardSize]: cardSize,
+  });
+  return html`
+    <dds-carousel class="${classes}">
+      ${Card({ image: imgLg2x1 })}${Card({ copy: copyOdd, image: imgLg2x1 })}${Card({ image: imgLg2x1 })}${Card({
+        copy: copyOdd,
+        image: imgLg2x1,
+      })}${Card({ image: imgLg2x1 })}
+    </dds-carousel>
+  `;
+};
+
 Default.story = {
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes16,
-          cardSizes16['1 for sm, 2 for md, 4 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
   },
 };
 
-export const Right12Columns = context => Default(context);
-
-Right12Columns.story = {
+CardsWithImages.story = {
   parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--right-12',
-  },
-};
-
-export const Center8Columns = context => Default(context);
-
-Center8Columns.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--center-8',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes8,
-          cardSizes8['1 for sm and md, 2 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
+    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
   },
 };
 

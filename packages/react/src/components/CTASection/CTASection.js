@@ -1,18 +1,17 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
 import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -25,20 +24,32 @@ const { prefix } = settings;
 const CTASection = ({ heading, copy, cta, items, theme }) => {
   const containerRef = useRef();
 
-  useEffect(() => {
-    setSameHeight();
-    root.addEventListener('resize', setSameHeight);
+  /**
+   * Resize observer to trigger same height function.
+   *
+   * @private
+   */
+  const resizeObserver = useRef(null);
 
-    return () => root.removeEventListener('resize', setSameHeight);
+  useEffect(() => {
+    resizeObserver.current = new ResizeObserver(setSameHeight);
+    resizeObserver.current.observe(document.documentElement);
+    return () => (resizeObserver.current = null);
   }, []);
 
   /**
    * Function that activates the sameHeight utility
    */
   const setSameHeight = () => {
-    root.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
       const { current: containerNode } = containerRef;
       if (containerNode) {
+        sameHeight(
+          containerNode.getElementsByClassName(
+            `${prefix}--content-item__heading`
+          ),
+          'md'
+        );
         sameHeight(
           containerNode.getElementsByClassName(`${prefix}--content-item__copy`),
           'md'
@@ -50,11 +61,11 @@ const CTASection = ({ heading, copy, cta, items, theme }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--cta-section`}
+      ref={containerRef}
       className={classNames(`${prefix}--cta-section`, {
         [`${prefix}--cta-section__has-items`]: items,
         [`${prefix}--cta-section--${theme}`]: theme,
-      })}
-      ref={containerRef}>
+      })}>
       <ContentBlock heading={heading} copy={copy} />
       <CTA customClassName={`${prefix}--cta-section__cta`} {...cta} />
       {items && (

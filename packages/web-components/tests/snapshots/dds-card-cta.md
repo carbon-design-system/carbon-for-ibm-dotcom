@@ -19,7 +19,6 @@
     <slot name="heading">
     </slot>
     <div
-      aria-hidden="true"
       class="bx--card__copy"
       hidden=""
     >
@@ -38,12 +37,12 @@
 ```
 <slot name="image">
 </slot>
-<dds-image
+<dds-card-cta-image
   alt="video-name-foo"
   data-autoid="dds--image"
   default-src="https://example.com/video-thumbnail-foo"
 >
-</dds-image>
+</dds-card-cta-image>
 <div class="bx--card__wrapper">
   <div class="bx--card__content">
     <slot name="eyebrow">
@@ -55,10 +54,18 @@
     </slot>
     <slot name="heading">
     </slot>
-    <div class="bx--card__copy">
+    <dds-card-heading
+      aria-level="3"
+      role="heading"
+    >
+      video-name-foo-caption
+    </dds-card-heading>
+    <div
+      class="bx--card__copy"
+      hidden=""
+    >
       <slot>
       </slot>
-      video-name-foo-caption
     </div>
     <slot name="footer">
     </slot>

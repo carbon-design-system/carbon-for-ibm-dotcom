@@ -51,7 +51,9 @@ export default {
   title: 'Components/Callout with Media',
   parameters: {
     ...readme.parameters,
-    'carbon-theme': { disabled: true },
+    hasGrid: true,
+    hasVerticalSpacingInComponent: true,
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--callout',
     knobs: {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
@@ -67,13 +69,11 @@ export default {
       }),
     },
     decorators: [
-      story => html`
+      (story, { parameters }) => html`
         <style>
           ${styles}
         </style>
-        <div class="bx--grid" style="width:100%">
-          <div class="bx--row">
-            <div class="bx--offset-lg-4 bx--col-lg-12">
+            <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
               ${story()}
             </div>
           </div>

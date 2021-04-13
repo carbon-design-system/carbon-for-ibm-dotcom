@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
@@ -41,11 +41,12 @@ const { prefix } = settings;
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
  * @param {string} props.placeHolderText Placeholder value for search input
+ * @param {string} props.initialSearchTerm Initial value for search input
  * @param {object} props.platform Platform name that appears on L0.
  * @param {string} props.title Title for the masthead L1
  * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
  * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
- * @param {string} props.selectedMenuItem L0 menu item to render with selected state
+ * @param {string} props.selectedMenuItem L0/L1 menu item to render with selected state
  * @returns {*} Masthead component
  */
 const Masthead = ({
@@ -54,6 +55,7 @@ const Masthead = ({
   hasSearch,
   searchOpenOnload,
   placeHolderText,
+  initialSearchTerm,
   platform,
   mastheadL1Data,
   selectedMenuItem,
@@ -74,9 +76,9 @@ const Masthead = ({
    * @returns {*} The active search status
    */
   const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
-  const handleSearchActive = e => {
-    setIsSearchActive(e);
-  };
+  const handleChangeSearchActive = useCallback((event, { isOpen }) => {
+    setIsSearchActive(isOpen);
+  }, []);
 
   useEffect(() => {
     // initialize global execution calls
@@ -221,11 +223,12 @@ const Masthead = ({
                   />
                 )}
 
-                {(navigation || mastheadL1Data) && isSideNavExpanded && (
+                {(navigation || mastheadL1Data) && (
                   <MastheadLeftNav
                     {...mastheadProps}
                     backButtonText="Back"
                     platform={platform}
+                    hasL1Data={!!mastheadL1Data}
                     navigation={mastheadL1Data?.navigationL1 ?? mastheadData}
                     isSideNavExpanded={isSideNavExpanded}
                     navType={navType}
@@ -253,10 +256,14 @@ const Masthead = ({
                   {hasSearch && (
                     <MastheadSearch
                       {...mastheadProps}
-                      searchOpenOnload={isSearchActive}
+                      {...(searchOpenOnload
+                        ? { searchOpenOnload: searchOpenOnload }
+                        : {})}
                       placeHolderText={placeHolderText}
+                      initialSearchTerm={initialSearchTerm}
                       navType={navType}
-                      isSearchActive={handleSearchActive}
+                      isSearchActive={isSearchActive}
+                      onChangeSearchActive={handleChangeSearchActive}
                     />
                   )}
                 </div>
@@ -300,6 +307,7 @@ const Masthead = ({
                   {...mastheadL1Data}
                   isShort={isMastheadSticky}
                   navType={navType}
+                  selectedMenuItem={selectedMenuItem}
                 />
               </div>
             )}
@@ -321,7 +329,7 @@ Masthead.propTypes = {
    * | none               | null      | No navigation                               | `<Masthead />`                      |
    *
    * `Custom` navigation data must follow the same structure and key names as `default`.
-   * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+   * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
    */
   navigation: PropTypes.oneOfType([
     PropTypes.string,
@@ -360,7 +368,7 @@ Masthead.propTypes = {
   hasSearch: PropTypes.bool,
 
   /**
-   * `true` to have search field open on page load.
+   * `true` to have search field open on page load. Does not close `onBlur`
    */
   searchOpenOnload: PropTypes.bool,
 
@@ -384,6 +392,11 @@ Masthead.propTypes = {
    * Placeholder value for search input.
    */
   placeHolderText: PropTypes.string,
+
+  /**
+   * Initial value for search input.
+   */
+  initialSearchTerm: PropTypes.string,
 
   /**
    * All the data that goes to the L1 of the Masthead.
@@ -417,7 +430,7 @@ Masthead.propTypes = {
      * | none               | null      | No navigation                               | `<MastheadL1 />`                      |
      *
      * `Custom` navigation data must follow the same structure and key names as `default`.
-     * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+     * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
      */
     navigationL1: PropTypes.oneOfType([
       PropTypes.string,
@@ -445,6 +458,11 @@ Masthead.propTypes = {
    * Custom typeahead API function
    */
   customTypeaheadApi: PropTypes.func,
+
+  /**
+   * Multiple search sections
+   */
+  multiSection: PropTypes.bool,
 };
 
 Masthead.defaultProps = {
@@ -454,6 +472,7 @@ Masthead.defaultProps = {
   selectedMenuItem: '',
   platform: null,
   placeHolderText: 'Search all of IBM',
+  initialSearchTerm: '',
   mastheadL1Data: null,
 };
 

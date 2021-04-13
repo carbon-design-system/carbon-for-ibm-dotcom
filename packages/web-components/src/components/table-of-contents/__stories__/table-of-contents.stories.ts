@@ -20,10 +20,11 @@ import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--001.jpg';
+import { TOC_TYPES } from '../defs';
 
 export const Default = () => html`
   <dds-table-of-contents>
-    ${content()}
+    ${content('bx--tableofcontents__contents')}
   </dds-table-of-contents>
 `;
 
@@ -41,7 +42,7 @@ export const WithHeadingContent = ({ parameters }) => {
         : html`
             <dds-hr slot="menu-rule"></dds-hr>
           `}
-      ${content()}
+      ${content('bx--tableofcontents__contents')}
     </dds-table-of-contents>
   `;
 };
@@ -55,6 +56,12 @@ WithHeadingContent.story = {
     },
   },
 };
+
+export const Horizontal = () => html`
+  <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
+    ${content('bx--tableofcontents-horizontal__contents')}
+  </dds-table-of-contents>
+`;
 
 export default {
   title: 'Components/Table of contents',

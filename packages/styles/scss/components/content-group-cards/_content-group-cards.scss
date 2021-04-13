@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,19 +20,23 @@
   }
 
   .#{$prefix}--content-group-cards__row {
-    @include carbon--make-row;
+    margin-left: -1rem;
+    margin-right: -1rem;
+
+    display: grid;
+
+    @include carbon--breakpoint(md) {
+      margin-left: 0;
+      margin-right: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+    }
   }
 
   :host(#{$dds-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
     margin-top: $carbon--grid-gutter--condensed / 2;
     margin-bottom: $carbon--grid-gutter--condensed / 2;
-    @include carbon--make-col-ready;
-
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(8, 16);
-    }
-
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
   }

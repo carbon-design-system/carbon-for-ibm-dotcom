@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,12 +11,14 @@ import { html, property, customElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import DDSVideoPlayerComposite from '../video-player/video-player-composite';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
+import { VIDEO_PLAYER_CONTENT_STATE } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
 
@@ -35,6 +37,25 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
   private _hCloseModal: Handle | null = null;
 
   /**
+   * Handles aria state depending on the modal's state.
+   */
+  private _handleAriaState = () => {
+    const iFrame = this._videoPlayer?.querySelector('iframe');
+
+    // Handles edge case where screen reader still reads video title within iFrame
+    try {
+      if (this.open) {
+        iFrame?.contentWindow?.document.querySelector('.topBarContainer')?.removeAttribute('aria-hidden');
+      } else {
+        iFrame?.contentWindow?.document.querySelector('.topBarContainer')?.setAttribute('aria-hidden', 'true');
+      }
+    } catch (error) {
+      console.log('Failed to access element in iframe');
+      throw error;
+    }
+  };
+
+  /**
    * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
    */
   private _handleCloseModal = () => {
@@ -42,6 +63,21 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const { [videoId]: currentEmbeddedVideo } = embeddedVideos;
     if (currentEmbeddedVideo) {
       currentEmbeddedVideo.sendNotification('doStop');
+    }
+    this.open = false;
+    this._handleAriaState();
+  };
+
+  // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
+  protected _handleContentStateChange(_: CustomEvent) {}
+
+  @HostListener('document:eventContentStateChange')
+  protected _handleContentStateChangeDocument = (event: CustomEvent) => {
+    const { contentState, videoId: requestedVideoId } = event.detail;
+    if (!this.videoId) this.videoId = requestedVideoId;
+    const { videoId } = this;
+    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId === requestedVideoId) {
+      this.open = true;
     }
   };
 
@@ -52,15 +88,6 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
     const { selectorVideoPlayer } = this.constructor as typeof DDSLightboxVideoPlayerComposite;
     return (this.modalRenderRoot as Element)?.querySelector?.(selectorVideoPlayer);
   }
-
-  // eslint-disable-next-line class-methods-use-this
-  get autoPlay() {
-    return true; // Lock `autoPlay` to be `true`
-  }
-
-  // @ts-ignore
-  // eslint-disable-next-line class-methods-use-this, no-empty-function
-  set autoPlay(value) {} // Lock `autoPlay` to be `true`
 
   /**
    * `true` if the modal should be open.
@@ -84,6 +111,20 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(DDSVideoPlayerCom
       this._hCloseModal = this._hCloseModal.release();
     }
     super.disconnectedCallback();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('open') || changedProperties.has('videoId')) {
+      const { open, videoId } = this;
+      this._activateEmbeddedVideo(!open ? '' : videoId);
+      if (videoId) {
+        this._loadVideoData?.(videoId);
+        if (open) {
+          this._embedVideo?.(videoId);
+          this._handleAriaState();
+        }
+      }
+    }
   }
 
   renderLightDOM() {

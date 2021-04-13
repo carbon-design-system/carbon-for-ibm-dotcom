@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
@@ -39,7 +38,7 @@ const miscCTAData = {
   },
   card({ type }) {
     return {
-      copy: copy[0],
+      copy: type !== 'video' ? copy[0] : '',
       cta: {
         href: urlBy[type],
       },
@@ -57,9 +56,6 @@ const miscCTAData = {
         heading: copy[1],
         cta: {
           href: urlBy[type],
-          icon: {
-            src: ArrowRight20,
-          },
           media: {
             src: '1_9h94wo6b',
             type: 'video',
@@ -259,9 +255,6 @@ FeatureCard.story = {
             heading: copy[1],
             cta: {
               href: 'https://www.example.com',
-              icon: {
-                src: ArrowRight20,
-              },
             },
             image: {
               defaultSrc: imgLg1x1,

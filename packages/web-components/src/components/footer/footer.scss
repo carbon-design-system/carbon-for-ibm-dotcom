@@ -75,6 +75,11 @@
       flex: 0 0 25%;
       margin-left: 62.5%;
     }
+
+    @include carbon--breakpoint('max') {
+      flex: 0 0 18.75%;
+      margin-left: 68.75%;
+    }
   }
 
   ::slotted(#{$dds-prefix}-language-selector-mobile) {
@@ -118,9 +123,7 @@
 
 :host(#{$dds-prefix}-footer[size='micro']) {
   ::slotted(#{$dds-prefix}-footer-nav),
-  ::slotted(#{$dds-prefix}-footer-logo),
-  ::slotted(#{$dds-prefix}-language-selector-desktop),
-  ::slotted(#{$dds-prefix}-language-selector-mobile) {
+  ::slotted(#{$dds-prefix}-footer-logo) {
     display: none;
   }
 }
@@ -254,7 +257,14 @@
 
   @include carbon--breakpoint('lg') {
     order: 1;
+    flex: 0 0 25%;
+    max-width: carbon--mini-units(40);
+    min-width: carbon--mini-units(27);
+  }
+
+  @include carbon--breakpoint('max') {
     flex: 0 0 18.75%;
+    max-width: 18.75%;
   }
 
   .#{$prefix}--combo-box {
@@ -266,5 +276,68 @@
     top: auto;
     bottom: $carbon--spacing-08;
     max-height: 13.5rem;
+  }
+
+  .#{$prefix}--list-box {
+    &__menu-icon {
+      top: carbon--mini-units(1.5);
+      svg {
+        height: carbon--mini-units(2.5);
+        width: carbon--mini-units(2.5);
+      }
+    }
+    &__selection {
+      svg {
+        height: carbon--mini-units(2.5);
+        width: carbon--mini-units(2.5);
+      }
+    }
+  }
+}
+
+:host(#{$dds-prefix}-language-selector-mobile[size='micro']) {
+  align-self: flex-end;
+  margin-bottom: 0;
+  border-left: 1px solid $ui-03;
+
+  @include carbon--breakpoint('sm') {
+    .#{$prefix}--select-input__wrapper {
+      height: 100%;
+      bottom: $carbon--spacing-05;
+    }
+
+    .#{$prefix}--select-input {
+      height: 100%;
+      background-color: $ui-background;
+      border-bottom: none;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+    }
+  }
+
+  @include carbon--breakpoint('md') {
+    max-width: 50%;
+  }
+}
+:host(#{$dds-prefix}-language-selector-desktop[size='micro']) {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 1px solid $ui-03;
+
+  .#{$prefix}--dropdown {
+    background-color: $ui-background;
+    max-height: $carbon--spacing-09;
+    height: $carbon--spacing-09;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+
+  .#{$prefix}--dropdown,
+  .#{$prefix}--text-input {
+    border-bottom: none;
   }
 }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { VideoData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/videoPlayerAPI.d';
 /* eslint-disable import/no-duplicates */
-import { VIDEO_PLAYER_CONTENT_STATE } from './video-player';
+import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
 /* eslint-enable import/no-duplicates */
@@ -50,14 +50,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    *
    * @param videoId The video ID to activate.
    */
-  private _activateEmbeddedVideo(videoId: string) {
+  protected _activateEmbeddedVideo(videoId: string) {
     const { selectorEmbeddedVideoContainer } = this.constructor as typeof DDSVideoPlayerComposite;
     const { embeddedVideos = {} } = this;
-    Object.keys(embeddedVideos)
-      .filter(key => key !== videoId)
-      .forEach(key => {
-        embeddedVideos[key].sendNotification('doStop');
-      });
+    Object.keys(embeddedVideos).forEach(key => {
+      embeddedVideos[key].sendNotification(key === videoId ? 'doPlay' : 'doStop');
+    });
     forEach(this.querySelectorAll(selectorEmbeddedVideoContainer), element => {
       element.toggleAttribute('hidden', (element as HTMLElement).dataset.videoId !== videoId);
     });
@@ -79,8 +77,8 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
    */
   @HostListener('eventContentStateChange')
   protected _handleContentStateChange(event: CustomEvent) {
-    const { contentState, videoId } = event.detail;
-    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && videoId) {
+    const { contentState, playingMode, videoId } = event.detail;
+    if (contentState === VIDEO_PLAYER_CONTENT_STATE.VIDEO && playingMode === VIDEO_PLAYER_PLAYING_MODE.INLINE && videoId) {
       this._embedVideo?.(videoId);
     }
   }
@@ -130,6 +128,18 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   videoId = '';
 
   /**
+   * The aspect ratio.
+   */
+  @property({ attribute: 'aspect-ratio' })
+  aspectRatio?: '';
+
+  /**
+   * The video player's mode showing Inline or Lightbox.
+   */
+  @property({ reflect: true, attribute: 'playing-mode' })
+  playingMode = VIDEO_PLAYER_PLAYING_MODE.INLINE;
+
+  /**
    * The video thumbnail width.
    */
   @property({ type: Number, attribute: 'video-thumbnail-width' })
@@ -149,7 +159,16 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
   }
 
   renderLightDOM() {
-    const { formatCaption, formatDuration, hideCaption, videoData = {}, videoId, videoThumbnailWidth } = this;
+    const {
+      aspectRatio,
+      formatCaption,
+      formatDuration,
+      hideCaption,
+      videoData = {},
+      videoId,
+      videoThumbnailWidth,
+      playingMode,
+    } = this;
     const { [videoId]: currentVideoData = {} as VideoData } = videoData;
     const { duration, name } = currentVideoData;
     const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl({
@@ -163,8 +182,10 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(HostListenerMixin(LitEle
         name="${ifNonNull(name)}"
         thumbnail-url="${ifNonNull(thumbnailUrl)}"
         video-id="${ifNonNull(videoId)}"
+        aspect-ratio="${ifNonNull(aspectRatio)}"
         .formatCaption="${ifNonNull(formatCaption)}"
         .formatDuration="${ifNonNull(formatDuration)}"
+        playing-mode="${ifNonNull(playingMode)}"
       >
       </dds-video-player>
     `;

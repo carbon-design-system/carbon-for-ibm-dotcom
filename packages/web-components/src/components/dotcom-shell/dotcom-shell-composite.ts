@@ -8,12 +8,15 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, internalProperty, property, customElement, LitElement } from 'lit-element';
+import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { baseFontSize, breakpoints } from '@carbon/layout';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
   BasicLink,
   BasicLinkSet,
+  MastheadL1,
   MastheadLink,
   MastheadProfileItem,
   Translation,
@@ -24,7 +27,10 @@ import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
@@ -34,6 +40,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-dotcom-shell-composite`)
 class DDSDotcomShellComposite extends LitElement {
   /**
+   * The last scroll Position
+   */
+  @internalProperty()
+  private _lastScrollPosition = 0;
+
+  /**
    * The render target of the footer contents.
    */
   private _footerRenderRoot: Element | null = null;
@@ -42,6 +54,26 @@ class DDSDotcomShellComposite extends LitElement {
    * The render target of the masthead contents.
    */
   private _mastheadRenderRoot: Element | null = null;
+
+  /**
+   * The masthead element.
+   */
+  private _masthead?: HTMLElement;
+
+  /**
+   * The tableOfContents inner navBar or sideBar depending on layout.
+   */
+  private _tableOfContentsInnerBar?: HTMLElement;
+
+  /**
+   * The tableOfContents layout.
+   */
+  private _tableOfContentsLayout?: String;
+
+  /**
+   * The observer for the resize of the viewport.
+   */
+  private _observerResizeRoot: any | null = null;
 
   /**
    * @returns The render root of the footer contents.
@@ -59,6 +91,70 @@ class DDSDotcomShellComposite extends LitElement {
     const masthead = this.ownerDocument!.createElement(`${ddsPrefix}-masthead-composite`);
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
+  }
+
+  /**
+   * Cleans-up and creates the resize observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new resize observer.
+   */
+  private _cleanAndCreateObserverResize({ create }: { create?: boolean } = {}) {
+    if (this._observerResizeRoot) {
+      this._observerResizeRoot.disconnect();
+      this._observerResizeRoot = null;
+    }
+    if (create) {
+      // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+      // @ts-ignore
+      this._observerResizeRoot = new ResizeObserver(this._handleResize.bind(this));
+      this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
+    }
+  }
+
+  /**
+   * Resets masthead to top upon resize in larger breakpoints
+   */
+  private _handleResize() {
+    if (window.innerWidth >= gridBreakpoint && this._tableOfContentsLayout !== 'horizontal') {
+      this._masthead!.style.top = '0';
+    } else {
+      if (this._masthead!.getBoundingClientRect().top === 0) {
+        this._tableOfContentsInnerBar!.style.top = `${this._masthead!.offsetHeight}px`;
+      }
+      this._handleIntersect();
+    }
+  }
+
+  /**
+   * Scrolls the masthead in/out of view depending on scroll direction if toc is present
+   */
+  private _handleIntersect = () => {
+    if (window.innerWidth < gridBreakpoint || this._tableOfContentsLayout === 'horizontal') {
+      const mastheadTop = Math.min(0, this._tableOfContentsInnerBar!.getBoundingClientRect().top - this._masthead!.offsetHeight);
+      const tocPosition = this._tableOfContentsInnerBar!.getBoundingClientRect().top + this._lastScrollPosition - window.scrollY;
+      this._masthead!.style.transition = 'none';
+      if (window.scrollY < this._lastScrollPosition) {
+        this._tableOfContentsInnerBar!.style.top = `${Math.min(tocPosition, this._masthead!.offsetHeight)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      } else {
+        this._tableOfContentsInnerBar!.style.top = `${Math.max(tocPosition, 0)}px`;
+        this._masthead!.style.top = `${mastheadTop}px`;
+      }
+    }
+    this._lastScrollPosition = window.scrollY;
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._cleanAndCreateObserverResize({ create: true });
+    window.addEventListener('scroll', this._handleIntersect);
+  }
+
+  disconnectedCallback() {
+    this._cleanAndCreateObserverResize();
+    window.removeEventListener('scroll', this._handleIntersect);
+    super.disconnectedCallback();
   }
 
   /**
@@ -104,6 +200,18 @@ class DDSDotcomShellComposite extends LitElement {
   _setLanguage?: (language: string) => void;
 
   /**
+   * `true` if there is a profile.
+   */
+  @property({ type: Boolean, attribute: 'has-profile' })
+  hasProfile = true;
+
+  /**
+   * `true` if there is a search.
+   */
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
+
+  /**
    * `true` to activate the search box. This goes to masthead.
    */
   @property({ type: Boolean, attribute: 'activate-search' })
@@ -118,10 +226,24 @@ class DDSDotcomShellComposite extends LitElement {
   authenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * The brand name. This goes to masthead.
+   * The platform name. This goes to masthead.
    */
-  @property({ attribute: 'brand-name' })
-  brandName?: string;
+  @property({ attribute: 'platform' })
+  platform?: string;
+
+  /**
+   * The platform url.
+   */
+  @property({ attribute: 'platform-url' })
+  platformUrl?: string;
+
+  /**
+   * The clear button label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'clear-selection-label' })
+  clearSelectionLabel?: string;
 
   /**
    * The g11n collator to use for sorting contry names. This goes to footer.
@@ -140,7 +262,7 @@ class DDSDotcomShellComposite extends LitElement {
   /**
    * `true` to omit the locale switcher button.
    */
-  @property({ attribute: 'disable-locale-button' })
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
   disableLocaleButton = false;
 
   /**
@@ -166,12 +288,36 @@ class DDSDotcomShellComposite extends LitElement {
   langDisplay?: string;
 
   /**
+   * The placeholder label for language selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'language-selector-label' })
+  languageSelectorLabel?: string;
+
+  /**
+   * The initial selected language in the selector.
+   *
+   * @internal
+   */
+  @property({ attribute: 'selected-language' })
+  selectedLanguage?: string;
+
+  /**
    * The language used for query. This goes to masthead and footer.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property()
   language?: string;
+
+  /**
+   * Placeholder list of languages to populate language selector
+   *
+   * @internal
+   */
+  @property({ attribute: false })
+  langList?: string[];
 
   /**
    * The legal nav links. This goes to footer.
@@ -248,12 +394,24 @@ class DDSDotcomShellComposite extends LitElement {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
+   * Data for l1.
+   */
+  @property({ attribute: false })
+  l1Data?: MastheadL1;
+
+  /**
    * The navigation links. This goes to masthead.
    * The data typically comes from `@carbon/ibmdotcom-services` and thus you don't need to set this property by default,
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
   navLinks?: MastheadLink[];
+
+  /**
+   * Value to display when the input has an empty `value`.
+   */
+  @property()
+  searchPlaceholder?: string;
 
   /**
    * The user authentication status. This goes to masthead.
@@ -265,15 +423,29 @@ class DDSDotcomShellComposite extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
+
+    if (!this._tableOfContentsInnerBar) {
+      const toc = document.querySelector(`${ddsPrefix}-table-of-contents`);
+      if (toc?.getAttribute('toc-layout') === 'horizontal') {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__navbar`) as HTMLElement;
+        this._tableOfContentsLayout = 'horizontal';
+      } else {
+        this._tableOfContentsInnerBar = toc?.shadowRoot?.querySelector(`.${prefix}--tableofcontents__sidebar`) as HTMLElement;
+      }
+      this._masthead = document.querySelector(`${ddsPrefix}-masthead`) as HTMLElement;
+    }
+
     if (!this._mastheadRenderRoot) {
       this._mastheadRenderRoot = this._createMastheadRenderRoot();
     }
     const {
       activateSearch,
       authenticatedProfileItems,
-      brandName,
+      platform,
+      platformUrl,
       collatorCountryName,
       currentSearchResults,
+      clearSelectionLabel,
       disableLocaleButton,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -281,8 +453,11 @@ class DDSDotcomShellComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       unauthenticatedProfileItems,
       inputTimeout,
+      l1Data,
       language,
+      languageSelectorLabel,
       langDisplay,
+      langList,
       legalLinks,
       localeList,
       footerLinks,
@@ -290,6 +465,10 @@ class DDSDotcomShellComposite extends LitElement {
       openLocaleModal,
       openSearchDropdown,
       navLinks,
+      hasProfile,
+      hasSearch,
+      searchPlaceholder,
+      selectedLanguage,
       selectedMenuItem,
       userStatus,
       _loadLangDisplay,
@@ -305,7 +484,8 @@ class DDSDotcomShellComposite extends LitElement {
         {
           activateSearch,
           authenticatedProfileItems,
-          brandName,
+          platform,
+          platformUrl,
           currentSearchResults,
           mastheadAssistiveText,
           menuBarAssistiveText,
@@ -313,8 +493,12 @@ class DDSDotcomShellComposite extends LitElement {
           menuButtonAssistiveTextInactive,
           unauthenticatedProfileItems,
           inputTimeout,
+          l1Data,
           language,
           navLinks,
+          hasProfile,
+          hasSearch,
+          searchPlaceholder,
           openSearchDropdown,
           selectedMenuItem,
           userStatus,
@@ -333,14 +517,18 @@ class DDSDotcomShellComposite extends LitElement {
       this._footerRenderRoot,
       pickBy(
         {
+          clearSelectionLabel,
           collatorCountryName,
           disableLocaleButton,
           language,
+          languageSelectorLabel,
           langDisplay,
+          langList,
           legalLinks,
           links: footerLinks,
           localeList,
           openLocaleModal,
+          selectedLanguage,
           size: footerSize,
           _loadLangDisplay,
           _loadLocaleList,

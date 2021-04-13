@@ -22,8 +22,29 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
   :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
   .#{$prefix}--video-player .#{$prefix}--image {
+    position: relative;
     width: 100%;
     height: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+      background-color: $inverse-02;
+      transition: opacity $transition--base motion(standard, productive);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        opacity: 0.2;
+      }
+    }
   }
 
   .#{$prefix}--video-player__video-container {
@@ -58,7 +79,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$prefix}--video-player__video-caption {
     @include carbon--type-style('caption-01');
 
-    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-05);
+    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
     color: var(--#{$dds-prefix}--video-caption--color, $text-05);
     max-width: 90%;
   }

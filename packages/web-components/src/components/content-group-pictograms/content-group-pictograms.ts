@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,6 @@
 
 import { customElement, css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-pictograms.scss';
 
@@ -22,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-content-group-pictograms`)
-class DDSContentGroupPictograms extends StableSelectorMixin(DDSContentGroup) {
+class DDSContentGroupPictograms extends DDSContentGroup {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-pictograms`;
   }

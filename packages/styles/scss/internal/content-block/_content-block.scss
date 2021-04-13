@@ -15,6 +15,7 @@
   :host(#{$dds-prefix}-content-block),
   :host(#{$dds-prefix}-content-block-simple),
   :host(#{$dds-prefix}-content-block-media),
+  :host(#{$dds-prefix}-content-block-mixed),
   :host(#{$dds-prefix}-content-group-horizontal),
   :host(#{$dds-prefix}-leadspace-block-content),
   :host(#{$dds-prefix}-content-block-segmented),
@@ -35,7 +36,9 @@
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include hang;
+      @include carbon--breakpoint('md') {
+        @include hang;
+      }
     }
 
     @include carbon--breakpoint('lg') {
@@ -145,6 +148,10 @@
 
   .#{$prefix}--content-layout__body {
     grid-area: body;
+    .bx--content-group-cards__row {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr,
@@ -195,8 +202,17 @@
 
   .#{$prefix}--content-block__cta-col {
     @include carbon--make-col-ready;
+
+    @include carbon--breakpoint('sm') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     @include carbon--breakpoint('md') {
       @include carbon--make-col(4, 8);
+
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
     }
   }
 }

@@ -10,7 +10,6 @@
 import { html, css, customElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-cards.scss';
 
@@ -23,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-group-cards
  */
 @customElement(`${ddsPrefix}-content-group-cards`)
-class DDSContentGroupCards extends StableSelectorMixin(DDSContentGroup) {
+class DDSContentGroupCards extends DDSContentGroup {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -82,7 +82,6 @@
   .#{$prefix}--card-group__cards__row {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
 
     @include carbon--breakpoint('md') {
       grid-template-columns: repeat(2, 1fr);
@@ -115,6 +114,24 @@
       top: 0;
       pointer-events: none;
       box-shadow: inset 0 0 0 1px $ui-background;
+    }
+  }
+
+  // Add Grid Mode Narrow (16px gutter) style.
+  :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
+  .#{$prefix}--card-group--narrow {
+    @include carbon--breakpoint('sm') {
+      column-gap: $carbon--spacing-05;
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item),
+    .#{$prefix}--card-group__cards__col {
+      background: inherit;
+      padding: $carbon--spacing-03 0 0 0;
+
+      @include carbon--breakpoint('md') {
+        padding: $carbon--spacing-05 0 0 0;
+      }
     }
   }
 

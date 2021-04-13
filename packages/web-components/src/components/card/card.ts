@@ -73,12 +73,22 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * @returns The heading content.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderHeading(): TemplateResult | string | void {
+    return html`
+      <slot name="heading"></slot>
+    `;
+  }
+
+  /**
    * @returns The copy content.
    */
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy" aria-hidden="true">
+      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
         <slot @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
@@ -112,7 +122,11 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       ${this._renderImage()}
       <div class="${prefix}--card__wrapper ${hasPictogram ? `${prefix}--card__pictogram` : ''}">
         <div class="${prefix}--card__content">
-          <slot name="eyebrow"></slot>
+          ${hasPictogram
+            ? ''
+            : html`
+                <slot name="eyebrow"></slot>
+              `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
             ? html`
                 <slot
@@ -122,11 +136,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
-            ? html`
-                <slot name="heading"></slot>
-              `
-            : null}
+          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram ? this._renderHeading() : null}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM || !hasPictogram ? this._renderCopy() : ''}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
             ? html`
@@ -137,11 +147,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
                 ></slot>
               `
             : ''}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot name="heading"></slot>
-              `
-            : null}
+          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ? this._renderHeading() : null}
           <slot name="footer"></slot>
         </div>
       </div>

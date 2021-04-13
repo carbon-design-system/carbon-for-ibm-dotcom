@@ -1,0 +1,53 @@
+//
+// Copyright IBM Corp. 2020, 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/globals/scss/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '../../globals/scss/box-sizing';
+@import '@carbon/ibmdotcom-styles/scss/components/card/index';
+
+.#{$dds-prefix}-promo-item,
+:host(#{$dds-prefix}-promo-item) {
+  padding: 0 $carbon--spacing-05 $carbon--spacing-09 $carbon--spacing-05;
+  margin-bottom: $carbon--spacing-07;
+  border-bottom: 1px solid $ui-03;
+
+  @include carbon--breakpoint(md) {
+    margin-bottom: $carbon--spacing-07;
+
+    // Add CSS Grid so that the CTA link will align to the bottom of the card despite the length of the body copy.
+    height: auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  .#{$prefix}--promo-item__heading {
+    margin-bottom: $carbon--spacing-05;
+    align-self: flex-start;
+  }
+
+  .#{$prefix}--promo-item__content {
+    margin-top: $carbon--spacing-05;
+  }
+
+  .#{$dds-prefix}-promo-item__pictogram,
+  ::slotted(svg) {
+    display: block;
+    height: 80px;
+    width: 80px;
+  }
+
+  .#{$prefix}--promo-item__footer {
+    align-self: flex-end;
+  }
+}
+
+.#{$dds-prefix}-promo-item-statistic,
+:host(#{$dds-prefix}-promo-item-statistic) {
+  font-family: carbon--font-family('mono');
+  @include carbon--type-style('expressive-heading-06', true);
+}

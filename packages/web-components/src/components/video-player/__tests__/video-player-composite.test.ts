@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import '../video-player-composite';
 /* eslint-enable import/no-duplicates */
 
 const template = (props?) => {
-  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData } = props ?? {};
+  const { embeddedVideos, formatCaption, formatDuration, hideCaption, videoId, videoData, playingMode } = props ?? {};
   return html`
     <dds-video-player-composite
       ?hide-caption="${hideCaption}"
@@ -26,6 +26,7 @@ const template = (props?) => {
       .formatCaption="${ifNonNull(formatCaption)}"
       .formatDuration="${ifNonNull(formatDuration)}"
       .videoData="${ifNonNull(videoData)}"
+      .playingMode="${ifNonNull(playingMode)}"
     >
     </dds-video-player-composite>
   `;
@@ -83,7 +84,7 @@ describe('dds-video-player-composite', function() {
     expect((embeddedVideoBar as HTMLElement).hidden).toBe(false);
     expect((embeddedVideoBaz as HTMLElement).hidden).toBe(true);
     expect((embeddedVideoFoo as any).sendNotification).toHaveBeenCalledWith('doStop');
-    expect((embeddedVideoBar as any).sendNotification).not.toHaveBeenCalled();
+    expect((embeddedVideoBar as any).sendNotification).toHaveBeenCalledWith('doPlay');
     expect((embeddedVideoBaz as any).sendNotification).toHaveBeenCalledWith('doStop');
   });
 
