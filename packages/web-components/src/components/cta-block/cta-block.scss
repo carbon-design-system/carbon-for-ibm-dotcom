@@ -118,8 +118,8 @@
   }
 
   ::slotted(svg) {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: rem(80px);
+    max-width: rem(80px);
   }
 
   ::slotted(#{$dds-prefix}-video-player-container) {
