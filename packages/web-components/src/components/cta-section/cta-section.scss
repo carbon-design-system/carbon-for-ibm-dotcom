@@ -12,8 +12,7 @@
   display: block;
 
   .#{$prefix}--content-section {
-    margin-left: -1rem;
-    margin-right: -1rem;
+    @include hang;
     padding-bottom: $carbon--layout-04;
   }
 
