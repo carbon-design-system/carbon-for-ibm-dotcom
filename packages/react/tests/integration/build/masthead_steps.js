@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,7 @@ describe('Masthead example', () => {
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const input = await page.waitForSelector('.bx--masthead__search .bx--header__search--actions', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
+    const input = await page.waitForSelector('[data-autoid="dds--masthead__search"] button', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
     const height = await page.evaluate(input => input.offsetHeight, input);
     expect(height).toBe(48);
   });
