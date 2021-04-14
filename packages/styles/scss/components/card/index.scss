@@ -95,7 +95,7 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    .#{$prefix}--link:hover {
+    .#{$prefix}--card--link:hover {
       text-decoration: none;
 
       .#{$prefix}--card__img {
