@@ -161,7 +161,7 @@ ${SEARCH_REDIRECT_ENDPOINT}&q=${encodeURIComponent(value)}&lang=${state.lc}&cc=$
 
 **Custom typeahead API**
 
-To use a custom endpoint, pass `customTypeaheadApi` to get the response 
+To use a custom endpoint, pass `customTypeaheadApi` to get the response
 and transform the data if needed.
 
 ```javascript
@@ -207,7 +207,6 @@ async function customTypeaheadApi(searchVal) {
 }
 
 <Masthead customTypeaheadApi={customTypeaheadApi} multiSection />;
-
 ```
 
 The results must follow this stucture:
@@ -225,9 +224,7 @@ The results must follow this stucture:
   },
   // additional sections
 ]
-
 ```
-
 
 
 ## platform

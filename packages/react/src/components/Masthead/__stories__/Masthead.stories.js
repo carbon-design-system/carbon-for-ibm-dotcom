@@ -134,7 +134,7 @@ WithCustomNavigation.story = {
           ),
           placeHolderText: text(
             'search placeholder (placeHolderText)',
-            'Search all of IBM',
+            inPercy() ? '' : 'Search all of IBM',
             groupId
           ),
           selectedMenuItem: text(
@@ -148,11 +148,11 @@ WithCustomNavigation.story = {
   },
 };
 
-export const SearchOpenByDefault = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload={true} />
+export const SearchOpenOnload = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload />
 );
 
-SearchOpenByDefault.story = {
+SearchOpenOnload.story = {
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },

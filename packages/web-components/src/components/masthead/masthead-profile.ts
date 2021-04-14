@@ -32,12 +32,12 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
    * The trigger button.
    */
   @query('a')
-  private _trigger!: HTMLElement;
+  protected _trigger!: HTMLElement;
 
   /**
    * Handles `click` event handler on this element.
    */
-  private _handleClick() {
+  protected _handleClick() {
     this._handleUserInitiatedToggle();
   }
 
@@ -46,7 +46,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
    *
    * @param [force] If specified, forces the open state to the given one.
    */
-  private _handleUserInitiatedToggle(force: boolean = !this.expanded) {
+  protected _handleUserInitiatedToggle(force: boolean = !this.expanded) {
     this.expanded = force;
     if (!force) {
       this._trigger.focus();
@@ -58,7 +58,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleBlur({ relatedTarget }: FocusEvent) {
+  protected _handleBlur({ relatedTarget }: FocusEvent) {
     if (!this.contains(relatedTarget as Node)) {
       this.expanded = false;
     }
@@ -69,7 +69,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @HostListener('keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleKeydown({ key }: KeyboardEvent) {
+  protected _handleKeydown({ key }: KeyboardEvent) {
     if (key === 'Esc' || key === 'Escape') {
       this._handleUserInitiatedToggle(false);
     }

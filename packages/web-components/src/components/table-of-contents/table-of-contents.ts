@@ -298,8 +298,8 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * @param target The hash name.
    */
   private _handleUserInitiatedJump(target: string) {
-    this.ownerDocument!.defaultView!.location.hash = target;
     const elem = this.querySelector(`a[name="${target}"]`);
+    elem?.scrollIntoView();
     if (elem) {
       elem.setAttribute('tabindex', '0');
       (elem as HTMLElement).focus({ preventScroll: true });
@@ -511,7 +511,7 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
 
     return html`
       <div class="${containerClasses}">
-        <div part="table" class="${navigationClasses}" style="top: ${stickyOffset ? `${stickyOffset}px` : 0}">
+        <div part="table" class="${navigationClasses}" style="top: ${this.layout === 'horizontal' ? `${stickyOffset}px` : 0}">
           ${hasMobileContainerVisible
             ? nothing
             : html`
