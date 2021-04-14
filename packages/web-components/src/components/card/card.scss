@@ -24,8 +24,15 @@
   }
 }
 
+:host(#{$dds-prefix}-card-in-card),
+:host(#{$dds-prefix}-card-cta),
 :host(#{$dds-prefix}-card) {
   outline: none;
+
+  // TODO remove Card component matches react
+  .#{$prefix}--card:focus {
+    outline: 2px solid $focus;
+  }
 
   .#{$prefix}--card__pictogram {
     display: flex;
