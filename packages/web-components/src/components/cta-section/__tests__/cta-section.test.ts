@@ -8,11 +8,11 @@
  */
 
 import { render } from 'lit-html';
-import { Default } from '../__stories__/cta-section.stories';
+import { Simple } from '../__stories__/cta-section.stories';
 
 describe('dds-cta-block', function() {
   it('Renders Default', async function() {
-    render(Default({ parameters: {} }), document.body);
+    render(Simple({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({ mode: 'shadow' });
   });
