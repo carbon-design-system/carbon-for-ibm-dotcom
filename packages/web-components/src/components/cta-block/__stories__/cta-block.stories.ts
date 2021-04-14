@@ -148,7 +148,7 @@ export const WithLinkList = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/CTA Block',
+  title: 'Components/CTA block',
   decorators: [
     story => html`
       <style>

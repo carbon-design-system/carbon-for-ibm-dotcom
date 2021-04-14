@@ -50,7 +50,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Callout Quote',
+  title: 'Components/Callout quote',
   parameters: {
     ...readme.parameters,
     hasGrid: true,
