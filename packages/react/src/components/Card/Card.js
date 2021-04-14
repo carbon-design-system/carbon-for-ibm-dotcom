@@ -111,6 +111,10 @@ function renderFooter(cta, copy, heading, pictogram) {
   return (
     cta && (
       <Link
+        className={classNames(`${prefix}--card__footer`, {
+          [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
+          [`${prefix}--card__footer__copy`]: cta?.copy,
+        })}
         href={cta?.href}
         target={CTALogic.external(cta?.type)}
         aria-label={
@@ -118,20 +122,13 @@ function renderFooter(cta, copy, heading, pictogram) {
           CTALogic.getDefaultLabel(cta?.type)
         }
         onClick={cta?.handleClick}>
-        <div
-          className={classNames(`${prefix}--card__footer`, {
-            [`${prefix}--card__footer__icon-left`]:
-              cta?.iconPlacement === 'left',
-            [`${prefix}--card__footer__copy`]: cta?.copy,
-          })}>
-          {cta?.copy && !pictogram && (
-            <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
-          )}
-          {cta?.icon?.src && !pictogram && (
-            <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
-          )}
-          {pictogram && pictogram}
-        </div>
+        {cta?.copy && !pictogram && (
+          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
+        )}
+        {cta?.icon?.src && !pictogram && (
+          <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
+        )}
+        {pictogram && pictogram}
       </Link>
     )
   );

@@ -69,25 +69,6 @@
       outline-offset: -2px;
     }
 
-    .#{$prefix}--link {
-      text-decoration: none;
-      margin-top: auto;
-
-      &:focus {
-        outline: none;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-      }
-    }
-
     .#{$prefix}--card:focus,
     .#{$prefix}--card:visited,
     .#{$prefix}--card:active {
@@ -165,8 +146,23 @@
   :host(#{$dds-prefix}-card-in-card-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
-    margin-top: auto;
     /* Moves the footer down to the bottom in the card */
+    margin-top: auto;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
 
     .#{$prefix}--card__cta__copy {
       margin-right: $carbon--spacing-03;
