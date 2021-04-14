@@ -29,7 +29,7 @@
 :host(#{$dds-prefix}-card) {
   outline: none;
 
-  // TODO remove Card component matches react
+  // TODO: remove once Card component matches react
   .#{$prefix}--card:focus {
     outline: 2px solid $focus;
   }
