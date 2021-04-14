@@ -16,6 +16,8 @@
     background: $ui-background;
     padding-bottom: $layout-05;
     display: block;
+    margin-left: -$carbon--layout-01;
+    margin-right: -$carbon--layout-01;
 
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
