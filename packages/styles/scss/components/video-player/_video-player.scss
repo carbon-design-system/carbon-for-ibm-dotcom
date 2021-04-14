@@ -18,6 +18,24 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       width: 100%;
       height: 100%;
     }
+
+    &:focus {
+      outline: none;
+      .#{$prefix}--video-player__video-container {
+        &::before {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          border: 1px solid $inverse-focus-ui;
+        }
+
+        outline: 2px solid $focus;
+      }
+    }
   }
 
   :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
@@ -52,6 +70,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     position: relative;
     display: inline-block;
     margin-top: $spacing-05;
+
+    &:focus {
+      outline: none;
+    }
 
     ::slotted(.#{$prefix}--video-player__video),
     .#{$prefix}--video-player__video {
