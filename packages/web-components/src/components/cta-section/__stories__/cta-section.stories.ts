@@ -30,27 +30,37 @@ import '../../cta/link-list-item-cta';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
+import content from './content';
+
 import styles from './cta-section.stories.scss';
 
 const contentItemTypeMap = {
-  text: html`
+  text: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
-      <dds-content-item-heading>Get connected</dds-content-item-heading>
-      <dds-content-item-copy
-        >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</dds-content-item-copy
-      >
-      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
     </dds-cta-block-item>
   `,
-  statistics: html`
+  statistics: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <span slot="statistics">10%</span>
-      <dds-content-item-heading>Learn how</dds-content-item-heading>
-      <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
-      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
     </dds-cta-block-item>
   `,
-  pictogram: html`
+  pictogram: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <svg
         slot="media"
@@ -75,20 +85,28 @@ const contentItemTypeMap = {
         0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
         ></path>
       </svg>
-      <dds-content-item-heading>Learn how</dds-content-item-heading>
-      <dds-content-item-copy>Dig into more self-directed larning about DevOps methodologies.</dds-content-item-copy>
-      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Browse tutorials</dds-text-cta>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
     </dds-cta-block-item>
   `,
-  media: html`
+  media: ({ heading, copy, links }) => html`
     <dds-cta-block-item>
       <dds-video-player-container video-id="1_9h94wo6b" aspect-ratio="4x3" slot="media" hide-caption playing-mode="lightbox">
       </dds-video-player-container>
-      <dds-content-item-heading>Get connected</dds-content-item-heading>
-      <dds-content-item-copy
-        >IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</dds-content-item-copy
-      >
-      <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">Find a partner</dds-text-cta>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      ${links.map(
+        elem =>
+          html`
+            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
+          `
+      )}
     </dds-cta-block-item>
   `,
 };
@@ -104,7 +122,7 @@ const renderItems = (item, count) => {
   if (count.length < 4) {
     return html`
       <dds-cta-block-item-row no-border>
-        ${count.map(() => item)}
+        ${count.map((_, index) => item({ ...content[index] }))}
       </dds-cta-block-item-row>
     `;
   }
@@ -114,10 +132,10 @@ const renderItems = (item, count) => {
 
   return html`
     <dds-cta-block-item-row>
-      ${itemArray.map(() => item)}
+      ${itemArray.map((_, index) => item({ ...content[index] }))}
     </dds-cta-block-item-row>
     <dds-cta-block-item-row no-border>
-      ${spliced.map(() => item)}
+      ${spliced.map((_, index) => item({ ...content[index] }))}
     </dds-cta-block-item-row>
   `;
 };

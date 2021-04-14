@@ -16,12 +16,19 @@
     @include hang;
 
     padding-top: 0;
+    padding-left: $carbon--spacing-06;
     padding-bottom: $carbon--layout-04;
   }
 
   .#{$prefix}--content-section__leading {
     margin-top: $carbon--layout-04;
     padding: $spacing-05;
+    padding-left: 0;
+
+    @include carbon--breakpoint('lg') {
+      padding-left: $spacing-05;
+    }
+
     padding-bottom: 0;
     margin-bottom: $carbon--layout-01;
 

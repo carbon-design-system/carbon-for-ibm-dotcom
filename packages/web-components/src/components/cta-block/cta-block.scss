@@ -9,7 +9,6 @@
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-cta-block) {
-  padding-left: $carbon--layout-01;
   padding-top: $carbon--layout-04;
   @include cta-block--pattern;
 
