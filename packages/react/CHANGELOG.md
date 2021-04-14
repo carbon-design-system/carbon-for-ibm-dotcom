@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.56.39...@carbon/ibmdotcom-react@1.18.0-rc.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* **MastheadLeftNav:** set aria-hidden to unseen menu panels ([#5770](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5770)) ([1e1c1cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1e1c1cd)), closes [#5771](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5771)
+
+
+### Features
+
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5218)
+
+
+
+
+
 # [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.17.0-rc.1...@carbon/ibmdotcom-react@1.17.0) (2021-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

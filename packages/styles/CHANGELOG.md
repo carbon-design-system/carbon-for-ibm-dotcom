@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.17.0...@carbon/ibmdotcom-styles@1.18.0-rc.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* **callout:** changing background-color token ([#5528](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5528)) ([7725d88](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7725d88)), closes [#5386](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5386)
+* **card-in-card:** add video variation ([#5717](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5717)) ([1dd587d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1dd587d)), closes [#5458](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5458)
+* **card-in-card:** adjust card in card wrapper width on Collapsed grid mode ([#5494](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5494)) ([5a9f3c8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a9f3c8))
+* **card-link:** changed style to expressive-heading-02 ([#5711](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5711)) ([2455c39](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2455c39)), closes [#5397](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5397)
+* **card-pictogram:** fixed visual bugs & storybook refinements ([#5736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5736)) ([7423b61](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7423b61))
+* **featureCard:** multiple bugs and knob removal ([#5517](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5517)) ([b18ad1a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b18ad1a))
+* **file-uploader:** icon size fix ([#5695](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5695)) ([40b5d67](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/40b5d67))
+* **link-list:** added proper background on hover and removed underline ([#5659](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5659)) ([3874270](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3874270)), closes [#5568](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5568)
+* **masthead:** overflow appearing in max breakpoint ([#5680](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5680)) ([28df330](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/28df330)), closes [#5464](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5464)
+* **masthead:** using correct token for essentials description text ([#5516](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5516)) ([73fe9d2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/73fe9d2)), closes [#5181](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5181)
+* **MastheadL1:** deselect L1 title when there is a selected menu item ([#5698](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5698)) ([2e301ad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2e301ad)), closes [#5302](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5302)
+* **same-height:** using same height method for card group & cta section ([#5567](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5567)) ([5980196](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5980196)), closes [#5398](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5398)
+* **table-of-contents:** spacing fixes for toc ([#5570](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5570)) ([dd1605d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/dd1605d)), closes [#5500](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5500) [#5564](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5564)
+* **toc:** add overflow to horizontal ([#5662](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5662)) ([12ee48a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/12ee48a)), closes [#5473](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5473)
+* **toc:** missing hover state ([#5655](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5655)) ([ea594ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ea594ab))
+
+
+### Features
+
+* **content-group-banner:** add Content Group Banner component ([#5697](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5697)) ([547ca9b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/547ca9b))
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5218)
+* **MastheadLeftNav:** REACT - refactor mobile left nav and add animations ([#5677](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5677)) ([efed07c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/efed07c)), closes [#4835](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4835) [#5145](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5145)
+* **tabs-extended:** Tabs extended component ([#5720](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5720)) ([4d2602a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4d2602a))
+* **tabs-extended-media:** introduce tabs extended with media component ([#5759](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5759)) ([ccfed2b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ccfed2b))
+* **video-player-lightbox:** Media viewer onClick enhancement + video image hover state (8% darken) treatment ([#5581](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5581)) ([a022334](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/a022334))
+
+
+
+
+
 # [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.17.0-rc.1...@carbon/ibmdotcom-styles@1.17.0) (2021-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

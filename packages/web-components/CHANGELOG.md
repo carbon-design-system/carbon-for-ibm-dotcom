@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.56.39...@carbon/ibmdotcom-web-components@1.3.0-rc.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* **card-pictogram:** fixed visual bugs & storybook refinements ([#5736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5736)) ([7423b61](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/7423b61))
+* **dotcom-shell:** add scroll eventListener ([#5747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5747)) ([f2bd6f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f2bd6f2))
+
+
+### Features
+
+* **cloud-masthead:** add Cloud-specific container and composite components ([#5593](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5593)) ([ae52b30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ae52b30))
+* **cloud-megamenu:** megamenu tabbing functionality foundation ([#5751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5751)) ([1a0f59d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1a0f59d)), closes [#5741](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5741)
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5218)
+* **tabs-extended-media:** introduce tabs extended with media component ([#5759](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5759)) ([ccfed2b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ccfed2b))
+
+
+
+
+
 # [1.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.2.0-rc.1...@carbon/ibmdotcom-web-components@1.2.0) (2021-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

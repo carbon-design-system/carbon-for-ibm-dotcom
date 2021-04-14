@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.17.0...@carbon/ibmdotcom-services-store@1.18.0-rc.0) (2021-04-14)
+
+
+### Features
+
+* **cloud-masthead:** add Cloud-specific container and composite components ([#5593](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5593)) ([ae52b30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/ae52b30))
+* **cloud-megamenu:** megamenu tabbing functionality foundation ([#5751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5751)) ([1a0f59d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/1a0f59d)), closes [#5741](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5741)
+
+
+
+
+
 # [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.17.0-rc.1...@carbon/ibmdotcom-services-store@1.17.0) (2021-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store
