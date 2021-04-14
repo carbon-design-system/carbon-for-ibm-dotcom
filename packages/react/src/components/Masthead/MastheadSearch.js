@@ -562,16 +562,14 @@ const MastheadSearch = ({
           }
           className={`${prefix}--header__search--search`}
           data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
-          tabIndex="0"
-          tooltipAlignment="end">
+          tabIndex="0">
           <Search20 />
         </HeaderGlobalAction>
         <HeaderGlobalAction
           onClick={closeBtnAction}
           aria-label="Close"
           className={`${prefix}--header__search--close`}
-          data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}
-          tooltipAlignment="end">
+          data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
           <Close20 />
         </HeaderGlobalAction>
       </div>
