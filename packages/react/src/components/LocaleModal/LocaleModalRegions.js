@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,6 @@ const LocaleModalRegions = ({
     const regionLink = document.querySelectorAll(`.${prefix}--card`);
 
     [...regionLink].forEach(link => {
-      link.setAttribute('tabindex', '0');
       link.addEventListener('click', () => {
         const searchInput = document.getElementById(
           `${prefix}--locale-modal__filter`
@@ -95,8 +94,8 @@ const LocaleModalRegions = ({
                       icon: {
                         src: hasCountries ? ArrowRight20 : Error20,
                       },
+                      handleClick: e => e.preventDefault(),
                     },
-                    handleClick: e => e.preventDefault(),
                   }}
                 />
               </div>
