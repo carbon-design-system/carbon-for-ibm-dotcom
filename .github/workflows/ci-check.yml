@@ -21,7 +21,7 @@ jobs:
       - name: Run CI Checks
         run: |
           yarn ci-check
-          yarn lerna run --ignore=@carbon/ibmdotcom-web-components ci-check
+          yarn lerna run --stream --ignore=@carbon/ibmdotcom-web-components --max-buffer 300000000 ci-check
   web-components:
     runs-on: ubuntu-16.04
     strategy:
