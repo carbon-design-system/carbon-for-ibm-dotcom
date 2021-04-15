@@ -67,7 +67,11 @@ const SideNavMenuSection = ({
   });
 
   return (
-    <div className={className} id={rest.id} ref={menuSectionRef}>
+    <div
+      aria-hidden={!show}
+      className={className}
+      id={rest.id}
+      ref={menuSectionRef}>
       {rest.isSubmenu && (
         <>
           <button
