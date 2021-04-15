@@ -256,6 +256,12 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     }
   };
 
+  /**
+   * `true` to hide the divider.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'hide-divider' })
+  hideDivider = false;
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
