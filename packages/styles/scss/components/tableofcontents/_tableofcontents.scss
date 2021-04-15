@@ -36,17 +36,23 @@ $hover-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--tableofcontents__navbar
+  .#{$prefix}--tableofcontents__navbar {
     .#{$prefix}--tableofcontents__desktop__item {
-    margin-bottom: 1px;
-    a {
-      white-space: nowrap;
-      border-left: none;
-      color: $text-02;
+      margin-bottom: 1px;
+
+      a {
+        white-space: nowrap;
+        border-left: none;
+        color: $text-02;
+      }
+
+      &:hover {
+        background-color: $hover-ui;
+      }
     }
 
-    &:hover {
-      background-color: $hover-ui;
+    .#{$prefix}--tableofcontents__desktop__item--active a {
+      color: $text-01;
     }
   }
 
