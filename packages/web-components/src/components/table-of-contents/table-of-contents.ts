@@ -93,12 +93,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _hasMobileContainerVisible = false;
 
   /**
-   * The map between target `<a>` and a boolean status whether it intersects with the viewport or not.
-   */
-  @internalProperty()
-  private _intersectionStatus: WeakMap<HTMLAnchorElement, boolean> = new WeakMap();
-
-  /**
    * The observer for the intersection of left-side content edge.
    */
   private _observerIntersection: IntersectionObserver | null = null;
@@ -142,14 +136,14 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _mobileSelectNode?: HTMLSelectElement;
 
   /**
-   * The observer for the intersection of target `<a>`s.
-   */
-  private _observerIntersectionTarget: IntersectionObserver | null = null;
-
-  /**
    * The observer for the resize of the mobile container.
    */
   private _observerResizeMobileContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
+
+  /**
+   * The listener for the scrolling through the document.
+   */
+  private _scrollListener: any | null = null;
 
   /**
    * The target `<a>`s harvested from the document.
@@ -180,23 +174,18 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Cleans-up and creats the inersection observer for the intersection of target `<a>`s with the viewport.
+   * Cleans-up and creates the Scroll Listener for the intersection of target <a>'s with the viewport.
    *
    * @param [options] The options.
-   * @param [options.create] `true` to create the new intersection observer.
+   * @param [options.create] `true` to create the new scroll listener.
    */
-  private _cleanAndCreateObserverIntersectionTarget({ create }: { create?: boolean } = {}) {
-    if (this._observerIntersectionTarget) {
-      this._observerIntersectionTarget.disconnect();
-      this._observerIntersectionTarget = null;
+  private _cleanAndCreateScrollListener({ create }: { create?: boolean } = {}) {
+    if (this._scrollListener) {
+      window.removeEventListener('scroll', this._handleScroll);
     }
     if (create) {
-      this._observerIntersectionTarget = new IntersectionObserver(this._observeIntersectionTarget, {
-        threshold: 1,
-      });
-      this._targets.forEach(item => {
-        this._observerIntersectionTarget!.observe(item);
-      });
+      window.addEventListener('scroll', this._handleScroll);
+      this._handleScroll();
     }
   }
 
@@ -252,18 +241,31 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Handles intersection of target `<a>`s with the viewport.
+   */
+  private _handleScroll = () => {
+    window.requestAnimationFrame(() => {
+      const items = this._targets
+        .map((elem, index, arr) => ({
+          elem,
+          height: arr[index + 1] ? arr[index + 1].getBoundingClientRect().y - elem.getBoundingClientRect().y : null,
+          position: elem.getBoundingClientRect().y,
+        }))
+        .filter((elem, index, arr) =>
+          elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
+        );
+
+      this._currentTarget = items[0].elem as HTMLAnchorElement;
+    });
+  };
+
+  /**
    * Handles `slotchange` event on the default `<slot>`.
    *
    * @param event The event.
    */
   private _handleSlotChange(event: Event) {
-    const { _targets: targets, _observerIntersectionTarget: observerIntersectionTarget } = this;
     const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
-    if (observerIntersectionTarget) {
-      while (targets.length > 0) {
-        observerIntersectionTarget.unobserve(targets.pop()!);
-      }
-    }
     this._targets = (event.target as HTMLSlotElement).assignedNodes().reduce((acc, node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const elem = node as Element;
@@ -274,11 +276,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       }
       return acc;
     }, [] as HTMLAnchorElement[]);
-    if (observerIntersectionTarget) {
-      this._targets.forEach(item => {
-        observerIntersectionTarget.observe(item);
-      });
-    }
   }
 
   /**
@@ -409,23 +406,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Handles intersection of target `<a>`s with the viewport.
-   *
-   * @param records The intersection records.
-   */
-  private _observeIntersectionTarget = (records: IntersectionObserverEntry[]) => {
-    const { _intersectionStatus: intersectionStatus, _targets: targets } = this;
-    records.forEach(({ isIntersecting, target }) => {
-      intersectionStatus.set(target as HTMLAnchorElement, isIntersecting);
-    });
-    const currentTarget = targets.find(item => intersectionStatus.get(item));
-    // If the new target is not found, don't bother changing it
-    if (currentTarget) {
-      this._currentTarget = currentTarget;
-    }
-  };
-
-  /**
    * Handles resize of mobile container.
    *
    * @param records The resize records.
@@ -445,13 +425,13 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
-    this._cleanAndCreateObserverIntersectionTarget({ create: true });
+    this._cleanAndCreateScrollListener({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
   }
 
   disconnectedCallback() {
-    this._cleanAndCreateObserverIntersectionTarget();
     this._cleanAndCreateObserverResizeMobileContainer();
+    this._cleanAndCreateScrollListener();
     this._cleanAndCreateIntersectionObserverContainer();
     super.disconnectedCallback();
   }
