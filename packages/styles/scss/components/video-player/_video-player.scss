@@ -37,6 +37,20 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
+  .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay:focus {
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: rem(2px);
+      left: rem(2px);
+      right: rem(2px);
+      bottom: rem(2px);
+      z-index: 1;
+      border: 1px solid $inverse-focus-ui;
+      outline: 2px solid $focus;
+    }
+  }
+
   :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
   .#{$prefix}--video-player .#{$prefix}--image {
     position: relative;
