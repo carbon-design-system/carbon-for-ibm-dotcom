@@ -25,15 +25,14 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         &::before {
           content: ' ';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          top: rem(2px);
+          left: rem(2px);
+          right: rem(2px);
+          bottom: rem(2px);
           z-index: 1;
           border: 1px solid $inverse-focus-ui;
+          outline: 2px solid $focus;
         }
-
-        outline: 2px solid $focus;
       }
     }
   }
