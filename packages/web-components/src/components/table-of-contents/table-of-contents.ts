@@ -241,7 +241,9 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Handles intersection of target `<a>`s with the viewport.
+   * Handles intersection of target `<a>`s with the viewport by checking which target's
+   * immediate siblings are close to the viewport, and set the active target depending
+   * on their positions.
    */
   private _handleScroll = () => {
     window.requestAnimationFrame(() => {
