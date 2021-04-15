@@ -58,7 +58,7 @@ const _pathDefaultImage =
  * @type {string}
  * @private
  */
-const _pathCenteredNoImage = '/iframe.html?id=components-leadspace--centered';
+const _pathCenteredNoImage = '/iframe.html?id=components-lead-space--centered';
 
 /**
  * Sets the correct path (Centered with image)
