@@ -35,7 +35,7 @@ const alt = 'Lorem Ipsum';
 const longDescription = 'Lorem Ipsum Dolor';
 
 export default {
-  title: 'Components|Table of Contents',
+  title: 'Components|Table of contents',
   decorators: [
     story => (
       <>

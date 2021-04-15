@@ -55,7 +55,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Content Group Cards',
+  title: 'Components/Content group cards',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-layout">

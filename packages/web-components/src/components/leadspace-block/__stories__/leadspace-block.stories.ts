@@ -98,7 +98,7 @@ export const WithVideo = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/LeadSpaceBlock',
+  title: 'Components/Lead space block',
   parameters: {
     ...readme.parameters,
     hasGrid: true,

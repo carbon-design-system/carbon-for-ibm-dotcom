@@ -48,7 +48,7 @@ const imagesSmall = {
 };
 
 export default {
-  title: 'Components|LeadSpace',
+  title: 'Components|Lead space',
 
   parameters: {
     ...readme.parameters,
