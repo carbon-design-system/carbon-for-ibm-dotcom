@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -117,7 +117,7 @@ describe('Locale Modal Regions', () => {
       />
     );
     wrapper
-      .find('.bx--tile--clickable')
+      .find('.bx--tile')
       .at(0)
       .simulate('click');
     const testButton = document.createElement('button');
