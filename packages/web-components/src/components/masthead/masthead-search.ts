@@ -164,6 +164,18 @@ class DDSMastheadSearch extends BXDropdown {
     }
   }
 
+  @HostListener('focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  // @ts-ignore
+  private _handleFocusIn() {
+    this._handleUserInitiatedToggleActiveState(true);
+  }
+
+  protected _handleFocusOut(event: FocusEvent) {
+    super._handleFocusOut(event);
+    this._handleUserInitiatedToggleActiveState(false, false);
+  }
+
   /**
    * Handles `input` event in the search input.
    */
@@ -428,18 +440,6 @@ class DDSMastheadSearch extends BXDropdown {
         </button>
       </div>
     `;
-  }
-
-  @HostListener('focusin')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  // @ts-ignore
-  private _handleFocusIn() {
-    this._handleUserInitiatedToggleActiveState(true);
-  }
-
-  protected _handleFocusOut(event: FocusEvent) {
-    super._handleFocusOut(event);
-    this._handleUserInitiatedToggleActiveState(false, false);
   }
 
   /**
