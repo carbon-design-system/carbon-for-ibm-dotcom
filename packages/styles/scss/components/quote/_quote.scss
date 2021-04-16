@@ -16,6 +16,7 @@
     background: $ui-background;
     padding-bottom: $layout-05;
     display: block;
+    width: calc(100% - #{$layout-03});
 
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
