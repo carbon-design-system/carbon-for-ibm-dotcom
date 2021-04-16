@@ -20,7 +20,7 @@ export const Default = () => {
       ${styles}
     </style>
     <dds-dotcom-shell-container>
-      ${StoryContent()}
+      ${StoryContent({ type: 'default' })}
       <dds-back-to-top></dds-back-to-top>
     </dds-dotcom-shell-container>
   `;
