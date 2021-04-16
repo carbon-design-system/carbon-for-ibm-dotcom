@@ -39,9 +39,10 @@ describe('Footer example', () => {
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const button = await page.waitForSelector('.bx--locale-btn', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
-    const height = await page.evaluate(button => button.offsetHeight, button);
-    expect(height).toBe(48);
+    await page.waitForSelector('.bx--locale-btn', { timeout: Number(process.env.DDS_BUILD_INTEGRATION_TEST_NAVIGATION_TIMEOUT), visible: true });
+    const locale = await page.$('.bx--locale-btn');
+    const localebox = await locale.boundingBox();
+    expect(localebox.height).toBe(48);
   });
 
   afterAll(async () => {
