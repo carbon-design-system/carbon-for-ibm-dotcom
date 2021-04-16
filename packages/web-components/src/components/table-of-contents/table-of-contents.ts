@@ -248,7 +248,13 @@ class DDSTableOfContents extends HostListenerMixin(LitElement) {
           elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
         );
 
-      this._currentTarget = items[0].elem as HTMLAnchorElement;
+      // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
+      const bottomReached =
+        this.ownerDocument!.scrollingElement!.scrollTop + this.ownerDocument!.scrollingElement!.clientHeight ===
+        this.ownerDocument.scrollingElement!.scrollHeight;
+      this._currentTarget = !bottomReached
+        ? (items[0].elem as HTMLAnchorElement)
+        : (items[items.length - 1].elem as HTMLAnchorElement);
     });
   };
 
