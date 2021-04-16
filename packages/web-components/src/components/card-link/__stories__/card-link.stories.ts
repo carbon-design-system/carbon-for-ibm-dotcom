@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ export const Default = ({ parameters }) => {
   const { disabled, href } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      <p>Explore AI use cases in all industries</p>
+      Explore AI use cases in all industries
       <dds-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
       </dds-card-footer>
@@ -29,7 +29,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Card Link',
+  title: 'Components/Card link',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">

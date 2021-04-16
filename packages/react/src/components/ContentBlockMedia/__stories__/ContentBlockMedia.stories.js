@@ -45,7 +45,7 @@ const simpleItems = ContentGroupSimpleKnobs.items;
 const simpleCta = ContentGroupSimpleKnobs.cta;
 
 export default {
-  title: 'Components|ContentBlockMedia',
+  title: 'Components|Content block media',
 
   parameters: {
     ...readme.parameters,

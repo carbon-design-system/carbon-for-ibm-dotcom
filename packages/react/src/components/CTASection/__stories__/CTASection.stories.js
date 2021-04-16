@@ -35,7 +35,7 @@ const contentItemsProps = [
 ];
 
 export default {
-  title: 'Components|CTASection',
+  title: 'Components|CTA section',
 
   parameters: {
     ...readme.parameters,
@@ -150,6 +150,9 @@ WithContentItems.story = {
         },
         items: contentItemsProps,
       }),
+    },
+    percy: {
+      skip: true,
     },
   },
 };

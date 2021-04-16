@@ -220,11 +220,10 @@ const StoryContent = ({ type = 'default' }) =>
       </dds-callout-quote>
 
         <a name="7" data-title="Duis aute irure dolor in reprehenderit"></a>
-        <dds-cta-section>
+        <dds-cta-block no-border>
           <dds-content-block-heading>Take the next step</dds-content-block-heading>
-          <dds-cta-section-copy>
-            Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.
-          </dds-cta-section-copy>
+          <dds-content-block-copy>Want to discuss your options with a DevOps expert? <br />
+           Contact our sales team to evaluate your needs.</dds-content-block-copy>
 
           <dds-button-group slot="action">
             <dds-button-group-item href="https://example.com">
@@ -235,25 +234,27 @@ const StoryContent = ({ type = 'default' }) =>
             </dds-button-group-item>
           </dds-button-group>
 
-          <dds-cta-section-item>
-            <dds-cta-section-item-heading>Get connected</dds-cta-section-item-heading>
-            <dds-cta-section-item-copy
-              >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
-              you.</dds-cta-section-item-copy
-            >
-            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
-              Find a partner
-            </dds-text-cta>
-          </dds-cta-section-item>
+          <dds-cta-block-item-row no-border>
+              <dds-cta-block-item>
+              <dds-content-item-heading>Get connected</dds-content-item-heading>
+              <dds-content-item-copy
+                >IBM DevOps partners have a wide range of expertise. Find one to build the right solution for
+                you.</dds-content-item-copy
+              >
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                Find a partner
+              </dds-text-cta>
+            </dds-cta-block-item>
 
-          <dds-cta-section-item>
-            <dds-cta-section-item-heading>Learn how</dds-cta-section-item-heading>
-            <dds-cta-section-item-copy>IBM DevOps partners have a wide range of expertise</dds-cta-section-item-copy>
-            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
-              Browse tutorials
-            </dds-text-cta>
-          </dds-cta-section-item>
-        </dds-cta-section>
+            <dds-cta-block-item>
+              <dds-content-item-heading>Learn how</dds-content-item-heading>
+              <dds-content-item-copy>IBM DevOps partners have a wide range of expertise</dds-content-item-copy>
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="example.com">
+                Browse tutorials
+              </dds-text-cta>
+            </dds-cta-block-item>
+          </dds-cta-block-item-row>
+        </dds-cta-block>
       </dds-table-of-contents>
     </div>
   </main>

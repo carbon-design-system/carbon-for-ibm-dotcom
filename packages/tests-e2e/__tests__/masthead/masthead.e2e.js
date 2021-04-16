@@ -185,7 +185,7 @@ describe('Masthead: Default', () => {
       const search = await page.evaluateHandle(
         `document.querySelector('dds-masthead-search').shadowRoot.querySelector('.bx--header__search--search')`
       );
-      search.click();
+      await search.click();
     } else {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-default__l0-search"]'
@@ -214,7 +214,7 @@ describe('Masthead: Default', () => {
       const menuButton = await page.evaluateHandle(
         `document.querySelector('dds-masthead-menu-button').shadowRoot.querySelector('button')`
       );
-      menuButton.click();
+      await menuButton.click();
     } else {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-default-sidenav__l0-menu"]'
@@ -232,7 +232,7 @@ describe('Masthead: Default', () => {
       const nav1 = await page.evaluateHandle(
         `document.querySelector('dds-left-nav-menu:nth-child(1)').shadowRoot.querySelector('button')`
       );
-      nav1.click();
+      await nav1.click();
     } else {
       await page.click(
         '[data-autoid="dds--masthead-default-sidenav__l0-nav0"]'
@@ -299,7 +299,7 @@ describe('Masthead: Default', () => {
       const search = await page.evaluateHandle(
         `document.querySelector('dds-masthead-search').shadowRoot.querySelector('.bx--header__search--search')`
       );
-      search.click();
+      await search.click();
     } else {
       await page.waitForSelector(
         '[data-autoid="dds--masthead-eco__l0-search"]'

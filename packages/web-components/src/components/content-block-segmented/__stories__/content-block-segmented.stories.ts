@@ -225,7 +225,7 @@ withAsideElements.story = {
 };
 
 export default {
-  title: 'Components/Content Block Segmented',
+  title: 'Components/Content block segmented',
   decorators: [
     (story, { parameters }) => html`
       <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">

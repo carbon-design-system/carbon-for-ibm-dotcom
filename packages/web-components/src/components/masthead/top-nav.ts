@@ -100,10 +100,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   private _intersectionRightSentinelNode?: HTMLElement;
 
   /**
-   * Hide top nav flag.
+   * `true` if the search is open and nav should be hidden
    */
-  @internalProperty()
-  private _hideNav = false;
+  @property({ type: Boolean, reflect: true })
+  hideNav = false;
 
   /**
    * `true` if left-hand scroll intersection sentinel intersects with the host element.
@@ -251,7 +251,9 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   @HostListener('parentRoot:eventToggleSearch')
   protected _handleSearchToggle = (event: Event) => {
-    this._hideNav = (event as CustomEvent).detail.active;
+    if ((event as CustomEvent).detail.active !== undefined) {
+      this.hideNav = (event as CustomEvent).detail.active;
+    }
   };
 
   /**
@@ -271,14 +273,14 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   }
 
   shouldUpdate(changedProperties) {
-    if (changedProperties.has('_hideNav')) {
+    if (changedProperties.has('hideNav')) {
       this._cleanAndCreateIntersectionObserverContainer();
     }
     return true;
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('_hideNav')) {
+    if (changedProperties.has('hideNav')) {
       this._cleanAndCreateIntersectionObserverContainer({ create: true });
     }
   }
@@ -299,7 +301,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       [`${prefix}--header__nav-caret-right-container`]: true,
       [`${ddsPrefix}-ce--header__nav-caret-container--hidden`]: isIntersectionRightTrackerInContent,
     });
-    return this._hideNav
+    return this.hideNav
       ? undefined!
       : html`
           <div class="${caretLeftContainerClasses}">

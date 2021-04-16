@@ -1,0 +1,112 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../masthead.scss';
+@import '../../cta/cta.scss';
+
+:host(#{$dds-prefix}-cloud-masthead-global-bar) {
+  @extend :host(#{$dds-prefix}-masthead-global-bar);
+
+  background-color: $ui-background;
+  flex: none;
+  z-index: 0;
+}
+
+:host(#{$dds-prefix}-cloud-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-right: 0;
+
+  &.console .bx--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-01;
+  }
+
+  .bx--btn {
+    padding: calc(0.875rem - 3px) 15px;
+  }
+
+  .bx--btn--ghost {
+    color: $text-01;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-left-navigation) {
+  @include carbon--make-col(4, 16);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: carbon--rem(1px) solid $ui-03;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+  margin-bottom: $spacing-07;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tabs) {
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(18px);
+
+  .#{$prefix}--tabs-trigger {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tab) {
+  button {
+    @include carbon--type-style('body-long-01');
+
+    color: $text-02;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: 6px $spacing-05;
+    background-color: $ui-background;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+
+  &:focus {
+    outline: 1px solid $focus;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
+  background-color: $selected-ui;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
+  display: block;
+  column-count: 3;
+  column-gap: 0;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link) a {
+  display: inline-block;
+  padding: $spacing-04 $spacing-05;
+  p {
+    @include carbon--type-style('expressive-heading-01');
+
+    color: $text-01;
+  }
+  span {
+    @include carbon--type-style('body-long-01');
+
+    color: $text-02;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: $hover-ui;
+  }
+}

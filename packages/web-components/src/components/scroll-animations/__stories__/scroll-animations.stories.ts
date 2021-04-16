@@ -160,7 +160,7 @@ export const SlideUpLeft = () => {
 };
 
 export default {
-  title: 'Components/Scroll Animations',
+  title: 'Components/Scroll animations',
   parameters: {
     ...readme.parameters,
     useRawContainer: true,
@@ -168,4 +168,11 @@ export default {
       skip: true,
     },
   },
+  decorators: [
+    story => html`
+      <div class="story--container">
+        ${story()}
+      </div>
+    `,
+  ],
 };

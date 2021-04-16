@@ -69,7 +69,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Expressive Modal',
+  title: 'Components/Expressive modal',
   parameters: {
     ...readme.parameters,
     knobs: {

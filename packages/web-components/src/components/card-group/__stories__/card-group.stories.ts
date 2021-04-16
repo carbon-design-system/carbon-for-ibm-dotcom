@@ -10,10 +10,10 @@
 import '../../card/card-eyebrow';
 import '../../card/card-heading';
 import '../../card-in-card/card-in-card';
-import '../../card-in-card/card-in-card-footer';
 import '../../card-in-card/card-in-card-image';
 import '../card-group';
 import '../card-group-item';
+import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
@@ -55,6 +55,19 @@ const cardsDiffLengthPhrase = () => {
   return defaultCardGroupItem;
 };
 
+const longHeadingCardGroupItem = html`
+  <dds-card-group-item href="https://example.com">
+    <dds-card-heading>Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis</dds-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+      Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <dds-card-footer slot="footer">
+      ${ArrowRight20({ slot: 'icon' })}
+    </dds-card-footer>
+  </dds-card-group-item>
+`;
+
 const cardGroupItemWithImages = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-cta-image slot="image" alt="Image alt text" default-src="${imgXlg4x3}"> </dds-card-cta-image>
@@ -68,6 +81,7 @@ const cardGroupItemWithImages = html`
 
 const cardGroupItemWithVideos = html`
   <dds-card-group-item cta-type="video" href="1_9h94wo6b">
+    <dds-card-eyebrow>Topic</dds-card-eyebrow>
     <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b"> </dds-card-cta-footer>
   </dds-card-group-item>
 `;
@@ -85,7 +99,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>${cards}</dds-card-group>
+    <dds-card-group>${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
@@ -135,9 +149,9 @@ export const withCardInCard = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-in-card-footer>
+      <dds-card-cta-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
+      </dds-card-cta-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}
@@ -202,9 +216,9 @@ export const withCardInCardAndImageCards = ({ parameters }) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>Label</dds-card-eyebrow>
       <dds-card-heading>Standard Bank Group prepares to embrace Africa’s AI opportunity</dds-card-heading>
-      <dds-card-in-card-footer>
+      <dds-card-cta-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-in-card-footer>
+      </dds-card-cta-footer>
     </dds-card-in-card>
     <dds-card-group grid-mode="${ifNonNull(gridMode)}">
       ${cards}
@@ -227,7 +241,7 @@ withCardInCardAndImageCards.story = {
 };
 
 export default {
-  title: 'Components/Card Group',
+  title: 'Components/Card group',
   decorators: [
     story => html`
       <style>

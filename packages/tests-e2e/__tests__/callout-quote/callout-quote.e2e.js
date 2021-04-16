@@ -40,7 +40,7 @@ const _url = (process && process.env.SELENIUM_HOST) || _urlDefault;
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-calloutquote--default';
+const _pathDefault = '/iframe.html?id=components-callout-quote--default';
 
 describe('Callout quote', () => {
   let browser, page;

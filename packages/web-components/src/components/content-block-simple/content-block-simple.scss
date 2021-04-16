@@ -14,9 +14,14 @@
 
 :host(#{$dds-prefix}-content-block-simple) {
   display: block;
+
   ::slotted(#{$dds-prefix}-content-block-complementary) {
     @include carbon--breakpoint-down('lg') {
       margin: $layout-05 0;
     }
+  }
+
+  ::slotted([slot='media']) {
+    max-width: rem(640px);
   }
 }

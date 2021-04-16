@@ -33,7 +33,7 @@ const ctaTypes = {
 };
 
 export default {
-  title: 'Components|ContentBlockCards',
+  title: 'Components|Content block cards',
 
   parameters: {
     ...readme.parameters,
