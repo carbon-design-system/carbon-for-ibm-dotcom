@@ -120,7 +120,7 @@ withVideos.story = {
 };
 
 export default {
-  title: 'Components/Content Block Cards',
+  title: 'Components/Content block cards',
   decorators: [
     story => html`
       <dds-video-cta-container class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-cards">

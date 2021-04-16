@@ -35,7 +35,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Feature Card Block Medium',
+  title: 'Components/Feature card block medium',
   decorators: [
     story => html`
       <div class="bx--grid dds-ce-demo-devenv--grid--stretch">

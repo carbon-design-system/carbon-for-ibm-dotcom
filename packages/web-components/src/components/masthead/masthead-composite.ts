@@ -694,7 +694,7 @@ class DDSMastheadComposite extends LitElement {
         ${l1Data
           ? undefined
           : html`
-              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}" ?hideNav="${activateSearch}">
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
               </dds-top-nav>
             `}

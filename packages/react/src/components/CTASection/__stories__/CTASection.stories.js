@@ -35,7 +35,7 @@ const contentItemsProps = [
 ];
 
 export default {
-  title: 'Components|CTASection',
+  title: 'Components|CTA section',
 
   parameters: {
     ...readme.parameters,
