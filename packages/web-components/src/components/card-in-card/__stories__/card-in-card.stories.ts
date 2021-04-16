@@ -55,7 +55,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Card in Card',
+  title: 'Components/Card in card',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card-in-card">

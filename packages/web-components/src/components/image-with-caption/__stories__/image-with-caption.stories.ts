@@ -54,7 +54,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Image With Caption',
+  title: 'Components/Image with caption',
   parameters: {
     ...readme.parameters,
     knobs: {
