@@ -29,7 +29,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Card Link',
+  title: 'Components/Card link',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--card">

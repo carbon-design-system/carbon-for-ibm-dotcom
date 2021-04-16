@@ -48,7 +48,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Callout with Media',
+  title: 'Components/Callout with media',
   parameters: {
     ...readme.parameters,
     hasGrid: true,
