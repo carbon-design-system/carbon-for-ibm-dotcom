@@ -154,9 +154,8 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-    langList,
-    disableLocaleButton,
   } = parameters?.props?.DotcomShell ?? {};
+  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -214,6 +213,16 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
           </dds-dotcom-shell-container>
         `}
   `;
+};
+DefaultFooterLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('langlist', mockLangList, groupId),
+      }),
+    },
+  },
 };
 
 export const searchOpen = ({ parameters }) => {
@@ -452,9 +461,10 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-    langList,
-    disableLocaleButton,
   } = parameters?.props?.DotcomShell ?? {};
+
+  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
@@ -514,6 +524,16 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
           </dds-dotcom-shell-container>
         `}
   `;
+};
+withShortFooterLanguageOnly.story = {
+  parameters: {
+    knobs: {
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('langlist', mockLangList, groupId),
+      }),
+    },
+  },
 };
 
 export const withMicroFooter = ({ parameters }) => {
@@ -599,9 +619,9 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-    langList,
-    disableLocaleButton,
   } = parameters?.props?.DotcomShell ?? {};
+  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+
   const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
