@@ -15,8 +15,10 @@ import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import throttle from 'lodash-es/throttle.js';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 
@@ -47,7 +49,7 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
  * @slot menu-rule - The menu rule.
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
-class DDSTableOfContents extends StableSelectorMixin(LitElement) {
+class DDSTableOfContents extends HostListenerMixin(LitElement) {
   /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
    */
@@ -152,6 +154,11 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _targets: HTMLAnchorElement[] = [];
 
   /**
+   * The handler for throttled scrolling
+   */
+  private _throttleScroll: (((event: Event) => void) & Cancelable) | null = null;
+
+  /**
    * Cleans-up and creats the resize observer for the mobile container.
    *
    * @param [options] The options.
@@ -170,22 +177,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
         this._observerResizeMobileContainer = new ResizeObserver(this._observeResizeMobileContainer);
         this._observerResizeMobileContainer.observe(mobileContainerNode);
       }
-    }
-  }
-
-  /**
-   * Cleans-up and creates the Scroll Listener for the intersection of target <a>'s with the viewport.
-   *
-   * @param [options] The options.
-   * @param [options.create] `true` to create the new scroll listener.
-   */
-  private _cleanAndCreateScrollListener({ create }: { create?: boolean } = {}) {
-    if (this._scrollListener) {
-      window.removeEventListener('scroll', this._handleScroll);
-    }
-    if (create) {
-      window.addEventListener('scroll', this._handleScroll);
-      this._handleScroll();
     }
   }
 
@@ -245,8 +236,8 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    * immediate siblings are close to the viewport, and set the active target depending
    * on their positions.
    */
-  private _handleScroll = () => {
-    window.requestAnimationFrame(() => {
+  private _handleOnScroll = () => {
+    this.ownerDocument!.defaultView!.requestAnimationFrame(() => {
       const items = this._targets
         .map((elem, index, arr) => ({
           elem,
@@ -424,17 +415,34 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   @property({ type: Number })
   stickyOffset = 0;
 
+  /**
+   * The throttled scroll listener.
+   *
+   * @param event scroll handler
+   */
+  @HostListener('window:scroll')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleScroll = (event: Event) => {
+    this._throttleScroll!(event);
+  };
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
-    this._cleanAndCreateScrollListener({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    if (!this._throttleScroll) {
+      this._throttleScroll = throttle(this._handleOnScroll, 250);
+      this._handleOnScroll();
+    }
   }
 
   disconnectedCallback() {
     this._cleanAndCreateObserverResizeMobileContainer();
-    this._cleanAndCreateScrollListener();
     this._cleanAndCreateIntersectionObserverContainer();
+    if (this._throttleScroll) {
+      this._throttleScroll.cancel();
+      this._throttleScroll = null;
+    }
     super.disconnectedCallback();
   }
 
