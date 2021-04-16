@@ -16,6 +16,7 @@ import Close20 from 'carbon-web-components/es/icons/close/20.js';
 import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import DDSMastheadSearchItem from './masthead-search-item';
 import styles from './masthead.scss';
@@ -427,6 +428,18 @@ class DDSMastheadSearch extends BXDropdown {
         </button>
       </div>
     `;
+  }
+
+  @HostListener('focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  // @ts-ignore
+  private _handleFocusIn() {
+    this._handleUserInitiatedToggleActiveState(true);
+  }
+
+  protected _handleFocusOut(event: FocusEvent) {
+    super._handleFocusOut(event);
+    this._handleUserInitiatedToggleActiveState(false, false);
   }
 
   /**
