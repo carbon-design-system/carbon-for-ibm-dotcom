@@ -49,7 +49,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Content Group Horizontal',
+  title: 'Components/Content group horizontal',
   decorators: [
     story => html`
       <div class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-horizontal">

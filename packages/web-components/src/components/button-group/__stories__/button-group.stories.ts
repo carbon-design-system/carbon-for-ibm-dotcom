@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,7 +46,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Button Group',
+  title: 'Components/Button group',
   decorators: [
     story => html`
       <div class="bx--grid bx--grid--condensed" style="width: 100%">

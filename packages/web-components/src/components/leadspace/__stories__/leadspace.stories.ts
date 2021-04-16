@@ -202,7 +202,7 @@ const iconOptions = {
 };
 
 export default {
-  title: 'Components/LeadSpace',
+  title: 'Components/Lead space',
   decorators: [
     story => html`
       <div class="bx--grid bx--no-gutter dds-ce-demo-devenv--grid--stretch">

@@ -229,7 +229,7 @@ WithLinkList.story = {
 };
 
 export default {
-  title: 'Components/CTA Section',
+  title: 'Components/CTA section',
   decorators: [
     story => html`
       <style>

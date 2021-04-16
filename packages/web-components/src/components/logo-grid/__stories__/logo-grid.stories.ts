@@ -41,7 +41,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Logo Grid',
+  title: 'Components/Logo grid',
   decorators: [
     (story, { parameters }) => html`
       <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
