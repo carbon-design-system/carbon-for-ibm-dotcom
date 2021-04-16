@@ -23,7 +23,7 @@ const footerTypeOptions = {
 };
 
 export default {
-  title: 'Components|Dotcom Shell',
+  title: 'Components|Dotcom shell',
 
   parameters: {
     ...readme.parameters,

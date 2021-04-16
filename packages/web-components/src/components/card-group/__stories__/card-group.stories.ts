@@ -241,7 +241,7 @@ withCardInCardAndImageCards.story = {
 };
 
 export default {
-  title: 'Components/Card Group',
+  title: 'Components/Card group',
   decorators: [
     story => html`
       <style>
