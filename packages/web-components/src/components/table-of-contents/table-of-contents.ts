@@ -24,6 +24,9 @@ import { TOC_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+interface Cancelable {
+  cancel(): void;
+}
 
 /**
  * @param a An array.
@@ -143,11 +146,6 @@ class DDSTableOfContents extends HostListenerMixin(LitElement) {
   private _observerResizeMobileContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
   /**
-   * The listener for the scrolling through the document.
-   */
-  private _scrollListener: any | null = null;
-
-  /**
    * The target `<a>`s harvested from the document.
    */
   @internalProperty()
@@ -251,7 +249,7 @@ class DDSTableOfContents extends HostListenerMixin(LitElement) {
       // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
       const bottomReached =
         this.ownerDocument!.scrollingElement!.scrollTop + this.ownerDocument!.scrollingElement!.clientHeight ===
-        this.ownerDocument.scrollingElement!.scrollHeight;
+        this.ownerDocument!.scrollingElement!.scrollHeight;
       this._currentTarget = !bottomReached
         ? (items[0].elem as HTMLAnchorElement)
         : (items[items.length - 1].elem as HTMLAnchorElement);
