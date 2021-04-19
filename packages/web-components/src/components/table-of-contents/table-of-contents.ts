@@ -236,23 +236,27 @@ class DDSTableOfContents extends HostListenerMixin(LitElement) {
    */
   private _handleOnScroll = () => {
     this.ownerDocument!.defaultView!.requestAnimationFrame(() => {
-      const items = this._targets
-        .map((elem, index, arr) => ({
-          elem,
-          height: arr[index + 1] ? arr[index + 1].getBoundingClientRect().y - elem.getBoundingClientRect().y : null,
-          position: elem.getBoundingClientRect().y,
-        }))
-        .filter((elem, index, arr) =>
-          elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
-        );
+      if (this._targets) {
+        const items = this._targets
+          .map((elem, index, arr) => ({
+            elem,
+            height: arr[index + 1] ? arr[index + 1].getBoundingClientRect().y - elem.getBoundingClientRect().y : null,
+            position: elem.getBoundingClientRect().y,
+          }))
+          .filter((elem, index, arr) =>
+            elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
+          );
 
-      // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
-      const bottomReached =
-        this.ownerDocument!.scrollingElement!.scrollTop + this.ownerDocument!.scrollingElement!.clientHeight ===
-        this.ownerDocument!.scrollingElement!.scrollHeight;
-      this._currentTarget = !bottomReached
-        ? (items[0].elem as HTMLAnchorElement)
-        : (items[items.length - 1].elem as HTMLAnchorElement);
+        // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
+        const bottomReached =
+          this.ownerDocument!.scrollingElement!.scrollTop + this.ownerDocument!.scrollingElement!.clientHeight ===
+          this.ownerDocument!.scrollingElement!.scrollHeight;
+        if (items && items[0] && items[items.length - 1]) {
+          this._currentTarget = !bottomReached
+            ? (items[0].elem as HTMLAnchorElement)
+            : (items[items.length - 1].elem as HTMLAnchorElement);
+        }
+      }
     });
   };
 
