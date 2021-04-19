@@ -22,9 +22,8 @@
   :host(#{$dds-prefix}-callout-with-media-copy)
     ::slotted(dds-content-block-paragraph),
   .#{$prefix}--content-item__copy p,
-  :host(#{$dds-prefix}-callout-with-media-image) .bx--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
   .#{$prefix}--image__caption,
-  :host(#{$dds-prefix}-callout-with-media-video) ::slotted(dds-video-player),
   .#{$prefix}--video-player__video-caption {
     color: $inverse-01;
   }
@@ -59,16 +58,6 @@
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
     padding-bottom: $layout-05;
-
-    //@include carbon--theme(
-    //  $carbon--theme--g90,
-    //  feature-flag-enabled('enable-css-custom-properties')
-    //) {
-    //  color: $text-04;
-    //  // `$text-05` in inverse theme is not accessible, which has an adverse effect to `bx--video-player__video-caption` in `<dds-callout-with-media>`.
-    //  // TODO: Consider global `$text-05` color change in inverse theme, or introduce a component-specific token for `.bx--video-player__video-caption`.
-    //  --cds-text-05: #f4f4f4;
-    //}
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),
@@ -79,10 +68,8 @@
       @include carbon--type-style('caption-01');
 
       margin-top: $carbon--spacing-03;
-      //color: $text-01;
     }
     .#{$prefix}--video-player__video-caption {
-      //color: $text-01;
       padding-top: $spacing-03;
     }
   }
