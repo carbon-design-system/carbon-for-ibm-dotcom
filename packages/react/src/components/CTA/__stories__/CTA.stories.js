@@ -146,6 +146,47 @@ export default {
   },
 };
 
+export const Text = ({ parameters }) => {
+  const { type, iconPlacement, ...props } = parameters?.props?.CTA ?? {};
+  return wrapper(
+    <CTA type={type} style="text" iconPlacement={iconPlacement} {...props} />,
+    type
+  );
+};
+
+Text.story = {
+  name: 'Text',
+  parameters: {
+    knobs: {
+      CTA: ({ groupId }) => {
+        const knobs = Card.story.parameters.knobs.CTA({
+          groupId,
+        });
+        const iconPlacement = select(
+          'Icon Placement (iconPlacement)',
+          placement,
+          placement[1],
+          groupId
+        );
+        return {
+          ...knobs,
+          iconPlacement,
+          ...miscCTAData['text']({ type: knobs.type }),
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        CTA: {
+          type: 'text',
+          href: 'https://www.example.com',
+          copy: copy[0],
+        },
+      },
+    },
+  },
+};
+
 export const Button = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
   return wrapper(<CTA type={type} style="button" {...props} />, type);
@@ -233,7 +274,7 @@ export const FeatureCard = ({ parameters }) => {
 };
 
 FeatureCard.story = {
-  name: 'Feature Card',
+  name: 'Feature',
   parameters: {
     knobs: {
       CTA: ({ groupId }) => {
@@ -261,47 +302,6 @@ FeatureCard.story = {
               alt: 'Image alt text',
             },
           },
-        },
-      },
-    },
-  },
-};
-
-export const Text = ({ parameters }) => {
-  const { type, iconPlacement, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(
-    <CTA type={type} style="text" iconPlacement={iconPlacement} {...props} />,
-    type
-  );
-};
-
-Text.story = {
-  name: 'Text',
-  parameters: {
-    knobs: {
-      CTA: ({ groupId }) => {
-        const knobs = Card.story.parameters.knobs.CTA({
-          groupId,
-        });
-        const iconPlacement = select(
-          'Icon Placement (iconPlacement)',
-          placement,
-          placement[1],
-          groupId
-        );
-        return {
-          ...knobs,
-          iconPlacement,
-          ...miscCTAData['text']({ type: knobs.type }),
-        };
-      },
-    },
-    propsSet: {
-      default: {
-        CTA: {
-          type: 'text',
-          href: 'https://www.example.com',
-          copy: copy[0],
         },
       },
     },
