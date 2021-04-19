@@ -17,10 +17,15 @@
     background-color: $inverse-02;
   }
 
+  .#{$prefix}--content-block__heading,
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-callout-with-media-copy)
     ::slotted(dds-content-block-paragraph),
-  :host(#{$dds-prefix}-callout-with-media-image) .bx--image__caption {
+  .#{$prefix}--content-item__copy p,
+  :host(#{$dds-prefix}-callout-with-media-image) .bx--image__caption,
+  .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video) ::slotted(dds-video-player),
+  .#{$prefix}--video-player__video-caption {
     color: $inverse-01;
   }
 

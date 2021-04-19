@@ -46,7 +46,6 @@ export default {
 
   parameters: {
     ...readme.parameters,
-    'carbon-theme': { disabled: true },
     knobs: {
       CalloutWithMedia: ({ groupId }) => {
         const mediaType = select(
