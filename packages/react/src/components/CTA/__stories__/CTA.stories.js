@@ -268,12 +268,12 @@ Card.story = {
   },
 };
 
-export const FeatureCard = ({ parameters }) => {
+export const Feature = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
   return wrapper(<CTA type={type} style="feature" {...props} />, type);
 };
 
-FeatureCard.story = {
+Feature.story = {
   name: 'Feature',
   parameters: {
     knobs: {
