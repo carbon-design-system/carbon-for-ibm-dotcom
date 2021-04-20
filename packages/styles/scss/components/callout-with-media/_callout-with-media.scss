@@ -17,6 +17,19 @@
     background-color: $inverse-02;
   }
 
+  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
+  :host(#{$dds-prefix}-callout-with-media-copy)
+    ::slotted(#{$dds-prefix}-content-block-paragraph),
+  .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
+  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video)
+    ::slotted(#{$dds-prefix}-video-player),
+  .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
+  .#{$prefix}--callout-with-media .#{$prefix}--image__caption {
+    color: $inverse-01;
+  }
+
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
     padding-top: 0;
   }
@@ -47,16 +60,6 @@
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
     padding-bottom: $layout-05;
-
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      color: $text-04;
-      // `$text-05` in inverse theme is not accessible, which has an adverse effect to `bx--video-player__video-caption` in `<dds-callout-with-media>`.
-      // TODO: Consider global `$text-05` color change in inverse theme, or introduce a component-specific token for `.bx--video-player__video-caption`.
-      --cds-text-05: #f4f4f4;
-    }
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),
@@ -67,10 +70,8 @@
       @include carbon--type-style('caption-01');
 
       margin-top: $carbon--spacing-03;
-      color: $text-01;
     }
     .#{$prefix}--video-player__video-caption {
-      color: $text-01;
       padding-top: $spacing-03;
     }
   }
