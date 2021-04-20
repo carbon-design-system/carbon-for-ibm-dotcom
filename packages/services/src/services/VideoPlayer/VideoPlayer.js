@@ -195,7 +195,10 @@ class VideoPlayerAPI {
       const promiseKWidget = new Promise(resolve => {
         let isCustomCreated;
 
-        if (!document.getElementById(targetId)) {
+        if (
+          !document.getElementById(targetId) &&
+          document.querySelector('dds-tabs-extended-media')
+        ) {
           const newVideoDiv = document.createElement('div');
           newVideoDiv.classList.add(`bx--video-player__video`);
           newVideoDiv.setAttribute('id', targetId);
