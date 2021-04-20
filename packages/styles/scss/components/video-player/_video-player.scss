@@ -14,6 +14,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 @mixin video-player {
   :host(#{$dds-prefix}-video-player),
   .#{$prefix}--video-player {
+    color: var(--#{$dds-prefix}--video-caption--color, $text-05);
+
     .#{$prefix}--image__img {
       width: 100%;
       height: 100%;
@@ -115,7 +117,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     @include carbon--type-style('caption-01');
 
     padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
-    color: var(--#{$dds-prefix}--video-caption--color, $text-05);
     max-width: 90%;
   }
 
