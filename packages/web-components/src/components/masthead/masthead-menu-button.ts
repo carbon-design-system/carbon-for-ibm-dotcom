@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -47,7 +47,9 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._hasSearchActive = (event as CustomEvent).detail.active;
+    if ((event as CustomEvent).detail.active !== undefined) {
+      this._hasSearchActive = (event as CustomEvent).detail.active;
+    }
   };
 
   /**
