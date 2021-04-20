@@ -200,7 +200,6 @@ class VideoPlayerAPI {
           newVideoDiv.classList.add(`bx--video-player__video`);
           newVideoDiv.setAttribute('id', targetId);
           document.body.append(newVideoDiv);
-          console.log(document.getElementById(targetId));
           isCustomCreated = true;
         }
 
