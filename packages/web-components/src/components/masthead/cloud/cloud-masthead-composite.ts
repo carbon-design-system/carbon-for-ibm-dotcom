@@ -13,6 +13,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import './cloud-button-cta';
 import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
+import './cloud-megamenu';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
 import './cloud-megamenu-left-navigation';
@@ -79,7 +80,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     });
 
     return html`
-      <dds-megamenu>
+      <dds-cloud-megamenu>
         <dds-cloud-megamenu-left-navigation
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
@@ -115,7 +116,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `;
           })}
         </dds-cloud-megamenu-right-navigation>
-      </dds-megamenu>
+      </dds-cloud-megamenu>
     `;
   }
 
