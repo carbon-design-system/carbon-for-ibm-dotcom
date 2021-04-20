@@ -193,6 +193,17 @@ class VideoPlayerAPI {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
+        let isCustomCreated;
+
+        if (!document.getElementById(targetId)) {
+          const newVideoDiv = document.createElement('div');
+          newVideoDiv.classList.add(`bx--video-player__video`);
+          newVideoDiv.setAttribute('id', targetId);
+          document.body.append(newVideoDiv);
+          console.log(document.getElementById(targetId));
+          isCustomCreated = true;
+        }
+
         root.kWidget.embed({
           targetId: targetId,
           wid: '_' + _partnerId,
@@ -226,6 +237,17 @@ class VideoPlayerAPI {
             resolve(kdp);
           },
         });
+
+        if (isCustomCreated) {
+          const previousVideoDiv = document
+            .querySelector('dds-tabs-extended-media')
+            .shadowRoot.querySelector(
+              `.bx--accordion__item--active dds-video-player`
+            ).lastChild;
+          previousVideoDiv.parentElement.appendChild(
+            document.getElementById(targetId)
+          );
+        }
       });
       return {
         kWidget() {
