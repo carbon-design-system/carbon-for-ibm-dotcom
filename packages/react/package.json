@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "Carbon for IBM.com React Components",
-  "version": "1.18.0-rc.0",
+  "version": "1.18.0-rc.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -56,8 +56,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.18.0-rc.0",
-    "@carbon/ibmdotcom-styles": "1.18.0-rc.0",
+    "@carbon/ibmdotcom-services": "1.18.0-rc.1",
+    "@carbon/ibmdotcom-styles": "1.18.0-rc.1",
     "@carbon/ibmdotcom-utilities": "1.18.0-rc.0",
     "autosuggest-highlight": "^3.1.1",
     "carbon-components": "10.32.1",
@@ -159,7 +159,7 @@
     "postcss-loader": "^3.0.0",
     "promise": "^8.0.1",
     "prop-types": "^15.7.2",
-    "puppeteer": "^3.0.0",
+    "puppeteer": "^8.0.0",
     "raf": "^3.4.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
