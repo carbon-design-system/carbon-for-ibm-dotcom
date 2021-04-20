@@ -17,8 +17,8 @@
     background-color: $inverse-02;
   }
 
-  .#{$prefix}--content-block__heading,
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
   :host(#{$dds-prefix}-callout-with-media-copy)
     ::slotted(dds-content-block-paragraph),
   .#{$prefix}--content-item__copy p,
