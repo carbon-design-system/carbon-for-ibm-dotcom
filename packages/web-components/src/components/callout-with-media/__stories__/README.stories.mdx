@@ -18,9 +18,9 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-image.js';
 ```
 
@@ -29,7 +29,7 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
 ```html
 <dds-callout-with-media>
   <dds-content-block-heading>lorum ipsum dolor sit ameet</dds-content-block-heading>
-  <dds-content-block-copy size="sm">lorum ipsum dolor sit ameet</dds-content-block-copy>
+  <dds-callout-with-media-copy size="sm">lorum ipsum dolor sit ameet</dds-callout-with-media-copy>
   <dds-callout-with-media-image
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
@@ -59,6 +59,7 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
 | `<dds-callout-with-media>`       | `data-autoid="dds--callout-with-media"`       | Component   |
+| `<dds-callout-with-media-copy>`  | `data-autoid="dds--callout-with-media-copy"`  | Component   |
 | `<dds-callout-with-media-image>` | `data-autoid="dds--callout-with-media-image"` | Component   |
 | `<dds-callout-with-media-video>` | `data-autoid="dds--callout-with-media-video"` | Component   |
 
