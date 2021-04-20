@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './cta.stories.scss';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
@@ -96,16 +97,19 @@ const miscCTAData = {
 
 const wrapper = (CTA, style, type) => {
   return (
-    <div className="bx--grid ">
-      <div className="bx--row">
-        {style === 'card' ? (
-          <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
+    <div className="bx--grid">
+      {style === 'card' ? (
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4">
             {CTA}
           </div>
-        ) : (
+        </div>
+      ) : (
+        <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
-        )}
-      </div>
+        </div>
+      )}
+
       {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
         <div
           className="bx--row"

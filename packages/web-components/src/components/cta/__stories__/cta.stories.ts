@@ -16,6 +16,7 @@ import '../feature-cta-footer';
 import '../text-cta';
 import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
@@ -134,7 +135,7 @@ export const Card = ({ parameters }) => {
         download="${ifNonNull(footerDownload)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${footerCopy}
+        ${footerCopy || ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
   `;
