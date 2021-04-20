@@ -23,8 +23,10 @@
     ::slotted(dds-content-block-paragraph),
   .#{$prefix}--content-item__copy p,
   :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
-  .#{$prefix}--image__caption,
-  .#{$prefix}--video-player__video-caption {
+  :host(#{$dds-prefix}-callout-with-media-video)
+    ::slotted(#{$dds-prefix}-video-player),
+  .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
+  .#{$prefix}--image__caption {
     color: $inverse-01;
   }
 
