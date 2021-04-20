@@ -130,8 +130,18 @@
     .#{$prefix}--header__search--close {
       color: $icon-01;
 
+      background-color: $ui-background;
+      padding: 0;
+
+      &:hover {
+        background-color: $hover-ui;
+        svg[focusable='false'][aria-hidden='true'] {
+          fill: $icon-02;
+        }
+      }
       // prevent tooltip from showing on hover
-      &.#{$prefix}--btn--icon-only {
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--visible,
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--a11y.#{$prefix}--tooltip__trigger {
         &::before,
         .#{$prefix}--assistive-text {
           display: none;
