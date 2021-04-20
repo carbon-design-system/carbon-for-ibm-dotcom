@@ -39,6 +39,10 @@
     margin-bottom: $carbon--grid-gutter--condensed / 2;
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 @include exports('content-group-cards') {
