@@ -16,6 +16,12 @@
   z-index: 0;
 }
 
+:host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
+  @include carbon--breakpoint-down(799px) {
+    display: none;
+  }
+}
+
 :host(#{$dds-prefix}-cloud-button-cta) {
   @extend :host(#{$dds-prefix}-button-cta);
 

@@ -156,6 +156,28 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${authenticated
+          ? null
+          : html`
+              ${profileItems?.map(item => {
+                return html`
+                  <dds-left-nav-item
+                    href="${item.url}"
+                    title="${item.title}"
+                    data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${6}"
+                  ></dds-left-nav-item>
+                `;
+              })}
+              ${ctaButtons?.map(item => {
+                return html`
+                  <dds-left-nav-item
+                    href="${item.url}"
+                    title="${item.title}"
+                    data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${6}"
+                  ></dds-left-nav-item>
+                `;
+              })}
+            `}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -186,9 +208,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
-        <dds-cloud-masthead-global-bar>
-          ${authenticated
-            ? html`
+        ${authenticated
+          ? html`
+              <dds-cloud-masthead-global-bar>
                 <dds-cloud-masthead-profile>
                   ${profileItems?.map(
                     ({ title, url }) =>
@@ -204,8 +226,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       <dds-cloud-button-cta href="${ifNonNull(url)}" class="console" kind="ghost">${title}</dds-cloud-button-cta>
                     `
                 )}
-              `
-            : html`
+              </dds-cloud-masthead-global-bar>
+            `
+          : html`
+              <dds-cloud-masthead-global-bar>
                 <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
                 ${profileItems?.map(
                   ({ title, url }) =>
@@ -219,8 +243,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       <dds-cloud-button-cta href="${ifNonNull(url)}" kind="primary">${title}</dds-cloud-button-cta>
                     `
                 )}
-              `}
-        </dds-cloud-masthead-global-bar>
+              </dds-cloud-masthead-global-bar>
+            `}
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
