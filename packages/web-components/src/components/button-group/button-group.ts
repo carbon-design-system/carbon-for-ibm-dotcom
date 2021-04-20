@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,8 @@ class DDSButtonGroup extends LitElement {
       .assignedNodes()
       .filter(elem =>
         (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem)
+          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem) ||
+            (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemCTA)
           : false
       );
 
@@ -65,6 +66,13 @@ class DDSButtonGroup extends LitElement {
    */
   static get selectorItem() {
     return `${ddsPrefix}-button-group-item`;
+  }
+
+  /**
+   * A selector that will return the child items.
+   */
+  static get selectorItemCTA() {
+    return `${ddsPrefix}-button-cta`;
   }
 
   static get stableSelector() {
