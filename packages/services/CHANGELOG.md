@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.0-rc.0...@carbon/ibmdotcom-services@1.18.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **tabs-extended-with-media:** videos are now working ([#5830](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5830)) ([d67c193](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d67c193))
+
+
+
+
+
 # [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.17.0...@carbon/ibmdotcom-services@1.18.0-rc.0) (2021-04-14)
 
 

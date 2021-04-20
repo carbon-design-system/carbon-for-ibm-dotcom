@@ -312,6 +312,9 @@ const MastheadSearch = ({
       });
 
       event.currentTarget.dispatchEvent(onOpenSearch);
+
+      dispatch({ type: 'setSearchOpen' });
+      handleChangeSearchActive();
     }
 
     // emit custom event for search icon click when search is open
@@ -332,7 +335,6 @@ const MastheadSearch = ({
       }
     } else {
       dispatch({ type: 'setSearchOpen' });
-      handleChangeSearchActive();
     }
   }
 
