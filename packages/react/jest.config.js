@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,8 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/components/**/*.js',
-    'src/patterns/blocks/**/*.js',
-    'src/patterns/sections/**/*.js',
     'src/internal/components/**/*.js',
     '!src/components/**/*.stories.js',
-    '!src/patterns/blocks/**/*.stories.js',
-    '!src/patterns/sections/**/*.stories.js',
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
