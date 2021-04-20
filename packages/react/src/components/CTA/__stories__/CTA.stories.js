@@ -102,6 +102,8 @@ const wrapper = (CTA, style, type) => {
           <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
             {CTA}
           </div>
+        ) : CTA.props.style === 'button' ? (
+          <div className="bx--col-sm-4">{CTA}</div>
         ) : (
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
         )}
