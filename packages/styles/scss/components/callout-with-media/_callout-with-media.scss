@@ -20,7 +20,7 @@
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
   :host(#{$dds-prefix}-callout-with-media-copy)
-    ::slotted(dds-content-block-paragraph),
+    ::slotted(#{$dds-prefix}-content-block-paragraph),
   .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
   :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
   :host(#{$dds-prefix}-callout-with-media-video)
