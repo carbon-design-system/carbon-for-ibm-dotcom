@@ -27,6 +27,7 @@
     height: 100%;
     background-color: $ui-01;
     text-decoration: none;
+    padding: 0;
 
     .#{$prefix}--card__wrapper {
       display: flex;
@@ -61,6 +62,11 @@
       @include carbon--type-style('body-short-02');
 
       margin-bottom: $carbon--spacing-07;
+    }
+
+    &:focus-within {
+      outline: 2px solid $focus;
+      outline-offset: -2px;
     }
 
     .#{$prefix}--card:focus,
@@ -99,12 +105,6 @@
 
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
-    }
-
-    &.#{$prefix}--link:focus,
-    .#{$prefix}--link:focus {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
     }
   }
 
@@ -146,8 +146,23 @@
   :host(#{$dds-prefix}-card-in-card-footer),
   :host(#{$dds-prefix}-feature-card-footer),
   :host(#{$dds-prefix}-feature-cta-footer) {
-    margin-top: auto;
     /* Moves the footer down to the bottom in the card */
+    margin-top: auto;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
 
     .#{$prefix}--card__cta__copy {
       margin-right: $carbon--spacing-03;
