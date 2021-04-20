@@ -23,6 +23,7 @@ import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import styles from './cta.stories.scss';
 
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
@@ -52,7 +53,6 @@ const footerKnobNamesForType = {
 };
 
 const types = {
-  'Regular type': null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -73,7 +73,7 @@ Text.story = {
   parameters: {
     knobs: {
       TextCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
@@ -93,7 +93,10 @@ Text.story = {
 export const Button = ({ parameters }) => {
   const { copy, ctaType, download, href } = parameters?.props?.ButtonCTA ?? {};
   return html`
-    <div>
+    <style>
+      ${styles}
+    </style>
+    <div class="cta-button-group-container">
       <dds-button-group>
         <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
         <dds-button-cta cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}" href="${href}">${copy}</dds-button-cta>
@@ -104,9 +107,10 @@ export const Button = ({ parameters }) => {
 
 Button.story = {
   parameters: {
+    hasGrid: true,
     knobs: {
       ButtonCTA: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', types, null, groupId);
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId);
         const copy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
@@ -143,6 +147,7 @@ export const Card = ({ parameters }) => {
 Card.story = {
   parameters: {
     hasGrid: true,
+    hasCardGrid: true,
     knobs: {
       CardCTA: ({ groupId }) => Text.story.parameters.knobs.TextCTA({ groupId }),
       CardCTAFooter: ({ groupId }) => {
@@ -185,6 +190,7 @@ export const Feature = ({ parameters }) => {
 Feature.story = {
   parameters: {
     hasGrid: true,
+    hasCardGrid: true,
     knobs: {
       FeatureCTA: ({ groupId }) => Card.story.parameters.knobs.CardCTA({ groupId }),
       FeatureCTAFooter: ({ groupId }) => Card.story.parameters.knobs.CardCTAFooter({ groupId }),
@@ -196,9 +202,9 @@ export default {
   title: 'Components/CTA',
   decorators: [
     (story, { parameters }) => {
-      const { hasGrid } = parameters;
+      const { hasGrid, hasCardGrid } = parameters;
       const classes = classMap({
-        'dds-ce-demo-devenv--simple-grid': hasGrid,
+        'dds-ce-demo-devenv--simple-grid': hasGrid && hasCardGrid,
         'dds-ce-demo-devenv--simple-grid--card': hasGrid,
       });
       return html`
