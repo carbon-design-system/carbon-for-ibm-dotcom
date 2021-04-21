@@ -69,7 +69,7 @@ describe('LocaleModal', () => {
       region.click();
     } else {
       await page.waitForSelector(
-        '.bx--locale-modal__regions > div > div:nth-child(1) > a'
+        '.bx--locale-modal__regions > div > div:nth-child(1) > .bx--card > .bx--card__wrapper > .bx--card__content > a'
       );
       await page.click('[data-region="am"]');
     }
