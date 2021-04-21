@@ -38,10 +38,12 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
    *
    * @param event The event.
    */
-  @HostListener('parentRoot:eventToggleSerch')
+  @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._hasSearchActive = (event as CustomEvent).detail.active;
+    if ((event as CustomEvent).detail.active !== undefined) {
+      this._hasSearchActive = (event as CustomEvent).detail.active;
+    }
   };
 
   /**
@@ -79,7 +81,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
   /**
    * The name of the custom event fired after the seach is toggled.
    */
-  static get eventToggleSerch() {
+  static get eventToggleSearch() {
     return `${ddsPrefix}-masthead-search-toggled`;
   }
 

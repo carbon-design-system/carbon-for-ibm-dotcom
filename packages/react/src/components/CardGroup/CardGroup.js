@@ -140,11 +140,7 @@ const _renderCards = (cards, containerRef, cta) => (
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
-        <div
-          key={index}
-          className={`${prefix}--card-group__cards__col`}
-          role="region"
-          aria-label={card.heading}>
+        <div key={index} className={`${prefix}--card-group__cards__col`}>
           <CTA
             style="card"
             key={index}
