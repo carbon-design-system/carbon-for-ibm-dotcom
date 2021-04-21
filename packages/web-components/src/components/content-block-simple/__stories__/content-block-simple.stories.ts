@@ -24,7 +24,7 @@ import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/content-block';
 // eslint-disable-next-line import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
-import { CTA_TYPE } from '../../cta/defs';
+import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
@@ -35,6 +35,11 @@ const ctaTypes = {
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
+};
+
+const ctaStyles = {
+  [`Card (${CTA_STYLE.CARD})`]: CTA_STYLE.CARD,
+  [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
 };
 
 const complementaryStyleSchemes = {
@@ -103,6 +108,10 @@ export const WithImage = ({ parameters }) => {
   `;
 };
 
+WithImage.story = {
+  name: 'With image',
+};
+
 export const WithVideo = ({ parameters }) => {
   const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
@@ -119,7 +128,11 @@ export const WithVideo = ({ parameters }) => {
   `;
 };
 
-export const WithAsideElements = ({ parameters }) => {
+WithVideo.story = {
+  name: 'With video',
+};
+
+export const WithLinkList = ({ parameters }) => {
   const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
   return html`
@@ -146,7 +159,8 @@ export const WithAsideElements = ({ parameters }) => {
   `;
 };
 
-WithAsideElements.story = {
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
   },
@@ -168,18 +182,17 @@ export default {
     gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout',
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
+        heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
+        ctaType: select('CTA type (cta-type)', ctaTypes, null, groupId),
+        ctaStyle: select('CTA style (cta-style)', ctaStyles, null, groupId),
+        href: textNullable('Href (href):', 'https://example.com', groupId),
         complementaryStyleScheme: select(
           'Complementary style scheme (complementary-style-scheme)',
           complementaryStyleSchemes,
           null,
           groupId
         ),
-        heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere', groupId),
-      }),
-      TextCTA: ({ groupId }) => ({
-        copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
-        ctaType: select('CTA type (cta-type)', ctaTypes, null, groupId),
-        href: textNullable('Href (href):', 'https://example.com', groupId),
       }),
     },
   },

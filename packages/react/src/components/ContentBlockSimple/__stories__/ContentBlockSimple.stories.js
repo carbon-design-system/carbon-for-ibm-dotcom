@@ -145,6 +145,7 @@ export const WithImage = ({ parameters }) => {
 };
 
 WithImage.story = {
+  name: 'With image',
   parameters: {
     knobs: {
       ContentBlockSimple: ({ groupId }) => {
@@ -177,6 +178,7 @@ export const WithVideo = ({ parameters }) => {
 };
 
 WithVideo.story = {
+  name: 'With video',
   parameters: {
     percy: {
       skip: true,
@@ -192,7 +194,7 @@ WithVideo.story = {
   },
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { copy, heading, cta, aside } =
     parameters?.props?.ContentBlockSimple ?? {};
   return (
@@ -213,8 +215,8 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With link list',
   parameters: {
     knobs: {
       ContentBlockSimple: ({ groupId }) => {
