@@ -63,10 +63,10 @@ const CardCTA = ({
                 },
                 iconPlacement: 'left',
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
+                handleClick: e => CTALogic.setLightBox(e, openLightBox),
               },
               image: image,
               heading: videoTitle[0].title,
-              handleClick: e => CTALogic.setLightBox(e, openLightBox),
             }}
           />
         )}

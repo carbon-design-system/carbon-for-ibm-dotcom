@@ -32,7 +32,7 @@
     margin-bottom: $layout-03;
   }
 
-  &:focus {
+  &:focus-within {
     outline: none;
     outline-offset: 0;
 

@@ -15,6 +15,15 @@
   .#{$prefix}--callout-with-media {
     display: block;
     background-color: $inverse-02;
+
+    ::slotted([slot='heading']),
+    .#{$prefix}--content-block__heading {
+      margin-bottom: $spacing-07;
+    }
+
+    ::slotted([slot='copy']) {
+      margin-bottom: $spacing-07;
+    }
   }
 
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
@@ -37,22 +46,22 @@
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-video {
+    margin-top: 0;
+
     @include carbon--breakpoint-down('md') {
       margin-top: -16px;
     }
-
-    margin-top: $spacing-07;
   }
 
   :host(#{$dds-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-image {
+    margin-top: $spacing-07;
+
     @include carbon--breakpoint-down('md') {
       margin-top: 0;
     }
-
-    margin-top: $spacing-09;
   }
 
   :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
