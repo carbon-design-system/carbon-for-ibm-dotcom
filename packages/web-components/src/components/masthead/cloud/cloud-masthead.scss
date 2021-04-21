@@ -116,3 +116,17 @@
     background-color: $hover-ui;
   }
 }
+
+:host(#{$dds-prefix}-cloud-left-nav-item) {
+  @extend :host(#{$dds-prefix}-left-nav-item);
+
+  &.left-nav-cta .bx--side-nav__link .bx--side-nav__link-text {
+    color: $link-01;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-masthead-profile) .bx--header__menu-title[aria-expanded='true'] + .bx--header__menu {
+  @include carbon--breakpoint-down(320px) {
+    width: 100vw;
+  }
+}

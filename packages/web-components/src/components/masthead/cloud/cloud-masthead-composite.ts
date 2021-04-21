@@ -11,6 +11,7 @@ import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import './cloud-button-cta';
+import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
@@ -161,23 +162,15 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               ${profileItems?.map(item => {
                 return html`
-                  <dds-left-nav-item
-                    href="${item.url}"
-                    title="${item.title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${6}"
-                  ></dds-left-nav-item>
-                `;
-              })}
-              ${ctaButtons?.map(item => {
-                return html`
-                  <dds-left-nav-item
-                    href="${item.url}"
-                    title="${item.title}"
-                    data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${6}"
-                  ></dds-left-nav-item>
+                  <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
                 `;
               })}
             `}
+        ${ctaButtons?.map(item => {
+          return html`
+            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}" class="left-nav-cta"></dds-cloud-left-nav-item>
+          `;
+        })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
