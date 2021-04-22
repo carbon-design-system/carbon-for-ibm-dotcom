@@ -50,6 +50,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
   contactUsButton?: MastheadProfileItem;
 
   /**
+   * `true` if Contact us should be shown.
+   */
+  @property({ type: Boolean, attribute: 'has-contact' })
+  hasContact = true;
+
+  /**
    * The profile items for unauthenticated state.
    */
   @property({ attribute: false })
@@ -126,6 +132,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
       authenticatedCtaButtons,
       contactUsButton,
       currentSearchResults,
+      hasContact,
       platform,
       platformUrl,
       inputTimeout,
@@ -197,7 +204,11 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       `
                   )}
                 </dds-cloud-masthead-profile>
-                <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                ${hasContact
+                  ? html`
+                      <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                    `
+                  : undefined}
                 ${ctaButtons?.map(
                   ({ title, url }) =>
                     html`
@@ -206,7 +217,11 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 )}
               `
             : html`
-                <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                ${hasContact
+                  ? html`
+                      <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                    `
+                  : undefined}
                 ${profileItems?.map(
                   ({ title, url }) =>
                     html`
