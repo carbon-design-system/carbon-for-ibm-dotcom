@@ -175,9 +175,6 @@
 
     color: $text-01;
     margin-bottom: $carbon--spacing-07;
-    @include carbon--breakpoint('lg') {
-      margin-bottom: $carbon--spacing-09;
-    }
   }
 
   :host(#{$dds-prefix}-content-block-paragraph),

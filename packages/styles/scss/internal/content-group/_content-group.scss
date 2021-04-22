@@ -32,7 +32,9 @@
 
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include hang;
+      @include carbon--breakpoint('md') {
+        @include hang;
+      }
     }
   }
 
@@ -61,11 +63,10 @@
   }
 
   .#{$prefix}--content-group__cta {
-    @include carbon--make-col-ready;
-
     margin-top: $carbon--layout-04;
 
     @include carbon--breakpoint('md') {
+      @include carbon--make-col-ready;
       @include carbon--make-col(4, 8);
     }
   }

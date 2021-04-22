@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, boolean } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
@@ -33,8 +33,14 @@ const ctaProps = {
 };
 
 const ctaChoices = {
-  cta: ctaProps,
+  CTA: ctaProps,
   none: null,
+};
+
+const borderOptions = {
+  'Without border': false,
+  // eslint-disable-next-line max-len
+  'With border': true,
 };
 
 const simpleHeading = ContentGroupSimpleKnobs.heading;
@@ -76,25 +82,18 @@ Default.story = {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
         const item = {
-          mediaType: simpleMediaType,
-          mediaData: simpleMediaData,
           heading: text(
             'Simple Group Heading (heading)',
             simpleHeading,
             groupId
           ),
+          mediaType: simpleMediaType,
+          mediaData: simpleMediaData,
           items: simpleItems,
           cta: simpleCta,
         };
 
         const items = [item, item];
-
-        const cta = select(
-          'Feature Link (optional)',
-          ctaChoices,
-          ctaChoices.cta,
-          groupId
-        );
 
         return {
           copy,
@@ -103,8 +102,14 @@ Default.story = {
             'Curabitur malesuada varius mi eu posuere',
             groupId
           ),
+
           items,
-          cta,
+          cta: select(
+            'Feature Link (optional)',
+            ctaChoices,
+            ctaChoices.CTA,
+            groupId
+          ),
         };
       },
     },
@@ -118,9 +123,10 @@ Default.story = {
   },
 };
 
-export const WithAsideElements = ({ parameters }) => {
+export const WithLinkList = ({ parameters }) => {
   const { copy, heading, items, cta, aside } =
     parameters?.props?.ContentBlockMedia ?? {};
+  console.log('rt', aside);
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -138,8 +144,8 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With Link list',
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
@@ -170,12 +176,37 @@ WithAsideElements.story = {
                 href: 'https://ibm.com',
               },
             },
+            {
+              type: 'local',
+              copy: 'Learn more about Kubernetes',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'Explore AI use cases in all industries',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
           ],
+          totalLinks: select('Number of links', [2, 3, 4], 2, groupId),
         };
+
+        linkListProps.items = linkListProps.items.slice(
+          0,
+          linkListProps.totalLinks
+        );
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: boolean('border', false, groupId),
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
 
         return {
