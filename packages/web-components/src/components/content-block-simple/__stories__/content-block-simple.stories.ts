@@ -32,6 +32,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
+  None: null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -43,9 +44,9 @@ const ctaStyles = {
 };
 
 const complementaryStyleSchemes = {
-  'Regular style scheme': null,
   // eslint-disable-next-line max-len
-  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  'With border': CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  'Without border': null,
 };
 
 const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -78,13 +79,15 @@ const image = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { heading } = parameters?.props?.ContentBlockSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const { ctaType, heading, complementaryStyleScheme } = parameters?.props?.ContentBlockSimple ?? {};
+  // const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const ctaCopy = 'Lorem ipsum dolor sit amet.';
+  const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple>
+    <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
-      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href="${ifNonNull(href)}">
+      <dds-card-cta slot="footer" cta-type="${ifNonNull(ctaType)}" href=${href}>
         ${ctaCopy}
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-cta>
@@ -183,14 +186,12 @@ export default {
     knobs: {
       ContentBlockSimple: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Curabitur malesuada varius mi eu posuere', groupId),
-        copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
-        ctaType: select('CTA type (cta-type)', ctaTypes, null, groupId),
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null, groupId),
-        href: textNullable('Href (href):', 'https://example.com', groupId),
+        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
         complementaryStyleScheme: select(
           'Complementary style scheme (complementary-style-scheme)',
           complementaryStyleSchemes,
-          null,
+          CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
           groupId
         ),
       }),
