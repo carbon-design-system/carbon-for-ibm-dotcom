@@ -36,6 +36,18 @@
   }
 }
 
+:host(#{$dds-prefix}-cloud-top-nav-name) {
+  outline: none;
+
+  a.#{$prefix}--header__name {
+    @include masthead-top-nav-name;
+
+    @include carbon--breakpoint-down(800px) {
+      display: flex;
+    }
+  }
+}
+
 // Cloud Megamenu.
 
 :host(#{$dds-prefix}-cloud-megamenu),
