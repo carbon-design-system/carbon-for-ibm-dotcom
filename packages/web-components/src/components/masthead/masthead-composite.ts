@@ -363,10 +363,11 @@ class DDSMastheadComposite extends LitElement {
           const { menuSections = [], title, titleEnglish, url } = link;
           const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
           let sections;
-          let mobileSections;
           if (link.hasMegapanel) {
-            sections = this._renderMegaMenu(menuSections);
-            mobileSections = this._renderMobileMegaMenu(menuSections);
+            sections =
+              target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
+                ? this._renderMegaMenu(menuSections)
+                : this._renderMobileMegaMenu(menuSections);
           } else {
             sections = menuSections
               // eslint-disable-next-line no-use-before-define
@@ -438,7 +439,7 @@ class DDSMastheadComposite extends LitElement {
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 >
-                  ${mobileSections}
+                  ${sections}
                 </dds-left-nav-menu>
               `;
         });

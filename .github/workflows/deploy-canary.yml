@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -68,7 +68,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -108,7 +108,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -148,7 +148,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -187,7 +187,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -227,7 +227,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -267,7 +267,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -306,7 +306,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -345,7 +345,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --scope @carbon/ibmdotcom-utilities build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -383,7 +383,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --offline
       - name: Build project
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:

@@ -27,7 +27,8 @@
 
 If you're just getting started, check out
 [`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/react).
-Web Components coming soon!
+or
+[`web components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/master/packages/web-components)!
 
 If you're trying to find something specific, here's a full list of packages that
 we support!
