@@ -41,7 +41,7 @@ const _url = (process && process.env.SELENIUM_HOST) || _urlDefault;
  * @private
  */
 const _pathDefaultNoImage =
-  '/iframe.html?id=components-leadspace--default-with-no-image';
+  '/iframe.html?id=components-lead-space--default-with-no-image';
 
 /**
  * Sets the correct path (Default with image)
@@ -50,7 +50,7 @@ const _pathDefaultNoImage =
  * @private
  */
 const _pathDefaultImage =
-  '/iframe.html?id=components-leadspace--default-with-image';
+  '/iframe.html?id=components-lead-space--default-with-image';
 
 /**
  * Sets the correct path (Centered with no image)
@@ -58,7 +58,7 @@ const _pathDefaultImage =
  * @type {string}
  * @private
  */
-const _pathCenteredNoImage = '/iframe.html?id=components-leadspace--centered';
+const _pathCenteredNoImage = '/iframe.html?id=components-lead-space--centered';
 
 /**
  * Sets the correct path (Centered with image)
@@ -67,7 +67,7 @@ const _pathCenteredNoImage = '/iframe.html?id=components-leadspace--centered';
  * @private
  */
 const _pathCenteredImage =
-  '/iframe.html?id=components-leadspace--centered-with-image';
+  '/iframe.html?id=components-lead-space--centered-with-image';
 
 describe('Leadspace', () => {
   let browser, page;

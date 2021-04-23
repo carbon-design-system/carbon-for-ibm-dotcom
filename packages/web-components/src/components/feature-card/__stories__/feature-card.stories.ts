@@ -33,7 +33,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Feature Card',
+  title: 'Components/Feature card',
   decorators: [
     story => html`
       <style>

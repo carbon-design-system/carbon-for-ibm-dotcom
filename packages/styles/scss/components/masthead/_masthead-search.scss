@@ -45,17 +45,6 @@
     background-color: #dcdcdc;
   }
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 15px;
-    height: $spacing-09;
-    left: calc(-1rem - 1px);
-    top: -2px;
-    background-color: $ui-background;
-  }
-
   @include carbon--breakpoint-down(800px) {
     display: none;
   }
@@ -130,8 +119,18 @@
     .#{$prefix}--header__search--close {
       color: $icon-01;
 
+      background-color: $ui-background;
+      padding: 0;
+
+      &:hover {
+        background-color: $hover-ui;
+        svg[focusable='false'][aria-hidden='true'] {
+          fill: $icon-02;
+        }
+      }
       // prevent tooltip from showing on hover
-      &.#{$prefix}--btn--icon-only {
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--visible,
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--a11y.#{$prefix}--tooltip__trigger {
         &::before,
         .#{$prefix}--assistive-text {
           display: none;

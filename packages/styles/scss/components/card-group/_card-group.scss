@@ -145,7 +145,7 @@
 
     &:last-of-type {
       padding-right: 0;
-      a {
+      .#{$prefix}--card {
         padding-right: $carbon--grid-gutter--condensed / 2;
       }
     }

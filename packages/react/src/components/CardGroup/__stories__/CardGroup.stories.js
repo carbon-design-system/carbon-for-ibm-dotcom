@@ -12,7 +12,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|CardGroup',
+  title: 'Components|Card group',
 
   parameters: {
     ...readme.parameters,
