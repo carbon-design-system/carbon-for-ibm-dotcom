@@ -15,13 +15,18 @@ import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
 import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener';
 import TableOfContents20 from 'carbon-web-components/es/icons/table-of-contents/20.js';
-import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import throttle from 'lodash-es/throttle.js';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+interface Cancelable {
+  cancel(): void;
+}
 
 /**
  * @param a An array.
@@ -47,7 +52,7 @@ function findLastIndex<T>(a: T[], predicate: (search: T, index?: number, thisObj
  * @slot menu-rule - The menu rule.
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
-class DDSTableOfContents extends StableSelectorMixin(LitElement) {
+class DDSTableOfContents extends HostListenerMixin(LitElement) {
   /**
    * Defines TOC type, "" for default, `horizontal` for horizontal variant.
    */
@@ -93,12 +98,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _hasMobileContainerVisible = false;
 
   /**
-   * The map between target `<a>` and a boolean status whether it intersects with the viewport or not.
-   */
-  @internalProperty()
-  private _intersectionStatus: WeakMap<HTMLAnchorElement, boolean> = new WeakMap();
-
-  /**
    * The observer for the intersection of left-side content edge.
    */
   private _observerIntersection: IntersectionObserver | null = null;
@@ -142,11 +141,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   private _mobileSelectNode?: HTMLSelectElement;
 
   /**
-   * The observer for the intersection of target `<a>`s.
-   */
-  private _observerIntersectionTarget: IntersectionObserver | null = null;
-
-  /**
    * The observer for the resize of the mobile container.
    */
   private _observerResizeMobileContainer: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -156,6 +150,11 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
    */
   @internalProperty()
   private _targets: HTMLAnchorElement[] = [];
+
+  /**
+   * The handler for throttled scrolling
+   */
+  private _throttleScroll: (((event: Event) => void) & Cancelable) | null = null;
 
   /**
    * Cleans-up and creats the resize observer for the mobile container.
@@ -176,27 +175,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
         this._observerResizeMobileContainer = new ResizeObserver(this._observeResizeMobileContainer);
         this._observerResizeMobileContainer.observe(mobileContainerNode);
       }
-    }
-  }
-
-  /**
-   * Cleans-up and creats the inersection observer for the intersection of target `<a>`s with the viewport.
-   *
-   * @param [options] The options.
-   * @param [options.create] `true` to create the new intersection observer.
-   */
-  private _cleanAndCreateObserverIntersectionTarget({ create }: { create?: boolean } = {}) {
-    if (this._observerIntersectionTarget) {
-      this._observerIntersectionTarget.disconnect();
-      this._observerIntersectionTarget = null;
-    }
-    if (create) {
-      this._observerIntersectionTarget = new IntersectionObserver(this._observeIntersectionTarget, {
-        threshold: 1,
-      });
-      this._targets.forEach(item => {
-        this._observerIntersectionTarget!.observe(item);
-      });
     }
   }
 
@@ -252,18 +230,43 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Handles intersection of target `<a>`s with the viewport by checking which target's
+   * immediate siblings are close to the viewport, and set the active target depending
+   * on their positions.
+   */
+  private _handleOnScroll = () => {
+    this.ownerDocument!.defaultView!.requestAnimationFrame(() => {
+      if (this._targets) {
+        const items = this._targets
+          .map((elem, index, arr) => ({
+            elem,
+            height: arr[index + 1] ? arr[index + 1].getBoundingClientRect().y - elem.getBoundingClientRect().y : null,
+            position: elem.getBoundingClientRect().y,
+          }))
+          .filter((elem, index, arr) =>
+            elem.height === null ? arr[index - 1].position < arr[index - 1].height! : elem.position - 50 > -elem.height
+          );
+
+        // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
+        const bottomReached =
+          this.ownerDocument!.scrollingElement!.scrollTop + this.ownerDocument!.scrollingElement!.clientHeight ===
+          this.ownerDocument!.scrollingElement!.scrollHeight;
+        if (items && items[0] && items[items.length - 1]) {
+          this._currentTarget = !bottomReached
+            ? (items[0].elem as HTMLAnchorElement)
+            : (items[items.length - 1].elem as HTMLAnchorElement);
+        }
+      }
+    });
+  };
+
+  /**
    * Handles `slotchange` event on the default `<slot>`.
    *
    * @param event The event.
    */
   private _handleSlotChange(event: Event) {
-    const { _targets: targets, _observerIntersectionTarget: observerIntersectionTarget } = this;
     const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
-    if (observerIntersectionTarget) {
-      while (targets.length > 0) {
-        observerIntersectionTarget.unobserve(targets.pop()!);
-      }
-    }
     this._targets = (event.target as HTMLSlotElement).assignedNodes().reduce((acc, node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const elem = node as Element;
@@ -274,11 +277,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
       }
       return acc;
     }, [] as HTMLAnchorElement[]);
-    if (observerIntersectionTarget) {
-      this._targets.forEach(item => {
-        observerIntersectionTarget.observe(item);
-      });
-    }
   }
 
   /**
@@ -409,23 +407,6 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * Handles intersection of target `<a>`s with the viewport.
-   *
-   * @param records The intersection records.
-   */
-  private _observeIntersectionTarget = (records: IntersectionObserverEntry[]) => {
-    const { _intersectionStatus: intersectionStatus, _targets: targets } = this;
-    records.forEach(({ isIntersecting, target }) => {
-      intersectionStatus.set(target as HTMLAnchorElement, isIntersecting);
-    });
-    const currentTarget = targets.find(item => intersectionStatus.get(item));
-    // If the new target is not found, don't bother changing it
-    if (currentTarget) {
-      this._currentTarget = currentTarget;
-    }
-  };
-
-  /**
    * Handles resize of mobile container.
    *
    * @param records The resize records.
@@ -442,17 +423,34 @@ class DDSTableOfContents extends StableSelectorMixin(LitElement) {
   @property({ type: Number })
   stickyOffset = 0;
 
+  /**
+   * The throttled scroll listener.
+   *
+   * @param event scroll handler
+   */
+  @HostListener('window:scroll')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleScroll = (event: Event) => {
+    this._throttleScroll!(event);
+  };
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResizeMobileContainer({ create: true });
-    this._cleanAndCreateObserverIntersectionTarget({ create: true });
     this._cleanAndCreateIntersectionObserverContainer({ create: true });
+    if (!this._throttleScroll) {
+      this._throttleScroll = throttle(this._handleOnScroll, 250);
+      this._handleOnScroll();
+    }
   }
 
   disconnectedCallback() {
-    this._cleanAndCreateObserverIntersectionTarget();
     this._cleanAndCreateObserverResizeMobileContainer();
     this._cleanAndCreateIntersectionObserverContainer();
+    if (this._throttleScroll) {
+      this._throttleScroll.cancel();
+      this._throttleScroll = null;
+    }
     super.disconnectedCallback();
   }
 

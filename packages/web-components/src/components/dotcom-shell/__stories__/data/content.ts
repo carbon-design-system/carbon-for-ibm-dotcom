@@ -166,11 +166,11 @@ const StoryContent = ({ type = 'default' }) =>
 
         <dds-callout-with-media>
           <dds-content-block-heading slot="heading">Mauris ultrices eros in cursus</dds-content-block-heading>
-          <dds-content-item-copy
+          <dds-callout-with-media-copy size="sm"
             >Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat.
             In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in.
             Vel facilisis volutpat est velit egestas dui.
-          </dds-content-item-copy>
+          </dds-callout-with-media-copy>
           <dds-callout-with-media-video video-id="1_9h94wo6b"></dds-callout-with-media-video>
         </dds-callout-with-media>
 
