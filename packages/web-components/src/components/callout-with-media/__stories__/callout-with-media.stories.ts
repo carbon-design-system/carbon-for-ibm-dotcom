@@ -8,10 +8,9 @@
  */
 
 // eslint-disable-next-line import/no-duplicates
-import '../../content-block/content-block-copy';
-// Above import is interface-only ref and thus code won't be brought into the build
 import '../../content-block/content-block-heading';
 import '../callout-with-media';
+import '../callout-with-media-copy';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
 import { html } from 'lit-element';
@@ -41,7 +40,7 @@ export const Default = ({ parameters }) => {
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-content-block-copy>
+      <dds-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}">${copy}</dds-callout-with-media-copy>
       ${mediaType === 'image' ? image : ``} ${mediaType === 'video' ? video : ``}
     </dds-callout-with-media>
   `;

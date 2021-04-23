@@ -102,6 +102,8 @@ const wrapper = (CTA, style, type) => {
           <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4">
             {CTA}
           </div>
+        ) : CTA.props.style === 'button' ? (
+          <div className="bx--col-sm-4">{CTA}</div>
         ) : (
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
         )}
@@ -143,6 +145,47 @@ export default {
 
   parameters: {
     ...readme.parameters,
+  },
+};
+
+export const Text = ({ parameters }) => {
+  const { type, iconPlacement, ...props } = parameters?.props?.CTA ?? {};
+  return wrapper(
+    <CTA type={type} style="text" iconPlacement={iconPlacement} {...props} />,
+    type
+  );
+};
+
+Text.story = {
+  name: 'Text',
+  parameters: {
+    knobs: {
+      CTA: ({ groupId }) => {
+        const knobs = Card.story.parameters.knobs.CTA({
+          groupId,
+        });
+        const iconPlacement = select(
+          'Icon Placement (iconPlacement)',
+          placement,
+          placement[1],
+          groupId
+        );
+        return {
+          ...knobs,
+          iconPlacement,
+          ...miscCTAData['text']({ type: knobs.type }),
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        CTA: {
+          type: 'text',
+          href: 'https://www.example.com',
+          copy: copy[0],
+        },
+      },
+    },
   },
 };
 
@@ -227,13 +270,13 @@ Card.story = {
   },
 };
 
-export const FeatureCard = ({ parameters }) => {
+export const Feature = ({ parameters }) => {
   const { type, ...props } = parameters?.props?.CTA ?? {};
   return wrapper(<CTA type={type} style="feature" {...props} />, type);
 };
 
-FeatureCard.story = {
-  name: 'Feature Card',
+Feature.story = {
+  name: 'Feature',
   parameters: {
     knobs: {
       CTA: ({ groupId }) => {
@@ -261,47 +304,6 @@ FeatureCard.story = {
               alt: 'Image alt text',
             },
           },
-        },
-      },
-    },
-  },
-};
-
-export const Text = ({ parameters }) => {
-  const { type, iconPlacement, ...props } = parameters?.props?.CTA ?? {};
-  return wrapper(
-    <CTA type={type} style="text" iconPlacement={iconPlacement} {...props} />,
-    type
-  );
-};
-
-Text.story = {
-  name: 'Text',
-  parameters: {
-    knobs: {
-      CTA: ({ groupId }) => {
-        const knobs = Card.story.parameters.knobs.CTA({
-          groupId,
-        });
-        const iconPlacement = select(
-          'Icon Placement (iconPlacement)',
-          placement,
-          placement[1],
-          groupId
-        );
-        return {
-          ...knobs,
-          iconPlacement,
-          ...miscCTAData['text']({ type: knobs.type }),
-        };
-      },
-    },
-    propsSet: {
-      default: {
-        CTA: {
-          type: 'text',
-          href: 'https://www.example.com',
-          copy: copy[0],
         },
       },
     },

@@ -163,6 +163,7 @@
 
   :host(#{$dds-prefix}-content-block-heading),
   :host(#{$dds-prefix}-content-block-copy),
+  :host(#{$dds-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;

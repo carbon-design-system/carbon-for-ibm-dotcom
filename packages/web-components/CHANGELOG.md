@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0...@carbon/ibmdotcom-web-components@1.3.1-rc.0) (2021-04-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.2...@carbon/ibmdotcom-web-components@1.3.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.1...@carbon/ibmdotcom-web-components@1.3.0-rc.2) (2021-04-21)
+
+
+### Bug Fixes
+
+* **masthead-search:** ensure clicking on suggestion works ([#5851](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5851)) ([0f09020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/0f09020)), closes [#5850](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5850)
+
+
+
+
+
+# [1.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.0...@carbon/ibmdotcom-web-components@1.3.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **callout-with-media:** change styles for carbon themes ([#5828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5828)) ([eebf5c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/eebf5c1)), closes [#5818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5818)
+* **locale-modal:** prefix selector for input focus ([#5822](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5822)) ([439b4c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/439b4c6)), closes [#5817](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5817)
+* **masthead:** ensure search closes properly & close on blur ([#5812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5812)) ([b989f4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/b989f4a)), closes [#5800](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5800)
+
+
+
+
+
 # [1.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.56.39...@carbon/ibmdotcom-web-components@1.3.0-rc.0) (2021-04-14)
 
 

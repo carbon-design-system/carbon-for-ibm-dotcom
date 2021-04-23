@@ -38,11 +38,19 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
    *
    * @param event The event.
    */
-  @HostListener('parentRoot:eventToggleSerch')
+  @HostListener('parentRoot:eventToggleSearch')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSearchToggle = (event: Event) => {
-    this._hasSearchActive = (event as CustomEvent).detail.active;
+    if ((event as CustomEvent).detail.active !== undefined) {
+      this._hasSearchActive = (event as CustomEvent).detail.active;
+    }
   };
+
+  /**
+   * `true` to hide the logo at render
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'hide-logo' })
+  hideLogo = false;
 
   /**
    * Link `href`.
@@ -63,12 +71,16 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
     `;
   }
 
-  updated() {
-    const { _linkNode: linkNode, _hasSearchActive: hasSearchActive } = this;
+  updated(changedProperties) {
+    const { _linkNode: linkNode } = this;
+
+    if (changedProperties.has('hideLogo')) {
+      this._hasSearchActive = this.hideLogo;
+    }
     if (linkNode) {
       linkNode.setAttribute('aria-label', 'IBM logo');
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, hasSearchActive);
+      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, this._hasSearchActive);
     }
   }
 
@@ -79,7 +91,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
   /**
    * The name of the custom event fired after the seach is toggled.
    */
-  static get eventToggleSerch() {
+  static get eventToggleSearch() {
     return `${ddsPrefix}-masthead-search-toggled`;
   }
 

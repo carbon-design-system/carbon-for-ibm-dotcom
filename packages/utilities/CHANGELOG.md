@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.18.0...@carbon/ibmdotcom-utilities@1.18.1-rc.0) (2021-04-22)
+
+
+### Bug Fixes
+
+* **dependencies:** changed @carbon/telemetry to be a dependency ([#5871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5871)) ([5a1e23b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a1e23b)), closes [#5867](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5867)
+
+
+
+
+
+# [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.18.0-rc.0...@carbon/ibmdotcom-utilities@1.18.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.17.0...@carbon/ibmdotcom-utilities@1.18.0-rc.0) (2021-04-14)
 
 

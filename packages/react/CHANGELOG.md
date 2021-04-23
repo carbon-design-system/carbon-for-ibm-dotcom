@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0...@carbon/ibmdotcom-react@1.18.1-rc.0) (2021-04-22)
+
+
+### Bug Fixes
+
+* **dependencies:** changed @carbon/telemetry to be a dependency ([#5871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5871)) ([5a1e23b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a1e23b)), closes [#5867](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5867)
+
+
+
+
+
+# [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0-rc.1...@carbon/ibmdotcom-react@1.18.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0-rc.0...@carbon/ibmdotcom-react@1.18.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **callout-with-media:** change styles for carbon themes ([#5828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5828)) ([eebf5c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eebf5c1)), closes [#5818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5818)
+* **MastheadSearch:** remove tooltip from search button ([#5780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5780)) ([653302b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/653302b)), closes [#5778](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5778)
+
+
+
+
+
 # [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.56.39...@carbon/ibmdotcom-react@1.18.0-rc.0) (2021-04-14)
 
 
