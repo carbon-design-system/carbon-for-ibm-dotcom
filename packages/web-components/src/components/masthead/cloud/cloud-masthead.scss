@@ -126,7 +126,7 @@
 }
 
 :host(#{$dds-prefix}-cloud-masthead-profile) .bx--header__menu-title[aria-expanded='true'] + .bx--header__menu {
-  @include carbon--breakpoint-down(320px) {
+  @include carbon--breakpoint-down('md') {
     width: 100vw;
   }
 }
