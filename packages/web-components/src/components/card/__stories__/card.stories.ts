@@ -22,7 +22,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { image, href, alt, defaultSrc, eyebrow, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
   return html`
     <dds-card color-scheme=${inverse ? 'inverse' : ''} href=${ifNonNull(href || undefined)}>
       ${image
@@ -30,7 +30,7 @@ export const Default = ({ parameters }) => {
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
           `
         : ``}
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+      <dds-card-eyebrow>Eyebrow</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy
         ? html`
