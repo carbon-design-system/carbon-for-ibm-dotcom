@@ -73,6 +73,11 @@ const footerSizes = {
   [`Micro (${FOOTER_SIZE.MICRO})`]: FOOTER_SIZE.MICRO,
 };
 
+/**
+ * Menu items knob data
+ */
+const menuItems = ['Products & Solutions', 'Services & Consulting', 'Learn & Support', 'Explore more'];
+
 export const Default = ({ parameters }) => {
   const {
     platform,
@@ -861,11 +866,10 @@ export default {
     knobs: {
       escapeHTML: false,
       DotcomShell: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
         hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
         hasSearch: boolean('Show search in masthead (search)', true, groupId),
         searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('Selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[0], groupId),
         userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
         footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
