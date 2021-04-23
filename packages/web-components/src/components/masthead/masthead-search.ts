@@ -173,7 +173,9 @@ class DDSMastheadSearch extends BXDropdown {
 
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
-    this._handleUserInitiatedToggleActiveState(false, false);
+    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement)) {
+      this._handleUserInitiatedToggleActiveState(false, false);
+    }
   }
 
   /**
