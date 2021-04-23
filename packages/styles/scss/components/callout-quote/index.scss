@@ -39,6 +39,11 @@
       padding-left: $spacing-07;
       outline: transparent;
     }
+
+    .bx--quote__container,
+    .bx--quote__wrapper {
+      @include hang;
+    }
   }
 }
 

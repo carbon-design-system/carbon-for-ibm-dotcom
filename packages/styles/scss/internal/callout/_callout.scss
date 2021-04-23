@@ -8,6 +8,7 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 @import '../../globals/vars';
 @import '../../globals/imports';
+@import '../../globals/utils/hang';
 
 @mixin callout {
   .#{$prefix}--callout__container,

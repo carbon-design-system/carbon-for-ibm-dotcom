@@ -60,7 +60,7 @@ export default {
     story => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--offset-lg-4 bx--col-lg-12">
+          <div class="bx--offset-lg-5 bx--col-lg-10">
             ${story()}
           </div>
         </div>
