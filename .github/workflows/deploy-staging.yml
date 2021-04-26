@@ -55,10 +55,6 @@ jobs:
         with:
           status: ${{ job.status }}
         if: failure()
-      - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-        if: failure()
   web-components:
     runs-on: ubuntu-16.04
     env:
