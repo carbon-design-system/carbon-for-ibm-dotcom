@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -74,12 +74,14 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   return (
     <>
       {topNavProps.platform && (
-        <HeaderName
-          prefix=""
-          href={topNavProps.platform.url}
-          data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
-          {topNavProps.platform.name}
-        </HeaderName>
+        <div className={`${prefix}--masthead__platform-name`}>
+          <HeaderName
+            prefix=""
+            href={topNavProps.platform.url}
+            data-autoid={`${stablePrefix}--masthead-${topNavProps.navType}__l0-ecosystemname`}>
+            {topNavProps.platform.name}
+          </HeaderName>
+        </div>
       )}
       <HeaderNavContainer>
         <HeaderNavigation
