@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -420,7 +420,9 @@ describe('LocaleAPI', () => {
       .mockReturnValue(Promise.resolve('testLang'));
     jest
       .spyOn(LocaleAPI, 'getList')
-      .mockReturnValue(Promise.resolve('testList'));
+      .mockReturnValue(
+        Promise.resolve({ list: 'list data', locale: 'testLang' })
+      );
     jest.spyOn(LocaleAPI, 'verifyLocale').mockReturnValue('testVerified');
     const locale = await LocaleAPI.getLocale();
 
