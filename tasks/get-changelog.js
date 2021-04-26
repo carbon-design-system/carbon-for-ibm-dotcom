@@ -141,7 +141,7 @@ function getChangelog(pkgName, folder) {
       const choreSubject = _getCommitSubject(commitParse);
 
       chores[choreName] = chores[choreName] || [];
-      if (choreSubject !== 'publish') {
+      if (choreSubject !== 'publish' && choreSubject !== 'release') {
         chores[choreName].push(choreSubject);
       }
     }

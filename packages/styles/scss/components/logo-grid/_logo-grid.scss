@@ -114,7 +114,7 @@
   }
 
   .#{$prefix}--logo-grid__heading {
-    @include carbon--type-style('expressive-heading-05');
+    @include carbon--type-style('expressive-heading-05', true);
 
     width: 90%;
     margin-top: $carbon--spacing-07;

@@ -11,6 +11,7 @@ import { customElement, html, property } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import './cloud-button-cta';
+import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
 import './cloud-megamenu-tabs';
@@ -163,6 +164,20 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
+        ${authenticated
+          ? null
+          : html`
+              ${profileItems?.map(item => {
+                return html`
+                  <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
+                `;
+              })}
+            `}
+        ${ctaButtons?.map(item => {
+          return html`
+            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}" class="left-nav-cta"></dds-cloud-left-nav-item>
+          `;
+        })}
       </dds-left-nav>
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
@@ -193,9 +208,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           .currentSearchResults="${ifNonNull(currentSearchResults)}"
           ._loadSearchResults="${ifNonNull(loadSearchResults)}"
         ></dds-masthead-search-composite>
-        <dds-cloud-masthead-global-bar>
-          ${authenticated
-            ? html`
+        ${authenticated
+          ? html`
+              <dds-cloud-masthead-global-bar>
                 <dds-cloud-masthead-profile>
                   ${profileItems?.map(
                     ({ title, url }) =>
@@ -215,8 +230,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       <dds-cloud-button-cta href="${ifNonNull(url)}" class="console" kind="ghost">${title}</dds-cloud-button-cta>
                     `
                 )}
-              `
-            : html`
+              </dds-cloud-masthead-global-bar>
+            `
+          : html`
+              <dds-cloud-masthead-global-bar>
                 ${hasContact
                   ? html`
                       <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
@@ -234,8 +251,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       <dds-cloud-button-cta href="${ifNonNull(url)}" kind="primary">${title}</dds-cloud-button-cta>
                     `
                 )}
-              `}
-        </dds-cloud-masthead-global-bar>
+              </dds-cloud-masthead-global-bar>
+            `}
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
