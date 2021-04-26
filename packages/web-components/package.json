@@ -90,6 +90,7 @@
   },
   "optionalDependencies": {
     "@carbon/icons-react": "10.29.0",
+    "@carbon/telemetry": "0.0.0-alpha.6",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -115,7 +116,6 @@
     "@carbon/ibmdotcom-services-store": "1.18.1-rc.0",
     "@carbon/icon-helpers": "10.15.0",
     "@carbon/icons": "10.29.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
     "@open-wc/semantic-dom-diff": "^0.15.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/storybook": "^3.3.0",
