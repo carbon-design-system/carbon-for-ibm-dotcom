@@ -80,6 +80,7 @@
     "@carbon/ibmdotcom-styles": "1.18.1-rc.0",
     "@carbon/ibmdotcom-utilities": "1.18.1-rc.0",
     "@carbon/layout": "10.22.0",
+    "@carbon/telemetry": "0.0.0-alpha.6",
     "carbon-components": "10.32.1",
     "carbon-web-components": "1.13.0",
     "lodash-es": "^4.17.0",
@@ -90,7 +91,6 @@
   },
   "optionalDependencies": {
     "@carbon/icons-react": "10.29.0",
-    "@carbon/telemetry": "0.0.0-alpha.6",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
