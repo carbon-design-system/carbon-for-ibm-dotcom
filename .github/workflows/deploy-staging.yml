@@ -48,13 +48,13 @@ jobs:
         env:
           SELENIUM_HOST: https://ibmdotcom-react-staging.mybluemix.net
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT_E2E }}
-          - name: Create e2e percy snapshots
-            run: yarn test:e2e
-            working-directory: packages/tests-e2e
-          - uses: act10ns/slack@v1
-            with:
-              status: ${{ job.status }}
-            if: failure()
+      - name: Create e2e percy snapshots
+        run: yarn test:e2e
+        working-directory: packages/tests-e2e
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+        if: failure()
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
