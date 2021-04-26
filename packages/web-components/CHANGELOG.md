@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0...@carbon/ibmdotcom-web-components@1.3.1-rc.0) (2021-04-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.2...@carbon/ibmdotcom-web-components@1.3.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.1...@carbon/ibmdotcom-web-components@1.3.0-rc.2) (2021-04-21)
+
+
+### Bug Fixes
+
+* **masthead-search:** ensure clicking on suggestion works ([#5851](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5851)) ([0f09020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/0f09020)), closes [#5850](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5850)
+
+
+
+
+
 # [1.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.0...@carbon/ibmdotcom-web-components@1.3.0-rc.1) (2021-04-20)
 
 

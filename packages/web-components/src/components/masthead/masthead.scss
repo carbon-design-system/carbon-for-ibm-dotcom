@@ -74,6 +74,8 @@
 
 :host(#{$dds-prefix}-top-nav-name) {
   outline: none;
+  z-index: 1;
+  background: $ui-background;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
