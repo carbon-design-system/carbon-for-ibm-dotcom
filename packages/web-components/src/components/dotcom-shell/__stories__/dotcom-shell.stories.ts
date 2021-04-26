@@ -869,7 +869,7 @@ export default {
         hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
         hasSearch: boolean('Show search in masthead (search)', true, groupId),
         searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
-        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[0], groupId),
+        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[1], groupId),
         userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
         footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
