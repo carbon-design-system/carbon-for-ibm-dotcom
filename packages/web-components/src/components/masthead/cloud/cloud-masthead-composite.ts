@@ -221,7 +221,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 </dds-cloud-masthead-profile>
                 ${hasContact
                   ? html`
-                      <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                      <dds-cloud-button-cta kind="ghost" data-ibm-contact="chat-link"
+                        >${contactUsButton?.title}</dds-cloud-button-cta
+                      >
                     `
                   : undefined}
                 ${ctaButtons?.map(
@@ -236,7 +238,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
               <dds-cloud-masthead-global-bar>
                 ${hasContact
                   ? html`
-                      <dds-cloud-button-cta kind="ghost">${contactUsButton?.title}</dds-cloud-button-cta>
+                      <dds-cloud-button-cta kind="ghost" data-ibm-contact="chat-link"
+                        >${contactUsButton?.title}</dds-cloud-button-cta
+                      >
                     `
                   : undefined}
                 ${profileItems?.map(
