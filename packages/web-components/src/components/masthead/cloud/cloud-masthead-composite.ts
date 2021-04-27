@@ -14,6 +14,8 @@ import './cloud-button-cta';
 import './cloud-left-nav-item';
 import './cloud-masthead-global-bar';
 import './cloud-masthead-profile';
+import './cloud-top-nav-name';
+import './cloud-megamenu';
 import './cloud-megamenu-tabs';
 import './cloud-megamenu-tab';
 import './cloud-megamenu-left-navigation';
@@ -86,7 +88,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     });
 
     return html`
-      <dds-megamenu>
+      <dds-cloud-megamenu>
         <dds-cloud-megamenu-left-navigation
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
@@ -122,7 +124,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `;
           })}
         </dds-cloud-megamenu-right-navigation>
-      </dds-megamenu>
+      </dds-cloud-megamenu>
     `;
   }
 
@@ -190,7 +192,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${!platform
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
+              <dds-cloud-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-cloud-top-nav-name>
             `}
         ${l1Data
           ? undefined

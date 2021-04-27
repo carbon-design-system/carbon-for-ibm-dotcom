@@ -372,11 +372,13 @@
     }
 
     &[aria-haspopup='true'] {
-      height: carbon--mini-units(6);
+      height: $container-04;
       &.bx--side-nav__submenu-platform {
+        border-top: 1px solid $ui-03;
         border-bottom: 1px solid $ui-04;
         text-decoration: none;
         color: $text-01;
+        height: $container-04;
 
         @include carbon--type-style(expressive-heading-02);
       }
