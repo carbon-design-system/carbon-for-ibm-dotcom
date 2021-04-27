@@ -124,7 +124,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
               'bx--tabs__nav-item--disabled': disabled,
             });
             return html`
-              <li class="${classes}" data-target=".tab-${index}-default" role="tab" aria-selected="true" ?disabled="${disabled}">
+              <li class="${classes}" data-target=".tab-${index}-default" role="tab" ?disabled="${disabled}">
                 <a
                   tabindex="${index + 1}"
                   id="tab-link-${index}-default"
@@ -132,6 +132,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                   href="javascript:void(0)"
                   role="tab"
                   aria-controls="tab-panel-${index}-default"
+                  aria-selected="${active}"
                   @click="${e => this._handleClick(index, e)}"
                   >${label}</a
                 >
