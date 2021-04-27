@@ -53,13 +53,6 @@
     @include tooltip--placement('definition', 'bottom', 'start');
   }
 
-  // Ensures that IBM logo gets the padding of "wider screen" mode if we use nav pager
-  a {
-    @include carbon--breakpoint(800px) {
-      padding: 0 $carbon--spacing-07;
-    }
-  }
-
   a ::slotted(svg) {
     width: 58px;
     height: 23px;
@@ -284,7 +277,7 @@
     align-items: center;
     height: carbon--mini-units(6);
     padding: 0 mini-units(2);
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $ui-04;
     text-decoration: none;
     color: $text-01;
     flex-direction: row;
