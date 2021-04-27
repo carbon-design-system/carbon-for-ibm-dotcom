@@ -67,7 +67,6 @@ const CardGroup = ({ cards, cta }) => {
         );
 
         splitItemEyebrows.forEach(row => {
-          console.log(row);
           sameHeight(
             row.filter(e => {
               return e;
