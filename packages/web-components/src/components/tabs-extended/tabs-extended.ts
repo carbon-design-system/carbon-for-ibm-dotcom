@@ -126,7 +126,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
             return html`
               <li class="${classes}" data-target=".tab-${index}-default" role="tab" ?disabled="${disabled}">
                 <a
-                  tabindex="${index + 1}"
+                  tabindex="${disabled ? -1 : index + 1}"
                   id="tab-link-${index}-default"
                   class="${prefix}--tabs__nav-link"
                   href="javascript:void(0)"
