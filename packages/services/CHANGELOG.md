@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.1-rc.0...@carbon/ibmdotcom-services@1.18.1-rc.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* **locale:** return locale with the fetch list call ([#5899](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5899)) ([ff11ca5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ff11ca5)), closes [#5890](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5890)
+
+
+
+
+
 ## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.0...@carbon/ibmdotcom-services@1.18.1-rc.0) (2021-04-22)
 
 
