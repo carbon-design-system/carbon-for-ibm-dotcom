@@ -190,12 +190,16 @@ class DDSMastheadComposite extends LitElement {
   protected _renderLogo() {
     if (!this.logoData)
       return html`
-        <dds-masthead-logo></dds-masthead-logo>
+        <dds-masthead-logo ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg } = this.logoData;
     return html`
-      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}" tabIndex="0"
+      <dds-masthead-logo
+        ?hide-logo="${this.activateSearch}"
+        ?hasTooltip="${tooltip}"
+        aria-label="${ifNonNull(tooltip)}"
+        tabIndex="0"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;
@@ -683,6 +687,7 @@ class DDSMastheadComposite extends LitElement {
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+          ?hide-menu-button="${activateSearch}"
         >
         </dds-masthead-menu-button>
 

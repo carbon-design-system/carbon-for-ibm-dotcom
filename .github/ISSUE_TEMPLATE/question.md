@@ -2,7 +2,7 @@
 name: Question 🤔
 about: Usage question or discussion about Carbon for IBM.com.
 labels: question
-assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, JennySanchez, IgnacioBecerra, ariellalgilmore
+assignees: jeffchew, ljcarot, shixiedesign, RobertaJHahn, photodow, RaphaelAmadeu, guilhermelMoraes
 ---
 
 <!--
