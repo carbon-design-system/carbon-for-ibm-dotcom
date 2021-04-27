@@ -40,7 +40,6 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
 `;
 
 export const Default = () => {
-  const pageSize = null;
   return html`
     <dds-card-section-carousel>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
@@ -50,7 +49,7 @@ export const Default = () => {
       <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
         Link text ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
-      <dds-carousel page-size="${ifNonNull(pageSize)}">
+      <dds-carousel>
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({ copy: copyOdd })}${Card()}
       </dds-carousel>
     </dds-card-section-carousel>
