@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -151,7 +151,9 @@ export function loadLanguage(): ThunkAction<Promise<string>, { localeAPI: Locale
     if (requestLanguage) {
       return requestLanguage;
     }
-    const promiseLanguage: Promise<string> = LocaleAPI.getLang().then(({ cc: country, lc: primary }) => `${primary}-${country}`);
+    const promiseLanguage: Promise<string> = LocaleAPI.getLocale().then(
+      ({ cc: country, lc: primary }) => `${primary}-${country}`
+    );
     dispatch(setRequestLanguageInProgress(promiseLanguage));
     try {
       dispatch(setLanguage(await promiseLanguage));
