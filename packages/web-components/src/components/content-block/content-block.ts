@@ -85,8 +85,7 @@ class DDSContentBlock extends LitElement {
     return classMap({
       [`${prefix}--content-layout`]: true,
       [`${prefix}--content-layout--with-complementary`]: hasComplementary,
-      [`${prefix}--layout--border`]:
-        hasComplementary && complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+      [`${prefix}--layout--border`]: complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
     });
   }
 

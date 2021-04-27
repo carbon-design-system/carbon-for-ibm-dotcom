@@ -59,7 +59,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { copy, heading, items, cta } =
+  const { copy, headingKnob, items, cta, border } =
     parameters?.props?.ContentBlockMedia ?? {};
   return (
     <div className="bx--grid">
@@ -67,9 +67,10 @@ export const Default = ({ parameters }) => {
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <ContentBlockMedia
             copy={copy}
-            heading={heading}
+            heading={headingKnob.heading}
             items={items}
             cta={cta}
+            border={border}
           />
         </div>
       </div>
@@ -81,6 +82,14 @@ Default.story = {
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
+        const headingKnob = {
+          heading: text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+        };
+
         const item = {
           heading: text(
             'Simple Group Heading (heading)',
@@ -97,17 +106,18 @@ Default.story = {
 
         return {
           copy,
-          heading: text(
-            'Heading (heading)',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-
+          headingKnob,
           items,
           cta: select(
             'Feature Link (optional)',
             ctaChoices,
             ctaChoices.CTA,
+            groupId
+          ),
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
             groupId
           ),
         };
@@ -124,19 +134,18 @@ Default.story = {
 };
 
 export const WithLinkList = ({ parameters }) => {
-  const { copy, heading, items, cta, aside } =
+  const { copy, headingKnob, items, ctaKnob, aside } =
     parameters?.props?.ContentBlockMedia ?? {};
-  console.log('rt', aside);
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <ContentBlockMedia
             copy={copy}
-            heading={heading}
+            heading={headingKnob.heading}
             items={items}
+            cta={ctaKnob.cta}
             aside={aside}
-            cta={cta}
           />
         </div>
       </div>
@@ -149,15 +158,36 @@ WithLinkList.story = {
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
+        const headingKnob = {
+          heading: text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+        };
+
         const item = {
+          heading: text(
+            'Simple Group Heading (heading)',
+            simpleHeading,
+            groupId
+          ),
           mediaType: simpleMediaType,
           mediaData: simpleMediaData,
-          heading: simpleHeading,
           items: simpleItems,
           cta: simpleCta,
         };
 
         const items = [item, item];
+
+        const ctaKnob = {
+          cta: select(
+            'Feature Link (optional)',
+            ctaChoices,
+            ctaChoices.CTA,
+            groupId
+          ),
+        };
 
         const linkListProps = {
           heading: text('Link List (heading)', 'Tutorials', groupId),
@@ -211,9 +241,9 @@ WithLinkList.story = {
 
         return {
           copy,
-          heading: 'Curabitur malesuada varius mi eu posuere',
+          headingKnob,
           items,
-          cta: ctaChoices.cta,
+          ctaKnob,
           aside,
         };
       },

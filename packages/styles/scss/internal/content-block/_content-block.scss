@@ -179,7 +179,7 @@
 
   :host(#{$dds-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
-    @include carbon--type-style('expressive-heading-03', true);
+    @include carbon--type-style('expressive-paragraph-01', true);
 
     color: $text-01;
     margin-bottom: $carbon--spacing-07;
