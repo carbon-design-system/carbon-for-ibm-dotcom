@@ -180,16 +180,21 @@
     a {
       color: $text-01;
       text-decoration: none;
+      align-self: center;
+
+      svg {
+        margin: 0 $spacing-03;
+        padding-top: $spacing-02;
+        fill: $link-01;
+      }
 
       &:hover {
         text-decoration: underline;
-      }
-    }
 
-    svg {
-      margin: 0 $spacing-03;
-      align-self: center;
-      fill: $link-01;
+        svg {
+          fill: $hover-primary-text;
+        }
+      }
     }
   }
 
