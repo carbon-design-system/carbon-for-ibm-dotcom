@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,7 +53,7 @@ describe('Redux actions for `TranslateAPI`', () => {
   });
 
   it('dispatches the action to load translation data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     TranslateAPI.getTranslation.mockResolvedValue(mockTranslation);
     const store = mockStore();
     expect(await store.dispatch(loadTranslation())).toEqual(mockTranslation as Translation);
@@ -80,7 +80,7 @@ describe('Redux actions for `TranslateAPI`', () => {
   });
 
   it('caches the loaded translation data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     TranslateAPI.getTranslation.mockResolvedValue(mockTranslation);
     const store = mockStore({
       translateAPI: {
@@ -103,7 +103,7 @@ describe('Redux actions for `TranslateAPI`', () => {
   });
 
   it('dispatches the action of error in loading language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     TranslateAPI.getTranslation.mockRejectedValue(new Error('error-gettranslation'));
     const store = mockStore();
     let caught;
@@ -136,7 +136,7 @@ describe('Redux actions for `TranslateAPI`', () => {
   });
 
   it('caches the error in loading translation data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     const store = mockStore({
       translateAPI: {
         requestsTranslation: {
