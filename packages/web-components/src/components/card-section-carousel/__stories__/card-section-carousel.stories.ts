@@ -8,8 +8,6 @@
  */
 
 import { html } from 'lit-element';
-import { number } from '@storybook/addon-knobs';
-
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/card';
@@ -41,8 +39,8 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </dds-card>
 `;
 
-export const Default = ({ parameters }) => {
-  const { pageSize } = parameters?.props?.Carousel ?? {};
+export const Default = () => {
+  const pageSize = null;
   return html`
     <dds-card-section-carousel>
       <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
@@ -74,10 +72,5 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        pageSize: number('Page size (page-size)', null!, groupId),
-      }),
-    },
   },
 };
