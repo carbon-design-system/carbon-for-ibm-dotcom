@@ -19,7 +19,10 @@
       role="navigation"
     >
     </dds-footer-nav>
-    <dds-locale-button data-autoid="dds--locale-btn">
+    <dds-locale-button
+      data-autoid="dds--locale-btn"
+      size=""
+    >
     </dds-locale-button>
     <dds-legal-nav
       data-autoid="dds--footer-legal-nav"
@@ -91,7 +94,10 @@
         </dds-footer-nav-item>
       </dds-footer-nav-group>
     </dds-footer-nav>
-    <dds-locale-button data-autoid="dds--locale-btn">
+    <dds-locale-button
+      data-autoid="dds--locale-btn"
+      size=""
+    >
       lang-display-foo
     </dds-locale-button>
     <dds-legal-nav

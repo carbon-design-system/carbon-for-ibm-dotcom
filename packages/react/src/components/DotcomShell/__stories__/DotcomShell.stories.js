@@ -17,13 +17,13 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 const footerTypeOptions = {
-  tall: 'tall',
+  default: 'default',
   short: 'short',
   micro: 'micro',
 };
 
 export default {
-  title: 'Components|Dotcom Shell',
+  title: 'Components|Dotcom shell',
 
   parameters: {
     ...readme.parameters,
@@ -42,7 +42,7 @@ export default {
             type: select(
               'Footer (footerProps): sets the type of footer (type)',
               footerTypeOptions,
-              footerTypeOptions.tall,
+              footerTypeOptions.default,
               'Footer'
             ),
           },
@@ -293,6 +293,7 @@ WithL1.story = {
       DotcomShell: () => {
         const { Masthead: mastheadKnobs } = l1Story.story.parameters.knobs;
         return {
+          platform: mastheadKnobs.l1Platform,
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),
           },

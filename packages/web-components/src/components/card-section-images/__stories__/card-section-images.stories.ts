@@ -43,7 +43,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Card Section Images',
+  title: 'Components/Card section images',
   decorators: [
     story => html`
       <div class="bx--grid bx--content-group-story dds-ce-demo-devenv--grid--stretch">

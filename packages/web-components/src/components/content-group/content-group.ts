@@ -8,11 +8,8 @@
  */
 
 import { html, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-group.scss';
-
-const { prefix } = settings;
 
 /**
  * Content group.
@@ -20,23 +17,9 @@ const { prefix } = settings;
  * @abstract
  */
 class DDSContentGroup extends DDSContentBlock {
-  protected _renderFooter(): TemplateResult | string | void {
-    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-group__cta-row">
-        <div class="${prefix}--content-group__cta ${prefix}--content-group__cta-col">
-          <slot name="footer" @slotchange="${handleSlotChange}"></slot>
-        </div>
-      </div>
-    `;
-  }
-
   protected _renderInnerBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-group__children ${prefix}--content-group__col">
-        <slot @slotchange="${handleSlotChange}"></slot>
-      </div>
+      ${this._renderMedia()}${this._renderContent()}
     `;
   }
 

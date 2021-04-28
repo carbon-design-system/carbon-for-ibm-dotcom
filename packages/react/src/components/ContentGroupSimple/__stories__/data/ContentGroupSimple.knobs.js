@@ -89,7 +89,7 @@ const ContentGroupSimpleKnobs = {
     },
     style: 'card',
     type: 'local',
-    copy: 'Lorem ipsum dolor sit ametttt',
+    copy: 'Lorem ipsum dolor sit amet',
   },
 };
 

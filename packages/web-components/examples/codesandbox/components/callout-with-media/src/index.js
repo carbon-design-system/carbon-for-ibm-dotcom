@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-image.js';

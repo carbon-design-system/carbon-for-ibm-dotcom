@@ -166,7 +166,7 @@ page:
 
 ```html
 <!-- IBM Tag Management and Site Analytics -->
-<script src="//1.www.s81c.com/common/stats/ibm-common.js"></script>
+<script src="//1.www.s81c.com/common/stats/ibm-common.js" type="text/javascript" async="async"></script>
 ```
 
 More details can be found at https://ibm.biz/enable-analytics.

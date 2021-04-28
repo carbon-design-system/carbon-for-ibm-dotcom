@@ -9,6 +9,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div
       class="bx--tableofcontents__desktop__children"
@@ -25,9 +26,18 @@
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
-        <ul>
-        </ul>
+      <div class="bx--tableofcontents__desktop-container">
+        <div
+          class="bx--tableofcontents__desktop"
+          style="left: -0px"
+        >
+          <div class="bx--sub-content-left">
+          </div>
+          <ul>
+          </ul>
+          <div class="bx--sub-content-right">
+          </div>
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
@@ -54,6 +64,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div class="bx--tableofcontents__desktop__children">
       <slot name="heading">
@@ -67,9 +78,18 @@
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
-        <ul>
-        </ul>
+      <div class="bx--tableofcontents__desktop-container">
+        <div
+          class="bx--tableofcontents__desktop"
+          style="left: -0px"
+        >
+          <div class="bx--sub-content-left">
+          </div>
+          <ul>
+          </ul>
+          <div class="bx--sub-content-right">
+          </div>
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">
@@ -96,6 +116,7 @@
   <div
     class="bx--tableofcontents__sidebar"
     part="table"
+    style="top: 0"
   >
     <div class="bx--tableofcontents__mobile-top">
     </div>
@@ -103,9 +124,18 @@
       class="dds-ce--table-of-contents__items-container"
       style="position: sticky; top: 0"
     >
-      <div class="bx--tableofcontents__desktop">
-        <ul>
-        </ul>
+      <div class="bx--tableofcontents__desktop-container">
+        <div
+          class="bx--tableofcontents__desktop"
+          style="left: -0px"
+        >
+          <div class="bx--sub-content-left">
+          </div>
+          <ul>
+          </ul>
+          <div class="bx--sub-content-right">
+          </div>
+        </div>
       </div>
       <div class="bx--tableofcontents__mobile">
         <div class="bx--tableofcontents__mobile__select__wrapper">

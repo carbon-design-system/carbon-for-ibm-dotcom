@@ -46,7 +46,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Link List Section',
+  title: 'Components/Link list section',
   parameters: {
     ...readme.parameters,
     hasGrid: true,

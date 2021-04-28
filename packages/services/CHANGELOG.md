@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.1-rc.1...@carbon/ibmdotcom-services@1.18.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+## [1.18.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.1-rc.0...@carbon/ibmdotcom-services@1.18.1-rc.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* **locale:** return locale with the fetch list call ([#5899](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5899)) ([ff11ca5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ff11ca5)), closes [#5890](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5890)
+
+
+
+
+
+## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.0...@carbon/ibmdotcom-services@1.18.1-rc.0) (2021-04-22)
+
+
+### Bug Fixes
+
+* **dependencies:** changed @carbon/telemetry to be a dependency ([#5871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5871)) ([5a1e23b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a1e23b)), closes [#5867](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5867)
+
+
+
+
+
+# [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.0-rc.1...@carbon/ibmdotcom-services@1.18.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.18.0-rc.0...@carbon/ibmdotcom-services@1.18.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **tabs-extended-with-media:** videos are now working ([#5830](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5830)) ([d67c193](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d67c193))
+
+
+
+
+
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.17.0...@carbon/ibmdotcom-services@1.18.0-rc.0) (2021-04-14)
+
+
+### Features
+
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5218)
+
+
+
+
+
+# [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.17.0-rc.1...@carbon/ibmdotcom-services@1.17.0) (2021-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.17.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.17.0-rc.0...@carbon/ibmdotcom-services@1.17.0-rc.1) (2021-03-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+
+
+
+
+# [1.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.16.1...@carbon/ibmdotcom-services@1.17.0-rc.0) (2021-03-12)
+
+
+### Features
+
+* **services:** added support for REACT_APP_PROFILE_HOST ([#5353](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5353)) ([2058d8c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2058d8c))
+* **translate:** accept diff endpoint arg for translation service ([#5407](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5407)) ([3e1bab1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3e1bab1)), closes [#5396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5396)
+
+
+
+
+
 ## [1.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-services@1.16.1-rc.0...@carbon/ibmdotcom-services@1.16.1) (2021-03-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

@@ -14,7 +14,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|ImageWithCaption',
+  title: 'Components|Image with caption',
 
   parameters: {
     ...readme.parameters,

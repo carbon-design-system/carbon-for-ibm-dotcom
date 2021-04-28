@@ -22,7 +22,7 @@ const images = {
 };
 
 export default {
-  title: 'Components|LightboxMediaViewer',
+  title: 'Components|Lightbox media viewer',
 
   parameters: {
     ...readme.parameters,

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,6 +17,17 @@
     @include carbon--breakpoint('md') {
       @include hang;
     }
+
+    .#{$prefix}--quote {
+      background-color: $inverse-02;
+      .#{$prefix}--link {
+        color: $inverse-link;
+        outline-color: $inverse-focus-ui;
+        &:hover {
+          color: #a6c8ff;
+        }
+      }
+    }
   }
 
   :host(#{$dds-prefix}-callout-quote) {
@@ -24,8 +35,9 @@
 
     padding-bottom: $layout-05;
 
-    ::slotted(#{$dds-prefix}-link-with-icon) {
-      padding-left: 2rem;
+    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+      padding-left: $spacing-07;
+      outline: transparent;
     }
   }
 }

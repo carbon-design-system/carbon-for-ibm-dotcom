@@ -5,7 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useCallback, useEffect, useReducer, useRef } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from 'react';
 import Autosuggest from 'react-autosuggest';
 import Close20 from '@carbon/icons-react/es/close/20';
 import cx from 'classnames';
@@ -97,9 +103,12 @@ function _reducer(state, action) {
  */
 const MastheadSearch = ({
   placeHolderText,
+  initialSearchTerm,
   renderValue,
   searchOpenOnload,
   navType,
+  isSearchActive: propIsSearchActive,
+  onChangeSearchActive,
   ...rest
 }) => {
   const { ref } = useSearchVisible(false);
@@ -111,7 +120,7 @@ const MastheadSearch = ({
    * @private
    */
   const _initialState = {
-    val: '',
+    val: initialSearchTerm || getValueFromQueryString() || '',
     suggestions: [],
     prevSuggestions: [],
     suggestionContainerVisible: false,
@@ -121,6 +130,20 @@ const MastheadSearch = ({
   };
 
   const [state, dispatch] = useReducer(_reducer, _initialState);
+
+  const [isSearchActive, setIsSearchActive] = useState(searchOpenOnload);
+  useEffect(() => {
+    setIsSearchActive(propIsSearchActive);
+  }, [propIsSearchActive]);
+
+  const handleChangeSearchActive = useCallback(
+    event => {
+      const newisSearchActive = !isSearchActive;
+      setIsSearchActive(newisSearchActive);
+      onChangeSearchActive(event, { isOpen: newisSearchActive });
+    },
+    [isSearchActive, onChangeSearchActive]
+  );
 
   useEffect(() => {
     const abortController =
@@ -161,6 +184,7 @@ const MastheadSearch = ({
       if (event.key === 'Escape') {
         if (!state.suggestionContainerVisible) {
           dispatch({ type: 'setSearchClosed' });
+          resetSearch();
         }
       }
     };
@@ -174,11 +198,14 @@ const MastheadSearch = ({
      * @param {*} event Click event outside masthead component
      */
     const handleClickOutside = event => {
-      let mastheadRef = ref.current?.closest('.bx--masthead');
-      if (mastheadRef && !mastheadRef.contains(event.target)) {
-        // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
-        if (state.val.length === 0) {
-          dispatch({ type: 'setSearchClosed' });
+      if (!searchOpenOnload) {
+        let mastheadRef = ref.current?.closest('.bx--masthead');
+        if (mastheadRef && !mastheadRef.contains(event.target)) {
+          // If a click was detected outside the Search ref but there is a text value in state, don't hide the Search.
+          if (state.val.length === 0 && isSearchActive) {
+            handleChangeSearchActive();
+            resetSearch();
+          }
         }
       }
     };
@@ -197,13 +224,8 @@ const MastheadSearch = ({
 
   const className = cx({
     [`${prefix}--masthead__search`]: true,
-    [`${prefix}--masthead__search--active`]: state.isSearchOpen,
+    [`${prefix}--masthead__search--active`]: isSearchActive,
   });
-
-  // pass search state back to <Masthead />
-  if (rest.isSearchActive) {
-    rest.isSearchActive(state.isSearchOpen);
-  }
 
   /**
    * Custom event emitted when search does not redirect to default url
@@ -268,6 +290,15 @@ const MastheadSearch = ({
   };
 
   /**
+   * Autosuggest will pass through all these props to the container.
+   *
+   * @type {{'aria-label': string}}
+   */
+  const containerProps = {
+    'aria-label': placeHolderText,
+  };
+
+  /**
    * Executes the logic for the search icon depending on search input state.
    * This will execute the search if the search is open, or will open the
    * search field if closed.
@@ -275,16 +306,19 @@ const MastheadSearch = ({
    */
   function searchIconClick(event) {
     // emit custom event for search icon click when search is closed
-    if (!state.isSearchOpen) {
+    if (!isSearchActive) {
       const onOpenSearch = new CustomEvent('onOpenSearch', {
         bubbles: true,
       });
 
       event.currentTarget.dispatchEvent(onOpenSearch);
+
+      dispatch({ type: 'setSearchOpen' });
+      handleChangeSearchActive();
     }
 
     // emit custom event for search icon click when search is open
-    if (state.isSearchOpen) {
+    if (isSearchActive) {
       const onSearchButtonClicked = new CustomEvent('onSearchButtonClicked', {
         bubbles: true,
         detail: { value: state.val },
@@ -293,7 +327,7 @@ const MastheadSearch = ({
       event.currentTarget.dispatchEvent(onSearchButtonClicked);
     }
 
-    if (state.isSearchOpen && state.val.length) {
+    if (isSearchActive && state.val.length) {
       if (rest.searchNoRedirect) {
         onSearchNoRedirect(event, state.val);
       } else {
@@ -331,6 +365,7 @@ const MastheadSearch = ({
       `[data-autoid="${stablePrefix}--masthead-${navType}__l0-search"]`
     );
     searchIconRef && searchIconRef[0].focus();
+    handleChangeSearchActive();
   }
 
   /**
@@ -344,7 +379,7 @@ const MastheadSearch = ({
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
-        isActive={state.isSearchOpen}
+        isActive={isSearchActive}
       />
     );
   }
@@ -474,12 +509,25 @@ const MastheadSearch = ({
     return section.items;
   }
 
+  /**
+   * Get inital search term from query string
+   *
+   * @returns {string} Search term
+   */
+  function getValueFromQueryString() {
+    try {
+      return new URLSearchParams(root.location.search).get('q');
+    } catch (e) {
+      return '';
+    }
+  }
+
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
       className={className}
       ref={ref}>
-      {state.isSearchOpen && (
+      {isSearchActive && (
         <form
           id={`${prefix}--masthead__search--form`}
           action={_redirectUrl}
@@ -495,6 +543,7 @@ const MastheadSearch = ({
             renderSuggestion={renderSuggestion} // How to display a suggestion
             onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
             inputProps={inputProps}
+            containerProps={containerProps}
             renderInputComponent={renderInputComponent}
             shouldRenderSuggestions={shouldRenderSuggestions}
             {...(rest.multiSection
@@ -511,7 +560,7 @@ const MastheadSearch = ({
         <HeaderGlobalAction
           onClick={searchIconClick}
           aria-label={
-            state.isSearchOpen ? 'Search all of IBM' : 'Open IBM search field'
+            isSearchActive ? 'Search all of IBM' : 'Open IBM search field'
           }
           className={`${prefix}--header__search--search`}
           data-autoid={`${stablePrefix}--masthead-${navType}__l0-search`}
@@ -537,6 +586,21 @@ MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
 
   /**
+   * Initial value for the search field.
+   */
+  initialSearchTerm: PropTypes.string,
+
+  /**
+   * Current <MastheadSearch /> state returned to <Masthead />
+   */
+  isSearchActive: PropTypes.bool,
+
+  /**
+   * Hook to toggle active state back to <Masthead />
+   */
+  onChangeSearchActive: PropTypes.func,
+
+  /**
    * Number of characters to begin showing suggestions.
    */
   renderValue: PropTypes.number,
@@ -554,6 +618,7 @@ MastheadSearch.propTypes = {
 
 MastheadSearch.defaultProps = {
   placeHolderText: 'Search all of IBM',
+  initialSearchTerm: '',
   renderValue: 3,
   searchOpenOnload: false,
 };

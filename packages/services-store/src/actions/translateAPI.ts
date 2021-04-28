@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -63,10 +63,12 @@ export type TranslateAPIActions =
 
 /**
  * @param language The language. If not given, the default language from DDO is used.
+ * @param dataEndpoint The translation endpoint to fetch from if not using default dds endpoint
  * @returns A Redux action that sends a REST call for translation data.
  */
 export function loadTranslation(
-  language?: string
+  language?: string,
+  dataEndpoint?: string
 ): ThunkAction<Promise<Translation>, { translateAPI: TranslateAPIState }, void, TranslateAPIActions> {
   return async (dispatch, getState) => {
     // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
@@ -77,10 +79,13 @@ export function loadTranslation(
       return requestTranslation;
     }
     const [primary, country] = effectiveLanguage.split('-');
-    const promiseTranslation: Promise<Translation> = TranslateAPI.getTranslation({
-      cc: country.toLowerCase(),
-      lc: primary.toLowerCase(),
-    });
+    const promiseTranslation: Promise<Translation> = TranslateAPI.getTranslation(
+      {
+        cc: country.toLowerCase(),
+        lc: primary.toLowerCase(),
+      },
+      dataEndpoint
+    );
     dispatch(setRequestTranslationInProgress(effectiveLanguage, promiseTranslation));
     try {
       dispatch(setTranslation(effectiveLanguage, await promiseTranslation));

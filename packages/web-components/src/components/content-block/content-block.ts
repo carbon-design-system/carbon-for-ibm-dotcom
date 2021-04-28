@@ -7,17 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Part } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, internalProperty, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
 const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
@@ -79,6 +78,19 @@ class DDSContentBlock extends LitElement {
   protected _hasMedia = false;
 
   /**
+   * The CSS class list for the container (grid) node.
+   */
+  protected _getContainerClasses(): string | ((part: Part) => void) {
+    const { complementaryStyleScheme, _hasComplementary: hasComplementary } = this;
+    return classMap({
+      [`${prefix}--content-layout`]: true,
+      [`${prefix}--content-layout--with-complementary`]: hasComplementary,
+      [`${prefix}--layout--border`]:
+        hasComplementary && complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+    });
+  }
+
+  /**
    * Handles `slotchange` event.
    *
    * @param event The event.
@@ -95,8 +107,11 @@ class DDSContentBlock extends LitElement {
    * @returns The non-header, non-complementary contents.
    */
   protected _renderBody(): TemplateResult | string | void {
+    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
     return html`
-      ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
+      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
+        ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
+      </div>
     `;
   }
 
@@ -125,11 +140,10 @@ class DDSContentBlock extends LitElement {
    */
   protected _renderFooter(): TemplateResult | string | void {
     const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
+    // TODO: See if we can remove the surrounding `<div>`
     return html`
-      <div ?hidden="${!hasFooter}" class="${prefix}--content-block__cta-row">
-        <div class="${prefix}--content-block__cta ${prefix}--content-block__cta-col">
-          <slot name="footer" @slotchange="${handleSlotChange}"></slot>
-        </div>
+      <div ?hidden="${!hasFooter}">
+        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
   }
@@ -148,11 +162,8 @@ class DDSContentBlock extends LitElement {
    * @returns The main/media content.
    */
   protected _renderInnerBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
-      <div ?hidden="${!hasContent && !hasMedia}" class="${prefix}--content-block__children">
-        ${this._renderContent()}${this._renderMedia()}
-      </div>
+      ${this._renderContent()}${this._renderMedia()}
     `;
   }
 
@@ -160,11 +171,9 @@ class DDSContentBlock extends LitElement {
    * @returns The media content.
    */
   protected _renderMedia(): TemplateResult | string | void {
-    const { _hasMedia: hasMedia, _handleSlotChange: handleSlotChange } = this;
+    const { _handleSlotChange: handleSlotChange } = this;
     return html`
-      <div ?hidden="${!hasMedia}">
-        <slot name="media" @slotchange="${handleSlotChange}"></slot>
-      </div>
+      <slot name="media" @slotchange="${handleSlotChange}"></slot>
     `;
   }
 
@@ -185,30 +194,11 @@ class DDSContentBlock extends LitElement {
   complementaryStyleScheme = CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.REGULAR;
 
   render() {
-    const { complementaryStyleScheme, _hasComplementary: hasComplementary } = this;
-    const complementaryRowClasses = classMap({
-      [`${prefix}--row`]: true,
-      [`${prefix}--layout--border`]: complementaryStyleScheme === CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
-    });
-
-    return !hasComplementary
-      ? html`
-          ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
-        `
-      : html`
-          <div class="${prefix}--row">
-            <div class="${ddsPrefix}-ce--content-block__col">
-              ${this._renderHeading()}
-              <div></div>
-            </div>
-          </div>
-          <div class="${complementaryRowClasses}">
-            <div class="${ddsPrefix}-ce--content-block__col">
-              ${this._renderBody()}
-            </div>
-            ${this._renderComplementary()}
-          </div>
-        `;
+    return html`
+      <div class="${this._getContainerClasses()}">
+        ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
+      </div>
+    `;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

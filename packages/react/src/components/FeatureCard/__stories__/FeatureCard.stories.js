@@ -13,7 +13,7 @@ import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Components|FeatureCard',
+  title: 'Components|Feature card',
 
   parameters: {
     ...readme.parameters,
@@ -26,12 +26,8 @@ export default {
             groupId
           ),
           image: {
-            defaultSrc: text(
-              'Image src (image.defaultSrc):',
-              imgLg1x1,
-              groupId
-            ),
-            alt: text('Image alt text (image.alt):', 'Image alt text', groupId),
+            defaultSrc: imgLg1x1,
+            alt: 'Image alt text',
           },
           cta: {
             href: text(

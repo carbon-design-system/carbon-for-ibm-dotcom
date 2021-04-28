@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
 import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
 // Below path will be there when an application installs `carbon-web-components` package.
@@ -35,16 +34,6 @@ const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
-
-const cardSizes16 = {
-  '1 for sm, 2 for md, 4 for lg and beyond': '',
-  '1 for sm and md, 2 for lg and beyond': 'dds-ce-demo-devenv--carousel--full-16--large',
-};
-
-const cardSizes8 = {
-  '1 for sm and md, 2 for lg and beyond': '',
-  '1 for all breakpoints': 'dds-ce-demo-devenv--carousel--center-8--large',
-};
 
 const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
@@ -91,58 +80,12 @@ export const CardsWithImages = ({ parameters }) => {
 Default.story = {
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes16,
-          cardSizes16['1 for sm, 2 for md, 4 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
   },
 };
 
 CardsWithImages.story = {
   parameters: {
     gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--full-16',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes16,
-          cardSizes16['1 for sm, 2 for md, 4 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
-  },
-};
-
-export const Right12Columns = context => Default(context);
-
-Right12Columns.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--right-12',
-  },
-};
-
-export const Center8Columns = context => Default(context);
-
-Center8Columns.story = {
-  parameters: {
-    gridCarouselClass: 'dds-ce-demo-devenv--simple-grid--carousel--center-8',
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        cardSize: select(
-          'Number of cards per page (--dds--carousel-page-size CSS custom property)',
-          cardSizes8,
-          cardSizes8['1 for sm and md, 2 for lg and beyond'],
-          groupId
-        ),
-      }),
-    },
   },
 };
 

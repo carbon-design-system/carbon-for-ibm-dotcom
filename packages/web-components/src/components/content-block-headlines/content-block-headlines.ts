@@ -33,48 +33,11 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
     return `${prefix}--content-layout ${prefix}--content-layout--with-headlines ${prefix}--layout--border`;
   }
 
-  /**
-   * @returns The non-header, non-complementary contents.
-   */
-  protected _renderBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
-    return html`
-      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
-        ${super._renderBody()}
-      </div>
-    `;
-  }
-
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasContent}" class="${prefix}--content-block-headlines__item-container">
         <slot @slotchange="${handleSlotChange}"></slot>
-      </div>
-    `;
-  }
-
-  protected _renderContent(): TemplateResult | string | void {
-    const { _handleSlotChange: handleSlotChange } = this;
-    return html`
-      <slot @slotchange="${handleSlotChange}"></slot>
-    `;
-  }
-
-  protected _renderFooter(): TemplateResult | string | void {
-    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
-    // TODO: See if we can remove the surrounding `<div>`
-    return html`
-      <div ?hidden="${!hasFooter}">
-        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
-      </div>
-    `;
-  }
-
-  render() {
-    return html`
-      <div class="${this._getContainerClasses()}">
-        ${this._renderHeading()}${this._renderBody()}${this._renderComplementary()}
       </div>
     `;
   }

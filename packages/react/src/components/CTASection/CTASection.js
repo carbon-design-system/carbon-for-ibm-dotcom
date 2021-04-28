@@ -5,13 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
 import { CTA } from '../CTA';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
-import React from 'react';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -21,9 +22,46 @@ const { prefix } = settings;
  * CTASection pattern.
  */
 const CTASection = ({ heading, copy, cta, items, theme }) => {
+  const containerRef = useRef();
+
+  /**
+   * Resize observer to trigger same height function.
+   *
+   * @private
+   */
+  const resizeObserver = useRef(null);
+
+  useEffect(() => {
+    resizeObserver.current = new ResizeObserver(setSameHeight);
+    resizeObserver.current.observe(document.documentElement);
+    return () => (resizeObserver.current = null);
+  }, []);
+
+  /**
+   * Function that activates the sameHeight utility
+   */
+  const setSameHeight = () => {
+    window.requestAnimationFrame(() => {
+      const { current: containerNode } = containerRef;
+      if (containerNode) {
+        sameHeight(
+          containerNode.getElementsByClassName(
+            `${prefix}--content-item__heading`
+          ),
+          'md'
+        );
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--content-item__copy`),
+          'md'
+        );
+      }
+    });
+  };
+
   return (
     <section
       data-autoid={`${stablePrefix}--cta-section`}
+      ref={containerRef}
       className={classNames(`${prefix}--cta-section`, {
         [`${prefix}--cta-section__has-items`]: items,
         [`${prefix}--cta-section--${theme}`]: theme,

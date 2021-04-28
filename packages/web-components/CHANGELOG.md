@@ -3,6 +3,120 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.1-rc.2...@carbon/ibmdotcom-web-components@1.3.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.3.1-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.1-rc.1...@carbon/ibmdotcom-web-components@1.3.1-rc.2) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+## [1.3.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.1-rc.0...@carbon/ibmdotcom-web-components@1.3.1-rc.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* **dependencies:** changed @carbon/telemetry to be a dependency ([#5898](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5898)) ([95014d3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/95014d3))
+
+
+
+
+
+## [1.3.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0...@carbon/ibmdotcom-web-components@1.3.1-rc.0) (2021-04-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.2...@carbon/ibmdotcom-web-components@1.3.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.3.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.1...@carbon/ibmdotcom-web-components@1.3.0-rc.2) (2021-04-21)
+
+
+### Bug Fixes
+
+* **masthead-search:** ensure clicking on suggestion works ([#5851](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5851)) ([0f09020](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/0f09020)), closes [#5850](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5850)
+
+
+
+
+
+# [1.3.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.0-rc.0...@carbon/ibmdotcom-web-components@1.3.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **callout-with-media:** change styles for carbon themes ([#5828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5828)) ([eebf5c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/eebf5c1)), closes [#5818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5818)
+* **locale-modal:** prefix selector for input focus ([#5822](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5822)) ([439b4c6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/439b4c6)), closes [#5817](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5817)
+* **masthead:** ensure search closes properly & close on blur ([#5812](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5812)) ([b989f4a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/b989f4a)), closes [#5800](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5800)
+
+
+
+
+
+# [1.3.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.56.39...@carbon/ibmdotcom-web-components@1.3.0-rc.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* **card-pictogram:** fixed visual bugs & storybook refinements ([#5736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5736)) ([7423b61](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/7423b61))
+* **dotcom-shell:** add scroll eventListener ([#5747](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5747)) ([f2bd6f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f2bd6f2))
+
+
+### Features
+
+* **cloud-masthead:** add Cloud-specific container and composite components ([#5593](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5593)) ([ae52b30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ae52b30))
+* **cloud-megamenu:** megamenu tabbing functionality foundation ([#5751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5751)) ([1a0f59d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1a0f59d)), closes [#5741](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5741)
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5218)
+* **tabs-extended-media:** introduce tabs extended with media component ([#5759](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5759)) ([ccfed2b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/ccfed2b))
+
+
+
+
+
+# [1.2.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.2.0-rc.1...@carbon/ibmdotcom-web-components@1.2.0) (2021-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.2.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.2.0-rc.0...@carbon/ibmdotcom-web-components@1.2.0-rc.1) (2021-03-17)
+
+
+### Bug Fixes
+
+* **leadspace:** fixes carbon theme issue on small breakpoints ([#5526](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5526)) ([1ff5f78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1ff5f78)), closes [#5503](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5503)
+
+
+
+
+
+# [1.2.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.54.96...@carbon/ibmdotcom-web-components@1.2.0-rc.0) (2021-03-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 ## [1.1.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.1.1-rc.0...@carbon/ibmdotcom-web-components@1.1.1) (2021-03-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components

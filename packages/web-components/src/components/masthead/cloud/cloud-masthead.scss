@@ -1,0 +1,220 @@
+//
+// Copyright IBM Corp. 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../masthead.scss';
+@import '../../cta/cta.scss';
+
+:host(#{$dds-prefix}-cloud-masthead-global-bar) {
+  @extend :host(#{$dds-prefix}-masthead-global-bar);
+
+  background-color: $ui-background;
+  flex: none;
+  z-index: 0;
+}
+
+:host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
+  @include carbon--breakpoint-down(799px) {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-button-cta) {
+  @extend :host(#{$dds-prefix}-button-cta);
+
+  margin: 0;
+  padding-right: 0;
+
+  &.console .bx--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-01;
+  }
+
+  .bx--btn {
+    padding: calc(0.875rem - 3px) carbon--rem(15px);
+  }
+
+  .bx--btn--ghost {
+    color: $text-01;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-top-nav-name) {
+  outline: none;
+
+  a.#{$prefix}--header__name {
+    @include masthead-top-nav-name;
+
+    @include carbon--breakpoint-down(800px) {
+      display: flex;
+    }
+  }
+}
+
+// Cloud Megamenu.
+
+:host(#{$dds-prefix}-cloud-megamenu),
+.#{$prefix}--masthead__megamenu {
+  .#{$prefix}--masthead__megamenu__container--row {
+    // Override flex-direction: column set in _masthead-megamenu.scss.
+    @include carbon--breakpoint-between(800px, 1055px) {
+      flex-direction: inherit;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-left-navigation) {
+  @include carbon--make-col(4, 16);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: carbon--rem(1px) solid $ui-03;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+  padding-top: $spacing-06;
+  margin-bottom: $spacing-07;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tabs) {
+  display: flex;
+  flex-direction: column;
+  margin-top: carbon--rem(18px);
+  margin-bottom: carbon--rem(18px);
+
+  .#{$prefix}--tabs-trigger {
+    display: none;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tab) {
+  button {
+    @include carbon--type-style('body-long-01');
+
+    color: $text-02;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: carbon--rem(6px) $spacing-05;
+    background-color: $ui-background;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+
+  &:focus {
+    outline: carbon--rem(2px) solid $focus;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
+  background-color: $selected-ui;
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
+  display: block;
+  column-count: 2;
+  column-gap: 0;
+  column-fill: auto;
+
+  @include carbon--breakpoint('xlg') {
+    column-count: 3;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-link) {
+  display: block;
+  page-break-inside: avoid;
+  break-inside: avoid;
+
+  a {
+    display: block;
+    padding: $spacing-04 $spacing-05;
+
+    p {
+      @include carbon--type-style('expressive-heading-01');
+
+      color: $text-01;
+    }
+
+    span {
+      @include carbon--type-style('body-long-01');
+
+      color: $text-02;
+      display: block;
+      width: 90%;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: $hover-ui;
+    }
+
+    &:focus {
+      outline: carbon--rem(2px) solid $focus;
+      outline-offset: carbon--rem(-2px);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-cloud-megamenu-category-heading) {
+  display: block;
+  padding: 0 $spacing-05;
+  margin-bottom: $spacing-07;
+  width: 66.66%;
+
+  @include carbon--breakpoint('lg') {
+    width: 50%;
+  }
+
+  h2 {
+    display: flex;
+    margin-bottom: $spacing-03;
+
+    a {
+      color: $text-01;
+      text-decoration: none;
+      align-self: center;
+
+      svg {
+        margin: 0 $spacing-03;
+        padding-top: $spacing-02;
+        fill: $link-01;
+      }
+
+      &:hover {
+        text-decoration: underline;
+
+        svg {
+          fill: $hover-primary-text;
+        }
+      }
+    }
+  }
+
+  span {
+    @include carbon--type-style('body-short-01');
+
+    color: $text-02;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-left-nav-item) {
+  @extend :host(#{$dds-prefix}-left-nav-item);
+
+  &.left-nav-cta .bx--side-nav__link .bx--side-nav__link-text {
+    color: $link-01;
+  }
+}
+
+:host(#{$dds-prefix}-cloud-masthead-profile) .bx--header__menu-title[aria-expanded='true'] + .bx--header__menu {
+  @include carbon--breakpoint-down('md') {
+    width: 100vw;
+  }
+}

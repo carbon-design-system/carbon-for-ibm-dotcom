@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,6 +58,7 @@ ButtonGroup.propTypes = {
    * | Name         | Data Type | Description                                                                                                                    |
    * | ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
    * | `href`       | String    | URL for the button item                                                                                                        |
+   * | `onClick`    | Function  | Function triggered on click of button                                                                                          |
    * | `copy`       | String    | Button copy                                                                                                                    |
    * | `renderIcon` | Object    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
    *
@@ -66,8 +67,9 @@ ButtonGroup.propTypes = {
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
-      copy: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      copy: PropTypes.string,
+      href: PropTypes.string,
+      onClick: PropTypes.func,
       renderIcon: PropTypes.elementType,
     })
   ).isRequired,

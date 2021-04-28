@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import on from 'carbon-components/es/globals/js/misc/on';
  *   The focus sentinel nodes.
  *   If these nodes gets focus, we see it as focus went out of the `element`.
  * @param {string} [eventRequestFocusWrap=dds-request-focus-wrap] The event name.
- * @returns {Handle} The handle to remove the event handler.
+ * @returns {Function} The handle to remove the event handler.
  */
 function focuswrap(
   element,

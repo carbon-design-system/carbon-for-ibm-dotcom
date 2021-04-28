@@ -3,6 +3,93 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.1-rc.1...@carbon/ibmdotcom-react@1.18.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.18.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.1-rc.0...@carbon/ibmdotcom-react@1.18.1-rc.1) (2021-04-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0...@carbon/ibmdotcom-react@1.18.1-rc.0) (2021-04-22)
+
+
+### Bug Fixes
+
+* **dependencies:** changed @carbon/telemetry to be a dependency ([#5871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5871)) ([5a1e23b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5a1e23b)), closes [#5867](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5867)
+
+
+
+
+
+# [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0-rc.1...@carbon/ibmdotcom-react@1.18.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.18.0-rc.0...@carbon/ibmdotcom-react@1.18.0-rc.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* **callout-with-media:** change styles for carbon themes ([#5828](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5828)) ([eebf5c1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eebf5c1)), closes [#5818](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5818)
+* **MastheadSearch:** remove tooltip from search button ([#5780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5780)) ([653302b](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/653302b)), closes [#5778](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5778)
+
+
+
+
+
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.56.39...@carbon/ibmdotcom-react@1.18.0-rc.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* **MastheadLeftNav:** set aria-hidden to unseen menu panels ([#5770](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5770)) ([1e1c1cd](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1e1c1cd)), closes [#5771](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5771)
+
+
+### Features
+
+* **cta-section:** created component ([#5767](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5767)) ([e714d24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e714d24)), closes [#5218](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5218)
+
+
+
+
+
+# [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.17.0-rc.1...@carbon/ibmdotcom-react@1.17.0) (2021-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.17.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.17.0-rc.0...@carbon/ibmdotcom-react@1.17.0-rc.1) (2021-03-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.12.0-beta.54.96...@carbon/ibmdotcom-react@1.17.0-rc.0) (2021-03-12)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 ## [1.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.16.1-rc.0...@carbon/ibmdotcom-react@1.16.1) (2021-03-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

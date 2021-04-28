@@ -12,6 +12,7 @@ import { nothing } from 'lit-html';
 import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg';
 import MastheadLogoAPI from '@carbon/ibmdotcom-services/es/services/MastheadLogo/MastheadLogo';
 import {
@@ -61,7 +62,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Rendering target for masthead navigation items.
  */
-enum NAV_ITEMS_RENDER_TARGET {
+export enum NAV_ITEMS_RENDER_TARGET {
   /**
    * For top navigation.
    */
@@ -74,7 +75,7 @@ enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
- * Component that rendres masthead from links, etc. data.
+ * Component that renders masthead from links, etc. data.
  *
  * @element dds-masthead-composite
  */
@@ -87,7 +88,7 @@ class DDSMastheadComposite extends LitElement {
    * @param [options.selectedMenuItem] The selected nav item.
    * @param options.target The target of rendering navigation items.
    */
-  private _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
+  protected _renderL1Items({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     if (!this.l1Data) return undefined;
     const { menuItems } = this.l1Data;
     if (menuItems) {
@@ -102,7 +103,7 @@ class DDSMastheadComposite extends LitElement {
                         ?active="${selected}"
                         menu-label="${elem.title}"
                         trigger-content="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
                       >
                         ${elem.menuItems.map(
                           (item, j) => html`
@@ -120,7 +121,7 @@ class DDSMastheadComposite extends LitElement {
                         ?active="${selected}"
                         href="${elem.url}"
                         title="${elem.title}"
-                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav-${i}"
+                        data-autoid="${ddsPrefix}--masthead__l1-nav--nav${i}"
                       ></dds-top-nav-item>
                     `;
               })}
@@ -133,7 +134,7 @@ class DDSMastheadComposite extends LitElement {
                   <dds-left-nav-menu
                     ?active="${selected}"
                     title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
                   >
                     ${elem.menuItems.map(
                       (item, j) => html`
@@ -151,7 +152,7 @@ class DDSMastheadComposite extends LitElement {
                     ?active="${selected}"
                     href="${elem.url}"
                     title="${elem.title}"
-                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav-${i}"
+                    data-autoid="${ddsPrefix}--masthead__l1-sidenav--nav${i}"
                   ></dds-left-nav-item>
                 `;
           });
@@ -167,7 +168,7 @@ class DDSMastheadComposite extends LitElement {
    * @param [options.selectedMenuItem] The selected nav item.
    * @returns The L1 nav.
    */
-  private _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
+  protected _renderL1({ selectedMenuItem }: { selectedMenuItem?: string } = {}) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
     return html`
@@ -175,7 +176,7 @@ class DDSMastheadComposite extends LitElement {
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" url="${url}"></dds-masthead-l1-name>
+              <dds-masthead-l1-name title="${title}" aria-selected="${!selectedMenuItem}" url="${url}"></dds-masthead-l1-name>
             `}
         ${this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
       </dds-masthead-l1>
@@ -186,15 +187,19 @@ class DDSMastheadComposite extends LitElement {
    * Renders masthead logo
    *
    */
-  private _renderLogo() {
+  protected _renderLogo() {
     if (!this.logoData)
       return html`
-        <dds-masthead-logo></dds-masthead-logo>
+        <dds-masthead-logo ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg } = this.logoData;
     return html`
-      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}" tabIndex="0"
+      <dds-masthead-logo
+        ?hide-logo="${this.activateSearch}"
+        ?hasTooltip="${tooltip}"
+        aria-label="${ifNonNull(tooltip)}"
+        tabIndex="0"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;
@@ -207,7 +212,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _getHighlightedMenuItems(sections) {
+  protected _getHighlightedMenuItems(sections) {
     const highlightedItems: MastheadMenuItem[] = [];
     let viewAllLink;
     const menu: MastheadMenuItem[] = [];
@@ -230,7 +235,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMegaMenu(sections) {
+  protected _renderMegaMenu(sections) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
 
     const hasHighlights = highlightedItems.length !== 0;
@@ -304,7 +309,7 @@ class DDSMastheadComposite extends LitElement {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  private _renderMobileMegaMenu(sections) {
+  protected _renderMobileMegaMenu(sections) {
     const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
     const menuItems = highlightedItems.concat(menu);
     if (viewAllLink) {
@@ -323,7 +328,7 @@ class DDSMastheadComposite extends LitElement {
               <dds-left-nav-menu
                 ?last-highlighted=${lastHighlighted}
                 title="${item.title}"
-                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
               >
                 ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, j) => {
                   return html`
@@ -354,7 +359,7 @@ class DDSMastheadComposite extends LitElement {
    * @param options.target The target of rendering navigation items.
    * @returns The nav items.
    */
-  private _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
+  protected _renderNavItems({ selectedMenuItem, target }: { selectedMenuItem?: string; target: NAV_ITEMS_RENDER_TARGET }) {
     const { navLinks } = this;
     return !navLinks
       ? undefined
@@ -362,10 +367,11 @@ class DDSMastheadComposite extends LitElement {
           const { menuSections = [], title, titleEnglish, url } = link;
           const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
           let sections;
-          let mobileSections;
           if (link.hasMegapanel) {
-            sections = this._renderMegaMenu(menuSections);
-            mobileSections = this._renderMobileMegaMenu(menuSections);
+            sections =
+              target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
+                ? this._renderMegaMenu(menuSections)
+                : this._renderMobileMegaMenu(menuSections);
           } else {
             sections = menuSections
               // eslint-disable-next-line no-use-before-define
@@ -395,7 +401,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
                 ></dds-top-nav-item>
               `;
             }
@@ -405,7 +411,7 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
                 >
                   ${sections}
                 </dds-megamenu-top-nav-menu>
@@ -416,7 +422,7 @@ class DDSMastheadComposite extends LitElement {
                 ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
-                data-autoid="${ddsPrefix}--masthead__l0-nav--nav-${i}"
+                data-autoid="${ddsPrefix}--masthead__l0-nav--nav${i}"
               >
                 ${sections}
               </dds-top-nav-menu>
@@ -428,16 +434,16 @@ class DDSMastheadComposite extends LitElement {
                   ?active="${selected}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 ></dds-left-nav-item>
               `
             : html`
                 <dds-left-nav-menu
                   ?active="${selected}"
                   title="${title}"
-                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav-${i}"
+                  data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 >
-                  ${mobileSections}
+                  ${sections}
                 </dds-left-nav-menu>
               `;
         });
@@ -455,7 +461,7 @@ class DDSMastheadComposite extends LitElement {
    *
    * @internal
    */
-  _loadTranslation?: (language?: string) => Promise<Translation>;
+  _loadTranslation?: (language?: string, dataEndpoint?: string) => Promise<Translation>;
 
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
@@ -472,6 +478,18 @@ class DDSMastheadComposite extends LitElement {
   _setLanguage?: (language: string) => void;
 
   /**
+   * `true` if there is a profile.
+   */
+  @property({ type: Boolean, attribute: 'has-profile' })
+  hasProfile = true;
+
+  /**
+   * `true` if there is a search.
+   */
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
+
+  /**
    * `true` to activate the search box.
    */
   @property({ type: Boolean, attribute: 'activate-search' })
@@ -486,11 +504,18 @@ class DDSMastheadComposite extends LitElement {
   /**
    * The platform name.
    */
-  @property({ attribute: 'platform' })
+  @property()
   platform!: string;
 
   /**
+   * The platform url.
+   */
+  @property({ attribute: 'platform-url' })
+  platformUrl?: string;
+
+  /**
    * The brand name.
+   *
    * @deprecated brandName use platform instead
    */
   @property({ attribute: 'brand-name' })
@@ -537,6 +562,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ attribute: false })
   unauthenticatedProfileItems?: MastheadProfileItem[];
+
+  /**
+   * Specify translation endpoint if not using default dds endpoint.
+   */
+  @property({ attribute: 'data-endpoint' })
+  dataEndpoint?: string;
 
   /**
    * The throttle timeout to run query upon user input.
@@ -592,20 +623,21 @@ class DDSMastheadComposite extends LitElement {
   }
 
   firstUpdated() {
-    const { language } = this;
+    const { language, dataEndpoint } = this;
+    globalInit();
     if (language) {
       this._setLanguage?.(language);
     }
-    this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+    this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
   }
 
   updated(changedProperties) {
     if (changedProperties.has('language')) {
-      const { language } = this;
+      const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
-        this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
+        this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
     if (changedProperties.has('brandName')) {
@@ -621,6 +653,8 @@ class DDSMastheadComposite extends LitElement {
       authenticatedProfileItems,
       currentSearchResults,
       platform,
+      platformUrl,
+      hasProfile,
       inputTimeout,
       mastheadAssistiveText,
       menuBarAssistiveText,
@@ -628,6 +662,7 @@ class DDSMastheadComposite extends LitElement {
       menuButtonAssistiveTextInactive,
       language,
       openSearchDropdown,
+      hasSearch,
       searchPlaceholder,
       selectedMenuItem,
       unauthenticatedProfileItems,
@@ -643,7 +678,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name>${platform}</dds-left-nav-name>
+              <dds-left-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-left-nav-name>
             `}
         ${l1Data ? undefined : this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV })}
         ${l1Data ? this._renderL1Items({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV }) : undefined}
@@ -652,40 +687,49 @@ class DDSMastheadComposite extends LitElement {
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+          ?hide-menu-button="${activateSearch}"
         >
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platform
+        ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name>${platform}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
             `}
         ${l1Data
           ? undefined
           : html`
-              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+              <dds-top-nav menu-bar-label="${ifNonNull(menuBarAssistiveText)}" ?hideNav="${activateSearch}">
                 ${this._renderNavItems({ selectedMenuItem, target: NAV_ITEMS_RENDER_TARGET.TOP_NAV })}
               </dds-top-nav>
             `}
-        <dds-masthead-search-composite
-          ?active="${activateSearch}"
-          input-timeout="${inputTimeout}"
-          language="${ifNonNull(language)}"
-          ?open="${openSearchDropdown}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          .currentSearchResults="${ifNonNull(currentSearchResults)}"
-          ._loadSearchResults="${ifNonNull(loadSearchResults)}"
-        ></dds-masthead-search-composite>
+        ${!hasSearch
+          ? undefined
+          : html`
+              <dds-masthead-search-composite
+                ?active="${activateSearch}"
+                input-timeout="${inputTimeout}"
+                language="${ifNonNull(language)}"
+                ?open="${openSearchDropdown}"
+                placeholder="${ifNonNull(searchPlaceholder)}"
+                .currentSearchResults="${ifNonNull(currentSearchResults)}"
+                ._loadSearchResults="${ifNonNull(loadSearchResults)}"
+              ></dds-masthead-search-composite>
+            `}
         <dds-masthead-global-bar>
-          <dds-masthead-profile ?authenticated="${authenticated}">
-            ${profileItems?.map(
-              ({ title, url }) =>
-                html`
-                  <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
-                `
-            )}
-          </dds-masthead-profile>
+          ${!hasProfile
+            ? undefined
+            : html`
+                <dds-masthead-profile ?authenticated="${authenticated}">
+                  ${profileItems?.map(
+                    ({ title, url }) =>
+                      html`
+                        <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
+                      `
+                  )}
+                </dds-masthead-profile>
+              `}
         </dds-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
         <dds-megamenu-overlay></dds-megamenu-overlay>

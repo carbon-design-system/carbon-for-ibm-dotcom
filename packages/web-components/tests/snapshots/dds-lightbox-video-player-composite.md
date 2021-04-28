@@ -14,6 +14,7 @@
       description="video-description-foo"
       duration="120"
       name="video-name-foo"
+      role="dialog"
     >
     </dds-lightbox-video-player>
   </dds-expressive-modal>

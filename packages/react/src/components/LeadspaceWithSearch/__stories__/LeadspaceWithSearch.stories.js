@@ -14,7 +14,7 @@ import { text } from '@storybook/addon-knobs';
 export default !DDS_LEADSPACE_WITH_SEARCH
   ? undefined
   : {
-      title: 'Components|LeadspaceWithSearch',
+      title: 'Components|Lead space with search',
       parameters: {
         ...readme.parameters,
         knobs: {

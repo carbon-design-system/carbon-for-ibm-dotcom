@@ -1,14 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -17,6 +16,8 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCard from '../card/card';
+import '../card/card-heading';
+import './card-cta-image';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import DDSCardCTAFooter from './card-cta-footer';
@@ -25,7 +26,6 @@ import styles from './cta.scss';
 
 export { CTA_TYPE };
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -35,16 +35,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-card-cta`)
 class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
-  protected _renderCopy() {
-    const { ctaType, videoName, _hasCopy: hasCopy, formatVideoCaption: formatVideoCaptionInEffect } = this;
+  protected _renderHeading() {
+    const { ctaType, videoName, formatVideoCaption: formatVideoCaptionInEffect } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
-      return super._renderCopy();
+      return super._renderHeading();
     }
-    const caption = hasCopy ? undefined : formatVideoCaptionInEffect({ name: videoName });
+    const caption = formatVideoCaptionInEffect({ name: videoName });
     return html`
-      <div ?hidden="${!hasCopy && !caption}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>${caption}
-      </div>
+      <slot name="heading"></slot><dds-card-heading>${caption}</dds-card-heading>
     `;
   }
 
@@ -54,9 +52,9 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
+            <dds-card-cta-image alt="${ifNonNull(videoName)}" default-src="${ifNonNull(videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
-            </dds-image>
+            </dds-card-cta-image>
           `;
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${thumbnail}

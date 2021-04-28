@@ -9,7 +9,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|Card Section Carousel',
+  title: 'Components|Card section carousel',
 
   parameters: {
     ...readme.parameters,

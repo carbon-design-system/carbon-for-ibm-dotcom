@@ -45,17 +45,6 @@
     background-color: #dcdcdc;
   }
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 15px;
-    height: $spacing-09;
-    left: calc(-1rem - 1px);
-    top: -2px;
-    background-color: $ui-background;
-  }
-
   @include carbon--breakpoint-down(800px) {
     display: none;
   }
@@ -79,6 +68,12 @@
         &::before {
           display: none;
         }
+      }
+
+      .#{$prefix}--masthead__platform-name {
+        z-index: 1;
+        height: 100%;
+        background: $ui-background;
       }
     }
 
@@ -125,6 +120,35 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    .#{$prefix}--header__search--search,
+    .#{$prefix}--header__search--close {
+      color: $icon-01;
+
+      background-color: $ui-background;
+      padding: 0;
+
+      &:hover {
+        background-color: $hover-ui;
+        svg[focusable='false'][aria-hidden='true'] {
+          fill: $icon-02;
+        }
+      }
+      // prevent tooltip from showing on hover
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--visible,
+      &.#{$prefix}--btn--icon-only.#{$prefix}--tooltip--a11y.#{$prefix}--tooltip__trigger {
+        &::before,
+        .#{$prefix}--assistive-text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--header__profile .#{$prefix}--header__action:focus,
+  .#{$prefix}--header__search--actions
+    .#{$prefix}--btn.#{$prefix}--btn--icon-only.#{$prefix}--tooltip__trigger:focus {
+    border-color: $focus;
   }
 
   // search container
@@ -138,6 +162,10 @@
       z-index: 999;
       width: 100%;
       margin-left: 0;
+
+      button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+        display: inline-flex;
+      }
 
       .#{$prefix}--header__search--actions {
         z-index: 10001;
@@ -177,7 +205,7 @@
 
       .#{$prefix}--header__search--close {
         width: $carbon--spacing-09;
-        display: inline-block;
+        display: inline-flex;
       }
 
       .#{$prefix}--header__search--close,
@@ -240,12 +268,14 @@
     padding: 0 $carbon--spacing-05;
     border-top: solid 1px $ui-04;
     border-bottom: solid 1px $ui-01;
+    background-color: $ui-background;
 
     @include use-carbon-productive-tokens();
     @include type-style('body-short-01');
   }
 
   .react-autosuggest__suggestion {
+    color: $text-01;
     height: $carbon--spacing-09;
     display: flex;
     span {

@@ -51,23 +51,6 @@
 
 ```
 
-#### `Renders Vertical with cards`
-
-```
-<div class="dds-ce--link-list__heading__wrapper">
-  <slot name="heading">
-  </slot>
-</div>
-<ul
-  class="bx--link-list__list bx--link-list__list--vertical"
-  name="list"
->
-  <slot>
-  </slot>
-</ul>
-
-```
-
 #### `Renders End of section`
 
 ```

@@ -4,19 +4,17 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  ClickableTile,
-  Tile,
-} from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import React, { useCallback, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
+import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import on from 'carbon-components/es/globals/js/misc/on';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import { Tile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,7 +35,6 @@ export const Card = ({
   ...props
 }) => {
   const refWrapper = useRef(null);
-  const TileType = props.disabled ? Tile : ClickableTile;
 
   const handleClick = useCallback(
     e => {
@@ -64,7 +61,7 @@ export const Card = ({
   }, [handleClick]);
 
   return (
-    <TileType
+    <Tile
       data-autoid={`${stablePrefix}--card`}
       className={classNames(
         `${prefix}--card`,
@@ -74,23 +71,17 @@ export const Card = ({
         },
         customClassName
       )}
-      href={cta?.href}
-      target={CTALogic.external(cta?.type)}
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`} ref={refWrapper}>
         <div className={`${prefix}--card__content`}>
-          {eyebrow && (
-            <p className={`${prefix}--card__eyebrow`} aria-hidden={true}>
-              {eyebrow}
-            </p>
-          )}
+          {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
           {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
           {optionalContent(copy)}
-          {renderFooter(cta, pictogram)}
+          {renderFooter(cta, copy, heading, pictogram)}
         </div>
       </div>
-    </TileType>
+    </Tile>
   );
 };
 
@@ -116,24 +107,29 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @returns {object} JSX object
  */
-function renderFooter(cta, pictogram) {
+function renderFooter(cta, copy, heading, pictogram) {
   return (
     cta && (
-      <div
+      <Link
         className={classNames(`${prefix}--card__footer`, {
           [`${prefix}--card__footer__icon-left`]: cta?.iconPlacement === 'left',
           [`${prefix}--card__footer__copy`]: cta?.copy,
-        })}>
+        })}
+        href={cta?.href}
+        target={CTALogic.external(cta?.type)}
+        aria-label={
+          (cta?.copy ? '' : heading ? heading : copy) +
+          CTALogic.getDefaultLabel(cta?.type)
+        }
+        onClick={cta?.handleClick}>
         {cta?.copy && !pictogram && (
-          <span className={`${prefix}--card__cta__copy`} aria-hidden={true}>
-            {cta?.copy}
-          </span>
+          <span className={`${prefix}--card__cta__copy`}>{cta?.copy}</span>
         )}
         {cta?.icon?.src && !pictogram && (
           <cta.icon.src className={`${prefix}--card__cta`} {...cta?.icon} />
         )}
         {pictogram && pictogram}
-      </div>
+      </Link>
     )
   );
 }

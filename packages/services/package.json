@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-services",
   "description": "Carbon for IBM.com Services",
-  "version": "1.16.1",
+  "version": "1.18.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -37,13 +37,15 @@
     "clean": "rimraf es lib umd",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
+    "postinstall": "carbon-telemetry collect --install",
     "prepublish": "yarn build",
     "test": "jest",
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
-    "@carbon/ibmdotcom-utilities": "1.16.1",
+    "@carbon/ibmdotcom-utilities": "1.18.1",
+    "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "^0.21.1",
     "window-or-global": "^1.0.1"
   },

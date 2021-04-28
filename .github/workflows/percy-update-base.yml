@@ -23,7 +23,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -51,7 +51,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:
@@ -79,7 +79,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
-        run: yarn build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:

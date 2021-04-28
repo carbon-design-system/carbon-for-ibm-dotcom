@@ -74,7 +74,11 @@
     }
 
     &:focus {
-      outline: 1px solid $focus;
+      outline: 2px solid $focus;
+    }
+
+    &:active {
+      text-decoration: none;
     }
   }
 

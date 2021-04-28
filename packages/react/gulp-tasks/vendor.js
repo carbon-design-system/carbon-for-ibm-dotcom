@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,11 +18,11 @@ const { base, simple } = require('acorn-walk');
 const { extend } = require('acorn-jsx-walk');
 const MagicString = require('magic-string');
 const {
-  carbonComponetsReactESSrcDir,
-  carbonComponetsReactCJSSrcDir,
-  carbonComponetsReactVendorSrcDir,
-  carbonComponetsReactVendorESDstDir,
-  carbonComponetsReactVendorCJSDstDir,
+  carbonComponentsReactESSrcDir,
+  carbonComponentsReactCJSSrcDir,
+  carbonComponentsReactVendorSrcDir,
+  carbonComponentsReactVendorESDstDir,
+  carbonComponentsReactVendorCJSDstDir,
 } = require('./config');
 
 const promisifyStream = promisify(asyncDone);
@@ -55,7 +55,7 @@ const parserOptions = {
  * @param {object} options The options.
  * @param {object<string, object<string, string>>} options.table
  *   The table pointing to import paths, keyed by the package name and the import name.
- * @returns {TransformFunction} The Gulp transform function to create the table.
+ * @returns {Function} The Gulp transform function to create the table.
  */
 function scan({ table }) {
   return through2.obj((file, _, done) => {
@@ -91,7 +91,7 @@ function scan({ table }) {
  * @param {object} options The options.
  * @param {object<string, object<string, string>>} options.table
  *   The table pointing to import paths, keyed by the package name and the import name.
- * @returns {TransformFunction} The Gulp transform function to optimize imports.
+ * @returns {Function} The Gulp transform function to optimize imports.
  */
 function convert({ table }) {
   return through2.obj((file, _, done) => {
@@ -165,6 +165,7 @@ const generateTable = (() => {
     if (!promiseTable) {
       const table = {
         '@carbon/icons-react': {},
+        '@carbon/feature-flags': {},
         'carbon-components': {
           settings: 'es/globals/js/settings',
         },
@@ -183,56 +184,57 @@ const generateTable = (() => {
     return await promiseTable;
   };
 })();
+
 /**
  * Generates `src/internal/vendor` contents.
  */
-const carbonComponetsReactVendorSrc = async () => {
+const carbonComponentsReactVendorSrc = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
       .src([
-        `${carbonComponetsReactESSrcDir}/**/*`,
+        `${carbonComponentsReactESSrcDir}/**/*`,
         '!**/*-{test,story}.js',
         '!**/stories/*',
       ])
       .pipe(convert({ table }))
-      .pipe(gulp.dest(carbonComponetsReactVendorSrcDir))
+      .pipe(gulp.dest(carbonComponentsReactVendorSrcDir))
   );
 };
 
 /**
  * Generate `es/internal/vendor` contents.
  */
-const carbonComponetsReactVendorESDst = async () => {
+const carbonComponentsReactVendorESDst = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
       .src([
-        `${carbonComponetsReactESSrcDir}/**/*`,
+        `${carbonComponentsReactESSrcDir}/**/*`,
         '!**/*-{test,story}.js',
         '!**/stories/*',
       ])
       .pipe(convert({ table }))
-      .pipe(gulp.dest(carbonComponetsReactVendorESDstDir))
+      .pipe(gulp.dest(carbonComponentsReactVendorESDstDir))
   );
 };
 
 /**
- * @returns {NodeJS.ReadWriteStream} The Gulp stream to generate `lib/internal/vendor` contents.
+ * The Gulp stream to generate `lib/internal/vendor` contents.
  */
-const carbonComponetsReactVendorCJSDst = () =>
+const carbonComponentsReactVendorCJSDst = () =>
   gulp
     .src([
-      `${carbonComponetsReactCJSSrcDir}/**/*`,
+      `${carbonComponentsReactCJSSrcDir}/**/*`,
       '!**/*-{test,story}.js',
       '!**/stories/*',
     ])
-    .pipe(gulp.dest(carbonComponetsReactVendorCJSDstDir));
+    .pipe(gulp.dest(carbonComponentsReactVendorCJSDstDir));
 
 module.exports = {
   carbonComponentsReact: gulp.parallel(
-    carbonComponetsReactVendorSrc,
-    carbonComponetsReactVendorESDst,
-    carbonComponetsReactVendorCJSDst
+    carbonComponentsReactVendorSrc,
+    carbonComponentsReactVendorESDst,
+    carbonComponentsReactVendorCJSDst
   ),
 };

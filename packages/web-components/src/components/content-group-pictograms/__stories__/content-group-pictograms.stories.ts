@@ -47,7 +47,7 @@ const pictogramsItems = [
 ];
 
 export default {
-  title: 'Components/Content Group Pictograms',
+  title: 'Components/Content group pictograms',
   decorators: [
     story => html`
       <style>

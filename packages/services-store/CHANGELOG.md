@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.1-rc.2...@carbon/ibmdotcom-services-store@1.18.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+## [1.18.1-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.1-rc.1...@carbon/ibmdotcom-services-store@1.18.1-rc.2) (2021-04-27)
+
+
+### Bug Fixes
+
+* **locale:** use getLocale method to verify locale before passing into translation call ([#5907](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5907)) ([88b1a95](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/88b1a95)), closes [#5890](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5890)
+
+
+
+
+
+## [1.18.1-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.1-rc.0...@carbon/ibmdotcom-services-store@1.18.1-rc.1) (2021-04-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.0...@carbon/ibmdotcom-services-store@1.18.1-rc.0) (2021-04-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.18.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.0-rc.1...@carbon/ibmdotcom-services-store@1.18.0) (2021-04-21)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.18.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.18.0-rc.0...@carbon/ibmdotcom-services-store@1.18.0-rc.1) (2021-04-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.18.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.17.0...@carbon/ibmdotcom-services-store@1.18.0-rc.0) (2021-04-14)
+
+
+### Features
+
+* **cloud-masthead:** add Cloud-specific container and composite components ([#5593](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5593)) ([ae52b30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/ae52b30))
+* **cloud-megamenu:** megamenu tabbing functionality foundation ([#5751](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5751)) ([1a0f59d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/1a0f59d)), closes [#5741](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5741)
+
+
+
+
+
+# [1.17.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.17.0-rc.1...@carbon/ibmdotcom-services-store@1.17.0) (2021-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.17.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.17.0-rc.0...@carbon/ibmdotcom-services-store@1.17.0-rc.1) (2021-03-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services-store
+
+
+
+
+
+# [1.17.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.16.1...@carbon/ibmdotcom-services-store@1.17.0-rc.0) (2021-03-12)
+
+
+### Features
+
+* **translate:** accept diff endpoint arg for translation service ([#5407](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5407)) ([3e1bab1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/commit/3e1bab1)), closes [#5396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/issues/5396)
+
+
+
+
+
 ## [1.16.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/services-store/compare/@carbon/ibmdotcom-services-store@1.16.1-rc.0...@carbon/ibmdotcom-services-store@1.16.1) (2021-03-01)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services-store

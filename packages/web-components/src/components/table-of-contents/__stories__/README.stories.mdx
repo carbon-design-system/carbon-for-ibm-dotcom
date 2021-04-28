@@ -30,13 +30,38 @@ import '@carbon/ibmdotcom-web-components/es/components/table-of-contents/table-o
 ```scss
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
+
+body {
+  scroll-behaviour: smooth;
+  overflow-y: scroll;
+}
 ```
+
+> 💡 `scroll-behaviour: smooth` ensures that scrolling triggered by `table-of-contents` is smooth.
 
 ### HTML
 
 ```html
 <dds-table-of-contents>
   <div class="bx--tableofcontents__contents">
+    <a name="1" data-title="Section - 1"></a>
+    <h3>Section - 1</h3>
+    <p>Section 1 content</p>
+    <a name="2" data-title="Section - 2"></a>
+    <h3>Section - 2</h3>
+    <p>Section 2 content</p>
+    <a name="3" data-title="Section - 3"></a>
+    <h3>Section - 3</h3>
+    <p>Section 3 content</p>
+  </div>
+</dds-table-of-contents>
+```
+
+#### Horizontal variation
+
+```html
+<dds-table-of-contents toc-layout="horizontal">
+  <div class="bx--tableofcontents-horizontal__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
     <p>Section 1 content</p>

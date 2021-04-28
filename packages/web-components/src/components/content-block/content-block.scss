@@ -13,6 +13,7 @@
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
 :host(#{$dds-prefix}-content-block),
+:host(#{$dds-prefix}-callout-with-media-copy),
 :host(#{$dds-prefix}-content-block-copy),
 :host(#{$dds-prefix}-content-block-heading),
 :host(#{$dds-prefix}-content-block-complementary),
@@ -23,6 +24,7 @@
 // TODO: Consider applying this rule in general
 :host(#{$dds-prefix}-content-block-simple),
 :host(#{$dds-prefix}-content-block-segmented) {
+  ::slotted(#{$dds-prefix}-callout-with-media-copy),
   ::slotted(#{$dds-prefix}-content-block-copy) {
     @include carbon--breakpoint('md') {
       width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
@@ -30,6 +32,7 @@
   }
 }
 
+:host(#{$dds-prefix}-callout-with-media-copy[size='sm']),
 :host(#{$dds-prefix}-content-block-copy[size='sm']) {
   width: auto;
   max-width: none;

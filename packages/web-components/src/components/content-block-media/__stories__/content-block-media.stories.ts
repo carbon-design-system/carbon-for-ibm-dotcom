@@ -265,7 +265,7 @@ withAsideElements.story = {
 };
 
 export default {
-  title: 'Components/Content Block Media',
+  title: 'Components/Content block media',
   decorators: [
     (story, { parameters }) => html`
       <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">

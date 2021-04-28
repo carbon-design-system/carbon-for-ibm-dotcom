@@ -53,13 +53,6 @@
     @include tooltip--placement('definition', 'bottom', 'start');
   }
 
-  // Ensures that IBM logo gets the padding of "wider screen" mode if we use nav pager
-  a {
-    @include carbon--breakpoint(800px) {
-      padding: 0 $carbon--spacing-07;
-    }
-  }
-
   a ::slotted(svg) {
     width: 58px;
     height: 23px;
@@ -74,6 +67,8 @@
 
 :host(#{$dds-prefix}-top-nav-name) {
   outline: none;
+  z-index: 1;
+  background: $ui-background;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
@@ -113,7 +108,9 @@
   }
 }
 
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
+  background-color: $ui-background;
   a.#{$prefix}--header__menu-item {
     padding-left: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
     padding-right: calc((#{mini-units(6)} - #{$icon-size-01}) / 2 - #{rem(2px)});
@@ -131,6 +128,7 @@
 :host(#{$dds-prefix}-top-nav),
 :host(#{$dds-prefix}-top-nav-l1) {
   display: none;
+  background-color: $ui-background;
 
   @include carbon--breakpoint(800px) {
     flex: 1;
@@ -181,10 +179,6 @@
   }
 }
 
-:host(#{$dds-prefix}-top-nav) {
-  overflow: hidden;
-}
-
 :host(#{$dds-prefix}-top-nav-l1) {
   overflow: visible;
 }
@@ -195,7 +189,8 @@
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
   @extend :host(#{$prefix}-header-menu);
 
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
@@ -204,7 +199,8 @@
 }
 
 :host(#{$dds-prefix}-top-nav-menu),
-:host(#{$dds-prefix}-masthead-profile) {
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] + .#{$prefix}--header__menu {
     background-color: $ui-02;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -223,6 +219,7 @@
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
     fill: $text-01;
@@ -280,7 +277,7 @@
     align-items: center;
     height: carbon--mini-units(6);
     padding: 0 mini-units(2);
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $ui-04;
     text-decoration: none;
     color: $text-01;
     flex-direction: row;

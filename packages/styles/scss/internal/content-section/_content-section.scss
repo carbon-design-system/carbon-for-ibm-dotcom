@@ -45,7 +45,8 @@
     display: contents;
   }
 
-  .#{$prefix}--content-section__grid {
+  .#{$prefix}--content-section__grid,
+  :host(#{$dds-prefix}-cta-section) {
     @include carbon--make-container;
   }
 

@@ -8,7 +8,7 @@
  */
 
 import { Part } from 'lit-html';
-import { html, css, customElement, TemplateResult } from 'lit-element';
+import { css, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -31,42 +31,6 @@ class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
   // eslint-disable-next-line class-methods-use-this
   protected _getContainerClasses(): string | ((part: Part) => void) {
     return `${prefix}--content-layout ${prefix}--content-layout--card-group`;
-  }
-
-  /**
-   * @returns The non-header, non-complementary contents.
-   */
-  protected _renderBody(): TemplateResult | string | void {
-    const { _hasContent: hasContent, _hasCopy: hasCopy, _hasMedia: hasMedia } = this;
-    return html`
-      <div ?hidden="${!hasContent && !hasCopy && !hasMedia}" class="${prefix}--content-layout__body">
-        ${super._renderBody()}
-      </div>
-    `;
-  }
-
-  protected _renderInnerBody() {
-    return html`
-      ${this._renderContent()}${this._renderMedia()}
-    `;
-  }
-
-  protected _renderFooter(): TemplateResult | string | void {
-    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
-    // TODO: See if we can remove the surrounding `<div>`
-    return html`
-      <div ?hidden="${!hasFooter}">
-        <slot name="footer" @slotchange="${handleSlotChange}"></slot>
-      </div>
-    `;
-  }
-
-  render() {
-    return html`
-      <div class="${this._getContainerClasses()}">
-        ${this._renderHeading()}${this._renderBody()}
-      </div>
-    `;
   }
 
   static get stableSelector() {

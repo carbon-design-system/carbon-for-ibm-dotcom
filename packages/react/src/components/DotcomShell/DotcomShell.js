@@ -69,7 +69,7 @@ DotcomShell.propTypes = {
         })
       ),
     }),
-    type: PropTypes.oneOf(['tall', 'short', 'micro']),
+    type: PropTypes.oneOf(['default', 'short', 'micro']),
     langCode: PropTypes.shape({
       cc: PropTypes.string,
       lc: PropTypes.string,

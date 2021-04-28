@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { render } from 'lit-html';
-import { Default, Horizontal, Vertical, VerticalWithCards, EndOfSection } from '../__stories__/link-list.stories';
+import { Default, Horizontal, Vertical, EndOfSection } from '../__stories__/link-list.stories';
 
 describe('dds-link-list', function() {
   it('Renders Default', async function() {
@@ -37,23 +37,6 @@ describe('dds-link-list', function() {
   it('Renders Vertical', async function() {
     render(
       Vertical({
-        parameters: {
-          props: {
-            'dds-link-list': {
-              iconPlacement: 'left',
-            },
-          },
-        },
-      }),
-      document.body
-    );
-    await Promise.resolve();
-    expect(document.body.querySelector('dds-link-list')).toMatchSnapshot({ mode: 'shadow' });
-  });
-
-  it('Renders Vertical with cards', async function() {
-    render(
-      VerticalWithCards({
         parameters: {
           props: {
             'dds-link-list': {

@@ -48,6 +48,7 @@ export * from './LogoGrid';
 export * from './Masthead';
 export * from './PictogramItem';
 export * from './Quote';
+export * from './ScrollAnimations';
 export * from './SimpleBenefits';
 export * from './TableOfContents';
 export * from './carbon-components-react/UIShell';

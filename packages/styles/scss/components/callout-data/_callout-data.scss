@@ -38,6 +38,12 @@
       width: 90%;
       max-width: 640px;
     }
+
+    .#{$prefix}--callout__container {
+      @include carbon--theme($carbon--theme--white, true) {
+        background-color: $inverse-02;
+      }
+    }
   }
 
   :host(#{$dds-prefix}-callout-data-heading),
@@ -76,39 +82,6 @@
 
     padding-top: $spacing-03;
     color: $text-05;
-  }
-
-  :host(#{$dds-prefix}-callout-data-container) .#{$prefix}--callout__column {
-    background-color: $inverse-02;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-
-    @include carbon--breakpoint('md') {
-      min-height: carbon--mini-units(40);
-    }
-
-    @include carbon--breakpoint('lg') {
-      min-height: carbon--mini-units(50);
-    }
-
-    @include carbon--breakpoint('xlg') {
-      min-height: carbon--mini-units(60);
-    }
-
-    @include carbon--breakpoint('max') {
-      min-height: carbon--mini-units(70);
-    }
-
-    .#{$prefix}--callout__content {
-      padding-left: 0;
-      margin-left: 0;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      width: 90%;
-      max-width: 640px;
-    }
   }
 }
 @include exports('callout-data') {

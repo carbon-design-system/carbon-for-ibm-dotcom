@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -134,17 +134,21 @@ const HeaderNavContainer = ({ children }) => {
   }, [setIO]);
 
   useEffect(() => {
+    const navContent = contentRef.current;
+
     if (io) {
+      navContent.addEventListener('keydown', handleOnKeyDown);
       io.observe(contentLeftRef.current);
       io.observe(contentRightRef.current);
     } else {
       return () => {
         if (io) {
+          navContent.removeEventListener('keydown', handleOnKeyDown);
           io.disconnect();
         }
       };
     }
-  }, [io]);
+  });
 
   /**
    * Keyboard event handler for menu items.
@@ -178,10 +182,7 @@ const HeaderNavContainer = ({ children }) => {
   return (
     <>
       <div className={`${prefix}--header__nav-container`} ref={containerRef}>
-        <div
-          className={`${prefix}--header__nav-content`}
-          ref={contentRef}
-          onKeyDown={handleOnKeyDown}>
+        <div className={`${prefix}--header__nav-content`} ref={contentRef}>
           <div className={`${prefix}--sub-content-left`} ref={contentLeftRef} />
           <div
             className={`${prefix}--sub-content-right`}
@@ -191,29 +192,29 @@ const HeaderNavContainer = ({ children }) => {
         </div>
         <div
           ref={caretLeftRef}
-          className={`${prefix}--header__nav-caret-left-container`}>
+          className={`${prefix}--header__nav-caret-left-container`}
+          hidden>
           <button
             className={`${prefix}--header__nav-caret-left`}
             aria-label="Masthead left caret"
             onClick={paginateLeft}
             tabIndex="-1"
-            aria-hidden="true"
-            hidden>
+            aria-hidden="true">
             <CaretLeft20 />
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
         </div>
         <div
           ref={caretRightRef}
-          className={`${prefix}--header__nav-caret-right-container`}>
+          className={`${prefix}--header__nav-caret-right-container`}
+          hidden>
           <div className={`${prefix}--header__nav-caret-right-gradient`} />
           <button
             className={`${prefix}--header__nav-caret-right`}
             aria-label="Masthead right caret"
             onClick={paginateRight}
             tabIndex="-1"
-            aria-hidden="true"
-            hidden>
+            aria-hidden="true">
             <CaretRight20 />
           </button>
         </div>

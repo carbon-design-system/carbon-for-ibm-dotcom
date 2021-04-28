@@ -82,6 +82,8 @@
   }
 
   .#{$prefix}--carousel__navigation {
+    @include carbon--type-style('body-long-02', true);
+
     grid-area: navigation;
     display: grid;
     grid-template-columns: auto auto auto;

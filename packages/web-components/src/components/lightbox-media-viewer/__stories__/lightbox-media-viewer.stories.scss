@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -9,4 +9,8 @@
 .sbdocs-preview dds-expressive-modal {
   width: 100%;
   height: 100%;
+}
+
+.dds-ce-demo-devenv--grid--stretch {
+  width: 100%;
 }

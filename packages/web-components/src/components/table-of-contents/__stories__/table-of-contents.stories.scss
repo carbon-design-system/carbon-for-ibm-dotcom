@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -12,15 +12,15 @@
 
 .dds-ce-demo-devenv--container {
   padding-top: 0;
-  padding-bottom: 0;
+  padding-bottom: 4rem;
 }
 
 .dds-ce-demo--table-of-contents {
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: 3rem;
 
   h3 {
-    padding-top: rem(16px);
+    padding-top: rem(32px);
     padding-bottom: rem(32px);
   }
 }

@@ -26,8 +26,6 @@
     display: grid;
 
     @include carbon--breakpoint(md) {
-      margin-left: 0;
-      margin-right: 0;
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: 1fr;
     }
@@ -39,6 +37,10 @@
     margin-bottom: $carbon--grid-gutter--condensed / 2;
     padding-left: $carbon--grid-gutter--condensed / 2;
     padding-right: $carbon--grid-gutter--condensed / 2;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 @include exports('content-group-cards') {

@@ -87,7 +87,7 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
 `;
 
 export default {
-  title: 'Components/Content Block Mixed',
+  title: 'Components/Content block mixed',
   decorators: [
     (story, { parameters }) => html`
       <style>

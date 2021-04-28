@@ -13,3 +13,9 @@
 :host(#{$dds-prefix}-leadspace-block-heading) {
   display: block;
 }
+
+:host(#{$dds-prefix}-leadspace-block) dds-hr,
+:host(#{$dds-prefix}-leadspace-block-content) ::slotted(*) {
+  margin-left: $carbon--spacing-05;
+  margin-right: $carbon--spacing-05;
+}

@@ -35,7 +35,7 @@ const alt = 'Lorem Ipsum';
 const longDescription = 'Lorem Ipsum Dolor';
 
 export default {
-  title: 'Components|Table of Contents',
+  title: 'Components|Table of contents',
   decorators: [
     story => (
       <>
@@ -52,8 +52,12 @@ export default {
 export const ManuallyDefineMenuItems = ({ parameters }) => {
   const { menuItems, menuLabel, menuRule, headingContent } =
     parameters?.props?.TableOfContents ?? {};
+  const params = new URLSearchParams(window.location.search);
+  const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
+    themeParam ||
+    document.documentElement.getAttribute('storybook-carbon-theme') ||
+    'white';
   return (
     <TableOfContents
       theme={theme}

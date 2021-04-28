@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,11 +26,12 @@
 
   .#{$prefix}--number__control-btn.up-icon,
   .#{$prefix}--number__control-btn.down-icon {
-    height: $carbon--spacing-06;
+    width: 100%;
+    height: 100%;
 
     svg {
-      height: carbon--rem(5px);
-      width: carbon--rem(10px);
+      height: carbon--rem(20px);
+      width: carbon--rem(20px);
     }
   }
 }

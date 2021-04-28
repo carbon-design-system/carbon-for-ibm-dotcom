@@ -4,17 +4,17 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
 import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
-import SideNavLink from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
+import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
 import SideNavMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
-import SideNavMenuWithBackFoward from '../carbon-components-react/UIShell/SideNavMenuWithBackForward';
+import SideNavMenuSection from '../carbon-components-react/UIShell/SideNavMenuSection';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -29,17 +29,35 @@ const MastheadLeftNav = ({
   platform,
   ...rest
 }) => {
+  /**
+   * Keep track of which menu section is visible/expanded and ties current visible panel
+   * back to its parent menu panel
+   *
+   * Example interaction and menuState change:
+   * 1. When left nav is first opened - default state --> {level0: -1, level1: -1}
+   * 2. User then clicks on first menu item (item index is 0) --> {level0: 0, level1: -1}
+   * 3. User then clicks on second menu item (item index is 1) of current visible panel --> {level0: 0, level1: 1}
+   * 4. User then clicks back button --> {level0: 0, level1: -1}
+   * 5. User then clicks back button again, going back to first panel --> {level0: -1, level1: -1}
+   */
+  const [menuState, setMenuState] = useState({ level0: -1, level1: -1 });
+
+  // reset the left nav to default menu section when closed
+  useEffect(() => {
+    if (!isSideNavExpanded) {
+      setMenuState({ level0: -1, level1: -1 });
+    }
+  }, [isSideNavExpanded]);
+
   const sideNavRef = useRef();
 
-  /**
-   * Left side navigation
-   *
-   * @returns {*} Left side navigation
-   */
-  const sideNav = navigation.map((link, i) => {
-    const selected = rest.selectedMenuItem === link.titleEnglish;
-    if (link.hasMenu || link.hasMegaPanel) {
-      const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`;
+  const level0Items = [];
+  const level1Items = [];
+
+  const sideNav = () => {
+    navigation.map((link, i) => {
+      const selected = rest.selectedMenuItem === link.titleEnglish;
+
       const dataTitle = link.titleEnglish
         ? link.titleEnglish
             .replace(/[^-a-zA-Z0-9_ ]/g, '')
@@ -47,96 +65,74 @@ const MastheadLeftNav = ({
             .toLowerCase()
         : null;
 
-      if (navigation.length === i + 1) {
-        return (
-          <>
-            <SideNavMenuWithBackFoward
-              title={link.title}
-              backButtonText={backButtonText}
-              key={i}
-              autoid={autoid}
-              selected={selected}
-              navType={rest.navType}
-              dataTitle={dataTitle}>
-              {renderNavSections(
-                link.menuSections,
-                backButtonText,
-                autoid,
-                rest.navType
-              )}
-            </SideNavMenuWithBackFoward>
-            <button
-              className={`${prefix}--masthead__focus`}
-              onFocus={() => {
-                preventOutFocus(
-                  sideNavRef.current?.parentNode.querySelector(
-                    `.${prefix}--header__menu-toggle`
-                  ),
-                  isSideNavExpanded
-                );
-              }}
-              aria-hidden={true}></button>
-          </>
+      const autoid = `${stablePrefix}--masthead-${rest.navType}-sidenav__${
+        rest.hasL1Data ? 'l1' : 'l0'
+      }-nav${i}`;
+
+      if (link.hasMenu || link.hasMegaPanel || link.menuSections.length !== 0) {
+        level1Items.push({
+          title: link.title,
+          autoid,
+          parentKey: i,
+          sections: link.menuSections,
+        });
+
+        level0Items.push(
+          <SideNavMenu
+            autoid={autoid}
+            dataTitle={dataTitle}
+            title={link.title}
+            selected={selected}
+            onToggle={() => setMenuState({ ...menuState, level0: i })}
+            isSideNavExpanded={i === menuState.level0 && menuState.level1 == -1}
+          />
+        );
+      } else {
+        level0Items.push(
+          <SideNavMenuItem
+            href={link.url}
+            className={
+              selected && `${prefix}--masthead__side-nav--submemu--selected`
+            }
+            data-autoid={autoid}
+            key={link.title}>
+            {link.title}
+          </SideNavMenuItem>
         );
       }
-      return (
-        <SideNavMenuWithBackFoward
-          title={link.title}
-          backButtonText={backButtonText}
-          key={i}
-          autoid={autoid}
-          selected={selected}
-          navType={rest.navType}
-          heading={link.menuSections[0]?.heading}
-          dataTitle={dataTitle}>
-          {renderNavSections(
-            link.menuSections,
-            backButtonText,
-            autoid,
-            rest.navType
+    });
+
+    const level1 = _renderLevel1Submenus(
+      level1Items,
+      backButtonText,
+      setMenuState,
+      menuState,
+      rest.navType
+    );
+
+    const level2Submenus = _renderLevel2Submenus(
+      level1.submenus,
+      backButtonText,
+      setMenuState,
+      menuState,
+      rest.navType
+    );
+
+    return (
+      <div>
+        <SideNavMenuSection
+          id={`panel__(-1,-1)`}
+          focusNode={sideNavRef.current?.parentNode.querySelector(
+            `.${prefix}--header__menu-toggle`
           )}
-        </SideNavMenuWithBackFoward>
-      );
-    } else {
-      if (navigation.length === i + 1) {
-        return (
-          <>
-            <SideNavLink
-              href={link.url}
-              className={
-                selected && `${prefix}--masthead__side-nav--submemu--selected`
-              }
-              data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
-              key={i}>
-              {link.title}
-            </SideNavLink>
-            <button
-              className={`${prefix}--masthead__focus`}
-              onFocus={() => {
-                preventOutFocus(
-                  sideNavRef.current?.parentNode.querySelector(
-                    `.${prefix}--header__menu-toggle`
-                  ),
-                  isSideNavExpanded
-                );
-              }}
-              aria-hidden={true}></button>
-          </>
-        );
-      }
-      return (
-        <SideNavLink
-          href={link.url}
-          className={
-            selected && `${prefix}--masthead__side-nav--submemu--selected`
-          }
-          data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-nav${i}`}
-          key={i}>
-          {link.title}
-        </SideNavLink>
-      );
-    }
-  });
+          show={menuState.level0 === -1}>
+          {level0Items}
+        </SideNavMenuSection>
+        {level1.menuSections}
+        {level2Submenus}
+      </div>
+    );
+  };
 
   return (
     <SideNav
@@ -156,119 +152,153 @@ const MastheadLeftNav = ({
           </a>
         )}
         <SideNavItems>
-          <HeaderSideNavItems>{sideNav}</HeaderSideNavItems>
+          <HeaderSideNavItems>{sideNav()}</HeaderSideNavItems>
         </SideNavItems>
       </nav>
     </SideNav>
   );
 };
 
-const preventOutFocus = (target, isSideNavExpanded) => {
-  if (isSideNavExpanded) {
-    target.focus();
-  }
-};
-
 /**
  * Loops through and renders a list of links for the side nav
  *
- * @param {Array} sections A list of link sections to be rendered
+ *  @param {Array} menuItems menu items
  * @param {string} backButtonText back button text
- * @param {string} autoid autoid predecessor
+ * @param {Function} setMenuState setState func
+ * @param {object} menuState currrent menu that is visible
  * @param {string} navType navigation type
  * @returns {object} JSX object
  */
-function renderNavSections(sections, backButtonText, autoid, navType) {
-  const sectionItems = [];
-  sections.forEach(section => {
+function _renderLevel1Submenus(
+  menuItems,
+  backButtonText,
+  setMenuState,
+  menuState,
+  navType
+) {
+  // gather submenu items for next level
+  const submenus = [];
+
+  const sideNavMenuSections = menuItems.map((menu, i) => {
     // get array of highlighted menu items to render first
     let highlightedItems = [];
-    const menu = [];
+    const items = [];
 
-    section.menuItems.forEach(item => {
+    menu.sections[0].menuItems.forEach(item => {
       if (item.highlighted) return highlightedItems.push(item);
-      return menu.push(item);
+      return items.push(item);
     });
 
-    const menuItems = highlightedItems.concat(menu);
+    const sortedMenu = highlightedItems.concat(items);
     const highlightedCount = highlightedItems.length;
 
-    menuItems.forEach((item, k) => {
-      const dataAutoId = `${autoid}-list${k}`;
-      if (item.megapanelContent) {
-        sectionItems.push(
-          <SideNavMenuWithBackFoward
-            title={item.title}
-            titleUrl={item.url}
-            lastHighlighted={
-              highlightedCount !== 0 && k + 1 === highlightedCount
-            }
-            backButtonText={backButtonText}
-            autoid={dataAutoId}
-            navType={navType}
-            key={k}>
-            {renderNavItem(item.megapanelContent.quickLinks.links, dataAutoId)}
-            <button
-              className={`${prefix}--masthead__focus`}
-              onFocus={e => {
-                preventOutFocus(
-                  e.target.parentElement.querySelector('a'),
-                  true
-                );
-              }}
-              aria-hidden={true}></button>
-          </SideNavMenuWithBackFoward>
-        );
-      } else {
-        sectionItems.push(
-          <SideNavMenuItem
-            href={item.url}
-            className={
-              highlightedCount !== 0 &&
-              k + 1 === highlightedCount &&
-              `${prefix}--masthead__side-nav__last-highlighted`
-            }
-            data-autoid={dataAutoId}
-            key={item.title}>
-            {item.title}
-          </SideNavMenuItem>
-        );
-      }
-    });
-    sectionItems.push(
-      <button
-        className={`${prefix}--masthead__focus`}
-        onFocus={e => {
-          preventOutFocus(e.target.parentElement.querySelector('a'), true);
-        }}
-        aria-hidden={true}></button>
+    return (
+      <SideNavMenuSection
+        isSubmenu
+        className={cx({
+          [`${prefix}--side-nav__menu-section-submenu`]: true,
+          [`${prefix}--side-nav__menu-section-submenu--expanded`]:
+            menuState.level0 === menu.parentKey && menuState.level1 >= 0,
+        })}
+        id={`panel__(${menu.parentKey},-1)`}
+        heading={menu.sections[0]?.heading}
+        title={menu.title}
+        navType={navType}
+        backButtonText={backButtonText}
+        onBackClick={() => setMenuState({ level0: -1, level1: -1 })}
+        show={menuState.level0 === menu.parentKey && menuState.level1 === -1}>
+        {sortedMenu.map((item, k) => {
+          submenus.push({
+            title: item.title,
+            titleUrl: item.url,
+            autoid: `${menu.autoid}-list${k}`,
+            sections: item.megapanelContent?.quickLinks?.links,
+            parentKey: menu.parentKey,
+            index: k,
+          });
+
+          const highlightedClass =
+            highlightedCount !== 0 &&
+            k + 1 === highlightedCount &&
+            `${prefix}--masthead__side-nav__last-highlighted`;
+
+          if (item.megapanelContent) {
+            return (
+              <SideNavMenu
+                autoid={`${menu.autoid}-list${k}`}
+                title={item.title}
+                className={highlightedClass}
+                onToggle={() => setMenuState({ ...menuState, level1: k })}
+                isSideNavExpanded={
+                  i === menuState.level0 && menuState.level1 == k
+                }
+              />
+            );
+          } else {
+            return (
+              <SideNavMenuItem
+                href={item.url}
+                className={highlightedClass}
+                data-autoid={`${menu.autoid}-list${k}`}
+                key={item.title}>
+                {item.title}
+              </SideNavMenuItem>
+            );
+          }
+        })}
+      </SideNavMenuSection>
     );
   });
 
-  return sectionItems;
+  return { menuSections: sideNavMenuSections, submenus };
 }
 
 /**
  * Loops through and renders a list of links for the side nav
  *
- * @param {Array} items A list of links to be rendered
- * @param {string} autoid autoid predecessor
+ *  @param {Array} menuItems menu items
+ * @param {string} backButtonText back button text
+ * @param {Function} setMenuState setState func
+ * @param {object} menuState currrent menu that is visible
+ * @param {string} navType navigation type
  * @returns {object} JSX object
  */
-function renderNavItem(items, autoid) {
-  const navItems = [];
-  items.forEach((item, i) => {
-    const dataAutoId = `${autoid}-item${i}`;
-    navItems.push(
-      <SideNavMenuItem
-        href={item.url}
-        data-autoid={dataAutoId}
-        key={item.title}>
-        {item.title}
-      </SideNavMenuItem>
+function _renderLevel2Submenus(
+  menuItems,
+  backButtonText,
+  setMenuState,
+  menuState,
+  navType
+) {
+  const sideNavMenuSections = menuItems.map(menu => {
+    return (
+      <SideNavMenuSection
+        isSubmenu
+        className={`${prefix}--side-nav__menu-section-submenu`}
+        id={`panel__(${menu.parentKey},${menu.index})`}
+        title={menu.title}
+        titleUrl={menu.titleUrl}
+        navType={navType}
+        backButtonText={backButtonText}
+        onBackClick={() => setMenuState({ ...menuState, level1: -1 })}
+        show={
+          menuState.level0 === menu.parentKey && menuState.level1 === menu.index
+        }>
+        {menu.sections?.map((item, k) => {
+          return (
+            <SideNavMenuItem
+              href={item.url}
+              data-autoid={`${menu.autoid}-item${k}`}
+              key={item.title}>
+              {item.title}
+            </SideNavMenuItem>
+          );
+        })}
+      </SideNavMenuSection>
     );
   });
-  return navItems;
+
+  return sideNavMenuSections;
 }
 
 MastheadLeftNav.propTypes = {

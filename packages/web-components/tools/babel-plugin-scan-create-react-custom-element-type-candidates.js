@@ -53,7 +53,7 @@ function createMetadataVisitor() {
    */
 
   /**
-   * @param {Path} path The Babel path of the superclass.
+   * @param {string} path The Babel path of the superclass.
    * @returns {PropertyMetadata}
    *   The given Babel path itself if it's an identifier.
    *   The first argument if the given Babel path is a function, assuming it as a mixin call.

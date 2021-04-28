@@ -116,7 +116,7 @@ module: {
           options: {
             implementation: require('node-sass'),
             sassOptions: {
-              includePaths: ['node_modules'],
+              includePaths: ['../node_modules', '../../../node_modules'],
               // `enable-css-custom-properties` and `grid-columns-16` feature flags
               // are requirements for Carbon for IBM.com styles
               data: `

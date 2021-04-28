@@ -43,7 +43,7 @@ $fcb-breakpoint-up--lg: map-get(
       background: none;
       height: 100%;
 
-      &:focus {
+      &:focus-within {
         outline-width: 3px;
         outline-offset: 1px;
       }

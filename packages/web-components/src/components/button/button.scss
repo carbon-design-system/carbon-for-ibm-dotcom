@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2021
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/button';
 @import '../../globals/scss/box-sizing';
 
-:host(#{$dds-prefix}-btn) {
+:host(#{$dds-prefix}-button-expressive) {
   // Enables expressive version of type/size/component tokens in this component
   @include use-carbon-expressive-tokens();
 

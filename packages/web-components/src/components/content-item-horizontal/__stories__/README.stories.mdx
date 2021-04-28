@@ -18,43 +18,65 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-media.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-eyebrow.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
 import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
 ```
 
 ### HTML
 
 ```html
-  <dds-content-item-horizontal>
-    <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
-    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-    <dds-content-item-horizontal-copy>Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy>
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
-        icon-placement="right"
-        href="https://www.ibm.com"
-        cta-type="local"
-      >
-        Learn more
-      </dds-link-list-item-cta>
-      <dds-link-list-item-cta
-        icon-placement="right"
-        href="https://www.ibm.com"
-        cta-type="external"
-      >
-        Microservices and containers
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-item-horizontal>
+<dds-content-item-horizontal>
+  <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
+  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+  <dds-content-item-horizontal-copy
+    >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+    Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy
+  >
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+</dds-content-item-horizontal>
+```
+
+#### With Media
+
+```html
+<dds-content-item-horizontal-media align="right">
+  <dds-image
+    slot="media"
+    alt="Lorem ipsum"
+    default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"
+  ></dds-image>
+  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
+  <dds-content-item-horizontal-copy
+    >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+    Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy
+  >
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+</dds-content-item-horizontal-media>
 ```
 
 ## Props
 
 <Props of="dds-content-item-horizontal" />
-
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -64,10 +86,10 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | Web Components selector               | Compatibility selector                             | Description |
 | ------------------------------------- | -------------------------------------------------- | ----------- |
 | `<dds-content-item-horizontal>`       | `data-autoid="dds--content-item-horizontal"`       | Component   |
+| `<dds-content-item-horizontal-media>` | `data-autoid="dds--content-item-horizontal-media"` | Component   |
 | `<dds-content-item-heading>`          | `data-autoid="dds--content-item-heading"`          | Component   |
 | `<dds-content-item-horizontal-copy>`  | `data-autoid="dds--content-item-horizontal-copy"`  | Component   |
 | `<dds-link-list>`                     | `data-autoid="dds--link-list"`                     | Component   |
 | `<dds-link-list-item-cta>`            | `data-autoid="dds--link-list-item-cta"`            | Component   |
-
 
 <Description markdown={contributing} />

@@ -9,6 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
@@ -118,7 +119,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   /**
    * `true` to omit the locale switcher button.
    */
-  @property({ attribute: 'disable-locale-button' })
+  @property({ type: Boolean, attribute: 'disable-locale-button' })
   disableLocaleButton = false;
 
   /**
@@ -189,6 +190,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
 
   firstUpdated() {
     const { language } = this;
+    globalInit();
     if (language) {
       this._setLanguage?.(language);
     }
@@ -264,13 +266,16 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${!disableLocaleButton && size !== FOOTER_SIZE.MICRO && !langList
+        ${disableLocaleButton ? console.log('true') : console.log('false')}
+        ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
-              <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" @click="${handleClickLocaleButton}"
+              <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" size="${size}" @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
-          : html`
+          : ``}
+        ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
+          ? html`
               <dds-language-selector-desktop
                 trigger-content="${languageSelectorLabel}"
                 value="${selectedLanguage}"
@@ -291,7 +296,8 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   `
                 )}
               </dds-language-selector-mobile>
-            `}
+            `
+          : ``}
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url }) => html`
@@ -299,7 +305,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
-          ${size === FOOTER_SIZE.MICRO
+          ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
             ? html`
                 <dds-locale-button
                   buttonLabel="${ifNonNull(buttonLabel)}"
@@ -309,7 +315,38 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   >${langDisplay}</dds-locale-button
                 >
               `
-            : html``}
+            : ``}
+          ${size === FOOTER_SIZE.MICRO && langList && !disableLocaleButton
+            ? html`
+                <dds-language-selector-desktop
+                  size="${size}"
+                  slot="locale"
+                  trigger-content="${languageSelectorLabel}"
+                  value="${selectedLanguage}"
+                  clear-selection-label="${clearSelectionLabel}"
+                >
+                  ${langList?.map(
+                    language => html`
+                      <bx-combo-box-item value="${ifNonNull(language)}">${ifNonNull(language)}</bx-combo-box-item>
+                    `
+                  )}
+                </dds-language-selector-desktop>
+                <dds-language-selector-mobile
+                  size="${size}"
+                  slot="locale"
+                  value="${selectedLanguage}"
+                  placeholder="${selectedLanguage}"
+                >
+                  ${langList?.map(
+                    language => html`
+                      <bx-select-item label="${ifNonNull(language)}" value="${ifNonNull(language)}"
+                        >${ifNonNull(language)}</bx-select-item
+                      >
+                    `
+                  )}
+                </dds-language-selector-mobile>
+              `
+            : ``}
         </dds-legal-nav>
       </dds-footer>
     `;

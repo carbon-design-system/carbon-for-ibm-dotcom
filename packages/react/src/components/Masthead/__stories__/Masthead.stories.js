@@ -23,7 +23,6 @@ export default {
 
   parameters: {
     ...readme.parameters,
-    'carbon-theme': { disabled: true },
   },
 };
 
@@ -81,6 +80,11 @@ Default.story = {
             'Search all of IBM',
             groupId
           ),
+          initialSearchTerm: text(
+            'initial search term (initialSearchTerm)',
+            '',
+            groupId
+          ),
           selectedMenuItem: text(
             'selected menu item (selectedMenuItem)',
             'Services & Consulting',
@@ -130,7 +134,7 @@ WithCustomNavigation.story = {
           ),
           placeHolderText: text(
             'search placeholder (placeHolderText)',
-            'Search all of IBM',
+            inPercy() ? '' : 'Search all of IBM',
             groupId
           ),
           selectedMenuItem: text(
@@ -144,12 +148,11 @@ WithCustomNavigation.story = {
   },
 };
 
-export const SearchOpenByDefault = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload={true} />
+export const SearchOpenOnload = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload />
 );
 
-SearchOpenByDefault.story = {
-  name: 'Search open by default',
+SearchOpenOnload.story = {
   parameters: {
     knobs: { escapeHTML: false, ...Default.story.parameters.knobs },
   },
@@ -210,6 +213,7 @@ WithL1.story = {
       escapeHTML: false,
       Masthead: ({ groupId }) => {
         return {
+          platform: mastheadKnobs.l1Platform,
           hasProfile: boolean(
             'show the profile functionality (hasProfile)',
             true,
@@ -226,12 +230,6 @@ WithL1.story = {
             groupId
           ),
           mastheadL1Data: {
-            title: text('L1 title (title)', 'Stock Charts', groupId),
-            titleLink: text(
-              'L1 title link (titleLink)',
-              'https://example.com/',
-              groupId
-            ),
             navigationL1: mastheadKnobs.navigation.custom,
           },
           selectedMenuItem: text(
@@ -245,12 +243,11 @@ WithL1.story = {
   },
 };
 
-export const WithAlternateLogo = ({ parameters }) => (
+export const WithAlternateLogoAndTooltip = ({ parameters }) => (
   <Masthead {...(parameters?.props?.Masthead ?? {})} />
 );
 
-WithAlternateLogo.story = {
-  name: 'With logo data',
+WithAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       escapeHTML: false,
@@ -289,7 +286,7 @@ WithAlternateLogo.story = {
           mastheadLogo: select(
             'masthead logo data (mastheadLogo)',
             mastheadKnobs.mastheadLogo,
-            mastheadKnobs.mastheadLogo.defaultNoTooltip,
+            mastheadKnobs.mastheadLogo.alternateWithTooltip,
             groupId
           ),
         };

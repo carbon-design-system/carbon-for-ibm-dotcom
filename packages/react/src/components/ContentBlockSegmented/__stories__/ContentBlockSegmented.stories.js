@@ -117,7 +117,7 @@ const getBaseKnobs = ({ groupId }) => {
 };
 
 export default {
-  title: 'Components|ContentBlockSegmented',
+  title: 'Components|Content block segmented',
 
   parameters: {
     ...readme.parameters,

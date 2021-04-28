@@ -60,7 +60,7 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components/Card Section - Carousel',
+  title: 'Components/Card section carousel',
   decorators: [
     story => html`
       <style>

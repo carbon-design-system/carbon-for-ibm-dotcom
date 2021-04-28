@@ -41,6 +41,7 @@
 
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-04;
+      width: calc(100% - #{$layout-03});
       @include carbon--type-style('quotation-02', true);
     }
   }

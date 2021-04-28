@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descri
  * @param {object} [options] The options.
  * @param {RegExp} [options.include=/\.scss/] The files to include.
  * @param {RegExp} [options.exclude] The files to exclude.
- * @returns {Rollup.Plugin} The rollup plugin to transform an `.svg` file to a `lit-html` template.
+ * @returns {object} The rollup plugin to transform an `.svg` file to a `lit-html` template.
  */
 function rollupPluginIBMdotcomIcon({ include = /\.svg$/i, exclude } = {}) {
   const filter = createFilter(include, exclude);
@@ -42,7 +42,7 @@ function rollupPluginIBMdotcomIcon({ include = /\.svg$/i, exclude } = {}) {
      *
      * @param {string} contents The module contents.
      * @param {string} id The module ID.
-     * @returns {Rollup.TransformSourceDescription} The transformed module contents.
+     * @returns {object} The transformed module contents.
      */
     async transform(contents, id) {
       if (!filter(id)) {

@@ -12,7 +12,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|CardGroup',
+  title: 'Components|Card group',
 
   parameters: {
     ...readme.parameters,
@@ -119,6 +119,9 @@ Default.story = {
         }).map(_ => defaultCard),
       }),
     },
+    percy: {
+      skip: true,
+    },
   },
 };
 
@@ -145,6 +148,9 @@ WithCTA.story = {
         }).map(_ => defaultCard),
         cta: groupCTA,
       }),
+    },
+    percy: {
+      skip: true,
     },
   },
 };

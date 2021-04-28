@@ -17,7 +17,7 @@ import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Components|FeatureCardBlockLarge',
+  title: 'Components|Feature card block large',
 
   parameters: {
     ...readme.parameters,

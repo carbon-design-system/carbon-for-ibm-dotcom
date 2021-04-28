@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@
 /// @access private
 /// @group file-uploader-expressive
 @mixin file-uploader-expressive {
-  .#{$prefix}--file__state-container .#{$prefix}--file-close {
+  .#{$prefix}--file__state-container .#{$prefix}--file-close svg {
     height: rem(20px);
     width: rem(20px);
   }

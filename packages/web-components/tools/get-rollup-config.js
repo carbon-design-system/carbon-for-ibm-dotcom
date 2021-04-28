@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ const readFile = promisify(fs.readFile);
  * @param {object} [options] The build options.
  * @param {string} [options.mode=development] The build mode.
  * @param {string} [options.dir=development] The UI direction.
- * @returns {Rollup.RollupOptions} The Rollup config.
+ * @returns {object} The Rollup config.
  */
 function getRollupConfig({ mode = 'development', dir = 'ltr' } = {}) {
   const postCSSPlugins = [

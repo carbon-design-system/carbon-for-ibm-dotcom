@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -216,7 +216,7 @@ class DDSLocaleSearch extends ThrottedInputMixin(LitElement) {
    * A selector selecting the locale item,
    */
   static get selectorTabable() {
-    return `${prefix}-search`;
+    return `${ddsPrefix}-search`;
   }
 
   /**

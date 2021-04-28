@@ -24,11 +24,6 @@ import '../link-list-item';
 import '../link-list-item-card';
 import readme from './README.stories.mdx';
 
-const placement = {
-  [ICON_PLACEMENT.LEFT]: ICON_PLACEMENT.LEFT,
-  [ICON_PLACEMENT.RIGHT]: ICON_PLACEMENT.RIGHT,
-};
-
 const hrefsForType = {
   [CTA_TYPE.REGULAR]: 'https://www.example.com',
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
@@ -120,7 +115,7 @@ Default.story = {
 };
 
 export const Horizontal = ({ parameters }) => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.LEFT } = parameters?.props?.LinkListItem ?? {};
+  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = parameters?.props?.LinkListItem ?? {};
   return !ctaType
     ? html`
         <dds-link-list type="horizontal">
@@ -167,7 +162,6 @@ Horizontal.story = {
             ? undefined
             : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         return {
-          iconPlacement: select('Icon Placement (icon-placement)', placement, ICON_PLACEMENT.LEFT, groupId),
           ctaType,
           download,
           href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
@@ -178,7 +172,7 @@ Horizontal.story = {
 };
 
 export const Vertical = ({ parameters }) => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.LEFT } = parameters?.props?.LinkListItem ?? {};
+  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = parameters?.props?.LinkListItem ?? {};
   return !ctaType
     ? html`
         <dds-link-list type="vertical">
@@ -215,84 +209,6 @@ export const Vertical = ({ parameters }) => {
 };
 
 Vertical.story = {
-  parameters: {
-    colLgClass: 'bx--col-lg-4',
-    knobs: Horizontal.story.parameters.knobs,
-  },
-};
-
-export const VerticalWithCards = ({ parameters }) => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.LEFT } = parameters?.props?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <dds-link-list type="vertical">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item icon-placement="${iconPlacement}" href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
-        <dds-link-list type="default">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-card href="https://example.com">
-            <p>Learn more about Kubernetes</p>
-            <dds-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
-          </dds-link-list-item-card>
-          <dds-link-list-item-card href="https://example.com">
-            <p>Containerization A Complete Guide</p>
-            <dds-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
-          </dds-link-list-item-card>
-        </dds-link-list>
-      `
-    : html`
-        <dds-link-list type="vertical">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
-            Learn more about Kubernetes
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta
-            icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
-            Containerization A Complete Guide
-          </dds-link-list-item-cta>
-        </dds-link-list>
-        <dds-link-list type="default">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-card-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
-            <p>Learn more about Kubernetes</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-          <dds-link-list-item-card-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}"
-          >
-            <p>Containerization A Complete Guide</p>
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-        </dds-link-list>
-      `;
-};
-
-VerticalWithCards.story = {
   parameters: {
     colLgClass: 'bx--col-lg-4',
     knobs: Horizontal.story.parameters.knobs,
@@ -339,84 +255,8 @@ EndOfSection.story = {
   },
 };
 
-export const EndOfSectionThreeColumns = ({ parameters }) => {
-  const { ctaType, download, href } = parameters?.props?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <dds-link-list type="end">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Containerization Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
-      `
-    : html`
-        <dds-link-list type="end">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Learn more about Kubernetes
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Containerization Guide
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Microservices and containers
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Learn more about Kubernetes
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Containerization Guide
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Microservices and containers
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Learn more about Kubernetes
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Containerization Guide
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta href="${ifNonNull(href)}" cta-type="${ifNonNull(ctaType)}" download="${ifNonNull(download)}">
-            Microservices and containers
-          </dds-link-list-item-cta>
-        </dds-link-list>
-      `;
-};
-
-EndOfSectionThreeColumns.story = {
-  parameters: {
-    colLgClass: 'bx--col-lg-12',
-    knobs: Default.story.parameters.knobs,
-  },
-};
-
 export default {
-  title: 'Components/Link List',
+  title: 'Components/Link list',
   parameters: {
     ...readme.parameters,
     hasGrid: true,

@@ -19,9 +19,12 @@
 
   &[expressive-size='full-width'] {
     .#{$prefix}--modal-container {
-      width: calc(100% - 2rem);
-      height: calc(100% - 2rem);
       max-height: none;
+
+      @include carbon--breakpoint('md') {
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+      }
 
       .#{$prefix}--modal-content {
         margin: $layout-04 $layout-03;

@@ -24,11 +24,6 @@ export class SideNavMenu extends React.Component {
     className: PropTypes.string,
 
     /**
-     * Provide <SideNavMenuItem>'s inside of the `SideNavMenu`
-     */
-    children: PropTypes.node,
-
-    /**
      * Pass in a custom icon to render next to the `SideNavMenu` title
      */
     renderIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
@@ -150,7 +145,6 @@ export class SideNavMenu extends React.Component {
     const {
       buttonRef,
       className: customClassName,
-      children,
       renderIcon: IconElement,
       isActive,
       title,
@@ -161,22 +155,6 @@ export class SideNavMenu extends React.Component {
     const { isExpanded } = this.state;
 
     let hasActiveChild;
-    if (children) {
-      // if we have children, either a single or multiple, find if it is active
-      hasActiveChild = Array.isArray(children)
-        ? children.some(child => {
-            if (
-              child &&
-              child.props &&
-              (child.props.isActive === true || child.props['aria-current'])
-            ) {
-              return true;
-            }
-            return false;
-          })
-        : children.props &&
-          (children.props.isActive === true || children.props['aria-current']);
-    }
 
     const className = cx({
       [`${prefix}--side-nav__item`]: true,
@@ -217,9 +195,6 @@ export class SideNavMenu extends React.Component {
             </SideNavIcon>
           </div>
         </button>
-        <ul className={`${prefix}--side-nav__menu`} role="menu">
-          {React.Children.map(children, this._renderSideNavItem)}
-        </ul>
       </li>
     );
   }

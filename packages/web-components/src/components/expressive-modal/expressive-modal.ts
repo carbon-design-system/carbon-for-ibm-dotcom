@@ -246,6 +246,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
         this.open = false;
         this.dispatchEvent(new CustomEvent(eventClose, init));
       }
+      this.setAttribute('aria-hidden', 'true');
     }
   }
 
@@ -366,6 +367,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     }
     if (changedProperties.has('open')) {
       if (this.open) {
+        this.removeAttribute('aria-hidden');
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector((this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus);
         await this._waitForTransitionEnd();
@@ -421,7 +423,7 @@ class DDSExpressiveModal extends StableSelectorMixin(HostListenerMixin(LitElemen
     return `
       [data-modal-primary-focus],
       ${ddsPrefix}-expressive-modal-footer ${prefix}-btn[kind="primary"],
-      ${ddsPrefix}-expressive-modal-footer ${ddsPrefix}-btn[kind="primary"]
+      ${ddsPrefix}-expressive-modal-footer ${ddsPrefix}-button-expressive[kind="primary"]
     `;
   }
 
