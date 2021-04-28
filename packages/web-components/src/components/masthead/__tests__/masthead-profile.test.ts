@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import { html, render } from 'lit-html';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import User20 from 'carbon-web-components/es/icons/user/20.js';
-import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
+import User16 from 'carbon-web-components/es/icons/user/16.js';
+import UserOnline16 from 'carbon-web-components/es/icons/user--online/16.js';
 import DDSMastheadProfile from '../masthead-profile';
 
 const template = (props?) => {
@@ -43,7 +43,7 @@ describe('dds-masthead-profile', function() {
     it('should show the default icon in unauthenticated state', async function() {
       render(
         html`
-          ${template()}${User20({ id: 'icon-ref' })}
+          ${template()}${User16({ id: 'icon-ref' })}
         `,
         document.body
       );
@@ -57,7 +57,7 @@ describe('dds-masthead-profile', function() {
     it('should show the "online" icon in authenticated state', async function() {
       render(
         html`
-          ${template({ authenticated: true })}${UserOnline20({ id: 'icon-ref' })}
+          ${template({ authenticated: true })}${UserOnline16({ id: 'icon-ref' })}
         `,
         document.body
       );

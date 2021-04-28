@@ -222,7 +222,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    fill: $text-01;
+    fill: $icon-02;
     transform: scale(1.25);
   }
 
@@ -286,7 +286,7 @@
       content: none;
     }
 
-    @include carbon--type-style(expressive-heading-02, true);
+    @include carbon--type-style(expressive-heading-01);
   }
 }
 

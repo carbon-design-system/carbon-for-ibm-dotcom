@@ -169,7 +169,7 @@
     transition: left $duration--moderate-01 motion(exit, productive);
 
     a {
-      @include carbon--type-style(body-short-02);
+      @include carbon--type-style(body-short-01);
 
       padding-left: $carbon--spacing-05;
       height: carbon--mini-units(6);
@@ -182,7 +182,7 @@
 
     .#{$prefix}--masthead__side-nav--submemu-title {
       @include use-carbon-productive-tokens();
-      @include carbon--type-style(productive-heading-02);
+      @include carbon--type-style(productive-heading-01);
 
       display: flex;
       color: $text-01;
@@ -217,11 +217,12 @@
   button {
     &.#{$prefix}--side-nav__link {
       height: carbon--mini-units(6);
-      @include carbon--type-style(body-short-02);
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style(body-short-01);
 
       > {
         .#{$prefix}--side-nav__link-text {
-          @include carbon--type-style(body-short-02);
+          @include carbon--type-style(body-short-01);
 
           color: $text-01;
           width: 100%;
@@ -335,7 +336,7 @@
 
         .#{$prefix}--masthead__side-nav--submemu-title {
           @include use-carbon-productive-tokens();
-          @include carbon--type-style(productive-heading-02);
+          @include carbon--type-style(productive-heading-01);
 
           display: flex;
           color: $text-01;
@@ -365,7 +366,8 @@
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include carbon--type-style(body-short-02);
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style(body-short-01);
 
       color: $text-01;
       align-self: center;

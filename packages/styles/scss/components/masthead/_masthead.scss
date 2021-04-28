@@ -123,20 +123,22 @@ $search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead-top-nav-link {
-  @include carbon--type-style(body-short-02, true);
+  @include use-carbon-productive-tokens();
+  @include carbon--type-style(body-short-01);
   $menu-item-padding: calc(#{$spacing-01} + #{$spacing-05});
 
   border: none;
   border-bottom: $spacing-01 solid transparent;
   padding: $spacing-01 $menu-item-padding 0 $menu-item-padding;
-  color: $text-01;
+  color: $text-02;
   white-space: nowrap;
 
   &:hover {
     background-color: $hover-ui;
     cursor: pointer;
+    color: $text-01;
     > svg {
-      fill: $text-01;
+      fill: currentColor;
     }
   }
 
@@ -145,6 +147,7 @@ $search-transition-timing: 95ms;
     background-color: $ui-01;
     outline: 2px solid $interactive-01;
     outline-offset: -2px;
+    color: $text-01;
     > svg {
       fill: $text-01;
     }
@@ -266,9 +269,9 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-arrow {
-      fill: $text-01;
+      fill: $icon-02;
       &:hover {
-        fill: $text-01;
+        fill: $icon-02;
       }
     }
   }

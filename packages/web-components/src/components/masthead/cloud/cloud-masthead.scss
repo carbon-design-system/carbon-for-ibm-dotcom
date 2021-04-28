@@ -34,6 +34,9 @@
   }
 
   .bx--btn {
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-short-01);
+
     padding: calc(0.875rem - 3px) carbon--rem(15px);
   }
 
@@ -93,7 +96,8 @@
 
 :host(#{$dds-prefix}-cloud-megamenu-tab) {
   button {
-    @include carbon--type-style('body-long-01');
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-short-01);
 
     color: $text-02;
     width: 100%;
@@ -144,7 +148,8 @@
     }
 
     span {
-      @include carbon--type-style('body-long-01');
+      @include use-carbon-productive-tokens();
+      @include carbon--type-style(body-short-01);
 
       color: $text-02;
       display: block;
@@ -170,7 +175,7 @@
   width: 66.66%;
 
   @include carbon--breakpoint('lg') {
-    width: 50%;
+    width: 40%;
   }
 
   h2 {
@@ -199,7 +204,8 @@
   }
 
   span {
-    @include carbon--type-style('body-short-01');
+    @include use-carbon-productive-tokens();
+    @include carbon--type-style(body-short-01);
 
     color: $text-02;
   }

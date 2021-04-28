@@ -9,7 +9,7 @@
 
 /// @access private
 @mixin masthead-top-nav-name {
-  @include carbon--type-style(expressive-heading-02, true);
+  @include carbon--type-style(expressive-heading-01, true);
 
   color: $text-01;
   padding-left: $carbon--spacing-05;
@@ -74,20 +74,6 @@
         z-index: 1;
         height: 100%;
         background: $ui-background;
-      }
-    }
-
-    .#{$prefix}--header__nav {
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 1.5rem;
-        width: 0.0625rem;
-        background-color: #dcdcdc;
       }
     }
 
