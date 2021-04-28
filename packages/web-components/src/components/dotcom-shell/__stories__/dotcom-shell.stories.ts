@@ -712,6 +712,7 @@ withMicroFooterLanguageOnly.story = {
 
 export const withL1 = ({ parameters }) => {
   const {
+    platform,
     hasProfile,
     userStatus,
     navLinks,
@@ -733,6 +734,8 @@ export const withL1 = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             user-status="${ifNonNull(userStatus)}"
@@ -754,6 +757,8 @@ export const withL1 = ({ parameters }) => {
         `
       : html`
           <dds-dotcom-shell-container
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             user-status="${ifNonNull(userStatus)}"
