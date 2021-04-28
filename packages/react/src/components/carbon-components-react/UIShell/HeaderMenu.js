@@ -177,10 +177,15 @@ class HeaderMenu extends React.Component {
    * clicking off of the menu or menubar.
    */
   handleOnBlur = event => {
+    const elems = root.document?.querySelectorAll(
+      `.${prefix}--masthead__l0, body`
+    );
     if (!event.currentTarget.contains(event.relatedTarget)) {
       this.setState({ expanded: false, selectedIndex: null });
-      this.props.disableScroll &&
+      if (this.props.disableScroll) {
         root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+        elems.forEach(elem => (elem.style.marginRight = '0px'));
+      }
     }
 
     if (!event.relatedTarget || !this.checkMenuItems(event).length) {
