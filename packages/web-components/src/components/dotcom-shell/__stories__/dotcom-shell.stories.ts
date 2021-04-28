@@ -778,7 +778,7 @@ export const withL1 = ({ parameters }) => {
         `}
   `;
 };
-            
+
 withL1.story = {
   parameters: {
     knobs: {
