@@ -94,9 +94,10 @@ class HeaderMenu extends React.Component {
       selectedIndex: null,
     };
     this.items = [];
+    this.scrollBarWidth =
+      root.window?.innerWidth - root.document?.body.offsetWidth;
     this.menuLinkRef = React.createRef();
   }
-
   /**
    * Toggle the expanded state of the menu on click.
    */
@@ -104,14 +105,23 @@ class HeaderMenu extends React.Component {
     event.preventDefault();
     this.menuLinkRef.current.focus();
 
+    // set the margin for masthead and body to adjust for scrollbar disappearing on scroll lock
+    const elems = root.document?.querySelectorAll(
+      `.${prefix}--masthead__l0, body`
+    );
+
     this.setState(prevState => {
       if (this.props.disableScroll) {
         if (prevState.expanded) {
           this.props.setOverlay(false);
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+          elems.forEach(elem => (elem.style.marginRight = '0px'));
         } else {
           this.props.setOverlay(true);
           root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
+          elems.forEach(
+            elem => (elem.style.marginRight = `${this.scrollBarWidth}px`)
+          );
         }
       }
 
