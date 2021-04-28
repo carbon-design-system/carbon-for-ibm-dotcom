@@ -61,6 +61,7 @@
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='false']
       + .#{$prefix}--header__menu {
       ::slotted(#{$dds-prefix}-megamenu),
+      ::slotted(#{$dds-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition--expansion motion(standard, expressive) collapse;
       }
@@ -78,6 +79,7 @@
       width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
 
       ::slotted(#{$dds-prefix}-megamenu),
+      ::slotted(#{$dds-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition--expansion motion(standard, expressive) expand;
       }
@@ -99,6 +101,7 @@
   }
 
   :host(#{$dds-prefix}-megamenu),
+  :host(#{$dds-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
     display: block;
     overflow-y: overlay;

@@ -35,7 +35,7 @@ class DDSCloudMegaMenuCategoryHeading extends LitElement {
 
   render() {
     return html`
-      <h2><a href="${this.href}">${this.title}</a> ${ArrowRight32()}</h2>
+      <h2><a href="${this.href}">${this.title} ${ArrowRight32()}</a></h2>
       <span><slot></slot></span>
     `;
   }
