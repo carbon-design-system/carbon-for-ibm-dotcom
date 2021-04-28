@@ -293,6 +293,7 @@ WithL1.story = {
       DotcomShell: () => {
         const { Masthead: mastheadKnobs } = l1Story.story.parameters.knobs;
         return {
+          platform: mastheadKnobs.l1Platform,
           mastheadProps: {
             ...mastheadKnobs({ groupId: 'Masthead' }),
           },
