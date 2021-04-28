@@ -782,7 +782,7 @@ export const withL1 = ({ parameters }) => {
 withL1.story = {
   parameters: {
     knobs: {
-      MastheadComposite: ({ groupId }) => ({
+      DotcomShell: ({ groupId }) => ({
         platform: l1PlatformData,
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
