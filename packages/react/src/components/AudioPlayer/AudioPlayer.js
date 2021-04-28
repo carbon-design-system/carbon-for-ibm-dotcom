@@ -4,26 +4,29 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import { Object, Number } from 'window-or-global';
 import React, { useState, useEffect, useRef } from 'react';
-import AudioImageOverlay from './AudioImageOverlay';
 import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 
 // import cx from 'classnames';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
+// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
-// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Forward_1032 from '@carbon/icons-react/es/forward--10/24';
+import { Image } from '../Image';
 import PauseFilled32 from '@carbon/icons-react/es/pause--filled/32';
 import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
 import PropTypes from 'prop-types';
 
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/24';
 import settings from 'carbon-components/es/globals/js/settings';
-import Settings32 from '@carbon/icons-react/es/settings/20';
+// import Settings32 from '@carbon/icons-react/es/settings/20';
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
 
-// import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
+import Time24 from '@carbon/icons-react/es/time/24';
+import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
+
 import VolumeDown24 from '@carbon/icons-react/es/volume--down/24';
 import VolumeMute24 from '@carbon/icons-react/es/volume--mute/24';
 import VolumeUp24 from '@carbon/icons-react/es/volume--up/24';
@@ -34,18 +37,13 @@ const { prefix } = settings;
 /**
  * AudioPlayer component.
  *
- * // showCaption,
-  // videoId,
-  // customClassName,
-  // autoPlay,
-  // aspectRatio,
+ *
  */
 
-const AudioPlayer = ({ hasSettings, audioId }) => {
+const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
   const inputRef = useRef(null);
-  const [videoData, setVideoData] = useState({ description: '', name: '' });
-  const [volume, setVolume] = useState(0);
-  const [audioTime, setAudioTime] = useState(0);
+  const [audioData, setAudioData] = useState({ description: '', name: '' });
+
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
   const [displayAudioSettings, setDisplayAudioSettings] = useState(false);
   const [
@@ -57,48 +55,72 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   const [audioHasThumbnail, setAudioHasThumbnail] = useState(false);
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
-  // embedVideo is set to true when overlay thumbnail is clicked
-  const [embedAudio, setEmbedAudio] = useState(false);
-  // const videoPlayerId = uniqueid(`video-player__video-${videoId}-`);
-  // const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
+  // embedVideo is set to true when playbutton is clicked
+  const [embeddedAudio, setEmbeddedAudio] = useState(false);
+  const audioPlayerId = uniqueid(`audio-player__video-${audioId}-`);
+  const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
+
+  const audioDuration = AudioPlayerAPI.getVideoDuration(audioData.duration); // Video Total Time
+
+  const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
+  const [availableCaptions, setAvailableCaptions] = useState({}); // All Captions
+  const [audioVolume, setAudioVolume] = useState(1); // Current Volume
+  const [audioTime, setAudioTime] = useState(0); // Current Play Time
+  const [audioCaption, setAudioCaption] = useState('');
 
   useEffect(() => {
+    const listenerForPlayerUpdatePlayhead = time => {
+      setAudioTime(Math.floor(time));
+    };
+
+    const listenerForNewClosedCaptionsData = captionData => {
+      const processedCaptions = availableCaptions;
+      processedCaptions[captionData.label] = captionData.captions;
+      setAvailableCaptions(processedCaptions);
+    };
+
     let stale = false;
     (async () => {
-      if (embedAudio) {
-        await AudioPlayerAPI.embedVideo(audioId, `${prefix}--${audioId}`, true);
+      if (autoPlay || embeddedAudio) {
+        const embedAnswer = await AudioPlayerAPI.embedAudio(
+          audioId,
+          uniqueAudioPlayerId,
+          true
+        );
+
+        const kdp = await embedAnswer.kWidget();
+
+        kdp.addJsListener(
+          'playerUpdatePlayhead',
+          listenerForPlayerUpdatePlayhead
+        );
+
+        kdp.addJsListener(
+          'newClosedCaptionsData',
+          listenerForNewClosedCaptionsData
+        );
+
+        setKalturaDigitalPlayer(kdp);
       }
       if (stale) {
         return;
       }
-      const newVideoData = await AudioPlayerAPI.api(audioId);
+      const newAudioData = await AudioPlayerAPI.api(audioId);
       if (stale) {
         return;
       }
-      setVideoData(newVideoData);
+      setAudioData(newAudioData);
     })();
     return () => {
       stale = true;
     };
-  }, [audioId, embedAudio]);
-
-  // const classnames = cx(`${prefix}--video-player`, customClassName);
-
-  // const aspectRatioClass = cx({
-  //   [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: aspectRatio,
-  // });
-
-  // useEffect(() => {
-  //   console.log('ENTROU')
-  //   const timeout = setTimeout(() => {
-  //     setAudioTime(prev => prev + 1);
-  //    }, 1000);
-
-  //    if(audioTime > 100) {
-  //     clearTimeout(timeout);
-  //    }
-
-  //  },[audioTime]);
+  }, [
+    autoPlay,
+    audioId,
+    embeddedAudio,
+    uniqueAudioPlayerId,
+    availableCaptions,
+  ]);
 
   useEffect(() => {
     const thumbnailUrl = AudioPlayerAPI.getThumbnailUrl({
@@ -152,24 +174,30 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   };
 
   const handlePlayPauseAudio = () => {
-    if (!embedAudio) {
+    if (!embeddedAudio) {
       setPlayAudio(prev => !prev);
-      setEmbedAudio(true);
-    } else {
-      // Here will be the logic to start and stop audio
+      setEmbeddedAudio(true);
+    } else if (kalturaDigitalPlayer) {
+      if (playAudio) {
+        kalturaDigitalPlayer.sendNotification('doPause');
+      } else {
+        kalturaDigitalPlayer.sendNotification('doPlay');
+      }
+      setPlayAudio(prev => !prev);
     }
   };
 
-  const volumeControl = () => {
+  const volumeControlSlider = () => {
     return (
       displayVolumeControl && (
         <div
           className={`${prefix}--audio-player__volume-control-container ${prefix}--audio-player__container-shadow`}>
           <Slider
-            max={100}
+            max={1}
             min={0}
-            value={volume}
-            onChange={({ value }) => setVolume(value)}
+            step={0.1}
+            value={audioVolume}
+            onChange={({ value }) => handleAudioVolumeChange(value)}
             hideTextInput
             formatLabel={() => ''}
           />
@@ -178,11 +206,16 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
     );
   };
 
-  const handleAudioSpeed = () => {
-    console.log('CLICK');
+  const handleAudioSpeed = velocity => {
+    if (kalturaDigitalPlayer) {
+      kalturaDigitalPlayer.sendNotification(
+        'playbackRateChangeSpeed',
+        velocity
+      );
+    }
   };
 
-  const audioSettings = () => {
+  const audioSettingsMenu = () => {
     return (
       displayAudioSettings && (
         <div
@@ -190,24 +223,24 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
           <div
             role="button"
             tabIndex="0"
-            onClick={() => handleAudioSpeed()}
-            onKeyDown={() => handleAudioSpeed()}
+            onClick={() => handleAudioSpeed(1)}
+            onKeyDown={() => handleAudioSpeed(1)}
             className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
             1x
           </div>
           <div
             role="button"
             tabIndex="0"
-            onClick={() => handleAudioSpeed()}
-            onKeyDown={() => handleAudioSpeed()}
+            onClick={() => handleAudioSpeed(1.5)}
+            onKeyDown={() => handleAudioSpeed(1.5)}
             className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
             1.5x
           </div>
           <div
             role="button"
             tabIndex="0"
-            onClick={() => handleAudioSpeed()}
-            onKeyDown={() => handleAudioSpeed()}
+            onClick={() => handleAudioSpeed(2)}
+            onKeyDown={() => handleAudioSpeed(2)}
             className={`${prefix}--audio-player__audio-settings-container-settings-options`}>
             2x
           </div>
@@ -216,60 +249,111 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
     );
   };
 
-  const handleAudioCaptions = captions => {
-    if (captions === 'off') {
+  const handleAudioCaptions = (captions = '') => {
+    if (captions === '') {
       setDisplayAudioCaptions(false);
     } else {
       setDisplayAudioCaptions(true);
     }
     setDisplayAudioCaptionsOptions(false);
+    setAudioCaption(captions);
   };
 
-  const audioCaptions = () => {
+  const handleRewindForwardAudio = addedValue => {
+    if (kalturaDigitalPlayer) {
+      let time = audioTime + addedValue;
+      time = time < 0 ? 0 : time;
+      time = time >= audioData.duration ? audioData.duration : time;
+
+      kalturaDigitalPlayer.sendNotification('doSeek', time);
+    }
+  };
+
+  const handleScrubberChange = time => {
+    // As this will trigger every time the updatePlayhead listener triggers
+    // and we floor the floating value returned, sometimes it will return like
+    // 1.123 -> Floored to 1
+    // then next function callback will return
+    // 1.98123 -> Floored to 1
+    // And this function will trigger and set the second on the player to 1
+    // meaning it's going back in the audio time and thus generating
+    // a really SAD choke/gulp in the audio
+    // So this function should ONLY trigger if the absolute difference
+    // of the new scrubber time is bigger then 1 from the previou time value
+    if (Math.abs(time - audioTime) >= 1 && kalturaDigitalPlayer) {
+      kalturaDigitalPlayer.sendNotification('doSeek', time);
+      setAudioTime(time);
+    }
+  };
+
+  const handleAudioVolumeChange = volume => {
+    volume = Number.parseFloat(volume.toString().substring(0, 3));
+    if (kalturaDigitalPlayer) {
+      kalturaDigitalPlayer.sendNotification('changeVolume', volume);
+      setAudioVolume(volume);
+    }
+  };
+
+  const audioCaptionsMenu = () => {
     return (
       displayAudioCaptionsOptions && (
         <div
           className={`${prefix}--audio-player__captions-container ${prefix}--audio-player__container-shadow`}>
-          <div
+          {/* <div
             role="button"
             tabIndex="0"
             onClick={() => handleAudioCaptions('options')}
             onKeyDown={() => handleAudioCaptions('options')}
             className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
             Options
-          </div>
+          </div> */}
           <div
             role="button"
             tabIndex="0"
-            onClick={() => handleAudioCaptions('off')}
-            onKeyDown={() => handleAudioCaptions('off')}
+            onClick={() => handleAudioCaptions()}
+            onKeyDown={() => handleAudioCaptions()}
             className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
             Off
           </div>
-          <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioCaptions('english')}
-            onKeyDown={() => handleAudioCaptions('english')}
-            className={`${prefix}--audio-player__captions-container-options`}>
-            English
-          </div>
+          {Object.keys(availableCaptions).map((caption, index) => {
+            return (
+              <div
+                key={index}
+                role="button"
+                tabIndex="0"
+                onClick={() => handleAudioCaptions(caption)}
+                onKeyDown={() => handleAudioCaptions(caption)}
+                className={`${prefix}--audio-player__captions-container-options`}>
+                {caption}
+              </div>
+            );
+          })}
         </div>
       )
     );
   };
 
-  const captions = () => {
+  const audioCaptionText = () => {
+    /// availableCaptions
+    /// audioCaption
+    const captionText = (availableCaptions?.[audioCaption] || [])
+      .filter(caption => {
+        return audioTime >= caption.start && audioTime <= caption.end;
+      })
+      .map(caption => {
+        return caption.content;
+      })
+      .join('<br />');
+
     return (
-      displayAudioCaptions && (
+      displayAudioCaptions &&
+      availableCaptions[audioCaption] && (
         <div className={`${prefix}--audio-player__audio-container-captions`}>
           <p
-            className={`${prefix}--audio-player__audio-container-captions-text`}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry.
-          </p>
+            className={`${prefix}--audio-player__audio-container-captions-text`}
+            dangerouslySetInnerHTML={{
+              __html: captionText,
+            }}></p>
         </div>
       )
     );
@@ -278,26 +362,28 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
   return (
     <>
       <div className={`${prefix}--audio-player__audio-container`}>
+        <div
+          className={`${prefix}--audio-player__audio`}
+          id={uniqueAudioPlayerId}></div>
         {audioHasThumbnail && (
           <div
             className={`${prefix}--audio-player__thumbnail-container`}
-            id={`${prefix}--${audioId}`}
             ref={inputRef}>
-            <AudioImageOverlay
-              src={thumbnailUrl}
-              styleOfComponent={`${prefix}--audio-player__thumbnail`}
-            />
+            <div className={`${prefix}--audio-player__thumbnail`}>
+              <Image defaultSrc={thumbnailUrl} alt="Audio" />
+            </div>
           </div>
         )}
-        {captions()}
         {playAudio ? (
           <Button
             renderIcon={PauseFilled32}
             iconDescription="Pause"
             hasIconOnly
             kind="ghost"
-            onClick={e => handlePlayPauseAudio(e)}
-            tooltipPosition="bottom"
+            onClick={() => {
+              handlePlayPauseAudio();
+            }}
+            tooltipPosition="top"
           />
         ) : (
           <Button
@@ -305,8 +391,10 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
             iconDescription="Play"
             hasIconOnly
             kind="ghost"
-            onClick={e => handlePlayPauseAudio(e)}
-            tooltipPosition="bottom"
+            onClick={() => {
+              handlePlayPauseAudio();
+            }}
+            tooltipPosition="top"
           />
         )}
 
@@ -315,95 +403,120 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
           iconDescription="Rewind 10 seconds"
           hasIconOnly
           kind="ghost"
-          tooltipPosition="bottom"
+          tooltipPosition="top"
+          onClick={() => {
+            handleRewindForwardAudio(-10);
+          }}
+          disabled={!kalturaDigitalPlayer}
         />
 
         <div className={`${prefix}--audio-player__audio-time`}>
           <Slider
             min={0}
             max={160}
-            minLabel="00:00"
-            maxLabel="00:20"
+            minLabel={AudioPlayerAPI.getVideoDuration(audioTime)}
+            maxLabel={audioDuration}
             value={audioTime}
-            onChange={({ value }) => setAudioTime(value)}
+            onChange={({ value }) => handleScrubberChange(value)}
             hideTextInput
             formatLabel={(value, minOrMaxLabel) =>
               handleFormat(value, minOrMaxLabel)
             }
             step={1}
+            stepMultiplier={10}
+            disabled={!kalturaDigitalPlayer}
           />
         </div>
 
-        <Button
-          renderIcon={Forward_1032}
-          iconDescription="Forward 10 seconds"
-          hasIconOnly
-          kind="ghost"
-          tooltipPosition="bottom"
-        />
+        {
+          <Button
+            renderIcon={Forward_1032}
+            iconDescription="Forward 10 seconds"
+            hasIconOnly
+            kind="ghost"
+            tooltipPosition="top"
+            onClick={() => {
+              handleRewindForwardAudio(10);
+            }}
+            disabled={!kalturaDigitalPlayer}
+          />
+        }
 
         <div className={`${prefix}--audio-player__volume-control`}>
-          {volumeControl()}
-          {volume === 0 && (
+          {audioVolume === 0 && (
             <Button
               renderIcon={VolumeMute24}
               iconDescription="Volume"
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
-              tooltipPosition="bottom"
+              tooltipPosition="top"
+              disabled={!kalturaDigitalPlayer}
             />
           )}
-          {volume > 0 && volume < 80 && (
+          {audioVolume > 0 && audioVolume < 0.8 && (
             <Button
               renderIcon={VolumeDown24}
               iconDescription="Volume"
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
-              tooltipPosition="bottom"
+              tooltipPosition="top"
+              disabled={!kalturaDigitalPlayer}
             />
           )}
-          {volume >= 80 && (
+          {audioVolume >= 0.8 && (
             <Button
               renderIcon={VolumeUp24}
               iconDescription="Volume"
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayVolume()}
-              tooltipPosition="bottom"
+              tooltipPosition="top"
+              disabled={!kalturaDigitalPlayer}
             />
           )}
+          {volumeControlSlider()}
         </div>
 
-        {hasSettings && (
+        {showPlayRateSpeed && (
           <div className={`${prefix}--audio-player__audio-settings`}>
-            {audioSettings()}
             <Button
-              renderIcon={Settings32}
-              iconDescription="Settings"
+              renderIcon={Time24}
+              iconDescription="Playrate Speed"
               hasIconOnly
               kind="ghost"
               onClick={() => handleDisplayAudioSettings()}
-              tooltipPosition="bottom"
+              tooltipPosition="top"
+              disabled={!kalturaDigitalPlayer}
             />
+            {audioSettingsMenu()}
           </div>
         )}
 
-        <div className={`${prefix}--audio-player__captions`}>
-          {audioCaptions()}
-          <Button
-            renderIcon={ClosedCaptionFilled32}
-            iconDescription="Captions"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => handleDisplayAudioCaptions()}
-            className={
-              displayAudioCaptions && `${prefix}--audio-player__captions-button`
-            }
-            tooltipPosition="bottom"
-          />
-        </div>
+        {showCaption && (
+          <>
+            <div className={`${prefix}--audio-player__captions`}>
+              <Button
+                renderIcon={ClosedCaptionFilled32}
+                iconDescription="Captions"
+                hasIconOnly
+                kind="ghost"
+                onClick={() => handleDisplayAudioCaptions()}
+                className={
+                  displayAudioCaptions &&
+                  `${prefix}--audio-player__captions-button`
+                }
+                disabled={!Object.keys(availableCaptions).length > 0}
+                tooltipPosition="top"
+              />
+              {kalturaDigitalPlayer &&
+                Object.keys(availableCaptions).length > 0 &&
+                audioCaptionsMenu()}
+            </div>
+            {audioCaptionText()}
+          </>
+        )}
       </div>
     </>
   );
@@ -411,9 +524,13 @@ const AudioPlayer = ({ hasSettings, audioId }) => {
 
 AudioPlayer.propTypes = {
   /**
-   * `true` to show the settings button.
+   * `true` to show the playback speed button.
    */
-  hasSettings: PropTypes.bool,
+  showPlayRateSpeed: PropTypes.bool,
+  /**
+   * `true` to show the captions object.
+   */
+  showCaption: PropTypes.bool,
   /**
    * Video ID from Kaltura video platform.
    */
@@ -422,7 +539,7 @@ AudioPlayer.propTypes = {
   /**
    * `true` to autoplay the video on load
    */
-  // autoPlay: PropTypes.bool,
+  autoPlay: PropTypes.bool,
   /**
    * Override default aspect ratio of `16x9`.
    * Available aspect ratios:
@@ -434,16 +551,11 @@ AudioPlayer.propTypes = {
    * The CSS class name to apply.
    */
   // customClassName: PropTypes.string,
-
-  /**
-   * `true` to show the description.
-   */
-  // showCaption: PropTypes.bool,
 };
 
 AudioPlayer.defaultProps = {
   autoPlay: false,
-  hasSettings: true,
+  showPlayRateSpeed: true,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;

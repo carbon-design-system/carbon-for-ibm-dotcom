@@ -178,10 +178,10 @@ class AudioPlayerAPI {
    * function embedMyVideo() {
    *   const elem = document.getElementById('foo');
    *   const videoid = '12345';
-   *   AudioPlayerAPI.embedVideo(videoid, elem);
+   *   AudioPlayerAPI.embedAudio(videoid, elem);
    * }
    */
-  static async embedVideo(videoId, targetId, autoPlay) {
+  static async embedAudio(videoId, targetId, autoPlay) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
@@ -191,20 +191,19 @@ class AudioPlayerAPI {
           uiconf_id: _uiConfId,
           entry_id: videoId,
           flashvars: {
-            //  autoPlay: autoPlay,
-            //  closedCaptions: {
-            //    plugin: true,
-            //  },
-            //  titleLabel: {
-            //    plugin: true,
-            //    align: 'left',
-            //    text: '{mediaProxy.entry.name}',
-            //  },
             autoPlay: autoPlay,
-            'topBarContainer.plugin': false,
-            'controlBarContainer.plugin': false,
-            'largePlayBtn.plugin': false,
-            'unMuteOverlayButton.plugin': false,
+            closedCaptions: {
+              plugin: true,
+            },
+            titleLabel: {
+              plugin: true,
+              align: 'left',
+              text: '{mediaProxy.entry.name}',
+            },
+            playbackRateSelector: {
+              defaultSpeed: 1,
+              plugin: true,
+            },
           },
           params: {
             wmode: 'transparent',
@@ -302,19 +301,22 @@ class AudioPlayerAPI {
   }
 
   /**
-   * Convert video duration from milliseconds to HH:MM:SS
+   * Convert video duration from seconds to HH:MM:SS
    *
-   * @param {string} duration video duration in milliseconds
+   * @param {string} duration video duration in seconds
    * @returns {string} converted duration
    */
-  static getVideoDuration(duration) {
-    let seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-    hours = hours > 0 ? hours + ':' : '';
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+  static getVideoDuration(duration = 0) {
+    const parsedTime = root?.kWidget?.seconds2Measurements(duration) || {};
+    let hours = parsedTime?.hours || 0;
+    let minutes = parsedTime?.minutes || 0;
+    let seconds = parsedTime?.seconds || 0;
 
-    return duration && '(' + hours + minutes + ':' + seconds + ')';
+    minutes = (hours > 0 ? '0' + minutes : minutes).toString().slice(-2);
+    hours = hours > 0 ? hours + ':' : '';
+    seconds = ('0' + seconds).slice(-2);
+
+    return hours + minutes + ':' + seconds;
   }
 }
 

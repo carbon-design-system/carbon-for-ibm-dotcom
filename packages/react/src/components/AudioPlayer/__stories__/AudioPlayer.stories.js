@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, aspectRatio, audioId } =
+  const { showCaption, showPlayRateSpeed, audioId } =
     parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -37,9 +37,9 @@ export const Default = ({ parameters }) => {
             }}>
             <AudioPlayer
               audioId={audioId}
-              showCaption={showCaption}
-              aspectRatio={aspectRatio}
               hasSettings={true}
+              showCaption={showCaption}
+              showPlayRateSpeed={showPlayRateSpeed}
             />
           </div>
         </div>
@@ -53,8 +53,13 @@ Default.story = {
     knobs: {
       AudioPlayer: ({ groupId }) => ({
         showCaption: boolean('Show caption (showCaption):', true, groupId),
-        aspectRatio: 'default',
+        showPlayRateSpeed: boolean(
+          'Show Playback Speed Rate (showPlayRateSpeed):',
+          true,
+          groupId
+        ),
         audioId: '1_8ki0vj70',
+        // audioId: '1_9h94wo6b',
       }),
     },
   },
