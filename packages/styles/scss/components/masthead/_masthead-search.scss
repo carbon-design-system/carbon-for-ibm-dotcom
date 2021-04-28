@@ -182,6 +182,9 @@
         z-index: 10000;
 
         &::placeholder {
+          @include use-carbon-productive-tokens();
+          @include carbon--type-style(body-short-01);
+
           left: 0;
           opacity: 1;
           transition-duration: 112ms;
