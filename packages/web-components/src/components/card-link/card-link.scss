@@ -15,7 +15,7 @@
 :host(#{$dds-prefix}-link-list-item-card),
 :host(#{$dds-prefix}-link-list-item-card-cta) {
   .#{$prefix}--card {
-    max-width: 320px;
+    max-width: rem(320px);
   }
 
   .#{$prefix}--card__wrapper {
