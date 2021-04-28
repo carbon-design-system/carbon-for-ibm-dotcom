@@ -692,7 +692,7 @@ class DDSMastheadComposite extends LitElement {
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platform
+        ${!platform || l1Data
           ? undefined
           : html`
               <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>

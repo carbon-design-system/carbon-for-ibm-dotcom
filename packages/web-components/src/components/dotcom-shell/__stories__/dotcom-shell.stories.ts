@@ -64,6 +64,14 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+/**
+ * l1 platform data
+ */
+const l1PlatformData = {
+  name: 'Stock Charts',
+  url: 'https://www.example.com',
+};
+
 const footerSizes = {
   Default: FOOTER_SIZE.REGULAR,
   [`Short (${FOOTER_SIZE.SHORT})`]: FOOTER_SIZE.SHORT,
@@ -629,8 +637,8 @@ export const withL1 = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             user-status="${ifNonNull(userStatus)}"
@@ -652,8 +660,8 @@ export const withL1 = ({ parameters }) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             language="${ifNonNull(language)}"
             lang-display="${ifNonNull(langDisplay)}"
             user-status="${ifNonNull(userStatus)}"
@@ -672,6 +680,21 @@ export const withL1 = ({ parameters }) => {
           </dds-dotcom-shell-container>
         `}
   `;
+};
+
+withL1.story = {
+  parameters: {
+    knobs: {
+      MastheadComposite: ({ groupId }) => ({
+        platform: l1PlatformData,
+        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      }),
+    },
+  },
 };
 
 export default {
