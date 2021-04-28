@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './cta.stories.scss';
 import CTA from '../CTA';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import React from 'react';
@@ -106,9 +105,7 @@ const wrapper = (CTA, style, type) => {
         </div>
       ) : (
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            {CTA}
-          </div>
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">{CTA}</div>
         </div>
       )}
       {type === 'jump' || type?.[0] === 'jump' || type?.[1] === 'jump' ? (
