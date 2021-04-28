@@ -13,7 +13,6 @@ import {
   ContentBlockSegmented,
   ContentGroupHorizontal,
   CTASection,
-  Layout,
   LeadSpaceBlock,
   LogoGrid,
   FeatureCardBlockLarge,
@@ -41,59 +40,53 @@ const Content = () => (
   <>
     <TableOfContents menuLabel="Jump to" theme="white" stickyOffset="48">
       <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
-      <Layout type="2-1">
-        <div>
-          <LeadSpaceBlock
-            title="Lorem ipsum dolor sit amet"
-            copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            heading="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
-            mediaType="video"
-            mediaData={{
-              videoId: '1_9h94wo6b',
-              showDescription: true,
-            }}
-            items={{
-              heading: 'Featured products',
-              items: [
-                {
-                  type: 'local',
-                  copy: 'IBM Cloud Continuous Delivery',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-                {
-                  type: 'local',
-                  copy: 'UrbanCode',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-                {
-                  type: 'local',
-                  copy: 'View all products',
-                  cta: {
-                    href: 'https://ibm.com',
-                  },
-                },
-              ],
-            }}
-            cta={{
-              style: 'button',
+      <LeadSpaceBlock
+        title="Lorem ipsum dolor sit amet"
+        copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        heading="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+        mediaType="video"
+        mediaData={{
+          videoId: '1_9h94wo6b',
+          showDescription: true,
+        }}
+        items={{
+          heading: 'Featured products',
+          items: [
+            {
               type: 'local',
-              buttons: [
-                {
-                  type: 'local',
-                  copy: 'Excepteur sint occaecat',
-                  href: 'https://example.com/',
-                },
-              ],
-            }}
-          />
-        </div>
-        <></>
-      </Layout>
-
+              copy: 'IBM Cloud Continuous Delivery',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'UrbanCode',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'View all products',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+          ],
+        }}
+        cta={{
+          style: 'button',
+          type: 'local',
+          buttons: [
+            {
+              type: 'local',
+              copy: 'Excepteur sint occaecat',
+              href: 'https://example.com/',
+            },
+          ],
+        }}
+      />
       <a
         name="section-2"
         data-title="Pharetra pharetra massa massa ultricies mi quis."
