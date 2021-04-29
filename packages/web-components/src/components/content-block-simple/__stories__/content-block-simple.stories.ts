@@ -32,7 +32,6 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const ctaTypes = {
-  None: null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -96,8 +95,9 @@ export const Default = ({ parameters }) => {
 };
 
 export const WithImage = ({ parameters }) => {
-  const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const { ctaType, heading, complementaryStyleScheme } = parameters?.props?.ContentBlockSimple ?? {};
+  const ctaCopy = 'Lorem ipsum dolor sit amet.';
+  const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -116,8 +116,9 @@ WithImage.story = {
 };
 
 export const WithVideo = ({ parameters }) => {
-  const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const { ctaType, heading, complementaryStyleScheme } = parameters?.props?.ContentBlockSimple ?? {};
+  const ctaCopy = 'Lorem ipsum dolor sit amet.';
+  const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -133,11 +134,15 @@ export const WithVideo = ({ parameters }) => {
 
 WithVideo.story = {
   name: 'With video',
+  parameters: {
+    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--content-layout--with-complementary',
+  },
 };
 
 export const WithLinkList = ({ parameters }) => {
-  const { complementaryStyleScheme, heading } = parameters?.props?.ContentBlockSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = parameters?.props?.TextCTA ?? {};
+  const { ctaType, heading, complementaryStyleScheme } = parameters?.props?.ContentBlockSimple ?? {};
+  const ctaCopy = 'Lorem ipsum dolor sit amet.';
+  const href = 'https://www.example.com';
   return html`
     <dds-content-block-simple complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -189,7 +194,7 @@ export default {
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null, groupId),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId),
         complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
+          'Container bottom border',
           complementaryStyleSchemes,
           CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
           groupId
