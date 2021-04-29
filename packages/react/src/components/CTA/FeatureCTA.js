@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import CTALogic from './CTALogic';
-import { FeatureCardBlockMedium } from '../FeatureCardBlockMedium';
+import { FeatureCard } from '../FeatureCard';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -28,8 +28,7 @@ const FeatureCTA = ({
         otherProps.card.cta.media
       )}
       {!renderLightBox && (
-        <FeatureCardBlockMedium
-          heading={otherProps.heading}
+        <FeatureCard
           card={_renderFeatureCard({
             card: {
               ...otherProps.card,
@@ -44,8 +43,7 @@ const FeatureCTA = ({
       )}
     </div>
   ) : (
-    <FeatureCardBlockMedium
-      heading={otherProps.heading}
+    <FeatureCard
       card={_renderFeatureCard({
         card: {
           ...otherProps.card,
