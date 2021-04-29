@@ -140,9 +140,11 @@ function getChangelog(pkgName, folder) {
       const choreName = _getCommitName(commitParse);
       const choreSubject = _getCommitSubject(commitParse);
 
-      chores[choreName] = chores[choreName] || [];
-      if (choreSubject !== 'publish' && choreSubject !== 'release') {
-        chores[choreName].push(choreSubject);
+      if (choreName !== 'release') {
+        chores[choreName] = chores[choreName] || [];
+        if (choreSubject !== 'publish') {
+          chores[choreName].push(choreSubject);
+        }
       }
     }
   });
@@ -201,6 +203,7 @@ function generateLog() {
   log += getChangelog('React', './packages/react');
   log += getChangelog('Styles', './packages/styles');
   log += getChangelog('Services', './packages/services');
+  log += getChangelog('Services Store', './packages/services-store');
   log += getChangelog('Utilities', './packages/utilities');
 
   console.log(log);
