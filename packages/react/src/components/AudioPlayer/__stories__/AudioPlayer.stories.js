@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, showPlayRateSpeed, audioId } =
+  const { showCaption, showPlaybackRate, audioId } =
     parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -39,7 +39,7 @@ export const Default = ({ parameters }) => {
               audioId={audioId}
               hasSettings={true}
               showCaption={showCaption}
-              showPlayRateSpeed={showPlayRateSpeed}
+              showPlaybackRate={showPlaybackRate}
             />
           </div>
         </div>
@@ -53,8 +53,8 @@ Default.story = {
     knobs: {
       AudioPlayer: ({ groupId }) => ({
         showCaption: boolean('Show caption (showCaption):', true, groupId),
-        showPlayRateSpeed: boolean(
-          'Show Playback Speed Rate (showPlayRateSpeed):',
+        showPlaybackRate: boolean(
+          'Show Playback Speed Rate (showPlaybackRate):',
           true,
           groupId
         ),

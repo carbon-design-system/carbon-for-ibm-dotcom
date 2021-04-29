@@ -40,12 +40,12 @@ const { prefix } = settings;
  *
  */
 
-const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
+const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
   const inputRef = useRef(null);
   const [audioData, setAudioData] = useState({ description: '', name: '' });
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
-  const [displayAudioSettings, setDisplayAudioSettings] = useState(false);
+  const [displayPlaybackRate, setDisplayPlaybackRate] = useState(false);
   const [
     displayAudioCaptionsOptions,
     setDisplayAudioCaptionsOptions,
@@ -141,9 +141,13 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     return minOrMaxLabel;
   };
 
+  const hasCaptions = () => {
+    return Object.keys(availableCaptions).length > 0;
+  };
+
   const toggleAudioVolumeControlAndSettings = audioCommand => {
     if (audioCommand === 'volume') {
-      setDisplayAudioSettings(false);
+      setDisplayPlaybackRate(false);
       setDisplayAudioCaptionsOptions(false);
     }
 
@@ -154,7 +158,7 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
 
     if (audioCommand === 'captions') {
       setDisplayVolumeControl(false);
-      setDisplayAudioSettings(false);
+      setDisplayPlaybackRate(false);
     }
   };
 
@@ -163,9 +167,9 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     setDisplayVolumeControl(prev => !prev);
   };
 
-  const handleDisplayAudioSettings = () => {
+  const handleDisplayPlaybackRate = () => {
     toggleAudioVolumeControlAndSettings('settings');
-    setDisplayAudioSettings(prev => !prev);
+    setDisplayPlaybackRate(prev => !prev);
   };
 
   const handleDisplayAudioCaptions = () => {
@@ -187,7 +191,7 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     }
   };
 
-  const volumeControlSlider = () => {
+  const renderVolumeControlSlider = () => {
     return (
       displayVolumeControl && (
         <div
@@ -206,7 +210,7 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     );
   };
 
-  const handleAudioSpeed = velocity => {
+  const handleAudioPlaybackRate = velocity => {
     if (kalturaDigitalPlayer) {
       kalturaDigitalPlayer.sendNotification(
         'playbackRateChangeSpeed',
@@ -215,35 +219,25 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     }
   };
 
-  const audioSettingsMenu = () => {
+  const renderPlaybackRateMenu = () => {
+    const availableRates = ['1', '1.5', '2'];
     return (
-      displayAudioSettings && (
+      displayPlaybackRate && (
         <div
           className={`${prefix}--audio-player__audio-settings-container ${prefix}--audio-player__container-shadow`}>
-          <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioSpeed(1)}
-            onKeyDown={() => handleAudioSpeed(1)}
-            className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
-            1x
-          </div>
-          <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioSpeed(1.5)}
-            onKeyDown={() => handleAudioSpeed(1.5)}
-            className={`${prefix}--audio-player__audio-settings-container-settings-options ${prefix}--audio-player__audio-settings-container-settings-options-border`}>
-            1.5x
-          </div>
-          <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioSpeed(2)}
-            onKeyDown={() => handleAudioSpeed(2)}
-            className={`${prefix}--audio-player__audio-settings-container-settings-options`}>
-            2x
-          </div>
+          {availableRates.map((rate, rateIndex) => {
+            return (
+              <div
+                key={rateIndex}
+                role="button"
+                tabIndex="0"
+                onClick={() => handleAudioPlaybackRate(rate)}
+                onKeyDown={() => handleAudioPlaybackRate(rate)}
+                className={`${prefix}--audio-player__audio-settings-container-settings-options`}>
+                {rate}x
+              </div>
+            );
+          })}
         </div>
       )
     );
@@ -294,37 +288,29 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     }
   };
 
-  const audioCaptionsMenu = () => {
+  const renderCaptionsMenu = () => {
     return (
       displayAudioCaptionsOptions && (
         <div
           className={`${prefix}--audio-player__captions-container ${prefix}--audio-player__container-shadow`}>
-          {/* <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioCaptions('options')}
-            onKeyDown={() => handleAudioCaptions('options')}
-            className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
-            Options
-          </div> */}
           <div
             role="button"
             tabIndex="0"
             onClick={() => handleAudioCaptions()}
             onKeyDown={() => handleAudioCaptions()}
-            className={`${prefix}--audio-player__captions-container-options ${prefix}--audio-player__captions-container-options-border`}>
+            className={`${prefix}--audio-player__captions-container-options`}>
             Off
           </div>
-          {Object.keys(availableCaptions).map((caption, index) => {
+          {Object.keys(availableCaptions).map((captionLabel, captionIndex) => {
             return (
               <div
-                key={index}
+                key={captionIndex}
                 role="button"
                 tabIndex="0"
-                onClick={() => handleAudioCaptions(caption)}
-                onKeyDown={() => handleAudioCaptions(caption)}
+                onClick={() => handleAudioCaptions(captionLabel)}
+                onKeyDown={() => handleAudioCaptions(captionLabel)}
                 className={`${prefix}--audio-player__captions-container-options`}>
-                {caption}
+                {captionLabel}
               </div>
             );
           })}
@@ -333,9 +319,7 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     );
   };
 
-  const audioCaptionText = () => {
-    /// availableCaptions
-    /// audioCaption
+  const renderCaptionText = () => {
     const captionText = (availableCaptions?.[audioCaption] || [])
       .filter(caption => {
         return audioTime >= caption.start && audioTime <= caption.end;
@@ -359,6 +343,15 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
     );
   };
 
+  const renderVolumeButtonIcon = () => {
+    if (audioVolume === 0) {
+      return VolumeMute24;
+    } else if (audioVolume > 0 && audioVolume < 0.8) {
+      return VolumeDown24;
+    }
+    return VolumeUp24;
+  };
+
   return (
     <>
       <div className={`${prefix}--audio-player__audio-container`}>
@@ -374,29 +367,17 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
             </div>
           </div>
         )}
-        {playAudio ? (
-          <Button
-            renderIcon={PauseFilled32}
-            iconDescription="Pause"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => {
-              handlePlayPauseAudio();
-            }}
-            tooltipPosition="top"
-          />
-        ) : (
-          <Button
-            renderIcon={PlayFilledAlt32}
-            iconDescription="Play"
-            hasIconOnly
-            kind="ghost"
-            onClick={() => {
-              handlePlayPauseAudio();
-            }}
-            tooltipPosition="top"
-          />
-        )}
+
+        <Button
+          renderIcon={playAudio ? PauseFilled32 : PlayFilledAlt32}
+          iconDescription="Pause"
+          hasIconOnly
+          kind="ghost"
+          onClick={() => {
+            handlePlayPauseAudio();
+          }}
+          tooltipPosition="top"
+        />
 
         <Button
           renderIcon={Rewind_1032}
@@ -428,69 +409,44 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
           />
         </div>
 
-        {
-          <Button
-            renderIcon={Forward_1032}
-            iconDescription="Forward 10 seconds"
-            hasIconOnly
-            kind="ghost"
-            tooltipPosition="top"
-            onClick={() => {
-              handleRewindForwardAudio(10);
-            }}
-            disabled={!kalturaDigitalPlayer}
-          />
-        }
+        <Button
+          renderIcon={Forward_1032}
+          iconDescription="Forward 10 seconds"
+          hasIconOnly
+          kind="ghost"
+          tooltipPosition="top"
+          onClick={() => {
+            handleRewindForwardAudio(10);
+          }}
+          disabled={!kalturaDigitalPlayer}
+        />
 
         <div className={`${prefix}--audio-player__volume-control`}>
-          {audioVolume === 0 && (
-            <Button
-              renderIcon={VolumeMute24}
-              iconDescription="Volume"
-              hasIconOnly
-              kind="ghost"
-              onClick={() => handleDisplayVolume()}
-              tooltipPosition="top"
-              disabled={!kalturaDigitalPlayer}
-            />
-          )}
-          {audioVolume > 0 && audioVolume < 0.8 && (
-            <Button
-              renderIcon={VolumeDown24}
-              iconDescription="Volume"
-              hasIconOnly
-              kind="ghost"
-              onClick={() => handleDisplayVolume()}
-              tooltipPosition="top"
-              disabled={!kalturaDigitalPlayer}
-            />
-          )}
-          {audioVolume >= 0.8 && (
-            <Button
-              renderIcon={VolumeUp24}
-              iconDescription="Volume"
-              hasIconOnly
-              kind="ghost"
-              onClick={() => handleDisplayVolume()}
-              tooltipPosition="top"
-              disabled={!kalturaDigitalPlayer}
-            />
-          )}
-          {volumeControlSlider()}
+          <Button
+            renderIcon={renderVolumeButtonIcon()}
+            iconDescription="Volume"
+            hasIconOnly
+            kind="ghost"
+            onClick={() => handleDisplayVolume()}
+            tooltipPosition="top"
+            disabled={!kalturaDigitalPlayer}
+          />
+
+          {renderVolumeControlSlider()}
         </div>
 
-        {showPlayRateSpeed && (
+        {showPlaybackRate && (
           <div className={`${prefix}--audio-player__audio-settings`}>
             <Button
               renderIcon={Time24}
-              iconDescription="Playrate Speed"
+              iconDescription="Playback Rate Speed"
               hasIconOnly
               kind="ghost"
-              onClick={() => handleDisplayAudioSettings()}
+              onClick={() => handleDisplayPlaybackRate()}
               tooltipPosition="top"
               disabled={!kalturaDigitalPlayer}
             />
-            {audioSettingsMenu()}
+            {renderPlaybackRateMenu()}
           </div>
         )}
 
@@ -507,14 +463,12 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
                   displayAudioCaptions &&
                   `${prefix}--audio-player__captions-button`
                 }
-                disabled={!Object.keys(availableCaptions).length > 0}
+                disabled={!hasCaptions()}
                 tooltipPosition="top"
               />
-              {kalturaDigitalPlayer &&
-                Object.keys(availableCaptions).length > 0 &&
-                audioCaptionsMenu()}
+              {kalturaDigitalPlayer && hasCaptions() && renderCaptionsMenu()}
             </div>
-            {audioCaptionText()}
+            {renderCaptionText()}
           </>
         )}
       </div>
@@ -524,9 +478,9 @@ const AudioPlayer = ({ autoPlay, showPlayRateSpeed, showCaption, audioId }) => {
 
 AudioPlayer.propTypes = {
   /**
-   * `true` to show the playback speed button.
+   * `true` to show the playback rate button.
    */
-  showPlayRateSpeed: PropTypes.bool,
+  showPlaybackRate: PropTypes.bool,
   /**
    * `true` to show the captions object.
    */
@@ -540,12 +494,6 @@ AudioPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
-  /**
-   * Override default aspect ratio of `16x9`.
-   * Available aspect ratios:
-   *
-   * `16x9`, `9x16`, `2x1`, `1x2`, `4x3`, `3x4`, `1x1`
-   */
   // aspectRatio: PropTypes.string,
   /**
    * The CSS class name to apply.
@@ -555,7 +503,7 @@ AudioPlayer.propTypes = {
 
 AudioPlayer.defaultProps = {
   autoPlay: false,
-  showPlayRateSpeed: true,
+  showPlaybackRate: true,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;
