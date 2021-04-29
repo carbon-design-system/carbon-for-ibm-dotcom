@@ -16,7 +16,7 @@ import {
   Layout,
   LeadSpaceBlock,
   LogoGrid,
-  FeatureCardBlockLarge,
+  FeatureCard,
   TableOfContents,
 } from '../../../../index';
 
@@ -133,20 +133,24 @@ const Content = () => (
           },
         ]}
       />
-      <FeatureCardBlockLarge
-        eyebrow="scelerisque purus"
-        heading="Elementum nibh tellus molestie nunc?"
-        copy="Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique."
-        cta={{
-          href: 'https://example.com',
-          icon: {
-            src: ArrowRight20,
+      <FeatureCard
+        card={{
+          eyebrow: 'scelerisque purus',
+          heading: 'Elementum nibh tellus molestie nunc?',
+          copy:
+            'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
+          cta: {
+            href: 'https://example.com',
+            icon: {
+              src: ArrowRight20,
+            },
+          },
+          image: {
+            defaultSrc: imgLg1x1,
+            alt: 'Image alt text',
           },
         }}
-        image={{
-          defaultSrc: imgLg1x1,
-          alt: 'Image alt text',
-        }}
+        size={'large'}
       />
 
       <a

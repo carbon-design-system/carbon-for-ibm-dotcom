@@ -1,11 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { Card } from '../Card';
+import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,23 +23,57 @@ const { prefix } = settings;
  * @param {Function} props.onClick onClick function
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ card, onClick }) => {
+const FeatureCard = ({ card, size }) => {
+  console.log(card, size);
+  const { eyebrow, heading, image, cta, copy } = card;
+
+  if (size == 'large') {
+    return (
+      eyebrow &&
+      heading &&
+      image &&
+      cta && (
+        <div
+          className={classNames(`${prefix}--feature-card-large`, {
+            [`${prefix}--feature-card-large_no-copy-text`]: !copy,
+          })}
+          data-autoid={`${stablePrefix}--feature-card-large`}>
+          <Card
+            customClassName={`${prefix}--feature-card-large__card`}
+            {...card}
+          />
+        </div>
+      )
+    );
+  }
+
   return (
-    card.cta && (
+    cta && (
       <div
         className={`${prefix}--feature-card`}
         data-autoid={`${stablePrefix}--feature-card`}>
-        <Card
-          customClassName={`${prefix}--feature-card__card`}
-          onClick={onClick}
-          {...card}
-        />
+        <Card customClassName={`${prefix}--feature-card__card`} {...card} />
       </div>
     )
   );
 };
 
 FeatureCard.propTypes = {
+  /**
+   * "Eyebrow" text above copy and CTA.
+   */
+  eyebrow: PropTypes.string,
+
+  /**
+   * Title of the Card item.
+   */
+  heading: PropTypes.string.isRequired,
+
+  /**
+   * Body text for the card.
+   */
+  copy: PropTypes.string,
+
   /**
    * Object containing Feature Card details.
    * In summary, has the following structure.
@@ -87,6 +122,20 @@ FeatureCard.propTypes = {
    * The handler for `onclick` event.
    */
   onClick: PropTypes.func,
+
+  /**
+   * Size of Feature Card. Choose from:
+   *
+   * | Name    | Description                                                  |
+   * | ------- | -------------------------------------------------------------|
+   * | `medium`| Default Feature Card variant                                 |
+   * | `large` | Large Feature Card variant that contains eyebrow and heading |
+   */
+  size: PropTypes.oneOf(['medium', 'large']),
+};
+
+FeatureCard.defaultProps = {
+  size: 'medium',
 };
 
 export default FeatureCard;
