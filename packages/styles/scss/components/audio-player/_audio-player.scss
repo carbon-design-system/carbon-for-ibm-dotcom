@@ -10,8 +10,6 @@
 @import '../../globals/utils/ratio-base';
 @import 'carbon-components/scss/components/slider/slider';
 
-// $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
-
 @mixin audio-player {
   .#{$prefix}--audio-player__audio-container {
     position: relative;
@@ -40,13 +38,26 @@
     }
   }
 
-  .#{$prefix}--audio-player__audio {
+  .#{$prefix}--audio-player__thumbnail {
+    border: 1px solid $ui-03;
+
+    &-container {
+      width: 48px;
+      height: 48px;
+      border: 1px solid $ui-03;
+    }
+  }
+
+  .#{$prefix}--audio-player__embedded-player {
     display: none;
     width: 0;
     height: 0;
     z-index: -1;
   }
 
+  /* ===================================================
+   * Really Need to check this out
+   * ================================================ */
   .#{$prefix}--audio-player__audio-time {
     min-width: 280px;
     height: 40px;
@@ -85,66 +96,18 @@
     box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
   }
 
-  .#{$prefix}--audio-player__audio-settings {
-    position: relative;
+  /* ===================================================
+   * TILL HERE
+   * ================================================ */
+
+  .#{$prefix}--audio-player__button-container {
     width: 48px;
     height: 48px;
 
-    &-container {
-      position: absolute;
-      bottom: calc(48px + 10px);
-      right: 0;
-      width: 240px;
-      height: 150px;
-      background-color: $ui-01;
-      overflow: auto;
-      z-index: 2;
-
-      &-settings-options {
-        padding: 16px;
-
-        + .#{$prefix}--audio-player__audio-settings-container-settings-options {
-          border-top: 1px solid $gray-30;
-        }
-      }
+    button {
+      width: 100%;
+      height: 100%;
     }
-  }
-
-  .#{$prefix}--audio-player__captions {
-    position: relative;
-
-    &-container {
-      position: absolute;
-      bottom: calc(48px + 10px);
-      right: 0;
-      width: 240px;
-      background-color: $ui-01;
-      z-index: 1;
-
-      &-options {
-        padding: 16px;
-
-        + .#{$prefix}--audio-player__captions-container-options {
-          border-top: 1px solid $gray-30;
-        }
-      }
-    }
-
-    &-button {
-      svg.#{$prefix}--btn__icon path:not([data-icon-path]) {
-        fill: $blue-60;
-      }
-    }
-  }
-
-  .#{$prefix}--audio-player__thumbnail {
-    border: 1px solid $ui-03;
-  }
-
-  .#{$prefix}--audio-player__thumbnail-container {
-    width: 48px;
-    height: 48px;
-    border: 1px solid $ui-03;
   }
 }
 

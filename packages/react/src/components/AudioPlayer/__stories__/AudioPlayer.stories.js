@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { showCaption, showPlaybackRate, audioId } =
+  const { audioId, autoPlay, showCaption, showPlaybackRate } =
     parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -40,6 +40,7 @@ export const Default = ({ parameters }) => {
               hasSettings={true}
               showCaption={showCaption}
               showPlaybackRate={showPlaybackRate}
+              autoPlay={autoPlay}
             />
           </div>
         </div>
@@ -52,6 +53,7 @@ Default.story = {
   parameters: {
     knobs: {
       AudioPlayer: ({ groupId }) => ({
+        autoPlay: boolean('Start widget with audio (autoPlay)', false, groupId),
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         showPlaybackRate: boolean(
           'Show Playback Speed Rate (showPlaybackRate):',

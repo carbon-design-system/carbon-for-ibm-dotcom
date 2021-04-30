@@ -13,23 +13,29 @@ import Button from '../../internal/vendor/carbon-components-react/components/But
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
-import Forward_1032 from '@carbon/icons-react/es/forward--10/24';
+import Forward1032 from '@carbon/icons-react/es/forward--10/32';
 import { Image } from '../Image';
+
+import OverflowMenu from '../../internal/vendor/carbon-components-react/components/OverflowMenu';
+import OverflowMenuItem from '../../internal/vendor/carbon-components-react/components/OverflowMenuItem';
+
 import PauseFilled32 from '@carbon/icons-react/es/pause--filled/32';
 import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
 import PropTypes from 'prop-types';
 
-import Rewind_1032 from '@carbon/icons-react/es/rewind--10/24';
+import Replay32 from '@carbon/icons-react/es/renew/32';
+
+import Rewind_1032 from '@carbon/icons-react/es/rewind--10/32';
 import settings from 'carbon-components/es/globals/js/settings';
 // import Settings32 from '@carbon/icons-react/es/settings/20';
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
 
-import Time24 from '@carbon/icons-react/es/time/24';
+import Time32 from '@carbon/icons-react/es/time/32';
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 
-import VolumeDown24 from '@carbon/icons-react/es/volume--down/24';
-import VolumeMute24 from '@carbon/icons-react/es/volume--mute/24';
-import VolumeUp24 from '@carbon/icons-react/es/volume--up/24';
+import VolumeDown32 from '@carbon/icons-react/es/volume--down/32';
+import VolumeMute32 from '@carbon/icons-react/es/volume--mute/32';
+import VolumeUp32 from '@carbon/icons-react/es/volume--up/32';
 
 // const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -40,23 +46,21 @@ const { prefix } = settings;
  *
  */
 
-const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
+const AudioPlayer = ({
+  autoPlay,
+  showPlaybackRate,
+  playbackRates,
+  showCaption,
+  audioId,
+}) => {
   const inputRef = useRef(null);
   const [audioData, setAudioData] = useState({ description: '', name: '' });
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
-  const [displayPlaybackRate, setDisplayPlaybackRate] = useState(false);
-  const [
-    displayAudioCaptionsOptions,
-    setDisplayAudioCaptionsOptions,
-  ] = useState(false);
-  const [displayAudioCaptions, setDisplayAudioCaptions] = useState(false);
-  const [playAudio, setPlayAudio] = useState(false);
+
   const [audioHasThumbnail, setAudioHasThumbnail] = useState(false);
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
-  // embedVideo is set to true when playbutton is clicked
-  const [embeddedAudio, setEmbeddedAudio] = useState(false);
   const audioPlayerId = uniqueid(`audio-player__video-${audioId}-`);
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
 
@@ -64,41 +68,52 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
 
   const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
   const [availableCaptions, setAvailableCaptions] = useState({}); // All Captions
+  /**
+   * The current state of the player
+   *
+   * @param {string} '' - Player not initiated
+   * @param {string} 'loading' - Player initiated but waiting kdp to load
+   * @param {string} 'playing' - Player is playing
+   * @param {string} 'paused' - Player is paused
+   * @param {string} 'stopped' - Player stopped playing (audio finished)
+   */
+  const [audioState, setAudioState] = useState('');
   const [audioVolume, setAudioVolume] = useState(1); // Current Volume
   const [audioTime, setAudioTime] = useState(0); // Current Play Time
   const [audioCaption, setAudioCaption] = useState('');
 
   useEffect(() => {
-    const listenerForPlayerUpdatePlayhead = time => {
-      setAudioTime(Math.floor(time));
-    };
-
-    const listenerForNewClosedCaptionsData = captionData => {
-      const processedCaptions = availableCaptions;
-      processedCaptions[captionData.label] = captionData.captions;
-      setAvailableCaptions(processedCaptions);
+    const listeners = {
+      playerUpdatePlayhead: time => {
+        setAudioTime(Math.floor(time));
+      },
+      newClosedCaptionsData: captionData => {
+        const processedCaptions = availableCaptions;
+        processedCaptions[captionData.label] = captionData.captions;
+        setAvailableCaptions(processedCaptions);
+      },
+      playerPlayEnd: () => {
+        setAudioState('stopped');
+      },
     };
 
     let stale = false;
     (async () => {
-      if (autoPlay || embeddedAudio) {
+      if (audioState === 'loading') {
         const embedAnswer = await AudioPlayerAPI.embedAudio(
           audioId,
           uniqueAudioPlayerId,
           true
         );
 
+        setAudioState('playing');
+
         const kdp = await embedAnswer.kWidget();
 
-        kdp.addJsListener(
-          'playerUpdatePlayhead',
-          listenerForPlayerUpdatePlayhead
-        );
-
-        kdp.addJsListener(
-          'newClosedCaptionsData',
-          listenerForNewClosedCaptionsData
-        );
+        // Loop and bind all the player listeners
+        Object.keys(listeners).map(listenerKey => {
+          kdp.addJsListener(listenerKey, listeners[listenerKey]);
+        });
 
         setKalturaDigitalPlayer(kdp);
       }
@@ -114,13 +129,7 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
     return () => {
       stale = true;
     };
-  }, [
-    autoPlay,
-    audioId,
-    embeddedAudio,
-    uniqueAudioPlayerId,
-    availableCaptions,
-  ]);
+  }, [audioId, audioState, uniqueAudioPlayerId, availableCaptions]);
 
   useEffect(() => {
     const thumbnailUrl = AudioPlayerAPI.getThumbnailUrl({
@@ -137,6 +146,10 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
       .catch(() => setAudioHasThumbnail(false));
   }, [audioId]);
 
+  const initPlayer = () => {
+    setAudioState('loading');
+  };
+
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
   };
@@ -145,49 +158,25 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
     return Object.keys(availableCaptions).length > 0;
   };
 
-  const toggleAudioVolumeControlAndSettings = audioCommand => {
-    if (audioCommand === 'volume') {
-      setDisplayPlaybackRate(false);
-      setDisplayAudioCaptionsOptions(false);
+  const handleDisplayVolume = value => {
+    if (value !== undefined) {
+      setDisplayVolumeControl(value);
+    } else {
+      setDisplayVolumeControl(prev => !prev);
     }
-
-    if (audioCommand === 'settings') {
-      setDisplayVolumeControl(false);
-      setDisplayAudioCaptionsOptions(false);
-    }
-
-    if (audioCommand === 'captions') {
-      setDisplayVolumeControl(false);
-      setDisplayPlaybackRate(false);
-    }
-  };
-
-  const handleDisplayVolume = () => {
-    toggleAudioVolumeControlAndSettings('volume');
-    setDisplayVolumeControl(prev => !prev);
-  };
-
-  const handleDisplayPlaybackRate = () => {
-    toggleAudioVolumeControlAndSettings('settings');
-    setDisplayPlaybackRate(prev => !prev);
-  };
-
-  const handleDisplayAudioCaptions = () => {
-    toggleAudioVolumeControlAndSettings('captions');
-    setDisplayAudioCaptionsOptions(prev => !prev);
   };
 
   const handlePlayPauseAudio = () => {
-    if (!embeddedAudio) {
-      setPlayAudio(prev => !prev);
-      setEmbeddedAudio(true);
+    if (audioState === '') {
+      initPlayer();
     } else if (kalturaDigitalPlayer) {
-      if (playAudio) {
+      if (audioState === 'playing') {
+        setAudioState('paused');
         kalturaDigitalPlayer.sendNotification('doPause');
-      } else {
+      } else if (audioState === 'paused' || audioState === 'stopped') {
+        setAudioState('playing');
         kalturaDigitalPlayer.sendNotification('doPlay');
       }
-      setPlayAudio(prev => !prev);
     }
   };
 
@@ -219,38 +208,8 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
     }
   };
 
-  const renderPlaybackRateMenu = () => {
-    const availableRates = ['1', '1.5', '2'];
-    return (
-      displayPlaybackRate && (
-        <div
-          className={`${prefix}--audio-player__audio-settings-container ${prefix}--audio-player__container-shadow`}>
-          {availableRates.map((rate, rateIndex) => {
-            return (
-              <div
-                key={rateIndex}
-                role="button"
-                tabIndex="0"
-                onClick={() => handleAudioPlaybackRate(rate)}
-                onKeyDown={() => handleAudioPlaybackRate(rate)}
-                className={`${prefix}--audio-player__audio-settings-container-settings-options`}>
-                {rate}x
-              </div>
-            );
-          })}
-        </div>
-      )
-    );
-  };
-
-  const handleAudioCaptions = (captions = '') => {
-    if (captions === '') {
-      setDisplayAudioCaptions(false);
-    } else {
-      setDisplayAudioCaptions(true);
-    }
-    setDisplayAudioCaptionsOptions(false);
-    setAudioCaption(captions);
+  const handleAudioCaptions = (caption = '') => {
+    setAudioCaption(caption);
   };
 
   const handleRewindForwardAudio = addedValue => {
@@ -260,6 +219,7 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
       time = time >= audioData.duration ? audioData.duration : time;
 
       kalturaDigitalPlayer.sendNotification('doSeek', time);
+      setAudioTime(time);
     }
   };
 
@@ -288,37 +248,6 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
     }
   };
 
-  const renderCaptionsMenu = () => {
-    return (
-      displayAudioCaptionsOptions && (
-        <div
-          className={`${prefix}--audio-player__captions-container ${prefix}--audio-player__container-shadow`}>
-          <div
-            role="button"
-            tabIndex="0"
-            onClick={() => handleAudioCaptions()}
-            onKeyDown={() => handleAudioCaptions()}
-            className={`${prefix}--audio-player__captions-container-options`}>
-            Off
-          </div>
-          {Object.keys(availableCaptions).map((captionLabel, captionIndex) => {
-            return (
-              <div
-                key={captionIndex}
-                role="button"
-                tabIndex="0"
-                onClick={() => handleAudioCaptions(captionLabel)}
-                onKeyDown={() => handleAudioCaptions(captionLabel)}
-                className={`${prefix}--audio-player__captions-container-options`}>
-                {captionLabel}
-              </div>
-            );
-          })}
-        </div>
-      )
-    );
-  };
-
   const renderCaptionText = () => {
     const captionText = (availableCaptions?.[audioCaption] || [])
       .filter(caption => {
@@ -330,7 +259,7 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
       .join('<br />');
 
     return (
-      displayAudioCaptions &&
+      audioCaption !== '' &&
       availableCaptions[audioCaption] && (
         <div className={`${prefix}--audio-player__audio-container-captions`}>
           <p
@@ -345,18 +274,64 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
 
   const renderVolumeButtonIcon = () => {
     if (audioVolume === 0) {
-      return VolumeMute24;
+      return VolumeMute32;
     } else if (audioVolume > 0 && audioVolume < 0.8) {
-      return VolumeDown24;
+      return VolumeDown32;
     }
-    return VolumeUp24;
+    return VolumeUp32;
   };
+
+  const renderPlayButton = () => {
+    let icon = PlayFilledAlt32;
+    let iconDescription = 'Play';
+
+    switch (audioState) {
+      case 'loading':
+      case 'playing':
+        icon = PauseFilled32;
+        iconDescription = 'Pause';
+        break;
+      case 'stopped':
+        icon = Replay32;
+        iconDescription = 'Replay';
+        break;
+    }
+
+    return (
+      <Button
+        renderIcon={icon}
+        iconDescription={iconDescription}
+        hasIconOnly
+        kind="ghost"
+        onClick={() => {
+          handlePlayPauseAudio();
+        }}
+        tooltipPosition="top"
+      />
+    );
+  };
+
+  const renderDisabledIcon = icon => {
+    return (
+      <Button
+        renderIcon={icon}
+        iconDescription="Disabled"
+        hasIconOnly
+        kind="ghost"
+        disabled={true}
+      />
+    );
+  };
+
+  if (autoPlay && audioState === '') {
+    initPlayer();
+  }
 
   return (
     <>
       <div className={`${prefix}--audio-player__audio-container`}>
         <div
-          className={`${prefix}--audio-player__audio`}
+          className={`${prefix}--audio-player__embedded-player`}
           id={uniqueAudioPlayerId}></div>
         {audioHasThumbnail && (
           <div
@@ -368,16 +343,7 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
           </div>
         )}
 
-        <Button
-          renderIcon={playAudio ? PauseFilled32 : PlayFilledAlt32}
-          iconDescription="Pause"
-          hasIconOnly
-          kind="ghost"
-          onClick={() => {
-            handlePlayPauseAudio();
-          }}
-          tooltipPosition="top"
-        />
+        {renderPlayButton()}
 
         <Button
           renderIcon={Rewind_1032}
@@ -410,7 +376,7 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
         </div>
 
         <Button
-          renderIcon={Forward_1032}
+          renderIcon={Forward1032}
           iconDescription="Forward 10 seconds"
           hasIconOnly
           kind="ghost"
@@ -435,39 +401,73 @@ const AudioPlayer = ({ autoPlay, showPlaybackRate, showCaption, audioId }) => {
           {renderVolumeControlSlider()}
         </div>
 
-        {showPlaybackRate && (
-          <div className={`${prefix}--audio-player__audio-settings`}>
-            <Button
-              renderIcon={Time24}
+        {showPlaybackRate && !kalturaDigitalPlayer ? (
+          renderDisabledIcon(Time32)
+        ) : (
+          <div className={`${prefix}--audio-player__button-container`}>
+            <OverflowMenu
+              renderIcon={Time32}
+              direction="top"
+              flipped={true}
               iconDescription="Playback Rate Speed"
-              hasIconOnly
-              kind="ghost"
-              onClick={() => handleDisplayPlaybackRate()}
-              tooltipPosition="top"
-              disabled={!kalturaDigitalPlayer}
-            />
-            {renderPlaybackRateMenu()}
+              selectorPrimaryFocus=""
+              onOpen={() => handleDisplayVolume(false)}>
+              {playbackRates.map((playbackRateValue, playbackRateIndex) => {
+                return (
+                  <OverflowMenuItem
+                    key={playbackRateIndex}
+                    itemText={playbackRateValue.toString() + 'x'}
+                    hasDivider
+                    onClick={() =>
+                      handleAudioPlaybackRate(playbackRateValue.toString())
+                    }
+                    disabled={!kalturaDigitalPlayer}
+                  />
+                );
+              })}
+            </OverflowMenu>
           </div>
         )}
 
         {showCaption && (
           <>
-            <div className={`${prefix}--audio-player__captions`}>
-              <Button
-                renderIcon={ClosedCaptionFilled32}
-                iconDescription="Captions"
-                hasIconOnly
-                kind="ghost"
-                onClick={() => handleDisplayAudioCaptions()}
-                className={
-                  displayAudioCaptions &&
-                  `${prefix}--audio-player__captions-button`
-                }
-                disabled={!hasCaptions()}
-                tooltipPosition="top"
-              />
-              {kalturaDigitalPlayer && hasCaptions() && renderCaptionsMenu()}
-            </div>
+            {!kalturaDigitalPlayer || !hasCaptions() ? (
+              renderDisabledIcon(ClosedCaptionFilled32)
+            ) : (
+              <div className={`${prefix}--audio-player__button-container`}>
+                <OverflowMenu
+                  renderIcon={ClosedCaptionFilled32}
+                  direction="top"
+                  flipped={true}
+                  iconDescription="Closed Captions"
+                  selectorPrimaryFocus={`.${prefix}--audio-player__button-for-closed-caption-${audioCaption.toLowerCase()}`}
+                  onOpen={() => handleDisplayVolume(false)}>
+                  <OverflowMenuItem
+                    className={`${prefix}--audio-player__button-for-closed-caption-`}
+                    itemText="Off"
+                    hasDivider
+                    onClick={() => handleAudioCaptions()}
+                    disabled={!kalturaDigitalPlayer || !hasCaptions()}
+                  />
+                  {Object.keys(availableCaptions).map(
+                    (captionLabel, captionIndex) => {
+                      return (
+                        <OverflowMenuItem
+                          className={`${prefix}--audio-player__button-for-closed-caption-${captionLabel.toLowerCase()}`}
+                          key={captionIndex}
+                          itemText={captionLabel}
+                          hasDivider
+                          onClick={() =>
+                            handleAudioCaptions(captionLabel.toString())
+                          }
+                          disabled={!kalturaDigitalPlayer || !hasCaptions()}
+                        />
+                      );
+                    }
+                  )}
+                </OverflowMenu>
+              </div>
+            )}
             {renderCaptionText()}
           </>
         )}
@@ -494,7 +494,12 @@ AudioPlayer.propTypes = {
    * `true` to autoplay the video on load
    */
   autoPlay: PropTypes.bool,
-  // aspectRatio: PropTypes.string,
+
+  /**
+   * The available speed multiplier for playback rate
+   * example: [1, 1.5, 2]
+   */
+  playbackRates: PropTypes.arrayOf(PropTypes.number),
   /**
    * The CSS class name to apply.
    */
@@ -504,6 +509,7 @@ AudioPlayer.propTypes = {
 AudioPlayer.defaultProps = {
   autoPlay: false,
   showPlaybackRate: true,
+  playbackRates: [1, 1.5, 2],
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;
