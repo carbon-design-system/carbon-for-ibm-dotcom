@@ -25,6 +25,10 @@ const mastheadKnobs = {
       url: 'https://www.ibm.com/cloud',
     },
   },
+  l1Platform: {
+    name: 'Stock Charts',
+    url: 'https://www.example.com',
+  },
   mastheadLogo: {
     defaultNoTooltip: {
       denylist: [],
