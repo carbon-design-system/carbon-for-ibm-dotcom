@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action to load search results', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     fetchMock.mockResponse(JSON.stringify({ response: [['foo']] }));
     const store = mockStore();
     expect(await store.dispatch(loadSearchResults('search-query-string-foo'))).toEqual(['foo']);
@@ -76,7 +76,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the loaded search query results', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     fetchMock.mockResponse(JSON.stringify({ response: [['foo']] }));
     const store = mockStore({
       searchAPI: {
@@ -106,7 +106,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action of error in loading search results', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     fetchMock.mockReject(new Error('error-loadsearchquerystring'));
     const store = mockStore();
     let caught;
@@ -145,7 +145,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the error in loading search results', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     fetchMock.mockReject(new Error('error-loadsearchquerystring'));
     const store = mockStore({
       searchAPI: {

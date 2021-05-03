@@ -76,6 +76,12 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   @property({ reflect: true })
   slot = 'brand';
 
+  /**
+   * `true` to hide the logo at render
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'hide-menu-button' })
+  hideMenuButton = false;
+
   focus() {
     const { _buttonNode: buttonNode } = this;
     if (buttonNode) {
@@ -91,6 +97,10 @@ class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
       } else if (this._hFocusWrap) {
         this._hFocusWrap = this._hFocusWrap.release();
       }
+    }
+
+    if (changedProperties.has('hideMenuButton')) {
+      this._hasSearchActive = this.hideMenuButton;
     }
   }
 
