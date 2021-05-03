@@ -5,16 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { Object, Number } from 'window-or-global';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
+import AudioPlayerCaptionText from './AudioPlayerCaptionText';
+import AudioPlayerDisabledButton from './AudioPlayerDisabledButton';
+import AudioPlayerThumbnail from './AudioPlayerThumbnail';
 
 // import cx from 'classnames';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
-// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
+// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
-import { Image } from '../Image';
 
 import OverflowMenu from '../../internal/vendor/carbon-components-react/components/OverflowMenu';
 import OverflowMenuItem from '../../internal/vendor/carbon-components-react/components/OverflowMenuItem';
@@ -27,7 +29,6 @@ import Replay32 from '@carbon/icons-react/es/renew/32';
 
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/32';
 import settings from 'carbon-components/es/globals/js/settings';
-// import Settings32 from '@carbon/icons-react/es/settings/20';
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
 
 import Time32 from '@carbon/icons-react/es/time/32';
@@ -42,10 +43,7 @@ const { prefix } = settings;
 
 /**
  * AudioPlayer component.
- *
- *
  */
-
 const AudioPlayer = ({
   autoPlay,
   showPlaybackRate,
@@ -53,13 +51,9 @@ const AudioPlayer = ({
   showCaption,
   audioId,
 }) => {
-  const inputRef = useRef(null);
   const [audioData, setAudioData] = useState({ description: '', name: '' });
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
-
-  const [audioHasThumbnail, setAudioHasThumbnail] = useState(false);
-  const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   const audioPlayerId = uniqueid(`audio-player__video-${audioId}-`);
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
@@ -131,21 +125,6 @@ const AudioPlayer = ({
     };
   }, [audioId, audioState, uniqueAudioPlayerId, availableCaptions]);
 
-  useEffect(() => {
-    const thumbnailUrl = AudioPlayerAPI.getThumbnailUrl({
-      videoId: audioId,
-      width: '48',
-      height: '48',
-    });
-
-    fetch(thumbnailUrl)
-      .then(() => {
-        setAudioHasThumbnail(true);
-        setThumbnailUrl(thumbnailUrl);
-      })
-      .catch(() => setAudioHasThumbnail(false));
-  }, [audioId]);
-
   const initPlayer = () => {
     setAudioState('loading');
   };
@@ -178,25 +157,6 @@ const AudioPlayer = ({
         kalturaDigitalPlayer.sendNotification('doPlay');
       }
     }
-  };
-
-  const renderVolumeControlSlider = () => {
-    return (
-      displayVolumeControl && (
-        <div
-          className={`${prefix}--audio-player__volume-control-container ${prefix}--audio-player__container-shadow`}>
-          <Slider
-            max={1}
-            min={0}
-            step={0.1}
-            value={audioVolume}
-            onChange={({ value }) => handleAudioVolumeChange(value)}
-            hideTextInput
-            formatLabel={() => ''}
-          />
-        </div>
-      )
-    );
   };
 
   const handleAudioPlaybackRate = velocity => {
@@ -248,30 +208,6 @@ const AudioPlayer = ({
     }
   };
 
-  const renderCaptionText = () => {
-    const captionText = (availableCaptions?.[audioCaption] || [])
-      .filter(caption => {
-        return audioTime >= caption.start && audioTime <= caption.end;
-      })
-      .map(caption => {
-        return caption.content;
-      })
-      .join('<br />');
-
-    return (
-      audioCaption !== '' &&
-      availableCaptions[audioCaption] && (
-        <div className={`${prefix}--audio-player__audio-container-captions`}>
-          <p
-            className={`${prefix}--audio-player__audio-container-captions-text`}
-            dangerouslySetInnerHTML={{
-              __html: captionText,
-            }}></p>
-        </div>
-      )
-    );
-  };
-
   const renderVolumeButtonIcon = () => {
     if (audioVolume === 0) {
       return VolumeMute32;
@@ -281,7 +217,7 @@ const AudioPlayer = ({
     return VolumeUp32;
   };
 
-  const renderPlayButton = () => {
+  const PlayButton = () => {
     let icon = PlayFilledAlt32;
     let iconDescription = 'Play';
 
@@ -311,18 +247,6 @@ const AudioPlayer = ({
     );
   };
 
-  const renderDisabledIcon = icon => {
-    return (
-      <Button
-        renderIcon={icon}
-        iconDescription="Disabled"
-        hasIconOnly
-        kind="ghost"
-        disabled={true}
-      />
-    );
-  };
-
   if (autoPlay && audioState === '') {
     initPlayer();
   }
@@ -333,17 +257,10 @@ const AudioPlayer = ({
         <div
           className={`${prefix}--audio-player__embedded-player`}
           id={uniqueAudioPlayerId}></div>
-        {audioHasThumbnail && (
-          <div
-            className={`${prefix}--audio-player__thumbnail-container`}
-            ref={inputRef}>
-            <div className={`${prefix}--audio-player__thumbnail`}>
-              <Image defaultSrc={thumbnailUrl} alt="Audio" />
-            </div>
-          </div>
-        )}
 
-        {renderPlayButton()}
+        <AudioPlayerThumbnail audioId={audioId} />
+
+        <PlayButton />
 
         <Button
           renderIcon={Rewind_1032}
@@ -398,11 +315,24 @@ const AudioPlayer = ({
             disabled={!kalturaDigitalPlayer}
           />
 
-          {renderVolumeControlSlider()}
+          {displayVolumeControl && (
+            <div
+              className={`${prefix}--audio-player__volume-control-container ${prefix}--audio-player__container-shadow`}>
+              <Slider
+                max={1}
+                min={0}
+                step={0.1}
+                value={audioVolume}
+                onChange={({ value }) => handleAudioVolumeChange(value)}
+                hideTextInput
+                formatLabel={() => ''}
+              />
+            </div>
+          )}
         </div>
 
         {showPlaybackRate && !kalturaDigitalPlayer ? (
-          renderDisabledIcon(Time32)
+          <AudioPlayerDisabledButton icon={Time32} />
         ) : (
           <div className={`${prefix}--audio-player__button-container`}>
             <OverflowMenu
@@ -432,7 +362,7 @@ const AudioPlayer = ({
         {showCaption && (
           <>
             {!kalturaDigitalPlayer || !hasCaptions() ? (
-              renderDisabledIcon(ClosedCaptionFilled32)
+              <AudioPlayerDisabledButton icon={ClosedCaptionFilled32} />
             ) : (
               <div className={`${prefix}--audio-player__button-container`}>
                 <OverflowMenu
@@ -449,6 +379,7 @@ const AudioPlayer = ({
                     onClick={() => handleAudioCaptions()}
                     disabled={!kalturaDigitalPlayer || !hasCaptions()}
                   />
+
                   {Object.keys(availableCaptions).map(
                     (captionLabel, captionIndex) => {
                       return (
@@ -468,7 +399,12 @@ const AudioPlayer = ({
                 </OverflowMenu>
               </div>
             )}
-            {renderCaptionText()}
+            {availableCaptions?.[audioCaption] && (
+              <AudioPlayerCaptionText
+                captions={availableCaptions[audioCaption]}
+                time={audioTime}
+              />
+            )}
           </>
         )}
       </div>
@@ -478,6 +414,14 @@ const AudioPlayer = ({
 
 AudioPlayer.propTypes = {
   /**
+   * Video ID from Kaltura video platform.
+   */
+  audioId: PropTypes.string.isRequired,
+  /**
+   * `true` to autoplay the video on load
+   */
+  autoPlay: PropTypes.bool,
+  /**
    * `true` to show the playback rate button.
    */
   showPlaybackRate: PropTypes.bool,
@@ -485,16 +429,6 @@ AudioPlayer.propTypes = {
    * `true` to show the captions object.
    */
   showCaption: PropTypes.bool,
-  /**
-   * Video ID from Kaltura video platform.
-   */
-  audioId: PropTypes.string.isRequired,
-
-  /**
-   * `true` to autoplay the video on load
-   */
-  autoPlay: PropTypes.bool,
-
   /**
    * The available speed multiplier for playback rate
    * example: [1, 1.5, 2]
