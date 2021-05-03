@@ -12,11 +12,10 @@
     display: block;
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
+  }
 
-    @include carbon--breakpoint('lg') {
-      margin-top: $carbon--layout-06;
-      margin-bottom: $carbon--layout-06;
-    }
+  ::slotted(:not([slot]):last-of-type) {
+    margin-bottom: 0;
   }
 
   ::slotted(#{$dds-prefix}-content-block-complementary) {

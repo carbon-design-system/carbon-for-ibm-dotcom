@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -128,7 +128,14 @@ const TableOfContents = ({
           : elem.position - 50 > -elem.height
       );
 
-    return items[0].elem.getAttribute('name');
+    // Sets last section as active at the end of page in case there is not enough height for it to dynamically activate
+    const bottomReached =
+      document.documentElement.scrollTop +
+        document.documentElement.clientHeight ===
+      document.documentElement.scrollHeight;
+    return !bottomReached
+      ? items[0].elem.getAttribute('name')
+      : items[items.length - 1].elem.getAttribute('name');
   };
 
   /**

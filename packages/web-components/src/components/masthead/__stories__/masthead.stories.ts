@@ -35,6 +35,14 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+/**
+ * l1 platform data
+ */
+const l1PlatformData = {
+  name: 'Stock Charts',
+  url: 'https://www.example.com',
+};
+
 export const Default = ({ parameters }) => {
   const { platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
@@ -198,8 +206,8 @@ export const withL1 = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
@@ -213,8 +221,8 @@ export const withL1 = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
+            platform="${ifNonNull(platform.name)}"
+            platform-url="${ifNonNull(platform.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             ?has-profile="${hasProfile}"
@@ -224,6 +232,21 @@ export const withL1 = ({ parameters }) => {
           ></dds-masthead-container>
         `}
   `;
+};
+
+withL1.story = {
+  parameters: {
+    knobs: {
+      MastheadComposite: ({ groupId }) => ({
+        platform: l1PlatformData,
+        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      }),
+    },
+  },
 };
 
 export const withAlternateLogoAndTooltip = ({ parameters }) => {

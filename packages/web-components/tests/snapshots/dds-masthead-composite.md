@@ -90,6 +90,12 @@
     data-autoid="dds--masthead__l0-sidenav--nav1"
     title="menu-title-foo"
   >
+    <dds-left-nav-menu-item
+      data-autoid="dds--masthead__l0-sidenav--subnav-col1-item0"
+      href="https://ibmdotcom-webcomponents.mybluemix.net/bar"
+      title="menu-item-title-bar"
+    >
+    </dds-left-nav-menu-item>
   </dds-left-nav-menu>
 </dds-left-nav>
 

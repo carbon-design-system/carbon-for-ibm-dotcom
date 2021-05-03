@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,16 +33,16 @@ const Panel = ({ api, active }) => {
             onChange={handleChange}
             size="flex">
             <option key="white" value="white">
-              white
+              White
             </option>
             <option key="g10" value="g10">
-              g10
+              Gray 10
             </option>
             <option key="g90" value="g90">
-              g90
+              Gray 90
             </option>
             <option key="g100" value="g100">
-              g100
+              Gray 100
             </option>
           </Form.Select>
         </Form.Field>

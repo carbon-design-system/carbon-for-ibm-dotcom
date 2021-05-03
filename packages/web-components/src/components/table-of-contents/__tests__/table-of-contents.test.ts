@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,6 @@
 
 import { html, render } from 'lit-html';
 import EventManager from '../../../../tests/utils/event-manager';
-import MockIntersectionObserver from '../../../../tests/utils/mock-intersection-observer';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 /* eslint-disable import/no-duplicates */
 import DDSTableOfContents from '../table-of-contents';
@@ -263,72 +262,6 @@ describe('dds-table-of-contents', function() {
       select.value = '2';
       select.dispatchEvent(new CustomEvent('change', { bubbles: true }));
       expect((tableOfContents as any)._handleUserInitiatedJump).toHaveBeenCalledWith('2');
-    });
-  });
-
-  describe('Observing intersection', function() {
-    let origIntersectionObserver;
-
-    beforeEach(function() {
-      origIntersectionObserver = window.IntersectionObserver;
-      window.IntersectionObserver = (MockIntersectionObserver as unknown) as typeof IntersectionObserver;
-    });
-
-    it('should react to the intersection', async function() {
-      render(
-        template({
-          children: html`
-            <a name="1">Section - 1</a>
-            <a name="2">Section - 2</a>
-            <a name="3">Section - 3</a>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for the component
-      await Promise.resolve(); // The cycle where `slotchange` event is called
-      MockIntersectionObserver.run(document.querySelector('a[name="2"]')!, true);
-      await Promise.resolve();
-      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
-      expect(
-        Array.prototype.map.call(tableOfContents!.shadowRoot!.querySelectorAll('.bx--tableofcontents__desktop__item'), elem =>
-          elem.classList.contains('bx--tableofcontents__desktop__item--active')
-        )
-      ).toEqual([false, true, false]);
-      expect(
-        (tableOfContents!.shadowRoot!.querySelector('.bx--tableofcontents__mobile__select') as HTMLSelectElement).value
-      ).toBe('2');
-    });
-
-    it('should pick the first intersected anchor', async function() {
-      render(
-        template({
-          children: html`
-            <a name="1">Section - 1</a>
-            <a name="2">Section - 2</a>
-            <a name="3">Section - 3</a>
-          `,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for the component
-      await Promise.resolve(); // The cycle where `slotchange` event is called
-      MockIntersectionObserver.run(document.querySelector('a[name="2"]')!, true);
-      MockIntersectionObserver.run(document.querySelector('a[name="3"]')!, true);
-      await Promise.resolve();
-      const tableOfContents = document.querySelector('dds-table-of-contents') as DDSTableOfContents;
-      expect(
-        Array.prototype.map.call(tableOfContents!.shadowRoot!.querySelectorAll('.bx--tableofcontents__desktop__item'), elem =>
-          elem.classList.contains('bx--tableofcontents__desktop__item--active')
-        )
-      ).toEqual([false, true, false]);
-      expect(
-        (tableOfContents!.shadowRoot!.querySelector('.bx--tableofcontents__mobile__select') as HTMLSelectElement).value
-      ).toBe('2');
-    });
-
-    afterEach(function() {
-      window.IntersectionObserver = origIntersectionObserver;
     });
   });
 

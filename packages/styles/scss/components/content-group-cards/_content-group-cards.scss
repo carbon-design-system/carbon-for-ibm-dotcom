@@ -26,8 +26,6 @@
     display: grid;
 
     @include carbon--breakpoint(md) {
-      margin-left: 0;
-      margin-right: 0;
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: 1fr;
     }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,9 +28,8 @@
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
 
-    @include carbon--breakpoint('lg') {
-      margin-top: $carbon--layout-06;
-      margin-bottom: $carbon--layout-06;
+    &:last-of-type {
+      margin-bottom: 0;
     }
   }
 }
