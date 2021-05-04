@@ -55,6 +55,7 @@
   @include carbon--breakpoint('md') {
     justify-content: flex-end;
   }
+}
 
 :host(#{$dds-prefix}-feature-card-footer) {
   .dds-ce--card__footer ::slotted(svg[slot='icon']) {
