@@ -108,6 +108,7 @@ $fcb-breakpoint-up--lg: map-get(
       padding-top: aspect-ratio(1, 1);
 
       .#{$prefix}--card__content {
+        height: 100%;
         padding: carbon--mini-units(2);
         justify-content: space-between;
         background-color: $ui-01;
@@ -190,7 +191,6 @@ $fcb-breakpoint-up--lg: map-get(
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
-
       @include carbon--breakpoint-down('md') {
         flex-direction: row;
       }
