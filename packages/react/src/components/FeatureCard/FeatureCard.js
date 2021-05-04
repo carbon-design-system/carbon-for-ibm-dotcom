@@ -24,35 +24,30 @@ const { prefix } = settings;
  * @returns {*} FeatureCard JSX component
  */
 const FeatureCard = ({ card, size }) => {
-  console.log(card, size);
   const { eyebrow, heading, image, cta, copy } = card;
 
-  if (size == 'large') {
-    return (
-      eyebrow &&
-      heading &&
-      image &&
-      cta && (
-        <div
-          className={classNames(`${prefix}--feature-card-large`, {
-            [`${prefix}--feature-card-large_no-copy-text`]: !copy,
-          })}
-          data-autoid={`${stablePrefix}--feature-card-large`}>
-          <Card
-            customClassName={`${prefix}--feature-card-large__card`}
-            {...card}
-          />
-        </div>
-      )
-    );
-  }
-
   return (
-    cta && (
+    cta &&
+    image && (
       <div
-        className={`${prefix}--feature-card`}
-        data-autoid={`${stablePrefix}--feature-card`}>
-        <Card customClassName={`${prefix}--feature-card__card`} {...card} />
+        className={classNames({
+          [`${prefix}--feature-card`]: size == 'medium',
+          [`${prefix}--feature-card-large`]:
+            size == 'large' && eyebrow && heading,
+          [`${prefix}--feature-card-large_no-copy-text`]: !copy,
+        })}
+        data-autoid={
+          size === 'large'
+            ? `${stablePrefix}--feature-card-large`
+            : `${stablePrefix}--feature-card`
+        }>
+        <Card
+          customClassName={classNames({
+            [`${prefix}--feature-card__card`]: size === 'medium',
+            [`${prefix}--feature-card-large__card`]: size === 'large',
+          })}
+          {...card}
+        />
       </div>
     )
   );
