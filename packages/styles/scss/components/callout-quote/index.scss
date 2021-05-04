@@ -14,10 +14,6 @@
 @mixin callout-quote {
   .#{$prefix}--callout-quote,
   :host(#{$dds-prefix}-callout-quote) {
-    @include carbon--breakpoint('md') {
-      @include hang;
-    }
-
     .#{$prefix}--quote {
       background-color: $inverse-02;
       .#{$prefix}--link {
@@ -30,19 +26,28 @@
     }
   }
 
+  .#{$prefix}--callout-quote .#{$prefix}--callout__container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    @include carbon--breakpoint('md') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   :host(#{$dds-prefix}-callout-quote) {
     @extend .#{$prefix}--callout__container;
+
+    @include carbon--breakpoint('md') {
+      @include hang;
+    }
 
     padding-bottom: $layout-05;
 
     ::slotted(#{$dds-prefix}-callout-link-with-icon) {
       padding-left: $spacing-07;
       outline: transparent;
-    }
-
-    .bx--quote__container,
-    .bx--quote__wrapper {
-      @include hang;
     }
   }
 }
