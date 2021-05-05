@@ -68,6 +68,7 @@
     }
 
     .#{$prefix}--accordion__content {
+      margin-top: -$carbon--spacing-07;
       padding-bottom: $carbon--spacing-09;
     }
   }
