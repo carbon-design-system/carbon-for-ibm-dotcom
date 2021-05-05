@@ -93,6 +93,8 @@ function _reducer(state, action) {
   }
 }
 
+let openOnLoadFocus = true;
+
 /**
  * MastheadSearch component which includes autosuggestion results from the
  * SearchTypeaheadAPI.
@@ -140,6 +142,7 @@ const MastheadSearch = ({
     event => {
       const newisSearchActive = !isSearchActive;
       setIsSearchActive(newisSearchActive);
+      openOnLoadFocus = false;
       onChangeSearchActive(event, { isOpen: newisSearchActive });
     },
     [isSearchActive, onChangeSearchActive]
@@ -380,6 +383,7 @@ const MastheadSearch = ({
         componentInputProps={componentInputProps}
         dispatch={dispatch}
         isActive={isSearchActive}
+        disableFocus={openOnLoadFocus}
       />
     );
   }
