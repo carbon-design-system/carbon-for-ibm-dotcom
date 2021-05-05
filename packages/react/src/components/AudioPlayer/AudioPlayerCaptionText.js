@@ -11,10 +11,10 @@ import settings from 'carbon-components/es/globals/js/settings';
 // const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
-const AudioPlayerCaptionText = ({ captions, time }) => {
+const AudioPlayerCaptionText = ({ captions, audioTime }) => {
   const captionText = (captions || [])
     .filter(caption => {
-      return time >= caption.start && time <= caption.end;
+      return audioTime >= caption.start && audioTime <= caption.end;
     })
     .map(caption => {
       return caption.content;
@@ -42,12 +42,12 @@ AudioPlayerCaptionText.propTypes = {
   /**
    * The current time of the audio
    */
-  time: PropTypes.number.isRequired,
+  audioTime: PropTypes.number.isRequired,
 };
 
 AudioPlayerCaptionText.defaultProps = {
   captions: [],
-  time: 0,
+  audioTime: 0,
 };
 
 export default AudioPlayerCaptionText;

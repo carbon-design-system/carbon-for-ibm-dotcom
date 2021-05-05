@@ -62,16 +62,13 @@
     min-width: 280px;
     height: 40px;
 
-    .#{$prefix}--form-item
-      .#{$prefix}--slider-container
-      .#{$prefix}--slider__range-label:first-of-type {
-      margin-left: 1rem;
+    .#{$prefix}--form-item {
+      .#{$prefix}--slider-container {
+        .#{$prefix}--slider__range-label:first-of-type {
+          margin-left: 1rem;
+        }
+      }
     }
-  }
-
-  .#{$prefix}--audio-player__audio-volume {
-    height: 200px;
-    width: 20px;
   }
 
   .#{$prefix}--audio-player__volume-control {
@@ -79,12 +76,13 @@
     width: 48px;
     height: 48px;
 
-    &-container {
+    &-menu {
       position: absolute;
-      bottom: calc(48px + 10px);
+      bottom: calc(48px + 8px);
+      right: 0;
       display: flex;
       align-items: center;
-      max-width: 240px;
+      max-width: 248px;
       height: 48px;
       padding: 0 8px 8px;
       background-color: $ui-01;
@@ -92,15 +90,16 @@
     }
   }
 
-  .#{$prefix}--audio-player__container-shadow {
-    box-shadow: 1px 1px 32px -16px rgba(0, 0, 0, 0.75);
+  .#{$prefix}--audio-player__shadow {
+    /* Box Shadow from OverFlowMenu */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
 
   /* ===================================================
    * TILL HERE
    * ================================================ */
 
-  .#{$prefix}--audio-player__button-container {
+  .#{$prefix}--audio-player__overflow-menu-container {
     width: 48px;
     height: 48px;
 

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { array, boolean, text } from '@storybook/addon-knobs';
 import AudioPlayer from '../AudioPlayer';
-import { boolean } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { audioId, autoPlay, showCaption, showPlaybackRate } =
+  const { audioId, autoPlay, showCaption, showPlaybackRate, playbackRates } =
     parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -40,6 +40,7 @@ export const Default = ({ parameters }) => {
               hasSettings={true}
               showCaption={showCaption}
               showPlaybackRate={showPlaybackRate}
+              playbackRates={playbackRates}
               autoPlay={autoPlay}
             />
           </div>
@@ -53,6 +54,8 @@ Default.story = {
   parameters: {
     knobs: {
       AudioPlayer: ({ groupId }) => ({
+        audioId: text("Kaltura's Audio ID (audioId):", '1_8ki0vj70', groupId),
+        // audioId: text('Kaltura\'s Audio ID', '1_9h94wo6b', groupId),
         autoPlay: boolean('Start widget with audio (autoPlay)', false, groupId),
         showCaption: boolean('Show caption (showCaption):', true, groupId),
         showPlaybackRate: boolean(
@@ -60,8 +63,12 @@ Default.story = {
           true,
           groupId
         ),
-        audioId: '1_8ki0vj70',
-        // audioId: '1_9h94wo6b',
+        playbackRates: array(
+          'The available velocity of the playback (playbackRates):',
+          [1, 1.5, 2],
+          '|',
+          groupId
+        ),
       }),
     },
   },
