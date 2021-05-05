@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -51,8 +50,7 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </DDSCard>
 );
 
-export const Default = ({ parameters }) => {
-  const { pageSize } = parameters?.props?.Carousel ?? {};
+export const Default = () => {
   return (
     <DDSCardSectionCarousel>
       <DDSContentSectionHeading>Lorem ipsum dolor sit amet</DDSContentSectionHeading>
@@ -63,7 +61,7 @@ export const Default = ({ parameters }) => {
         Link text
         <ArrowRight20 slot="icon" />
       </DDSLinkWithIcon>
-      <DDSCarousel pageSize={pageSize}>
+      <DDSCarousel>
         <Card />
         <Card copy={copyOdd} />
         <Card />
@@ -87,10 +85,5 @@ export default {
   parameters: {
     ...readme.parameters,
     hasGrid: true,
-    knobs: {
-      Carousel: ({ groupId }) => ({
-        pageSize: number('Page size (pageSize)', null!, groupId),
-      }),
-    },
   },
 };
