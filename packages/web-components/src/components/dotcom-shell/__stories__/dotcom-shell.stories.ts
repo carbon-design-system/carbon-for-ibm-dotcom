@@ -241,7 +241,7 @@ DefaultFooterLanguageOnly.story = {
   },
 };
 
-export const searchOpen = ({ parameters }) => {
+export const searchOpenByDefault = ({ parameters }) => {
   const {
     platform,
     hasProfile,

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -96,6 +96,12 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   placeholder?: string;
 
   /**
+   * `true` to activate the search box page load.
+   */
+  @property({ type: Boolean })
+  searchOpenByDefault = false;
+
+  /**
    * The shadow slot this search UI should be in.
    */
   @property({ reflect: true })
@@ -118,9 +124,14 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   }
 
   renderLightDOM() {
-    const { active, currentSearchResults, open, placeholder } = this;
+    const { active, currentSearchResults, open, placeholder, searchOpenByDefault } = this;
     return html`
-      <dds-masthead-search ?active="${active}" ?open="${open}" placeholder="${ifNonNull(placeholder)}">
+      <dds-masthead-search
+        ?active="${active}"
+        ?open="${open}"
+        placeholder="${ifNonNull(placeholder)}"
+        ?search-open-by-default="${searchOpenByDefault}"
+      >
         ${currentSearchResults.map(
           item =>
             html`
