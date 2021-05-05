@@ -498,7 +498,7 @@ class DDSMastheadComposite extends LitElement {
   /**
    * `true` sets search to active when page loads.
    */
-  @property({ attribute: false })
+  @property({ attribute: 'search-open-on-load' })
   searchOpenOnload = this.activateSearch;
 
   /**
