@@ -101,14 +101,16 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
-
-        doc
-          .querySelector('dds-masthead')
-          .shadowRoot.querySelector('.bx--masthead__l0').style.marginRight = `${this._scrollBarWidth}px`;
+        // add the scrollbar width as right-margin to prevent content from shifting when
+        // scrollbar disappears on megamenu expand
+        const masthead = doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
+        if (masthead) masthead.style.marginRight = `${this._scrollBarWidth}px`;
       } else {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = '0px';
-        doc.querySelector('dds-masthead').shadowRoot.querySelector('.bx--masthead__l0').style.marginRight = '0px';
+
+        const masthead = doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
+        if (masthead) masthead.style.marginRight = '0px';
       }
     }
   }
