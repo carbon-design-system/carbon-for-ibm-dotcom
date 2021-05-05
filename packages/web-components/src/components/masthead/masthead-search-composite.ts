@@ -96,10 +96,10 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   placeholder?: string;
 
   /**
-   * `true` to activate the search box page load.
+   * `true` sets search to active when page loads.
    */
   @property({ type: Boolean })
-  searchOpenByDefault = false;
+  searchOpenOnload = false;
 
   /**
    * The shadow slot this search UI should be in.
@@ -124,13 +124,13 @@ class DDSMastheadSearchComposite extends ThrottedInputMixin(HybridRenderMixin(Li
   }
 
   renderLightDOM() {
-    const { active, currentSearchResults, open, placeholder, searchOpenByDefault } = this;
+    const { active, currentSearchResults, open, placeholder, searchOpenOnload } = this;
     return html`
       <dds-masthead-search
         ?active="${active}"
         ?open="${open}"
         placeholder="${ifNonNull(placeholder)}"
-        ?search-open-by-default="${searchOpenByDefault}"
+        ?search-open-on-load="${searchOpenOnload}"
       >
         ${currentSearchResults.map(
           item =>

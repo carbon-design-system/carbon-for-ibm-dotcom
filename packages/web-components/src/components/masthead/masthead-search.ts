@@ -173,7 +173,7 @@ class DDSMastheadSearch extends BXDropdown {
 
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
-    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenByDefault) {
+    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
       this._handleUserInitiatedToggleActiveState(false, false);
     }
   }
@@ -406,8 +406,8 @@ class DDSMastheadSearch extends BXDropdown {
   /**
    * `true` to activate the search box on page load.
    */
-  @property({ type: Boolean, attribute: 'search-open-by-default' })
-  searchOpenByDefault = false;
+  @property({ type: Boolean, attribute: 'search-open-on-load' })
+  searchOpenOnload = false;
 
   /**
    * The input value.
@@ -417,12 +417,12 @@ class DDSMastheadSearch extends BXDropdown {
   }
 
   /**
-   * Returns query param `q` for search input if exists. Only available when searchOpenByDefault is `true`
+   * Returns query param `q` for search input if exists. Only available when searchOpenOnload is `true`
    */
   private _setSearchParam() {
     const { _searchInputNode: searchInputNode } = this;
     const URLParams = new URLSearchParams(this.ownerDocument!.defaultView!.location.search);
-    const searchParam: any = this.searchOpenByDefault ? URLParams.get('q') : '';
+    const searchParam: any = this.searchOpenOnload ? URLParams.get('q') : '';
     searchInputNode.value = searchParam;
   }
 

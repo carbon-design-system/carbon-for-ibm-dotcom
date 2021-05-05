@@ -496,10 +496,10 @@ class DDSMastheadComposite extends LitElement {
   activateSearch = false;
 
   /**
-   * Search open by default flag
+   * `true` sets search to active when page loads.
    */
   @property({ attribute: false })
-  searchOpenByDefault = this.activateSearch;
+  searchOpenOnload = this.activateSearch;
 
   /**
    * The profile items for authenticated state.
@@ -718,7 +718,7 @@ class DDSMastheadComposite extends LitElement {
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
                 ?open="${openSearchDropdown}"
-                ?searchOpenByDefault="${activateSearch}"
+                ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"
