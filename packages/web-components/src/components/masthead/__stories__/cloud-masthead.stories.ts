@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
@@ -32,7 +32,7 @@ const platformData = {
 export const Default = !DDS_CLOUD_MASTHEAD
   ? undefined
   : ({ parameters }) => {
-      const { hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
+      const { hasContact, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
         parameters?.props?.CloudMastheadComposite ?? {};
       const { useMock } = parameters?.props?.Other ?? {};
       return html`
@@ -48,6 +48,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+                ?has-contact="${hasContact}"
                 ?has-profile="${hasProfile}"
                 ?has-search="${hasSearch}"
                 .navLinks="${navLinks}"
@@ -59,6 +60,7 @@ export const Default = !DDS_CLOUD_MASTHEAD
                 platform="Cloud"
                 platform-url="${ifNonNull(platformData.url)}"
                 selected-menu-item="${ifNonNull(selectedMenuItem)}"
+                ?has-contact="${hasContact}"
                 user-status="${ifNonNull(userStatus)}"
                 searchPlaceholder="${ifNonNull(searchPlaceholder)}"
                 .navLinks="${navLinks}"
@@ -99,13 +101,14 @@ export default !DDS_CLOUD_MASTHEAD
               'anonymous',
               groupId
             ),
+            hasContact: boolean('Contact us button visibility (has-contact)', true, groupId),
           }),
         },
         props: (() => {
           // Lets `<dds-cloud-masthead-container>` load the nav links
           const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
           return {
-            MastheadComposite: {
+            CloudMastheadComposite: {
               navLinks: !useMock ? undefined : links,
             },
             Other: {
