@@ -104,13 +104,17 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         // add the scrollbar width as right-margin to prevent content from shifting when
         // scrollbar disappears on megamenu expand
         const masthead = <HTMLElement>doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
-        if (masthead) masthead.style.marginRight = `${this._scrollBarWidth}px`;
+        if (masthead) {
+          masthead.style.marginRight = `${this._scrollBarWidth}px`;
+        }
       } else {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = '0px';
 
         const masthead = <HTMLElement>doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
-        if (masthead) masthead.style.marginRight = '0px';
+        if (masthead) {
+          masthead.style.marginRight = '0px';
+        }
       }
     }
   }
