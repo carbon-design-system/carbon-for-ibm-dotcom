@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, query } from 'lit-element';
+import { customElement, query, internalProperty } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -30,6 +30,12 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    */
   @query(`.${prefix}--header__menu`)
   private _menuNode!: HTMLElement;
+
+  /**
+   * scrollbar width.
+   */
+  @internalProperty()
+  private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
 
   /**
    * The observer for the resize of the viewport.
@@ -91,8 +97,18 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
 
       if (this.expanded) {
         doc?.body?.classList.add(`${prefix}--body__lock-scroll`);
+        doc.body.style.marginRight = `${this._scrollBarWidth}px`;
+        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
+          (item as DDSMegaMenuOverlay).active = this.expanded;
+        });
+
+        doc
+          .querySelector('dds-masthead')
+          .shadowRoot.querySelector('.bx--masthead__l0').style.marginRight = `${this._scrollBarWidth}px`;
       } else {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
+        doc.body.style.marginRight = '0px';
+        doc.querySelector('dds-masthead').shadowRoot.querySelector('.bx--masthead__l0').style.marginRight = '0px';
       }
     }
   }
