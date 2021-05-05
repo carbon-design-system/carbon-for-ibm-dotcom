@@ -11,6 +11,8 @@
 
 @mixin content-item-horizontal-media {
   :host(#{$dds-prefix}-content-item-horizontal-media) {
+    @include carbon--make-row;
+
     padding: $carbon--spacing-07 $carbon--spacing-05;
 
     @include carbon--breakpoint(md) {
