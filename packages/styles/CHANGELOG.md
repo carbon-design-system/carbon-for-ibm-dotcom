@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.18.1-rc.0...@carbon/ibmdotcom-styles@1.18.1) (2021-04-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 ## [1.18.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.18.0...@carbon/ibmdotcom-styles@1.18.1-rc.0) (2021-04-22)
 
 

@@ -305,6 +305,7 @@ const Masthead = ({
               <div ref={mastheadL1Ref}>
                 <MastheadL1
                   {...mastheadL1Data}
+                  platform={platform}
                   isShort={isMastheadSticky}
                   navType={navType}
                   selectedMenuItem={selectedMenuItem}
@@ -403,14 +404,16 @@ Masthead.propTypes = {
    */
   mastheadL1Data: PropTypes.shape({
     /**
-     * Title for the masthead L1 (experimental).
+     * Platform name that appears on L1.
+     * Includes platform name
+     * Object requires `name` and `url`.
+     * See [docs](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default#platform) for more details.
      */
-    title: PropTypes.string,
+    platform: PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string,
+    }),
 
-    /**
-     * Title optional link for the masthead L1 (experimental).
-     */
-    titleLink: PropTypes.string,
     /**
      * Text for the eyebrow link in masthead L1 (experimental).
      */
