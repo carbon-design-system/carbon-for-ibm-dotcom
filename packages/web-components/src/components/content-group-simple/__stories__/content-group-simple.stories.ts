@@ -241,11 +241,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       ContentGroupSimple: ({ groupId }) => ({
-        copy: textNullable(
-          'Copy text (copy)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-          groupId
-        ),
+        copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
         heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
       }),
       CardCTA: ({ groupId }) => {
