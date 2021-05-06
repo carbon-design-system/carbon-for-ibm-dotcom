@@ -26,7 +26,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './feature-card.stories.scss';
 
-export const Default = ({ parameters }) => {
+export const Medium = ({ parameters }) => {
   const { heading, href } = parameters?.props?.['dds-feature-card'] ?? {};
   return html`
     <dds-feature-card href=${ifNonNull(href || undefined)}>
