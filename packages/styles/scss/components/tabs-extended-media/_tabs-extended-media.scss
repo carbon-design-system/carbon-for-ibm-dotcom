@@ -64,13 +64,15 @@
     }
 
     .#{$prefix}--tab-content {
-      padding-top: 0;
+      padding: 0;
     }
 
     .#{$prefix}--accordion__content {
       margin-top: -$carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
       padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
 
       @include carbon--breakpoint(md) {
         margin-bottom: -$carbon--spacing-05;
