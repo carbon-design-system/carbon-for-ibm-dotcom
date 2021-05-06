@@ -46,7 +46,7 @@
   "dependencies": {
     "@carbon/telemetry": "0.0.0-alpha.6",
     "axios": "^0.21.1",
-    "carbon-components": "10.32.1",
+    "carbon-components": "10.34.0",
     "isomorphic-dompurify": "0.4.0",
     "js-cookie": "^2.2.1",
     "marked": "1.1.0",
