@@ -101,8 +101,8 @@
       padding-top: aspect-ratio(1, 1);
 
       .#{$prefix}--card__content {
+        height: 100%;
         padding: carbon--mini-units(2);
-        padding-bottom: carbon--mini-units(6);
         justify-content: space-between;
         background-color: $ui-01;
       }
@@ -180,12 +180,6 @@
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
-
-      @include carbon--breakpoint-down('md') {
-        position: absolute;
-        width: calc(100% - #{carbon--mini-units(4)});
-        bottom: carbon--mini-units(2);
-      }
     }
     ::slotted(svg[slot='footer']) {
       margin-top: auto;
