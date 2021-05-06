@@ -95,23 +95,24 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         (item as DDSMegaMenuOverlay).active = this.expanded;
       });
 
+      // add the scrollbar width as right-margin to prevent content from shifting when
+      // scrollbar disappears on megamenu expand
+      const masthead: HTMLElement | null | undefined = doc
+        .querySelector('dds-masthead')
+        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+
       if (this.expanded) {
         doc?.body?.classList.add(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
-        // add the scrollbar width as right-margin to prevent content from shifting when
-        // scrollbar disappears on megamenu expand
-        const masthead = <HTMLElement>doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
         if (masthead) {
           masthead.style.marginRight = `${this._scrollBarWidth}px`;
         }
       } else {
         doc?.body?.classList.remove(`${prefix}--body__lock-scroll`);
         doc.body.style.marginRight = '0px';
-
-        const masthead = <HTMLElement>doc.querySelector('dds-masthead')?.shadowRoot?.querySelector('.bx--masthead__l0');
         if (masthead) {
           masthead.style.marginRight = '0px';
         }
