@@ -209,6 +209,10 @@
     .#{$prefix}--card {
     background-color: $inverse-02;
 
+    .bx--card__wrapper:hover {
+      background-color: $inverse-hover-ui;
+    }
+
     .#{$prefix}--card__heading,
     .#{$prefix}--card__copy {
       color: $inverse-01;

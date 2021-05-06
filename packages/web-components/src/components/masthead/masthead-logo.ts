@@ -47,6 +47,12 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
   };
 
   /**
+   * `true` to hide the logo at render
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'hide-logo' })
+  hideLogo = false;
+
+  /**
    * Link `href`.
    */
   @property()
@@ -65,12 +71,16 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(BXLink)) {
     `;
   }
 
-  updated() {
-    const { _linkNode: linkNode, _hasSearchActive: hasSearchActive } = this;
+  updated(changedProperties) {
+    const { _linkNode: linkNode } = this;
+
+    if (changedProperties.has('hideLogo')) {
+      this._hasSearchActive = this.hideLogo;
+    }
     if (linkNode) {
       linkNode.setAttribute('aria-label', 'IBM logo');
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, hasSearchActive);
+      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, this._hasSearchActive);
     }
   }
 

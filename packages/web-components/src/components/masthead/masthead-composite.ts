@@ -190,12 +190,16 @@ class DDSMastheadComposite extends LitElement {
   protected _renderLogo() {
     if (!this.logoData)
       return html`
-        <dds-masthead-logo></dds-masthead-logo>
+        <dds-masthead-logo ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg } = this.logoData;
     return html`
-      <dds-masthead-logo ?hasTooltip="${tooltip}" aria-label="${ifNonNull(tooltip)}" tabIndex="0"
+      <dds-masthead-logo
+        ?hide-logo="${this.activateSearch}"
+        ?hasTooltip="${tooltip}"
+        aria-label="${ifNonNull(tooltip)}"
+        tabIndex="0"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;
@@ -363,10 +367,11 @@ class DDSMastheadComposite extends LitElement {
           const { menuSections = [], title, titleEnglish, url } = link;
           const selected = selectedMenuItem && titleEnglish === selectedMenuItem;
           let sections;
-          let mobileSections;
           if (link.hasMegapanel) {
-            sections = this._renderMegaMenu(menuSections);
-            mobileSections = this._renderMobileMegaMenu(menuSections);
+            sections =
+              target === NAV_ITEMS_RENDER_TARGET.TOP_NAV
+                ? this._renderMegaMenu(menuSections)
+                : this._renderMobileMegaMenu(menuSections);
           } else {
             sections = menuSections
               // eslint-disable-next-line no-use-before-define
@@ -438,7 +443,7 @@ class DDSMastheadComposite extends LitElement {
                   title="${title}"
                   data-autoid="${ddsPrefix}--masthead__l0-sidenav--nav${i}"
                 >
-                  ${mobileSections}
+                  ${sections}
                 </dds-left-nav-menu>
               `;
         });
@@ -489,6 +494,12 @@ class DDSMastheadComposite extends LitElement {
    */
   @property({ type: Boolean, attribute: 'activate-search' })
   activateSearch = false;
+
+  /**
+   * `true` sets search to active when page loads.
+   */
+  @property({ attribute: 'search-open-on-load' })
+  searchOpenOnload = this.activateSearch;
 
   /**
    * The profile items for authenticated state.
@@ -682,11 +693,12 @@ class DDSMastheadComposite extends LitElement {
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+          ?hide-menu-button="${activateSearch}"
         >
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
-        ${!platform
+        ${!platform || l1Data
           ? undefined
           : html`
               <dds-top-nav-name href="${ifNonNull(platformUrl)}">${platform}</dds-top-nav-name>
@@ -706,6 +718,7 @@ class DDSMastheadComposite extends LitElement {
                 input-timeout="${inputTimeout}"
                 language="${ifNonNull(language)}"
                 ?open="${openSearchDropdown}"
+                ?searchOpenOnload="${activateSearch}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ._loadSearchResults="${ifNonNull(loadSearchResults)}"

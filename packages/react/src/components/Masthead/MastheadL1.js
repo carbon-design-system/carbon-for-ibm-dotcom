@@ -22,7 +22,7 @@ const { prefix } = settings;
 /**
  * MastHead L1 component.
  */
-const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
+const MastheadL1 = ({ navigationL1, ...rest }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
   });
@@ -65,7 +65,7 @@ const MastheadL1 = ({ title, titleLink, navigationL1, ...rest }) => {
             className={`${prefix}--masthead__l1-name`}
             aria-selected={!rest.selectedMenuItem}>
             <span className={`${prefix}--masthead__l1-name-title`}>
-              <a href={titleLink}>{title}</a>
+              <a href={rest.platform.url}>{rest.platform.name}</a>
             </span>
           </div>
           <HeaderNavContainer>

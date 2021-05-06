@@ -48,8 +48,10 @@ object that contains the navigation data of L1 nav:
 
 ```javascipt
 const l1Data = {
-  title: 'Stock Charts',
-  url: 'https://example.com',
+  platform: {
+    name: 'Stock Charts',
+    url: 'https://example.com/',
+  },
   menuItems: (The nav links),
 }
 ```
@@ -63,6 +65,12 @@ To set a custom endpoint for the translation service to fetch from, set either t
 ```html
 <dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
 ```
+
+## Props
+
+### `<dds-masthead-container>`/`<dds-masthead-composite>`
+
+<Props of="dds-masthead-composite" />
 
 ## Stable selectors
 
@@ -88,3 +96,5 @@ to enable this feature.
 ```javascript
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu-scroll';
 ```
+
+<Description markdown={contributing} />
