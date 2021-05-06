@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -79,7 +79,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action to load language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     const store = mockStore();
     expect(await store.dispatch(loadLanguage())).toBe('ko-KR');
     expect(convertValue(store.getActions())).toEqual([
@@ -105,7 +105,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action of error in loading language', async () => {
-    LocaleAPI.getLang.mockRejectedValue(new Error('error-getlang'));
+    LocaleAPI.getLocale.mockRejectedValue(new Error('error-getlang'));
     const store = mockStore();
     let caught;
     try {
@@ -155,7 +155,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action to load display language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
     const store = mockStore();
     expect(await store.dispatch(loadLangDisplay())).toBe('lang-display-foo');
@@ -182,7 +182,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the loaded locale list data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getLangDisplay.mockResolvedValue('lang-display-foo');
     const store = mockStore({
       localeAPI: {
@@ -205,7 +205,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action of error in loading display language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getLangDisplay.mockRejectedValue(new Error('error-getlangdisplay'));
     const store = mockStore();
     let caught;
@@ -238,7 +238,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the error in loading display language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     const store = mockStore({
       localeAPI: {
         requestsLangDisplay: {
@@ -278,7 +278,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action to load locale list data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getList.mockResolvedValue(mockLocaleList);
     const store = mockStore();
     expect(await store.dispatch(loadLocaleList())).toEqual(mockLocaleList);
@@ -305,7 +305,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the loaded locale list data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getList.mockResolvedValue(mockLocaleList);
     const store = mockStore({
       localeAPI: {
@@ -328,7 +328,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('dispatches the action of error in loading language', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     LocaleAPI.getList.mockRejectedValue(new Error('error-getlocalelist'));
     const store = mockStore();
     let caught;
@@ -361,7 +361,7 @@ describe('Redux actions for `LocaleAPI`', () => {
   });
 
   it('caches the error in loading locale list data', async () => {
-    LocaleAPI.getLang.mockResolvedValue({ cc: 'KR', lc: 'ko' });
+    LocaleAPI.getLocale.mockResolvedValue({ cc: 'KR', lc: 'ko' });
     const store = mockStore({
       localeAPI: {
         requestsLocaleList: {

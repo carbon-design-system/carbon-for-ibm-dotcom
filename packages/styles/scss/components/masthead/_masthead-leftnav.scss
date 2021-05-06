@@ -300,6 +300,8 @@
   }
 
   .#{$prefix}--side-nav__submenu {
+    @include carbon--theme($carbon--theme--white, true);
+
     .#{$prefix}--side-nav__submenu-content {
       width: 100%;
       height: rem(48px);
@@ -309,6 +311,8 @@
 
     &[aria-expanded='true'] {
       + .#{$prefix}--side-nav__menu[role='menu'] {
+        @include carbon--theme($carbon--theme--white, true);
+
         position: absolute;
         overflow-y: auto;
         padding-bottom: $layout-05;
@@ -372,11 +376,13 @@
     }
 
     &[aria-haspopup='true'] {
-      height: carbon--mini-units(6);
+      height: $container-04;
       &.bx--side-nav__submenu-platform {
+        border-top: 1px solid $ui-03;
         border-bottom: 1px solid $ui-04;
         text-decoration: none;
         color: $text-01;
+        height: $container-04;
 
         @include carbon--type-style(expressive-heading-02);
       }
