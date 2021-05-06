@@ -103,7 +103,7 @@ export const WithCustomNavigation = ({ parameters }) => {
   `;
 };
 
-export const searchOpenByDefault = ({ parameters }) => {
+export const searchOpenOnload = ({ parameters }) => {
   const { platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
     parameters?.props?.MastheadComposite ?? {};
   const { useMock } = parameters?.props?.Other ?? {};
