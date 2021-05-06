@@ -177,6 +177,13 @@ class DDSLocaleModal extends DDSExpressiveModal {
         (localeSearch as DDSLocaleSearch).reset();
         (localeSearch as HTMLElement).focus();
       }
+
+      // re-focus on first region-item when navigating back to the first modal pane
+      const { selectorPrimaryFocus } = this.constructor as typeof DDSLocaleModal;
+      const activeRegion = this.querySelector(selectorPrimaryFocus);
+      if (activeRegion) {
+        (activeRegion as HTMLElement).focus();
+      }
     }
   }
 
