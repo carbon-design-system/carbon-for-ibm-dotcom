@@ -120,7 +120,7 @@ const pseudoExports = {
   [moduleEntrypoint('react-is')]: exportsWithFunctions(['isForwardRef']),
   [moduleEntrypoint('@carbon/icons-react')]: moduleContentWithSideEffects,
   [moduleEntrypoint('@carbon/feature-flags')]: exportsWithFunctions([
-    'enabled',
+    'enabled', 'FeatureFlags', 'createScope'
   ]),
   [moduleEntrypoint('carbon-components')]: moduleContentWithSideEffects,
   [moduleEntrypoint('carbon-components-react')]: moduleContentWithSideEffects,
