@@ -498,7 +498,7 @@ const MastheadSearch = ({
    * @returns {string} Section title
    */
   function renderSectionTitle(section) {
-    return section.items.length > 1 && section.title ? (
+    return section.items.length > 0 && section.title ? (
       <span>{section.title}</span>
     ) : null;
   }
