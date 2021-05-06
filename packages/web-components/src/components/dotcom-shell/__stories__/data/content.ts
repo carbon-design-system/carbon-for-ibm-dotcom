@@ -283,7 +283,10 @@ const StoryContent = ({ type = 'default' }) =>
       <main class="bx--content dds-ce-demo-devenv--ui-shell-content" style="padding-top: 0">
         <div class="bx--grid">
           <dds-table-of-contents stickyOffset="48" toc-layout="horizontal">
-            <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-lg-12">
+                <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
             <dds-leadspace-block>
               <dds-leadspace-block-heading>Lorem ipsum dolor sit amet</dds-leadspace-block-heading>
               <dds-leadspace-block-content>
@@ -367,6 +370,9 @@ const StoryContent = ({ type = 'default' }) =>
               <dds-content-block-heading>Tincidunt ornare massa</dds-content-block-heading>
               ${Array.from([1, 2]).map(() => contentItemHorizontal)}
             </dds-content-group-horizontal>
+              </div>
+            </div>
+          </div>
           </dds-table-of-contents>
         </div>
       </main>`;
