@@ -66,6 +66,7 @@ class DDSMastheadSearch extends BXDropdown {
    */
   private async _handleClickSearchButton() {
     const { active } = this;
+
     if (active) {
       if (this._searchInputNode.value) {
         this._handleUserInitiatedRedirect();

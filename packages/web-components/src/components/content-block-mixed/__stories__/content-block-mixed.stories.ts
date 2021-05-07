@@ -31,14 +31,6 @@ import styles from './content-block-mixed.stories.scss';
 import { CTA_TYPE } from '../../cta/defs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
 
-const copy = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-Phasellus at elit sollicitudin, sodales nulla quis, consequat
-libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-`;
-
 const pictogramsItems = [
   {
     heading: 'Aliquam condimentum interdum',
@@ -106,7 +98,13 @@ export default {
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Copy text (copy)', copy, groupId),
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -308,7 +306,13 @@ WithAsideElements.story = {
     knobs: {
       ContentBlockMixed: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable('Copy text (copy)', copy, groupId),
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat
+          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+          `,
         cardsGroupHeading: textNullable(
           'Cards group heading (heading)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
