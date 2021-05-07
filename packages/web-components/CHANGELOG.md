@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.58.45...@carbon/ibmdotcom-web-components@1.4.0-rc.0) (2021-05-07)
+
+
+### Bug Fixes
+
+* **callout-quote:** added hang ([#5886](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5886)) ([dfcec82](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/dfcec82)), closes [#5433](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/5433)
+
+
+
+
+
 ## [1.3.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.3.1-rc.2...@carbon/ibmdotcom-web-components@1.3.1) (2021-04-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
