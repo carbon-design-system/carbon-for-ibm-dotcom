@@ -241,14 +241,12 @@ export default {
     knobs: {
       ContentBlockSegmented: () => ({
         heading: textNullable('Heading (required)', 'Lorem ipsum dolor sit amet.'),
-        copy: textNullable(
-          'copy',
+        copy:
           'Lorem ipsum dolor sit amet, consectetur ' +
-            'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
-            'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
-            ' Mauris iaculis eget dolor nec hendrerit.'
-        ),
+          'adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. ' +
+          'Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ' +
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.' +
+          ' Mauris iaculis eget dolor nec hendrerit.',
         ctaStyle: select('CTA style (cta-style)', ctaStyles, null),
         ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
       }),
