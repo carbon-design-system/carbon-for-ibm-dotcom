@@ -61,13 +61,10 @@ export default {
     knobs: {
       PictogramItem: ({ groupId }) => ({
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit', groupId),
-        copy: textNullable(
-          'Copy (copy):',
+        copy:
           'Lorem ipsum dolor sit amet, ' +
-            'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
-            'Ut enim ad minim veniam\n',
-          groupId
-        ),
+          'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+          'Ut enim ad minim veniam\n',
         href: textNullable('Link with Icon href:', 'https://example.com', groupId),
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor', groupId),
       }),
