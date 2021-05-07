@@ -23,3 +23,7 @@
     }
   }
 }
+
+:host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
+  margin: 1rem;
+}
