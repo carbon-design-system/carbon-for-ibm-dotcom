@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,12 @@ const { stablePrefix } = ddsSettings;
 /**
  * Renders the input bar with the search icon.
  */
-const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
+const MastheadSearchInput = ({
+  componentInputProps,
+  dispatch,
+  isActive,
+  disableFocus,
+}) => {
   const searchRef = useRef();
 
   /**
@@ -45,13 +50,15 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
 
   useEffect(() => {
     if (isActive) {
-      searchRef.current && searchRef.current.focus();
+      if (!disableFocus) {
+        searchRef.current && searchRef.current.focus();
+      }
       root.document.addEventListener('keyup', handleSearchEnter, true);
       return () => {
         root.document.removeEventListener('keyup', handleSearchEnter, true);
       };
     } else resetSearch();
-  }, [isActive, resetSearch]);
+  }, [isActive, disableFocus, resetSearch]);
 
   return (
     <>
@@ -86,6 +93,11 @@ MastheadSearchInput.propTypes = {
    * Executes when the search icon is clicked.
    */
   searchIconClick: PropTypes.func,
+
+  /**
+   * Boolean to prevent focusing on the input if open on load, focus normally upon reopen.
+   */
+  disableFocus: PropTypes.bool,
 };
 
 MastheadSearchInput.defaultProps = {

@@ -242,11 +242,7 @@ export default {
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
-        copy: textNullable(
-          'Copy text (copy)',
-          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-          groupId
-        ),
+        copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
         border: boolean('CTA Block border', false, groupId),
       }),
     },
