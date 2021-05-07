@@ -77,9 +77,10 @@ const AudioPlayerCaptionsMenu = ({
 
 AudioPlayerCaptionsMenu.propTypes = {
   /**
-   * The kdp object
+   * The kaltura digital player (KDP) object
    */
-  kalturaDigitalPlayer: PropTypes.object.isRequired,
+  kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
   /**
    * An object containing all captions withing an array
    * inside an object where each key is the caption language
@@ -97,6 +98,10 @@ AudioPlayerCaptionsMenu.propTypes = {
    * The state setter for the current caption selected
    */
   setAudioCaption: PropTypes.func.isRequired,
+};
+
+AudioPlayerCaptionsMenu.defaultProps = {
+  kalturaDigitalPlayer: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerCaptionsMenu;

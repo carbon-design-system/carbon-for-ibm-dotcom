@@ -78,9 +78,10 @@ const AudioPlayerVolumeControl = ({
 
 AudioPlayerVolumeControl.propTypes = {
   /**
-   * The kdp object
+   * The kaltura digital player (KDP) object
    */
-  kalturaDigitalPlayer: PropTypes.object.isRequired,
+  kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
   /**
    * The function that show/hide the custom volume menu
    */
@@ -97,6 +98,10 @@ AudioPlayerVolumeControl.propTypes = {
    * Should the custom volume control show up?
    */
   displayVolumeControl: PropTypes.bool.isRequired,
+};
+
+AudioPlayerVolumeControl.defaultProps = {
+  kalturaDigitalPlayer: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerVolumeControl;

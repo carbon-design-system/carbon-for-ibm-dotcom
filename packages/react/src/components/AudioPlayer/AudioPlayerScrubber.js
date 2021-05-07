@@ -113,9 +113,10 @@ const AudioPlayerScrubber = ({
 
 AudioPlayerScrubber.propTypes = {
   /**
-   * The kdp object
+   * The kaltura digital player (KDP) object
    */
-  kalturaDigitalPlayer: PropTypes.object.isRequired,
+  kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
   /**
    * The current time of the audio
    */
@@ -128,6 +129,10 @@ AudioPlayerScrubber.propTypes = {
    * The already processed data from the audio
    */
   audioData: PropTypes.object.isRequired,
+};
+
+AudioPlayerScrubber.defaultProps = {
+  kalturaDigitalPlayer: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerScrubber;

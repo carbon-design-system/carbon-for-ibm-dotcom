@@ -76,6 +76,11 @@ const AudioPlayerPlayButton = ({
 
 AudioPlayerPlayButton.propTypes = {
   /**
+   * The kaltura digital player (KDP) object
+   */
+  kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
+  /**
    * The function to start the player
    */
   initPlayer: PropTypes.func.isRequired,
@@ -87,10 +92,10 @@ AudioPlayerPlayButton.propTypes = {
    * A function to update the audioState
    */
   setAudioState: PropTypes.func.isRequired,
-  /**
-   * The kdp object
-   */
-  kalturaDigitalPlayer: PropTypes.object.isRequired,
+};
+
+AudioPlayerPlayButton.defaultProps = {
+  kalturaDigitalPlayer: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerPlayButton;

@@ -71,9 +71,10 @@ const AudioPlayerPlaybackRateMenu = ({
 
 AudioPlayerPlaybackRateMenu.propTypes = {
   /**
-   * The kdp object
+   * The kaltura digital player (KDP) object
    */
-  kalturaDigitalPlayer: PropTypes.object.isRequired,
+  kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
   /**
    * The available speed multiplier for playback rate
    * example: [1, 1.5, 2]
@@ -83,6 +84,10 @@ AudioPlayerPlaybackRateMenu.propTypes = {
    * The function that show/hide the custom volume menu
    */
   handleDisplayVolume: PropTypes.func.isRequired,
+};
+
+AudioPlayerPlaybackRateMenu.defaultProps = {
+  kalturaDigitalPlayer: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerPlaybackRateMenu;
