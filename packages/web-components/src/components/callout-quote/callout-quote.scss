@@ -26,4 +26,10 @@
 
 :host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
   margin: 1rem;
+  @include carbon--breakpoint('md') {
+    margin: 1rem 0;
+  }
+  @include carbon--breakpoint('lg') {
+    margin: 1rem 0.5rem;
+  }
 }

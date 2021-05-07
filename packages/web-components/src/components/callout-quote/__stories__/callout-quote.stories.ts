@@ -70,8 +70,12 @@ export default {
     },
     decorators: [
       story => html`
-        <div class="bx--grid dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--callout">
-          ${story()}
+        <div class="bx--grid">
+          <div class="bx--row">
+            <div class="bx--offset-lg-5 bx--col-lg-11">
+              ${story()}
+            </div>
+          </div>
         </div>
       `,
     ],
