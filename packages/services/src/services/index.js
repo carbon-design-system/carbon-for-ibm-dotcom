@@ -15,4 +15,4 @@ export * from './Profile';
 export * from './SearchTypeahead';
 export * from './Translation';
 export * from './VideoPlayer';
-export * from './AudioPlayer';
+export * from './KalturaPlayer';

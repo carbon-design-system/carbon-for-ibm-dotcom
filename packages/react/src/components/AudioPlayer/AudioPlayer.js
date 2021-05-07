@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useState, useEffect } from 'react';
-import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 import AudioPLayerCaptionsMenu from './AudioPlayerCaptionsMenu';
 import AudioPlayerCaptionText from './AudioPlayerCaptionText';
 import AudioPlayerPlaybackRateMenu from './AudioPlayerPlaybackRateMenu';
@@ -17,6 +16,8 @@ import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
 // import cx from 'classnames';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+
+import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
 import { Object } from 'window-or-global';
 
@@ -80,7 +81,7 @@ const AudioPlayer = ({
     let stale = false;
     (async () => {
       if (audioState === 'loading') {
-        const embedAnswer = await AudioPlayerAPI.embedAudio(
+        const embedAnswer = await KalturaPlayerAPI.embedMedia(
           audioId,
           uniqueAudioPlayerId,
           true
@@ -100,7 +101,7 @@ const AudioPlayer = ({
       if (stale) {
         return;
       }
-      const newAudioData = await AudioPlayerAPI.api(audioId);
+      const newAudioData = await KalturaPlayerAPI.api(audioId);
       if (stale) {
         return;
       }

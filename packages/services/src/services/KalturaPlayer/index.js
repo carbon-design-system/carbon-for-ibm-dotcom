@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as AudioPlayer } from './AudioPlayer';
+export { default as KalturaPlayer } from './KalturaPlayer';

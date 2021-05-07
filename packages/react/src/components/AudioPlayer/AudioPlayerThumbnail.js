@@ -5,10 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useState, useEffect, useRef } from 'react';
-import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+
 import { Image } from '../Image';
+
+import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -22,8 +24,8 @@ const AudioPlayerThumbnail = ({ audioId }) => {
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   useEffect(() => {
-    const thumbnailUrlFromAPI = AudioPlayerAPI.getThumbnailUrl({
-      videoId: audioId,
+    const thumbnailUrlFromAPI = KalturaPlayerAPI.getThumbnailUrl({
+      mediaId: audioId,
       width: '48',
       height: '48',
     });

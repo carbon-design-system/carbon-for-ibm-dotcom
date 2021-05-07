@@ -4,14 +4,14 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import AudioPlayerAPI from '@carbon/ibmdotcom-services/es/services/AudioPlayer/AudioPlayer';
-
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 // const { stablePrefix } = ddsSettings;
 
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
+
+import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -30,7 +30,7 @@ const AudioPlayerScrubber = ({
   audioData,
   setAudioTime,
 }) => {
-  const audioDuration = AudioPlayerAPI.getVideoDuration(audioData.duration); // Video Total Time
+  const audioDuration = KalturaPlayerAPI.getMediaDuration(audioData.duration); // Video Total Time
 
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
@@ -82,7 +82,7 @@ const AudioPlayerScrubber = ({
         <Slider
           min={0}
           max={160}
-          minLabel={AudioPlayerAPI.getVideoDuration(audioTime)}
+          minLabel={KalturaPlayerAPI.getMediaDuration(audioTime)}
           maxLabel={audioDuration}
           value={audioTime}
           onChange={({ value }) => handleScrubberChange(value)}
