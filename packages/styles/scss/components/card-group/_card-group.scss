@@ -121,10 +121,7 @@
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
     @include carbon--breakpoint('lg') {
-      grid-template-columns: repeat(
-        3,
-        calc((66.66% - 2rem) / 2) calc((66.66% - 2rem) / 2) 33.33%
-      );
+      grid-template-columns: repeat(3, calc((100% / 3) - 1rem));
     }
 
     @include carbon--breakpoint('sm') {
