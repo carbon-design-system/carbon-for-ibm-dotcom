@@ -96,7 +96,7 @@
 :host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
 .#{$prefix}--card-in-card--narrow {
   @include carbon--breakpoint('lg') {
-    width: calc(100% - 1rem);
+    width: calc(100% - #{carbon--mini-units(2)});
   }
 
   .#{$prefix}--card__wrapper {
