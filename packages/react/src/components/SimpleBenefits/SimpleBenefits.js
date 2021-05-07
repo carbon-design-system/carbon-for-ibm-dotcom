@@ -1,17 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { DDS_SIMPLEBENEFITS } from '../../internal/FeatureFlags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureflag/featureflag';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
+import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 import SimpleBenefitsItem from './SimpleBenefitsItem';
 
@@ -22,41 +21,6 @@ const { prefix } = settings;
  * Simple benefits pattern.
  */
 const SimpleBenefits = ({ content, theme, title }) => {
-  useEffect(() => {
-    /**
-     * Function to be added to eventListener and cleaned later on
-     */
-    const resizeFunction = () => {
-      setSameHeight(`.${prefix}--simplebenefits__content-item__title`);
-    };
-
-    resizeFunction();
-    root.addEventListener('resize', resizeFunction);
-
-    return () => root.removeEventListener('resize', resizeFunction);
-  });
-
-  /**
-   * Set same height to elements
-   *
-   * @param {string} selector css selector of target elements
-   */
-  const setSameHeight = selector => {
-    const elements = document.querySelectorAll(selector);
-    let biggest = 0;
-    elements.forEach(element => {
-      element.style.height = `auto`;
-    });
-    elements.forEach(element => {
-      if (element.offsetHeight > biggest) {
-        biggest = element.offsetHeight;
-      }
-    });
-    elements.forEach(element => {
-      element.style.height = `${biggest}px`;
-    });
-  };
-
   const simpleBenefits = classNames({
     [`${prefix}--simplebenefits`]: true,
     [`${prefix}--simplebenefits--multirow`]: content.length > 3,
