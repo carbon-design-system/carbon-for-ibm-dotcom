@@ -286,7 +286,7 @@
       content: none;
     }
 
-    @include carbon--type-style(expressive-heading-01);
+    @include carbon--type-style(expressive-heading-02, true);
   }
 }
 

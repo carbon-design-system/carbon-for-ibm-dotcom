@@ -12,8 +12,8 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import Close16 from 'carbon-web-components/es/icons/close/16.js';
-import Search16 from 'carbon-web-components/es/icons/search/16.js';
+import Close20 from 'carbon-web-components/es/icons/close/20.js';
+import Search20 from 'carbon-web-components/es/icons/search/20.js';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from 'carbon-web-components/es/components/dropdown/dropdown.js';
 import BXDropdownItem from 'carbon-web-components/es/components/dropdown/dropdown-item.js';
 import HostListener from 'carbon-web-components/es/globals/decorators/host-listener';
@@ -451,7 +451,7 @@ class DDSMastheadSearch extends BXDropdown {
           aria-label="${searchButtonAssistiveText}"
           @click="${handleClickSearchButton}"
         >
-          ${Search16()}
+          ${Search20()}
         </button>
         <button
           type="button"
@@ -460,7 +460,7 @@ class DDSMastheadSearch extends BXDropdown {
           aria-label="${closeSearchButtonAssistiveText}"
           @click="${handleClickCloseButton}"
         >
-          ${Close16()}
+          ${Close20()}
         </button>
       </div>
     `;
