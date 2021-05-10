@@ -193,6 +193,8 @@ describe('Masthead: Default', () => {
       await page.click('[data-autoid="dds--masthead-default__l0-search"]');
     }
 
+    await page.waitForTimeout(1500); // still seeing flakiness in test results, adding additional wait to be safe
+
     await percySnapshot(page, 'Components|Masthead: Default - Search', {
       widths: [1280],
     });
@@ -306,6 +308,8 @@ describe('Masthead: Default', () => {
       );
       await page.click('[data-autoid="dds--masthead-eco__l0-search"]');
     }
+
+    await page.waitForTimeout(1500); // still seeing flakiness in test results, adding additional wait to be safe
 
     await percySnapshot(page, 'Components|Masthead: With Platform - Search', {
       widths: [1280],
