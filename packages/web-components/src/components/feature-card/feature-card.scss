@@ -39,7 +39,7 @@
     display: flex;
     justify-content: flex-start;
 
-    @include carbon--breakpoint('lg') {
+    @include carbon--breakpoint('xlg') {
       justify-content: flex-end;
     }
   }

@@ -62,6 +62,8 @@ export const Large = ({ parameters }) => {
 
 Large.story = {
   parameters: {
+    storyGrid: 'bx--col-lg-12 bx--offset-lg-2',
+    useRawContainer: true,
     knobs: {
       'dds-feature-card': ({ groupId }) => ({
         eyebrow: textNullable('Card Eyebrow (required) (eyebrow):', 'This is an eyebrow', groupId),
@@ -81,13 +83,13 @@ Large.story = {
 export default {
   title: 'Components/Feature card',
   decorators: [
-    story => html`
+    (story, { parameters }) => html`
       <style>
         ${styles}
       </style>
-      <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
-        <div class="bx--row dds-ce-demo-devenv--grid-row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 ${parameters.storyGrid}">
             ${story()}
           </div>
         </div>
@@ -96,6 +98,8 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
+    storyGrid: 'bx--col-lg-8 bx--offset-lg-4',
+    useRawContainer: true,
     hasGrid: true,
     knobs: {
       'dds-feature-card': () => ({

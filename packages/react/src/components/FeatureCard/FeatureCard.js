@@ -34,7 +34,8 @@ const FeatureCard = ({ card, size }) => {
           [`${prefix}--feature-card`]: size == 'medium',
           [`${prefix}--feature-card-large`]:
             size == 'large' && eyebrow && heading,
-          [`${prefix}--feature-card-large_no-copy-text`]: !copy,
+          [`${prefix}--feature-card-large_no-copy-text`]:
+            size === 'large' && !copy,
         })}
         data-autoid={
           size === 'large'

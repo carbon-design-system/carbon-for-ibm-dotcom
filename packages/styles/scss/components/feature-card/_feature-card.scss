@@ -64,20 +64,10 @@ $fcb-breakpoint-up--lg: map-get(
 }
 
 @mixin feature-card {
+  :host(#{$dds-prefix}-feature-card),
   .#{$prefix}--feature-card {
     @include carbon--breakpoint-down('md') {
       @include carbon--make-row;
-    }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--card {
-        @include hang;
-      }
-    }
-
-    @include carbon--breakpoint('lg') {
-      margin-right: $spacing-05;
-      margin-left: $spacing-05;
     }
   }
 
