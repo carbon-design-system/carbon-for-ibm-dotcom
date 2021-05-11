@@ -47,6 +47,8 @@
     .#{$prefix}--hr {
       border-color: $ui-04;
       margin-top: 0;
+
+      @include hang;
     }
 
     .#{$prefix}--content-block__cta {
