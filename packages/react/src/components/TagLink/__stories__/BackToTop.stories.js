@@ -9,7 +9,7 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
-  title: 'Components|Card section carousel',
+  title: 'Components|Tag link',
 
   parameters: {
     ...readme.parameters,
@@ -17,7 +17,6 @@ export default {
       skip: true,
     },
     proxy: true,
-    useRawContainer: true,
   },
 };
 
@@ -29,7 +28,7 @@ export const Default = () => {
       <a
         className="bx--link"
         target="_blank"
-        href="http://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-card-section-carousel--default">
+        href="https://ibmdotcom-web-components-react.mybluemix.net/?path=/story/components-tag-link">
         React wrapper
       </a>
       .
