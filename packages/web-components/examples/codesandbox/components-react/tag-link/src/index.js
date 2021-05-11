@@ -12,10 +12,6 @@ import { render } from 'react-dom';
 import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 import './index.css';
 
-const App = () => (
-  <DDSTagLink href="https://www.example.com">
-    Copy Text
-  </DDSTagLink>
-);
+const App = () => <DDSTagLink href="https://www.example.com">Copy Text</DDSTagLink>;
 
 render(<App />, document.getElementById('root'));
