@@ -9,7 +9,7 @@
 @import '../../globals/vars';
 
 :host(#{$dds-prefix}-tag-link) a {
-  @include carbon--type-style(body-short-02, true);
+  @include carbon--type-style(body-long-01, true);
 
   padding: carbon--rem(6px) $carbon--spacing-05;
   border-radius: carbon--rem(15px);
