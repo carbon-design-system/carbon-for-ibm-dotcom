@@ -786,7 +786,7 @@ withL1.story = {
         platform: l1PlatformData,
         hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
         hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
@@ -891,7 +891,7 @@ export default {
       DotcomShell: ({ groupId }) => ({
         hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
         hasSearch: boolean('Show search in masthead (search)', true, groupId),
-        searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
         selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[1], groupId),
         userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
