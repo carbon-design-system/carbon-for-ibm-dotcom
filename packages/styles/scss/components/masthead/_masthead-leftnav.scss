@@ -300,6 +300,8 @@
   }
 
   .#{$prefix}--side-nav__submenu {
+    @include carbon--theme($carbon--theme--white, true);
+
     .#{$prefix}--side-nav__submenu-content {
       width: 100%;
       height: rem(48px);
@@ -309,6 +311,8 @@
 
     &[aria-expanded='true'] {
       + .#{$prefix}--side-nav__menu[role='menu'] {
+        @include carbon--theme($carbon--theme--white, true);
+
         position: absolute;
         overflow-y: auto;
         padding-bottom: $layout-05;
