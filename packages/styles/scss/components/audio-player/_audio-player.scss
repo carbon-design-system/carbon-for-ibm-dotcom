@@ -36,6 +36,15 @@
         @include carbon--type-style('caption-01');
       }
     }
+
+    /* For Accessibility on the buttons, when focusing the button */
+    .#{$prefix}--btn {
+      .#{$prefix}--btn--icon-only {
+        .#{$prefix}--tooltip__trigger:focus {
+          border-color: $carbon--blue-60;
+        }
+      }
+    }
   }
 
   .#{$prefix}--audio-player__thumbnail {
@@ -48,6 +57,7 @@
     }
   }
 
+  /* To hide the original player */
   .#{$prefix}--audio-player__embedded-player {
     display: none;
     width: 0;
@@ -55,26 +65,17 @@
     z-index: -1;
   }
 
-  /* ===================================================
-   * Really Need to check this out
-   * ================================================ */
   .#{$prefix}--audio-player__audio-time {
     min-width: 280px;
     height: 40px;
 
-    .#{$prefix}--form-item {
-      .#{$prefix}--slider-container {
-        .#{$prefix}--slider__range-label:first-of-type {
-          margin-left: 1rem;
-        }
-      }
+    .#{$prefix}--slider__range-label:first-of-type {
+      margin-left: 1rem;
     }
   }
 
   .#{$prefix}--audio-player__volume-control {
     position: relative;
-    width: 48px;
-    height: 48px;
 
     &-menu {
       position: absolute;
@@ -94,10 +95,6 @@
     /* Box Shadow from OverFlowMenu */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
-
-  /* ===================================================
-   * TILL HERE
-   * ================================================ */
 
   .#{$prefix}--audio-player__overflow-menu-container {
     width: 48px;
