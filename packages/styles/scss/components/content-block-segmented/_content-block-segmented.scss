@@ -17,6 +17,10 @@
         }
       }
     }
+
+    .#{$prefix}--content-block__cta-row {
+      margin-bottom: $spacing-07;
+    }
   }
 
   :host(#{$dds-prefix}-content-block-segmented)

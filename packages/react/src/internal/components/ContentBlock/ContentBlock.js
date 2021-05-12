@@ -65,7 +65,14 @@ const ContentBlock = ({
 
   return (
     <div data-autoid={`${stablePrefix}--content-block`} className={classnames}>
-      {title}
+      {aside && aside.items
+        ? _layoutWrap(
+            <>
+              {title}
+              <div></div>
+            </>
+          )
+        : title}
       {aside && aside.items
         ? _layoutWrap(
             <>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,12 +29,18 @@ const ContentBlockSegmented = ({
   mediaData,
   items,
   aside,
+  border,
 }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
       className={`${prefix}--content-block-segmented`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+      <ContentBlock
+        heading={heading}
+        copy={copy}
+        cta={cta}
+        aside={aside}
+        border={border}>
         {_renderMedia(mediaType, mediaData)}
         {_renderGroup(items)}
       </ContentBlock>
@@ -220,6 +226,11 @@ ContentBlockSegmented.propTypes = {
     items: PropTypes.element,
     border: PropTypes.bool,
   }),
+
+  /**
+   * Boolean to show border without aside elements.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockSegmented;
