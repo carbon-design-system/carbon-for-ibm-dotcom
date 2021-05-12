@@ -14,7 +14,6 @@
 </a>
 <div
   class="bx--modal-container"
-  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
@@ -54,7 +53,6 @@
 </a>
 <div
   class="bx--modal-container"
-  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
@@ -96,7 +94,6 @@
 </a>
 <div
   class="bx--modal-container"
-  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
@@ -136,7 +133,6 @@
 </a>
 <div
   class="bx--modal-container"
-  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">
@@ -176,7 +172,6 @@
 </a>
 <div
   class="bx--modal-container"
-  role="dialog"
   tabindex="-1"
 >
   <div class="bx--modal-content">

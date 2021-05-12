@@ -165,11 +165,7 @@ export default {
     knobs: {
       CTABlock: ({ groupId }) => ({
         heading: textNullable('Heading (required)', 'Take the next step', groupId),
-        copy: textNullable(
-          'Copy text (copy)',
-          'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
-          groupId
-        ),
+        copy: 'Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.',
         renderIcon: iconMap[select(`Icon`, iconOptions, iconOptions.Default, groupId) ?? 0],
       }),
     },

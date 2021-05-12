@@ -63,13 +63,9 @@ export default {
     knobs: {
       ContentGroupPictograms: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
-        copy: textNullable(
-          'Copy text (copy)',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
-          groupId
-        ),
       }),
     },
   },

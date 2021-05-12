@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ const { prefix } = settings;
 /**
  * Content Block - segmented pattern.
  */
-const ContentBlockMedia = ({ copy, heading, items, cta, aside }) => {
+const ContentBlockMedia = ({ copy, heading, items, cta, aside, border }) => {
   if (cta) cta.style = 'feature';
 
   const content = items.map((item, index) => {
@@ -29,7 +29,12 @@ const ContentBlockMedia = ({ copy, heading, items, cta, aside }) => {
     <div
       data-autoid={`${stablePrefix}--content-block-media`}
       className={`${prefix}--content-block-media`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+      <ContentBlock
+        heading={heading}
+        copy={copy}
+        cta={cta}
+        aside={aside}
+        border={border}>
         {content}
       </ContentBlock>
     </div>
@@ -203,6 +208,11 @@ ContentBlockMedia.propTypes = {
    * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.object,
+
+  /**
+   * border for content block.
+   */
+  border: PropTypes.bool,
 };
 
 export default ContentBlockMedia;

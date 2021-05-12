@@ -66,6 +66,7 @@ class DDSMastheadSearch extends BXDropdown {
    */
   private async _handleClickSearchButton() {
     const { active } = this;
+
     if (active) {
       if (this._searchInputNode.value) {
         this._handleUserInitiatedRedirect();
@@ -89,6 +90,7 @@ class DDSMastheadSearch extends BXDropdown {
     const { _searchInputNode: searchInputNode } = this;
     const { eventInput, eventToggle } = this.constructor as typeof DDSMastheadSearch;
     if (!active && searchInputNode.value) {
+      searchInputNode.value = '';
       this.dispatchEvent(
         new CustomEvent(eventInput, {
           bubbles: true,
@@ -99,7 +101,6 @@ class DDSMastheadSearch extends BXDropdown {
           },
         })
       );
-      searchInputNode.value = '';
     }
     this.active = active;
     await this.updateComplete;
@@ -173,7 +174,7 @@ class DDSMastheadSearch extends BXDropdown {
 
   protected _handleFocusOut(event: FocusEvent) {
     super._handleFocusOut(event);
-    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement)) {
+    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as HTMLElement) && !this.searchOpenOnload) {
       this._handleUserInitiatedToggleActiveState(false, false);
     }
   }
@@ -231,6 +232,7 @@ class DDSMastheadSearch extends BXDropdown {
 
   /**
    * Navigate through dropdown items.
+   *
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
@@ -403,10 +405,30 @@ class DDSMastheadSearch extends BXDropdown {
   slot = 'search';
 
   /**
+   * `true` to activate the search box on page load.
+   */
+  @property({ type: Boolean, attribute: 'search-open-on-load' })
+  searchOpenOnload = false;
+
+  /**
    * The input value.
    */
   get searchQueryString() {
     return this._searchInputNode?.value ?? '';
+  }
+
+  /**
+   * Returns query param `q` for search input if exists. Only available when searchOpenOnload is `true`
+   */
+  private _setSearchParam() {
+    const { _searchInputNode: searchInputNode } = this;
+    const URLParams = new URLSearchParams(this.ownerDocument!.defaultView!.location.search);
+    const searchParam: any = this.searchOpenOnload ? URLParams.get('q') : '';
+    searchInputNode.value = searchParam;
+  }
+
+  firstUpdated() {
+    this._setSearchParam();
   }
 
   render() {
