@@ -8,8 +8,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 
-import { Image } from '../Image';
-
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -44,9 +42,9 @@ const AudioPlayerThumbnail = ({ audioId }) => {
         <div
           className={`${prefix}--audio-player__thumbnail-container`}
           ref={inputRef}>
-          <div className={`${prefix}--audio-player__thumbnail`}>
-            <Image defaultSrc={thumbnailUrl} alt="Audio" />
-          </div>
+          <div
+            className={`${prefix}--audio-player__thumbnail`}
+            style={{ backgroundImage: `url('${thumbnailUrl}')` }}></div>
         </div>
       )}
     </>

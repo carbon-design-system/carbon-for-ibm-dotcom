@@ -61,8 +61,7 @@ Default.story = {
   parameters: {
     knobs: {
       AudioPlayer: ({ groupId }) => ({
-        audioId: text("Kaltura's Audio ID (audioId):", '1_8ki0vj70', groupId),
-        // audioId: text('Kaltura\'s Audio ID', '1_9h94wo6b', groupId),
+        audioId: text("Kaltura's Audio ID (audioId):", '1_gp572bda', groupId),
         autoPlay: boolean('Start widget with audio (autoPlay)', false, groupId),
         showCaptionMenu: boolean(
           'Show caption menu (showCaptionMenu):',

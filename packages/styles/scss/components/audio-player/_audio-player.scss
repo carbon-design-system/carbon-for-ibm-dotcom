@@ -47,11 +47,15 @@
     }
 
     &__thumbnail {
+      width: 48px;
+      height: 48px;
       border: 1px solid $ui-03;
 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
       &-container {
-        width: 48px;
-        height: 48px;
         border: 1px solid $ui-03;
       }
     }
