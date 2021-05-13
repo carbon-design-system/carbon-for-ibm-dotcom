@@ -21,8 +21,13 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { audioId, autoPlay, showCaption, showPlaybackRate, playbackRates } =
-    parameters?.props?.AudioPlayer ?? {};
+  const {
+    audioId,
+    autoPlay,
+    showCaptionMenu,
+    showPlaybackRateMenu,
+    playbackRates,
+  } = parameters?.props?.AudioPlayer ?? {};
 
   return (
     <div className="bx--grid">
@@ -38,8 +43,8 @@ export const Default = ({ parameters }) => {
             <AudioPlayer
               audioId={audioId}
               hasSettings={true}
-              showCaption={showCaption}
-              showPlaybackRate={showPlaybackRate}
+              showCaptionMenu={showCaptionMenu}
+              showPlaybackRateMenu={showPlaybackRateMenu}
               playbackRates={playbackRates}
               autoPlay={autoPlay}
             />
@@ -57,16 +62,20 @@ Default.story = {
         audioId: text("Kaltura's Audio ID (audioId):", '1_8ki0vj70', groupId),
         // audioId: text('Kaltura\'s Audio ID', '1_9h94wo6b', groupId),
         autoPlay: boolean('Start widget with audio (autoPlay)', false, groupId),
-        showCaption: boolean('Show caption (showCaption):', true, groupId),
-        showPlaybackRate: boolean(
-          'Show Playback Speed Rate (showPlaybackRate):',
+        showCaptionMenu: boolean(
+          'Show caption menu (showCaptionMenu):',
+          true,
+          groupId
+        ),
+        showPlaybackRateMenu: boolean(
+          'Show Playback Speed Rate Menu (showPlaybackRateMenu):',
           true,
           groupId
         ),
         playbackRates: array(
-          'The available velocity of the playback (playbackRates):',
+          'The available velocities/rates of the playback (playbackRates):',
           [1, 1.5, 2],
-          '|',
+          ',',
           groupId
         ),
       }),

@@ -27,10 +27,12 @@ const { prefix } = settings;
 const AudioPlayerScrubber = ({
   kalturaDigitalPlayer,
   audioTime,
-  audioData,
   setAudioTime,
+  audioDuration,
 }) => {
-  const audioDuration = KalturaPlayerAPI.getMediaDuration(audioData.duration); // Video Total Time
+  const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
+    audioDuration
+  ); // Video Total Time
 
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
@@ -40,7 +42,7 @@ const AudioPlayerScrubber = ({
     if (kalturaDigitalPlayer) {
       let time = audioTime + addedValue;
       time = time < 0 ? 0 : time;
-      time = time >= audioData.duration ? audioData.duration : time;
+      time = time >= audioDuration ? audioDuration : time;
 
       kalturaDigitalPlayer.sendNotification('doSeek', time);
       setAudioTime(time);
@@ -83,7 +85,7 @@ const AudioPlayerScrubber = ({
           min={0}
           max={160}
           minLabel={KalturaPlayerAPI.getMediaDuration(audioTime)}
-          maxLabel={audioDuration}
+          maxLabel={audioDurationAsString}
           value={audioTime}
           onChange={({ value }) => handleScrubberChange(value)}
           hideTextInput
@@ -114,25 +116,30 @@ const AudioPlayerScrubber = ({
 AudioPlayerScrubber.propTypes = {
   /**
    * The kaltura digital player (KDP) object
+   * It starts as false and gets morphed into the html element
+   *  of the target player id reference during the kaltura player
+   *  embeding process as soon as the kaltura ready callback triggers
    */
   kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
   /**
-   * The current time of the audio
+   * The state getter for the current audio time (in seconds)
    */
   audioTime: PropTypes.number.isRequired,
   /**
-   * The state setter for the current audio time
+   * The setter function for the current audio time (in seconds)
    */
   setAudioTime: PropTypes.func.isRequired,
   /**
-   * The already processed data from the audio
+   * The duration of the audio (in seconds)
    */
-  audioData: PropTypes.object.isRequired,
+  audioDuration: PropTypes.object.isRequired,
 };
 
 AudioPlayerScrubber.defaultProps = {
   kalturaDigitalPlayer: false,
+  audioTime: 0,
+  audioDuration: 0,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerScrubber;

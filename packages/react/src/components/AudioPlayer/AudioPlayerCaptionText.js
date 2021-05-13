@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -36,11 +37,18 @@ const AudioPlayerCaptionText = ({ captions, audioTime }) => {
 
 AudioPlayerCaptionText.propTypes = {
   /**
-   * An array containing all the captions for a selected language
+   * An array containing all the captions for the current
+   *  selected language.
+   * Each entry of this array is an object containing:
+   *  start -> Number - The first second of the video where
+   *          the caption should be displayed
+   *  end -> Number - The last second of the video where
+   *          the caption should be displayed
+   *  content -> String - The html content of the caption
    */
   captions: PropTypes.array.isRequired,
   /**
-   * The current time of the audio
+   * The state getter for the current audio time (in seconds)
    */
   audioTime: PropTypes.number.isRequired,
 };
@@ -50,4 +58,4 @@ AudioPlayerCaptionText.defaultProps = {
   audioTime: 0,
 };
 
-export default AudioPlayerCaptionText;
+export default !DDS_FLAGS_ALL ? undefined : AudioPlayerCaptionText;

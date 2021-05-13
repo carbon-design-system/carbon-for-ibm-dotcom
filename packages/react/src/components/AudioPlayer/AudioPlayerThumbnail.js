@@ -55,7 +55,7 @@ const AudioPlayerThumbnail = ({ audioId }) => {
 
 AudioPlayerThumbnail.propTypes = {
   /**
-   * Video ID from Kaltura video platform.
+   * The Media ID from Kaltura video platform.
    */
   audioId: PropTypes.string.isRequired,
 };

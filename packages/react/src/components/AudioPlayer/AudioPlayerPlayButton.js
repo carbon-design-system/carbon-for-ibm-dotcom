@@ -17,10 +17,10 @@ import React from 'react';
 import Replay32 from '@carbon/icons-react/es/renew/32';
 
 const AudioPlayerPlayButton = ({
+  kalturaDigitalPlayer,
   initPlayer,
   audioState,
   setAudioState,
-  kalturaDigitalPlayer,
 }) => {
   const handlePlayButton = () => {
     if (audioState === '') {
@@ -77,25 +77,33 @@ const AudioPlayerPlayButton = ({
 AudioPlayerPlayButton.propTypes = {
   /**
    * The kaltura digital player (KDP) object
+   * It starts as false and gets morphed into the html element
+   *  of the target player id reference during the kaltura player
+   *  embeding process as soon as the kaltura ready callback triggers
    */
   kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
   /**
-   * The function to start the player
+   * The function that start the kaltura digital player embeding
+   *  process, bind all the events and start / gives-life-to the
+   *  audio component.
    */
   initPlayer: PropTypes.func.isRequired,
   /**
-   * The current state of the player
+   * The state getter for the current state of the player
+   * The state list can be found in AudioPlayer.js
    */
   audioState: PropTypes.string.isRequired,
   /**
-   * A function to update the audioState
+   * The state setter for the current state of the player
+   * The state list can be found in AudioPlayer.js
    */
   setAudioState: PropTypes.func.isRequired,
 };
 
 AudioPlayerPlayButton.defaultProps = {
   kalturaDigitalPlayer: false,
+  audioState: '',
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerPlayButton;

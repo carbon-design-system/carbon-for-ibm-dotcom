@@ -20,10 +20,10 @@ const { prefix } = settings;
 
 const AudioPlayerCaptionsMenu = ({
   kalturaDigitalPlayer,
-  handleDisplayVolume,
   availableCaptions,
   audioCaption,
   setAudioCaption,
+  setDisplayVolumeControl,
 }) => {
   const hasCaptions = () => {
     return Object.keys(availableCaptions).length > 0;
@@ -45,7 +45,7 @@ const AudioPlayerCaptionsMenu = ({
             flipped={true}
             iconDescription="Closed Captions"
             selectorPrimaryFocus={`.${prefix}--audio-player__button-for-closed-caption-${audioCaption.toLowerCase()}`}
-            onOpen={() => handleDisplayVolume(false)}>
+            onOpen={() => setDisplayVolumeControl(false)}>
             <OverflowMenuItem
               className={`${prefix}--audio-player__button-for-closed-caption-`}
               itemText="Off"
@@ -78,30 +78,42 @@ const AudioPlayerCaptionsMenu = ({
 AudioPlayerCaptionsMenu.propTypes = {
   /**
    * The kaltura digital player (KDP) object
+   * It starts as false and gets morphed into the html element
+   *  of the target player id reference during the kaltura player
+   *  embeding process as soon as the kaltura ready callback triggers
    */
   kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
   /**
-   * An object containing all captions withing an array
-   * inside an object where each key is the caption language
+   * An object containing all captions.
+   * Each key of the object is the caption language label
+   *  and contain an array of entries.
+   * Each entry of this array is an object containing:
+   *  start -> Number - The first second of the video where
+   *          the caption should be displayed
+   *  end -> Number - The last second of the video where
+   *          the caption should be displayed
+   *  content -> String - The html content of the caption
    */
   availableCaptions: PropTypes.object.isRequired,
   /**
-   * The function that show/hide the custom volume menu
-   */
-  handleDisplayVolume: PropTypes.func.isRequired,
-  /**
-   * The current selected caption language
+   * The state getter for the current selected caption language
    */
   audioCaption: PropTypes.string.isRequired,
   /**
-   * The state setter for the current caption selected
+   * The state setter for the current selected caption language
    */
   setAudioCaption: PropTypes.func.isRequired,
+  /**
+   * The state setter that show/hide the custom volume menu
+   */
+  setDisplayVolumeControl: PropTypes.func.isRequired,
 };
 
 AudioPlayerCaptionsMenu.defaultProps = {
   kalturaDigitalPlayer: false,
+  availableCaptions: [],
+  audioCaption: '',
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerCaptionsMenu;

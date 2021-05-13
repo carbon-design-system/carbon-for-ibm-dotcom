@@ -24,10 +24,10 @@ const { prefix } = settings;
 
 const AudioPlayerVolumeControl = ({
   kalturaDigitalPlayer,
-  handleDisplayVolume,
   audioVolume,
   setAudioVolume,
   displayVolumeControl,
+  setDisplayVolumeControl,
 }) => {
   const handleAudioVolumeChange = volume => {
     volume = Number.parseFloat(volume.toString().substring(0, 3));
@@ -53,7 +53,7 @@ const AudioPlayerVolumeControl = ({
         iconDescription="Volume"
         hasIconOnly
         kind="ghost"
-        onClick={() => handleDisplayVolume()}
+        onClick={() => setDisplayVolumeControl(prev => !prev)}
         tooltipPosition="top"
         disabled={!kalturaDigitalPlayer}
       />
@@ -79,29 +79,36 @@ const AudioPlayerVolumeControl = ({
 AudioPlayerVolumeControl.propTypes = {
   /**
    * The kaltura digital player (KDP) object
+   * It starts as false and gets morphed into the html element
+   *  of the target player id reference during the kaltura player
+   *  embeding process as soon as the kaltura ready callback triggers
    */
   kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
   /**
-   * The function that show/hide the custom volume menu
-   */
-  handleDisplayVolume: PropTypes.func.isRequired,
-  /**
-   * The current volume of the player
+   * The state getter for the current volume of the player
+   * 0 to 1, stepping by 0.1
    */
   audioVolume: PropTypes.number.isRequired,
   /**
    * The state setter for the current volume of the player
+   * 0 to 1, stepping by 0.1
    */
   setAudioVolume: PropTypes.func.isRequired,
   /**
-   * Should the custom volume control show up?
+   * The state getter that show/hide the custom volume menu
    */
   displayVolumeControl: PropTypes.bool.isRequired,
+  /**
+   * The state setter that show/hide the custom volume menu
+   */
+  setDisplayVolumeControl: PropTypes.func.isRequired,
 };
 
 AudioPlayerVolumeControl.defaultProps = {
   kalturaDigitalPlayer: false,
+  audioVolume: 1,
+  displayVolumeControl: false,
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayerVolumeControl;

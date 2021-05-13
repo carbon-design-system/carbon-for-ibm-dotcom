@@ -23,7 +23,7 @@ const AudioPlayerDisabledButton = ({ icon }) => {
 
 AudioPlayerDisabledButton.propTypes = {
   /**
-   * The icon that the button should show
+   * The icon that the button should render
    */
   icon: PropTypes.object,
 };

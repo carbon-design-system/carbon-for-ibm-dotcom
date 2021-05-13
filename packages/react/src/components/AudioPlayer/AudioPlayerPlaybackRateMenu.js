@@ -20,8 +20,8 @@ const { prefix } = settings;
 
 const AudioPlayerPlaybackRateMenu = ({
   kalturaDigitalPlayer,
-  playbackRates,
-  handleDisplayVolume,
+  availablePlaybackRates,
+  setDisplayVolumeControl,
 }) => {
   const handleAudioPlaybackRate = velocity => {
     if (kalturaDigitalPlayer) {
@@ -44,8 +44,8 @@ const AudioPlayerPlaybackRateMenu = ({
             flipped={true}
             iconDescription="Playback Rate Speed"
             selectorPrimaryFocus=""
-            onOpen={() => handleDisplayVolume(false)}>
-            {playbackRates
+            onOpen={() => setDisplayVolumeControl(false)}>
+            {availablePlaybackRates
               .sort((a, b) => {
                 return a - b;
               })
@@ -72,18 +72,23 @@ const AudioPlayerPlaybackRateMenu = ({
 AudioPlayerPlaybackRateMenu.propTypes = {
   /**
    * The kaltura digital player (KDP) object
+   * It starts as false and gets morphed into the html element
+   *  of the target player id reference during the kaltura player
+   *  embeding process as soon as the kaltura ready callback triggers
    */
   kalturaDigitalPlayer: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
   /**
-   * The available speed multiplier for playback rate
-   * example: [1, 1.5, 2]
+   * An array containing the available velocities/rates of the playback
+   * Decimal - Ideally the decimals should be multiples of 0.25
+   * Example & Default Values (inherited from parent):
+   *  [1, 1.5, 2]
    */
-  playbackRates: PropTypes.array.isRequired,
+  availablePlaybackRates: PropTypes.array.isRequired,
   /**
-   * The function that show/hide the custom volume menu
+   * The state setter that show/hide the custom volume menu
    */
-  handleDisplayVolume: PropTypes.func.isRequired,
+  setDisplayVolumeControl: PropTypes.func.isRequired,
 };
 
 AudioPlayerPlaybackRateMenu.defaultProps = {

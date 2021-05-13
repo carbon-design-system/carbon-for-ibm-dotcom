@@ -34,13 +34,13 @@ const { prefix } = settings;
  * AudioPlayer component.
  */
 const AudioPlayer = ({
-  autoPlay,
-  showPlaybackRate,
-  playbackRates,
-  showCaption,
   audioId,
+  autoPlay,
+  showCaptionMenu,
+  showPlaybackRateMenu,
+  availablePlaybackRates,
 }) => {
-  const [audioData, setAudioData] = useState({ description: '', name: '' });
+  const [audioData, setAudioData] = useState({ duration: 0 });
 
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
 
@@ -48,7 +48,7 @@ const AudioPlayer = ({
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
 
   const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
-  const [availableCaptions, setAvailableCaptions] = useState({}); // All Captions
+  const [availableCaptions, setAvailableCaptions] = useState({}); // All Available Captions
   /**
    * The current state of the player
    *
@@ -61,7 +61,7 @@ const AudioPlayer = ({
   const [audioState, setAudioState] = useState('');
   const [audioVolume, setAudioVolume] = useState(1); // Current Volume
   const [audioTime, setAudioTime] = useState(0); // Current Play Time
-  const [audioCaption, setAudioCaption] = useState('');
+  const [audioCaption, setAudioCaption] = useState(''); // Currebt Caption Language
 
   useEffect(() => {
     const listeners = {
@@ -116,14 +116,6 @@ const AudioPlayer = ({
     setAudioState('loading');
   };
 
-  const handleDisplayVolume = value => {
-    if (value !== undefined) {
-      setDisplayVolumeControl(value);
-    } else {
-      setDisplayVolumeControl(prev => !prev);
-    }
-  };
-
   if (autoPlay && audioState === '') {
     initPlayer();
   }
@@ -138,40 +130,40 @@ const AudioPlayer = ({
         <AudioPlayerThumbnail audioId={audioId} />
 
         <AudioPlayerPlayButton
+          kalturaDigitalPlayer={kalturaDigitalPlayer}
           initPlayer={initPlayer}
           audioState={audioState}
           setAudioState={setAudioState}
-          kalturaDigitalPlayer={kalturaDigitalPlayer}
         />
 
         <AudioPlayerScrubber
           kalturaDigitalPlayer={kalturaDigitalPlayer}
+          audioDuration={audioData.duration}
           audioTime={audioTime}
-          audioData={audioData}
           setAudioTime={setAudioTime}
         />
 
         <AudioPlayerVolumeControl
           kalturaDigitalPlayer={kalturaDigitalPlayer}
-          handleDisplayVolume={handleDisplayVolume}
           audioVolume={audioVolume}
           setAudioVolume={setAudioVolume}
           displayVolumeControl={displayVolumeControl}
+          setDisplayVolumeControl={setDisplayVolumeControl}
         />
 
-        {showPlaybackRate && (
+        {showPlaybackRateMenu && (
           <AudioPlayerPlaybackRateMenu
             kalturaDigitalPlayer={kalturaDigitalPlayer}
-            playbackRates={playbackRates}
-            handleDisplayVolume={handleDisplayVolume}
+            availablePlaybackRates={availablePlaybackRates}
+            setDisplayVolumeControl={setDisplayVolumeControl}
           />
         )}
 
-        {showCaption && (
+        {showCaptionMenu && (
           <>
             <AudioPLayerCaptionsMenu
               kalturaDigitalPlayer={kalturaDigitalPlayer}
-              handleDisplayVolume={handleDisplayVolume}
+              setDisplayVolumeControl={setDisplayVolumeControl}
               availableCaptions={availableCaptions}
               audioCaption={audioCaption}
               setAudioCaption={setAudioCaption}
@@ -202,16 +194,16 @@ AudioPlayer.propTypes = {
   /**
    * `true` to show the playback rate button.
    */
-  showPlaybackRate: PropTypes.bool,
+  showPlaybackRateMenu: PropTypes.bool,
   /**
    * `true` to show the captions object.
    */
-  showCaption: PropTypes.bool,
+  showCaptionMenu: PropTypes.bool,
   /**
    * The available speed multiplier for playback rate
    * example: [1, 1.5, 2]
    */
-  playbackRates: PropTypes.arrayOf(PropTypes.number),
+  availablePlaybackRates: PropTypes.arrayOf(PropTypes.number),
   /**
    * The CSS class name to apply.
    */
@@ -220,8 +212,9 @@ AudioPlayer.propTypes = {
 
 AudioPlayer.defaultProps = {
   autoPlay: false,
-  showPlaybackRate: true,
-  playbackRates: [1, 1.5, 2],
+  showCaptionMenu: true,
+  showPlaybackRateMenu: true,
+  availablePlaybackRates: [1, 1.5, 2],
 };
 
 export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;
