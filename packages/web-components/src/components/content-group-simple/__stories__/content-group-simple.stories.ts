@@ -113,9 +113,8 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { copy: groupCopy, heading: groupHeading } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: groupCopy, heading: groupHeading, mediaType } = parameters?.props?.ContentGroupSimple ?? {};
   const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
-  const { mediaType } = parameters?.props?.WithMedia ?? {};
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
@@ -159,6 +158,7 @@ export default {
       ContentGroupSimple: ({ groupId }) => ({
         copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
         heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        mediaType: select('With media', mediaTypes, MEDIA_TYPE.IMAGE, groupId),
       }),
       CardCTA: ({ groupId }) => {
         const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
@@ -167,10 +167,6 @@ export default {
           ctaType,
           href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
         };
-      },
-      WithMedia: ({ groupId }) => {
-        const mediaType = select('With media', mediaTypes, MEDIA_TYPE.IMAGE, groupId);
-        return { mediaType };
       },
     },
   },

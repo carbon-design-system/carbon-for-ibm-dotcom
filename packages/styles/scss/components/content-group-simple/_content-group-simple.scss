@@ -11,6 +11,11 @@
   .#{$prefix}--content-group-simple .#{$prefix}--content-group__copy {
     margin-bottom: $spacing-07;
   }
+
+  .bx--content-group__cta {
+    max-width: calc(320px + 1rem);
+    padding-right: 0;
+  }
 }
 
 @include exports('content-group-simple') {
