@@ -20,4 +20,4 @@ jobs:
         run: |
           yarn
           git add -A
-          if [[ -z $(git status -s) ]] ; then git commit -m "chore(yarn): update yarn offline mirror" && git push; fi
+          if [[ ! -z $(git status -s) ]] ; then git commit -m "chore(yarn): update yarn offline mirror" && git push; fi
