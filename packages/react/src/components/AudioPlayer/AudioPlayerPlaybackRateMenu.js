@@ -21,13 +21,17 @@ const { prefix } = settings;
 const AudioPlayerPlaybackRateMenu = ({
   kalturaDigitalPlayer,
   availablePlaybackRates,
+  audioPlaybackRate,
+  setAudioPlaybackRate,
   setDisplayVolumeControl,
 }) => {
   const handleAudioPlaybackRate = velocity => {
     if (kalturaDigitalPlayer) {
+      setAudioPlaybackRate(velocity);
+
       kalturaDigitalPlayer.sendNotification(
         'playbackRateChangeSpeed',
-        velocity
+        velocity.toString()
       );
     }
   };
@@ -43,7 +47,11 @@ const AudioPlayerPlaybackRateMenu = ({
             direction="top"
             flipped={true}
             iconDescription="Playback Rate Speed"
-            selectorPrimaryFocus=""
+            // selectorPrimaryFocus=""
+            selectorPrimaryFocus={`.${prefix}--audio-player__button-for-playback-rate-${audioPlaybackRate
+              .toString()
+              .split('.')
+              .join('-')}x`}
             onOpen={() => setDisplayVolumeControl(false)}>
             {availablePlaybackRates
               .sort((a, b) => {
@@ -52,12 +60,14 @@ const AudioPlayerPlaybackRateMenu = ({
               .map((playbackRateValue, playbackRateIndex) => {
                 return (
                   <OverflowMenuItem
+                    className={`${prefix}--audio-player__button-for-playback-rate-${playbackRateValue
+                      .toString()
+                      .split('.')
+                      .join('-')}x`}
                     key={playbackRateIndex}
                     itemText={playbackRateValue.toString() + 'x'}
                     hasDivider
-                    onClick={() =>
-                      handleAudioPlaybackRate(playbackRateValue.toString())
-                    }
+                    onClick={() => handleAudioPlaybackRate(playbackRateValue)}
                     disabled={!kalturaDigitalPlayer}
                   />
                 );
@@ -85,6 +95,14 @@ AudioPlayerPlaybackRateMenu.propTypes = {
    *  [1, 1.5, 2]
    */
   availablePlaybackRates: PropTypes.array.isRequired,
+  /**
+   * The state getter for the current playback rate
+   */
+  audioPlaybackRate: PropTypes.number.isRequired,
+  /**
+   * The state setter for the current playback rate
+   */
+  setAudioPlaybackRate: PropTypes.func.isRequired,
   /**
    * The state setter that show/hide the custom volume menu
    */

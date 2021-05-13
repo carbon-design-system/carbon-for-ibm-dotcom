@@ -61,7 +61,8 @@ const AudioPlayer = ({
   const [audioState, setAudioState] = useState('');
   const [audioVolume, setAudioVolume] = useState(1); // Current Volume
   const [audioTime, setAudioTime] = useState(0); // Current Play Time
-  const [audioCaption, setAudioCaption] = useState(''); // Currebt Caption Language
+  const [audioCaption, setAudioCaption] = useState(''); // Current Caption Language
+  const [audioPlaybackRate, setAudioPlaybackRate] = useState(1); // Current Playback Rate
 
   useEffect(() => {
     const listeners = {
@@ -155,6 +156,8 @@ const AudioPlayer = ({
           <AudioPlayerPlaybackRateMenu
             kalturaDigitalPlayer={kalturaDigitalPlayer}
             availablePlaybackRates={availablePlaybackRates}
+            audioPlaybackRate={audioPlaybackRate}
+            setAudioPlaybackRate={setAudioPlaybackRate}
             setDisplayVolumeControl={setDisplayVolumeControl}
           />
         )}
