@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -28,4 +28,4 @@ AudioPlayerDisabledButton.propTypes = {
   icon: PropTypes.object,
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerDisabledButton;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerDisabledButton;

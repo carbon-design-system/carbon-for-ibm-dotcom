@@ -6,7 +6,7 @@
  */
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 
 import PauseFilled32 from '@carbon/icons-react/es/pause--filled/32';
 import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
@@ -106,4 +106,4 @@ AudioPlayerPlayButton.defaultProps = {
   audioState: '',
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerPlayButton;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerPlayButton;

@@ -15,7 +15,7 @@ import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
 
 import cx from 'classnames';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
@@ -243,4 +243,4 @@ AudioPlayer.defaultProps = {
   availablePlaybackRates: [1, 1.5, 2],
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayer;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayer;

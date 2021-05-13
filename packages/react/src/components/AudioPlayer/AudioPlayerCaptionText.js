@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -58,4 +58,4 @@ AudioPlayerCaptionText.defaultProps = {
   audioTime: 0,
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerCaptionText;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerCaptionText;

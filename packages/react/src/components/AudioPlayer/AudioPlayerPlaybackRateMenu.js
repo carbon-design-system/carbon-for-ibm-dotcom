@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import AudioPlayerDisabledButton from './AudioPlayerDisabledButton';
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // const { stablePrefix } = ddsSettings;
 
 import OverflowMenu from '../../internal/vendor/carbon-components-react/components/OverflowMenu';
@@ -113,4 +113,4 @@ AudioPlayerPlaybackRateMenu.defaultProps = {
   kalturaDigitalPlayer: false,
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerPlaybackRateMenu;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerPlaybackRateMenu;

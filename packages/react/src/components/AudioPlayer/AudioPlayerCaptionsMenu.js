@@ -6,7 +6,7 @@
  */
 import AudioPlayerDisabledButton from './AudioPlayerDisabledButton';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // const { stablePrefix } = ddsSettings;
 
 import OverflowMenu from '../../internal/vendor/carbon-components-react/components/OverflowMenu';
@@ -116,4 +116,4 @@ AudioPlayerCaptionsMenu.defaultProps = {
   audioCaption: '',
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerCaptionsMenu;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerCaptionsMenu;

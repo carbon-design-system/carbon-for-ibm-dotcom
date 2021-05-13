@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useState, useEffect, useRef } from 'react';
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 
 import { Image } from '../Image';
@@ -62,4 +62,4 @@ AudioPlayerThumbnail.propTypes = {
 
 AudioPlayerThumbnail.defaultProps = {};
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerThumbnail;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerThumbnail;

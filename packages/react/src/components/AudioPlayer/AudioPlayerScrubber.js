@@ -6,7 +6,7 @@
  */
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
-import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
+import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 // const { stablePrefix } = ddsSettings;
 
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
@@ -144,4 +144,4 @@ AudioPlayerScrubber.defaultProps = {
   audioDuration: 0,
 };
 
-export default !DDS_FLAGS_ALL ? undefined : AudioPlayerScrubber;
+export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerScrubber;
