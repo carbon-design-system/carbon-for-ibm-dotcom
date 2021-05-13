@@ -19,6 +19,7 @@
 
   .#{$prefix}--link {
     cursor: pointer;
+    //justify-content: space-between;
   }
 }
 
@@ -70,9 +71,20 @@
 
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-cta) {
-      display: grid;
       outline: none;
     }
+  }
+
+  .#{$prefix}--link-list__list--card,
+  .#{$dds-prefix}-ce--link-list__list--end {
+    ::slotted(#{$dds-prefix}-link-list-item),
+    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+      display: grid;
+    }
+  }
+
+  .#{$prefix}--link-list__list--vertical ::slotted(#{$dds-prefix}-link-list-item) {
+    display: flex;
   }
 
   .#{$dds-prefix}-ce--link-list__list--end {
