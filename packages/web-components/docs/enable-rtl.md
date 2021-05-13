@@ -37,7 +37,7 @@ module.exports = {
 While we recommend using a module bundler for creating a fully optimized RTL version 
 for your application (as shown in the example above), 
 you can use our pre-built CDN version for evaluation purposes (which comes with the dotcom shell). The pre-built 
-version can be found at `https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.rtl.min.js`.
+version can be found at `https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.rtl.min.js`.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/usage/dotcom-shell-cdn-with-rtl)
