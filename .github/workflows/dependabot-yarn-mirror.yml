@@ -1,0 +1,20 @@
+name: dependabot-yarn-mirror
+
+on: [pull_request]
+
+jobs:
+  update-offline-mirror:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node-version: ['12.x']
+    steps:
+      - name: Update yarn offline mirror
+        if: contains(github.event.pull_request.labels.*.name, 'dependencies')
+        run: |
+          yarn
+          git config --global user.email "${{ secrets.BOT_EMAIL }}"
+          git config --global user.name "${{ secrets.BOT_NAME }}"
+          git add -A
+          git commit -m "chore(yarn): update yarn offline mirror"
+          git push
