@@ -330,7 +330,7 @@ Masthead.propTypes = {
    * | none               | null      | No navigation                               | `<Masthead />`                      |
    *
    * `Custom` navigation data must follow the same structure and key names as `default`.
-   * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
+   * See [this](https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
    */
   navigation: PropTypes.oneOfType([
     PropTypes.string,
@@ -433,7 +433,7 @@ Masthead.propTypes = {
      * | none               | null      | No navigation                               | `<MastheadL1 />`                      |
      *
      * `Custom` navigation data must follow the same structure and key names as `default`.
-     * See [this](https://www.ibm.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
+     * See [this](https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/usen.json) for an example.
      */
     navigationL1: PropTypes.oneOfType([
       PropTypes.string,

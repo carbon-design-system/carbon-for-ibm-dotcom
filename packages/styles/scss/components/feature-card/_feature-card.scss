@@ -67,11 +67,6 @@
         @include hang;
       }
     }
-
-    @include carbon--breakpoint('lg') {
-      margin-right: $spacing-05;
-      margin-left: $spacing-05;
-    }
   }
 
   :host(#{$dds-prefix}-feature-card),
