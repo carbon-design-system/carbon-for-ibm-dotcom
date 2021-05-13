@@ -11,7 +11,7 @@
 @import 'carbon-components/scss/components/slider/slider';
 
 @mixin audio-player {
-  .#{$prefix}--audio-player__audio-container {
+  .#{$prefix}--audio-player {
     position: relative;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
     padding: 8px 16px;
     background-color: $ui-01;
 
-    &-captions {
+    &__captions {
       position: absolute;
       bottom: 48px;
       left: 0;
@@ -45,64 +45,64 @@
         }
       }
     }
-  }
 
-  .#{$prefix}--audio-player__thumbnail {
-    border: 1px solid $ui-03;
+    &__thumbnail {
+      border: 1px solid $ui-03;
 
-    &-container {
+      &-container {
+        width: 48px;
+        height: 48px;
+        border: 1px solid $ui-03;
+      }
+    }
+
+    /* To hide the original player */
+    &__embedded-player {
+      display: none;
+      width: 0;
+      height: 0;
+      z-index: -1;
+    }
+
+    &__audio-time {
+      min-width: 280px;
+      height: 40px;
+
+      .#{$prefix}--slider__range-label:first-of-type {
+        margin-left: 1rem;
+      }
+    }
+
+    &__volume-control {
+      position: relative;
+
+      &-menu {
+        position: absolute;
+        bottom: calc(48px + 8px);
+        right: 0;
+        display: flex;
+        align-items: center;
+        max-width: 248px;
+        height: 48px;
+        padding: 0 8px 8px;
+        background-color: $ui-01;
+        z-index: 2;
+      }
+    }
+
+    &__shadow {
+      /* Box Shadow from OverFlowMenu */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    &__overflow-menu-container {
       width: 48px;
       height: 48px;
-      border: 1px solid $ui-03;
-    }
-  }
 
-  /* To hide the original player */
-  .#{$prefix}--audio-player__embedded-player {
-    display: none;
-    width: 0;
-    height: 0;
-    z-index: -1;
-  }
-
-  .#{$prefix}--audio-player__audio-time {
-    min-width: 280px;
-    height: 40px;
-
-    .#{$prefix}--slider__range-label:first-of-type {
-      margin-left: 1rem;
-    }
-  }
-
-  .#{$prefix}--audio-player__volume-control {
-    position: relative;
-
-    &-menu {
-      position: absolute;
-      bottom: calc(48px + 8px);
-      right: 0;
-      display: flex;
-      align-items: center;
-      max-width: 248px;
-      height: 48px;
-      padding: 0 8px 8px;
-      background-color: $ui-01;
-      z-index: 2;
-    }
-  }
-
-  .#{$prefix}--audio-player__shadow {
-    /* Box Shadow from OverFlowMenu */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .#{$prefix}--audio-player__overflow-menu-container {
-    width: 48px;
-    height: 48px;
-
-    button {
-      width: 100%;
-      height: 100%;
+      button {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

@@ -24,9 +24,9 @@ const AudioPlayerCaptionText = ({ captions, audioTime }) => {
 
   return (
     captions && (
-      <div className={`${prefix}--audio-player__audio-container-captions`}>
+      <div className={`${prefix}--audio-player__captions`}>
         <p
-          className={`${prefix}--audio-player__audio-container-captions-text`}
+          className={`${prefix}--audio-player__captions-text`}
           dangerouslySetInnerHTML={{
             __html: captionText,
           }}></p>

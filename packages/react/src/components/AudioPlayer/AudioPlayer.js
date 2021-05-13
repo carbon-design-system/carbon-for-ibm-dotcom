@@ -13,7 +13,7 @@ import AudioPlayerScrubber from './AudioPlayerScrubber';
 import AudioPlayerThumbnail from './AudioPlayerThumbnail';
 import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
 
-// import cx from 'classnames';
+import cx from 'classnames';
 // import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { DDS_FLAGS_ALL } from '../../internal/FeatureFlags';
 
@@ -35,6 +35,7 @@ const { prefix } = settings;
  */
 const AudioPlayer = ({
   audioId,
+  customClassName,
   autoPlay,
   showCaptionMenu,
   showPlaybackRateMenu,
@@ -138,67 +139,67 @@ const AudioPlayer = ({
     initPlayer();
   }
 
+  const classnames = cx(`${prefix}--audio-player`, customClassName);
+
   return (
-    <>
-      <div className={`${prefix}--audio-player__audio-container`}>
-        <div
-          className={`${prefix}--audio-player__embedded-player`}
-          id={uniqueAudioPlayerId}></div>
+    <div className={classnames}>
+      <div
+        className={`${prefix}--audio-player__embedded-player`}
+        id={uniqueAudioPlayerId}></div>
 
-        <AudioPlayerThumbnail audioId={audioId} />
+      <AudioPlayerThumbnail audioId={audioId} />
 
-        <AudioPlayerPlayButton
+      <AudioPlayerPlayButton
+        kalturaDigitalPlayer={kalturaDigitalPlayer}
+        initPlayer={initPlayer}
+        audioState={audioState}
+        setAudioState={setAudioState}
+      />
+
+      <AudioPlayerScrubber
+        kalturaDigitalPlayer={kalturaDigitalPlayer}
+        audioDuration={audioData.duration}
+        audioTime={audioTime}
+        setAudioTime={setAudioTime}
+      />
+
+      <AudioPlayerVolumeControl
+        kalturaDigitalPlayer={kalturaDigitalPlayer}
+        audioVolume={audioVolume}
+        setAudioVolume={setAudioVolume}
+        displayVolumeControl={displayVolumeControl}
+        setDisplayVolumeControl={setDisplayVolumeControl}
+      />
+
+      {showPlaybackRateMenu && (
+        <AudioPlayerPlaybackRateMenu
           kalturaDigitalPlayer={kalturaDigitalPlayer}
-          initPlayer={initPlayer}
-          audioState={audioState}
-          setAudioState={setAudioState}
-        />
-
-        <AudioPlayerScrubber
-          kalturaDigitalPlayer={kalturaDigitalPlayer}
-          audioDuration={audioData.duration}
-          audioTime={audioTime}
-          setAudioTime={setAudioTime}
-        />
-
-        <AudioPlayerVolumeControl
-          kalturaDigitalPlayer={kalturaDigitalPlayer}
-          audioVolume={audioVolume}
-          setAudioVolume={setAudioVolume}
-          displayVolumeControl={displayVolumeControl}
+          availablePlaybackRates={availablePlaybackRates}
+          audioPlaybackRate={audioPlaybackRate}
+          setAudioPlaybackRate={setAudioPlaybackRate}
           setDisplayVolumeControl={setDisplayVolumeControl}
         />
+      )}
 
-        {showPlaybackRateMenu && (
-          <AudioPlayerPlaybackRateMenu
+      {showCaptionMenu && (
+        <>
+          <AudioPLayerCaptionsMenu
             kalturaDigitalPlayer={kalturaDigitalPlayer}
-            availablePlaybackRates={availablePlaybackRates}
-            audioPlaybackRate={audioPlaybackRate}
-            setAudioPlaybackRate={setAudioPlaybackRate}
             setDisplayVolumeControl={setDisplayVolumeControl}
+            availableCaptions={availableCaptions}
+            audioCaption={audioCaption}
+            setAudioCaption={setAudioCaption}
           />
-        )}
 
-        {showCaptionMenu && (
-          <>
-            <AudioPLayerCaptionsMenu
-              kalturaDigitalPlayer={kalturaDigitalPlayer}
-              setDisplayVolumeControl={setDisplayVolumeControl}
-              availableCaptions={availableCaptions}
-              audioCaption={audioCaption}
-              setAudioCaption={setAudioCaption}
+          {availableCaptions?.[audioCaption] && (
+            <AudioPlayerCaptionText
+              captions={availableCaptions[audioCaption]}
+              audioTime={audioTime}
             />
-
-            {availableCaptions?.[audioCaption] && (
-              <AudioPlayerCaptionText
-                captions={availableCaptions[audioCaption]}
-                audioTime={audioTime}
-              />
-            )}
-          </>
-        )}
-      </div>
-    </>
+          )}
+        </>
+      )}
+    </div>
   );
 };
 
@@ -207,6 +208,10 @@ AudioPlayer.propTypes = {
    * Video ID from Kaltura video platform.
    */
   audioId: PropTypes.string.isRequired,
+  /**
+   * The CSS class name to apply.
+   */
+  customClassName: PropTypes.string,
   /**
    * `true` to autoplay the video on load
    */
@@ -231,6 +236,7 @@ AudioPlayer.propTypes = {
 };
 
 AudioPlayer.defaultProps = {
+  customClassName: '',
   autoPlay: false,
   showCaptionMenu: true,
   showPlaybackRateMenu: true,

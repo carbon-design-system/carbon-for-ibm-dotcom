@@ -27,6 +27,7 @@ export const Default = ({ parameters }) => {
     showCaptionMenu,
     showPlaybackRateMenu,
     playbackRates,
+    customClassName,
   } = parameters?.props?.AudioPlayer ?? {};
 
   return (
@@ -47,6 +48,7 @@ export const Default = ({ parameters }) => {
               showPlaybackRateMenu={showPlaybackRateMenu}
               playbackRates={playbackRates}
               autoPlay={autoPlay}
+              customClassName={customClassName}
             />
           </div>
         </div>
@@ -76,6 +78,11 @@ Default.story = {
           'The available velocities/rates of the playback (playbackRates):',
           [1, 1.5, 2],
           ',',
+          groupId
+        ),
+        customClassName: text(
+          'Custom CSS classes added to the main container (customClassName):',
+          '',
           groupId
         ),
       }),
