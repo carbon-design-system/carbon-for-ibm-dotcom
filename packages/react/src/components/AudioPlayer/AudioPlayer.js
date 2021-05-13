@@ -76,6 +76,17 @@ const AudioPlayer = ({
       },
       playerPlayEnd: () => {
         setAudioState('stopped');
+        /**
+         * As the video current time is floored on playhead update
+         *  when the video stop because it endend, there is a huge
+         *  chance that the scrubber will show something like:
+         *  2:29 <---- scrubber ----> 2:30
+         *  but the audio will be ended and playbutton will show
+         *  the reload icon
+         * In order to fix it, we're manually setting the current
+         *  audio time to the video duration
+         */
+        setAudioTime(audioData.duration);
       },
     };
 
@@ -111,7 +122,13 @@ const AudioPlayer = ({
     return () => {
       stale = true;
     };
-  }, [audioId, audioState, uniqueAudioPlayerId, availableCaptions]);
+  }, [
+    audioId,
+    audioState,
+    uniqueAudioPlayerId,
+    availableCaptions,
+    audioData.duration,
+  ]);
 
   const initPlayer = () => {
     setAudioState('loading');

@@ -50,16 +50,18 @@ const AudioPlayerScrubber = ({
   };
 
   const handleScrubberChange = time => {
-    // As this will trigger every time the updatePlayhead listener triggers
-    // and we floor the floating value returned, sometimes it will return like
-    // 1.123 -> Floored to 1
-    // then next function callback will return
-    // 1.98123 -> Floored to 1
-    // And this function will trigger and set the second on the player to 1
-    // meaning it's going back in the audio time and thus generating
-    // a really SAD choke/gulp in the audio
-    // So this function should ONLY trigger if the absolute difference
-    // of the new scrubber time is bigger then 1 from the previou time value
+    /**
+     * As this will trigger every time the updatePlayhead listener triggers
+     *  and we floor the floating value returned, sometimes it will return like
+     *  1.123 -> Floored to 1
+     *  then next tick / callback will return
+     *  1.98123 -> Floored to 1
+     * Meaning that this function will trigger and set the second
+     *  on the player to 1 - making it go back in the audio time
+     *  and thus generating a really SAD choke/gulp in the audio
+     * So this function should ONLY trigger if the absolute difference
+     *  of the new scrubber time is bigger then 1 from the previou time value
+     */
     if (Math.abs(time - audioTime) >= 1 && kalturaDigitalPlayer) {
       kalturaDigitalPlayer.sendNotification('doSeek', time);
       setAudioTime(time);
