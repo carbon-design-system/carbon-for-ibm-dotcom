@@ -159,7 +159,7 @@ For quick start, you can use our pre-built CDN bundle that contains the dotcom s
 <html>
   <head>
     <script type="module">
-      import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
+      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -208,7 +208,7 @@ The CDN packages are available by NPM tags `latest` (full releases), `next` (lat
 
 ```html
 <script type="module">
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/[VERSION]/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/[VERSION]/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 
@@ -217,17 +217,17 @@ A tag release would be called as:
 ```html
 <script type="module">
   // latest
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/latest/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 
 <script type="module">
   // next
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/next/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/next/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 
 <script type="module">
   // beta
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/beta/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/beta/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 
@@ -236,7 +236,7 @@ A specific release would be called as:
 ```html
 <script type="module">
   // v0.6.0
-  import 'https://www.ibm.com/common/carbon-for-ibm-dotcom/v0.6.0/ibmdotcom-web-components-dotcom-shell.min.js';
+  import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/v0.6.0/ibmdotcom-web-components-dotcom-shell.min.js';
 </script>
 ```
 

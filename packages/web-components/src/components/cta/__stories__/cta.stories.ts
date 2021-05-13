@@ -16,7 +16,11 @@ import '../feature-cta-footer';
 import '../text-cta';
 import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
+import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import Download20 from 'carbon-web-components/es/icons/download/20.js';
+import Launch20 from 'carbon-web-components/es/icons/launch/20.js';
+import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
@@ -139,7 +143,11 @@ export const Card = ({ parameters }) => {
         download="${ifNonNull(footerDownload)}"
         href="${ifNonNull(footerHref)}"
       >
-        ${footerCopy || ArrowRight20({ slot: 'icon' })}
+        ${ctaType === 'local' ? footerCopy || ArrowRight20({ slot: 'icon' }) : ''}
+        ${ctaType === 'jump' ? footerCopy || ArrowDown20({ slot: 'icon' }) : ''}
+        ${ctaType === 'external' ? footerCopy || Launch20({ slot: 'icon' }) : ''}
+        ${ctaType === 'download' ? footerCopy || Download20({ slot: 'icon' }) : ''}
+        ${ctaType === 'video' ? footerCopy || PlayOutline20({ slot: 'icon' }) : ''}
       </dds-card-cta-footer>
     </dds-card-cta>
   `;
