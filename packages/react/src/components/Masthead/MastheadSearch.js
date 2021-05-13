@@ -276,7 +276,7 @@ const MastheadSearch = ({
           event.preventDefault();
         }
         // Disable search on enter key if the search field is empty
-        if(!state.val) {
+        if (!state.val) {
           event.preventDefault();
         }
       }
