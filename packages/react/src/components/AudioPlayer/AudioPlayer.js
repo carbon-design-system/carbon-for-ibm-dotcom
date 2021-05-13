@@ -14,8 +14,8 @@ import AudioPlayerThumbnail from './AudioPlayerThumbnail';
 import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
 
 import cx from 'classnames';
-// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
@@ -27,7 +27,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 
 import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 
-// const { stablePrefix } = ddsSettings;
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -145,6 +145,7 @@ const AudioPlayer = ({
     <div className={classnames}>
       <div
         className={`${prefix}--audio-player__embedded-player`}
+        data-autoid={`${stablePrefix}--audio-player__audio-${audioId}`}
         id={uniqueAudioPlayerId}></div>
 
       <AudioPlayerThumbnail audioId={audioId} />

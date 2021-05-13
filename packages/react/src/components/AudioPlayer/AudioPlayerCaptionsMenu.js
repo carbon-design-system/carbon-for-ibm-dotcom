@@ -7,7 +7,6 @@
 import AudioPlayerDisabledButton from './AudioPlayerDisabledButton';
 import ClosedCaptionFilled32 from '@carbon/icons-react/es/closed-caption--filled/20';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
-// const { stablePrefix } = ddsSettings;
 
 import OverflowMenu from '../../internal/vendor/carbon-components-react/components/OverflowMenu';
 import OverflowMenuItem from '../../internal/vendor/carbon-components-react/components/OverflowMenuItem';

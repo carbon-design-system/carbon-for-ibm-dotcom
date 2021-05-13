@@ -8,7 +8,6 @@ import Button from '../../internal/vendor/carbon-components-react/components/But
 
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import { Number } from 'window-or-global';
-// const { stablePrefix } = ddsSettings;
 
 import PropTypes from 'prop-types';
 import React from 'react';

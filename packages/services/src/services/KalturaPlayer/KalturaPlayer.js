@@ -204,6 +204,9 @@ class KalturaPlayerAPI {
               defaultSpeed: 1,
               plugin: true,
             },
+            ibm: {
+              template: 'idl',
+            },
           },
           params: {
             wmode: 'transparent',

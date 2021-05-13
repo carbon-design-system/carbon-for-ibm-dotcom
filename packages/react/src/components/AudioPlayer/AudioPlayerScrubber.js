@@ -7,7 +7,6 @@
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
-// const { stablePrefix } = ddsSettings;
 
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
 

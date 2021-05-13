@@ -6,13 +6,11 @@
  */
 import React, { useState, useEffect, useRef } from 'react';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
-// import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 
-// const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 const AudioPlayerThumbnail = ({ audioId }) => {
