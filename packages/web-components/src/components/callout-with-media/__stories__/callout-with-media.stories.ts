@@ -57,14 +57,10 @@ export default {
       CalloutWithMedia: ({ groupId }) => ({
         mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
         heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere', groupId),
-        copy: textNullable(
-          'Copy',
-          `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis, *consequat* libero. Here are
   some common categories:`,
-          groupId
-        ),
       }),
     },
     decorators: [

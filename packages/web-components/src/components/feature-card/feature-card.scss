@@ -15,23 +15,6 @@
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
-
-  @include carbon--breakpoint-down('md') {
-    .#{$prefix}--card__content {
-      padding: carbon--mini-units(2);
-      padding-bottom: carbon--mini-units(6);
-    }
-
-    .#{$prefix}--card__wrapper {
-      display: block;
-      min-height: 0;
-      height: auto;
-      position: relative;
-    }
-    .#{$prefix}--card--link {
-      display: block;
-    }
-  }
 }
 
 :host(#{$dds-prefix}-feature-card-footer),
@@ -45,11 +28,5 @@
   .#{$dds-prefix}-ce--card__footer {
     justify-content: flex-end;
     align-items: flex-end;
-  }
-
-  @include carbon--breakpoint-down('md') {
-    position: absolute;
-    width: calc(100% - #{carbon--mini-units(4)});
-    bottom: carbon--mini-units(2);
   }
 }

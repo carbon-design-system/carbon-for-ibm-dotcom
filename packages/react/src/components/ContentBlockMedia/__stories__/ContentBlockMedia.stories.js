@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, boolean } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--003.jpg';
@@ -33,8 +33,14 @@ const ctaProps = {
 };
 
 const ctaChoices = {
-  cta: ctaProps,
+  CTA: ctaProps,
   none: null,
+};
+
+const borderOptions = {
+  'Without border': false,
+  // eslint-disable-next-line max-len
+  'With border': true,
 };
 
 const simpleHeading = ContentGroupSimpleKnobs.heading;
@@ -53,7 +59,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { copy, heading, items, cta } =
+  const { copy, headingKnob, items, cta, border } =
     parameters?.props?.ContentBlockMedia ?? {};
   return (
     <div className="bx--grid">
@@ -61,9 +67,10 @@ export const Default = ({ parameters }) => {
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <ContentBlockMedia
             copy={copy}
-            heading={heading}
+            heading={headingKnob.heading}
             items={items}
             cta={cta}
+            border={border}
           />
         </div>
       </div>
@@ -75,36 +82,44 @@ Default.story = {
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
+        const headingKnob = {
+          heading: text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+        };
+
         const item = {
-          mediaType: simpleMediaType,
-          mediaData: simpleMediaData,
           heading: text(
             'Simple Group Heading (heading)',
             simpleHeading,
             groupId
           ),
+          mediaType: simpleMediaType,
+          mediaData: simpleMediaData,
           items: simpleItems,
           cta: simpleCta,
         };
 
         const items = [item, item];
 
-        const cta = select(
-          'Feature Link (optional)',
-          ctaChoices,
-          ctaChoices.cta,
-          groupId
-        );
-
         return {
           copy,
-          heading: text(
-            'Heading (heading)',
-            'Curabitur malesuada varius mi eu posuere',
+          headingKnob,
+          items,
+          cta: select(
+            'Feature Link (optional)',
+            ctaChoices,
+            ctaChoices.CTA,
             groupId
           ),
-          items,
-          cta,
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
       },
     },
@@ -118,8 +133,8 @@ Default.story = {
   },
 };
 
-export const WithAsideElements = ({ parameters }) => {
-  const { copy, heading, items, cta, aside } =
+export const WithLinkList = ({ parameters }) => {
+  const { copy, headingKnob, items, ctaKnob, aside } =
     parameters?.props?.ContentBlockMedia ?? {};
   return (
     <div className="bx--grid">
@@ -127,10 +142,10 @@ export const WithAsideElements = ({ parameters }) => {
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <ContentBlockMedia
             copy={copy}
-            heading={heading}
+            heading={headingKnob.heading}
             items={items}
+            cta={ctaKnob.cta}
             aside={aside}
-            cta={cta}
           />
         </div>
       </div>
@@ -138,20 +153,41 @@ export const WithAsideElements = ({ parameters }) => {
   );
 };
 
-WithAsideElements.story = {
-  name: 'With aside elements',
+WithLinkList.story = {
+  name: 'With Link list',
   parameters: {
     knobs: {
       ContentBlockMedia: ({ groupId }) => {
+        const headingKnob = {
+          heading: text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere',
+            groupId
+          ),
+        };
+
         const item = {
+          heading: text(
+            'Simple Group Heading (heading)',
+            simpleHeading,
+            groupId
+          ),
           mediaType: simpleMediaType,
           mediaData: simpleMediaData,
-          heading: simpleHeading,
           items: simpleItems,
           cta: simpleCta,
         };
 
         const items = [item, item];
+
+        const ctaKnob = {
+          cta: select(
+            'Feature Link (optional)',
+            ctaChoices,
+            ctaChoices.CTA,
+            groupId
+          ),
+        };
 
         const linkListProps = {
           heading: text('Link List (heading)', 'Tutorials', groupId),
@@ -170,19 +206,44 @@ WithAsideElements.story = {
                 href: 'https://ibm.com',
               },
             },
+            {
+              type: 'local',
+              copy: 'Learn more about Kubernetes',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'Explore AI use cases in all industries',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
           ],
+          totalLinks: select('Number of links', [2, 3, 4], 2, groupId),
         };
+
+        linkListProps.items = linkListProps.items.slice(
+          0,
+          linkListProps.totalLinks
+        );
 
         const aside = {
           items: <LinkList style="card" {...linkListProps} />,
-          border: boolean('border', false, groupId),
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
         };
 
         return {
           copy,
-          heading: 'Curabitur malesuada varius mi eu posuere',
+          headingKnob,
           items,
-          cta: ctaChoices.cta,
+          ctaKnob,
           aside,
         };
       },
