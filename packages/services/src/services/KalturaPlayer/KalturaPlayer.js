@@ -169,7 +169,7 @@ class KalturaPlayerAPI {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
-   * @param {boolean} autoPlay Determine whether to autoplay on load of media.
+   * @param {boolean} flashvars Determine any extra param or plugin for the player.
    * @returns {object}  object
    *
    * @example
@@ -181,32 +181,33 @@ class KalturaPlayerAPI {
    *   KalturaPlayerAPI.embedMedia(videoid, elem);
    * }
    */
-  static async embedMedia(mediaId, targetId, autoPlay) {
+  static async embedMedia(mediaId, targetId, flashvars = {}) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       const promiseKWidget = new Promise(resolve => {
+        const defaultFlashVars = {
+          autoPlay: true,
+          closedCaptions: {
+            plugin: true,
+          },
+          titleLabel: {
+            plugin: true,
+            align: 'left',
+            text: '{mediaProxy.entry.name}',
+          },
+          ibm: {
+            template: 'idl',
+          },
+        };
+
         root.kWidget.embed({
           targetId: targetId,
           wid: '_' + _partnerId,
           uiconf_id: _uiConfId,
           entry_id: mediaId,
           flashvars: {
-            autoPlay: autoPlay,
-            closedCaptions: {
-              plugin: true,
-            },
-            titleLabel: {
-              plugin: true,
-              align: 'left',
-              text: '{mediaProxy.entry.name}',
-            },
-            playbackRateSelector: {
-              defaultSpeed: 1,
-              plugin: true,
-            },
-            ibm: {
-              template: 'idl',
-            },
+            ...defaultFlashVars,
+            ...flashvars,
           },
           params: {
             wmode: 'transparent',
