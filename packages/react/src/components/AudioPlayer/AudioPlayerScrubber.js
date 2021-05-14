@@ -84,7 +84,7 @@ const AudioPlayerScrubber = ({
       <div className={`${prefix}--audio-player__audio-time`}>
         <Slider
           min={0}
-          max={160}
+          max={audioDuration}
           minLabel={KalturaPlayerAPI.getMediaDuration(audioTime)}
           maxLabel={audioDurationAsString}
           value={audioTime}
@@ -134,7 +134,7 @@ AudioPlayerScrubber.propTypes = {
   /**
    * The duration of the audio (in seconds)
    */
-  audioDuration: PropTypes.object.isRequired,
+  audioDuration: PropTypes.number.isRequired,
 };
 
 AudioPlayerScrubber.defaultProps = {
