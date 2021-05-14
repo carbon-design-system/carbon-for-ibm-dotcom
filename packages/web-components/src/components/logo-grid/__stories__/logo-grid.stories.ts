@@ -12,7 +12,6 @@ import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
 import '../../card/card-heading';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import logos from './data/logos.js';
@@ -20,7 +19,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } = parameters?.props?.LogoGrid ?? {};
+  const { heading, logosGroup, hideBorder } = parameters?.props?.LogoGrid ?? {};
   return html`
     <dds-logo-grid ?hide-border="${hideBorder}">
       <dds-content-block-heading>
@@ -32,10 +31,6 @@ export const Default = ({ parameters }) => {
             <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
           `
         )}
-      <dds-logo-grid-link href="${ctaHref}">
-        <dds-card-heading>${ctaCopy}</dds-card-heading>
-        ${ArrowRight20({ slot: 'footer' })}
-      </dds-logo-grid-link>
     </dds-logo-grid>
   `;
 };

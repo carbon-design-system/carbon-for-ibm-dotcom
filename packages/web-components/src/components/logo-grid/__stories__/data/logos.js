@@ -7,53 +7,43 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Img480 from '../../../../../../storybook-images/assets/480/fpo--4x3--480x360--004.jpg';
+import logoAdobe from '../../../../../../storybook-images/assets/logos/logo-adobe.png';
+import logoCisco from '../../../../../../storybook-images/assets/logos/logo-cisco.png';
+import logoDell from '../../../../../../storybook-images/assets/logos/logo-dell.png';
+import logoMicrosoft from '../../../../../../storybook-images/assets/logos/logo-microsoft.png';
+import logoRabobank from '../../../../../../storybook-images/assets/logos/logo-rabobank.png';
+import logoUsBank from '../../../../../../storybook-images/assets/logos/logo-usbank.png';
 
 const logos = [
   {
-    label: 'Company A',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'Microsoft',
+    imgSrc: logoMicrosoft,
+    altText: 'Microsoft',
   },
   {
-    label: 'Company B',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'Dell',
+    imgSrc: logoDell,
+    altText: 'Dell',
   },
   {
-    label: 'Company C',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'Rabobank',
+    imgSrc: logoRabobank,
+    altText: 'Rabobank',
   },
   {
-    label: 'Company D',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'Adobe',
+    imgSrc: logoAdobe,
+    altText: 'Adobe',
   },
   {
-    label: 'Company E',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'US Bank',
+    imgSrc: logoUsBank,
+    altText: 'US Bank',
   },
   {
-    label: 'Company F',
-    imgSrc: Img480,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company G',
-    imgSrc: Img480,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company H',
-    imgSrc: Img480,
-    altText: 'Image alt text',
-  },
-  {
-    label: 'Company I',
-    imgSrc: Img480,
-    altText: 'Image alt text',
+    label: 'Cisco',
+    imgSrc: logoCisco,
+    altText: 'Cisco',
   },
 ];
 
