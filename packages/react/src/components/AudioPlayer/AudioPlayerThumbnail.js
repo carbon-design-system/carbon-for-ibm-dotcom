@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
@@ -16,35 +16,21 @@ const { prefix } = settings;
 const AudioPlayerThumbnail = ({ audioId }) => {
   const inputRef = useRef(null);
 
-  const [audioHasThumbnail, setAudioHasThumbnail] = useState(false);
-  const [thumbnailUrl, setThumbnailUrl] = useState('');
-
-  useEffect(() => {
-    const thumbnailUrlFromAPI = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: audioId,
-      width: '48',
-      height: '48',
-    });
-
-    fetch(thumbnailUrlFromAPI)
-      .then(() => {
-        setAudioHasThumbnail(true);
-        setThumbnailUrl(thumbnailUrlFromAPI);
-      })
-      .catch(() => setAudioHasThumbnail(false));
-  }, [audioId]);
+  const thumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
+    mediaId: audioId,
+    width: '48',
+    height: '48',
+  });
 
   return (
     <>
-      {audioHasThumbnail && (
+      <div
+        className={`${prefix}--audio-player__thumbnail-container`}
+        ref={inputRef}>
         <div
-          className={`${prefix}--audio-player__thumbnail-container`}
-          ref={inputRef}>
-          <div
-            className={`${prefix}--audio-player__thumbnail`}
-            style={{ backgroundImage: `url('${thumbnailUrl}')` }}></div>
-        </div>
-      )}
+          className={`${prefix}--audio-player__thumbnail`}
+          style={{ backgroundImage: `url('${thumbnailUrl}')` }}></div>
+      </div>
     </>
   );
 };
