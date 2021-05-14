@@ -78,8 +78,12 @@
     display: block;
     padding-top: $spacing-09;
     padding-bottom: $spacing-09;
-    max-width: carbon--mini-units(80);
     margin-right: 0;
+    max-width: none;
+
+    @include carbon--breakpoint('md') {
+      max-width: carbon--mini-units(80);
+    }
   }
 
   .#{$prefix}--leadspace-block

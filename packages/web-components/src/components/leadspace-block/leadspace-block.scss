@@ -17,4 +17,16 @@
 :host(#{$dds-prefix}-leadspace-block-content) ::slotted(*) {
   margin-left: $carbon--spacing-05;
   margin-right: $carbon--spacing-05;
+  @include carbon--breakpoint('md') {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.#{$prefix}--content-layout {
+  @include carbon--breakpoint('md') {
+    ::slotted([slot]) {
+      margin-left: 0;
+    }
+  }
 }
