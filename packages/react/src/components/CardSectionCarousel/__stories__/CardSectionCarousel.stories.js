@@ -24,7 +24,7 @@ export default {
 export const Default = () => {
   return (
     <p>
-      This component is maintined in{' '}
+      This component is maintained in{' '}
       <code>@carbon/ibmdotcom-web-components</code> library with a{' '}
       <a
         className="bx--link"

@@ -7,6 +7,7 @@
 
 @import '../../globals/vars';
 @import '../../globals/imports';
+@import '../../globals/utils/hang';
 @import '../../components/horizontalrule/horizontalrule';
 @import '../../components/link-with-icon/link-with-icon';
 
@@ -16,6 +17,7 @@
     background: $ui-background;
     padding-bottom: $layout-05;
     display: block;
+    @include hang;
 
     .#{$prefix}--link-with-icon__container {
       padding-left: 1rem;
@@ -41,7 +43,6 @@
 
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-04;
-      width: calc(100% - #{$layout-03});
       @include carbon--type-style('quotation-02', true);
     }
   }

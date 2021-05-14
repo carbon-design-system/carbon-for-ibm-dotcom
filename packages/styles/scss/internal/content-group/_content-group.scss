@@ -25,14 +25,11 @@
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
 
-    @include carbon--breakpoint('lg') {
-      margin-top: $carbon--layout-06;
-      margin-bottom: $carbon--layout-06;
-    }
-
     .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
-      @include hang;
+      @include carbon--breakpoint('md') {
+        @include hang;
+      }
     }
   }
 
@@ -61,11 +58,10 @@
   }
 
   .#{$prefix}--content-group__cta {
-    @include carbon--make-col-ready;
-
     margin-top: $carbon--layout-04;
 
     @include carbon--breakpoint('md') {
+      @include carbon--make-col-ready;
       @include carbon--make-col(4, 8);
     }
   }

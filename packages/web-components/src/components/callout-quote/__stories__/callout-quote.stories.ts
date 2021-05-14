@@ -70,9 +70,9 @@ export default {
     },
     decorators: [
       story => html`
-        <div class="bx--grid dds-ce-demo-devenv--grid--stretch">
+        <div class="bx--grid">
           <div class="bx--row">
-            <div class="bx--offset-lg-4 bx--col-lg-12">
+            <div class="bx--offset-lg-5 bx--col-lg-11">
               ${story()}
             </div>
           </div>

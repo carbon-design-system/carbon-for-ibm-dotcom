@@ -141,7 +141,7 @@ withImages.story = {
 export const withCardInCard = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-in-card href="https://example.com">
+    <dds-card-in-card href="https://example.com" grid-mode="${ifNonNull(gridMode)}">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
@@ -208,7 +208,7 @@ withMixedMedia.story = {
 export const withCardInCardAndImageCards = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-in-card href="https://example.com">
+    <dds-card-in-card href="https://example.com" grid-mode="${ifNonNull(gridMode)}">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>

@@ -70,7 +70,7 @@ export default {
     knobs: {
       ContentGroupCards: () => ({
         heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit amet.'),
-        copy: textNullable('Copy (copy):', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
+        copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       }),
     },
   },

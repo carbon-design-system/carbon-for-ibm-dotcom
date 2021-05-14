@@ -66,13 +66,10 @@ export default !DDS_CONTENT_BLOCK_HEADLINES
         knobs: {
           ContentBlockHeadlines: () => ({
             heading: textNullable('Heading (required)', 'Aliquam condimentum'),
-            copy: textNullable(
-              'copy',
-              `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
               Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
               nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`
-            ),
+              elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
           }),
         },
         decorators: [
