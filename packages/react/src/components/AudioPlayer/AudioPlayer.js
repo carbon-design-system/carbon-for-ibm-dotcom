@@ -66,59 +66,67 @@ const AudioPlayer = ({
   const [audioPlaybackRate, setAudioPlaybackRate] = useState(1); // Current Playback Rate
 
   useEffect(() => {
-    const listeners = {
-      playerUpdatePlayhead: time => {
-        setAudioTime(Math.floor(time));
-      },
-      newClosedCaptionsData: captionData => {
-        const processedCaptions = availableCaptions;
-        processedCaptions[captionData.label] = captionData.captions;
-        setAvailableCaptions(processedCaptions);
-      },
-      playerPlayEnd: () => {
-        setAudioState('stopped');
-        /**
-         * As the video current time is floored on playhead update
-         *  when the video stop because it endend, there is a huge
-         *  chance that the scrubber will show something like:
-         *  2:29 <---- scrubber ----> 2:30
-         *  but the audio will be ended and playbutton will show
-         *  the reload icon
-         * In order to fix it, we're manually setting the current
-         *  audio time to the video duration
-         */
-        setAudioTime(audioData.duration);
-      },
-    };
-
     let stale = false;
     (async () => {
       if (audioState === 'loading') {
         const embedAnswer = await KalturaPlayerAPI.embedMedia(
           audioId,
           uniqueAudioPlayerId,
-          true
+          {
+            autoPlay: true,
+            playbackRateSelector: {
+              defaultSpeed: 1,
+              plugin: true,
+            },
+          }
         );
 
         setAudioState('playing');
 
         const kdp = await embedAnswer.kWidget();
 
+        setKalturaDigitalPlayer(kdp);
+
+        const listeners = {
+          playerUpdatePlayhead: time => {
+            setAudioTime(Math.floor(time));
+          },
+          newClosedCaptionsData: captionData => {
+            const processedCaptions = availableCaptions;
+            processedCaptions[captionData.label] = captionData.captions;
+            setAvailableCaptions(processedCaptions);
+          },
+          playerPlayEnd: () => {
+            setAudioState('stopped');
+            /**
+             * As the video current time is floored on playhead update
+             *  when the video stop because it endend, there is a huge
+             *  chance that the scrubber will show something like:
+             *  2:29 <---- scrubber ----> 2:30
+             *  but the audio will be ended and playbutton will show
+             *  the reload icon
+             * In order to fix it, we're manually setting the current
+             *  audio time to the video duration
+             */
+            setAudioTime(audioData.duration);
+          },
+        };
+
         // Loop and bind all the player listeners
         root.Object.keys(listeners).map(listenerKey => {
           kdp.addJsListener(listenerKey, listeners[listenerKey]);
         });
-
-        setKalturaDigitalPlayer(kdp);
       }
       if (stale) {
         return;
       }
-      const newAudioData = await KalturaPlayerAPI.api(audioId);
-      if (stale) {
-        return;
+      if (audioData.duration === 0) {
+        const newAudioData = await KalturaPlayerAPI.api(audioId);
+        if (stale) {
+          return;
+        }
+        setAudioData(newAudioData);
       }
-      setAudioData(newAudioData);
     })();
     return () => {
       stale = true;
