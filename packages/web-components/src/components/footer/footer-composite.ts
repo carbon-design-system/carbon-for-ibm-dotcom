@@ -222,18 +222,20 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       _loadLangDisplay: loadLangDisplay,
       _loadLocaleList: loadLocaleList,
     } = this;
-    return html`
-      <dds-locale-modal-composite
-        lang-display="${ifNonNull(langDisplay)}"
-        language="${ifNonNull(language)}"
-        ?open="${openLocaleModal}"
-        .collatorCountryName="${ifNonNull(collatorCountryName)}"
-        .localeList="${ifNonNull(localeList)}"
-        ._loadLangDisplay="${ifNonNull(loadLangDisplay)}"
-        ._loadLocaleList="${ifNonNull(loadLocaleList)}"
-      >
-      </dds-locale-modal-composite>
-    `;
+    return openLocaleModal
+      ? html`
+          <dds-locale-modal-composite
+            lang-display="${ifNonNull(langDisplay)}"
+            language="${ifNonNull(language)}"
+            ?open="${openLocaleModal}"
+            .collatorCountryName="${ifNonNull(collatorCountryName)}"
+            .localeList="${ifNonNull(localeList)}"
+            ._loadLangDisplay="${ifNonNull(loadLangDisplay)}"
+            ._loadLocaleList="${ifNonNull(loadLocaleList)}"
+          >
+          </dds-locale-modal-composite>
+        `
+      : null;
   }
 
   renderLightDOM() {
