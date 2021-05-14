@@ -133,7 +133,7 @@
 
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
-      background: inherit;
+      background-color: inherit;
       padding: $carbon--spacing-03 0 0 0;
 
       @include carbon--breakpoint('md') {
