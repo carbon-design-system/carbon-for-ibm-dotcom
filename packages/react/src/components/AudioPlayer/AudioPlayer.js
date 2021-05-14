@@ -19,9 +19,9 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
 
-import { Object } from 'window-or-global';
-
 import PropTypes from 'prop-types';
+
+import root from 'window-or-global';
 
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -105,7 +105,7 @@ const AudioPlayer = ({
         const kdp = await embedAnswer.kWidget();
 
         // Loop and bind all the player listeners
-        Object.keys(listeners).map(listenerKey => {
+        root.Object.keys(listeners).map(listenerKey => {
           kdp.addJsListener(listenerKey, listeners[listenerKey]);
         });
 

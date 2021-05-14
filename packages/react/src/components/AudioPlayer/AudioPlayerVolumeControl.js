@@ -7,10 +7,12 @@
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
-import { Number } from 'window-or-global';
 
 import PropTypes from 'prop-types';
 import React from 'react';
+
+import root from 'window-or-global';
+
 import settings from 'carbon-components/es/globals/js/settings';
 
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
@@ -29,7 +31,7 @@ const AudioPlayerVolumeControl = ({
   setDisplayVolumeControl,
 }) => {
   const handleAudioVolumeChange = volume => {
-    volume = Number.parseFloat(volume.toString().substring(0, 3));
+    volume = root.Number.parseFloat(volume.toString().substring(0, 3));
     if (kalturaDigitalPlayer) {
       kalturaDigitalPlayer.sendNotification('changeVolume', volume);
       setAudioVolume(volume);

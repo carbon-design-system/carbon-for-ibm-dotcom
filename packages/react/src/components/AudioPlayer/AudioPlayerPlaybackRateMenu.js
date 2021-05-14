@@ -93,7 +93,7 @@ AudioPlayerPlaybackRateMenu.propTypes = {
    * Example & Default Values (inherited from parent):
    *  [1, 1.5, 2]
    */
-  availablePlaybackRates: PropTypes.array.isRequired,
+  availablePlaybackRates: PropTypes.arrayOf(PropTypes.number).isRequired,
   /**
    * The state getter for the current playback rate
    */
