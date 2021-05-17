@@ -22,7 +22,9 @@
 }
 
 :host(#{$dds-prefix}-content-block-heading) {
-  margin-bottom: $carbon--layout-03;
+  @include carbon--breakpoint(lg) {
+    margin-bottom: $carbon--layout-03;
+  }
 }
 
 // TODO: Consider applying this rule in general
