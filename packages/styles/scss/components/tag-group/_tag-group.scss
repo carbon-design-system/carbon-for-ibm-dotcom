@@ -1,0 +1,26 @@
+//
+// Copyright IBM Corp. 2019, 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+@import '../../globals/vars';
+
+:host(#{$dds-prefix}-tag-group) {
+  display: flex;
+  flex-flow: row wrap;
+
+  ::slotted(#{$dds-prefix}-tag-link) {
+    display: flex;
+    padding-right: $spacing-03;
+    padding-bottom: $spacing-03;
+  }
+
+  ::slotted(#{$prefix}-tag) {
+    margin-top: 0;
+    margin-right: $spacing-03;
+    margin-bottom: $spacing-03;
+  }
+}
