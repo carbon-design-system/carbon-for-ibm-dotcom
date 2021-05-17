@@ -11,7 +11,6 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { TemplateResult } from 'lit-html';
 import { html, property, query, customElement } from 'lit-element';
 import BXComboBoxItem from 'carbon-web-components/es/components/combo-box/combo-box-item';
-import styles from 'carbon-web-components/scss/components/combo-box/combo-box.scss';
 import Close16 from 'carbon-web-components/es/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
@@ -261,8 +260,6 @@ class DDSComboBox extends DDSDropdown {
   static get eventSelect() {
     return `${prefix}-combo-box-selected`;
   }
-
-  static styles = styles;
 }
 
 export default DDSComboBox;
