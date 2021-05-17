@@ -21,6 +21,15 @@
     }
   }
 
+  ::slotted(#{$dds-prefix}-card-cta[slot]) {
+    width: auto;
+  }
+
+  ::slotted(#{$dds-prefix}-card-cta) {
+    width: auto;
+    max-width: 320px;
+  }
+
   ::slotted([slot='media']) {
     max-width: rem(640px);
   }

@@ -275,6 +275,10 @@ const MastheadSearch = ({
           onSearchNoRedirect(event, state.val);
           event.preventDefault();
         }
+        // Disable search on enter key if the search field is empty
+        if (!state.val) {
+          event.preventDefault();
+        }
       }
     }
   }
