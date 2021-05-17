@@ -21,6 +21,10 @@
   display: block;
 }
 
+:host(#{$dds-prefix}-content-block-heading) {
+  margin-bottom: $carbon--layout-03;
+}
+
 // TODO: Consider applying this rule in general
 :host(#{$dds-prefix}-content-block-simple),
 :host(#{$dds-prefix}-content-block-segmented) {
