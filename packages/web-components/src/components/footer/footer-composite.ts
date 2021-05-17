@@ -266,7 +266,6 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
             `
           )}
         </dds-footer-nav>
-        ${disableLocaleButton ? console.log('true') : console.log('false')}
         ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
               <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" size="${size}" @click="${handleClickLocaleButton}"
