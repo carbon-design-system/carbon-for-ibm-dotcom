@@ -8,57 +8,31 @@
  */
 
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
+import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../tag-group';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-
 import 'carbon-web-components/es/components/tag/tag';
 
 const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT Infrastructure', 'WebSphere'];
 
+const tagTypeOptions = ['Tag Link', 'Carbon tag'];
+
 export const Default = ({ parameters }) => {
-  const { href } = parameters?.props?.TagGroup ?? {};
+  const { tagType } = parameters?.props?.TagGroup ?? {};
   return html`
     <dds-tag-group>
-      ${tagTitles.map(
-        title => html`
-          <dds-tag-link href=${ifNonNull(href || undefined)}>
-            ${title}
-          </dds-tag-link>
-        `
-      )}
-    </dds-tag-group>
-  `;
-};
-
-export const WithCarbonTag = () => {
-  return html`
-    <dds-tag-group>
-      ${tagTitles.map(
-        title => html`
-          <bx-tag>
-            ${title}
-          </bx-tag>
-        `
-      )}
-    </dds-tag-group>
-  `;
-};
-
-export const Combined = ({ parameters }) => {
-  const { href } = parameters?.props?.TagGroup ?? {};
-  return html`
-    <dds-tag-group>
-      ${tagTitles.map(
-        title => html`
-          <dds-tag-link href=${ifNonNull(href || undefined)}>
-            ${title}
-          </dds-tag-link>
-          <bx-tag>
-            ${title}
-          </bx-tag>
-        `
+      ${tagTitles.map(title =>
+        tagType === tagTypeOptions[0]
+          ? html`
+              <dds-tag-link href="https://example.com">
+                ${title}
+              </dds-tag-link>
+            `
+          : html`
+              <bx-tag>
+                ${title}
+              </bx-tag>
+            `
       )}
     </dds-tag-group>
   `;
@@ -80,8 +54,8 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      TagGroup: () => ({
-        href: textNullable('Tag Link (href)', `https://example.com`),
+      TagGroup: ({ groupId }) => ({
+        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),
       }),
     },
   },
