@@ -32,7 +32,8 @@ class DDSTagGroup extends LitElement {
 
     const carbonTags = childItems.filter(elem =>
       (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).matches((this.constructor as typeof DDSTagGroup).selectorTag)
+        ? (elem as HTMLElement).matches((this.constructor as typeof DDSTagGroup).selectorTag) ||
+          (elem as HTMLElement).classList.contains((this.constructor as typeof DDSTagGroup).selectorTag)
         : false
     );
 
