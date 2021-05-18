@@ -30,6 +30,9 @@ import '../../cta/link-list-item-cta';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
+import '../../button-group/button-group';
+import '../../cta/button-cta';
+
 import content from './content';
 
 import styles from './cta-section.stories.scss';
@@ -45,6 +48,16 @@ const contentItemTypeMap = {
             <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="${elem.href}">${elem.copy}</dds-text-cta>
           `
       )}
+    </dds-cta-block-item>
+  `,
+  button: ({ heading, copy }) => html`
+    <dds-cta-block-item>
+      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <dds-content-item-copy>${copy}</dds-content-item-copy>
+      <dds-button-group slot="footer">
+        <dds-button-cta>Button 1</dds-button-cta>
+        <dds-button-cta>Button 2</dds-button-cta>
+      </dds-button-group>
     </dds-cta-block-item>
   `,
   statistics: ({ heading, copy, links }) => html`
@@ -113,6 +126,7 @@ const contentItemTypeMap = {
 
 const contentItemTypeOptions = {
   Text: 'text',
+  Button: 'button',
   Statistics: 'statistics',
   Pictogram: 'pictogram',
   Media: 'media',
