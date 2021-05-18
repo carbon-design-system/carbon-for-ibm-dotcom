@@ -88,9 +88,10 @@ const _renderGroup = items =>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />
-        {item.image && (
+        {(item.image || item.video) && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
-            <ImageWithCaption {...item.image} />
+            {item.image && <ImageWithCaption {...item.image} />}
+            {item.video && <VideoPlayer {...item.video} />}
           </div>
         )}
       </div>
@@ -209,6 +210,12 @@ ContentBlockSegmented.propTypes = {
         type: PropTypes.oneOf(['local']),
         copy: PropTypes.string,
         customClassName: PropTypes.string,
+      }),
+      video: PropTypes.shape({
+        customClassName: PropTypes.string,
+        videoId: PropTypes.string.isRequired,
+        showCaption: PropTypes.bool,
+        inverse: PropTypes.bool,
       }),
     })
   ).isRequired,
