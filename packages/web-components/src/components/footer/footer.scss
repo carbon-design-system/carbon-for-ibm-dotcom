@@ -28,17 +28,6 @@
 @import '@carbon/ibmdotcom-styles/scss/components/footer/locale-button';
 
 :host(#{$dds-prefix}-footer),
-:host(#{$dds-prefix}-footer-nav-group),
-:host(#{$dds-prefix}-footer-nav),
-:host(#{$dds-prefix}-locale-button),
-:host(#{$dds-prefix}-language-selector-desktop),
-:host(#{$dds-prefix}-language-selector-mobile),
-.#{$prefix}--legal-nav {
-  // Overrides productive type tokens set by `g90` theme zoning
-  @include use-carbon-expressive-tokens();
-}
-
-:host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
   display: block;
 }

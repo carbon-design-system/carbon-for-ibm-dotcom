@@ -11,9 +11,6 @@
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-search) {
-  // Enables expressive version of type/size/component tokens in this component
-  @include use-carbon-expressive-tokens();
-
   @extend :host(#{$prefix}-search);
 
   &[size='sm'] {
@@ -35,8 +32,8 @@
   /**
    * We are deliberatey diverging from the global helper mixins for placeholder, found here:
    * (https://github.com/carbon-design-system/carbon/blob/v10.25.0/packages/components/src/globals/scss/_helper-mixins.scss#L44-L51)
-   * 
-   * The reason for this being that the current placeholder color fails contrast testing, 
+   *
+   * The reason for this being that the current placeholder color fails contrast testing,
    * while this replacement color passes testing.
    */
   ::placeholder {
