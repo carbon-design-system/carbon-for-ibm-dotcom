@@ -1,21 +1,21 @@
-name: automerge
+name: automerge-feat
 on:
   push:
     branches:
-      - 'release/*'
+      - 'master'
 
 jobs:
-  automerge:
+  automerge-feat:
     runs-on: ubuntu-16.04
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@master
-      - name: Merge to master
+      - name: Merge to feat/expressive-sunset
         uses: devmasx/merge-branch@v1.1.0
         with:
           type: now
-          target_branch: 'master'
+          target_branch: 'feat/expressive-sunset'
         env:
           GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
       - uses: act10ns/slack@v1
