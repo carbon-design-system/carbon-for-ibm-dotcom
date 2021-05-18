@@ -53,8 +53,6 @@ export default {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),
         logosGroup: logos,
-        ctaCopy: textNullable('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet', groupId),
-        ctaHref: textNullable('CTA Href (ctaHref)', 'http://local.url.com/', groupId),
         hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
       }),
     },
