@@ -103,7 +103,6 @@
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group__cards__row {
     position: relative;
-
     &::after {
       content: '';
       display: block;
@@ -149,6 +148,22 @@
 
     background: $ui-03;
     padding-top: $carbon--grid-gutter--condensed;
+
+    &:nth-child(-n + 3) {
+      padding-top: 0.1rem;
+
+      .#{$prefix}--card__wrapper {
+        padding-top: 0.9rem;
+      }
+    }
+
+    &:nth-child(3n + 1) {
+      padding-left: 0.1rem;
+
+      .#{$prefix}--card__wrapper {
+        padding-left: 0.09rem;
+      }
+    }
 
     &:last-of-type {
       padding-right: 0;
