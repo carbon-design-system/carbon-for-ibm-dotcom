@@ -179,7 +179,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${ctaButtons?.map(item => {
           return html`
-            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}" class="left-nav-cta"></dds-cloud-left-nav-item>
+            <dds-cloud-left-nav-item href="${item.url}" title="${item.title}"></dds-cloud-left-nav-item>
           `;
         })}
       </dds-left-nav>

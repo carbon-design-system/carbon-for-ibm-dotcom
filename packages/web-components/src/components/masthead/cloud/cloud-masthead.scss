@@ -30,7 +30,7 @@
 
   &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
-    color: $link-01;
+    color: $link-02;
   }
 
   .#{$prefix}--btn {
@@ -38,7 +38,12 @@
   }
 
   .#{$prefix}--btn--ghost {
-    color: $text-01;
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
   }
 }
 
@@ -211,8 +216,24 @@
 :host(#{$dds-prefix}-cloud-left-nav-item) {
   @extend :host(#{$dds-prefix}-left-nav-item);
 
-  &.left-nav-cta .#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    color: $link-01;
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    color: $text-02;
+
+    &:hover,
+    &:focus {
+      color: $text-01;
+    }
+  }
+
+  &:last-child {
+    a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+      color: $link-01;
+
+      &:hover,
+      &:focus {
+        color: $link-02;
+      }
+    }
   }
 }
 
