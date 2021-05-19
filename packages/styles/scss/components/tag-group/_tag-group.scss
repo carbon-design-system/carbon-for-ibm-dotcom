@@ -19,8 +19,6 @@
   }
 
   ::slotted(#{$prefix}-tag) {
-    margin-top: 0;
-    margin-right: $spacing-03;
-    margin-bottom: $spacing-03;
+    margin: 0 $spacing-03 $spacing-03 0;
   }
 }

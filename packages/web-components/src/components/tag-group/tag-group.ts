@@ -38,16 +38,20 @@ class DDSTagGroup extends LitElement {
 
     const carbonReactTags = childItems.filter(elem =>
       (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).classList.contains((this.constructor as typeof DDSTagGroup).selectorTag)
+        ? (elem as HTMLElement).classList.contains((this.constructor as typeof DDSTagGroup).selectorReactTag)
         : false
     );
 
     // Handle color setting differently depending on Carbon WC or Carbon React
     carbonTags.forEach(elem => {
-      (elem as HTMLElement).setAttribute('type', 'green');
+      if ((elem as HTMLElement).getAttribute('type') === 'gray') {
+        (elem as HTMLElement).setAttribute('type', 'green');
+      }
     });
     carbonReactTags.forEach(elem => {
-      (elem as HTMLElement).classList.add(`${prefix}--tag--green`);
+      if (!(elem as HTMLElement).className.split(' ').some(c => /^bx--tag--/.test(c))) {
+        (elem as HTMLElement).classList.add(`${prefix}--tag--green`);
+      }
     });
   }
 
@@ -74,6 +78,13 @@ class DDSTagGroup extends LitElement {
    */
   static get selectorTag() {
     return `${prefix}-tag`;
+  }
+
+  /**
+   * A selector that will return the BXTag child items.
+   */
+  static get selectorReactTag() {
+    return `${prefix}--tag`;
   }
 
   static get stableSelector() {
