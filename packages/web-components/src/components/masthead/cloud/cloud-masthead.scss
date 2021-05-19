@@ -28,16 +28,16 @@
   margin: 0;
   padding-right: 0;
 
-  &.console .bx--btn--ghost {
+  &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
     color: $link-01;
   }
 
-  .bx--btn {
+  .#{$prefix}--btn {
     padding: calc(0.875rem - 3px) carbon--rem(15px);
   }
 
-  .bx--btn--ghost {
+  .#{$prefix}--btn--ghost {
     color: $text-01;
   }
 }
@@ -211,12 +211,12 @@
 :host(#{$dds-prefix}-cloud-left-nav-item) {
   @extend :host(#{$dds-prefix}-left-nav-item);
 
-  &.left-nav-cta .bx--side-nav__link .bx--side-nav__link-text {
+  &.left-nav-cta .#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
     color: $link-01;
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile) .bx--header__menu-title[aria-expanded='true'] + .bx--header__menu {
+:host(#{$dds-prefix}-cloud-masthead-profile) .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
   @include carbon--breakpoint-down('md') {
     width: 100vw;
   }
