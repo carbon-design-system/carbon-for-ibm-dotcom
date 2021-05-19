@@ -29,6 +29,11 @@
   }
 }
 
+:host(#{$dds-prefix}-link-list-item-card) .#{$prefix}--link:focus {
+  outline: 2px solid $focus;
+  outline-offset: -2px;
+}
+
 :host(#{$dds-prefix}-link-list-item) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']),
 :host(#{$dds-prefix}-link-list-item-cta) .bx--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
   min-width: 20px;
@@ -71,9 +76,20 @@
 
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-cta) {
-      display: grid;
       outline: none;
     }
+  }
+
+  .#{$prefix}--link-list__list--card,
+  .#{$dds-prefix}-ce--link-list__list--end {
+    ::slotted(#{$dds-prefix}-link-list-item),
+    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+      display: grid;
+    }
+  }
+
+  .#{$prefix}--link-list__list--vertical ::slotted(#{$dds-prefix}-link-list-item) {
+    display: flex;
   }
 
   .#{$dds-prefix}-ce--link-list__list--end {
