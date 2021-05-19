@@ -11,16 +11,10 @@
 @import 'carbon-components/scss/components/tabs/tabs';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/tabs';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/components/accordion';
 
 @mixin tabs-extended {
   :host(#{$dds-prefix}-tabs-extended),
   :host(#{$dds-prefix}-tabs-extended-media) {
-    @include tabs-expressive;
-    @include accordion-expressive;
-
     .#{$prefix}--tabs {
       display: none;
       @include carbon--breakpoint(lg) {

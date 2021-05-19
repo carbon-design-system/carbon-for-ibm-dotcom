@@ -15,9 +15,6 @@
 @import 'carbon-components/scss/components/text-input/text-input';
 @import 'carbon-components/scss/components/link/link';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
-
-@include carbon-expressive-component-tokens;
 
 @import '@carbon/ibmdotcom-styles/scss/components/footer/temp-breakpoints';
 @import '@carbon/ibmdotcom-styles/scss/components/footer/footer';
