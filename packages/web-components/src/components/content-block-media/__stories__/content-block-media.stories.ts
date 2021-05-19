@@ -151,12 +151,11 @@ export const Default = ({ parameters }) => {
       <dds-content-block-media-content>
         ${featureCard === 'CTA'
           ? html`
-              <dds-content-group-heading>
-                Lorem ipsum dolor sit amet
-              </dds-content-group-heading>
-              <dds-feature-card href="https://example.com">
+              <dds-feature-card size="large" href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
+                <dds-card-eyebrow>Test eyebrow</dds-card-eyebrow>
                 <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
+                <dds-card-copy>Test copy</dds-card-copy>
                 <dds-feature-card-footer>
                   ${ArrowRight20({ slot: 'icon' })}
                 </dds-feature-card-footer>
@@ -235,7 +234,7 @@ export const withLinkList = ({ parameters }) => {
               <dds-content-group-heading>
                 Lorem ipsum dolor sit amet
               </dds-content-group-heading>
-              <dds-feature-card href="https://example.com">
+              <dds-feature-card size="large" href="https://example.com">
                 <dds-image slot="image" alt="Feature card image" default-src="${imgLg1x1}"></dds-image>
                 <dds-card-heading>Consectetur adipisicing elit</dds-card-heading>
                 <dds-feature-card-footer>

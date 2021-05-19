@@ -30,6 +30,8 @@ export * from './CTASection';
 export * from './DotcomShell';
 export * from './ExpressiveModal';
 export * from './FeatureCard';
+export * from './FeatureCardBlockLarge';
+export * from './FeatureCardBlockMedium';
 export * from './Footer';
 export * from './HorizontalRule';
 export * from './Icon';
