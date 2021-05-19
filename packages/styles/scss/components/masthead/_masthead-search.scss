@@ -109,7 +109,7 @@
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
-      color: $icon-01;
+      color: $icon-02;
 
       background-color: $ui-background;
       padding: 0;
@@ -117,7 +117,7 @@
       &:hover {
         background-color: $hover-ui;
         svg[focusable='false'][aria-hidden='true'] {
-          fill: $icon-02;
+          fill: $icon-01;
         }
       }
       // prevent tooltip from showing on hover

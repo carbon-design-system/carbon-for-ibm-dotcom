@@ -221,3 +221,9 @@
     width: 100vw;
   }
 }
+
+:host(#{$dds-prefix}-cloud-masthead-profile) a.#{$prefix}--header__menu-item {
+  svg {
+    fill: $icon-02;
+  }
+}
