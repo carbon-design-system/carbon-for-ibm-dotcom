@@ -13,10 +13,10 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import { GRID_MODE } from './defs';
+import { GRID_MODE, OPTIONAL_BORDER } from './defs';
 import styles from './card-group.scss';
 
-export { GRID_MODE };
+export { GRID_MODE, OPTIONAL_BORDER };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -166,6 +166,14 @@ class DDSCardGroup extends LitElement {
   @property({ attribute: 'grid-mode', reflect: true })
   gridMode = GRID_MODE.COLLAPSED;
 
+  /**
+   * Optional 1px border.
+   * Hidden/0px (default) | Visible/1px).
+   */
+
+  @property({ attribute: 'border', reflect: true })
+  optionalBorder = OPTIONAL_BORDER.VISIBLE;
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -185,6 +193,7 @@ class DDSCardGroup extends LitElement {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
       [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
+      [`${prefix}--card-group--border`]: this.optionalBorder === OPTIONAL_BORDER.VISIBLE,
     });
 
     return html`

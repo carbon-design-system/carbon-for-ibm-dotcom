@@ -149,22 +149,6 @@
     background: $ui-03;
     padding-top: $carbon--grid-gutter--condensed;
 
-    &:nth-child(-n + 3) {
-      padding-top: 0.1rem;
-
-      .#{$prefix}--card__wrapper {
-        padding-top: 0.9rem;
-      }
-    }
-
-    &:nth-child(3n + 1) {
-      padding-left: 0.1rem;
-
-      .#{$prefix}--card__wrapper {
-        padding-left: 0.09rem;
-      }
-    }
-
     &:last-of-type {
       padding-right: 0;
       .#{$prefix}--card {
@@ -174,6 +158,41 @@
 
     .#{$prefix}--card--inverse {
       height: 100%;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-group)[border='visible'],
+  .#{$prefix}--card-group--border {
+    // 1px border to all cards
+    ::slotted(#{$dds-prefix}-card-group-item),
+    .#{$prefix}--card-group__cards__col {
+      padding: 0;
+      padding-right: 0.0625rem;
+      padding-bottom: 0.0625rem;
+    }
+
+    // first 3, top border
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(-n + 3)),
+    .#{$prefix}--card-group__cards__col:nth-child(-n + 3) {
+      padding-top: 0.1rem;
+    }
+
+    // first of row, no right border
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n + 1)),
+    .#{$prefix}--card-group__cards__col:nth-child(3n + 1) {
+      padding-left: 0.1rem;
+    }
+
+    // last of row, no left border
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
+    .#{$prefix}--card-group__cards__col:nth-child(3n) {
+      padding-right: 0.1rem;
+    }
+
+    // last 3, bottom border
+    ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
+    .#{$prefix}--card-group__cards__col:nth-last-of-type(3) {
+      padding-bottom: 0.1rem;
     }
   }
 

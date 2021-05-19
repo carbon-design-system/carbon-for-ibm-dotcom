@@ -24,10 +24,15 @@ import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--131
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
-import { GRID_MODE } from '../defs';
+import { GRID_MODE, OPTIONAL_BORDER } from '../defs';
 import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
+
+const optionalBorder = {
+  [`Visible (1px)`]: OPTIONAL_BORDER.VISIBLE,
+  [`Hidden (0px)`]: OPTIONAL_BORDER.HIDDEN,
+};
 
 let count = 0;
 const phraseArray = [
@@ -99,7 +104,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group border="${ifNonNull(optionalBorder)}"> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
@@ -141,7 +146,7 @@ withImages.story = {
 export const withCardInCard = ({ parameters }) => {
   const { cards, gridMode } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-in-card href="https://example.com" grid-mode="${ifNonNull(gridMode)}">
+    <dds-card-in-card href="https://example.com" grid-mode="${ifNonNull(gridMode)}" border="visible">
       <dds-card-in-card-image slot="image" alt="Image alt text" default-src="${imgSm4x3}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}"> </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}"> </dds-image-item>
@@ -261,6 +266,7 @@ export default {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardsDiffLengthPhrase()),
+        optionalBorder: select('Optional border:', optionalBorder, OPTIONAL_BORDER.VISIBLE, groupId),
       }),
     },
     decorators: [
