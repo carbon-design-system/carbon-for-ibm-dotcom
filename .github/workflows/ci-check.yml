@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        node-version: ['12.x']
+        node-version: ['14.x']
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        node-version: ['12.x']
+        node-version: ['14.x']
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        node-version: ['12.x']
+        node-version: ['14.x']
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js
@@ -64,13 +64,13 @@ jobs:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
-        node-version: ['12.x']
+        node-version: ['14.x']
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Install dependencies
         run: yarn install
       - name: Install xvfb

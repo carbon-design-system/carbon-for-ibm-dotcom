@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.0-rc.2...@carbon/ibmdotcom-web-components@1.4.0) (2021-05-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.4.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.0-rc.1...@carbon/ibmdotcom-web-components@1.4.0-rc.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* **footer:** remove combo-box.scss import ([#6105](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6105)) ([8fa5a78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/8fa5a78)), closes [#6104](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6104)
+
+
+
+
+
+# [1.4.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@1.4.0-rc.0...@carbon/ibmdotcom-web-components@1.4.0-rc.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* **cta-card:** cta-type updating icon in storybook knob ([#6015](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6015)) ([3708a71](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/3708a71)), closes [#6010](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6010)
+* **left-nav:** add body scroll lock logic to left nav ([#6030](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6030)) ([1e8d442](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/1e8d442)), closes [#6026](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6026)
+* **locale-modal:** fixes search icon position ([#6029](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6029)) ([f8162c7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/f8162c7)), closes [#6008](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6008)
+* **masthead:** chevron size and margin ([#6061](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/issues/6061)) ([95331f0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/commit/95331f0))
+
+
+
+
+
 # [1.4.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/compare/@carbon/ibmdotcom-web-components@0.5.0-beta.58.45...@carbon/ibmdotcom-web-components@1.4.0-rc.0) (2021-05-07)
 
 

@@ -222,8 +222,9 @@
 :host(#{$dds-prefix}-cloud-masthead-profile),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    fill: $icon-02;
-    transform: scale(1.25);
+    fill: $text-01;
+    width: 20px;
+    height: 20px;
   }
 
   a.#{$prefix}--header__menu-item[role='menuitem'] {

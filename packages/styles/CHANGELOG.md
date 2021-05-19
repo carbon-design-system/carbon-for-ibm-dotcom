@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.19.0-rc.1...@carbon/ibmdotcom-styles@1.19.0) (2021-05-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.19.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.19.0-rc.0...@carbon/ibmdotcom-styles@1.19.0-rc.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* **table-of-contents:** ensure option text color is readable ([#6041](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6041)) ([72d1f24](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/72d1f24)), closes [#6011](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6011)
+
+
+
+
+
 # [1.19.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.18.1...@carbon/ibmdotcom-styles@1.19.0-rc.0) (2021-05-07)
 
 
