@@ -176,7 +176,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus: false,
     });
   }
 
