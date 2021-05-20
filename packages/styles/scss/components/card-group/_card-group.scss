@@ -163,36 +163,51 @@
 
   :host(#{$dds-prefix}-card-group)[border='visible'],
   .#{$prefix}--card-group--border {
-    // 1px border to all cards
+    overflow: visible;
+
+    // reset border and add border to bottom and right
     ::slotted(#{$dds-prefix}-card-group-item),
     .#{$prefix}--card-group__cards__col {
       padding: 0;
-      padding-right: 0.0625rem;
-      padding-bottom: 0.0625rem;
+      border-right: 1px solid $ui-03;
+      border-bottom: 1px solid $ui-03;
+      margin-bottom: 0;
     }
 
-    // first 3, top border
+    // first 3 should have the top border
     ::slotted(#{$dds-prefix}-card-group-item:nth-child(-n + 3)),
     .#{$prefix}--card-group__cards__col:nth-child(-n + 3) {
-      padding-top: 0.1rem;
+      margin-top: 1px;
+      border-top: 1px solid $ui-03;
     }
 
-    // first of row, no right border
+    // first of row, add left border
     ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n + 1)),
     .#{$prefix}--card-group__cards__col:nth-child(3n + 1) {
-      padding-left: 0.1rem;
-    }
-
-    // last of row, no left border
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
-    .#{$prefix}--card-group__cards__col:nth-child(3n) {
-      padding-right: 0.1rem;
+      margin-left: 1px;
+      border-left: 1px solid $ui-03;
     }
 
     // last 3, bottom border
     ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
     .#{$prefix}--card-group__cards__col:nth-last-of-type(3) {
-      padding-bottom: 0.1rem;
+      padding-bottom: 0;
+      background-color: transparent;
+      border-bottom: 1px solid $ui-03;
+      margin-bottom: 1px;
+    }
+
+    // last of row, thicker border to avoid overflow cut
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
+    .#{$prefix}--card-group__cards__col:nth-child(3n) {
+      margin-right: 1px;
+      margin-bottom: 0;
+      border-right: 1px solid $ui-03;
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+    .#{$prefix}--card-group__cards__col:last-of-type {
+      margin-bottom: 1px;
     }
   }
 

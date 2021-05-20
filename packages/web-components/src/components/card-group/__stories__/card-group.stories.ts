@@ -29,9 +29,9 @@ import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
 
-const optionalBorder = {
-  [`Visible (1px)`]: OPTIONAL_BORDER.VISIBLE,
-  [`Hidden (0px)`]: OPTIONAL_BORDER.HIDDEN,
+const optionalBorders = {
+  [`Visible`]: OPTIONAL_BORDER.VISIBLE,
+  [`Hidden`]: OPTIONAL_BORDER.HIDDEN,
 };
 
 let count = 0;
@@ -102,7 +102,7 @@ const cardGroupItemWithCTAs = html`
 `;
 
 export const Default = ({ parameters }) => {
-  const { cards } = parameters?.props?.CardGroup ?? {};
+  const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
   return html`
     <dds-card-group border="${ifNonNull(optionalBorder)}"> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
@@ -121,6 +121,19 @@ export const withCTA = ({ parameters }) => {
       </dds-card-group-item>
     </dds-card-group>
   `;
+};
+
+withCTA.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(() => cardGroupItemWithCTAs),
+      }),
+    },
+  },
 };
 
 export const withImages = ({ parameters }) => {
@@ -266,7 +279,7 @@ export default {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardsDiffLengthPhrase()),
-        optionalBorder: select('Optional border:', optionalBorder, OPTIONAL_BORDER.VISIBLE, groupId),
+        optionalBorder: select('Optional border:', optionalBorders, OPTIONAL_BORDER.VISIBLE, groupId),
       }),
     },
     decorators: [

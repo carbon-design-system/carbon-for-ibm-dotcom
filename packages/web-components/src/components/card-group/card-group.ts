@@ -172,7 +172,7 @@ class DDSCardGroup extends LitElement {
    */
 
   @property({ attribute: 'border', reflect: true })
-  optionalBorder = OPTIONAL_BORDER.VISIBLE;
+  optionalBorder = OPTIONAL_BORDER.HIDDEN;
 
   connectedCallback() {
     super.connectedCallback();
