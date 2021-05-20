@@ -72,7 +72,6 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
         if (label) {
           navLink.parentElement!.setAttribute('aria-label', label);
           navLink.parentElement!.setAttribute('hasToolTip', label);
-          navLink.parentElement!.setAttribute('tabindex', '1');
         }
       }
       return tab;
