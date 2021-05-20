@@ -209,6 +209,7 @@ $fcb-breakpoint-up--lg: map-get(
   }
 
   :host(#{$dds-prefix}-feature-card[size='large']),
+  :host(#{$dds-prefix}-feature-cta[size='large']),
   .#{$prefix}--feature-card-large {
     margin-bottom: $carbon--layout-03;
     color: $text-01;

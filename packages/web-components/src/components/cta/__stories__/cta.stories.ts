@@ -227,7 +227,9 @@ export default {
             <div class="bx--grid">
               <div class="bx--row">
                 <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-                  ${story()}
+                  <dds-video-cta-container class="${classes}">
+                    ${story()}
+                  </dds-video-cta-container>
                 </div>
               </div>
             </div>

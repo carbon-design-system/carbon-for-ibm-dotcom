@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {Function} props.onClick onClick function
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ card, size }) => {
+const FeatureCard = ({ card, size, ...otherProps }) => {
   const { eyebrow, heading, image, cta, copy } = card;
 
   return (
@@ -48,6 +48,7 @@ const FeatureCard = ({ card, size }) => {
             [`${prefix}--feature-card-large__card`]: size === 'large',
           })}
           {...card}
+          {...otherProps}
         />
       </div>
     )
@@ -95,7 +96,7 @@ FeatureCard.propTypes = {
     cta: PropTypes.shape({
       copy: PropTypes.string,
       href: PropTypes.string,
-      type: PropTypes.oneOf(['jump', 'local', 'external', 'download']),
+      type: PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
     }),
     image: PropTypes.shape({
       classname: PropTypes.string,

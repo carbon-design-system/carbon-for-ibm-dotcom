@@ -13,6 +13,7 @@ import React from 'react';
  * FeatureCard subcomponent for CTA.
  */
 const FeatureCTA = ({
+  size,
   type,
   openLightBox,
   renderLightBox,
@@ -38,6 +39,7 @@ const FeatureCTA = ({
               }),
             },
           })}
+          size={size}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
@@ -49,6 +51,7 @@ const FeatureCTA = ({
           ...otherProps.card,
         },
       })}
+      size={size}
     />
   );
 };
@@ -75,6 +78,16 @@ const _renderFeatureCard = ({ card }) => {
 };
 
 FeatureCTA.propTypes = {
+  /**
+   * Size of Feature Card. Choose from:
+   *
+   * | Name    | Description                                                  |
+   * | ------- | -------------------------------------------------------------|
+   * | `medium`| Default Feature Card variant                                 |
+   * | `large` | Large Feature Card variant that contains eyebrow and heading |
+   */
+  size: PropTypes.oneOf(['medium', 'large']),
+
   /**
    * CTA type. Choose from:
    *
