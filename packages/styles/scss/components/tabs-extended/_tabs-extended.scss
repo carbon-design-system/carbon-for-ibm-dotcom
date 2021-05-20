@@ -27,12 +27,17 @@
 
       .#{$prefix}--tabs__nav {
         position: relative;
+        overflow: visible;
       }
 
       .#{$prefix}--tabs__nav-item {
         min-height: 3rem;
         width: 10rem;
         height: auto;
+
+        &:hover:not(.bx--tabs__nav-item--disabled) {
+          box-shadow: none;
+        }
       }
 
       .#{$prefix}--tabs__nav-link:focus,
@@ -55,6 +60,20 @@
 
       .#{$prefix}--tabs__nav-link {
         height: auto;
+        overflow: visible;
+        white-space: normal;
+
+        div {
+          align-self: flex-start;
+          &[hasTooltip] {
+            @include tooltip--trigger('definition', top);
+            @include tooltip--placement('definition', 'bottom', 'start');
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
 
         /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
         p {
@@ -65,15 +84,6 @@
           text-overflow: ellipsis;
           overflow: hidden;
           height: 100%;
-
-          &[hasTooltip] {
-            @include tooltip--trigger('definition', top);
-            @include tooltip--placement('definition', 'bottom', 'start');
-
-            &:focus {
-              outline: none;
-            }
-          }
         }
         /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
       }
