@@ -7,10 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-pictograms/content-group-pictograms.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy';
+import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-copy';
+import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-pictograms/content-group-pictograms';
+import '@carbon/ibmdotcom-web-components/es/components/pictogram-item/pictogram-item';
+import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta-footer';
 import './index.scss';

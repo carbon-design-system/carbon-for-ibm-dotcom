@@ -23,16 +23,24 @@ LICENSE file in the root directory of this source tree.
     <script src="src/index.js"></script>
   </head>
   <body>
-    <h1>Hello World! 👋</h1>
     <div id="app">
       <dds-card-link href="https://example.com">
-        <p>Copy text</p>
+        <p>Explore AI use cases in all industries</p>
+        <dds-card-footer slot="footer">
+          <svg
+            slot="icon"
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+          >
+            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          </svg>
+        </dds-card-footer>
       </dds-card-link>
     </div>
   </body>
-  <script type="text/javascript">
-    document.getElementById('btn').addEventListener('click', () => {
-      console.log('Button clicked!');
-    });
-  </script>
 </html>

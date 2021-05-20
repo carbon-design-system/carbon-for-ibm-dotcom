@@ -11,5 +11,6 @@ import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/c
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy';
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-eyebrow';
 import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading';
+import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-paragraph';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
 import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
