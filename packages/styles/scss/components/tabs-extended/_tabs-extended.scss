@@ -9,6 +9,7 @@
 @import '../link-list/index';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
 @import 'carbon-components/scss/components/tabs/tabs';
+@import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-components/scss/components/accordion/accordion';
 @import 'carbon-components/scss/components/accordion/keyframes';
 @import '@carbon/ibmdotcom-styles/scss/themes/expressive/tokens';
@@ -23,6 +24,60 @@
 
     .#{$prefix}--tabs {
       display: none;
+
+      .#{$prefix}--tabs__nav {
+        position: relative;
+      }
+
+      .#{$prefix}--tabs__nav-item {
+        min-height: 3rem;
+        width: 10rem;
+        height: auto;
+      }
+
+      .#{$prefix}--tabs__nav-link:focus,
+      .#{$prefix}--tabs__nav-link:active {
+        border-bottom: 2px solid $border-interactive;
+      }
+
+      .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
+        .#{$prefix}--tabs__nav-link,
+        .#{$prefix}--tabs__nav-link:focus,
+        .#{$prefix}--tabs__nav-link:active {
+          border-bottom: 2px solid $border-interactive;
+          p {
+            @include type-style('productive-heading-01');
+
+            color: $text-primary;
+          }
+        }
+      }
+
+      .#{$prefix}--tabs__nav-link {
+        height: auto;
+
+        /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+        p {
+          display: -webkit-box;
+          white-space: normal;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          height: 100%;
+
+          &[hasTooltip] {
+            @include tooltip--trigger('definition', top);
+            @include tooltip--placement('definition', 'bottom', 'start');
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+      }
+
       @include carbon--breakpoint(lg) {
         display: block;
       }

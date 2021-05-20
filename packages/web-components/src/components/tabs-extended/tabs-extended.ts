@@ -134,7 +134,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                   aria-controls="tab-panel-${index}-default"
                   aria-selected="${active}"
                   @click="${e => this._handleClick(index, e)}"
-                  >${label}</a
+                  ><p aria-label="${label}" ?hasTooltip="${label}">${label}</p></a
                 >
               </li>
             `;
