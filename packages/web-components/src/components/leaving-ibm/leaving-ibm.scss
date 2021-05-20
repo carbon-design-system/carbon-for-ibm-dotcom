@@ -20,8 +20,6 @@
 
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
-
-    background-color: $overlay;
   }
 }
 
