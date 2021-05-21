@@ -30,9 +30,18 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
   <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
   LeadSpace copy
   <dds-button-group slot="action">
-    ${buttons.map( elem => html`
-    <dds-button-group-item href="www.example.com">${elem.copy}${ArrowRight20}</dds-button-group-item>
-    ` )}
+    <dds-button-group-item href="www.example.com">
+      Button 1
+      <svg ...>
+        ...
+      </svg>
+    </dds-button-group-item>
+    <dds-button-group-item href="www.example.com">
+      Button 2
+      <svg ...>
+        ...
+      </svg>
+    </dds-button-group-item>
   </dds-button-group>
   <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
     <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
@@ -54,10 +63,19 @@ If using the video player cta in the Leadspace, make sure to follow the guidelin
   <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
   LeadSpace copy
   <dds-video-cta-container slot="action">
-    <dds-button-group>
-      ${buttons.map( elem => html`
-      <dds-button-cta cta-type="video" href="1_9h94wo6b"></dds-button-cta>
-      ` )}
+    <dds-button-group slot="action">
+      <dds-button-group-item href="www.example.com">
+        Button 1
+        <svg ...>
+          ...
+        </svg>
+      </dds-button-group-item>
+      <dds-button-group-item href="www.example.com">
+        Button 2
+        <svg ...>
+          ...
+        </svg>
+      </dds-button-group-item>
     </dds-button-group>
   </dds-video-cta-container>
   <dds-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
