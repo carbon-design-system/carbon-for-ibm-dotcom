@@ -38,22 +38,28 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       videoName,
       formatVideoCaption: formatCaptionInEffect,
       formatVideoDuration: formatDurationInEffect,
-      _hasCopy: hasCopy,
     } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
       return super._renderCopy();
     }
-    const caption = hasCopy
-      ? undefined
-      : formatCaptionInEffect({
-          duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
-          name: videoName,
-        });
+    const caption = formatCaptionInEffect({
+      duration: formatDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+      name: videoName,
+    });
 
-    // render caption as heading if it exists
-    (this.querySelector((this.constructor as typeof DDSFeatureCTA).selectorHeading) as HTMLElement)!.innerHTML = caption;
-    return html``;
+    this.captionHeading = caption;
+    return html`
+      <div class="bx--card__copy">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
+    `;
   }
+
+  /**
+   * The video caption to replace the heading with.
+   */
+  @property({ attribute: false })
+  captionHeading;
 
   /**
    * The CTA type.
@@ -102,6 +108,11 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
       if (footer) {
         (footer as DDSFeatureCTAFooter).ctaType = ctaType;
       }
+    }
+    if (changedProperties.has('captionHeading')) {
+      (this.querySelector(
+        (this.constructor as typeof DDSFeatureCTA).selectorHeading
+      ) as HTMLElement)!.innerText = this.captionHeading;
     }
   }
 
