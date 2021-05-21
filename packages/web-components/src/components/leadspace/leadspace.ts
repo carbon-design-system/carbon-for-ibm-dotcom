@@ -64,6 +64,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getContainerClass() {
     return classMap({
+      [`${prefix}--leadspace__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace__container`]: this.size === LEADSPACE_SIZE.NONE,
     });
@@ -88,6 +89,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getCopyType() {
     return classMap({
+      [`${prefix}--leadspace__desc--super`]: this.size === LEADSPACE_SIZE.SUPER,
       [`${prefix}--leadspace__desc--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
       [`${prefix}--leadspace__desc`]: this.size === LEADSPACE_SIZE.NONE,
     });
@@ -100,6 +102,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--leadspace--content__container`]: this.size === LEADSPACE_SIZE.NONE,
       [`${prefix}--leadspace--content__container--medium`]: this.size === LEADSPACE_SIZE.MEDIUM,
+      [`${prefix}--leadspace--content__container--super`]: this.size === LEADSPACE_SIZE.SUPER,
     });
   }
 
@@ -167,7 +170,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   type = LEADSPACE_TYPE.LEFT;
 
   /**
-   *  Leadspace size (tall or medium)
+   *  Leadspace size (super, tall, or medium)
    */
   @property({ reflect: true })
   size = 'tall';
@@ -211,6 +214,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               `}
             <div class="${this._getContentType()}">
               <div class="${prefix}--leadspace__row">
+                <slot name="extra-elements"></slot>
                 ${this._renderHeading()}
               </div>
               <div class="${prefix}--leadspace__content">
