@@ -9,10 +9,7 @@
 
 // eslint-disable-next-line import/no-duplicates
 import '../../content-block/content-block-heading';
-import '../callout-with-media';
-import '../callout-with-media-copy';
-import '../callout-with-media-image';
-import '../callout-with-media-video';
+import '../index';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports,import/no-duplicates

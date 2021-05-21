@@ -11,7 +11,7 @@ import classnames from 'classnames';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/back-to-top';
+import DDSBackToTop from '@carbon/ibmdotcom-web-components/es/components-react/back-to-top/index';
 import React from 'react';
 import readme from './README.stories.react.mdx';
 import styles from './back-to-top.stories.scss';

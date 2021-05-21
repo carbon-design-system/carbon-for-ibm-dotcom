@@ -7,17 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import '../callout-quote';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import textNullable from '../../../../.storybook/knob-text-nullable';
-import { QUOTE_TYPES } from '../../quote/quote';
-import '../../quote/quote-source-bottom-copy';
-import '../../quote/quote-source-copy';
-import '../../quote/quote-source-heading';
+import '../index';
 import '../callout-link-with-icon';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import { html } from 'lit-element';
+import { select } from '@storybook/addon-knobs';
+import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';
+import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const types = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
