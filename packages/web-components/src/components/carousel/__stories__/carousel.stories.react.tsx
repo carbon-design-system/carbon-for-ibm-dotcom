@@ -14,9 +14,13 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/index';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 // @ts-ignore
-import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/index';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+// @ts-ignore
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+// @ts-ignore
+import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import styles from './carousel.stories.scss';
 import readme from './README.stories.react.mdx';
 
