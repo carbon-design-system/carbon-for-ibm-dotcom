@@ -8,4 +8,3 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
-
