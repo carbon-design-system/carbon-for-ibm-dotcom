@@ -90,7 +90,16 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
       <dds-content-block-segmented-item>
         <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
         <dds-content-item-copy>copy</dds-content-item-copy>
-        ${image}
+        <dds-image-with-caption
+          slot="media"
+          alt="Image alt text"
+          default-src="image.jpg"
+          heading="Mauris iaculis eget dolor nec hendrerit."
+        >
+          <dds-image-item media="(min-width: 672px)" srcset="image-large.jpg"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="image-medium.jpg"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="image-small.jpg"> </dds-image-item>
+        </dds-image-with-caption>
         <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
           >Lorem Ipsum dolor sit</dds-text-cta
         >
