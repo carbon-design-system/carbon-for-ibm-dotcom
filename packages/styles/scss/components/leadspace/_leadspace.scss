@@ -230,7 +230,7 @@ $btn-min-width: 26;
       .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
+        @include carbon--make-col(6, 16);
       }
 
       .#{$prefix}--leadspace--productive {
