@@ -161,34 +161,60 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-group)[border='visible'],
-  .#{$prefix}--card-group--border {
+  :host(#{$dds-prefix}-card-group)[border='visible'] {
     &::after {
+      content: none;
       box-shadow: none;
     }
 
-    ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
-    .#{$prefix}--card-group__cards__col:last-of-type {
+    ::slotted(#{$dds-prefix}-card-group-item) {
       border-right: 1px solid $ui-03;
     }
 
-    ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(3n), :nth-child(3n
-            + 1))),
-    .#{$prefix}--card-group__cards__col:last-of-type {
-      width: calc(100% + 1px);
-    }
-
-    ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
-    .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
+    ::slotted(#{$dds-prefix}-card-group-item:last-of-type) {
       border-bottom: 1px solid $ui-03;
-      height: calc(100% + 1px);
     }
 
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(-n + 3)),
-    .#{$prefix}--card-group__cards__col:nth-child(-n + 3) {
-      width: 100%;
-      height: 100%;
+    @include carbon--breakpoint('md') {
+      ::slotted(#{$dds-prefix}-card-group-item) {
+        border: 0;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)) {
+        border-right: 1px solid $ui-03;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)) {
+        border-bottom: 1px solid $ui-03;
+        height: calc(100% + 1px);
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(-n
+              + 2))) {
+        border-right: 1px solid $ui-03;
+      }
+    }
+
+    @include carbon--breakpoint('lg') {
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(2n)),
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 2)) {
+        border: 0;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(-n
+              + 2))) {
+        width: auto;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+      ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)) {
+        border-right: 1px solid $ui-03;
+      }
+
+      ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)) {
+        border-bottom: 1px solid $ui-03;
+        height: calc(100% + 1px);
+      }
     }
   }
 

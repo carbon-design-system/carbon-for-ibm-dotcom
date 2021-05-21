@@ -167,12 +167,12 @@ class DDSCardGroup extends LitElement {
   gridMode = GRID_MODE.COLLAPSED;
 
   /**
-   * Optional 1px border.
+   * An optional 1px border surrounding the component.
    * Hidden/0px (default) | Visible/1px).
    */
 
   @property({ attribute: 'border', reflect: true })
-  optionalBorder = OPTIONAL_BORDER.HIDDEN;
+  optionalBorder = OPTIONAL_BORDER.VISIBLE;
 
   connectedCallback() {
     super.connectedCallback();
