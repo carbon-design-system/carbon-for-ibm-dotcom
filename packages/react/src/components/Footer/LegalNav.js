@@ -34,14 +34,22 @@ const LegalNav = ({ links, type, button }) => {
       <nav className={`${prefix}--legal-nav`}>
         <div className={`${prefix}--legal-nav__list ${listStyle}`}>
           <ul className={`${prefix}--legal-nav__holder`}>
-            {links.map(({ title, url }, index) => {
+            {links.map(({ title, titleEnglish, url }, index) => {
               if (!title || !url) {
                 return null;
               }
+
+              const dataTitle = titleEnglish
+                ? titleEnglish
+                    .replace(/[^-a-zA-Z0-9_ ]/g, '')
+                    .replace(/ +/g, '-')
+                    .toLowerCase()
+                : null;
+
               return (
                 <li className={`${prefix}--legal-nav__list-item`} key={index}>
                   <Link
-                    data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+                    data-autoid={`${stablePrefix}--footer-legal-nav__link-${dataTitle}`}
                     className={`${prefix}--footer__link`}
                     href={url}>
                     {title}
