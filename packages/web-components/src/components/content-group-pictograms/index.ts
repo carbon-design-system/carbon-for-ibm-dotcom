@@ -7,5 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-block-cards/index.js';
-import './index.scss';
+import './content-group-pictograms';
+import '../content-group/index';
+import '../content-item/index';
+import '../pictogram-item/pictogram-item';

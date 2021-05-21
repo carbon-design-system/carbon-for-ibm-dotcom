@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-block-mixed/content-block-mixed.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-mixed/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/image/image.js';
 import '@carbon/ibmdotcom-web-components/es/components/card/card-heading.js';
 import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
