@@ -106,6 +106,15 @@
         display: none;
       }
     }
+
+    .#{$prefix}--accordion__heading {
+      justify-content: space-between;
+    }
+
+    .#{$prefix}--accordion__title {
+      max-width: rem(640px);
+      margin-right: $spacing-07;
+    }
   }
 }
 
