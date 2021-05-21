@@ -63,11 +63,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
+    let alignTop = false;
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
       (tab as DDSTab).setIndex(index);
-      const navLink = this.shadowRoot!.querySelectorAll('.bx--tabs__nav-link div p')[index];
+      const navLink = this.shadowRoot!.querySelectorAll(`.${prefix}--tabs__nav-link div p`)[index];
       if (navLink.scrollHeight > 70) {
+        alignTop = true;
         const label = (tab as DDSTab).getAttribute('label');
         if (label) {
           navLink.parentElement!.setAttribute('aria-label', label);
@@ -76,6 +78,11 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       }
       return tab;
     });
+    if (!alignTop) {
+      this.shadowRoot!.querySelectorAll(`.${prefix}--tabs__nav-link`).forEach(el => {
+        (el as HTMLElement).style.marginTop = 'auto';
+      });
+    }
   }
 
   protected _renderAccordion(): TemplateResult | string | void {
