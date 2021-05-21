@@ -13,10 +13,10 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import { GRID_MODE, OPTIONAL_BORDER } from './defs';
+import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 
-export { GRID_MODE, OPTIONAL_BORDER };
+export { GRID_MODE };
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
