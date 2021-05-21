@@ -171,8 +171,8 @@ class DDSCardGroup extends LitElement {
    * Hidden/0px (default) | Visible/1px).
    */
 
-  @property({ attribute: 'border', reflect: true })
-  optionalBorder = OPTIONAL_BORDER.HIDDEN;
+  @property({ type: Boolean, reflect: true })
+  border = false;
 
   connectedCallback() {
     super.connectedCallback();
@@ -193,7 +193,7 @@ class DDSCardGroup extends LitElement {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
       [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
-      [`${prefix}--card-group--border`]: this.optionalBorder === OPTIONAL_BORDER.VISIBLE,
+      [`${prefix}--card-group--border`]: this.border,
     });
 
     return html`

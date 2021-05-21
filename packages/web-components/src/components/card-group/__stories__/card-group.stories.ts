@@ -17,22 +17,17 @@ import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import { select, number } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960x540--005.jpg';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
-import { GRID_MODE, OPTIONAL_BORDER } from '../defs';
+import { GRID_MODE } from '../defs';
 import styles from './card-group.stories.scss';
 
 import readme from './README.stories.mdx';
-
-const optionalBorders = {
-  [`Visible`]: OPTIONAL_BORDER.VISIBLE,
-  [`Hidden`]: OPTIONAL_BORDER.HIDDEN,
-};
 
 let count = 0;
 const phraseArray = [
@@ -104,7 +99,7 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group border="${ifNonNull(optionalBorder)}"> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group ?border=${optionalBorder}> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
@@ -279,7 +274,7 @@ export default {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardsDiffLengthPhrase()),
-        optionalBorder: select('Optional border:', optionalBorders, OPTIONAL_BORDER.VISIBLE, groupId),
+        optionalBorder: boolean('Optional border:', true, groupId),
       }),
     },
     decorators: [

@@ -21,18 +21,3 @@ export enum GRID_MODE {
    */
   COLLAPSED = 'collapsed',
 }
-
-/**
- * Optional 1px border for card group
- */
-export enum OPTIONAL_BORDER {
-  /**
-   * Show 1px border
-   */
-  VISIBLE = 'visible',
-
-  /**
-   * Hide 1px border
-   */
-  HIDDEN = 'hidden',
-}

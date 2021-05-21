@@ -161,7 +161,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-group)[border='visible'] {
+  :host(#{$dds-prefix}-card-group)[border] {
     &::after {
       content: none;
       box-shadow: none;
