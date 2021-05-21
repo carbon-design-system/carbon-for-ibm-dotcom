@@ -72,6 +72,16 @@
     }
   }
 
+  :host(#{$dds-prefix}-link-list-item-card-cta) {
+    ::slotted(#{$dds-prefix}-card-cta-footer) {
+      @include carbon--breakpoint-down('md') {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
   .#{$prefix}--link-list__heading,
   :host(#{$dds-prefix}-link-list-heading) {
     margin-bottom: $carbon--spacing-05;

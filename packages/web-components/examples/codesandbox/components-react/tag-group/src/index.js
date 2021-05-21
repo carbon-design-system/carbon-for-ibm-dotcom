@@ -13,13 +13,13 @@ import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/ta
 import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 import './index.css';
 
-const App = () => {
-	<DDSTagGroup>
-		<DDSTagLink href="https://www.example.com">Copy Text 1</DDSTagLink>;
-		<DDSTagLink href="https://www.example.com">Copy Text 2</DDSTagLink>;
-		<DDSTagLink href="https://www.example.com">Copy Text 3</DDSTagLink>;
-		<DDSTagLink href="https://www.example.com">Copy Text 4</DDSTagLink>;
-	</DDSTagGroup>
-}
+const App = () => (
+  <DDSTagGroup>
+    <DDSTagLink href="https://www.example.com">Copy text 1</DDSTagLink>
+    <DDSTagLink href="https://www.example.com">Copy text 2</DDSTagLink>
+    <DDSTagLink href="https://www.example.com">Copy text 3</DDSTagLink>
+    <DDSTagLink href="https://www.example.com">Copy text 4</DDSTagLink>
+  </DDSTagGroup>
+);
 
 render(<App />, document.getElementById('root'));
