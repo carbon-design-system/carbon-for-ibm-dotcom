@@ -12,7 +12,5 @@ import '../card/card-heading';
 import '../content-block/content-block-copy';
 import '../content-group/content-group-heading';
 import '../content-group/content-group-copy';
-import '../content-group-cards/content-group-cards';
-import '../content-group-cards/content-group-cards-item';
-import '../content-item/content-item-copy';
+import '../content-item/index';
 import '../link-list/index';

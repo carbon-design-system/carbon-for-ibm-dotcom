@@ -9,6 +9,10 @@
  */
 
 import '../index';
+import '../../content-block-cards/index';
+import '../../content-group-cards/index';
+import '../../content-group-pictograms/index';
+import '../../content-group-simple/index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
