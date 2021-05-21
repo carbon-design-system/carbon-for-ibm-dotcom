@@ -216,6 +216,11 @@
         height: calc(100% + 1px);
       }
     }
+
+    ::slotted(#{$dds-prefix}-card-group-item)[color-scheme='inverse'] {
+      border-right: none;
+      border-bottom: none;
+    }
   }
 
   .#{$prefix}--card-group__cards__col .#{$prefix}--card-group__card {
