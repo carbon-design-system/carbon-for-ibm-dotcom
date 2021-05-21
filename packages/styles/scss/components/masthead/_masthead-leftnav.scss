@@ -222,9 +222,26 @@
         .#{$prefix}--side-nav__link-text {
           @include carbon--type-style(body-short-02);
 
-          color: $text-01;
+          color: $text-02;
           width: 100%;
           text-overflow: ellipsis;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        > {
+          .#{$prefix}--side-nav__link-text {
+            color: $text-01;
+          }
+        }
+      }
+    }
+
+    &.#{$prefix}--side-nav__link--current {
+      > {
+        .#{$prefix}--side-nav__link-text {
+          color: $text-01;
         }
       }
     }
