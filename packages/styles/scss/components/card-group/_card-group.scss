@@ -163,51 +163,32 @@
 
   :host(#{$dds-prefix}-card-group)[border='visible'],
   .#{$prefix}--card-group--border {
-    overflow: visible;
-
-    // reset border and add border to bottom and right
-    ::slotted(#{$dds-prefix}-card-group-item),
-    .#{$prefix}--card-group__cards__col {
-      padding: 0;
-      border-right: 1px solid $ui-03;
-      border-bottom: 1px solid $ui-03;
-      margin-bottom: 0;
-    }
-
-    // first 3 should have the top border
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(-n + 3)),
-    .#{$prefix}--card-group__cards__col:nth-child(-n + 3) {
-      margin-top: 1px;
-      border-top: 1px solid $ui-03;
-    }
-
-    // first of row, add left border
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n + 1)),
-    .#{$prefix}--card-group__cards__col:nth-child(3n + 1) {
-      margin-left: 1px;
-      border-left: 1px solid $ui-03;
-    }
-
-    // last 3, bottom border
-    ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
-    .#{$prefix}--card-group__cards__col:nth-last-of-type(3) {
-      padding-bottom: 0;
-      background-color: transparent;
-      border-bottom: 1px solid $ui-03;
-      margin-bottom: 1px;
-    }
-
-    // last of row, thicker border to avoid overflow cut
-    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
-    .#{$prefix}--card-group__cards__col:nth-child(3n) {
-      margin-right: 1px;
-      margin-bottom: 0;
-      border-right: 1px solid $ui-03;
+    &::after {
+      box-shadow: none;
     }
 
     ::slotted(#{$dds-prefix}-card-group-item:last-of-type),
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(3n)),
     .#{$prefix}--card-group__cards__col:last-of-type {
-      margin-bottom: 1px;
+      border-right: 1px solid $ui-03;
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item:last-of-type:not(:nth-child(3n), :nth-child(3n
+            + 1))),
+    .#{$prefix}--card-group__cards__col:last-of-type {
+      width: calc(100% + 1px);
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item:nth-last-of-type(-n + 3)),
+    .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
+      border-bottom: 1px solid $ui-03;
+      height: calc(100% + 1px);
+    }
+
+    ::slotted(#{$dds-prefix}-card-group-item:nth-child(-n + 3)),
+    .#{$prefix}--card-group__cards__col:nth-child(-n + 3) {
+      width: 100%;
+      height: 100%;
     }
   }
 
