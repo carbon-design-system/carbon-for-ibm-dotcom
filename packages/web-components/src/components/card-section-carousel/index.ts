@@ -8,3 +8,8 @@
  */
 
 import './card-section-carousel';
+import '../card/index';
+import '../carousel/index';
+import '../content-section/content-section-copy';
+import '../content-section/content-section-heading';
+import '../link-with-icon/link-with-icon';

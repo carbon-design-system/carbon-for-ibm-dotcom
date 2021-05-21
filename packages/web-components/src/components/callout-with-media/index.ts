@@ -9,4 +9,6 @@
 
 import './callout-with-media';
 import './callout-with-media-copy';
+import './callout-with-media-image';
+import './callout-with-media-video';
 import '../content-block/content-block-heading';

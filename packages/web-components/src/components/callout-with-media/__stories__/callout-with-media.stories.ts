@@ -8,8 +8,9 @@
  */
 
 // eslint-disable-next-line import/no-duplicates
-import '../../content-block/content-block-heading';
 import '../index';
+import '../callout-with-media-image';
+import '../callout-with-media-video';
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports,import/no-duplicates
