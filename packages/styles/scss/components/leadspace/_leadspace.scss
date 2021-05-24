@@ -462,7 +462,7 @@ $btn-min-width: 26;
       @include carbon--type-style(display-01, true);
     }
     .#{$prefix}--leadspace__section {
-      height: 640px;
+      height: rem(640px);
     }
   }
 }
