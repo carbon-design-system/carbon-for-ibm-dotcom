@@ -10,7 +10,6 @@ import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import LeadSpace from '../LeadSpace';
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--001.jpg';
-import leadspaceImg2 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--002.jpg';
 import leadspaceImg3 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--1584x560--003.jpg';
 import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
@@ -35,15 +34,6 @@ const images = {
     { src: leadspaceImg, breakpoint: 'md' },
   ],
   defaultSrc: leadspaceImg,
-  alt: 'lead space image',
-};
-
-const imagesSmall = {
-  sources: [
-    { src: leadspaceImg2, breakpoint: 'sm' },
-    { src: leadspaceImg2, breakpoint: 'md' },
-  ],
-  defaultSrc: leadspaceImg2,
   alt: 'lead space image',
 };
 
@@ -274,128 +264,6 @@ CenteredWithImage.story = {
             groupId
           ),
           gradient: boolean('gradient overlay (gradient)', true, groupId),
-          buttons,
-        };
-      },
-    },
-  },
-};
-
-export const Small = ({ parameters }) => {
-  const { title, copy, gradient, buttons, image } =
-    parameters?.props?.Leadspace ?? {};
-  const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-  return (
-    <LeadSpace
-      type="small"
-      theme={theme}
-      title={title}
-      copy={copy}
-      gradient={gradient}
-      buttons={buttons}
-      image={image}
-    />
-  );
-};
-
-Small.story = {
-  name: 'Small',
-  parameters: {
-    knobs: {
-      Leadspace: ({ groupId }) => {
-        const buttonCount = number('Number of buttons', 2, {}, groupId);
-        const buttons = [];
-
-        for (let i = 0; i < buttonCount; i++) {
-          buttons.push({
-            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
-            renderIcon:
-              iconMap[
-                select(
-                  `Button Icon ${i + 1} (renderIcon)`,
-                  iconOptions,
-                  iconOptions.ArrowRight,
-                  groupId
-                )
-              ],
-            href: text(
-              `Button link (href)`,
-              'https://www.example.com',
-              groupId
-            ),
-          });
-        }
-
-        return {
-          title: text('title (title)', 'Leadspace Title', groupId),
-          copy: text(
-            'copy (copy)',
-            'Use this area for a short line of copy to support the title',
-            groupId
-          ),
-          buttons,
-        };
-      },
-    },
-  },
-};
-
-export const SmallWithImage = ({ parameters }) => {
-  const { title, copy, gradient, buttons, image } =
-    parameters?.props?.Leadspace ?? {};
-  const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-  return (
-    <LeadSpace
-      type="small"
-      theme={theme}
-      title={title}
-      copy={copy}
-      gradient={gradient}
-      buttons={buttons}
-      image={image}
-    />
-  );
-};
-
-SmallWithImage.story = {
-  name: 'Small with image',
-  parameters: {
-    knobs: {
-      Leadspace: ({ groupId }) => {
-        const buttonCount = number('Number of buttons', 2, {}, groupId);
-        const buttons = [];
-
-        for (let i = 0; i < buttonCount; i++) {
-          buttons.push({
-            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
-            renderIcon:
-              iconMap[
-                select(
-                  `Button Icon ${i + 1} (renderIcon)`,
-                  iconOptions,
-                  iconOptions.ArrowRight,
-                  groupId
-                )
-              ],
-            href: text(
-              `Button link (href)`,
-              'https://www.example.com',
-              groupId
-            ),
-          });
-        }
-
-        return {
-          title: text('title (title)', 'Leadspace Title', groupId),
-          copy: text(
-            'copy (copy)',
-            'Use this area for a short line of copy to support the title',
-            groupId
-          ),
-          gradient: boolean('gradient overlay (gradient)', true, groupId),
-          image: imagesSmall,
           buttons,
         };
       },
