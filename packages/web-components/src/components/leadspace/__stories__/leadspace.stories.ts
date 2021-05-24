@@ -26,7 +26,6 @@ import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import '../../tag-group/tag-group';
 import '../../tag-link/tag-link';
-import 'carbon-web-components/es/components/tag/tag';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
@@ -38,27 +37,12 @@ const gradientStyleSchemes = {
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-const tagGroupOptions = ['with Tag link', 'with Carbon tag', 'none'];
+const tagGroupOptions = ['with Tag link', 'none'];
 
 const tagGroupWithTagLink = html`
   <dds-tag-group slot="extra-elements">
     <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
     <dds-tag-link href="https://example.com">Cloud</dds-tag-link>
-    <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
-    <dds-tag-link href="https://example.com">Cloud</dds-tag-link>
-    <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
-    <dds-tag-link href="https://example.com">Cloud</dds-tag-link>
-  </dds-tag-group>
-`;
-const tagGroupWithCarbonTag = html`
-  <dds-tag-group slot="extra-elements">
-    <bx-tag type="green">Marketing Analytics</bx-tag>
-    <bx-tag type="green">Cloud</bx-tag>
-    <bx-tag type="green">Marketing Analytics</bx-tag>
-    <bx-tag type="green">Cloud</bx-tag>
-    <bx-tag type="green">Marketing Analytics</bx-tag>
-    <bx-tag type="green">Cloud</bx-tag>
-    <bx-tag type="green">Marketing Analytics</bx-tag>
   </dds-tag-group>
 `;
 
@@ -67,7 +51,6 @@ export const TallWithNoImage = ({ parameters }) => {
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -93,7 +76,6 @@ export const TallWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
     >
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -166,7 +148,6 @@ export const Medium = ({ parameters }) => {
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -192,7 +173,6 @@ export const MediumWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
     >
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -217,7 +197,6 @@ export const Super = ({ parameters }) => {
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.SUPER}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -243,7 +222,6 @@ export const SuperWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
     >
       ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
-      ${tagGroup === tagGroupOptions[1] ? tagGroupWithCarbonTag : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -303,7 +281,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        tagGroup: select('Tag Group', tagGroupOptions, tagGroupOptions[2], groupId),
+        tagGroup: select('Tag Group', tagGroupOptions, tagGroupOptions[1], groupId),
         title: text('title (title):', 'Heading can go on two lines max', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
