@@ -10,12 +10,7 @@
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-complementary';
-import '../../content-item-horizontal/content-item-horizontal';
-import '../../content-item-horizontal/content-item-horizontal-copy';
-import '../../content-item-horizontal/content-item-horizontal-eyebrow';
-import '../content-group-horizontal';
+import '../index';
 
 const copy =
   'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. ' +

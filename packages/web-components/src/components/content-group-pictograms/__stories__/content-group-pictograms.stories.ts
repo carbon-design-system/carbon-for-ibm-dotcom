@@ -8,15 +8,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../content-group-pictograms';
+import '../index';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../pictogram-item/pictogram-item';
-import '../../content-group/content-group-copy';
-import '../../content-item/content-item-copy';
-import '../../content-item/content-item-heading';
 import styles from './content-group-pictograms.stories.scss';
 
 const pictogramsItems = [
