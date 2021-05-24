@@ -256,7 +256,7 @@ $btn-min-width: 26;
       }
 
       &.#{$prefix}--leadspace__section {
-        height: 560px;
+        height: rem(560px);
         padding-top: 0;
       }
 
