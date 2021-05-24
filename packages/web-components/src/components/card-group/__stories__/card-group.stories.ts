@@ -17,7 +17,7 @@ import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
-import { select, number, boolean } from '@storybook/addon-knobs';
+import { select, number } from '@storybook/addon-knobs';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -99,14 +99,14 @@ const cardGroupItemWithCTAs = html`
 export const Default = ({ parameters }) => {
   const { cards, optionalBorder } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group ?border=${optionalBorder}> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
+    <dds-card-group grid-mode="${ifNonNull(optionalBorder)}"> ${longHeadingCardGroupItem} ${cards}</dds-card-group>
   `;
 };
 
 export const withCTA = ({ parameters }) => {
   const { cards } = parameters?.props?.CardGroup ?? {};
   return html`
-    <dds-card-group>
+    <dds-card-group border>
       ${cards}
       <dds-card-group-item href="https://example.com" color-scheme="inverse">
         <dds-card-heading>Top level card link</dds-card-heading>
@@ -170,6 +170,11 @@ export const withCardInCard = ({ parameters }) => {
       ${cards}
     </dds-card-group>
   `;
+};
+
+const defaultGridModes = {
+  [`None`]: null,
+  [`Border (1px)`]: GRID_MODE.BORDER,
 };
 
 const gridModes = {
@@ -274,7 +279,7 @@ export default {
         cards: Array.from({
           length: number('Number of cards', 5, {}, groupId),
         }).map(() => cardsDiffLengthPhrase()),
-        optionalBorder: boolean('Optional border:', true, groupId),
+        optionalBorder: select('Optional border:', defaultGridModes, null, groupId),
       }),
     },
     decorators: [

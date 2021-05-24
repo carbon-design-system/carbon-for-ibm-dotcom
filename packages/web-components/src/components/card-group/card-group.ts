@@ -166,14 +166,6 @@ class DDSCardGroup extends LitElement {
   @property({ attribute: 'grid-mode', reflect: true })
   gridMode = GRID_MODE.COLLAPSED;
 
-  /**
-   * An optional 1px border surrounding the component.
-   * Hidden/0px (default) | Visible/1px).
-   */
-
-  @property({ type: Boolean, reflect: true })
-  border = false;
-
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -193,7 +185,7 @@ class DDSCardGroup extends LitElement {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
       [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
-      [`${prefix}--card-group--border`]: this.border,
+      [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
     });
 
     return html`
