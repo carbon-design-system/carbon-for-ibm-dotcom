@@ -327,7 +327,7 @@ $btn-min-width: 26;
         .#{$prefix}--leadspace--content__container--medium,
         .#{$prefix}--leadspace--content__container {
           margin: 0 auto;
-          padding-left: 1.5rem;
+          padding-left: $spacing-06;
           @include carbon--make-col(4, 8);
         }
 
@@ -432,16 +432,16 @@ $btn-min-width: 26;
 
   :host(#{$dds-prefix}-leadspace) ::slotted([slot='extra-elements']) {
     z-index: 1;
-    padding-left: 1rem;
-    padding-bottom: 0.5rem;
-    max-width: 640px;
+    padding-left: $spacing-05;
+    padding-bottom: $spacing-03;
+    max-width: rem(640px);
   }
 
   :host(#{$dds-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title {
     padding-top: 0;
     margin-bottom: $spacing-09;
-    padding-left: 1rem;
+    padding-left: $spacing-05;
     width: 95%;
     z-index: 1;
     @include carbon--type-style(expressive-heading-06, true);
