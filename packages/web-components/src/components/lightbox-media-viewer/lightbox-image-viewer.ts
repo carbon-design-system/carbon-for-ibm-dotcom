@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderMedia() {
     const { alt, defaultSrc } = this;
     return html`
-      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}"></img>
+      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}" loading="lazy" />
     `;
   }
 
