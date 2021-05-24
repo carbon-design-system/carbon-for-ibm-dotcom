@@ -31,8 +31,8 @@
       }
 
       .#{$prefix}--tabs__nav-item {
-        min-height: 3rem;
-        width: 10rem;
+        min-height: $spacing-09;
+        width: $spacing-13;
         height: auto;
 
         &:hover:not(.bx--tabs__nav-item--disabled) {
