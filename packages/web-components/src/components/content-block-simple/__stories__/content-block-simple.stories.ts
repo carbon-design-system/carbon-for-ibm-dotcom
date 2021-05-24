@@ -7,15 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../image/image';
-import '../../cta/link-list-item-card-cta';
-import '../../content-block/content-block-heading';
-import '../../content-block/content-block-complementary';
-// eslint-disable-next-line import/no-duplicates
-import '../../content-block/content-block-copy';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../content-block-simple';
+import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
