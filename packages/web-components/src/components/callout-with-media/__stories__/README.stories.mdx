@@ -17,12 +17,12 @@ import CalloutWithMedia from '../CalloutWithMedia';
 
 Here's a quick example to get you started.
 
+## Callout with Media (Image)
+
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media.js';
-import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-copy.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-image.js';
 ```
 
@@ -38,6 +38,30 @@ import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callou
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   >
   </dds-callout-with-media-image>
+</dds-callout-with-media>
+```
+
+## Callout with Media (Video)
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/callout-with-media/callout-with-media-video.js';
+```
+
+### HTML
+
+```html
+<dds-callout-with-media>
+  <dds-content-block-heading>lorum ipsum dolor sit ameet</dds-content-block-heading>
+  <dds-callout-with-media-copy size="sm">lorum ipsum dolor sit ameet</dds-callout-with-media-copy>
+  <dds-callout-with-media-video
+    alt="Image alt text"
+    default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  >
+  </dds-callout-with-media-video>
 </dds-callout-with-media>
 ```
 

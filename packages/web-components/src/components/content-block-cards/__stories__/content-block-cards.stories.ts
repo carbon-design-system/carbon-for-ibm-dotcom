@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../content-block-cards';
-import '../../content-block/content-block-heading';
-import '../../card/card-eyebrow';
-import '../../card/card-heading';
-import '../../card-group/card-group';
-import '../../card-group/card-group-item';
-import '../../cta/card-cta-footer';
-import '../../cta/video-cta-container';
+import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
