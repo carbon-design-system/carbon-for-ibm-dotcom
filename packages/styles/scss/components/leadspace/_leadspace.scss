@@ -453,7 +453,7 @@ $btn-min-width: 26;
       @include carbon--type-style(expressive-heading-05, true);
     }
     .#{$prefix}--leadspace__section {
-      height: 480px;
+      height: rem(480px);
     }
   }
 
