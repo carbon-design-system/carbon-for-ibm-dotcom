@@ -17,13 +17,7 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { LEADSPACE_GRADIENT_STYLE_SCHEME } from '../leadspace';
 
 // Above import is interface-only ref and thus code won't be brought into the build
-import '../leadspace';
-/* eslint-enable import/no-duplicates */
-import '../leadspace-heading';
-
-import '../../image/image';
-import '../../button-group/button-group';
-import '../../button-group/button-group-item';
+import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 

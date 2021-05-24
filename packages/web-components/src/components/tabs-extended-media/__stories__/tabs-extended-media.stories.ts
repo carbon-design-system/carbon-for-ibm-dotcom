@@ -11,11 +11,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
-import '../../tabs-extended/tabs-extended';
-import '../tabs-extended-media';
-import '../../tabs-extended/tab';
-import '../../content-item-horizontal/content-item-horizontal-media';
-import '../../content-section/content-section-heading';
+import '../index';
 
 import { ICON_PLACEMENT } from '../../../globals/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';

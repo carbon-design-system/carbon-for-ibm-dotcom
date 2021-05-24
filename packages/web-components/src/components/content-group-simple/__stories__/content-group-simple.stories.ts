@@ -7,17 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../image/image';
-import '../../cta/video-cta-container';
-import '../../cta/card-cta';
-import '../../cta/card-cta-footer';
-import '../../content-group/content-group-copy';
-import '../../content-group/content-group-heading';
-import '../../content-item/content-item';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../content-group-simple';
-
+import '../index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';

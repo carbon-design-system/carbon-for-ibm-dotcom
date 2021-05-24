@@ -12,6 +12,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
+import '../expressive-modal/expressive-modal';
+import '../expressive-modal/expressive-modal-close-button';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
