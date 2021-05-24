@@ -9,10 +9,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import '../link-list-section';
-import '../../content-section/content-section-heading';
-import '../../link-list/link-list';
-import '../../link-list/link-list-item';
+import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 

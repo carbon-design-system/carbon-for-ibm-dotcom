@@ -16,19 +16,13 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-heading';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list-item';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group';
-import '@carbon/ibmdotcom-web-components/es/components/button-group/button-group-item';
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
-import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block';
-import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-heading';
-import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-media';
-import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-content';
-import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace-block-cta';
+import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/index';
+
+// with link list
+import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
+
+// with media (video)
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
 ```
 
 ### HTML
@@ -78,6 +72,36 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-block/leadspace
       <dds-button-group-item href="www.ibm.com">Click here ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
     </dds-button-group>
   </dds-leadspace-block-cta>
+</dds-leadspace-block>
+```
+
+### HTML (with video)
+
+```html
+<dds-leadspace-block>
+  <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
+  <dds-leadspace-block-content>
+    <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <dds-content-block-copy>${copy}</dds-content-block-copy>
+    <dds-leadspace-block-media slot="media">
+        <dds-video-player-container video-id="1_9h94wo6b"></dds-video-player-container>
+    </dds-leadspace-block-media>
+    <dds-link-list type="end">
+        <dds-link-list-heading>Featured products</dds-link-list-heading>
+        <dds-link-list-item href="https://example.com">
+            Services ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+            Analytics ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+        <dds-link-list-item href="https://example.com">
+            View all products ${ArrowRight20({ slot: 'icon' })}
+        </dds-link-list-item>
+    </dds-link-list>
+    <dds-leadspace-block-cta>
+        <dds-button-group-item href="www.ibm.com">Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item>
+    </dds-leadspace-block-cta>
+  </dds-leadspace-block-content>
 </dds-leadspace-block>
 ```
 
