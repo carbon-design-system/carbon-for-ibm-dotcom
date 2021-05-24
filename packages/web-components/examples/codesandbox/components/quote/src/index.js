@@ -12,4 +12,4 @@ import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-bottom
 import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-copy';
 import '@carbon/ibmdotcom-web-components/es/components/quote/quote-source-heading';
 import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
-import './index.scss'
+import './index.scss';
