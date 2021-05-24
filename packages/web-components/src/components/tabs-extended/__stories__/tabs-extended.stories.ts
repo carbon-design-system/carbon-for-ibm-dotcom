@@ -9,8 +9,7 @@
 
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
-import '../tabs-extended';
-import '../tab';
+import '../index';
 
 export const Default = () => {
   return html`

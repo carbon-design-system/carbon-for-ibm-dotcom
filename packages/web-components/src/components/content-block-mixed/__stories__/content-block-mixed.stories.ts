@@ -8,16 +8,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../content-block/content-block-copy';
-import '../../content-group/content-group-heading';
-import '../../content-group/content-group-copy';
-import '../../content-group-cards/content-group-cards';
-import '../../content-group-cards/content-group-cards-item';
-import '../../content-item/content-item-copy';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../../card/card-heading';
-import '../content-block-mixed';
+import '../index';
+import '../../content-block-cards/index';
+import '../../content-group-cards/index';
+import '../../content-group-pictograms/index';
+import '../../content-group-simple/index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';

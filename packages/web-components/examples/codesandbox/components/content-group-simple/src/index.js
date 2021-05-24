@@ -7,12 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/content-group-simple.js';
-import '@carbon-web-components/es/icons/arrow--right/20';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/index.js';
 import './index.scss';

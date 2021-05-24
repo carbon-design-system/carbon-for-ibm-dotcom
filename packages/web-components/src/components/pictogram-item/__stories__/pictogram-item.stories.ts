@@ -8,10 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import '../../content-item/content-item-heading';
-import '../../content-item/content-item-copy';
-import '../pictogram-item';
-import '../../link-with-icon/link-with-icon';
+import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import styles from './pictogram-item.stories.scss';
 
