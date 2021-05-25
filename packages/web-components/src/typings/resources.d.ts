@@ -19,6 +19,12 @@ declare module '*.mdx' {
   };
 }
 
+declare global {
+  interface ElementEventMap {
+    loadEnd: Event;
+  }
+}
+
 declare module '*.scss';
 declare module '*.svg';
 declare module '*.jpg';
