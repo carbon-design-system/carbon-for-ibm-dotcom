@@ -16,10 +16,12 @@
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$dds-prefix}-card-cta),
   :host(#{$dds-prefix}-link-list-item-card-cta),
   :host(#{$dds-prefix}-card-in-card),
+  :host(#{$dds-prefix}-content-group-cards-item),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
     display: flex;
     flex-direction: column;
@@ -109,7 +111,8 @@
   }
 
   // static variation
-  :host(#{$dds-prefix}-card:not([href])) {
+  :host(#{$dds-prefix}-card:not([href])),
+  :host(#{$dds-prefix}-card-group-item:not([href])) {
     border: 1px solid $ui-03;
     &,
     &:hover {

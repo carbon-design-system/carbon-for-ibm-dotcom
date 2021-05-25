@@ -15,7 +15,7 @@ import '../card-heading';
 import '../../tag-group/tag-group';
 import 'carbon-web-components/es/components/tag/tag';
 
-import { select } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null';
@@ -25,7 +25,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { image, href, alt, defaultSrc, heading, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
+  const { image, href, alt, defaultSrc, heading, tagGroup, copy, inverse, footer, iconPlacement } = parameters?.props?.Card ?? {};
   return html`
     <dds-card color-scheme=${inverse ? 'inverse' : ''} href=${ifNonNull(href || undefined)}>
       ${image
@@ -35,6 +35,18 @@ export const Default = ({ parameters }) => {
         : ``}
       <dds-card-eyebrow>Eyebrow</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
+      ${tagGroup
+        ? html`
+            <dds-tag-group>
+              <bx-tag>
+                Most popular
+              </bx-tag>
+              <bx-tag type="purple">
+                Enterprise
+              </bx-tag>
+            </dds-tag-group>
+          `
+        : ''}
       ${copy
         ? html`
             <p>${copy}</p>
@@ -65,6 +77,7 @@ Default.story = {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
+        tagGroup: boolean('Add tags', true, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable('Card body copy:', '', groupId),
         href: 'https://example.com',
@@ -76,10 +89,22 @@ Default.story = {
 };
 
 export const Pictogram = ({ parameters }) => {
-  const { href, heading, copy, pictogramPlacement } = parameters?.props?.PictogramCard ?? {};
+  const { href, heading, copy, tagGroup, pictogramPlacement } = parameters?.props?.PictogramCard ?? {};
   return html`
     <dds-card pictogram-placement="${pictogramPlacement}" href=${ifNonNull(href || undefined)}>
       <dds-card-heading>${heading}</dds-card-heading>
+      ${tagGroup
+        ? html`
+            <dds-tag-group>
+              <bx-tag>
+                Most popular
+              </bx-tag>
+              <bx-tag type="purple">
+                Enterprise
+              </bx-tag>
+            </dds-tag-group>
+          `
+        : ''}
       ${copy
         ? html`
             <p>${copy}</p>
@@ -118,6 +143,7 @@ Pictogram.story = {
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
         pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
+        tagGroup: boolean('Add tags', true, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Card body copy:',
@@ -133,18 +159,27 @@ Pictogram.story = {
 };
 
 export const Static = ({ parameters }) => {
-  const { heading, href, copy, footer } = parameters?.props?.Card ?? {};
+  const { image, alt, defaultSrc, heading, href, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
   return html`
     <dds-card>
+      ${image
+        ? html`
+            <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+          `
+        : ``}
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-tag-group>
-        <bx-tag>
-          Most popular
-        </bx-tag>
-        <bx-tag type="purple">
-          Enterprise
-        </bx-tag>
-      </dds-tag-group>
+      ${tagGroup
+        ? html`
+            <dds-tag-group>
+              <bx-tag>
+                Most popular
+              </bx-tag>
+              <bx-tag type="purple">
+                Enterprise
+              </bx-tag>
+            </dds-tag-group>
+          `
+        : ''}
       ${copy
         ? html`
             <p>${copy}</p>
@@ -162,6 +197,10 @@ Static.story = {
     ...readme.parameters,
     knobs: {
       Card: ({ groupId }) => ({
+        alt: 'Image alt text',
+        defaultSrc: imgLg2x1,
+        image: boolean('Add image', false, groupId),
+        tagGroup: boolean('Add tags', true, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Card body copy:',
@@ -169,7 +208,7 @@ Static.story = {
           groupId
         ),
         href: 'https://example.com',
-        footer: 'Card CTA text',
+        footer: textNullable('CTA copy', 'Card CTA text', groupId),
       }),
     },
   },
