@@ -14,7 +14,9 @@ import PlayFilledAlt32 from '@carbon/icons-react/es/play--filled--alt/32';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Replay32 from '@carbon/icons-react/es/renew/32';
+import settings from 'carbon-components/es/globals/js/settings';
+
+const { prefix } = settings;
 
 const AudioPlayerPlayButton = ({
   kalturaDigitalPlayer,
@@ -46,10 +48,6 @@ const AudioPlayerPlayButton = ({
         icon = PauseFilled32;
         iconDescription = 'Pause';
         break;
-      case 'stopped':
-        icon = Replay32;
-        iconDescription = 'Replay';
-        break;
     }
 
     return {
@@ -62,6 +60,7 @@ const AudioPlayerPlayButton = ({
 
   return (
     <Button
+      className={`${prefix}--audio-player__play-button`}
       renderIcon={playButtonProps.icon}
       iconDescription={playButtonProps.iconDescription}
       hasIconOnly

@@ -47,9 +47,17 @@ const AudioPlayerVolumeControl = ({
     return VolumeUp32;
   };
 
+  const isTooltipVisible = () => {
+    if (displayVolumeControl) {
+      return `${prefix}--force-tooltip-hidden ${prefix}--menu--open`;
+    }
+    return '';
+  };
+
   return (
     <div className={`${prefix}--audio-player__volume-control`}>
       <Button
+        className={isTooltipVisible()}
         renderIcon={renderVolumeButtonIcon()}
         iconDescription="Volume"
         hasIconOnly

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../globals/utils/ratio-base';
 @import 'carbon-components/scss/components/slider/slider';
@@ -16,7 +15,7 @@
     display: flex;
     align-items: center;
     height: 48px;
-    padding: 8px 16px;
+    padding: 0 8px 0 0;
     background-color: $ui-01;
 
     &__captions {
@@ -31,7 +30,7 @@
       border-bottom: 1px solid $ui-03;
 
       &-text {
-        min-height: 36px;
+        min-height: 1rem;
         color: $text-01;
         @include carbon--type-style('caption-01');
       }
@@ -39,25 +38,29 @@
 
     /* For Accessibility on the buttons, when focusing the button */
     .#{$prefix}--btn {
-      .#{$prefix}--btn--icon-only {
-        .#{$prefix}--tooltip__trigger:focus {
-          border-color: $carbon--blue-60;
+      &.#{$prefix}--btn--icon-only {
+        &:not(.#{prefix}--audio-player__play-button) {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+
+          min-width: var(--cds-icon-size-01, 1.25rem);
+        }
+
+        &.#{$prefix}--tooltip__trigger:focus {
+          outline: 2px solid var(--cds-focus, $carbon--blue-60);
+          outline-offset: -2px;
         }
       }
     }
 
     &__thumbnail {
-      width: 48px;
-      height: 48px;
-      border: 1px solid $ui-03;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid $ui-01 inset;
 
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-
-      &-container {
-        border: 1px solid $ui-03;
-      }
     }
 
     /* To hide the original player */
@@ -68,9 +71,24 @@
       z-index: -1;
     }
 
+    &__play-button {
+      &.#{$prefix}--btn {
+        &.#{$prefix}--btn--icon-only {
+          padding: 0.5rem;
+          margin-left: 0.5rem;
+        }
+      }
+      svg {
+        &.#{$prefix}--btn__icon {
+          width: var(--cds-icon-size-04, 2rem);
+          height: var(--cds-icon-size-04, 2rem);
+        }
+      }
+    }
+
     &__audio-time {
       min-width: 280px;
-      height: 40px;
+      height: 2.5rem;
 
       .#{$prefix}--slider__range-label:first-of-type {
         margin-left: 1rem;
@@ -79,6 +97,22 @@
 
     &__volume-control {
       position: relative;
+
+      .#{$prefix}--force-tooltip-hidden {
+        &.#{$prefix}--tooltip__trigger {
+          &.#{$prefix}--tooltip--visible {
+            overflow: hidden;
+
+            .bx--assistive-text {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .#{$prefix}--menu--open {
+        background-color: $hover-ui;
+      }
 
       &-menu {
         position: absolute;
@@ -89,7 +123,7 @@
         max-width: 248px;
         height: 48px;
         padding: 0 8px 8px;
-        background-color: $ui-01;
+        background-color: $field-02;
         z-index: 2;
       }
     }
@@ -100,8 +134,8 @@
     }
 
     &__overflow-menu-container {
-      width: 48px;
-      height: 48px;
+      width: 2.25rem;
+      height: 3rem;
 
       button {
         width: 100%;
