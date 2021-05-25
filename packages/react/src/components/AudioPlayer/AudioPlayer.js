@@ -163,6 +163,7 @@ const AudioPlayer = ({
         initPlayer={initPlayer}
         audioState={audioState}
         setAudioState={setAudioState}
+        setDisplayVolumeControl={setDisplayVolumeControl}
       />
 
       <AudioPlayerScrubber
@@ -170,6 +171,7 @@ const AudioPlayer = ({
         audioDuration={audioData.duration}
         audioTime={audioTime}
         setAudioTime={setAudioTime}
+        setDisplayVolumeControl={setDisplayVolumeControl}
       />
 
       <AudioPlayerVolumeControl

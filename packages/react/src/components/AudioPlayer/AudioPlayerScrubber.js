@@ -28,6 +28,7 @@ const AudioPlayerScrubber = ({
   audioTime,
   setAudioTime,
   audioDuration,
+  setDisplayVolumeControl,
 }) => {
   const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
     audioDuration
@@ -45,6 +46,8 @@ const AudioPlayerScrubber = ({
 
       kalturaDigitalPlayer.sendNotification('doSeek', time);
       setAudioTime(time);
+      // Hide the Volume Control Bar if Opened
+      setDisplayVolumeControl(false);
     }
   };
 
@@ -64,6 +67,8 @@ const AudioPlayerScrubber = ({
     if (Math.abs(time - audioTime) >= 1 && kalturaDigitalPlayer) {
       kalturaDigitalPlayer.sendNotification('doSeek', time);
       setAudioTime(time);
+      // Hide the Volume Control Bar if Opened
+      setDisplayVolumeControl(false);
     }
   };
 
@@ -135,6 +140,10 @@ AudioPlayerScrubber.propTypes = {
    * The duration of the audio (in seconds)
    */
   audioDuration: PropTypes.number.isRequired,
+  /**
+   * The state setter that show/hide the custom volume menu
+   */
+  setDisplayVolumeControl: PropTypes.func.isRequired,
 };
 
 AudioPlayerScrubber.defaultProps = {

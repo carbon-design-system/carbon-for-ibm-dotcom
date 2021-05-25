@@ -23,6 +23,7 @@ const AudioPlayerPlayButton = ({
   initPlayer,
   audioState,
   setAudioState,
+  setDisplayVolumeControl,
 }) => {
   const handlePlayButton = () => {
     if (audioState === '') {
@@ -35,6 +36,8 @@ const AudioPlayerPlayButton = ({
         setAudioState('playing');
         kalturaDigitalPlayer.sendNotification('doPlay');
       }
+      // Hide the Volume Control Bar if Opened
+      setDisplayVolumeControl(false);
     }
   };
 
@@ -98,6 +101,10 @@ AudioPlayerPlayButton.propTypes = {
    * The state list can be found in AudioPlayer.js
    */
   setAudioState: PropTypes.func.isRequired,
+  /**
+   * The state setter that show/hide the custom volume menu
+   */
+  setDisplayVolumeControl: PropTypes.func.isRequired,
 };
 
 AudioPlayerPlayButton.defaultProps = {
