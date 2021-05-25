@@ -14,18 +14,10 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-media.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-eyebrow.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
-import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
-import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container';
-import '@carbon/ibmdotcom-web-components/es/components/image/image';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
 ```
 
 ### HTML
@@ -49,20 +41,53 @@ import '@carbon/ibmdotcom-web-components/es/components/image/image';
 </dds-content-item-horizontal>
 ```
 
-#### With Media
+## With Media (image)
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
+
+// with Image
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+### HTML
 
 ```html
 <dds-content-item-horizontal-media align="right">
-  <dds-image
-    slot="media"
-    alt="Lorem ipsum"
-    default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"
-  ></dds-image>
-  <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-  <dds-content-item-horizontal-copy
-    >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-    Phasellus at elit sollicitudin.</dds-content-item-horizontal-copy
-  >
+  <dds-image slot="media" alt="Alt text" default-src="image.jpg"></dds-image>
+  <dds-content-item-heading>Lorem Ipsum</dds-content-item-heading>
+  <dds-content-item-horizontal-media-copy>Lorem Ipsum</dds-content-item-horizontal-media-copy>
+  <dds-link-list slot="footer" type="vertical">
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+      Learn more
+    </dds-link-list-item-cta>
+    <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      Microservices and containers
+    </dds-link-list-item-cta>
+  </dds-link-list>
+</dds-content-item-horizontal-media>
+```
+
+## With Media (video)
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
+
+// with Video
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-media-video';
+```
+
+### HTML
+
+```html
+<dds-content-item-horizontal-media align="right">
+  <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+  <dds-content-item-heading>Lorem Ipsum</dds-content-item-heading>
+  <dds-content-item-horizontal-media-copy>Lorem Ipsum</dds-content-item-horizontal-media-copy>
   <dds-link-list slot="footer" type="vertical">
     <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
       Learn more

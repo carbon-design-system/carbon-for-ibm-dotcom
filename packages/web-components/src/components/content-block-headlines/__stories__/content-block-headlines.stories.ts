@@ -10,10 +10,7 @@
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../content-item/content-item-copy';
-import '../content-block-headlines';
-import '../content-block-headlines-item';
-import '../content-block-headlines-heading';
+import '../index';
 import { DDS_CONTENT_BLOCK_HEADLINES } from '../../../globals/internal/feature-flags';
 
 const contentItemRow1 = html`

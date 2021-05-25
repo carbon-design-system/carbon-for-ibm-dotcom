@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit-element';
-import '../back-to-top';
+import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';
 import StoryContent from '../../dotcom-shell/__stories__/data/content';

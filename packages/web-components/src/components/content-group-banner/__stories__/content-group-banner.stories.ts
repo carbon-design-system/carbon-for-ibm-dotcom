@@ -12,12 +12,7 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../content-group/content-group-heading';
-import '../../cta/link-list-item-cta';
-import '../../cta/video-cta-container';
-import '../../link-list/link-list';
-import '../../link-list/link-list-item';
-import '../content-group-banner';
+import '../index';
 // eslint-disable-next-line sort-imports
 import readme from './README.stories.mdx';
 import { CTA_TYPE } from '../../cta/defs';
