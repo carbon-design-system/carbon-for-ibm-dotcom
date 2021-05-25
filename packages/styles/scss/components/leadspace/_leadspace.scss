@@ -115,6 +115,15 @@ $btn-min-width: 26;
       height: 100%;
     }
 
+    &[size='medium'] {
+      @include carbon--breakpoint(lg) {
+        .#{$prefix}--leadspace__section {
+          padding-top: 0;
+          height: carbon--mini-units(60);
+        }
+      }
+    }
+
     ::slotted(#{$dds-prefix}-image),
     .#{$prefix}--image {
       position: absolute;
