@@ -14,7 +14,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -53,7 +53,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -94,7 +94,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -133,7 +133,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -174,7 +174,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -213,7 +213,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -254,7 +254,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -293,7 +293,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -342,7 +342,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -381,7 +381,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -422,7 +422,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
@@ -461,7 +461,7 @@
     <div class="bx--leadspace--gradient bx--leadspace__overlay">
       <div class="bx--leadspace--content__container--medium">
         <div class="bx--leadspace__row">
-          <slot name="extra-elements">
+          <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
