@@ -7,7 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data';
-import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-copy';
-import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-heading';
-import '@carbon/ibmdotcom-web-components/es/components/callout-data/callout-data-source';
+import '@carbon/ibmdotcom-web-components/es/components/callout-data/index.js';

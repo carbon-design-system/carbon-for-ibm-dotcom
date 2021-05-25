@@ -7,8 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-copy';
-import '@carbon/ibmdotcom-web-components/es/components/pictogram-item/pictogram-item';
-import './index.scss';
+import '@carbon/ibmdotcom-web-components/es/components/pictogram-item/index.js';

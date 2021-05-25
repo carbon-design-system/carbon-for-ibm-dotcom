@@ -18,7 +18,7 @@ import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import theme from './theme';
 import getSimpleStorySort from '../get-simple-story-sort';
 import decoratorKnobs from '../decorator-knobs';
-import containerStyles from '../container.scss'; // eslint-disable-line import/first
+import containerStyles from './container.scss'; // eslint-disable-line import/first
 
 if (process.env.STORYBOOK_CARBON_CUSTOM_ELEMENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');

@@ -7,10 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/cta-section/cta-section';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-simple/content-group-simple';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy';
-import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta';
+import '@carbon/ibmdotcom-web-components/es/components/cta-section/index.js';
 import './index.scss';
+
+// with link list
+import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
+
+// with video player
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
+import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lightbox-video-player-container.js';

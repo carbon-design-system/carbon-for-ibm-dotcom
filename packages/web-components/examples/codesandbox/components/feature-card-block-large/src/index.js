@@ -7,9 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/card/card-heading';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-eyebrow';
-import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/feature-card-block-large';
-import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/feature-card-block-large-footer';
-import '@carbon/ibmdotcom-web-components/es/components/image/image';
-import './index.scss';
+import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/index.js';

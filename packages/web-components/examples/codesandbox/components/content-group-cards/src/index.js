@@ -7,10 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/card/card-heading';
-import '@carbon/ibmdotcom-web-components/es/components/card/card-footer';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards';
-import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/content-group-cards-item';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-copy';
+import '@carbon/ibmdotcom-web-components/es/components/content-group-cards/index.js';
 import './index.scss';
