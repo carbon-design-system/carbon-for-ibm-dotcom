@@ -7,7 +7,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --port=9000 --no-hmr",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url ./"
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "canary",
