@@ -195,6 +195,7 @@
 
   .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
     background-color: $ui-01;
+    z-index: 0;
   }
 }
 

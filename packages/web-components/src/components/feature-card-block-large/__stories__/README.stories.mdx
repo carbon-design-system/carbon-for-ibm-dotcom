@@ -17,19 +17,26 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/featuer-card/feature-card-block-large-footer.js';
-import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/feature-card-block-large.js';
+import '@carbon/ibmdotcom-web-components/es/components/feature-card-block-large/index.js';
 ```
 
 ### HTML
 
 ```html
 <dds-feature-card-block-large href="https://example.com">
-  <img />
-  <h3>Copy text</h3>
+  <dds-image slot="image" alt="Alt Text" default-src="image.png">
+    <dds-image-item media="(min-width: 1312px)" srcset="image-1312.png"> </dds-image-item>
+    <dds-image-item media="(min-width: 1056px)" srcset="image-1056.png"> </dds-image-item>
+    <dds-image-item media="(min-width: 991px)" srcset="image-991.png"> </dds-image-item>
+    <dds-image-item media="(min-width: 672px)" srcset="image-672.png"> </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="image-320.png"> </dds-image-item>
+  </dds-image>
+  <dds-card-eyebrow>Eye brow</dds-card-eyebrow>
+  <dds-card-heading>Heading text</dds-card-heading>
+  <p>Body copy</p>
   <dds-feature-card-block-large-footer>
     <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
   </dds-feature-card-block-large-footer>
 </dds-feature-card-block-large>

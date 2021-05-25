@@ -12,18 +12,9 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../../image/image';
-import '../content-item-horizontal';
-import '../content-item-horizontal-media';
-import '../content-item-horizontal-media-copy';
+import '../index';
 import '../content-item-horizontal-media-video';
-import '../content-item-horizontal-copy';
-import '../content-item-horizontal-eyebrow';
-import '../../content-item/content-item-heading';
-import '../../link-list/link-list';
-import '../../cta/link-list-item-cta';
-import '../../video-player/video-player-container';
-
+import '../../image/image';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
