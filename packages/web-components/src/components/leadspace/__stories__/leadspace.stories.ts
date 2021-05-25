@@ -96,9 +96,10 @@ export const TallWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
+      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -115,7 +116,7 @@ export const Centered = ({ parameters }) => {
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -124,6 +125,7 @@ export const CenteredWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
     >
+      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">

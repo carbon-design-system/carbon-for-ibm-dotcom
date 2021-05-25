@@ -292,6 +292,8 @@ $btn-min-width: 26;
       .#{$prefix}--leadspace__desc--medium,
       .#{$prefix}--leadspace__desc {
         width: 95%;
+        padding-top: $spacing-09;
+
         @include carbon--type-style(expressive-heading-03, true);
       }
 
@@ -305,14 +307,15 @@ $btn-min-width: 26;
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
-        padding-top: $carbon--layout-03;
-      }
-
-      .#{$prefix}--leadspace__overlay {
-        padding: 0;
       }
 
       @include themed-items;
+
+      @include carbon--breakpoint(sm) {
+        .#{$prefix}--leadspace__overlay {
+          padding: $spacing-05 0 0 0;
+        }
+      }
 
       @include carbon--breakpoint(md) {
         .#{$prefix}--buttongroup {
@@ -320,7 +323,7 @@ $btn-min-width: 26;
         }
 
         .#{$prefix}--leadspace__overlay {
-          padding: 0 0 carbon--mini-units(20) 0;
+          padding: $spacing-07 0 0 0;
         }
 
         .#{$prefix}--leadspace--content__container--super,
@@ -340,7 +343,6 @@ $btn-min-width: 26;
         }
 
         .#{$prefix}--leadspace__desc--super,
-        ,
         .#{$prefix}--leadspace__desc--medium,
         .#{$prefix}--leadspace__desc {
           padding-top: $carbon--layout-04;
@@ -357,9 +359,8 @@ $btn-min-width: 26;
       }
 
       @include carbon--breakpoint(lg) {
-        ::slotted(#{$dds-prefix}-leadspace-heading),
-        .#{$prefix}--leadspace__title {
-          padding-top: $carbon--layout-05;
+        .#{$prefix}--leadspace__overlay {
+          padding: $spacing-10 0 0 0;
         }
       }
     }
