@@ -8,13 +8,9 @@
  */
 
 import '../../image/image';
-import '../card';
-import '../card-eyebrow';
-import '../card-footer';
-import '../card-heading';
 import '../../tag-group/tag-group';
 import 'carbon-web-components/es/components/tag/tag';
-
+import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';

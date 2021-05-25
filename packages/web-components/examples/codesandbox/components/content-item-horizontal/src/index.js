@@ -7,9 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-copy';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/content-item-horizontal-eyebrow';
-import '@carbon/ibmdotcom-web-components/es/components/content-item/content-item-heading';
-import '@carbon/ibmdotcom-web-components/es/components/link-list/link-list';
-import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
