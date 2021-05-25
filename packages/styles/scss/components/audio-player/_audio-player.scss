@@ -103,7 +103,7 @@
           &.#{$prefix}--tooltip--visible {
             overflow: hidden;
 
-            .bx--assistive-text {
+            .#{$prefix}--assistive-text {
               display: none;
             }
           }
