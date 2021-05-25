@@ -121,7 +121,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     if (this.defaultSrc && type === LEADSPACE_TYPE.CENTERED) {
       return html`
         <div data-autoid="${ddsPrefix}--leadspace--centered--mobile__image" class="${prefix}--leadspace--centered--mobile__image">
-          <img src="${defaultSrc}" alt="${alt}" />
+          <img src="${defaultSrc}" alt="${alt}" loading="lazy" />
         </div>
       `;
     }

@@ -38,7 +38,7 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderMedia() {
     const { alt, defaultSrc } = this;
     return html`
-      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}"></img>
+      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}" loading="lazy" />
     `;
   }
 
