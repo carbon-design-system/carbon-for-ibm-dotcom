@@ -40,7 +40,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
 
     childItems.filter(elem =>
       (elem as HTMLElement).matches !== undefined
-        ? (elem as HTMLElement).matches((this.constructor as typeof DDSLeadSpace).tagGroupSelector)
+        ? (elem as HTMLElement).matches((this.constructor as typeof DDSLeadSpace).tagGroupSelector) ||
+          (elem as HTMLElement).matches((this.constructor as typeof DDSLeadSpace).breadcrumbSelector)
         : false
     );
   }
@@ -229,7 +230,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               `}
             <div class="${this._getContentType()}">
               <div class="${prefix}--leadspace__row">
-                <slot name="extra-elements" @slotchange="${this._handleSlotChange}"></slot>
+                <slot name="navigation" @slotchange="${this._handleSlotChange}"></slot>
                 ${this._renderHeading()}
               </div>
               <div class="${prefix}--leadspace__content">
@@ -242,6 +243,10 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
         </div>
       </section>
     `;
+  }
+
+  static get breadcrumbSelector() {
+    return `${prefix}-breadcrumb`;
   }
 
   static get headingSelector() {

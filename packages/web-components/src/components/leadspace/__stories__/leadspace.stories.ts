@@ -26,6 +26,10 @@ import '../../button-group/button-group';
 import '../../button-group/button-group-item';
 import '../../tag-group/tag-group';
 import '../../tag-link/tag-link';
+import 'carbon-web-components/es/components/breadcrumb/breadcrumb';
+import 'carbon-web-components/es/components/breadcrumb/breadcrumb-item';
+import 'carbon-web-components/es/components/breadcrumb/breadcrumb-link';
+
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
@@ -37,20 +41,35 @@ const gradientStyleSchemes = {
   [`With gradient (${LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT})`]: LEADSPACE_GRADIENT_STYLE_SCHEME.WITH_GRADIENT,
 };
 
-const tagGroupOptions = ['with Tag link', 'none'];
+const navigationOptions = ['with Tag group (using Tag link)', 'with Breadcrumbs', 'none'];
 
-const tagGroupWithTagLink = html`
-  <dds-tag-group slot="extra-elements">
+const navigationWithTagGroup = html`
+  <dds-tag-group slot="navigation">
     <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
     <dds-tag-link href="https://example.com">Cloud</dds-tag-link>
   </dds-tag-group>
 `;
 
+const navigationWithBreadcrumbs = html`
+  <bx-breadcrumb slot="navigation">
+    <bx-breadcrumb-item>
+      <bx-breadcrumb-link href="/#">Breadcrumb 1</bx-breadcrumb-link>
+    </bx-breadcrumb-item>
+    <bx-breadcrumb-item>
+      <bx-breadcrumb-link href="/#">Breadcrumb 2</bx-breadcrumb-link>
+    </bx-breadcrumb-item>
+    <bx-breadcrumb-item>
+      <bx-breadcrumb-link href="/#" aria-current="page">Breadcrumb 3</bx-breadcrumb-link>
+    </bx-breadcrumb-item>
+  </bx-breadcrumb>
+`;
+
 export const TallWithNoImage = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? console.log('hello') : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -67,7 +86,7 @@ export const TallWithNoImage = ({ parameters }) => {
 };
 
 export const TallWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -75,7 +94,8 @@ export const TallWithImage = ({ parameters }) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -96,10 +116,11 @@ export const TallWithImage = ({ parameters }) => {
 };
 
 export const Centered = ({ parameters }) => {
-  const { title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -116,7 +137,7 @@ export const Centered = ({ parameters }) => {
 };
 
 export const CenteredWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradient, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
@@ -125,7 +146,8 @@ export const CenteredWithImage = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
       type="centered"
     >
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -146,10 +168,11 @@ export const CenteredWithImage = ({ parameters }) => {
 };
 
 export const Medium = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -166,7 +189,7 @@ export const Medium = ({ parameters }) => {
 };
 
 export const MediumWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
@@ -174,7 +197,8 @@ export const MediumWithImage = ({ parameters }) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -195,10 +219,11 @@ export const MediumWithImage = ({ parameters }) => {
 };
 
 export const Super = ({ parameters }) => {
-  const { alt, defaultSrc, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace size="${LEADSPACE_SIZE.SUPER}" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}">
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -215,7 +240,7 @@ export const Super = ({ parameters }) => {
 };
 
 export const SuperWithImage = ({ parameters }) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, tagGroup } = parameters?.props?.LeadSpace ?? {};
+  const { alt, defaultSrc, gradientStyleScheme, title, copy, buttons, navElements } = parameters?.props?.LeadSpace ?? {};
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
@@ -223,7 +248,8 @@ export const SuperWithImage = ({ parameters }) => {
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
     >
-      ${tagGroup === tagGroupOptions[0] ? tagGroupWithTagLink : ``}
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       ${ifNonNull(copy)}
       <dds-button-group slot="action">
@@ -283,7 +309,7 @@ export default {
     hasVerticalSpacingInComponent: true,
     knobs: {
       LeadSpace: ({ groupId }) => ({
-        tagGroup: select('Tag Group', tagGroupOptions, tagGroupOptions[1], groupId),
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2], groupId),
         title: text('title (title):', 'Heading can go on two lines max', groupId),
         copy: text('copy (copy):', 'Use this area for a short line of copy to support the title', groupId),
         gradient: boolean('gradient overlay (gradient)', true, groupId),
