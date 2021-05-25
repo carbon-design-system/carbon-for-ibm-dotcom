@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -70,7 +70,7 @@ class DDSImage extends StableSelectorMixin(LitElement) {
         ${images.map(
           image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
-        <img class="${prefix}--image__img" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" />
+        <img class="${prefix}--image__img" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
