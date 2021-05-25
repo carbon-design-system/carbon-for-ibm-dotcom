@@ -12,7 +12,7 @@
 const fs = require('fs');
 const program = require('commander');
 
-program.option('-p, --packages', 'Modifying core packages');
+program.option('-f, --folder <folder>', 'Location of packages folder');
 program.parse();
 
 /**
@@ -55,7 +55,7 @@ const packs = [
  * @param {string[]} files The files.
  */
 const replace = files => {
-  const folder = _opts.packages ? '..' : '../../packages';
+  const { folder } = _opts;
 
   files.forEach(file => {
     const contents = JSON.parse(fs.readFileSync(file));

@@ -12,6 +12,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const chalk = require('chalk');
 const program = require('commander');
+const { mkdirSync, track } = require('temp');
 
 program
   .option('-C, --skip-clean', 'Skips cleaning build folders')
@@ -29,6 +30,22 @@ const _opts = program.opts();
 const { log, error } = console;
 
 /**
+ * Project root folder
+ *
+ * @type {string}
+ * @private
+ */
+const _projectRoot = path.resolve(__dirname, '../../..');
+
+/**
+ * Test script folder
+ *
+ * @type {string}
+ * @private
+ */
+const _testScriptFolder = `${_projectRoot}/tests/e2e/build`;
+
+/**
  * Examples source folder
  *
  * @type {string}
@@ -42,7 +59,7 @@ const _exampleSrc = path.resolve(__dirname, '../../../examples/codesandbox/compo
  * @type {string}
  * @private
  */
-const _localPackagesFolder = path.resolve(__dirname, '../packages/');
+const _localPackagesFolder = mkdirSync('temp-packages-');
 
 /**
  * Examples build folder
@@ -50,7 +67,7 @@ const _localPackagesFolder = path.resolve(__dirname, '../packages/');
  * @type {string}
  * @private
  */
-const _exampleBuild = path.resolve(__dirname, '../examples');
+const _exampleBuild = mkdirSync('temp-examples-');
 
 /**
  * Distribution folder
@@ -105,7 +122,7 @@ function _setupPackages() {
         `cd ${_packages[pack]} && yarn pack --filename ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz`,
         `tar xzf ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz --directory ${_localPackagesFolder}`,
         `mv ${_localPackagesFolder}/package ${_localPackagesFolder}/ibmdotcom-${pack}`,
-        `node replace-dependencies.js ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`
+        `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`
       );
 
       commands.forEach(command => {
@@ -142,19 +159,8 @@ function _buildExample(example) {
  */
 function _clean() {
   if (!_opts.skipClean) {
-    // Delete the packages folder and create a new one
-    if (fs.existsSync(_localPackagesFolder)) {
-      log(chalk.yellow(`Deleting local packages folder: ${_localPackagesFolder}`));
-      fs.rmdirSync(_localPackagesFolder, { recursive: true });
-    }
-    fs.mkdirSync(_localPackagesFolder);
-
-    // Delete the examples staging folder
-    if (fs.existsSync(_exampleBuild)) {
-      log(chalk.yellow(`Deleting examples staging folder: ${_exampleBuild}`));
-      fs.rmdirSync(_exampleBuild, { recursive: true });
-    }
-    fs.mkdirSync(_exampleBuild);
+    // cleans the temporary folders
+    track();
 
     // Delete the dist folder
     if (fs.existsSync(_distFolder)) {
@@ -191,7 +197,9 @@ function build() {
     // temporary, will need to flatten the folders in there
     if (example !== 'cta') {
       log(chalk.green(`Replacing dependencies for ${example}`));
-      execSync(`node replace-dependencies.js ${_exampleBuild}/${example}/package.json`);
+      execSync(
+        `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_exampleBuild}/${example}/package.json`
+      );
       _buildExample(example);
     }
   });
