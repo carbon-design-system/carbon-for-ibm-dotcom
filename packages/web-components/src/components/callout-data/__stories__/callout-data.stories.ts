@@ -9,10 +9,7 @@
 
 import { html } from 'lit-element';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import '../callout-data';
-import '../callout-data-copy';
-import '../callout-data-heading';
-import '../callout-data-source';
+import '../index';
 import readme from './README.stories.mdx';
 import { DDS_CALLOUT_DATA } from '../../../globals/internal/feature-flags';
 

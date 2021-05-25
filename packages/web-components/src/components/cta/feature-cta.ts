@@ -19,6 +19,7 @@ import VideoCTAMixin from '../../component-mixins/cta/video';
 import DDSFeatureCTAFooter from './feature-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
+import '../image/image';
 
 export { CTA_TYPE };
 

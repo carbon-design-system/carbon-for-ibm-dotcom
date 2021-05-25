@@ -18,10 +18,7 @@ import '../../cta/video-cta-container';
 import '../../cta/link-list-item-cta';
 import '../../cta/link-list-item-card-cta';
 import '../../card/card-footer';
-import '../link-list';
-import '../link-list-heading';
-import '../link-list-item';
-import '../link-list-item-card';
+import '../index';
 import readme from './README.stories.mdx';
 
 const hrefsForType = {

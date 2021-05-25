@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../card/card-eyebrow';
-import '../../card/card-heading';
-import '../../content-section/content-section';
-import '../../content-section/content-section-heading';
-import '../../card-group/card-group';
-import '../../card-group/card-group-item';
-import '../card-section-images';
+import '../index';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
