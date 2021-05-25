@@ -30,7 +30,7 @@
       border-bottom: 1px solid $ui-03;
 
       &-text {
-        min-height: 1rem;
+        min-height: calc(1rem + 2px);
         color: $text-01;
         @include carbon--type-style('caption-01');
       }
@@ -56,11 +56,13 @@
     &__thumbnail {
       width: 3rem;
       height: 3rem;
-      border: 1px solid $ui-01 inset;
+      border: 1px solid $ui-03;
 
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+
+      box-sizing: border-box;
     }
 
     /* To hide the original player */
