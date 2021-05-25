@@ -1,4 +1,4 @@
-name: Merge release branch to master
+name: automerge
 on:
   push:
     branches:

@@ -303,6 +303,7 @@
     >
       <img
         alt="alt text"
+        loading="lazy"
         src="http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616"
       >
     </div>

@@ -14,13 +14,7 @@ import { html } from 'lit-element';
 // @ts-ignore
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import '../../card/card';
-import '../../card/card-footer';
-import '../../card/card-heading';
-import '../../content-section/content-section';
-import '../../content-section/content-section-copy';
-import '../../content-section/content-section-heading';
-import '../../link-with-icon/link-with-icon';
+import '../../card/index';
 import '../carousel';
 import styles from './carousel.stories.scss';
 import readme from './README.stories.mdx';
