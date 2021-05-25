@@ -77,7 +77,7 @@ Default.story = {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
-        tagGroup: boolean('Add tags', true, groupId),
+        tagGroup: boolean('Add tags', false, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable('Card body copy:', '', groupId),
         href: 'https://example.com',
@@ -143,7 +143,7 @@ Pictogram.story = {
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
         pictogramPlacement: select('Pictogram placement', pictogramPlacements, pictogramPlacements.top, groupId),
-        tagGroup: boolean('Add tags', true, groupId),
+        tagGroup: boolean('Add tags', false, groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Card body copy:',
@@ -159,12 +159,17 @@ Pictogram.story = {
 };
 
 export const Static = ({ parameters }) => {
-  const { image, alt, defaultSrc, heading, href, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
+  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, href, copy, tagGroup, footer } = parameters?.props?.Card ?? {};
   return html`
-    <dds-card>
+    <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
       ${image
         ? html`
             <dds-image slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image>
+          `
+        : ``}
+      ${eyebrow
+        ? html`
+            <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
           `
         : ``}
       <dds-card-heading>${heading}</dds-card-heading>
@@ -199,8 +204,10 @@ Static.story = {
       Card: ({ groupId }) => ({
         alt: 'Image alt text',
         defaultSrc: imgLg2x1,
-        image: boolean('Add image', false, groupId),
+        outlinedCard: boolean('Outlined card', true, groupId),
         tagGroup: boolean('Add tags', true, groupId),
+        image: boolean('Add image', false, groupId),
+        eyebrow: textNullable('Card Eyebrow:', 'Eyebrow', groupId),
         heading: textNullable('Card Heading:', 'Lorem ipsum dolor sit amet', groupId),
         copy: textNullable(
           'Card body copy:',

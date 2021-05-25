@@ -54,7 +54,6 @@ You can also check out the repo [here](https://github.com/carbon-design-system/c
 
 ```html
 <dds-card
-  color-scheme=${inverse ? 'inverse' : ''}
   pictogram-placement="${pictogramPlacement}"
   href="https://example.com"
 >
@@ -125,6 +124,14 @@ where the card is no longer clickable and optional `Tag` elements can also be ad
     </svg>
   </dds-card-footer>
 </dds-card>
+```
+
+## Light theme
+
+An optional light theme is available under `color-scheme`. 
+
+```html
+<dds-card color-scheme='light'>
 ```
 
 ## Props
