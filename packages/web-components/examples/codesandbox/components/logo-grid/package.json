@@ -4,16 +4,14 @@
   "private": true,
   "description": "Sample project for getting started with the Web Components from Carbon for IBM.com.",
   "license": "Apache-2",
-  "main": "index.html",
   "scripts": {
     "start": "parcel index.html --port=9000 --no-hmr",
     "build": "parcel build index.html --public-url ./"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-web-components": "canary",
-    "carbon-web-components": "^1.13.0",
-    "lit-element": "^2.2.0",
-    "lit-html": "^1.1.0"
+    "@carbon/ibmdotcom-web-components": "latest",
+    "lit-element": "^2.3.0",
+    "lit-html": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

@@ -9,6 +9,7 @@
       <img
         alt=""
         class="bx--image__img"
+        loading="lazy"
         src=""
       >
     </div>
@@ -46,6 +47,7 @@
       <img
         alt="image-alt-foo"
         class="bx--image__img"
+        loading="lazy"
         src="https://example.com/image"
       >
     </div>

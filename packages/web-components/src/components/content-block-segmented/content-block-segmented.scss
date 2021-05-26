@@ -18,6 +18,10 @@
     margin-bottom: 0;
   }
 
+  ::slotted([slot='media']) {
+    margin-top: 0;
+  }
+
   ::slotted(#{$dds-prefix}-content-block-complementary) {
     @include carbon--breakpoint-down('lg') {
       margin: $layout-05 0;

@@ -11,3 +11,4 @@ import './content-group-pictograms';
 import '../content-group/index';
 import '../content-item/index';
 import '../pictogram-item/pictogram-item';
+import '../link-with-icon/link-with-icon';

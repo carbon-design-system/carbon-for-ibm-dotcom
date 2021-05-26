@@ -9,6 +9,7 @@
 
 import './card-section-simple';
 import '../card/card-heading';
+import '../card/card-footer';
 import '../card-group/card-group';
 import '../card-group/card-group-item';
 import '../content-section/content-section';

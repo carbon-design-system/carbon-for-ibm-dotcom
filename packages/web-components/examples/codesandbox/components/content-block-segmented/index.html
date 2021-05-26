@@ -11,21 +11,24 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
-    <script type="module" src="src/index.js"></script>
     <style type="text/css">
       /* Avoids FOUC - Will be overriden by `index.scss` */
       body {
         visibility: hidden;
       }
     </style>
+    <script type="module" src="src/index.js"></script>
   </head>
   <body>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx-col-lg-8 bx--no-gutter">
+        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <dds-content-block-segmented>
-            <dds-content-block-heading>heading</dds-content-block-heading>
-            <dds-content-block-copy>copy</dds-content-block-copy>
+            <dds-content-block-heading>Lorem ipsum dolor sit amet</dds-content-block-heading>
+            <dds-content-block-copy>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+              hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            </dds-content-block-copy>
             <dds-image-with-caption
               slot="media"
               alt="Image alt text"
@@ -35,12 +38,30 @@ LICENSE file in the root directory of this source tree.
             </dds-image-with-caption>
             <dds-content-block-segmented-item>
               <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</dds-content-item-copy>
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com">Lorem Ipsum dolor sit</dds-text-cta>
+              <dds-content-item-copy
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
+                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
+                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
+                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
+                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
+                sapien.</dds-content-item-copy
+              >
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+                >Lorem Ipsum dolor sit</dds-text-cta
+              >
             </dds-content-block-segmented-item>
             <dds-content-block-segmented-item>
               <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
-              <dds-content-item-copy>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</dds-content-item-copy>
+              <dds-content-item-copy
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam.
+                In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt
+                bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut
+                quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum
+                sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim
+                sapien.</dds-content-item-copy
+              >
               <dds-image-with-caption
                 slot="media"
                 alt="Image alt text"
@@ -48,7 +69,9 @@ LICENSE file in the root directory of this source tree.
                 heading="Mauris iaculis eget dolor nec hendrerit."
               >
               </dds-image-with-caption>
-              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com">Lorem Ipsum dolor sit</dds-text-cta>
+              <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+                >Lorem Ipsum dolor sit</dds-text-cta
+              >
             </dds-content-block-segmented-item>
             <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
               Lorem ipsum dolor
