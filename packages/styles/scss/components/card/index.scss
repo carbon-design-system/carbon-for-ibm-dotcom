@@ -16,10 +16,12 @@
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
+  :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$dds-prefix}-card-cta),
   :host(#{$dds-prefix}-link-list-item-card-cta),
   :host(#{$dds-prefix}-card-in-card),
+  :host(#{$dds-prefix}-content-group-cards-item),
   :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
     display: flex;
     flex-direction: column;
@@ -105,6 +107,46 @@
 
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
+    }
+  }
+
+  // static card
+  :host(#{$dds-prefix}-card),
+  :host(#{$dds-prefix}-card-group-item) {
+    &:not([href]) {
+      &,
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $ui-01;
+        }
+      }
+
+      &:focus-within {
+        outline: none;
+      }
+
+      ::slotted(#{$dds-prefix}-card-footer) {
+        display: inline-flex;
+        &::after {
+          position: relative;
+        }
+      }
+
+      ::slotted(#{$dds-prefix}-tag-group) {
+        margin-bottom: 1rem;
+      }
+    }
+    &[color-scheme='light'] {
+      &,
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $ui-02;
+        }
+      }
+    }
+
+    &[border] {
+      border: 1px solid $ui-03;
     }
   }
 
