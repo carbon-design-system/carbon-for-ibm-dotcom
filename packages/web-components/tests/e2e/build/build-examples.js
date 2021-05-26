@@ -91,6 +91,14 @@ const _packages = {
 };
 
 /**
+ * Stores the list of examples
+ *
+ * @type {*[]}
+ * @private
+ */
+let _examples = [];
+
+/**
  * Gets the list of directories in the examples folder
  *
  * @param {string} folder Folder to get the list of sub directories from
@@ -141,15 +149,16 @@ function _setupPackages() {
 /**
  * Builds then copies the dist folder to the final location
  *
- * @param {string} example Name of example folder to build
  * @private
  */
-function _buildExample(example) {
-  log(chalk.green(`Building example: ${example}`));
+function _buildExamples() {
+  log(chalk.yellow('Building all examples...'));
+  execSync(`cd ${_exampleBuild} && yarn && yarn build`);
 
-  const exampleFolder = `${_exampleBuild}/${example}`;
-  execSync(`cd ${exampleFolder} && yarn && yarn build`);
-  execSync(`mv ${exampleFolder}/dist ${_distFolder}/${example}`);
+  log(chalk.yellow('Copying dist folders...'));
+  _examples.forEach(example => {
+    execSync(`mv ${_exampleBuild}/${example}/dist ${_distFolder}/${example}`);
+  });
 }
 
 /**
@@ -179,7 +188,10 @@ function _clean() {
 function _copyExamples() {
   if (!_opts.skipExamples) {
     log(chalk.yellow('Copying examples folder...'));
-    fs.copySync(_exampleSrc, _exampleBuild);
+    fs.mkdirSync(`${_exampleBuild}/components`);
+    fs.copySync(`${_testScriptFolder}/examples-scaffold`, `${_exampleBuild}`);
+    fs.copySync(_exampleSrc, `${_exampleBuild}/components`);
+    _examples = _getDirectories(`${_exampleBuild}/components`);
   }
 }
 
@@ -188,21 +200,21 @@ function _copyExamples() {
  */
 function build() {
   _clean();
+
+  log(chalk.yellow(`Temporary packages directory created: ${_localPackagesFolder}`));
   _setupPackages();
+
+  log(chalk.yellow(`Temporary examples directory created: ${_exampleBuild}`));
   _copyExamples();
 
-  const examples = _getDirectories(_exampleBuild);
-
-  examples.forEach(example => {
-    // temporary, will need to flatten the folders in there
-    if (example !== 'cta') {
-      log(chalk.green(`Replacing dependencies for ${example}`));
-      execSync(
-        `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_exampleBuild}/${example}/package.json`
-      );
-      _buildExample(example);
-    }
+  _examples.forEach(example => {
+    log(chalk.green(`Replacing dependencies for ${example}`));
+    execSync(
+      `node ${_testScriptFolder}/replace-dependencies.js -f "${_localPackagesFolder}" ${_exampleBuild}/components/${example}/package.json`
+    );
   });
+
+  _buildExamples();
 }
 
 build();
