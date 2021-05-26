@@ -107,6 +107,7 @@
 
     .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
+      transition: $duration--moderate-01 motion(standard, productive);
     }
   }
 
@@ -141,6 +142,7 @@
       &:hover {
         .#{$prefix}--card__wrapper {
           background-color: $ui-02;
+          transition: $duration--moderate-01 motion(standard, productive);
         }
       }
 
