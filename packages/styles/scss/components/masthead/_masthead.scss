@@ -163,7 +163,7 @@ $search-transition-timing: 95ms;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 99;
     transition-delay: 200ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;

@@ -183,7 +183,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           `;
         })}
       </dds-left-nav>
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}" style="z-index: 99">
+      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
