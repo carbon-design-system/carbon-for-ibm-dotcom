@@ -8,8 +8,7 @@
  */
 
 import '../../card/card-heading';
-import '../feature-card';
-import '../feature-card-footer';
+import '../index';
 
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { html } from 'lit-element';

@@ -11,28 +11,32 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
-    <script type="module" src="src/index.js"></script>
     <style type="text/css">
       /* Avoids FOUC - Will be overriden by `index.scss` */
       body {
         visibility: hidden;
       }
     </style>
+    <script type="module" src="src/index.js"></script>
   </head>
   <body>
     <div class="bx--grid">
       <div class="bx--row">
         <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <dds-leadspace-block>
-            <dds-leadspace-block-heading>LeadSpace Block Title</dds-leadspace-block-heading>
+            <dds-leadspace-block-heading>Continuous delivery</dds-leadspace-block-heading>
             <dds-leadspace-block-content>
-              <dds-content-block-heading>LeadSpace Block Heading</dds-content-block-heading>
-              <dds-content-block-copy>LeadSpace Block Copy</dds-content-block-copy>
+              <dds-content-block-heading>Innovate like a startup and scale for the enterprise</dds-content-block-heading>
+              <dds-content-block-copy
+                >Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps.
+                Build, test, and deploy code changes quickly, ensuring software is always ready for
+                deployment.</dds-content-block-copy
+              >
               <dds-leadspace-block-media slot="media">
                 <dds-image-with-caption
-                alt="Image alt text"
-                default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
-                heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  alt="Image alt text"
+                  default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 >
                   <dds-image-item
                     media="(min-width: 672px)"
@@ -55,16 +59,72 @@ LICENSE file in the root directory of this source tree.
                 <dds-link-list-heading>Featured products</dds-link-list-heading>
                 <dds-link-list-item href="https://example.com">
                   Services
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    slot="icon"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
                 </dds-link-list-item>
                 <dds-link-list-item href="https://example.com">
                   Analytics
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    slot="icon"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
                 </dds-link-list-item>
                 <dds-link-list-item href="https://example.com">
                   View all products
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 32 32"
+                    slot="icon"
+                  >
+                    <path
+                      d="M26 24v4H6V24H4v4H4a2 2 0 002 2H26a2 2 0 002-2h0V24zM26 14L24.59 12.59 17 20.17 17 2 15 2 15 20.17 7.41 12.59 6 14 16 24 26 14z"
+                    ></path>
+                  </svg>
                 </dds-link-list-item>
               </dds-link-list>
               <dds-leadspace-block-cta>
-                <dds-button-group-item href="www.ibm.com">Click here </dds-button-group-item>
+                <dds-button-group-item href="www.ibm.com" kind="primary">
+                  Click here
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    slot="icon"
+                  >
+                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
+                </dds-button-group-item>
               </dds-leadspace-block-cta>
             </dds-leadspace-block-content>
           </dds-leadspace-block>

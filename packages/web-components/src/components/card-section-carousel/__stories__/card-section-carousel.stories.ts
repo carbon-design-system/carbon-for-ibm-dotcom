@@ -10,14 +10,7 @@
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import '../../card/card';
-import '../../card/card-footer';
-import '../../card/card-heading';
-import '../../content-section/content-section-copy';
-import '../../content-section/content-section-heading';
-import '../../link-with-icon/link-with-icon';
-import '../../carousel/carousel';
-import '../card-section-carousel';
+import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
 

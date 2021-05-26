@@ -9,10 +9,11 @@
 import { css, customElement, html, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import styles from './logo-grid.scss';
 import DDSContentBlock from '../content-block/content-block';
+import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import styles from './logo-grid.scss';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -39,11 +40,11 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
    * @returns The footer content.
    */
   protected _renderFooter(): TemplateResult | string | void {
-    const { _hasFooter: hasFooter } = this;
+    const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasFooter}" class="${prefix}--content-block__cta-row">
         <div class="${prefix}--content-block__cta ${prefix}-content-block__cta-col">
-          <slot name="footer"></slot>
+          <slot name="footer" @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>
     `;
@@ -58,6 +59,11 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
         <slot name="heading"></slot>
         ${this._renderBody()}
       </div>
+      ${!this.hideBorder
+        ? html`
+            <dds-hr></dds-hr>
+          `
+        : ``}
     `;
   }
 

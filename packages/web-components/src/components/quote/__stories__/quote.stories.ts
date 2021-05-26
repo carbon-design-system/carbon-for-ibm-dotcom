@@ -11,10 +11,7 @@ import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
-import '../quote-source-bottom-copy';
-import '../quote-source-copy';
-import '../quote-source-heading';
-import '../../link-with-icon/link-with-icon';
+import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
