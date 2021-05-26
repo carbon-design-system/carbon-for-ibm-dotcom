@@ -8,9 +8,7 @@
  */
 
 // eslint-disable-next-line import/no-duplicates
-import '../../content-block/content-block-heading';
-import '../callout-with-media';
-import '../callout-with-media-copy';
+import '../index';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
 import { html } from 'lit-element';

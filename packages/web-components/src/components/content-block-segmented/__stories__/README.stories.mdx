@@ -17,19 +17,10 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 
 Here's a quick example to get you started.
 
-##### JS
+### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/image-with-caption/image-with-caption.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta-footer.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta/card-cta.js';
-import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-item-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-group/content-group-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-copy.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-block/content-block-heading.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/content-block-segmented.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/content-block-segmented-item.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
 ```
 
 ### HTML
@@ -68,6 +59,118 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/c
       </dds-card-cta>
     </dds-content-block-segmented>
 ```
+
+## With Video
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
+
+// Video Player
+import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player-container.js';
+```
+
+### HTML
+
+```html
+    <dds-content-block-segmented complementary-style-scheme="with-border">
+      <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
+      <dds-content-block-copy>Lorem ipsum dolor sit amet</dds-content-block-copy>
+
+      <dds-video-player-container slot="media" video-id="0_uka1msg4"></dds-video-player-container>
+
+      <dds-content-block-segmented-item>
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+        <dds-content-item-copy>copy</dds-content-item-copy>
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+          >Lorem Ipsum dolor sit</dds-text-cta
+        >
+      </dds-content-block-segmented-item>
+      <dds-content-block-segmented-item>
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+        <dds-content-item-copy>copy</dds-content-item-copy>
+        <dds-image-with-caption
+          slot="media"
+          alt="Image alt text"
+          default-src="image.jpg"
+          heading="Mauris iaculis eget dolor nec hendrerit."
+        >
+          <dds-image-item media="(min-width: 672px)" srcset="image-large.jpg"> </dds-image-item>
+          <dds-image-item media="(min-width: 400px)" srcset="image-medium.jpg"> </dds-image-item>
+          <dds-image-item media="(min-width: 320px)" srcset="image-small.jpg"> </dds-image-item>
+        </dds-image-with-caption>
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+          >Lorem Ipsum dolor sit</dds-text-cta
+        >
+      </dds-content-block-segmented-item>
+
+      <dds-card-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+        Lorem ipsum dolor
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-block-segmented>
+```
+
+## With Aside Items
+
+### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-block-segmented/index.js';
+
+// Aside items
+import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
+```
+
+### HTML
+
+```html
+    <dds-content-block-segmented complementary-style-scheme="with-border">
+      <dds-content-block-heading>Lorem ipsum dolor sit amet.</dds-content-block-heading>
+      <dds-content-block-copy>Lorem ipsum dolor sit amet</dds-content-block-copy>
+
+      <dds-image-with-caption
+        slot="media"
+        alt="Image alt text"
+        default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+        heading="Mauris iaculis eget dolor nec hendrerit."
+      >
+      </dds-image-with-caption>
+
+      <dds-content-block-segmented-item>
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+        <dds-content-item-copy>copy</dds-content-item-copy>
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+          >Lorem Ipsum dolor sit</dds-text-cta
+        >
+      </dds-content-block-segmented-item>
+      <dds-content-block-segmented-item>
+        <dds-content-group-heading>Lorem ipsum dolor sit amet.</dds-content-group-heading>
+        <dds-content-item-copy>copy</dds-content-item-copy>
+        ${image}
+        <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://example.com"
+          >Lorem Ipsum dolor sit</dds-text-cta
+        >
+      </dds-content-block-segmented-item>
+      <dds-link-list type="default" slot="complementary">
+        <dds-link-list-heading>Lorem Ipsum</dds-link-list-heading>
+        <dds-link-list-item-card-cta href="https://example.com" cta-type="local">
+          <p>Containerization A Complete Guide</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+        <dds-link-list-item-card-cta href="https://example.com" cta-type="external">
+          <p>Why should you use microservices and containers</p>
+          <dds-card-cta-footer></dds-card-cta-footer>
+        </dds-link-list-item-card-cta>
+      </dds-link-list>
+      <dds-card-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+        Lorem ipsum dolor
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-cta>
+    </dds-content-block-segmented>
+```
+
 
 ## Props
 

@@ -7,12 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '../../card/card-eyebrow';
-import '../../card/card-heading';
-import '../../card-in-card/card-in-card';
-import '../../card-in-card/card-in-card-image';
-import '../card-group';
-import '../card-group-item';
+import '../../card/index';
+import '../../card-in-card/index';
+import '../index';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';

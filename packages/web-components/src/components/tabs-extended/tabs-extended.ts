@@ -66,6 +66,14 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._tabItems.map((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTab;
       (tab as DDSTab).setIndex(index);
+      const navLink = this.shadowRoot!.querySelectorAll('.bx--tabs__nav-link div p')[index];
+      if (navLink.scrollHeight > 70) {
+        const label = (tab as DDSTab).getAttribute('label');
+        if (label) {
+          navLink.parentElement!.setAttribute('aria-label', label);
+          navLink.parentElement!.setAttribute('hasToolTip', label);
+        }
+      }
       return tab;
     });
   }
@@ -134,7 +142,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                   aria-controls="tab-panel-${index}-default"
                   aria-selected="${active}"
                   @click="${e => this._handleClick(index, e)}"
-                  >${label}</a
+                  ><div><p>${label}</p></div></a
                 >
               </li>
             `;
@@ -162,4 +170,5 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTabsExtended;
