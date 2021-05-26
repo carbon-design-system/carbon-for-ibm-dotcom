@@ -4,9 +4,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classNames from 'classnames';
 import ContentBlock from '../../internal/components/ContentBlock/ContentBlock';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { HorizontalRule } from '../HorizontalRule';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -41,12 +41,9 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--logo-grid`}
-      className={classNames(`${prefix}--logo-grid`, {
-        [`${prefix}--logo-grid__no-border`]: hideBorder,
-      })}>
+      className={`${prefix}--logo-grid`}>
       <div className={`${prefix}--logo-grid__container`}>
-        <div
-          className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
+        <div className={`${prefix}--logo-grid__wrapper`}>
           <ContentBlock heading={heading} cta={cta}>
             <div className={`${prefix}--logo-grid__row`}>
               {logosGroup.map((placeholder, index) => (
@@ -67,6 +64,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
           </ContentBlock>
         </div>
       </div>
+      {!hideBorder && <HorizontalRule />}
     </section>
   );
 };
