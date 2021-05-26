@@ -355,6 +355,7 @@
         }
 
         .#{$prefix}--masthead__side-nav--submemu-title {
+          @include use-carbon-productive-tokens();
           @include carbon--type-style(productive-heading-02);
 
           display: flex;
