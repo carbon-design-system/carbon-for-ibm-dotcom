@@ -191,10 +191,6 @@ const StoryContent = ({ type = 'default' }) =>
                     <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
                   `
                 )}
-              <dds-logo-grid-link href="https://example.com">
-                <p>Amet justo donec</p>
-                ${ArrowRight20({ slot: 'footer' })}
-              </dds-logo-grid-link>
             </dds-logo-grid>
 
             <a name="6" data-title="Aliquam condimentum interdum"></a>

@@ -52,7 +52,6 @@ You can also check out the repo [here](https://github.com/carbon-design-system/c
 
 ```html
 <dds-card
-  color-scheme=${inverse ? 'inverse' : ''}
   pictogram-placement="${pictogramPlacement}"
   href="https://example.com"
 >
@@ -83,6 +82,54 @@ You can also check out the repo [here](https://github.com/carbon-design-system/c
     </path>
   </svg>
 </dds-card>
+```
+
+## Card - static
+
+When there is no URL being passed to the `DDSCard`'s href attribute, the static variation will be rendered,
+where the card is no longer clickable and optional `Tag` elements can also be added.
+
+```html
+<dds-card>
+  <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+  <dds-tag-group>
+    <bx-tag>
+      Most popular
+    </bx-tag>
+    <bx-tag type='purple'>
+      Enterprise
+    </bx-tag>
+  </dds-tag-group>
+  ${copy
+    ? html`
+        <p>${copy}</p>
+      `
+    : ``}
+  <dds-card-footer href='https://example.com' icon-placement="right">
+    Card CTA text
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </dds-card-footer>
+</dds-card>
+```
+
+## Light theme
+
+An optional light theme is available under `color-scheme`. 
+
+```html
+<dds-card color-scheme='light'>
 ```
 
 ## Props

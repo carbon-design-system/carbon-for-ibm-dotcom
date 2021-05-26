@@ -8,4 +8,5 @@
  */
 
 import './callout-quote';
+import './callout-link-with-icon';
 import '../quote/index';

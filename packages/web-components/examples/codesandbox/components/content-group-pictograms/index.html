@@ -6,49 +6,51 @@ LICENSE file in the root directory of this source tree.
 -->
 
 <html>
-<head>
-  <title>@carbon/ibmdotcom-web-components example</title>
-  <meta charset="UTF-8" />
-  <script type="module" src="src/index.js"></script>
-  <style type="text/css">
-    /* Avoids FOUC - Will be overriden by `index.scss` */
-    body {
-      visibility: hidden;
-    }
-  </style>
-</head>
-<body>
-<div class="bx--grid">
-  <div class="bx--row">
-    <div class="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
-      <dds-content-group-pictograms>
-        <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      /* Avoids FOUC - Will be overriden by `index.scss` */
+      body {
+        visibility: hidden;
+      }
+    </style>
+    <script type="module" src="src/index.js"></script>
+  </head>
+  <body>
+    <div class="bx--grid">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <dds-content-group-pictograms>
+            <dds-content-group-heading>Lorem ipsum dolor sit amet</dds-content-group-heading>
+            <dds-content-group-copy>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nonporttitor libero, in venenatis magna. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
+            </dds-content-group-copy>
             <dds-pictogram-item>
               <svg
-                version="1.1"
                 slot="pictogram"
+                focusable="false"
+                preserveAspectRatio="xMidYMid meet"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
+                stroke="currentColor"
+                data-autoid="dds--pictogram-item__pictogram"
+                aria-label="Pictogram description"
+                width="48"
+                height="48"
                 viewBox="0 0 48 48"
-                style="enable-background:new 0 0 48 48;"
-                xml:space="preserve"
+                role="img"
+                class="bx--pictogram-item__pictogram"
               >
-                <g id="touch_screen">
-                  <g id="touch_screen_1_">
-                    <path
-                      style="fill:none;stroke:#000000;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
-                      d="M15,29H9V10h25v19h-7
-                      M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
-                      l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
-                      S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
-                      c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z"
-                    />
-                  </g>
-                </g>
-                <g id="Layer_1"></g>
+                <path
+                  fill="none"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                  stroke-width=".72"
+                  d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
+                  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
+                ></path>
               </svg>
               <dds-content-item-heading>
                 Aliquam condimentum interdum
@@ -58,22 +60,24 @@ LICENSE file in the root directory of this source tree.
               </dds-content-item-copy>
               <dds-link-with-icon href="https://www.example.com" slot="footer">
                 Aliquam condimentum interdum
-                <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill: none;
-                      }
-                    </style>
-                  </defs>
-                  <polygon points="18 6 16.57 7.393 24.15 15 4 15 4 17 24.15 17 16.57 24.573 18 26 28 16 18 6"/>
-                  <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
                 </svg>
               </dds-link-with-icon>
             </dds-pictogram-item>
-      </dds-content-group-pictograms>
+          </dds-content-group-pictograms>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>
