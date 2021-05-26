@@ -18,20 +18,33 @@ LICENSE file in the root directory of this source tree.
         visibility: hidden;
       }
     </style>
+    <script type="module" src="src/index.js"></script>
   </head>
   <body>
     <div class="bx--grid">
       <div class="bx--row">
-        <div class="bx--col-sm-4 bx-col-lg-12 bx--offset-lg-4 bx--no-gutter">
+        <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <dds-content-block-simple>
             <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
-            <dds-content-item-copy>Lorem ipsum *dolor* sit amet</dds-content-item-copy>
-            <dds-image slot="media" alt="Image alt text" default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
-              <dds-image-item media="(min-width: 672px)" srcset="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></dds-image-item>
-              <dds-image-item media="(min-width: 400px)" srcset="https://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"></dds-image-item>
-              <dds-image-item media="(min-width: 320px)" srcset="https://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"></dds-image-item>
-            </dds-image>
-            <dds-text-cta slot="footer" href="https://www.ibm.com/" type="local">Lorem ipsum dolor sit amet</dds-text-cta>
+            <dds-content-item-copy>
+              Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+              hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, *consequat* libero. Here are some common categories:
+            </dds-content-item-copy>
+            <dds-content-item-copy>
+              Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris
+              iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            </dds-content-item-copy>
+            <dds-content-item-copy>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
+              hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+            </dds-content-item-copy>
+            <dds-content-item-copy>
+              - [list item](https://www.ibm.com) - list item 1a 1. list item 2 1. list item 2a
+            </dds-content-item-copy>
+            <dds-card-cta slot="footer" cta-type="local" href="https://example.com">
+              Lorem ipsum dolor
+              <dds-card-cta-footer></dds-card-cta-footer>
+            </dds-card-cta>
           </dds-content-block-simple>
         </div>
       </div>

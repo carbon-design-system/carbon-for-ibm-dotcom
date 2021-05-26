@@ -7,4 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/back-to-top/back-to-top.js';
+import '@carbon/ibmdotcom-web-components/es/components/back-to-top/back-to-top';

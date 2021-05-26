@@ -12,3 +12,4 @@ import './content-block-complementary';
 import './content-block-copy';
 import './content-block-heading';
 import './content-block-paragraph';
+import '../card/card-footer';
