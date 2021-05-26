@@ -272,7 +272,7 @@ export default {
           length: number('Number of cards', 5, {}, groupId),
         })
           .slice(0, -1)
-          .map(index => cardsDiffLengthPhrase(index)),
+          .map((_item, index) => cardsDiffLengthPhrase(index)),
         optionalBorder: boolean('Outlined cards:', false, groupId),
       }),
     },
