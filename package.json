@@ -8,7 +8,9 @@
     "node": "12 || 14"
   },
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",

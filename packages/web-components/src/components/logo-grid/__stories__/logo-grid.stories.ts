@@ -12,7 +12,6 @@ import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
 import '../../card/card-heading';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { boolean } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import logos from './data/logos.js';
@@ -20,7 +19,7 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = ({ parameters }) => {
-  const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } = parameters?.props?.LogoGrid ?? {};
+  const { heading, logosGroup, hideBorder } = parameters?.props?.LogoGrid ?? {};
   return html`
     <dds-logo-grid ?hide-border="${hideBorder}">
       <dds-content-block-heading>
@@ -32,10 +31,6 @@ export const Default = ({ parameters }) => {
             <dds-logo-grid-item default-src="${elem.imgSrc}" alt="${elem.altText}"></dds-logo-grid-item>
           `
         )}
-      <dds-logo-grid-link href="${ctaHref}">
-        <dds-card-heading>${ctaCopy}</dds-card-heading>
-        ${ArrowRight20({ slot: 'footer' })}
-      </dds-logo-grid-link>
     </dds-logo-grid>
   `;
 };
@@ -43,23 +38,23 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Logo grid',
   decorators: [
-    (story, { parameters }) => html`
-      <div class="dds-ce-demo-devenv--simple-grid ${parameters.gridContentClasses}">
-        ${story()}
+    story => html`
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+            ${story()}
+          </div>
+        </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    hasGrid: true,
-    hasVerticalSpacingInComponent: true,
-    gridContentClasses: 'dds-ce-demo-devenv--simple-grid--logo-grid',
+    useRawContainer: true,
     knobs: {
       LogoGrid: ({ groupId }) => ({
         heading: textNullable('Heading (heading)', 'Our customers', groupId),
         logosGroup: logos,
-        ctaCopy: textNullable('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet', groupId),
-        ctaHref: textNullable('CTA Href (ctaHref)', 'http://local.url.com/', groupId),
         hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
       }),
     },

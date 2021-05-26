@@ -8,6 +8,7 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/cta-block/index.js';
+import './index.scss';
 
 // with link list
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
